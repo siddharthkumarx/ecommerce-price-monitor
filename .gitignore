@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+.env
+*.duckdb
+*.duckdb.wal
+/data/local/
+/site/screenshots/
