@@ -1,0 +1,22 @@
+#!/bin/sh
+# Removes tool attribution lines (see .githooks/attribution-pattern) from the
+# commit message before the commit is created. CI enforces the same rule with
+# scripts/check-commit-messages.sh.
+set -eu
+
+msg_file="$1"
+pattern_file="$(git rev-parse --show-toplevel)/.githooks/attribution-pattern"
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+
+grep -viEf "$pattern_file" "$msg_file" > "$tmp" || true
+
+# Drop the trailing blank lines (and a dangling "---" separator) left behind.
+awk '
+  { lines[NR] = $0 }
+  END {
+    n = NR
+    while (n > 0 && (lines[n] ~ /^[[:space:]]*$/ || lines[n] ~ /^[[:space:]]*-{3,}[[:space:]]*$/)) n--
+    for (i = 1; i <= n; i++) print lines[i]
+  }
+' "$tmp" > "$msg_file"
