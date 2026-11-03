@@ -82,6 +82,27 @@ categories:
     - {store: Rare Beauty, domain: rarebeauty.com}
     - {store: Youth To The People, domain: youthtothepeople.com}
     - {store: Milk Makeup, domain: milkmakeup.com}
+    # Added for recon-004 (none contacted before; recon-001 challenges dropped every earlier candidate here).
+    - {store: Saie, domain: saiehello.com}
+    - {store: Versed, domain: versedskin.com}
+    - {store: Kinship, domain: lovekinship.com}
+    - {store: Nécessaire, domain: necessaire.com}
+    - {store: Bubble, domain: hellobubble.com}
+    - {store: Topicals, domain: mytopicals.com}
+    - {store: Starface, domain: starface.world}
+    - {store: Hero Cosmetics, domain: herocosmetics.us}
+    - {store: Peach & Lily, domain: peachandlily.com}
+    - {store: Volition Beauty, domain: volitionbeauty.com}
+    - {store: Ceremonia, domain: ceremonia.com}
+    - {store: Jones Road, domain: jonesroadbeauty.com}
+    - {store: Westman Atelier, domain: westman-atelier.com}
+    - {store: Crown Affair, domain: crownaffair.com}
+    - {store: Act+Acre, domain: actandacre.com}
+    - {store: Vacation, domain: vacation.inc}
+    - {store: Soft Services, domain: buysoftservices.com}
+    - {store: Touchland, domain: touchland.com}
+    - {store: Billie, domain: mybillie.com}
+    - {store: Sol de Janeiro, domain: soldejaneiro.com}
   home_kitchen:
     - {store: Brooklinen, domain: brooklinen.com}
     - {store: Our Place, domain: fromourplace.com}
@@ -101,6 +122,27 @@ categories:
     - {store: Graza, domain: graza.co}
     - {store: Blueland, domain: blueland.com}
     - {store: Public Goods, domain: publicgoods.com}
+    # Added for recon-004 (none contacted before; recon-001 challenges dropped every earlier candidate here).
+    - {store: Hedley & Bennett, domain: hedleyandbennett.com}
+    - {store: Year & Day, domain: yearandday.com}
+    - {store: Coyuchi, domain: coyuchi.com}
+    - {store: Sheets & Giggles, domain: sheetsgiggles.com}
+    - {store: Cozy Earth, domain: cozyearth.com}
+    - {store: Branch Basics, domain: branchbasics.com}
+    - {store: Brooklyn Candle Studio, domain: brooklyncandlestudio.com}
+    - {store: Otherland, domain: otherland.com}
+    - {store: Homesick, domain: homesick.com}
+    - {store: Boy Smells, domain: boysmells.com}
+    - {store: Equal Parts, domain: equalparts.com}
+    - {store: Xtrema, domain: xtrema.com}
+    - {store: Heath Ceramics, domain: heathceramics.com}
+    - {store: East Fork, domain: eastfork.com}
+    - {store: Estelle Colored Glass, domain: estellecoloredglass.com}
+    - {store: Floyd, domain: floydhome.com}
+    - {store: W&P, domain: wpdesign.com}
+    - {store: Stasher, domain: stasherbag.com}
+    - {store: Bee's Wrap, domain: beeswrap.com}
+    - {store: Snowe, domain: snowehome.com}
   outdoor:
     - {store: Cotopaxi, domain: cotopaxi.com}
     - {store: BioLite, domain: bioliteenergy.com}
@@ -120,3 +162,24 @@ categories:
     - {store: LifeStraw, domain: lifestraw.com}
     - {store: Oru Kayak, domain: orukayak.com}
     - {store: NEMO Equipment, domain: nemoequipment.com}
+    # Added for recon-004 (none contacted before; recon-001 challenges dropped every earlier candidate here).
+    - {store: Miir, domain: miir.com}
+    - {store: HydraPak, domain: hydrapak.com}
+    - {store: Big Agnes, domain: bigagnes.com}
+    - {store: Sea to Summit, domain: seatosummit.com}
+    - {store: Coalatree, domain: coalatree.com}
+    - {store: Poler, domain: polerstuff.com}
+    - {store: Mystery Ranch, domain: mysteryranch.com}
+    - {store: Hyperlite Mountain Gear, domain: hyperlitemountaingear.com}
+    - {store: Gossamer Gear, domain: gossamergear.com}
+    - {store: Enlightened Equipment, domain: enlightenedequipment.com}
+    - {store: ULA Equipment, domain: ula-equipment.com}
+    - {store: Six Moon Designs, domain: sixmoondesigns.com}
+    - {store: Mountainsmith, domain: mountainsmith.com}
+    - {store: ENO, domain: eaglesnestoutfitters.com}
+    - {store: Showers Pass, domain: showerspass.com}
+    - {store: Chums, domain: chums.com}
+    - {store: Sawyer, domain: sawyer.com}
+    - {store: Goal Zero, domain: goalzero.com}
+    - {store: Oveja Negra, domain: ovejanegrabikepacking.com}
+    - {store: Zpacks, domain: zpacks.com}
