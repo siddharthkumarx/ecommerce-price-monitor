@@ -29,6 +29,7 @@ from pricemon.polite import (
     StoreStopped,
     make_client,
 )
+from pricemon.screen import screen_content
 from pricemon.witness import (
     is_products_payload,
     jsonld_currencies,
@@ -74,6 +75,8 @@ class ReconResult:
     meta_currency: str | None = None
     requests: int = 0
     retries: int = 0
+    retry_causes: list[str] = field(default_factory=list)
+    content_flags: dict[str, list[str]] = field(default_factory=dict)
     elapsed_s: float = 0.0
     notes: list[str] = field(default_factory=list)
 
@@ -112,6 +115,12 @@ class ReconResult:
                 fails.append("witness mismatch")
             elif self.js_crosscheck != "match":
                 fails.append("product .js unavailable")
+            if self.robots_product_page is False:
+                fails.append("robots disallows product page")
+            if self.content_flags:
+                fails.append("excluded category: " + ", ".join(sorted(self.content_flags)))
+        if any(cause == "http 429" for cause in self.retry_causes):
+            fails.append("needed 429 retries")
         return (not fails, fails)
 
     def to_dict(self) -> dict[str, Any]:
@@ -135,6 +144,7 @@ async def recon_store(session: StoreSession, cand: Candidate) -> ReconResult:
     res.host = session.host
     res.requests = session.requests_made
     res.retries = session.retries_made
+    res.retry_causes = list(session.retry_causes)
     res.elapsed_s = round(time.monotonic() - started, 1)
     if session.stopped_reason and not res.stopped_reason:
         res.stopped_reason = session.stopped_reason
@@ -170,6 +180,13 @@ async def _recon(session: StoreSession, res: ReconResult) -> None:
     sample = next((p for p in products if p.get("variants") and p.get("handle")), None)
     if sample is not None:
         res.sample_handle = str(sample["handle"])
+        # Re-check robots with the real handle: rules can target specific products.
+        res.robots_product_js = bool(
+            res.robots_product_js and session.allowed(f"/products/{res.sample_handle}.js")
+        )
+        res.robots_product_page = bool(
+            res.robots_product_page and session.allowed(f"/products/{res.sample_handle}")
+        )
         await _crosscheck_js(session, res, sample)
         await _currency_from_page(session, res, res.sample_handle)
     await _meta(session, res)
@@ -195,6 +212,7 @@ async def _recon(session: StoreSession, res: ReconResult) -> None:
         batch = list(data["products"])
         products.extend(batch)
 
+    res.content_flags = screen_content(products)
     variants = [v for p in products for v in p.get("variants") or []]
     res.products = len(products)
     res.variants = len(variants)
