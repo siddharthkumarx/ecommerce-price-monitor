@@ -22,6 +22,7 @@ RUN_SUSPICIOUS_SHARE = 0.05
 STORE_SUSPICIOUS_SHARE = 0.20
 STORE_SUSPICIOUS_MIN = 10
 MASS_CHANGE_SHARE = 0.90
+RUN_MATCHED_MIN = 200
 REJECT_SHARE = 0.02
 
 
@@ -30,6 +31,11 @@ class PrevVersion:
     """The fields of a previous open version the guard needs."""
 
     price_cents: int
+    compare_at_cents: int | None = None
+
+    @property
+    def discounted(self) -> bool:
+        return self.compare_at_cents is not None and self.compare_at_cents > self.price_cents
 
 
 @dataclass(frozen=True)
@@ -44,6 +50,7 @@ class StoreGuardStats:
     rows_now: int
     matched: int = 0
     price_changed: int = 0
+    unexplained: int = 0
     suspicious: int = 0
 
 
@@ -53,6 +60,7 @@ class GuardResult:
     stores: dict[str, StoreGuardStats] = field(default_factory=dict)
     matched: int = 0
     price_changed: int = 0
+    unexplained: int = 0
     suspicious: int = 0
 
     @property
@@ -123,10 +131,14 @@ def check_batch(
             stats.matched += 1
             if row.price_cents != old.price_cents:
                 stats.price_changed += 1
+                # A sale sets a compare-at price (and its end removes it): explained.
+                if not (row.discounted or old.discounted):
+                    stats.unexplained += 1
                 if _suspicious(old.price_cents, row.price_cents):
                     stats.suspicious += 1
         result.matched += stats.matched
         result.price_changed += stats.price_changed
+        result.unexplained += stats.unexplained
         result.suspicious += stats.suspicious
         if (
             stats.matched >= STORE_SUSPICIOUS_MIN
@@ -144,7 +156,7 @@ def check_batch(
         result.holds.append(
             Hold("rows_drop:run", f"run rows fell from {before_total} to {now_total}")
         )
-    if result.matched:
+    if result.matched >= RUN_MATCHED_MIN:
         if result.suspicious / result.matched > RUN_SUSPICIOUS_SHARE:
             result.holds.append(
                 Hold(
@@ -153,11 +165,12 @@ def check_batch(
                     "suspicious factor",
                 )
             )
-        if result.price_changed / result.matched > MASS_CHANGE_SHARE:
+        if result.unexplained / result.matched > MASS_CHANGE_SHARE:
             result.holds.append(
                 Hold(
                     "mass_change:run",
-                    f"{result.price_changed} of {result.matched} matched prices changed",
+                    f"{result.unexplained} of {result.matched} matched prices changed "
+                    "without a compare-at price",
                 )
             )
     return result

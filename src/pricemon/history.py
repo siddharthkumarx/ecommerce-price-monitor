@@ -156,12 +156,19 @@ def load_snapshot(con: duckdb.DuckDBPyConnection, path: Path | None) -> None:
         con.execute(_PREV_LOAD, [str(path)])
 
 
-def previous_prices(con: duckdb.DuckDBPyConnection) -> dict[str, dict[int, int]]:
-    out: dict[str, dict[int, int]] = {}
-    for store_id, variant_id, price in con.execute(
-        "SELECT store_id, variant_id, price_cents FROM prev"
-    ).fetchall():
-        out.setdefault(store_id, {})[int(variant_id)] = int(price)
+def previous_versions(
+    con: duckdb.DuckDBPyConnection,
+) -> dict[str, dict[int, tuple[int, int | None]]]:
+    """``{store_id: {variant_id: (price_cents, compare_at_cents)}}`` of the open versions."""
+    out: dict[str, dict[int, tuple[int, int | None]]] = {}
+    rows = con.execute(
+        "SELECT store_id, variant_id, price_cents, compare_at_cents FROM prev"
+    ).fetchall()
+    for store_id, variant_id, price, compare in rows:
+        out.setdefault(store_id, {})[int(variant_id)] = (
+            int(price),
+            None if compare is None else int(compare),
+        )
     return out
 
 

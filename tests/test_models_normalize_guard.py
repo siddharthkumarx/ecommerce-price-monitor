@@ -138,12 +138,27 @@ def test_black_friday_sale_passes() -> None:
 
 
 def test_unit_error_holds() -> None:
-    prev = {"s": _prev(dict.fromkeys(range(1, 51), 5000))}
-    cur = {"s": [_row(i, 50) for i in range(1, 51)]}  # dollars read as cents
+    prev = {"s": _prev(dict.fromkeys(range(1, 251), 5000))}
+    cur = {"s": [_row(i, 50) for i in range(1, 251)]}  # dollars read as cents
     result = check_batch(cur, prev, {}, {})
     assert "suspicious:s" in result.keys
     assert "suspicious:run" in result.keys
     assert "mass_change:run" in result.keys
+
+
+def test_sitewide_sale_with_compare_at_is_not_a_mass_change() -> None:
+    prev = {"s": _prev(dict.fromkeys(range(1, 251), 5000))}
+    cur = {"s": [_row(i, 3000, compare_at_cents=5000) for i in range(1, 251)]}
+    result = check_batch(cur, prev, {}, {})
+    assert result.price_changed == 250
+    assert result.unexplained == 0
+    assert not result.held
+
+
+def test_run_wide_shares_need_a_minimum_sample() -> None:
+    prev = {"s": _prev(dict.fromkeys(range(1, 6), 5000))}
+    cur = {"s": [_row(i, 4000) for i in range(1, 6)]}
+    assert check_batch(cur, prev, {}, {}).keys == []
 
 
 def test_row_drop_currency_and_rejects_hold() -> None:
