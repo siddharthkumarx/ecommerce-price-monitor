@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 from pathlib import Path
 from typing import Any
 
@@ -53,7 +54,12 @@ class FakeShop:
             handle = path.removeprefix("/products/").removesuffix(".js")
             prod = next(p for p in self.catalog if p["handle"] == handle)
             variants = [{"id": v["id"], "price": self.js_price_cents} for v in prod["variants"]]
-            return httpx.Response(200, json={"handle": handle, "variants": variants})
+            # Shopify serves product .js as JavaScript, not application/json.
+            return httpx.Response(
+                200,
+                content=json.dumps({"handle": handle, "variants": variants}),
+                headers={"content-type": "text/javascript; charset=utf-8"},
+            )
         if path.startswith("/products/"):
             return httpx.Response(200, text=self.page_html, headers={"content-type": "text/html"})
         return httpx.Response(404)
