@@ -1,0 +1,101 @@
+# Recon candidates: US direct-to-consumer brands believed to run on Shopify.
+# Recon (python -m pricemon.checks, check: recon) decides which ones pass.
+# The domain is the storefront as typed; recon follows redirects to the canonical host.
+categories:
+  audio:
+    - {store: Skullcandy, domain: skullcandy.com}
+    - {store: JLab, domain: jlab.com}
+    - {store: Master & Dynamic, domain: masterdynamic.com}
+    - {store: House of Marley, domain: thehouseofmarley.com}
+    - {store: Nothing (US), domain: us.nothing.tech}
+    - {store: Soundcore (US), domain: us.soundcore.com}
+    - {store: Shokz, domain: shokz.com}
+    - {store: Raycon, domain: rayconglobal.com}
+    - {store: Status Audio, domain: status.co}
+    - {store: Audioengine, domain: audioengine.com}
+    - {store: Kanto Audio, domain: kantoaudio.com}
+    - {store: Fluance, domain: fluance.com}
+    - {store: Campfire Audio, domain: campfireaudio.com}
+    - {store: Grado Labs, domain: gradolabs.com}
+    - {store: EarFun, domain: myearfun.com}
+    - {store: Soundpeats, domain: soundpeats.com}
+    - {store: Tribit, domain: tribitaudio.com}
+    - {store: Dekoni Audio, domain: dekoniaudio.com}
+  apparel:
+    - {store: Allbirds, domain: allbirds.com}
+    - {store: Bombas, domain: bombas.com}
+    - {store: Outdoor Voices, domain: outdoorvoices.com}
+    - {store: Taylor Stitch, domain: taylorstitch.com}
+    - {store: Chubbies, domain: chubbiesshorts.com}
+    - {store: Rhone, domain: rhone.com}
+    - {store: Vuori, domain: vuoriclothing.com}
+    - {store: Faherty, domain: fahertybrand.com}
+    - {store: Marine Layer, domain: marinelayer.com}
+    - {store: Cuts Clothing, domain: cutsclothing.com}
+    - {store: True Classic, domain: trueclassictees.com}
+    - {store: Rothy's, domain: rothys.com}
+    - {store: Western Rise, domain: westernrise.com}
+    - {store: Buck Mason, domain: buckmason.com}
+    - {store: Ministry of Supply, domain: ministryofsupply.com}
+    - {store: Public Rec, domain: publicrec.com}
+    - {store: Girlfriend Collective, domain: girlfriend.com}
+    - {store: Ten Thousand, domain: tenthousand.cc}
+    - {store: Mack Weldon, domain: mackweldon.com}
+  beauty:
+    - {store: ColourPop, domain: colourpop.com}
+    - {store: Kylie Cosmetics, domain: kyliecosmetics.com}
+    - {store: Glossier, domain: glossier.com}
+    - {store: OUAI, domain: theouai.com}
+    - {store: Briogeo, domain: briogeohair.com}
+    - {store: Tower 28, domain: tower28beauty.com}
+    - {store: Kosas, domain: kosas.com}
+    - {store: Summer Fridays, domain: summerfridays.com}
+    - {store: Glow Recipe, domain: glowrecipe.com}
+    - {store: Native, domain: nativecos.com}
+    - {store: Dr. Squatch, domain: drsquatch.com}
+    - {store: Supergoop!, domain: supergoop.com}
+    - {store: Herbivore Botanicals, domain: herbivorebotanicals.com}
+    - {store: Beardbrand, domain: beardbrand.com}
+    - {store: ILIA, domain: iliabeauty.com}
+    - {store: Merit, domain: meritbeauty.com}
+    - {store: Rare Beauty, domain: rarebeauty.com}
+    - {store: Youth To The People, domain: youthtothepeople.com}
+    - {store: Milk Makeup, domain: milkmakeup.com}
+  home_kitchen:
+    - {store: Brooklinen, domain: brooklinen.com}
+    - {store: Our Place, domain: fromourplace.com}
+    - {store: Caraway, domain: carawayhome.com}
+    - {store: Great Jones, domain: greatjonesgoods.com}
+    - {store: Made In, domain: madeincookware.com}
+    - {store: Parachute, domain: parachutehome.com}
+    - {store: Fellow, domain: fellowproducts.com}
+    - {store: Brightland, domain: brightland.co}
+    - {store: HexClad, domain: hexclad.com}
+    - {store: Material Kitchen, domain: materialkitchen.com}
+    - {store: Boll & Branch, domain: bollandbranch.com}
+    - {store: Buffy, domain: buffy.co}
+    - {store: Ember, domain: ember.com}
+    - {store: Burrow, domain: burrow.com}
+    - {store: Misen, domain: misen.com}
+    - {store: Graza, domain: graza.co}
+    - {store: Blueland, domain: blueland.com}
+    - {store: Public Goods, domain: publicgoods.com}
+  outdoor:
+    - {store: Cotopaxi, domain: cotopaxi.com}
+    - {store: BioLite, domain: bioliteenergy.com}
+    - {store: Solo Stove, domain: solostove.com}
+    - {store: Stanley, domain: stanley1913.com}
+    - {store: Peak Design, domain: peakdesign.com}
+    - {store: Nomatic, domain: nomatic.com}
+    - {store: Topo Designs, domain: topodesigns.com}
+    - {store: Kammok, domain: kammok.com}
+    - {store: Rumpl, domain: rumpl.com}
+    - {store: United By Blue, domain: unitedbyblue.com}
+    - {store: Snow Peak, domain: snowpeak.com}
+    - {store: Klymit, domain: klymit.com}
+    - {store: Ruffwear, domain: ruffwear.com}
+    - {store: Matador, domain: matadorup.com}
+    - {store: GRAYL, domain: grayl.com}
+    - {store: LifeStraw, domain: lifestraw.com}
+    - {store: Oru Kayak, domain: orukayak.com}
+    - {store: NEMO Equipment, domain: nemoequipment.com}
