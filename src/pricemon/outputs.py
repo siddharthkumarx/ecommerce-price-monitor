@@ -80,7 +80,7 @@ def build_status(runs: list[dict[str, Any]], now: datetime) -> dict[str, Any]:
     good = [r for r in runs if r["status"] in GOOD_STATUSES]
     last = runs[-1] if runs else None
     first_good = parse_iso(good[0]["started_at"]) if good else None
-    days_running = (now.date() - first_good.date()).days + 1 if first_good else 0
+    days_running = max(0, (now.date() - first_good.date()).days + 1) if first_good else 0
     missed = (
         missed_slots([parse_iso(r["started_at"]) for r in good], first_good, now)
         if first_good

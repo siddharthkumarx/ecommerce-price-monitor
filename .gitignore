@@ -11,5 +11,6 @@ build/
 *.duckdb
 *.duckdb.wal
 /data/local/
-/site/screenshots/
+/site/
+/work/
 requirements-audit.txt

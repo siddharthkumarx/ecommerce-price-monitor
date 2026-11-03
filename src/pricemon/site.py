@@ -184,29 +184,44 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 
     names = {s.id: s.name for s in stores}
     hosts = {s.id: s.host for s in stores}
-    latest_events = list(reversed(events))[:60]
-    event_rows = [
-        [
-            td(e["observed_at"][:16].replace("T", " ")),
-            td(names.get(e["store_id"], e["store_id"])),
-            f'<td class="wrap-cell"><a href="https://{esc(hosts.get(e["store_id"], ""))}/products/{esc(e["handle"])}"'
-            f' rel="nofollow noopener">{esc(e["product_title"])}</a>'
-            + (
-                f' <span class="quiet">{esc(e["variant_title"])}</span>'
-                if e["variant_title"] not in ("", "Default Title")
-                else ""
-            )
-            + "</td>",
-            td(EVENT_LABELS.get(e["event"], e["event"]), cls=EVENT_TONE.get(e["event"], "")),
-            td(usd(e["old_price_cents"]), num=True),
-            td(usd(e["new_price_cents"]), num=True),
-            td(f"{e['price_change_pct']}%" if e["price_change_pct"] else "", num=True),
+    # One row per variant and run: a sale is "Price down · Discount start".
+    grouped: dict[tuple[str, str, str], list[dict[str, str]]] = {}
+    for e in events:
+        grouped.setdefault((e["observed_at"], e["store_id"], e["variant_id"]), []).append(e)
+    latest_groups = list(reversed(list(grouped.values())))[:60]
+
+    def event_cell(group: list[dict[str, str]]) -> str:
+        parts = [
+            f'<span class="{EVENT_TONE.get(g["event"], "")}">{esc(EVENT_LABELS.get(g["event"], g["event"]))}</span>'
+            for g in group
         ]
-        for e in latest_events
-    ]
+        return "<td>" + " · ".join(parts) + "</td>"
+
+    event_rows = []
+    for group in latest_groups:
+        e = group[0]
+        pct_values = [g["price_change_pct"] for g in group if g["price_change_pct"]]
+        event_rows.append(
+            [
+                td(e["observed_at"][:16].replace("T", " ")),
+                td(names.get(e["store_id"], e["store_id"])),
+                f'<td class="wrap-cell"><a href="https://{esc(hosts.get(e["store_id"], ""))}/products/{esc(e["handle"])}"'
+                f' rel="nofollow noopener">{esc(e["product_title"])}</a>'
+                + (
+                    f' <span class="quiet">{esc(e["variant_title"])}</span>'
+                    if e["variant_title"] not in ("", "Default Title")
+                    else ""
+                )
+                + "</td>",
+                event_cell(group),
+                td(usd(e["old_price_cents"]), num=True),
+                td(usd(e["new_price_cents"]), num=True),
+                td(f"{pct_values[0]}%" if pct_values else "", num=True),
+            ]
+        )
     events_table = (
         _table(
-            f"Latest {len(event_rows)} changes (newest first).",
+            f"Latest {len(event_rows)} changed variants (newest first).",
             [
                 ("UTC", False),
                 ("Store", False),

@@ -44,7 +44,7 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
     assert ">34<" in text  # variants live (30 + 4)
     assert ">88%<" in text  # discounted: 30 of 34
     assert "Last run 2026-11-05 06:17 UTC: ok" in text
-    assert text.count("Price down") >= 2  # event counter and change rows
+    assert 'Price down</span> · <span class="amber">Discount start' in text  # one row per sale
     assert (tmp_path / "site" / "fonts" / "instrument-sans-latin-400-normal.woff2").exists()
 
 
