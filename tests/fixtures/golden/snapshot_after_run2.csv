@@ -1,0 +1,5 @@
+store_id,product_id,variant_id,handle,product_title,variant_title,price_cents,compare_at_cents,available,valid_from
+a,100,1,tee,Tee (organic),V1,2240,2800,true,2026-11-05T06:17:00Z
+a,100,2,tee,Tee,V2,2800,,true,2026-11-05T06:17:00Z
+a,100,4,tee,Tee,V4,1500,,true,2026-11-05T06:17:00Z
+b,101,10,tee,Tee,V10,1000,,true,2026-11-04T06:17:00Z
