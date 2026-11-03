@@ -149,11 +149,11 @@ def run_request(request_path: Path) -> int:
             history_out=Path("work") / f"{request['id']}.parquet",
             concurrency=int(request.get("concurrency", 3)),
             polite=PoliteConfig(
-                delay_s=float(request.get("delay_s", 3.0)),
-                jitter_s=float(request.get("jitter_s", 2.0)),
+                delay_s=float(request.get("delay_s", 4.0)),
+                jitter_s=float(request.get("jitter_s", 3.0)),
             ),
-            edge_interval_s=float(request.get("edge_interval_s", 2.0)),
-            edge_jitter_s=float(request.get("edge_jitter_s", 1.0)),
+            edge_interval_s=float(request.get("edge_interval_s", 3.0)),
+            edge_jitter_s=float(request.get("edge_jitter_s", 1.5)),
             only=set(request.get("only") or []),
         )
         code = run_pipeline(cfg)
