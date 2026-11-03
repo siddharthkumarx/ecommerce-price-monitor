@@ -243,7 +243,7 @@ async def _fetch(session: StoreSession, store: Store, day: date, out: StoreFetch
     if not await _catalog(session, out):
         out.status = "failed"
         return
-    out.content_flags = screen_content(out.products)
+    out.content_flags = screen_content(out.products, reviewed_titles=store.screen_reviewed)
     if out.content_flags:
         out.status = "excluded"
         out.reason = "excluded category: " + ", ".join(sorted(out.content_flags))
