@@ -9,6 +9,7 @@ import httpx
 import pytest
 
 from pricemon.polite import (
+    EdgeGuard,
     PoliteConfig,
     RobotsDisallowed,
     StoreStopped,
@@ -213,3 +214,56 @@ def test_redirect_to_canonical_host() -> None:
     session, _, _ = session_for(handler)
     run(session.load_robots())
     assert session.base_url == "https://www.shop.example"
+
+
+# -- edge guard ---------------------------------------------------------------
+def test_edge_guard_paces_all_stores_together() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={"products": []})
+
+    a, fake, _ = session_for(robots_then(handler), base_url="https://a.example")
+    edge = EdgeGuard(interval_s=2.0, jitter_s=0.0, sleep=fake.sleep, clock=fake.clock)
+    b, _, _ = session_for(robots_then(handler), base_url="https://b.example")
+    b.clock, b.sleep = fake.clock, fake.sleep
+    a.edge = b.edge = edge
+    run(a.load_robots())
+    run(b.load_robots())  # different store, but must still wait for the edge
+    assert fake.sleeps == [2.0]
+
+
+def test_edge_guard_trips_after_blocks_on_several_stores() -> None:
+    def blocked(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(429, text="<title>Just a moment...</title>")
+
+    fake_edge = EdgeGuard(interval_s=0.0, jitter_s=0.0, trip_after=3)
+    sessions = []
+    for host in ("a", "b", "c"):
+        s, _, _ = session_for(blocked, base_url=f"https://{host}.example")
+        s.edge = fake_edge
+        run(s.load_robots())
+        assert s.stopped_reason is not None
+        assert s.stopped_reason.startswith("blocked: cloudflare challenge")
+        sessions.append(s)
+    assert fake_edge.halted_reason is not None
+
+    def ok(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, text="User-agent: *\nDisallow: /cart\n")
+
+    fresh, _, seen = session_for(ok, base_url="https://d.example")
+    fresh.edge = fake_edge
+    run(fresh.load_robots())
+    assert seen == []  # halted run sends nothing more
+    assert fresh.stopped_reason is not None
+    assert fresh.stopped_reason.startswith("run halted")
+
+
+def test_challenge_with_long_retry_after_counts_as_block() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            429, headers={"Retry-After": "3600"}, text="<script>window._cf_chl_opt={}</script>"
+        )
+
+    session, _, _ = session_for(robots_then(handler))
+    run(session.load_robots())
+    with pytest.raises(StoreStopped, match="blocked: cloudflare challenge"):
+        run(session.get("/products.json"))
