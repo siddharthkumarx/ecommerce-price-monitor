@@ -24,7 +24,7 @@ from typing import Any
 
 import yaml
 
-from pricemon.polite import USER_AGENT, PoliteConfig
+from pricemon.polite import USER_AGENT, EdgeGuard, PoliteConfig
 from pricemon.recon import VARIANT_CAP, Candidate, ReconResult, run_recon
 
 RESULTS_DIR = Path("checks/results")
@@ -75,6 +75,8 @@ def render_recon_md(meta: dict[str, Any], results: list[ReconResult]) -> str:
         f"- started: {meta['started_utc']}, finished: {meta['finished_utc']}",
         f"- run: {meta['run_url'] or 'local'}",
         f"- candidates: {len(results)}, passed: {len(passed)} (variant cap {VARIANT_CAP})",
+        f"- run-wide request interval: {meta.get('edge_interval_s')}s + jitter; "
+        f"halted: {meta.get('halted_reason') or 'no'}",
         "",
         "| store | category | host | robots | products.json | .js | reachable | shopify "
         "| products | variants | in stock | .js check | JSON-LD cur | Shopify cur "
@@ -118,10 +120,16 @@ def run_request(request_path: Path) -> int:
             delay_s=float(request.get("delay_s", 3.0)),
             jitter_s=float(request.get("jitter_s", 2.0)),
         )
+        edge = EdgeGuard(
+            interval_s=float(request.get("edge_interval_s", 2.0)),
+            jitter_s=float(request.get("edge_jitter_s", 1.0)),
+        )
         results = asyncio.run(
-            run_recon(candidates, config, concurrency=int(request.get("concurrency", 8)))
+            run_recon(candidates, config, edge, concurrency=int(request.get("concurrency", 4)))
         )
         meta = _run_meta(request, started)
+        meta["edge_interval_s"] = edge.interval_s
+        meta["halted_reason"] = edge.halted_reason
         payload = {"meta": meta, "results": [r.to_dict() for r in results]}
         (out_dir / "recon.json").write_text(
             json.dumps(payload, indent=2, sort_keys=False) + "\n", encoding="utf-8"

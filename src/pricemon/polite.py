@@ -125,6 +125,46 @@ Sleep = Callable[[float], Awaitable[None]]
 
 
 @dataclass
+class EdgeGuard:
+    """Run-wide pacing and circuit breaker shared by every store session.
+
+    Shopify throttles per client IP across all shops on its edge, so per-store
+    delays alone let the run as a whole go too fast (docs/incidents.md, INC-001).
+    """
+
+    interval_s: float = 2.0
+    jitter_s: float = 1.0
+    trip_after: int = 4
+    window_s: float = 120.0
+    sleep: Sleep = asyncio.sleep
+    clock: Callable[[], float] = time.monotonic
+    rng: random.Random = field(default_factory=random.Random)
+
+    halted_reason: str | None = None
+    _next_at: float = 0.0
+    _blocks: list[tuple[float, str]] = field(default_factory=list)
+    _lock: asyncio.Lock = field(default_factory=asyncio.Lock)
+
+    async def wait_turn(self) -> None:
+        async with self._lock:
+            wait = self._next_at - self.clock()
+            if wait > 0:
+                await self.sleep(wait)
+            self._next_at = self.clock() + self.interval_s + self.rng.uniform(0.0, self.jitter_s)
+
+    def record_block(self, host: str) -> None:
+        now = self.clock()
+        self._blocks = [(t, h) for t, h in self._blocks if now - t <= self.window_s]
+        self._blocks.append((now, host))
+        hosts = {h for _, h in self._blocks}
+        if len(hosts) >= self.trip_after and self.halted_reason is None:
+            self.halted_reason = (
+                f"run halted: {len(hosts)} stores blocked within {self.window_s:.0f}s "
+                "(edge throttling)"
+            )
+
+
+@dataclass
 class StoreSession:
     """Sequential, rate-limited access to one store."""
 
@@ -134,6 +174,7 @@ class StoreSession:
     sleep: Sleep = asyncio.sleep
     clock: Callable[[], float] = time.monotonic
     rng: random.Random = field(default_factory=random.Random)
+    edge: EdgeGuard | None = None
 
     robots: RobotsInfo = field(default_factory=RobotsInfo)
     stopped_reason: str | None = None
@@ -160,6 +201,8 @@ class StoreSession:
 
     def _stop(self, reason: str) -> StoreStopped:
         self.stopped_reason = reason
+        if self.edge is not None and reason.startswith("blocked"):
+            self.edge.record_block(self.host)
         return StoreStopped(reason)
 
     # -- low level ----------------------------------------------------------
@@ -167,7 +210,11 @@ class StoreSession:
         """Send one GET with retry rules applied. Raises StoreStopped."""
         last_problem = "no attempt"
         for attempt in range(1, self.config.max_attempts + 1):
+            if self.edge is not None and self.edge.halted_reason:
+                raise self._stop(self.edge.halted_reason)
             await self._wait_turn()
+            if self.edge is not None:
+                await self.edge.wait_turn()
             self.requests_made += 1
             try:
                 resp = await self.client.get(url, headers={"Accept": accept})
@@ -179,14 +226,15 @@ class StoreSession:
                     self._next_at = self.clock() + self._gap()
                     return resp
                 last_problem = f"http {resp.status_code}"
+                # A challenge served with 429/503 is a block, not a rate limit: never retry it.
+                body_reason = detect_block(resp.status_code, str(resp.url), resp.text)
+                if body_reason and body_reason != f"http {resp.status_code}":
+                    raise self._stop(f"blocked: {body_reason} ({last_problem})")
                 retry_after = parse_retry_after(resp.headers.get("Retry-After"))
                 if retry_after is not None and retry_after > self.config.max_retry_after_s:
                     raise self._stop(f"{last_problem}, Retry-After {retry_after:.0f}s too long")
                 backoff = self.config.backoff_base_s * 2 ** (attempt - 1)
                 wait = max(backoff, retry_after or 0.0)
-                body_reason = detect_block(resp.status_code, str(resp.url), resp.text)
-                if body_reason and body_reason != f"http {resp.status_code}":
-                    raise self._stop(f"blocked: {body_reason} ({last_problem})")
             if attempt < self.config.max_attempts:
                 self.retries_made += 1
                 self._next_at = self.clock() + wait + self.rng.uniform(0.0, self.config.jitter_s)
@@ -201,14 +249,18 @@ class StoreSession:
         except StoreStopped as exc:
             # RFC 9309 section 2.3.1.4: unreachable robots.txt means full disallow.
             self.robots = RobotsInfo(status="unreachable")
-            self.stopped_reason = f"robots.txt unreachable: {exc.reason}"
+            if exc.reason.startswith(("blocked", "run halted")):
+                self.stopped_reason = f"{exc.reason} (robots.txt)"
+            else:
+                self.stopped_reason = f"robots.txt unreachable: {exc.reason}"
             return self.robots
         final = urlsplit(str(resp.url))
         self.base_url = f"{final.scheme}://{final.netloc}"
         reason = detect_block(resp.status_code, str(resp.url), resp.text)
         if reason and reason not in ("http 401", "http 403"):
             self.robots = RobotsInfo(status="unreachable", http_status=resp.status_code)
-            raise self._stop(f"blocked: {reason} (robots.txt)")
+            self._stop(f"blocked: {reason} (robots.txt)")
+            return self.robots
         if 400 <= resp.status_code < 500:
             # RFC 9309 section 2.3.1.3: 4xx means no restrictions.
             self.robots = RobotsInfo(status="missing-4xx", http_status=resp.status_code)
