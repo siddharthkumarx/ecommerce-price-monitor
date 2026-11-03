@@ -1,0 +1,1 @@
+{"id": 7000000001, "title": "Camp Mug", "handle": "camp-mug", "description": "<p>Long marketing description that must never be stored.</p>", "price": 1800, "available": true, "variants": [{"id": 70000000010, "title": "Default Title", "available": true, "price": 1800, "compare_at_price": null}], "images": ["//cdn.shopify.com/s/files/x.jpg"]}

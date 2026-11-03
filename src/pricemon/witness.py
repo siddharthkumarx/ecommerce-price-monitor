@@ -95,3 +95,32 @@ def shopify_active_currency(html: str) -> str | None:
 
 def is_products_payload(data: Any) -> bool:
     return isinstance(data, dict) and isinstance(data.get("products"), list)
+
+
+_VARIANT_IN_URL = re.compile(r"[?&]variant=(\d+)")
+JSONLD_AVAILABILITY = {
+    "instock": "in_stock",
+    "limitedavailability": "in_stock",
+    "onlineonly": "in_stock",
+    "outofstock": "out_of_stock",
+    "soldout": "out_of_stock",
+    "discontinued": "out_of_stock",
+}
+
+
+def offer_variant_id(offer: dict[str, Any]) -> int | None:
+    """Shopify themes put ``?variant=<id>`` in each offer's ``url``."""
+    url = offer.get("url")
+    if isinstance(url, str):
+        match = _VARIANT_IN_URL.search(url)
+        if match:
+            return int(match.group(1))
+    return None
+
+
+def offer_availability(offer: dict[str, Any]) -> str | None:
+    """Map a schema.org availability URI to our fixed values; None when not comparable."""
+    raw = offer.get("availability")
+    if not isinstance(raw, str):
+        return None
+    return JSONLD_AVAILABILITY.get(raw.rstrip("/").rsplit("/", 1)[-1].lower())
