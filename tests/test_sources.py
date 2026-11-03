@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from pricemon.sources import render, select
+from pricemon.sources import merge, render, select
 
 
 def _row(
@@ -31,7 +31,7 @@ def _row(
     }
 
 
-def test_select_prefers_us_then_smaller_catalogs() -> None:
+def test_select_prefers_us_then_larger_catalogs() -> None:
     rows = [
         _row("Big", "audio", True, 2000),
         _row("Small", "audio", True, 100),
@@ -50,7 +50,15 @@ def test_select_prefers_us_then_smaller_catalogs() -> None:
 def test_render_contains_every_store() -> None:
     rows = [_row("Alpha", "audio", True, 120), _row("Beta", "outdoor", False, None)]
     meta = {"id": "recon-x", "finished_utc": "2026-11-03T00:00:00+00:00", "run_url": "https://x"}
-    md = render({"meta": meta, "results": rows}, "checks/results/recon-x/recon.json")
+    md = render([("checks/results/recon-x/recon.json", {"meta": meta, "results": rows})])
     assert "| Alpha | Audio |" in md
     assert "| Beta | Outdoor |" in md
     assert "rejected: blocked" in md
+
+
+def test_merge_later_run_wins() -> None:
+    first = {"meta": {"id": "r1"}, "results": [_row("Alpha", "audio", False, None)]}
+    second = {"meta": {"id": "r2"}, "results": [_row("Alpha", "audio", True, 10)]}
+    (row,) = merge([first, second])
+    assert row["passed"]
+    assert row["recon_id"] == "r2"
