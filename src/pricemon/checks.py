@@ -137,6 +137,31 @@ def run_request(request_path: Path) -> int:
         (out_dir / "recon.md").write_text(render_recon_md(meta, results), encoding="utf-8")
         return 0
 
+    if check == "pipeline":
+        # Full dry run of the daily pipeline. Outputs go to checks/results/<id>/data,
+        # never to data/; the Parquet file stays in work/ (not committed).
+        from pricemon.run import RunConfig
+        from pricemon.run import run as run_pipeline
+
+        cfg = RunConfig(
+            stores=Path(request.get("stores", "config/stores.yml")),
+            data=out_dir / "data",
+            history_out=Path("work") / f"{request['id']}.parquet",
+            concurrency=int(request.get("concurrency", 3)),
+            polite=PoliteConfig(
+                delay_s=float(request.get("delay_s", 3.0)),
+                jitter_s=float(request.get("jitter_s", 2.0)),
+            ),
+            edge_interval_s=float(request.get("edge_interval_s", 2.0)),
+            edge_jitter_s=float(request.get("edge_jitter_s", 1.0)),
+            only=set(request.get("only") or []),
+        )
+        code = run_pipeline(cfg)
+        meta = _run_meta(request, started)
+        meta["exit_code"] = code
+        (out_dir / "meta.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
+        return 0
+
     print(f"unknown check: {check}", file=sys.stderr)
     return 2
 
