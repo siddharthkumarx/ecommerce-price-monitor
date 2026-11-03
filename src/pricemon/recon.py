@@ -22,6 +22,7 @@ from typing import Any
 import httpx
 
 from pricemon.polite import (
+    EdgeGuard,
     PoliteConfig,
     RobotsDisallowed,
     StoreSession,
@@ -86,7 +87,9 @@ class ReconResult:
     def verdict(self) -> tuple[bool, list[str]]:
         """Whether the store passes recon, with the reasons it fails."""
         fails: list[str] = []
-        if self.stopped_reason and not self.reachable:
+        if self.stopped_reason and self.stopped_reason.startswith("run halted"):
+            fails.append("not checked (run halted)")
+        elif self.stopped_reason and not self.reachable:
             fails.append("blocked")
         elif self.robots_status == "unreachable":
             fails.append("robots.txt unreachable")
@@ -206,8 +209,9 @@ def _count_variants(products: list[dict[str, Any]]) -> int:
     return sum(len(p.get("variants") or []) for p in products)
 
 
-def _json_or_none(resp: httpx.Response) -> Any:
-    if "json" not in resp.headers.get("content-type", ""):
+def _json_or_none(resp: httpx.Response, *, any_type: bool = False) -> Any:
+    """Decode a JSON body; ``any_type`` also accepts product ``.js`` (served as JavaScript)."""
+    if not any_type and "json" not in resp.headers.get("content-type", ""):
         return None
     try:
         return resp.json()
@@ -221,7 +225,7 @@ async def _crosscheck_js(session: StoreSession, res: ReconResult, sample: dict[s
         res.js_crosscheck = "skipped"
         return
     resp = await session.get(f"/products/{handle}.js")
-    data = _json_or_none(resp)
+    data = _json_or_none(resp, any_type=True)
     if resp.status_code != 200 or not isinstance(data, dict):
         res.js_crosscheck = "missing"
         res.notes.append(f"product .js: http {resp.status_code}")
@@ -270,9 +274,16 @@ async def _meta(session: StoreSession, res: ReconResult) -> None:
 
 
 async def run_recon(
-    candidates: list[Candidate], config: PoliteConfig, concurrency: int = 8
+    candidates: list[Candidate],
+    config: PoliteConfig,
+    edge: EdgeGuard,
+    concurrency: int = 4,
 ) -> list[ReconResult]:
-    """Recon all candidates; stores run in parallel, requests within a store never do."""
+    """Recon all candidates.
+
+    Stores overlap only to hide latency: requests within a store are sequential and
+    every request in the run passes the shared ``edge`` pacer.
+    """
     gate = asyncio.Semaphore(concurrency)
 
     async with make_client() as client:
@@ -280,7 +291,7 @@ async def run_recon(
         async def one(cand: Candidate) -> ReconResult:
             async with gate:
                 session = StoreSession(
-                    client=client, base_url=f"https://{cand.domain}", config=config
+                    client=client, base_url=f"https://{cand.domain}", config=config, edge=edge
                 )
                 result = await recon_store(session, cand)
                 passed, fails = result.verdict()
