@@ -1,0 +1,58 @@
+# Live checks. The development sandbox cannot reach shops, so every live check
+# is requested by editing checks/request.yml and runs here. Results are
+# committed to checks/results/<id>/ on the same branch.
+name: checks
+
+on:
+  push:
+    paths:
+      - checks/request.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked --no-dev
+
+      - name: Run check
+        run: uv run --no-dev python -m pricemon.checks checks/request.yml
+
+      - name: Commit results
+        if: always()
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          id="$(sed -n 's/^id:[[:space:]]*//p' checks/request.yml)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add checks/results
+          if git diff --cached --quiet; then
+            echo "no results to commit"
+            exit 0
+          fi
+          git commit -m "checks: results for ${id}"
+          for i in 1 2 3 4; do
+            if git pull --rebase origin "$BRANCH" && git push origin "HEAD:$BRANCH"; then
+              exit 0
+            fi
+            sleep $((2 ** i))
+          done
+          exit 1

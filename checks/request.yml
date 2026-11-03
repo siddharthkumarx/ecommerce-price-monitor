@@ -1,0 +1,8 @@
+# Live check request. Pushing a change to this file runs .github/workflows/checks.yml
+# on the GitHub runner; results are committed to checks/results/<id>/.
+id: recon-001
+check: recon
+candidates: checks/candidates.yml
+concurrency: 8
+delay_s: 3.0
+jitter_s: 2.0
