@@ -1,0 +1,213 @@
+{
+ "products": [
+  {
+   "id": 7000000000,
+   "title": "Trail Tee",
+   "handle": "trail-tee",
+   "body_html": "<p>Long marketing description that must never be stored.</p>",
+   "published_at": "2026-10-01T10:00:00-04:00",
+   "created_at": "2026-09-01T10:00:00-04:00",
+   "updated_at": "2026-11-01T10:00:00-04:00",
+   "vendor": "Example Outfitters",
+   "product_type": "Shirts",
+   "tags": [
+    "new",
+    "shirts"
+   ],
+   "variants": [
+    {
+     "id": 70000000000,
+     "title": "S",
+     "option1": "S",
+     "option2": null,
+     "option3": null,
+     "sku": "SKU-0-0",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": {
+      "src": "https://cdn.shopify.com/s/files/x.jpg"
+     },
+     "available": true,
+     "price": "28.00",
+     "grams": 200,
+     "compare_at_price": "35.00",
+     "position": 1,
+     "product_id": 7000000000,
+     "created_at": "2026-09-01T10:00:00-04:00",
+     "updated_at": "2026-11-01T10:00:00-04:00"
+    },
+    {
+     "id": 70000000001,
+     "title": "M",
+     "option1": "M",
+     "option2": null,
+     "option3": null,
+     "sku": "SKU-0-1",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": {
+      "src": "https://cdn.shopify.com/s/files/x.jpg"
+     },
+     "available": false,
+     "price": "28.00",
+     "grams": 200,
+     "compare_at_price": "35.00",
+     "position": 2,
+     "product_id": 7000000000,
+     "created_at": "2026-09-01T10:00:00-04:00",
+     "updated_at": "2026-11-01T10:00:00-04:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 1,
+     "src": "https://cdn.shopify.com/s/files/x.jpg",
+     "width": 1000,
+     "height": 1000
+    }
+   ],
+   "options": [
+    {
+     "name": "Size",
+     "position": 1,
+     "values": [
+      "S",
+      "M"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7000000001,
+   "title": "Camp Mug",
+   "handle": "camp-mug",
+   "body_html": "<p>Long marketing description that must never be stored.</p>",
+   "published_at": "2026-10-01T10:00:00-04:00",
+   "created_at": "2026-09-01T10:00:00-04:00",
+   "updated_at": "2026-11-01T10:00:00-04:00",
+   "vendor": "Example Outfitters",
+   "product_type": "Drinkware",
+   "tags": [
+    "new",
+    "drinkware"
+   ],
+   "variants": [
+    {
+     "id": 70000000010,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "sku": "SKU-1-0",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": {
+      "src": "https://cdn.shopify.com/s/files/x.jpg"
+     },
+     "available": true,
+     "price": "18.00",
+     "grams": 200,
+     "compare_at_price": null,
+     "position": 1,
+     "product_id": 7000000001,
+     "created_at": "2026-09-01T10:00:00-04:00",
+     "updated_at": "2026-11-01T10:00:00-04:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 1,
+     "src": "https://cdn.shopify.com/s/files/x.jpg",
+     "width": 1000,
+     "height": 1000
+    }
+   ],
+   "options": [
+    {
+     "name": "Size",
+     "position": 1,
+     "values": [
+      "Default Title"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7000000002,
+   "title": "Day Pack 20L",
+   "handle": "day-pack-20l",
+   "body_html": "<p>Long marketing description that must never be stored.</p>",
+   "published_at": "2026-10-01T10:00:00-04:00",
+   "created_at": "2026-09-01T10:00:00-04:00",
+   "updated_at": "2026-11-01T10:00:00-04:00",
+   "vendor": "Example Outfitters",
+   "product_type": "Bags",
+   "tags": [
+    "new",
+    "bags"
+   ],
+   "variants": [
+    {
+     "id": 70000000020,
+     "title": "Black",
+     "option1": "Black",
+     "option2": null,
+     "option3": null,
+     "sku": "SKU-2-0",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": {
+      "src": "https://cdn.shopify.com/s/files/x.jpg"
+     },
+     "available": true,
+     "price": "120.00",
+     "grams": 200,
+     "compare_at_price": "120.00",
+     "position": 1,
+     "product_id": 7000000002,
+     "created_at": "2026-09-01T10:00:00-04:00",
+     "updated_at": "2026-11-01T10:00:00-04:00"
+    },
+    {
+     "id": 70000000021,
+     "title": "Sand",
+     "option1": "Sand",
+     "option2": null,
+     "option3": null,
+     "sku": "SKU-2-1",
+     "requires_shipping": true,
+     "taxable": true,
+     "featured_image": {
+      "src": "https://cdn.shopify.com/s/files/x.jpg"
+     },
+     "available": true,
+     "price": "120.00",
+     "grams": 200,
+     "compare_at_price": "100.00",
+     "position": 2,
+     "product_id": 7000000002,
+     "created_at": "2026-09-01T10:00:00-04:00",
+     "updated_at": "2026-11-01T10:00:00-04:00"
+    }
+   ],
+   "images": [
+    {
+     "id": 1,
+     "src": "https://cdn.shopify.com/s/files/x.jpg",
+     "width": 1000,
+     "height": 1000
+    }
+   ],
+   "options": [
+    {
+     "name": "Size",
+     "position": 1,
+     "values": [
+      "Black",
+      "Sand"
+     ]
+    }
+   ]
+  }
+ ]
+}
