@@ -27,6 +27,8 @@ Python 3.12 managed with uv 0.11.32 (`uv.lock` committed, CI uses
 | @fontsource/ibm-plex-mono | 5.3.0 | OFL-1.1 | self-hosted font files |
 | actions/checkout | v7.0.1 (`3d3c42e`) | MIT | pinned by commit SHA |
 | astral-sh/setup-uv | v10.3.3 (`68559e9`) | MIT | pinned by commit SHA |
+| actions/upload-artifact | v7.0.2 (`cf430e0`) | MIT | dashboard artifact, pinned by commit SHA |
+| Playwright for Node | pre-installed in the sandbox | Apache-2.0 | `scripts/screenshots.cjs` (dev only) |
 
 Protego was chosen over `urllib.robotparser` because the standard library
 parser does not implement `*`/`$` wildcards, which Shopify's default robots.txt
