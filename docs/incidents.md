@@ -23,3 +23,16 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   which hid the bug; the fake now uses the real content type.
 - **Detection:** `halted_reason` is written to the recon/run metadata; blocked stores are listed
   with their reason.
+
+## INC-002 - Retry causes were not recorded in early recon runs (2026-11-03)
+
+- **Runs:** `recon-001` to `recon-003`.
+- **What happened:** the owner's selection rule drops stores that needed 429
+  retries, but those runs stored only the number of retries per store, not the HTTP
+  status that caused each one. A 429 could not be told apart from a 502 or a reset.
+- **Consequence:** every retry in those runs is treated as a 429 (D-004). Several
+  stores that may only have seen a transient 5xx were dropped.
+- **Fix:** `StoreSession.retry_causes` records the cause of every retry
+  (`http 429`, `http 503`, `network error: ConnectError`); recon results and
+  `runs.jsonl` carry it from `recon-004` on.
+- **Detection:** `tests/test_recon.py::test_a_429_retry_fails_even_when_the_retry_succeeds`.
