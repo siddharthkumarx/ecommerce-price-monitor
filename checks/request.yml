@@ -1,7 +1,7 @@
 # Live check request. Pushing a change to this file runs .github/workflows/checks.yml
 # on the GitHub runner; results are committed to checks/results/<id>/.
-# recon-002: re-run of all candidates with run-wide edge pacing (INC-001).
-id: recon-002
+# recon-003: 20 extra apparel candidates (recon-002 left apparel with 3 passing stores).
+id: recon-003
 check: recon
 candidates: checks/candidates.yml
 concurrency: 4
@@ -9,3 +9,24 @@ delay_s: 3.0
 jitter_s: 2.0
 edge_interval_s: 2.0
 edge_jitter_s: 1.0
+only:
+  - "Tracksmith"
+  - "Mott & Bow"
+  - "Kirrin Finch"
+  - "Olivers Apparel"
+  - "Feat Clothing"
+  - "Birddogs"
+  - "Greats"
+  - "Koio"
+  - "Thousand Fell"
+  - "Wolf & Shepherd"
+  - "Atoms"
+  - "Kule"
+  - "Lunya"
+  - "Paka"
+  - "State & Liberty"
+  - "Knickey"
+  - "Richer Poorer"
+  - "Fair Harbor"
+  - "Howler Brothers"
+  - "Ably Apparel"

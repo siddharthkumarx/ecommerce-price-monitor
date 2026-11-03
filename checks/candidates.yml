@@ -41,6 +41,27 @@ categories:
     - {store: Girlfriend Collective, domain: girlfriend.com}
     - {store: Ten Thousand, domain: tenthousand.cc}
     - {store: Mack Weldon, domain: mackweldon.com}
+    # Added for recon-003: apparel and footwear brands with focused catalogs.
+    - {store: Tracksmith, domain: tracksmith.com}
+    - {store: Mott & Bow, domain: mottandbow.com}
+    - {store: Kirrin Finch, domain: kirrinfinch.com}
+    - {store: Olivers Apparel, domain: oliversapparel.com}
+    - {store: Feat Clothing, domain: featclothing.com}
+    - {store: Birddogs, domain: birddogs.com}
+    - {store: Greats, domain: greats.com}
+    - {store: Koio, domain: koio.co}
+    - {store: Thousand Fell, domain: thousandfell.com}
+    - {store: Wolf & Shepherd, domain: wolfandshepherd.com}
+    - {store: Atoms, domain: atoms.com}
+    - {store: Kule, domain: kule.com}
+    - {store: Lunya, domain: lunya.co}
+    - {store: Paka, domain: pakaapparel.com}
+    - {store: State & Liberty, domain: stateandliberty.com}
+    - {store: Knickey, domain: knickey.com}
+    - {store: Richer Poorer, domain: richer-poorer.com}
+    - {store: Fair Harbor, domain: fairharborclothing.com}
+    - {store: Howler Brothers, domain: howlerbros.com}
+    - {store: Ably Apparel, domain: ablyapparel.com}
   beauty:
     - {store: ColourPop, domain: colourpop.com}
     - {store: Kylie Cosmetics, domain: kyliecosmetics.com}
