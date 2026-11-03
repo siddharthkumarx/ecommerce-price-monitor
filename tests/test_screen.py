@@ -26,3 +26,14 @@ def test_harmless_phrases_and_partial_words_do_not_flag() -> None:
         {"title": "Chef Knife 8 inch", "product_type": "Cutlery", "tags": ["kitchen"]},
     ]
     assert screen_content(products) == {}
+
+
+def test_reviewed_titles_are_skipped_exactly() -> None:
+    products: list[dict[str, Any]] = [
+        {"title": "6mm Output Female Cigarette Adapter", "product_type": "Cable", "tags": []},
+        {"title": "Cigarette Lighter Plug", "product_type": "Cable", "tags": []},
+    ]
+    flags = screen_content(
+        products, reviewed_titles=frozenset({"6mm Output Female Cigarette Adapter"})
+    )
+    assert flags == {"tobacco/vape": ["Cigarette Lighter Plug"]}

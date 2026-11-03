@@ -106,3 +106,37 @@ def test_stores_yml() -> None:
     yml = render_stores_yml([_run("recon-004", _row("Master & Dynamic"))])
     assert "  - id: master-dynamic\n" in yml
     assert '    name: "Master & Dynamic"\n' in yml
+
+
+def test_reviewed_false_positive_does_not_drop_but_new_titles_do() -> None:
+    from pricemon.sources import ScreenReview
+
+    review = {
+        "Shade": [
+            ScreenReview(
+                "Shade", "alcohol", frozenset({"Contour - Whiskey"}), "false_positive", "shade name"
+            )
+        ]
+    }
+    ok = _row("Shade", content_flags={"alcohol": ["Contour - Whiskey"]})
+    (rec,) = collect([_run("recon-004", ok)], review)
+    assert rec.drop_reasons() == []
+    assert rec.reviewed_titles() == ["Contour - Whiskey"]
+    yml = render_stores_yml([_run("recon-004", ok)], review)
+    assert '    screen_reviewed: ["Contour - Whiskey"]' in yml
+
+    new = _row("Shade", content_flags={"alcohol": ["Contour - Whiskey", "Bourbon Barrel"]})
+    (rec,) = collect([_run("recon-005", new)], review)
+    assert rec.drop_reasons()
+
+
+def test_committed_review_file_loads() -> None:
+    from pathlib import Path
+
+    from pricemon.sources import load_reviews
+
+    reviews = load_reviews(Path(__file__).resolve().parents[1] / "config" / "screen-review.yml")
+    assert reviews
+    assert all(
+        r.verdict == "false_positive" and r.titles and r.reason for v in reviews.values() for r in v
+    )

@@ -14,6 +14,7 @@ class Store:
     name: str
     category: str
     host: str
+    screen_reviewed: frozenset[str] = frozenset()
 
     @property
     def base_url(self) -> str:

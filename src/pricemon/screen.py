@@ -84,10 +84,20 @@ def _clean(text: str) -> str:
     return lowered
 
 
-def screen_content(products: list[dict[str, Any]], max_examples: int = 3) -> dict[str, list[str]]:
-    """Excluded categories with at least one matching product, with example titles."""
+def screen_content(
+    products: list[dict[str, Any]],
+    max_examples: int = 3,
+    reviewed_titles: frozenset[str] = frozenset(),
+) -> dict[str, list[str]]:
+    """Excluded categories with at least one matching product, with example titles.
+
+    ``reviewed_titles``: exact product titles a person reviewed as false positives
+    (config/screen-review.yml); only those exact titles are skipped.
+    """
     found: dict[str, list[str]] = {}
     for product in products:
+        if product.get("title") in reviewed_titles:
+            continue
         text = " | ".join(_clean(t) for t in _texts(product))
         for cat, pattern in _PATTERNS.items():
             if pattern.search(text):

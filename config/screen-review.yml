@@ -1,0 +1,25 @@
+# Content-screen hits reviewed by hand (docs/decisions.md, D-016).
+# The screen (src/pricemon/screen.py) is a whole-word tripwire. A hit listed here is
+# ignored only for these exact product titles; any other matching title flags the
+# store again. Evidence: checks/results/recon-004/recon.json, field content_flags.
+reviews:
+  - store: Westman Atelier
+    category: alcohol
+    titles: ["Face Trace Contour Stick - Whiskey"]
+    verdict: false_positive
+    reason: 'The word "Whiskey" is a contour shade name; the store sells cosmetics only.'
+  - store: Sol de Janeiro
+    category: alcohol
+    titles: ["Lifted Bum Bums & Spirits"]
+    verdict: false_positive
+    reason: Body-care gift set named with a pun; no alcoholic product.
+  - store: Six Moon Designs
+    category: alcohol
+    titles: ["TITANIUM WINE FLASK"]
+    verdict: false_positive
+    reason: An empty titanium flask (container) sold as backpacking gear.
+  - store: Goal Zero
+    category: tobacco/vape
+    titles: ["6mm Output Female Cigarette Adapter"]
+    verdict: false_positive
+    reason: 'A 12 V car-socket ("cigarette lighter") power adapter.'

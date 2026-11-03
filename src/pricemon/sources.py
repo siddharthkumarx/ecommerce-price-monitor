@@ -14,7 +14,8 @@ Every recon file is evidence. A store is dropped when **any** run shows one of
 * robots.txt disallowing a path the pipeline uses (``/products.json``,
   ``/products/<handle>.js``, ``/products/<handle>``), or robots.txt unreachable
 * a product in an excluded category (adult, tobacco/vape, alcohol, cannabis/CBD,
-  weapons) found by the content screen
+  weapons) found by the content screen, unless a person reviewed exactly those
+  titles as false positives in ``config/screen-review.yml``
 
 and when its latest recon fails for any other reason (not Shopify, catalog over
 3,000 variants, currency not proven USD, witness mismatch).
@@ -32,6 +33,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 PER_CATEGORY = 8
 MIN_PER_CATEGORY = 4
 CATEGORY_TITLES = {
@@ -48,11 +51,54 @@ USED_PATHS = (
 )
 
 
+REVIEW_PATH = Path("config/screen-review.yml")
+
+
+@dataclass(frozen=True)
+class ScreenReview:
+    store: str
+    category: str
+    titles: frozenset[str]
+    verdict: str
+    reason: str
+
+
+def load_reviews(path: Path = REVIEW_PATH) -> dict[str, list[ScreenReview]]:
+    if not path.exists():
+        return {}
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    out: dict[str, list[ScreenReview]] = defaultdict(list)
+    for r in raw.get("reviews") or []:
+        out[r["store"]].append(
+            ScreenReview(
+                r["store"], r["category"], frozenset(r["titles"]), r["verdict"], r["reason"]
+            )
+        )
+    return dict(out)
+
+
 @dataclass
 class StoreRecord:
     store: str
     category: str
     history: list[tuple[str, dict[str, Any]]] = field(default_factory=list)
+    reviews: list[ScreenReview] = field(default_factory=list)
+
+    def _reviewed(self, category: str, examples: list[str]) -> ScreenReview | None:
+        for review in self.reviews:
+            if (
+                review.category == category
+                and review.verdict == "false_positive"
+                and set(examples) <= review.titles
+            ):
+                return review
+        return None
+
+    def reviewed_titles(self) -> list[str]:
+        return sorted(t for r in self.reviews if r.verdict == "false_positive" for t in r.titles)
+
+    def review_notes(self) -> list[str]:
+        return [f"screen hit reviewed ({r.category}): {r.reason}" for r in self.reviews]
 
     @property
     def latest(self) -> dict[str, Any]:
@@ -82,7 +128,8 @@ class StoreRecord:
                 if r.get(key) is False:
                     reasons.append(f"{rid}: robots.txt disallows {path}")
             for cat, examples in (r.get("content_flags") or {}).items():
-                reasons.append(f"{rid}: excluded category {cat} (e.g. {'; '.join(examples)})")
+                if self._reviewed(cat, examples) is None:
+                    reasons.append(f"{rid}: excluded category {cat} (e.g. {'; '.join(examples)})")
         latest = self.latest
         if not latest["passed"]:
             covered = ("blocked", "robots", "needed 429", "excluded category")
@@ -93,12 +140,19 @@ class StoreRecord:
         return list(dict.fromkeys(reasons))
 
 
-def collect(sources: list[tuple[str, dict[str, Any]]]) -> list[StoreRecord]:
+def collect(
+    sources: list[tuple[str, dict[str, Any]]],
+    reviews: dict[str, list[ScreenReview]] | None = None,
+) -> list[StoreRecord]:
+    reviews = reviews or {}
     records: dict[str, StoreRecord] = {}
     for _, payload in sources:
         rid = payload["meta"]["id"]
         for r in payload["results"]:
-            rec = records.setdefault(r["store"], StoreRecord(r["store"], r["category"]))
+            rec = records.setdefault(
+                r["store"],
+                StoreRecord(r["store"], r["category"], reviews=reviews.get(r["store"], [])),
+            )
             rec.history.append((rid, r))
     return list(records.values())
 
@@ -171,6 +225,7 @@ def _notes(rec: StoreRecord) -> str:
         bits.append(f"{r['available_share']:.0%} variants in stock")
     if r.get("js_crosscheck") == "match":
         bits.append(".js prices match")
+    bits += rec.review_notes()
     bits.append("runs: " + ", ".join(rid for rid, _ in rec.history))
     return "; ".join(bits)
 
@@ -199,9 +254,12 @@ def _dropped_row(rec: StoreRecord) -> str:
     )
 
 
-def render(sources: list[tuple[str, dict[str, Any]]]) -> str:
+def render(
+    sources: list[tuple[str, dict[str, Any]]],
+    reviews: dict[str, list[ScreenReview]] | None = None,
+) -> str:
     """Render the register from ``(path, payload)`` pairs, oldest run first."""
-    records = collect(sources)
+    records = collect(sources, reviews)
     groups = classify(records)
     selected = sorted(groups["selected"], key=_order)
     counts: dict[str, int] = defaultdict(int)
@@ -255,9 +313,12 @@ def render(sources: list[tuple[str, dict[str, Any]]]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def render_stores_yml(sources: list[tuple[str, dict[str, Any]]]) -> str:
+def render_stores_yml(
+    sources: list[tuple[str, dict[str, Any]]],
+    reviews: dict[str, list[ScreenReview]] | None = None,
+) -> str:
     """The monitored store list consumed by the daily run (config/stores.yml)."""
-    groups = classify(collect(sources))
+    groups = classify(collect(sources, reviews))
     ids = ", ".join(p["meta"]["id"] for _, p in sources)
     lines = [
         "# Monitored stores. Generated by `python -m pricemon.sources --stores-yml` from",
@@ -277,6 +338,8 @@ def render_stores_yml(sources: list[tuple[str, dict[str, Any]]]) -> str:
             f"    recon_variants: {r['variants']}",
             f"    recon_products: {r['products']}",
         ]
+        if rec.reviewed_titles():
+            lines.append(f"    screen_reviewed: {json.dumps(rec.reviewed_titles())}")
     return "\n".join(lines) + "\n"
 
 
@@ -284,10 +347,13 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("recon_json", type=Path, nargs="+")
     parser.add_argument("--stores-yml", action="store_true", help="emit config/stores.yml")
+    parser.add_argument("--reviews", type=Path, default=REVIEW_PATH, help="screen-review file")
     args = parser.parse_args(argv)
     paths = sorted(args.recon_json, key=lambda p: p.parent.name)
     sources = [(p.as_posix(), json.loads(p.read_text(encoding="utf-8"))) for p in paths]
-    print(render_stores_yml(sources) if args.stores_yml else render(sources), end="")
+    reviews = load_reviews(args.reviews)
+    out = render_stores_yml(sources, reviews) if args.stores_yml else render(sources, reviews)
+    print(out, end="")
     return 0
 
 
