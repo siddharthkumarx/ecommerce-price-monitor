@@ -36,6 +36,10 @@ class FakeShop:
         self.page_html = overrides.get("page_html", (FIXTURES / "product_page.html").read_text())
         self.js_price_cents = overrides.get("js_price_cents", 2800)
         self.block_catalog = overrides.get("block_catalog", False)
+        self.throttle_once = overrides.get("throttle_once", False)
+        self.vape = overrides.get("vape", False)
+        if self.vape:
+            self.catalog[0]["title"] = "Mini Vape Pen"
 
     def __call__(self, request: httpx.Request) -> httpx.Response:
         path = request.url.path
@@ -44,6 +48,9 @@ class FakeShop:
         if path == "/products.json":
             if self.block_catalog:
                 return httpx.Response(403, text="<title>Just a moment...</title>")
+            if self.throttle_once:
+                self.throttle_once = False
+                return httpx.Response(429, headers={"Retry-After": "5"})
             page = int(request.url.params.get("page", "1"))
             limit = int(request.url.params.get("limit", "30"))
             chunk = self.catalog[(page - 1) * limit : page * limit]
@@ -119,3 +126,21 @@ def test_non_usd_currency_fails() -> None:
 def test_witness_mismatch_fails() -> None:
     res = recon(FakeShop(js_price_cents=2500))
     assert res.verdict() == (False, ["witness mismatch"])
+
+
+def test_a_429_retry_fails_even_when_the_retry_succeeds() -> None:
+    res = recon(FakeShop(throttle_once=True))
+    assert res.retry_causes == ["http 429"]
+    assert res.verdict() == (False, ["needed 429 retries"])
+
+
+def test_robots_disallowing_product_pages_fails() -> None:
+    robots = "User-agent: *\nDisallow: /products/item-0?\n"
+    res = recon(FakeShop(robots=robots))
+    assert "robots disallows product page" in res.verdict()[1]
+
+
+def test_excluded_category_fails() -> None:
+    res = recon(FakeShop(vape=True))
+    assert res.content_flags == {"tobacco/vape": ["Mini Vape Pen"]}
+    assert res.verdict() == (False, ["excluded category: tobacco/vape"])

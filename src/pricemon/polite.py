@@ -180,6 +180,7 @@ class StoreSession:
     stopped_reason: str | None = None
     requests_made: int = 0
     retries_made: int = 0
+    retry_causes: list[str] = field(default_factory=list)
     _next_at: float = 0.0
 
     def __post_init__(self) -> None:
@@ -237,6 +238,7 @@ class StoreSession:
                 wait = max(backoff, retry_after or 0.0)
             if attempt < self.config.max_attempts:
                 self.retries_made += 1
+                self.retry_causes.append(last_problem)
                 self._next_at = self.clock() + wait + self.rng.uniform(0.0, self.config.jitter_s)
         raise self._stop(f"retries exhausted: {last_problem}")
 
