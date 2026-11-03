@@ -61,12 +61,22 @@ def _robots(r: dict[str, Any]) -> str:
 
 
 def _currency(r: dict[str, Any]) -> str:
-    seen = sorted(set(r.get("jsonld_currency") or []) | {r["shopify_currency"]} - {None})
-    return ",".join(seen) if seen else "-"
+    jsonld = set(r.get("jsonld_currency") or [])
+    seen = sorted(jsonld | ({r["shopify_currency"]} - {None}))
+    if not seen:
+        return "-"
+    label = ",".join(seen)
+    return label if jsonld else f"{label} (theme only, no JSON-LD offer)"
+
+
+def _base_domain(host: str) -> str:
+    return host.removeprefix("www.")
 
 
 def _notes(r: dict[str, Any]) -> str:
     bits: list[str] = []
+    if r.get("host") and _base_domain(r["host"]) != _base_domain(r["domain"]):
+        bits.append(f"`{r['domain']}` redirects here")
     if r.get("meta_country") and r["meta_country"] != "US":
         bits.append(f"shop country {r['meta_country']}")
     if r.get("available_share") is not None:
