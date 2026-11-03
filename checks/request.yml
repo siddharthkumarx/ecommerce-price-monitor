@@ -1,32 +1,73 @@
 # Live check request. Pushing a change to this file runs .github/workflows/checks.yml
 # on the GitHub runner; results are committed to checks/results/<id>/.
-# recon-003: 20 extra apparel candidates (recon-002 left apparel with 3 passing stores).
-id: recon-003
+# recon-004: 60 new beauty, home & kitchen and outdoor candidates, at half the recon-002
+# pace because a single 429 retry now drops a store (docs/decisions.md, D-004).
+id: recon-004
 check: recon
 candidates: checks/candidates.yml
-concurrency: 4
-delay_s: 3.0
-jitter_s: 2.0
-edge_interval_s: 2.0
-edge_jitter_s: 1.0
+concurrency: 3
+delay_s: 5.0
+jitter_s: 3.0
+edge_interval_s: 4.0
+edge_jitter_s: 2.0
 only:
-  - "Tracksmith"
-  - "Mott & Bow"
-  - "Kirrin Finch"
-  - "Olivers Apparel"
-  - "Feat Clothing"
-  - "Birddogs"
-  - "Greats"
-  - "Koio"
-  - "Thousand Fell"
-  - "Wolf & Shepherd"
-  - "Atoms"
-  - "Kule"
-  - "Lunya"
-  - "Paka"
-  - "State & Liberty"
-  - "Knickey"
-  - "Richer Poorer"
-  - "Fair Harbor"
-  - "Howler Brothers"
-  - "Ably Apparel"
+  - "Saie"
+  - "Versed"
+  - "Kinship"
+  - "Nécessaire"
+  - "Bubble"
+  - "Topicals"
+  - "Starface"
+  - "Hero Cosmetics"
+  - "Peach & Lily"
+  - "Volition Beauty"
+  - "Ceremonia"
+  - "Jones Road"
+  - "Westman Atelier"
+  - "Crown Affair"
+  - "Act+Acre"
+  - "Vacation"
+  - "Soft Services"
+  - "Touchland"
+  - "Billie"
+  - "Sol de Janeiro"
+  - "Hedley & Bennett"
+  - "Year & Day"
+  - "Coyuchi"
+  - "Sheets & Giggles"
+  - "Cozy Earth"
+  - "Branch Basics"
+  - "Brooklyn Candle Studio"
+  - "Otherland"
+  - "Homesick"
+  - "Boy Smells"
+  - "Equal Parts"
+  - "Xtrema"
+  - "Heath Ceramics"
+  - "East Fork"
+  - "Estelle Colored Glass"
+  - "Floyd"
+  - "W&P"
+  - "Stasher"
+  - "Bee's Wrap"
+  - "Snowe"
+  - "Miir"
+  - "HydraPak"
+  - "Big Agnes"
+  - "Sea to Summit"
+  - "Coalatree"
+  - "Poler"
+  - "Mystery Ranch"
+  - "Hyperlite Mountain Gear"
+  - "Gossamer Gear"
+  - "Enlightened Equipment"
+  - "ULA Equipment"
+  - "Six Moon Designs"
+  - "Mountainsmith"
+  - "ENO"
+  - "Showers Pass"
+  - "Chums"
+  - "Sawyer"
+  - "Goal Zero"
+  - "Oveja Negra"
+  - "Zpacks"
