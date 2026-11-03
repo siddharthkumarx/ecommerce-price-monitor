@@ -57,9 +57,9 @@ class RunConfig:
     history_in: Path | None = None
     history_out: Path | None = None
     concurrency: int = 3
-    polite: PoliteConfig = field(default_factory=PoliteConfig)
-    edge_interval_s: float = 2.0
-    edge_jitter_s: float = 1.0
+    polite: PoliteConfig = field(default_factory=lambda: PoliteConfig(delay_s=4.0, jitter_s=3.0))
+    edge_interval_s: float = 3.0
+    edge_jitter_s: float = 1.5
     only: set[str] = field(default_factory=set)
 
 
@@ -242,10 +242,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--history-in", type=Path)
     p.add_argument("--history-out", type=Path)
     p.add_argument("--concurrency", type=int, default=3)
-    p.add_argument("--delay", type=float, default=3.0, help="per-store delay, seconds")
-    p.add_argument("--jitter", type=float, default=2.0, help="per-store jitter, seconds")
-    p.add_argument("--edge-interval", type=float, default=2.0, help="run-wide interval, seconds")
-    p.add_argument("--edge-jitter", type=float, default=1.0, help="run-wide jitter, seconds")
+    # Daily pace (docs/decisions.md, D-005).
+    p.add_argument("--delay", type=float, default=4.0, help="per-store delay, seconds")
+    p.add_argument("--jitter", type=float, default=3.0, help="per-store jitter, seconds")
+    p.add_argument("--edge-interval", type=float, default=3.0, help="run-wide interval, seconds")
+    p.add_argument("--edge-jitter", type=float, default=1.5, help="run-wide jitter, seconds")
     p.add_argument("--only", action="append", default=[], help="store id (repeatable)")
     a = p.parse_args(argv)
     cfg = RunConfig(
