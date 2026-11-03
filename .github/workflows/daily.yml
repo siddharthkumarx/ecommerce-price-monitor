@@ -1,0 +1,127 @@
+# Daily price, discount and stock run. Schedules run on the default branch.
+# Keep the cron lines identical to CRONS in src/pricemon/schedule.py (tested).
+name: daily
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+    - cron: "17 0,12,18 26-30 11 *"
+    - cron: "17 0,12,18 1 12 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRANCH: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked --no-dev
+
+      - name: Download this month's history
+        run: |
+          month="$(date -u +%Y-%m)"
+          echo "MONTH=$month" >> "$GITHUB_ENV"
+          echo "TAG=data-$month" >> "$GITHUB_ENV"
+          mkdir -p work
+          if gh release view "data-$month" > /dev/null 2>&1; then
+            gh release download "data-$month" -p "price_history_$month.parquet" -D work
+          fi
+          ls -la work
+
+      - name: Run pipeline
+        id: run
+        timeout-minutes: 32
+        run: |
+          set +e
+          args=(--stores config/stores.yml --data data --history-out "work/price_history_$MONTH.parquet")
+          if [ -f "work/price_history_$MONTH.parquet" ]; then
+            args+=(--history-in "work/price_history_$MONTH.parquet")
+          fi
+          uv run --no-dev python -m pricemon.run "${args[@]}"
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "pipeline exit code $code"
+
+      - name: Upload history to release
+        if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
+        run: |
+          if ! gh release view "$TAG" > /dev/null 2>&1; then
+            gh release create "$TAG" --title "Price history $MONTH" --latest=false \
+              --notes "Monthly SCD2 price history (Parquet). Rewritten by every good run in $MONTH."
+          fi
+          gh release upload "$TAG" "work/price_history_$MONTH.parquet" --clobber
+
+      - name: Publish Google Sheet
+        if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
+        env:
+          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
+          GOOGLE_SHEET_ID: ${{ vars.GOOGLE_SHEET_ID }}
+        continue-on-error: true
+        run: uv run --no-dev python -m pricemon.sheets --data data
+
+      - name: Commit data
+        if: always() && steps.run.outputs.code != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          run_line="$(tail -n 1 data/runs.jsonl)"
+          run_id="$(printf '%s' "$run_line" | python3 -c 'import json,sys; print(json.load(sys.stdin)["run_id"])')"
+          status="$(printf '%s' "$run_line" | python3 -c 'import json,sys; print(json.load(sys.stdin)["status"])')"
+          git commit -m "data: run $run_id ($status)"
+          for i in 1 2 3 4; do
+            if git pull --rebase origin "$BRANCH" && git push origin "HEAD:$BRANCH"; then
+              exit 0
+            fi
+            sleep $((2 ** i))
+          done
+          exit 1
+
+      - name: Alert on failed or held run
+        id: alert
+        if: always()
+        run: |
+          uv run --no-dev python -m pricemon.alert --data data --code "${{ steps.run.outputs.code }}" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --out alert.md || printf 'Alert script failed; see the workflow run.\n' > alert.md
+          if [ ! -f alert.md ]; then
+            exit 0
+          fi
+          echo "raised=true" >> "$GITHUB_OUTPUT"
+          gh label create run-alert --color E9A93C --description "Daily run failed or held" --force
+          number="$(gh issue list --label run-alert --state open --json number --jq '.[0].number')"
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file alert.md
+          else
+            gh issue create --title "Daily run needs attention" --label run-alert --body-file alert.md
+          fi
+
+      - name: Fail the job when an alert was raised
+        if: always() && steps.alert.outputs.raised == 'true'
+        run: |
+          echo "::error::daily run failed or was held, see the run-alert issue"
+          exit 1
