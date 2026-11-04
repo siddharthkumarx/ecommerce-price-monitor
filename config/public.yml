@@ -1,0 +1,10 @@
+# Public identity of the published repository, used by the README and dataset card
+# renderers (python -m pricemon.readme). Change here, not in the rendered files.
+repo: siddharthkumarx/ecommerce-price-monitor
+branch: main
+dashboard: https://siddharthkumar.com/ecommerce-price-monitor/
+# Public Google Sheet (view-only link). Leave empty until one exists.
+sheet: ""
+owner: Siddharth Kumar
+site: https://siddharthkumar.com
+email: hello@siddharthkumar.com
