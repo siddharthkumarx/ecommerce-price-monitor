@@ -53,3 +53,13 @@ def test_dashboard_empty_state(tmp_path: Path) -> None:
     text = page.read_text()
     assert "No runs yet" in text
     assert "No changes recorded yet." in text
+
+
+def test_pct_never_rounds_a_real_share_to_zero_or_all() -> None:
+    from pricemon.site import pct
+
+    assert pct(0, 100) == "0%"
+    assert pct(5, 1436) == "<1%"
+    assert pct(1435, 1436) == ">99%"
+    assert pct(100, 100) == "100%"
+    assert pct(1, 0) == "-"

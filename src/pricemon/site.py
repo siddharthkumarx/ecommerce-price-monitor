@@ -65,7 +65,14 @@ def usd(cents: object) -> str:
 
 
 def pct(part: int, whole: int) -> str:
-    return f"{part / whole:.0%}" if whole else "-"
+    if not whole:
+        return "-"
+    share = part / whole
+    if 0 < share < 0.01:
+        return "<1%"
+    if 0.99 < share < 1:
+        return ">99%"
+    return f"{share:.0%}"
 
 
 def _kpi(label: str, value: str, tone: str = "") -> str:
@@ -76,7 +83,17 @@ def _kpi(label: str, value: str, tone: str = "") -> str:
 
 
 def _table(caption: str, head: list[tuple[str, bool]], rows: list[list[str]], label: str) -> str:
-    ths = "".join(f'<th scope="col"{" class=num" if num else ""}>{esc(h)}</th>' for h, num in head)
+    def th(h: str, num: bool) -> str:
+        classes = " ".join(
+            c for c in ("num" if num else "", "hide-sm" if h == "Category" else "") if c
+        )
+        return (
+            f'<th scope="col" class="{classes}">{esc(h)}</th>'
+            if classes
+            else f'<th scope="col">{esc(h)}</th>'
+        )
+
+    ths = "".join(th(h, num) for h, num in head)
     body = "".join("<tr>" + "".join(r) + "</tr>" for r in rows)
     return (
         f'<div class="scroll" role="region" aria-label="{esc(label)}" tabindex="0">'
@@ -127,7 +144,8 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 
     counts = (last_good or {}).get("events") or {}
     event_items = "".join(
-        f'<li><span>{esc(EVENT_LABELS[k])}</span><b class="{EVENT_TONE[k]}">{int(counts.get(k, 0)):,}</b></li>'
+        f"<li><span>{esc(EVENT_LABELS[k])}</span>"
+        f'<b class="{EVENT_TONE[k] if counts.get(k) else "quiet"}">{int(counts.get(k, 0)):,}</b></li>'
         for k in EVENT_LABELS
     )
     when_good = (
@@ -149,7 +167,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
             store_rows.append(
                 [
                     f'<td><a href="https://{esc(s.host)}" rel="nofollow noopener">{esc(s.name)}</a></td>',
-                    td(CATEGORY_TITLES[cat], cls="cat"),
+                    td(CATEGORY_TITLES[cat], cls="cat hide-sm"),
                     td(f"{v:,}", num=True),
                     td(pct(int(agg.get("in_stock", 0)), v), num=True, cls="teal"),
                     td(pct(int(agg.get("discounted", 0)), v), num=True, cls="amber"),
