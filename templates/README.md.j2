@@ -44,18 +44,18 @@ No prices, sales or stock changed in the run of {{ f.run_date }}.
 
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's product feed, then checks a sample product against a second source from the same store. Latest run: {{ q.js_match }} of {{ q.js_checked }} sample products matched exactly.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: {{ q.js_match }} of {{ q.js_checked }} checked products matched exactly.
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: {{ q.usd_stores }} of {{ q.stores_total }} stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: {{ q.rows_rejected }} rows set aside, {{ "{:,}".format(q.free_variants) }} free gifts and samples left out on purpose, {{ "held" if q.held else "not held" }}.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: {{ q.stores_ok }} of {{ q.stores_total }} stores updated{% if q.not_updated %}; {{ q.not_updated|length }} kept their previous prices{% endif %}.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: {{ "{:,}".format(q.requests) }} page requests in {{ q.duration_min }} minutes, {{ q.blocked }} stores blocked us.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: {{ "{:,}".format(q.requests) }} page requests in {{ q.duration_min }} minutes, and {% if q.blocked %}{{ q.blocked }} store{{ "s" if q.blocked != 1 else "" }} blocked us (their last good prices stayed live){% else %}no store blocked us{% endif %}.
 
 ## How it works
 
 <p align="center"><img src="assets/pipeline.svg" width="100%" alt="Five steps: read public store catalogs, collect politely once a day, check every price against a second source, keep the full history, deliver CSV, a monthly data file, a Google Sheet and a dashboard."></p>
 
 1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with the stores' rules respected.
-2. **Check.** Each price is checked for sense (above zero, sale price below the "was" price) and against a second source from the same store.
+2. **Check.** Each price is checked for obvious errors (above zero, sale price below the "was" price), and one product per store is compared with a second source.
 3. **Store.** Every change is kept with the time it happened, so you can see what any product cost on any day.
 4. **Deliver.** The latest prices as CSV, a daily change log, a monthly history file, an optional Google Sheet and a [live dashboard]({{ pub.dashboard }}).
 
@@ -67,10 +67,10 @@ No prices, sales or stock changed in the run of {{ f.run_date }}.
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
-- **Too fast for a shared host.** Each store was read slowly, but many stores share one host, and together the requests were too fast. Fix: one pace for the whole run, plus an automatic stop if several stores push back at once.
+- **Too fast for a shared host.** Each store was read slowly, but all these stores run on Shopify's servers, and together the requests were too fast. Fix: one pace for the whole run, plus an automatic stop if several stores push back at once.
 - **Free gifts looked like errors.** Free samples have a price of zero, and the checks treated them as broken data and held a whole run. Fix: free items are now left out on purpose and counted separately.
-- **"Slow down" was obeyed by one store only.** When the host asked us to wait a minute, only that store waited while the others carried on. Fix: when the host asks, every store pauses together, and the pace eases back only after a run of clean answers.
-- **A busy night got us rate-limited.** After many test runs in one night, the host kept refusing for a while. Fix: the run now stops politely instead of retrying, the store list was trimmed so a day's run stays short, and test runs are rationed.
+- **"Slow down" was obeyed by one store only.** When Shopify asked us to wait a minute, only that store waited while the others carried on. Fix: when Shopify asks, every store pauses together, and the pace eases back only after a run of clean answers.
+- **Too many test runs in one night.** After many test runs in a few hours, Shopify refused us for a while. Fix: the run now stops politely instead of retrying, the store list was trimmed so a day's run stays short, and test runs are rationed.
 
 ## Who uses data like this
 
@@ -97,7 +97,7 @@ Every store is read once a day, in the early morning US time. Each row shows whe
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
 
 **Which formats can I get?**
-CSV and Excel, Google Sheets, a monthly history file (Parquet), a database table, or an API. This repository shows CSV, Parquet, a Google Sheet and a dashboard.
+CSV and Excel, Google Sheets, a monthly history file (Parquet), a database table, or an API. This repository delivers CSV, Parquet{% if pub.sheet %}, a Google Sheet{% endif %} and a dashboard.
 
 **Can you track my competitors' sites?**
 Yes, if the information is public, such as prices, sales and stock on product pages. I check each site first and tell you what can be collected and how often, before any work starts.

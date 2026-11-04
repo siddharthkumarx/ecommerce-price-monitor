@@ -143,7 +143,7 @@ def hero(f: Facts, width: int = 1000, height: int = 460, scale: float = 1.0) -> 
     for i, r in enumerate(rows):
         y = top + 30 * s + i * row_h
         price = r.price + (f" -{r.discount_pct}%" if r.discount_pct else "")
-        name_chars = max(8, max_chars - len(price) - 3)
+        name_chars = max(8, max_chars - len(price) - 5)
         label = clip(f"{r.store} · {r.product}", name_chars)
         beat2.append(
             f'<g class="r{i + 1}"><rect x="{tx:g}" y="{y:g}" width="{tw:g}" height="{row_h - 10 * s:g}" '

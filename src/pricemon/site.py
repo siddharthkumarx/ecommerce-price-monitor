@@ -170,7 +170,11 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
                     td(CATEGORY_TITLES[cat], cls="cat hide-sm"),
                     td(f"{v:,}", num=True),
                     td(pct(int(agg.get("in_stock", 0)), v), num=True, cls="teal"),
-                    td(pct(int(agg.get("discounted", 0)), v), num=True, cls="amber"),
+                    td(
+                        pct(int(agg.get("discounted", 0)), v),
+                        num=True,
+                        cls="amber" if int(agg.get("discounted", 0)) else "quiet",
+                    ),
                     td(
                         f"{agg['avg_discount_pct']}%"
                         if agg.get("avg_discount_pct") is not None
