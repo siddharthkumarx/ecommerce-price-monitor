@@ -97,10 +97,13 @@ jobs:
         if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
         run: |
           if ! gh release view "$TAG" > /dev/null 2>&1; then
-            gh release create "$TAG" --title "Price history $MONTH" --latest=false \
-              --notes "Monthly SCD2 price history (Parquet). Rewritten by every good run in $MONTH."
+            gh release create "$TAG" --title "Price data $MONTH" \
+              --notes "latest-prices.csv: the newest prices of every product option. price_history_$MONTH.parquet: every price version this month. Both are replaced by every good run; the data dictionary is in the README."
           fi
-          gh release upload "$TAG" "work/price_history_$MONTH.parquet" --clobber
+          cp data/latest/snapshot.csv work/latest-prices.csv
+          gh release upload "$TAG" "work/price_history_$MONTH.parquet" work/latest-prices.csv --clobber
+          # "Download the data" in the README links to the latest release.
+          gh release edit "$TAG" --latest
 
       - name: Publish Google Sheet
         if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
@@ -113,6 +116,13 @@ jobs:
       - name: Build dashboard
         if: always() && steps.run.outputs.code != ''
         run: uv run --no-dev python -m pricemon.site --data data --stores config/stores.yml --out site
+
+      # The README, the dataset card and the data-driven visuals show the latest run.
+      - name: Render README and visuals
+        if: always() && steps.run.outputs.code != ''
+        run: |
+          uv run --no-dev python -m pricemon.visuals --data data --stores config/stores.yml --out assets
+          uv run --no-dev python -m pricemon.readme
 
       - name: Keep the dashboard as a run artifact
         if: always() && steps.run.outputs.code != ''
@@ -133,7 +143,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
+          git add data README.md assets/hero.svg assets/pipeline.svg assets/maintenance-loop.svg
           if git diff --cached --quiet; then
             echo "nothing to commit"
             exit 0
