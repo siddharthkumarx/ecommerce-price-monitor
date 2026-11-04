@@ -43,7 +43,11 @@ jobs:
           echo "MONTH=$month" >> "$GITHUB_ENV"
           echo "TAG=data-$month" >> "$GITHUB_ENV"
           mkdir -p work
-          if gh release view "data-$month" > /dev/null 2>&1; then
+          # A month file that exists must be downloaded: merging without it would drop
+          # the month's earlier closed versions. A missing file (new month, or a first
+          # upload that failed) is fine: the run starts the month file from the snapshot.
+          assets="$(gh release view "data-$month" --json assets --jq '.assets[].name' 2> /dev/null || true)"
+          if printf '%s\n' "$assets" | grep -qx "price_history_$month.parquet"; then
             gh release download "data-$month" -p "price_history_$month.parquet" -D work
           fi
           ls -la work
@@ -63,6 +67,7 @@ jobs:
           echo "pipeline exit code $code"
 
       - name: Upload history to release
+        id: upload
         if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
         run: |
           if ! gh release view "$TAG" > /dev/null 2>&1; then
@@ -91,8 +96,14 @@ jobs:
           path: site
           retention-days: 14
 
+      # Data is committed only when the history upload succeeded (or was not needed,
+      # as for a held run): a snapshot ahead of the Parquet history would lose the
+      # versions closed in this run.
       - name: Commit data
-        if: always() && steps.run.outputs.code != ''
+        id: commit
+        if: >-
+          always() && steps.run.outputs.code != '' &&
+          (steps.upload.outcome == 'success' || steps.upload.outcome == 'skipped')
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -120,6 +131,16 @@ jobs:
           uv run --no-dev python -m pricemon.alert --data data --code "${{ steps.run.outputs.code }}" \
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --out alert.md || printf 'Alert script failed; see the workflow run.\n' > alert.md
+          for step in "upload:${{ steps.upload.outcome }}" "commit:${{ steps.commit.outcome }}"; do
+            case "$step" in
+              *:failure|commit:skipped)
+                if [ "$step" = "commit:skipped" ] && [ "${{ steps.run.outputs.code }}" = "" ]; then
+                  continue
+                fi
+                printf '\nStep `%s` did not complete; data was not committed.\n' "${step%%:*}" >> alert.md
+                ;;
+            esac
+          done
           if [ ! -f alert.md ]; then
             exit 0
           fi
