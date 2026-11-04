@@ -48,7 +48,8 @@ item says how to verify it.
     `schedule.CRONS`.
 16. **CI hardening** - `done`. gitleaks 8.30.1 (pinned sha256), pip-audit on the
     lockfile, 50 MB file test (`tests/test_repo_hygiene.py`).
-17. **Remove the 2026 Black Friday cron lines after 1 Dec 2026** - `todo` (D-013).
+17. **Remove the 2026 Black Friday cron lines after 1 Dec 2026** - `todo` (D-013,
+    D-021): the BFCM lines name days, not a year, and would fire again in 2027.
 18. **README and animated SVGs** - `blocked` (waiting for the owner's README
     rules; notes in `docs/readme-plan.md`).
 19. **Live pipeline dry runs** - `done`; follow-up open. `pipeline-001` held
@@ -66,3 +67,11 @@ item says how to verify it.
     `docs/decisions.md`. Already in place for it: no JavaScript, inline CSS,
     preloaded self-hosted fonts with `font-display: swap`, `lang`, meta
     description, inline favicon, focusable scroll regions, contrast >= 4.5:1.
+21. **45-minute budget and 25-store list** - `done` (D-020). `sources.py` trims to
+    25 stores (at least 4 per category); `docs/sources.md` and `config/stores.yml`
+    regenerated; request budget 38 min, step 41, job 45.
+22. **BFCM flag** - `done` (D-021). `env.BFCM_RUNS_PER_DAY` in `daily.yml`, "2"
+    until the repo is public; set "4" only if public by 26 Nov 2026.
+23. **First real daily run** - `in progress`. Neither the 06:17 UTC schedule nor
+    the owner's manual run on 2026-11-04 had appeared in the Actions run list by
+    08:40 UTC. Read the first run's `data/runs.jsonl` line when it lands.

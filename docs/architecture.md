@@ -167,7 +167,7 @@ with no `runs.jsonl` entry of status `ok`/`partial` within 3 hours after the slo
 |---|---|---|
 | `ci.yml` | every push | commit-message check, ruff, mypy, pytest, gitleaks, pip-audit, file-size check |
 | `checks.yml` | push changing `checks/request.yml` | live checks; commits `checks/results/<id>/` |
-| `daily.yml` | `17 6 * * *`; `17 0,12,18 26-30 11 *` and `17 0,12,18 1 12 *` (with the daily slot, 4 runs a day 26 Nov to 1 Dec 2026); `workflow_dispatch` | `timeout-minutes: 40`, `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). |
+| `daily.yml` | `17 6 * * *`; on 26 Nov to 1 Dec 2026 also 18:17, and 00:17 and 12:17 only when `env.BFCM_RUNS_PER_DAY` is "4" (D-021); `workflow_dispatch` | job `timeout-minutes: 45` (D-020), no request after 38 minutes, `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). |
 
 Scheduled workflows run on the default branch, which is the working branch until
 the public publish.

@@ -24,6 +24,9 @@ number by hand into docs, README, dashboard or SVGs.
   `Co-Authored-By`, `Claude-Session` and "Generated with" lines; the `ci` workflow
   job `commit-messages` fails if any commit still has one. Never add them.
 - Never open a pull request. Work on the designated branch and push it.
+- The working branch is the repository's default branch, so scheduled runs commit
+  `data/` to it too. Always `git pull --rebase` before you push. The workflows'
+  own commits retry their push with `git pull --rebase` (up to 4 times).
 - Small, meaningful commits (`area: what and why`). Update
   `docs/build-progress.md` after every item.
 - Every file in git stays under 50 MB. Full price history lives only in the
@@ -63,6 +66,19 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
 - Stores selling adult, tobacco/vape, alcohol, cannabis/CBD or weapons products
   are excluded (content screen in `src/pricemon/screen.py`).
 
+### Run budget and schedule
+
+- One daily run must finish in under 45 minutes on a single runner (D-020). Never
+  split a run over several jobs or runners: that would spread requests over more
+  IPs and work around Shopify's per-IP limit. Keep it inside the budget with the
+  store list (25 stores, at least 4 per category, `MAX_STORES` in `sources.py`).
+- Actions minutes are a private budget (2,000 a month, shared with another repo)
+  until the public publish: request live checks only when they answer a question.
+- Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): **one flag**,
+  `env.BFCM_RUNS_PER_DAY` in `.github/workflows/daily.yml`. Set it to `"4"` only if
+  the repository is public by 26 Nov; otherwise leave `"2"` (06:17 and 18:17 UTC).
+  D-021.
+
 ### Dashboard look
 
 Background `#0B1416`; panels `#0F1C1E` with border `#1D3331`; main text
@@ -101,7 +117,7 @@ uv run python -m pricemon.site --data data --out site # build the dashboard (off
 src/pricemon/   polite.py (HTTP rules), witness.py (parsers), recon.py, screen.py,
                 sources.py (register), checks.py (live checks runner), and the
                 pipeline modules listed in docs/architecture.md
-config/         stores.yml (generated from recon evidence)
+config/         stores.yml (generated from recon evidence), screen-review.yml
 checks/         candidates.yml, request.yml, results/<id>/ (committed evidence)
 data/           pipeline outputs committed by the daily workflow
 site/           built dashboard
