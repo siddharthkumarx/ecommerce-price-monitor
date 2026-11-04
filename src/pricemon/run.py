@@ -61,7 +61,9 @@ class RunConfig:
     polite: PoliteConfig = field(default_factory=lambda: PoliteConfig(delay_s=4.0, jitter_s=3.0))
     edge_interval_s: float = 3.0
     edge_jitter_s: float = 1.5
-    budget_s: float = 27 * 60
+    # No new request after 38 minutes: with setup, upload and commit the job stays
+    # under the owner's 45-minute limit (D-020).
+    budget_s: float = 38 * 60
     only: set[str] = field(default_factory=set)
 
 

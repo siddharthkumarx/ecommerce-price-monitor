@@ -29,11 +29,12 @@ def test_actions_are_pinned_to_commit_shas(path: Path) -> None:
 @pytest.mark.parametrize("path", WORKFLOWS, ids=lambda p: p.name)
 def test_jobs_have_timeouts_and_step_refs_exist(path: Path) -> None:
     text = path.read_text()
-    for name, job in _load(path)["jobs"].items():
+    jobs = _load(path)["jobs"]
+    ids = {s["id"] for job in jobs.values() for s in job["steps"] if "id" in s}
+    for name, job in jobs.items():
         assert "timeout-minutes" in job, f"{path.name}:{name} has no timeout"
-        ids = {s["id"] for s in job["steps"] if "id" in s}
-        for ref in re.findall(r"steps\.([\w-]+)\.", text):
-            assert ref in ids, f"{path.name}: steps.{ref} is not a step id"
+    for ref in re.findall(r"steps\.([\w-]+)\.", text):
+        assert ref in ids, f"{path.name}: steps.{ref} is not a step id"
 
 
 def test_daily_commits_data_only_after_the_history_upload() -> None:
@@ -43,3 +44,4 @@ def test_daily_commits_data_only_after_the_history_upload() -> None:
     names = [s.get("name") for s in daily["jobs"]["run"]["steps"]]
     assert names.index("Upload history to release") < names.index("Commit data")
     assert daily["concurrency"] == {"group": "daily", "cancel-in-progress": False}
+    assert daily["jobs"]["run"]["timeout-minutes"] <= 45  # owner limit (D-020)

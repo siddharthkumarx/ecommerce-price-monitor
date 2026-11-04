@@ -12,7 +12,7 @@ from typing import Any
 import duckdb
 
 from pricemon.changes import EVENT_TYPES, ChangeEvent
-from pricemon.schedule import missed_slots
+from pricemon.schedule import active_crons, missed_slots
 
 TEAL = "2FBFAE"
 AMBER = "E9A93C"
@@ -75,14 +75,21 @@ def _badge(label: str, message: str, color: str) -> dict[str, Any]:
     return {"schemaVersion": 1, "label": label, "message": message, "color": color}
 
 
-def build_status(runs: list[dict[str, Any]], now: datetime) -> dict[str, Any]:
+def build_status(
+    runs: list[dict[str, Any]], now: datetime, crons: tuple[str, ...] | None = None
+) -> dict[str, Any]:
     """status.json content, computed only from runs.jsonl."""
     good = [r for r in runs if r["status"] in GOOD_STATUSES]
     last = runs[-1] if runs else None
     first_good = parse_iso(good[0]["started_at"]) if good else None
     days_running = max(0, (now.date() - first_good.date()).days + 1) if first_good else 0
     missed = (
-        missed_slots([parse_iso(r["started_at"]) for r in good], first_good, now)
+        missed_slots(
+            [parse_iso(r["started_at"]) for r in good],
+            first_good,
+            now,
+            crons if crons is not None else active_crons(),
+        )
         if first_good
         else []
     )

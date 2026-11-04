@@ -7,14 +7,34 @@ supported: fixed minute, hour lists, day-of-month ranges or lists, month lists.
 
 from __future__ import annotations
 
+import os
 from collections.abc import Iterator
 from datetime import UTC, datetime, timedelta
 
 CRONS: tuple[str, ...] = (
     "17 6 * * *",
-    "17 0,12,18 26-30 11 *",
-    "17 0,12,18 1 12 *",
+    "17 18 26-30 11 *",
+    "17 18 1 12 *",
+    "17 0,12 26-30 11 *",
+    "17 0,12 1 12 *",
 )
+# The two extra Black Friday / Cyber Monday slots run only when the workflow flag
+# BFCM_RUNS_PER_DAY is "4" (owner decision D-021: 4 a day only if the repo is
+# public by 26 Nov 2026, otherwise 2).
+BFCM_EXTRA_CRONS: frozenset[str] = frozenset({"17 0,12 26-30 11 *", "17 0,12 1 12 *"})
+
+
+def active_crons(bfcm_runs_per_day: int | None = None) -> tuple[str, ...]:
+    """The cron slots that are meant to run, given the BFCM flag (env by default)."""
+    if bfcm_runs_per_day is None:
+        bfcm_runs_per_day = int(os.environ.get("BFCM_RUNS_PER_DAY", "2"))
+    if bfcm_runs_per_day not in (2, 4):
+        raise ValueError("BFCM_RUNS_PER_DAY must be 2 or 4")
+    if bfcm_runs_per_day == 4:
+        return CRONS
+    return tuple(c for c in CRONS if c not in BFCM_EXTRA_CRONS)
+
+
 GRACE = timedelta(hours=3)
 
 
