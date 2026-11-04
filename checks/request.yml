@@ -1,8 +1,8 @@
 # Live check request. Pushing a change to this file runs .github/workflows/checks.yml
 # on the GitHub runner; results are committed to checks/results/<id>/.
-# pipeline-002: dry run after the INC-003 fixes ($0 variants, screen reviews,
-# 5 stores in flight at the same run-wide pace, retry diagnostics).
-id: pipeline-002
+# pipeline-003: dry run with run-wide 429 cooldown, adaptive pace, 27-minute budget
+# and one witness product per store (INC-004).
+id: pipeline-003
 check: pipeline
 stores: config/stores.yml
 concurrency: 5
