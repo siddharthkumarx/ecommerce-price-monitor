@@ -36,3 +36,16 @@ def test_hook_path_is_configured() -> None:
     hook = ROOT / ".githooks" / "commit-msg"
     assert hook.exists()
     assert hook.stat().st_mode & 0o111, "commit-msg hook must be executable"
+
+
+def test_committed_store_config_carries_screen_reviews() -> None:
+    """Regression: screen_reviewed was dropped by load_stores (pipeline-001)."""
+    from pricemon.sources import load_reviews
+    from pricemon.stores import load_stores
+
+    reviews = load_reviews(ROOT / "config" / "screen-review.yml")
+    stores = {s.name: s for s in load_stores(ROOT / "config" / "stores.yml")}
+    for name, items in reviews.items():
+        if name in stores:
+            titles = {t for r in items for t in r.titles}
+            assert titles <= stores[name].screen_reviewed, name

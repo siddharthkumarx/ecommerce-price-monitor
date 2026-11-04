@@ -55,6 +55,7 @@ stores:
     host: www.koio.co
     recon_variants: 875
     recon_products: 122
+    screen_reviewed: ["Monza Leather in Tobacco"]
   - id: lunya
     name: "Lunya"
     category: apparel
