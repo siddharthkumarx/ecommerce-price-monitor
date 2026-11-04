@@ -40,7 +40,7 @@ from pricemon.witness import (
 
 PAGE_LIMIT = 250
 MAX_PAGES = 40
-SAMPLE_PER_STORE = 2
+SAMPLE_PER_STORE = 1
 
 FetchStatus = Literal["ok", "failed", "mismatch", "excluded"]
 

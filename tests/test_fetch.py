@@ -11,7 +11,7 @@ from typing import Any
 
 import httpx
 
-from pricemon.fetch import StoreFetch, fetch_store, sample_products
+from pricemon.fetch import SAMPLE_PER_STORE, StoreFetch, fetch_store, sample_products
 from pricemon.normalize import normalize_products
 from pricemon.polite import PoliteConfig
 from pricemon.stores import Store
@@ -70,7 +70,7 @@ def test_full_fetch_with_witnesses() -> None:
     assert out.status == "ok", out.reason
     assert len(out.products) == 3
     assert out.pages == 1  # page 1 had fewer than 250 products
-    assert len(out.witnesses) == 2
+    assert len(out.witnesses) == SAMPLE_PER_STORE
     assert all(w.js == "match" and w.jsonld == "match" for w in out.witnesses)
     assert out.currencies == {"USD"}
     assert all(r.url.params.get("country") == "US" for r in seen if r.url.path != "/robots.txt")
