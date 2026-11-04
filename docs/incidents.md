@@ -82,3 +82,32 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   `edge.throttle_events`, `edge.cooldown_s` and `edge.final_interval_s`.
 - **Kept:** the circuit breaker did exactly its job; no store was hit after the
   halt.
+
+## INC-005 - Runner IP throttled from the first minute; per-shop spacing did not help (2026-11-04)
+
+- **Runs:** `pipeline-003` (00:26 UTC) and `pipeline-004` (00:56 UTC), results in
+  `checks/results/pipeline-00{3,4}/`.
+- **pipeline-003** (daily defaults: 4 s + 0-3 s per shop, 3 s + 0-1.5 s run-wide,
+  5 shops in flight, run-wide 429 cooldown): `partial`, 21 of 30 stores, 9,437
+  variants, 27.9 minutes; 36 x 429 (`Retry-After: 60`) on `/products.json`, `.js`
+  and product pages alike; no challenges, no blocks; the 27-minute budget stopped
+  the last 7 stores.
+- **pipeline-004** tested whether Shopify throttles per shop (20 s + 0-10 s
+  between requests to the same shop, 8 in flight): **0 of 30 stores**. The new
+  request log shows `robots.txt` answering 200 everywhere while `/products.json`
+  returned 429 for almost every shop from the first ~30 s of the run, and kept
+  doing so with ~100 s between attempts for 28 minutes.
+- **Reading:** the throttle is per client IP, stateful over long windows, and
+  was already active when the run began. Eight live runs from GitHub's Azure IP
+  pool in under four hours (recon-001 to 004, pipeline-001 to 004) are the likely
+  cause; GitHub-hosted runners do not keep a stable IP. Per-shop spacing is not
+  the lever.
+- **Fixes:** a run that sees 8 429s in a row with no success halts ("edge
+  throttling persisted") instead of knocking until the budget runs out; that
+  raises the run alert. Daily settings stay at the `pipeline-003` values.
+- **Decision:** no further live test runs on 2026-11-04 night; the scheduled run at
+  06:17 UTC, after a five-hour pause, is the next measurement (build-progress
+  item 19). If scheduled runs keep losing stores to 429s, the options in order are:
+  fewer requests per run (the `.js` witness for a rotating third of the stores),
+  a lower run-wide rate with a longer budget (needs the owner's agreement on the
+  30-minute rule), or a smaller store list.

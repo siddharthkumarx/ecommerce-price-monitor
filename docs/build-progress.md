@@ -24,7 +24,7 @@ item says how to verify it.
    `docs/decisions.md` (D-001 to D-017), `docs/incidents.md` (INC-001, INC-002),
    `docs/readme-plan.md`.
 6. **Store config loader** - `done`. `stores.py` (with `screen_reviewed` titles).
-7. **Fetch with witnesses** - `done` offline, live check pending (item 19).
+7. **Fetch with witnesses** - `done`, verified live in `pipeline-003` (21 stores, all witnesses matched or recorded).
    `fetch.py`; tests `tests/test_fetch.py` on fixtures in `tests/fixtures/shop/`.
 8. **Models, validation, batch guard** - `done`.
    `models.py`, `normalize.py`, `guard.py`; `tests/test_models_normalize_guard.py`.
@@ -39,10 +39,10 @@ item says how to verify it.
 13. **Google Sheet publish** - `done`. `sheets.py`; skips without
     `GOOGLE_SA_JSON` / `GOOGLE_SHEET_ID` (not configured yet: the owner adds the
     secret and variable when wanted).
-14. **Dashboard** - `in progress`. `site.py`, `site_assets/`. Remaining:
-    Playwright screenshots at 360, 768 and 1440 px from the `pipeline-001` data
-    (`scripts/screenshots.py`), Lighthouse-style checks, then build `site/` in
-    `daily.yml`.
+14. **Dashboard** - `done`. `site.py`, `site_assets/`; built from the
+    `pipeline-003` data and checked with `node scripts/screenshots.cjs site` at
+    360, 768 and 1440 px (no page scroll, no external requests, contrast >= 4.5:1,
+    fonts loaded, reduced motion). `daily.yml` builds `site/` as an artifact.
 15. **Daily workflow** - `done`, first scheduled run pending (06:17 UTC).
     `.github/workflows/daily.yml`; `tests/test_outputs.py` keeps its crons equal to
     `schedule.CRONS`.
@@ -51,11 +51,14 @@ item says how to verify it.
 17. **Remove the 2026 Black Friday cron lines after 1 Dec 2026** - `todo` (D-013).
 18. **README and animated SVGs** - `blocked` (waiting for the owner's README
     rules; notes in `docs/readme-plan.md`).
-19. **Live pipeline dry run** - `in progress`. `pipeline-001` held, 31.5 min
-    (INC-003); `pipeline-002` halted by the breaker after per-store Retry-After let
-    the edge escalate (INC-004); run-wide cooldown, adaptive pace and a 27-minute
-    budget committed. `pipeline-003` requested: confirm status `ok`/`partial`,
-    duration under 30 minutes, `edge.throttle_events`, and record it in D-005.
+19. **Live pipeline dry runs** - `done`; follow-up open. `pipeline-001` held
+    (INC-003); `pipeline-002` halted by the breaker (INC-004); `pipeline-003`
+    partial, 21/30 stores in 27.9 min (daily settings); `pipeline-004` 0/30, IP
+    throttled from the start (INC-005). **Next:** read the first scheduled run in
+    `data/runs.jsonl` (06:17 UTC on 2026-11-04): stores updated,
+    `edge.throttle_events`, duration. Then follow the options at the end of
+    INC-005 if stores keep being lost to 429s. Do not start live checks just to
+    retry: each adds load to the same throttle.
 20. **GitHub Pages deploy** - `todo` after the public publish: add
     `actions/upload-pages-artifact` + `actions/deploy-pages` to `daily.yml`, gated
     on a repository variable `PAGES_ENABLED == 'true'`.
