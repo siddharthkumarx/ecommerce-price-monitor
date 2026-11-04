@@ -1,12 +1,13 @@
 # Live check request. Pushing a change to this file runs .github/workflows/checks.yml
 # on the GitHub runner; results are committed to checks/results/<id>/.
-# pipeline-003: dry run with run-wide 429 cooldown, adaptive pace, 27-minute budget
-# and one witness product per store (INC-004).
-id: pipeline-003
+# pipeline-004: tests whether Shopify throttles per shop. Requests to the same shop are
+# spaced 20 s + 0-10 s (was 4 s + 0-3 s); 8 shops in flight; the run-wide pace and the
+# run-wide 429 cooldown are unchanged. The request log records every attempt with its time.
+id: pipeline-004
 check: pipeline
 stores: config/stores.yml
-concurrency: 5
-delay_s: 4.0
-jitter_s: 3.0
+concurrency: 8
+delay_s: 20.0
+jitter_s: 10.0
 edge_interval_s: 3.0
 edge_jitter_s: 1.5
