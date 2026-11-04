@@ -2,12 +2,22 @@
 
 Do these in order. Nothing here runs automatically.
 
-1. **Remove private files.** Delete `docs/private/` (the call explainer) and
-   `checks/results/*/data/latest/snapshot.csv` only if you do not want dry-run
-   snapshots public (they hold the same public prices as `data/`). Commit.
-2. **Create the public repository** `siddharthkumarx/ecommerce-price-monitor` with the
-   default branch `main` (the README badges and links assume `config/public.yml`:
-   repo and branch). Push this history to `main`.
+1. **Never rename or make public this repository.** It keeps its full working
+   history and stays private. Publish into a **fresh public repository**,
+   `siddharthkumarx/ecommerce-price-monitor`, whose `main` branch starts clean: one
+   initial commit made from a prepared copy of this tree (for example a fresh
+   `git init` in an export of the files), with the identity and commit-message
+   policy in the maintainers' guide. The badges and links assume `config/public.yml`
+   (repo and branch `main`).
+2. **Prepare the copy before that first commit:**
+   - drop `docs/private/` (the call explainer);
+   - rename the maintainers' guide to `docs/maintainers.md` and update the files that point to
+     it (`docs/build-progress.md`, this checklist; `grep -rni "claude"` must find
+     nothing);
+   - optionally drop `checks/results/*/data/` (dry-run snapshots: the same public
+     prices as `data/`);
+   - run `uv run pytest` (the link check catches a missed reference) and
+     `scripts/check-commit-messages.sh` in the new repository.
 3. **Settings, General:** paste the About text, website and topics from
    `docs/repo-settings.md`; upload `assets/social-preview.png` as the social preview.
 4. **Settings, Actions, General:** allow Actions; workflow permissions "Read and

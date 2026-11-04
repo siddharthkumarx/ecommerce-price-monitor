@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,769 prices in the latest run."></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,769 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -40,7 +40,7 @@ The run of 4 November 2026 was the first one: it recorded 11,769 prices as the s
 
 ## How it works
 
-<p align="center"><img src="assets/pipeline.svg" width="100%" alt="Five steps: read public store catalogs, collect politely once a day, check every price against a second source, keep the full history, deliver CSV, a monthly data file, a Google Sheet and a dashboard."></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/pipeline-still.svg"><img src="assets/pipeline.svg" width="100%" alt="Five steps: read public store catalogs, collect politely once a day, check every price against a second source, keep the full history, deliver CSV, a monthly data file, a Google Sheet and a dashboard."></picture></p>
 
 1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with the stores' rules respected.
 2. **Check.** Each price is checked for obvious errors (above zero, sale price below the "was" price), and one product per store is compared with a second source.
@@ -51,14 +51,14 @@ The run of 4 November 2026 was the first one: it recorded 11,769 prices as the s
 
 ## What broke and how I fixed it
 
-<p align="center"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 1."></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 1."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
 - **Too fast for a shared host.** Each store was read slowly, but all these stores run on Shopify's servers, and together the requests were too fast. Fix: one pace for the whole run, plus an automatic stop if several stores push back at once.
 - **Free gifts looked like errors.** Free samples have a price of zero, and the checks treated them as broken data and held a whole run. Fix: free items are now left out on purpose and counted separately.
 - **"Slow down" was obeyed by one store only.** When Shopify asked us to wait a minute, only that store waited while the others carried on. Fix: when Shopify asks, every store pauses together, and the pace eases back only after a run of clean answers.
-- **Too many test runs in one night.** After many test runs in a few hours, Shopify refused us for a while. Fix: the run now stops politely instead of retrying, the store list was trimmed so a day's run stays short, and test runs are rationed.
+- **Testing hit Shopify's rate limit.** Fix: the run stops politely instead of retrying, the store list was trimmed, and test runs are rationed.
 
 ## Who uses data like this
 
@@ -72,7 +72,7 @@ I build and run monitors like this one for any set of online stores or websites.
 
 - **Free sample first:** 20-50 real rows from your target sites before you pay anything.
 - **Fixed price:** a fixed monthly fee for a running monitor, or a one-time price for a single collection.
-- **Data on schedule:** daily, weekly or hourly, delivered as CSV, Excel, Google Sheets, a database or an API.
+- **Data on schedule:** daily or weekly, delivered as CSV, Excel, Google Sheets or a database.
 
 **Contact:** [hello@siddharthkumar.com](mailto:hello@siddharthkumar.com) · [siddharthkumar.com](https://siddharthkumar.com)
 
@@ -85,7 +85,7 @@ Every store is read once a day, in the early morning US time. Each row shows whe
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
 
 **Which formats can I get?**
-CSV and Excel, Google Sheets, a monthly history file (Parquet), a database table, or an API. This repository delivers CSV, Parquet and a dashboard.
+CSV, Excel, Google Sheets or a database, plus a monthly history file (Parquet) if you want one. This repository delivers CSV, Parquet and a dashboard.
 
 **Can you track my competitors' sites?**
 Yes, if the information is public, such as prices, sales and stock on product pages. I check each site first and tell you what can be collected and how often, before any work starts.
@@ -175,7 +175,7 @@ The collector itself (`uv run python -m pricemon.run`) is meant for the schedule
 
 ### Tests and CI
 
-The test suite (`uv run pytest`) covers a golden two-run SCD2 scenario, Shopify-shaped fixtures for every witness, guard thresholds, retry and robots rules, workflow structure. CI (`.github/workflows/ci.yml`) runs ruff, mypy (strict), pytest, gitleaks over the full history, pip-audit on the lockfile, and a check that no commit carries tool attribution lines.
+The test suite (`uv run pytest`) covers a golden two-run SCD2 scenario, Shopify-shaped fixtures for every witness, guard thresholds, retry and robots rules, workflow structure. CI (`.github/workflows/ci.yml`) runs ruff, mypy (strict), pytest, gitleaks over the full history, pip-audit on the lockfile, and a commit-message policy check.
 
 ### Key decisions
 

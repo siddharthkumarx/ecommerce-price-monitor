@@ -341,3 +341,33 @@ them:
 - **Publish checklist** (`docs/publish-checklist.md`): the ordered steps from this
   private repository to the public one, including removing `docs/private/` and
   stopping this repository's schedule so two copies never collect the same stores.
+
+## D-025 - Review fixes: still frames, phone sizes, offer, commit policy (2026-11-04)
+
+From an independent review that rendered every SVG:
+
+- **Still frame.** Browsers do not pass the viewer's motion preference into an
+  SVG loaded as `<img>`, so the SVG's own `prefers-reduced-motion` rule never
+  fires in the README: a still or reduced-motion view showed the hero's first beat
+  and an almost empty timeline. Now every visual is written twice: animated
+  (`name.svg`) and as its final frame (`name-still.svg`, no animation). The README
+  uses `<picture><source media="(prefers-reduced-motion: reduce)"
+  srcset="name-still.svg">`, which the page itself evaluates. Inside the animated
+  SVG the final frame is the default style and, under reduced motion, is forced
+  with `!important` (opacity, stroke dashes), not only `animation: none`.
+  `scripts/check_visuals.cjs` (Playwright) checks that the reduced-motion render
+  and the still `<img>` match the final frame pixel for pixel and that the hero's
+  result number is visible; `tests/test_visuals_render.py` runs it, and the
+  `visuals` workflow runs it on GitHub with Playwright installed.
+- **Phone size.** In the 1000 px viewBox: headings at least 36 px, every other
+  text at least 30 px (the small EXAMPLE label excepted); hero rows are
+  "store · short product" and the price. Enforced in `tests/test_readme.py`.
+- **Offer.** The README offers daily or weekly delivery as CSV, Excel, Google
+  Sheets or a database; nothing faster and no API until proven on a real job.
+- **Commit-message policy, tool-neutral.** No trailers except `Signed-off-by`, and
+  no "Generated with" footer. Trailers are found with `git interpret-trailers`, after
+  dropping `---` lines (git stops reading trailers there). No tool names in the
+  hook, its pattern file (`.githooks/forbidden-footer`), the CI check, the tests or
+  the README.
+- **Publishing** goes to a fresh public repository with a clean `main`; this one
+  is never renamed (`docs/publish-checklist.md`).
