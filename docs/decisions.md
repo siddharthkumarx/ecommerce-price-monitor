@@ -120,7 +120,11 @@ witness product per store (127 requests per run); and a hard 27-minute budget
 after which no request starts, so a run always ends inside 30 minutes, at the
 cost of a `partial` status if Shopify throttles hard. Estimate without throttling:
 127 x (3.75 + 1.0) s = about 10 minutes; each 429 adds about 60 s run-wide.
-`pipeline-003` measures it.
+`pipeline-003` measured **27.9 minutes**, 21 of 30 stores, 36 x 429 with
+`Retry-After: 60` and no challenges; the budget cut the last 7 stores. The
+daily run uses these settings. Stores start in a daily rotating order so a
+budget cut is spread across stores over the days. `pipeline-004` showed the
+throttle is per IP and long-lived (INC-005).
 
 ## D-006 - Currency proof holds the run (2026-11-03, owner rule)
 
