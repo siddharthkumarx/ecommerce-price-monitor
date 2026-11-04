@@ -51,11 +51,11 @@ item says how to verify it.
 17. **Remove the 2026 Black Friday cron lines after 1 Dec 2026** - `todo` (D-013).
 18. **README and animated SVGs** - `blocked` (waiting for the owner's README
     rules; notes in `docs/readme-plan.md`).
-19. **Live pipeline dry run** - `in progress`. `pipeline-001` was held and took
-    31.5 minutes (INC-003); fixes committed. `pipeline-002` requested: read
-    `checks/results/pipeline-002/data/runs.jsonl`, confirm status `ok` or
-    `partial`, duration under 30 minutes, the `retry_details`, and record the
-    measured duration in D-005.
+19. **Live pipeline dry run** - `in progress`. `pipeline-001` held, 31.5 min
+    (INC-003); `pipeline-002` halted by the breaker after per-store Retry-After let
+    the edge escalate (INC-004); run-wide cooldown, adaptive pace and a 27-minute
+    budget committed. `pipeline-003` requested: confirm status `ok`/`partial`,
+    duration under 30 minutes, `edge.throttle_events`, and record it in D-005.
 20. **GitHub Pages deploy** - `todo` after the public publish: add
     `actions/upload-pages-artifact` + `actions/deploy-pages` to `daily.yml`, gated
     on a repository variable `PAGES_ENABLED == 'true'`.

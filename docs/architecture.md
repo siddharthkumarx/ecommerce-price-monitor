@@ -48,7 +48,7 @@ run-wide by `EdgeGuard`:
    `/products/<handle>`. A disallowed path stops that store for the run.
 2. `GET /products.json?limit=250&page=N&country=US` for N = 1, 2, ... until a page
    returns fewer than 250 products. This witness gives **all rows**.
-3. Sample cross-check: `SAMPLE_PER_STORE` products (default 2) chosen by a stable
+3. Sample cross-check: `SAMPLE_PER_STORE` products (1, D-010) chosen by a stable
    hash of `(run date, store id, product id)`, so the sample rotates daily and is
    reproducible. For each: `GET /products/<handle>.js?country=US` (integer cents;
    price and availability must match `/products.json` for every shared variant)
