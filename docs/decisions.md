@@ -105,8 +105,13 @@ interval, i.e. about 1.8 s of latency and per-store waiting on top of the pace.
 At the daily 3.75 s mean interval: 187 x (3.75 + 1.8) s = **about 17 minutes**,
 plus about 3 minutes of retry headroom (backoff and Retry-After up to 120 s on a
 few stores) = **about 20 minutes**, inside the 30-minute budget. The pipeline
-step has a 32-minute timeout and the job 40 minutes. The first `pipeline` check
-run measures the real duration; it is recorded below when available.
+step has a 32-minute timeout and the job 40 minutes.
+
+Measured, `pipeline-001` (2026-11-03, concurrency 3): **31.5 minutes**, over budget
+(INC-003). 231 requests including 67 retries, every one an HTTP 429. Stores
+waiting out a backoff left the run-wide pace idle. Change: 5 stores in flight
+with the same run-wide pace, so the total request rate does not rise.
+`pipeline-002` measures the result; see `docs/build-progress.md` item 19.
 
 ## D-006 - Currency proof holds the run (2026-11-03, owner rule)
 
@@ -203,3 +208,12 @@ and held the run. A Shopify sale sets a compare-at price (and its end removes
 it), so changes where either side is discounted are explained. The 90 %
 mass-change rule counts only unexplained changes, and run-wide shares need at
 least 200 matched variants. Supersedes the mass-change line of D-008.
+
+## D-018 - $0 variants are out of scope, not validation failures (2026-11-04)
+
+`pipeline-001` rejected 255 rows, every one for `price_cents` = 0: free gifts,
+samples and add-on variants (JLab, HydraPak, Branch Basics, Crown Affair, Shokz,
+Jones Road). The owner rule `price > 0` stays; such variants are skipped before
+validation and counted as `free_variants` in `runs.jsonl`. They no longer count
+towards the 2 % reject share, which is meant to catch malformed data. A missing
+or unparseable price is still a reject.

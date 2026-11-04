@@ -36,3 +36,28 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   (`http 429`, `http 503`, `network error: ConnectError`); recon results and
   `runs.jsonl` carry it from `recon-004` on.
 - **Detection:** `tests/test_recon.py::test_a_429_retry_fails_even_when_the_retry_succeeds`.
+
+## INC-003 - First full dry run held, over the time budget (2026-11-04)
+
+- **Run:** `pipeline-001`, [Actions run 41741247983](https://github.com/siddharthkumarx/ecommerce-price-monitor-wip/actions/runs/41741247983),
+  results in `checks/results/pipeline-001/`.
+- **What happened:** status `held`, 22 of 30 stores complete, 31.5 minutes.
+  - Validation rejects above 2 % held the run for 4 stores. All rejects were $0
+    variants (free gifts, samples), not malformed data.
+  - 5 stores were stopped by the content screen. 4 of them had reviewed false
+    positives that were never applied: `load_stores` dropped `screen_reviewed`
+    because a scripted edit missed after a reformat (no test loaded the real
+    config). Koio was screened for the first time ("Monza Leather in Tobacco",
+    a colour name).
+  - 67 retries, all HTTP 429, spread over 26 stores; 2 stores (Skullcandy, Year &
+    Day) exhausted their retries. Stores in backoff left the run-wide pace idle,
+    so the run took 8.2 s per request instead of about 4.5 s.
+  - Richer Poorer: one JSON-LD offer price differed from the catalog (store
+    marked `mismatch`, not updated; the run did what it should).
+- **Fixes:** $0 variants skipped and counted (D-018); `load_stores` reads
+  `screen_reviewed`, with a regression test over the committed config; Koio's hit
+  reviewed; 5 stores in flight at the same run-wide pace (D-005); every retry now
+  records request kind and Retry-After (`retry_details`), and a JSON-LD mismatch
+  records its first price difference, so the next runs show which requests
+  Shopify throttles.
+- **Process fix:** scripted edits now assert that each replacement matched.
