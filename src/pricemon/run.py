@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import os
 import sys
 import time
@@ -88,7 +89,10 @@ async def fetch_all(
                 )
                 return result
 
-        return list(await asyncio.gather(*(one(s) for s in stores)))
+        # A daily rotating start order: a budget cut never hits the same stores daily.
+        order = sorted(stores, key=lambda s: hashlib.sha256(f"{day}|{s.id}".encode()).hexdigest())
+        results = {r.store_id: r for r in await asyncio.gather(*(one(s) for s in order))}
+        return [results[s.id] for s in stores]
 
 
 def _env_run_meta() -> dict[str, Any]:

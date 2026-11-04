@@ -168,6 +168,7 @@ class EdgeGuard:
     rng: random.Random = field(default_factory=random.Random)
 
     halted_reason: str | None = None
+    t0: float = 0.0
     current_interval_s: float = 0.0
     throttle_events: int = 0
     cooldown_s: float = 0.0
@@ -178,6 +179,7 @@ class EdgeGuard:
 
     def __post_init__(self) -> None:
         self.current_interval_s = self.current_interval_s or self.interval_s
+        self.t0 = self.t0 or self.clock()
 
     def check_deadline(self) -> None:
         if self.deadline is not None and self.clock() >= self.deadline and not self.halted_reason:
@@ -242,6 +244,7 @@ class StoreSession:
     retries_made: int = 0
     retry_causes: list[str] = field(default_factory=list)
     retry_details: list[str] = field(default_factory=list)
+    request_log: list[tuple[float, str, str]] = field(default_factory=list)
     _next_at: float = 0.0
 
     def __post_init__(self) -> None:
@@ -282,12 +285,15 @@ class StoreSession:
             if self.edge is not None:
                 await self.edge.wait_turn()
             self.requests_made += 1
+            t = round(self.clock() - (self.edge.t0 if self.edge is not None else 0.0), 1)
             try:
                 resp = await self.client.get(url, headers={"Accept": accept})
             except httpx.TransportError as exc:
                 last_problem = f"network error: {type(exc).__name__}"
+                self.request_log.append((t, kind, last_problem))
                 wait = self.config.backoff_base_s * 2 ** (attempt - 1)
             else:
+                self.request_log.append((t, kind, str(resp.status_code)))
                 if resp.status_code != 429 and resp.status_code < 500:
                     self._next_at = self.clock() + self._gap()
                     if self.edge is not None:

@@ -108,16 +108,16 @@ def test_js_price_mismatch_marks_store() -> None:
     assert ".js mismatch" in out.reason
 
 
-def test_jsonld_price_mismatch_marks_store() -> None:
+def test_jsonld_price_difference_alone_is_recorded_not_blocking() -> None:
     def mutate(path: str, body: str) -> str:
         if path.startswith("/products/") and not path.endswith(".js"):
             return body.replace('"price": "', '"price": "1')
         return body
 
     out, _ = run(shop(mutate))
-    assert out.status == "mismatch"
-    assert out.reason is not None
-    assert "JSON-LD mismatch" in out.reason
+    assert out.status == "ok"  # products.json and .js agree (D-019)
+    assert out.jsonld_disagrees
+    assert "JSON-LD" in out.jsonld_disagrees[0]
 
 
 def test_non_usd_currency_is_reported() -> None:
