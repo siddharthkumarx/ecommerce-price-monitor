@@ -283,3 +283,66 @@ def test_retry_details_name_the_request_kind_and_retry_after() -> None:
     run(session.get("/products/tee.js"))
     assert session.retry_causes == ["http 429"]
     assert session.retry_details == ["http 429 on product .js, retry-after 7s"]
+
+
+def test_a_429_at_one_store_pauses_every_store() -> None:
+    calls = {"a": 0}
+
+    def a_handler(request: httpx.Request) -> httpx.Response:
+        calls["a"] += 1
+        if calls["a"] == 1:
+            return httpx.Response(429, headers={"Retry-After": "60"})
+        return httpx.Response(200, json={})
+
+    def b_handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={})
+
+    a, fake, _ = session_for(robots_then(a_handler), base_url="https://a.example")
+    b, _, _ = session_for(robots_then(b_handler), base_url="https://b.example")
+    b.clock, b.sleep = fake.clock, fake.sleep
+    edge = EdgeGuard(interval_s=2.0, jitter_s=0.0, sleep=fake.sleep, clock=fake.clock)
+    a.edge = b.edge = edge
+    run(a.load_robots())
+    run(b.load_robots())
+
+    async def both() -> None:
+        await a.get("/products.json")  # 429, Retry-After 60, then succeeds
+        before = fake.now
+        await b.get("/products.json")  # must also wait out the cooldown
+        assert fake.now >= before
+
+    t0 = fake.now
+    run(both())
+    assert edge.throttle_events == 1
+    assert edge.current_interval_s == 3.0  # 2.0 x 1.5
+    assert fake.now - t0 >= 60.0
+    assert edge.cooldown_s >= 55.0
+
+
+def test_edge_interval_eases_back_after_successes() -> None:
+    fake_now = {"t": 0.0}
+    edge = EdgeGuard(interval_s=2.0, ease_after=3, clock=lambda: fake_now["t"])
+    edge.throttled(10.0)
+    edge.throttled(10.0)
+    assert edge.current_interval_s == 4.5
+    for _ in range(3):
+        edge.succeeded()
+    assert edge.current_interval_s == 3.0
+    for _ in range(6):
+        edge.succeeded()
+    assert edge.current_interval_s == 2.0  # never below the base
+
+
+def test_time_budget_stops_new_requests() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={})
+
+    session, fake, seen = session_for(robots_then(handler))
+    session.edge = EdgeGuard(
+        interval_s=0.0, jitter_s=0.0, deadline=fake.now + 5, sleep=fake.sleep, clock=fake.clock
+    )
+    run(session.load_robots())
+    fake.now += 10
+    with pytest.raises(StoreStopped, match="time budget"):
+        run(session.get("/products.json"))
+    assert len(seen) == 1  # only robots.txt

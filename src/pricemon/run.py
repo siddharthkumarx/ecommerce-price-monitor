@@ -60,11 +60,18 @@ class RunConfig:
     polite: PoliteConfig = field(default_factory=lambda: PoliteConfig(delay_s=4.0, jitter_s=3.0))
     edge_interval_s: float = 3.0
     edge_jitter_s: float = 1.5
+    budget_s: float = 27 * 60
     only: set[str] = field(default_factory=set)
 
 
-async def fetch_all(stores: list[Store], cfg: RunConfig, day: Any) -> list[StoreFetch]:
-    edge = EdgeGuard(interval_s=cfg.edge_interval_s, jitter_s=cfg.edge_jitter_s)
+async def fetch_all(
+    stores: list[Store], cfg: RunConfig, day: Any, edge: EdgeGuard | None = None
+) -> list[StoreFetch]:
+    edge = edge or EdgeGuard(
+        interval_s=cfg.edge_interval_s,
+        jitter_s=cfg.edge_jitter_s,
+        deadline=time.monotonic() + cfg.budget_s,
+    )
     gate = asyncio.Semaphore(cfg.concurrency)
     async with make_client() as client:
 
@@ -99,7 +106,11 @@ def _env_run_meta() -> dict[str, Any]:
 
 
 def process(
-    cfg: RunConfig, fetches: list[StoreFetch], run_at: datetime, started: float
+    cfg: RunConfig,
+    fetches: list[StoreFetch],
+    run_at: datetime,
+    started: float,
+    edge: EdgeGuard | None = None,
 ) -> tuple[int, dict[str, Any]]:
     """Validate, guard, merge and write outputs. Returns (exit code, run record)."""
     data = cfg.data
@@ -187,6 +198,16 @@ def process(
         "requests": sum(f.requests for f in fetches),
         "retries": sum(f.retries for f in fetches),
         "retry_causes": dict(Counter(c for f in fetches for c in f.retry_causes)),
+        "edge": (
+            {
+                "throttle_events": edge.throttle_events,
+                "cooldown_s": round(edge.cooldown_s, 1),
+                "final_interval_s": round(edge.current_interval_s, 2),
+                "halted_reason": edge.halted_reason,
+            }
+            if edge is not None
+            else None
+        ),
         "guard": {
             "keys": guard.keys,
             "holds": [{"key": h.key, "message": h.message} for h in guard.holds],
@@ -211,8 +232,13 @@ def run(cfg: RunConfig, now: datetime | None = None) -> int:
     if cfg.only:
         stores = [s for s in stores if s.id in cfg.only]
     try:
-        fetches = asyncio.run(fetch_all(stores, cfg, run_at.date()))
-        code, record = process(cfg, fetches, run_at, started)
+        edge = EdgeGuard(
+            interval_s=cfg.edge_interval_s,
+            jitter_s=cfg.edge_jitter_s,
+            deadline=time.monotonic() + cfg.budget_s,
+        )
+        fetches = asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
+        code, record = process(cfg, fetches, run_at, started, edge)
     except Exception as exc:
         append_run(
             cfg.data,

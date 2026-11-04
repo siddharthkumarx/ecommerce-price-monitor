@@ -143,28 +143,74 @@ class EdgeGuard:
     """Run-wide pacing and circuit breaker shared by every store session.
 
     Shopify throttles per client IP across all shops on its edge, so per-store
-    delays alone let the run as a whole go too fast (docs/incidents.md, INC-001).
+    delays alone let the run as a whole go too fast (docs/incidents.md, INC-001),
+    and a 429 from any store is a signal for the whole run (INC-004):
+
+    * ``throttled(retry_after)`` pauses **every** store until Retry-After has passed
+      and multiplies the run-wide interval by ``backoff_factor`` (up to
+      ``max_interval_s``);
+    * ``succeeded()`` eases the interval back towards ``interval_s`` after
+      ``ease_after`` successes in a row;
+    * ``deadline`` (monotonic seconds) is the run's time budget: once passed, no
+      new request starts and sessions stop with ``run halted: time budget``.
     """
 
     interval_s: float = 2.0
     jitter_s: float = 1.0
     trip_after: int = 4
     window_s: float = 120.0
+    backoff_factor: float = 1.5
+    max_interval_s: float = 12.0
+    ease_after: int = 10
+    deadline: float | None = None
     sleep: Sleep = asyncio.sleep
     clock: Callable[[], float] = time.monotonic
     rng: random.Random = field(default_factory=random.Random)
 
     halted_reason: str | None = None
+    current_interval_s: float = 0.0
+    throttle_events: int = 0
+    cooldown_s: float = 0.0
     _next_at: float = 0.0
+    _streak: int = 0
     _blocks: list[tuple[float, str]] = field(default_factory=list)
     _lock: asyncio.Lock = field(default_factory=asyncio.Lock)
+
+    def __post_init__(self) -> None:
+        self.current_interval_s = self.current_interval_s or self.interval_s
+
+    def check_deadline(self) -> None:
+        if self.deadline is not None and self.clock() >= self.deadline and not self.halted_reason:
+            self.halted_reason = "run halted: time budget reached"
 
     async def wait_turn(self) -> None:
         async with self._lock:
             wait = self._next_at - self.clock()
             if wait > 0:
                 await self.sleep(wait)
-            self._next_at = self.clock() + self.interval_s + self.rng.uniform(0.0, self.jitter_s)
+            self._next_at = (
+                self.clock() + self.current_interval_s + self.rng.uniform(0.0, self.jitter_s)
+            )
+
+    def throttled(self, retry_after_s: float) -> None:
+        """A 429 anywhere: pause the whole run and slow the run-wide pace."""
+        self.throttle_events += 1
+        self._streak = 0
+        until = self.clock() + retry_after_s
+        if until > self._next_at:
+            self.cooldown_s += until - max(self._next_at, self.clock())
+            self._next_at = until
+        self.current_interval_s = min(
+            self.max_interval_s, self.current_interval_s * self.backoff_factor
+        )
+
+    def succeeded(self) -> None:
+        self._streak += 1
+        if self._streak >= self.ease_after and self.current_interval_s > self.interval_s:
+            self.current_interval_s = max(
+                self.interval_s, self.current_interval_s / self.backoff_factor
+            )
+            self._streak = 0
 
     def record_block(self, host: str) -> None:
         now = self.clock()
@@ -228,8 +274,10 @@ class StoreSession:
         kind = request_kind(url)
         retry_after: float | None = None
         for attempt in range(1, self.config.max_attempts + 1):
-            if self.edge is not None and self.edge.halted_reason:
-                raise self._stop(self.edge.halted_reason)
+            if self.edge is not None:
+                self.edge.check_deadline()
+                if self.edge.halted_reason:
+                    raise self._stop(self.edge.halted_reason)
             await self._wait_turn()
             if self.edge is not None:
                 await self.edge.wait_turn()
@@ -242,6 +290,8 @@ class StoreSession:
             else:
                 if resp.status_code != 429 and resp.status_code < 500:
                     self._next_at = self.clock() + self._gap()
+                    if self.edge is not None:
+                        self.edge.succeeded()
                     return resp
                 last_problem = f"http {resp.status_code}"
                 # A challenge served with 429/503 is a block, not a rate limit: never retry it.
@@ -253,6 +303,8 @@ class StoreSession:
                     raise self._stop(f"{last_problem}, Retry-After {retry_after:.0f}s too long")
                 backoff = self.config.backoff_base_s * 2 ** (attempt - 1)
                 wait = max(backoff, retry_after or 0.0)
+                if resp.status_code == 429 and self.edge is not None:
+                    self.edge.throttled(wait)
             if attempt < self.config.max_attempts:
                 self.retries_made += 1
                 self.retry_causes.append(last_problem)
