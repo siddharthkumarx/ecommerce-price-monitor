@@ -61,3 +61,24 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   records its first price difference, so the next runs show which requests
   Shopify throttles.
 - **Process fix:** scripted edits now assert that each replacement matched.
+
+## INC-004 - Per-store Retry-After let the edge escalate to challenges (2026-11-04)
+
+- **Run:** `pipeline-002`, results in `checks/results/pipeline-002/`.
+- **What happened:** status `partial`, 4 of 30 stores updated, 7.3 minutes. Every
+  throttled request was HTTP 429 with `Retry-After: 60` (12 on product `.js`, 10 on
+  `/products.json`, 3 on product pages, from the new `retry_details`). The store
+  that got a 429 waited 60 s, but the other stores kept requesting. Within minutes
+  Shopify served Cloudflare challenges with HTTP 429 to 6 stores, including on
+  robots.txt, and the circuit breaker halted the run after 4 blocks in 120 s.
+- **Cause:** a 429 from Shopify is a per-IP limit on the shared edge, not a
+  per-store one. Honouring Retry-After only for the store that received it left
+  the run's total rate unchanged.
+- **Fix:** `EdgeGuard.throttled()`: any 429 pauses every store for its Retry-After
+  and multiplies the run-wide interval by 1.5 (up to 12 s); `succeeded()` eases it
+  back after 10 successes in a row. A 27-minute budget (`deadline`) stops new
+  requests so a run always ends inside 30 minutes. The witness sample is 1 product
+  per store (D-010), cutting a run from 187 to 127 requests. `runs.jsonl` records
+  `edge.throttle_events`, `edge.cooldown_s` and `edge.final_interval_s`.
+- **Kept:** the circuit breaker did exactly its job; no store was hit after the
+  halt.
