@@ -38,6 +38,7 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
     text = page.read_text()
 
     assert "<script" not in text  # no JavaScript at all
+    assert 'rel="icon" href="data:image/svg+xml' in text  # no /favicon.ico 404
     external = re.findall(r'(?:src|href)="(https?:[^"]+)"', text)
     assert all(not u.endswith((".css", ".js", ".woff2")) for u in external)  # no external assets
     assert "Alpha &amp; Co" in text  # escaped

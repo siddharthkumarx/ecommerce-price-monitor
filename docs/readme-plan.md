@@ -32,3 +32,13 @@ README should be able to show, and where the numbers will come from.
 
 - Recon funnel: candidates, selected, dropped by reason (`docs/sources.md`).
 - First scheduled run date and days running (`data/runs.jsonl`).
+
+## Notes from the build (2026-11-04)
+
+- Honest story worth telling: INC-001 to INC-005, how per-store politeness was not
+  enough on Shopify's shared edge, and how the run learned to treat a 429 as a
+  run-wide signal (all from committed check results).
+- The register funnel: 172 candidates, 30 selected, every drop with its evidence
+  (`docs/sources.md`).
+- Real dashboard screenshots must come from `data/` produced by scheduled runs,
+  not from `checks/results/` dry runs.
