@@ -1,22 +1,51 @@
 #!/bin/sh
-# Removes tool attribution lines (see .githooks/attribution-pattern) from the
-# commit message before the commit is created. CI enforces the same rule with
-# scripts/check-commit-messages.sh.
+# Commit-message policy: no trailers except Signed-off-by, and no "Generated with"
+# footer (pattern in .githooks/forbidden-footer). This hook removes them before the
+# commit is created; CI enforces the same policy with scripts/check-commit-messages.sh.
 set -eu
 
 msg_file="$1"
-pattern_file="$(git rev-parse --show-toplevel)/.githooks/attribution-pattern"
+root="$(git rev-parse --show-toplevel)"
 tmp="$(mktemp)"
-trap 'rm -f "$tmp"' EXIT
+trap 'rm -f "$tmp" "$tmp.trailers"' EXIT
 
-grep -viEf "$pattern_file" "$msg_file" > "$tmp" || true
+# Squeeze runs of blank lines and drop trailing blank lines.
+tidy() {
+  awk '
+    /^[[:space:]]*$/ { if (blank) next; blank = 1 }
+    !/^[[:space:]]*$/ { blank = 0 }
+    { lines[++n] = $0 }
+    END {
+      while (n > 0 && lines[n] ~ /^[[:space:]]*$/) n--
+      for (i = 1; i <= n; i++) print lines[i]
+    }
+  ' "$1"
+}
 
-# Drop the trailing blank lines (and a dangling "---" separator) left behind.
-awk '
-  { lines[NR] = $0 }
-  END {
-    n = NR
-    while (n > 0 && (lines[n] ~ /^[[:space:]]*$/ || lines[n] ~ /^[[:space:]]*-{3,}[[:space:]]*$/)) n--
-    for (i = 1; i <= n; i++) print lines[i]
-  }
-' "$tmp" > "$msg_file"
+# 1. The footer, and "---" separator lines (git stops reading trailers at "---").
+grep -viEf "$root/.githooks/forbidden-footer" "$msg_file" \
+  | grep -vE '^[[:space:]]*-{3,}[[:space:]]*$' > "$tmp" || true
+tidy "$tmp" > "$msg_file"
+
+# 2. Trailers other than Signed-off-by, as git itself recognises them.
+git interpret-trailers --parse "$msg_file" | grep -viE '^signed-off-by:' > "$tmp.trailers" || true
+if [ -s "$tmp.trailers" ]; then
+  keys="$(cut -d: -f1 "$tmp.trailers" | sort -u | paste -sd'|' -)"
+  awk -v keys="$keys" '
+    BEGIN { n = split(tolower(keys), k, "|") }
+    { lines[NR] = $0 }
+    END {
+      last = 0
+      for (i = 1; i <= NR; i++) if (lines[i] ~ /^[[:space:]]*$/) last = i
+      for (i = 1; i <= NR; i++) {
+        drop = 0
+        if (i > last) {
+          low = tolower(lines[i])
+          for (j = 1; j <= n; j++) if (index(low, k[j] ":") == 1) drop = 1
+        }
+        if (!drop) print lines[i]
+      }
+    }
+  ' "$msg_file" > "$tmp"
+  tidy "$tmp" > "$msg_file"
+fi

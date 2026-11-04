@@ -20,9 +20,9 @@ number by hand into docs, README, dashboard or SVGs.
 - Identity (already set in this clone): `user.name "Siddharth Kumar"`,
   `user.email 273157498+siddharthkumarx@users.noreply.github.com`. Set it again in
   a fresh clone before the first commit.
-- `git config core.hooksPath .githooks`. The `commit-msg` hook strips
-  `Co-Authored-By`, `Reviewed-by` and "Generated with" lines; the `ci` workflow
-  job `commit-messages` fails if any commit still has one. Never add them.
+- `git config core.hooksPath .githooks`. Commit-message policy: no trailers except
+  `Signed-off-by`, and no "Generated with" footer. The `commit-msg` hook removes
+  them; the `ci` workflow job `commit-messages` fails on any commit that has one.
 - Never open a pull request. Work on the designated branch and push it.
 - The working branch is the repository's default branch, so scheduled runs commit
   `data/` to it too. Always `git pull --rebase` before you push. The workflows'

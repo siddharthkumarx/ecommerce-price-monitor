@@ -1,6 +1,6 @@
 """Polite HTTP access to a single store.
 
-Rules enforced here (see docs/maintainers.md, "Scraping rules"):
+Rules enforced here (docs/decisions.md D-003, docs/incidents.md INC-001 and INC-004):
 
 * robots.txt is fetched first and every request is checked against it
   (RFC 9309 semantics via Protego, including ``*`` and ``$`` wildcards).

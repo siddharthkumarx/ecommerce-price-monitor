@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - name: No attribution lines in any commit
+      - name: Commit-message policy (no trailers except Signed-off-by, no footer)
         run: scripts/check-commit-messages.sh HEAD
 
   quality:
