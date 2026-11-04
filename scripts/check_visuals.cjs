@@ -20,8 +20,14 @@ async function shoot(browser, html, motion, pause, size) {
   const ctx = await browser.newContext({ viewport: size, deviceScaleFactor: 1, reducedMotion: motion });
   const page = await ctx.newPage();
   await page.setContent(`<!doctype html><body style="margin:0;background:#000">${html}</body>`);
-  await page.evaluate(() => document.fonts.ready);
-  await page.waitForTimeout(300);
+  // Wait until every embedded font is really loaded and every image decoded:
+  // document.fonts.ready alone resolves before an SVG's fonts start loading.
+  await page.evaluate(async () => {
+    await Promise.all([...document.fonts].map((f) => f.load().catch(() => null)));
+    await document.fonts.ready;
+    await Promise.all([...document.images].map((i) => i.decode().catch(() => null)));
+  });
+  await page.waitForTimeout(500);
   if (pause !== null) {
     await page.evaluate((ms) => document.getAnimations().forEach((a) => { a.pause(); a.currentTime = ms; }), pause);
   }
@@ -67,6 +73,13 @@ async function diff(browser, a, b) {
     const reduced = await shoot(browser, animated, "reduce", null, size);
     const img = `<img src="data:image/svg+xml;base64,${Buffer.from(still).toString("base64")}" width="${w}" height="${h}" style="display:block">`;
     const stillShot = await shoot(browser, img, "no-preference", null, size);
+    const keep = process.env.CHECK_VISUALS_OUT;
+    if (keep) {
+      fs.mkdirSync(keep, { recursive: true });
+      fs.writeFileSync(path.join(keep, `${name}-final.png`), final.png);
+      fs.writeFileSync(path.join(keep, `${name}-reduced.png`), reduced.png);
+      fs.writeFileSync(path.join(keep, `${name}-still.png`), stillShot.png);
+    }
     const r = {
       name,
       reduced_vs_final: await diff(browser, reduced.png, final.png),
