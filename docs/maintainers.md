@@ -92,8 +92,9 @@ public publish; until then verify with Playwright screenshots at 360, 768 and
 
 ### README
 
-README and animated SVGs come last, from real run data, following rules the
-owner will send. Until then collect notes in `docs/readme-plan.md`.
+`README.md` and `data/README.md` are **generated**: edit `templates/*.md.j2`,
+never the rendered files (the daily run overwrites them). Rules: D-022 in
+`docs/decisions.md`. Client sections in plain words; every number from a real run.
 
 ## Commands
 
@@ -107,6 +108,9 @@ uv run python -m pricemon.sources --stores-yml checks/results/recon-00*/recon.js
 uv run python -m pricemon.checks checks/request.yml   # what the checks workflow runs (runner only)
 uv run python -m pricemon.run --out data             # the daily pipeline (runner only)
 uv run python -m pricemon.site --data data --out site # build the dashboard (offline)
+uv run python -m pricemon.visuals                     # README visuals from data/ (offline)
+uv run python -m pricemon.readme                      # README.md + data/README.md from templates/
+scripts/make_media.sh                                # dashboard PNG, social preview, LinkedIn video
 ```
 
 `UV_SYSTEM_CERTS=1` may be needed in the sandbox for uv to trust the proxy CA.
@@ -121,7 +125,10 @@ config/         stores.yml (generated from recon evidence), screen-review.yml
 checks/         candidates.yml, request.yml, results/<id>/ (committed evidence)
 data/           pipeline outputs committed by the daily workflow
 site/           built dashboard
-docs/           sources, architecture, build-progress, decisions, incidents, readme-plan
+docs/           sources, architecture, build-progress, decisions, incidents, publish-checklist,
+                repo-settings, private/ (call explainer, removed at publish)
+templates/      README.md.j2, DATASET_CARD.md.j2 (sources of the generated READMEs)
+assets/         generated visuals, icons (Simple Icons, CC0), LICENSES.md
 tests/          pytest with golden fixtures in tests/fixtures/
 ```
 

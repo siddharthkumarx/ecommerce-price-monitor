@@ -17,12 +17,12 @@ item says how to verify it.
 4. **Recon and site register** - `done`.
    `recon-001` to `recon-004` committed; owner drop rules (D-004) and reviewed
    screen hits (D-016) applied; `docs/sources.md` and `config/stores.yml`
-   generated: 30 stores, 14,357 variants, at least 5 per category.
+   generated (since trimmed to 25 stores, item 21).
    Regenerate: commands in `docs/maintainers.md`.
 5. **Docs for handover** - `done`.
    `docs/maintainers.md`, `docs/architecture.md`, `docs/build-progress.md`,
-   `docs/decisions.md` (D-001 to D-017), `docs/incidents.md` (INC-001, INC-002),
-   `docs/readme-plan.md`.
+   `docs/decisions.md`, `docs/incidents.md`. (`docs/readme-plan.md` was folded
+   into the generated README, item 18.)
 6. **Store config loader** - `done`. `stores.py` (with `screen_reviewed` titles).
 7. **Fetch with witnesses** - `done`, verified live in `pipeline-003` (21 stores, all witnesses matched or recorded).
    `fetch.py`; tests `tests/test_fetch.py` on fixtures in `tests/fixtures/shop/`.
@@ -50,8 +50,10 @@ item says how to verify it.
     lockfile, 50 MB file test (`tests/test_repo_hygiene.py`).
 17. **Remove the 2026 Black Friday cron lines after 1 Dec 2026** - `todo` (D-013,
     D-021): the BFCM lines name days, not a year, and would fire again in 2027.
-18. **README and animated SVGs** - `blocked` (waiting for the owner's README
-    rules; notes in `docs/readme-plan.md`).
+18. **README, visuals and repo polish** - `done` (D-022 to D-024).
+    `templates/README.md.j2`, `pricemon.readme`, `pricemon.visuals`,
+    `scripts/make_media.sh`; dataset card, CITATION.cff, LICENSE, SECURITY.md,
+    Dependabot, publish checklist, private explainer (`docs/private/`).
 19. **Live pipeline dry runs** - `done`; follow-up open. `pipeline-001` held
     (INC-003); `pipeline-002` halted by the breaker (INC-004); `pipeline-003`
     partial, 21/30 stores in 27.9 min (daily settings); `pipeline-004` 0/30, IP
@@ -75,3 +77,4 @@ item says how to verify it.
 23. **First real daily run** - `in progress`. Neither the 06:17 UTC schedule nor
     the owner's manual run on 2026-11-04 had appeared in the Actions run list by
     08:40 UTC. Read the first run's `data/runs.jsonl` line when it lands.
+24. **Public publish** - `todo`, owner: follow `docs/publish-checklist.md`.

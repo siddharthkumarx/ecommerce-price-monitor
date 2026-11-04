@@ -18,6 +18,10 @@ Python 3.12 managed with uv 0.11.32 (`uv.lock` committed, CI uses
 | gspread | 6.2.1 | MIT | Google Sheet publish |
 | google-auth | 2.62.1 | Apache-2.0 | service-account credentials for gspread |
 | PyYAML | 6.0.3 | MIT | config and check requests |
+| Jinja2 | 3.1.6 | BSD-3-Clause | README and dataset-card templates |
+| Markdown | 3.11.2 | BSD-3-Clause | private explainer PDF (dev only) |
+| Simple Icons | 16.36.0 | CC0-1.0 | tool logos in `assets/pipeline.svg` |
+| ffmpeg (system, libx264) | sandbox build | LGPL/GPL | `media/linkedin-hero.mp4` encoding (dev only) |
 | ruff | 0.17.3 | MIT | lint and format (dev) |
 | mypy | 2.4.1 | MIT | strict type checking (dev) |
 | pytest | 9.2.0 | MIT | tests (dev) |
@@ -284,3 +288,56 @@ pass through a 2-minute `slot` job that reads the flag; every other trigger skip
 that job, so it costs nothing on normal days. The pipeline reads the same
 variable (`schedule.active_crons`), so "missed runs" counts only slots meant to
 run. Supersedes the BFCM part of D-013.
+
+## D-022 - The README and its visuals are generated from every run (2026-11-04, owner rules)
+
+The README is a portfolio page whose readers are clients first. Every number, row
+and change in it comes from the latest real run, so it is rendered, not written:
+
+- `templates/README.md.j2` (Jinja2) is the source; `python -m pricemon.readme`
+  renders `README.md` and the dataset card (`data/README.md`) from
+  `pricemon.report.collect()`: `runs.jsonl`, the snapshot, the run's change log
+  and `config/stores.yml`. The daily workflow renders both after every run and
+  commits them with `data/`. Growing numbers (days running, runs, missed runs,
+  rows today) are shields.io endpoint badges reading `data/badges/*.json`.
+- `python -m pricemon.visuals` writes `assets/hero.svg` (problem, the run with
+  three real rows, the result as one number), `assets/pipeline.svg` (the five
+  steps with the logos of the tools this repo uses) and
+  `assets/maintenance-loop.svg` (a drawn timeline labelled EXAMPLE around the real
+  INC-004, ending on the real count of daily runs). SVG rules: fonts embedded as
+  base64 WOFF2, CSS animation only, a 9 s loop holding the final frame, final frame
+  as the default state (still images and `prefers-reduced-motion`), at least 22 px
+  text in a 1000 px viewBox, under 1 MB. `tests/test_readme.py` enforces them.
+- Static media are rendered by `scripts/make_media.sh` (Playwright and ffmpeg):
+  `assets/dashboard.png` (2x), `assets/social-preview.png` (1280 x 640, no growing
+  numbers since it is uploaded once) and `media/linkedin-hero.mp4` (1080 x 1080,
+  10 s, H.264, text at least 40 px).
+- Plain words above "For engineers": no protocol names or status codes in the client
+  sections and visuals.
+
+## D-023 - Data license (2026-11-04)
+
+Prices and stock levels are facts; the dataset is shared as a compilation under CC
+BY 4.0 with attribution, while store and product names remain their owners'. No
+images or descriptions are stored, so no store content is republished. The code is
+MIT. Opt-out: email, removal within 24 hours (README, dataset card).
+
+## D-024 - Portfolio additions beyond the brief (2026-11-04)
+
+Added because a top-tier data or scraping portfolio repository is expected to have
+them:
+
+- **Dataset card** (`data/README.md`, Hugging Face format, re-rendered every run)
+  and **CITATION.cff**: the data is reusable and citable.
+- **Downloadable CSV in the release**: the month's release also carries
+  `latest-prices.csv`, and it is marked as the latest release, so "Download the
+  data" gives a non-technical reader a spreadsheet, not only Parquet.
+- **LICENSE** (MIT) and a stated data license (D-023).
+- **SECURITY.md**: a private reporting address and what secrets exist.
+- **Dependabot** (`.github/dependabot.yml`): monthly updates for pinned Actions and
+  uv dependencies.
+- **Internal link check** in pytest (every relative link and heading anchor in the
+  repository's Markdown resolves).
+- **Publish checklist** (`docs/publish-checklist.md`): the ordered steps from this
+  private repository to the public one, including removing `docs/private/` and
+  stopping this repository's schedule so two copies never collect the same stores.
