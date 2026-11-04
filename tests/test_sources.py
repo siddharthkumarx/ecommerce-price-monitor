@@ -140,3 +140,23 @@ def test_committed_review_file_loads() -> None:
     assert all(
         r.verdict == "false_positive" and r.titles and r.reason for v in reviews.values() for r in v
     )
+
+
+def test_trim_to_max_keeps_minimum_per_category_and_drops_weakest_first() -> None:
+    from pricemon.sources import ScreenReview
+
+    rows = [_row(f"A{i}", "audio", variants=100 + i) for i in range(5)]
+    rows += [_row(f"O{i}", "outdoor", variants=500 + i) for i in range(5)]
+    rows.append(_row("Themey", "outdoor", variants=9000, jsonld_currency=[]))
+    review = {
+        "Flagged": [ScreenReview("Flagged", "alcohol", frozenset({"x"}), "false_positive", "r")]
+    }
+    rows.append(_row("Flagged", "audio", variants=9000))
+    groups = classify(collect([_run("recon-004", *rows)], review), max_stores=8)
+    selected = {r.store for r in groups["selected"]}
+    reserve = {r.store: r.reserve_reason for r in groups["reserve"]}
+    assert len(selected) == 8
+    assert {"Themey", "Flagged"} <= set(reserve)  # caveats go first, despite big catalogs
+    assert sum(1 for r in groups["selected"] if r.category == "audio") >= 4
+    assert sum(1 for r in groups["selected"] if r.category == "outdoor") >= 4
+    assert all(reason and "trimmed to 8 stores" in reason for reason in reserve.values())
