@@ -356,8 +356,10 @@ From an independent review that rendered every SVG:
   SVG the final frame is the default style and, under reduced motion, is forced
   with `!important` (opacity, stroke dashes), not only `animation: none`.
   `scripts/check_visuals.cjs` (Playwright) checks that the reduced-motion render
-  and the still `<img>` match the final frame pixel for pixel and that the hero's
-  result number is visible; `tests/test_visuals_render.py` runs it, and the
+  and the still `<img>` match the final frame (compared at quarter size, because
+  Chromium anti-aliases text in animated layers differently from static text) and
+  that the hero's result number is visible; as a control, the first frame must
+  differ clearly from the final one; `tests/test_visuals_render.py` runs it, and the
   `visuals` workflow runs it on GitHub with Playwright installed.
 - **Phone size.** In the 1000 px viewBox: headings at least 36 px, every other
   text at least 30 px (the small EXAMPLE label excepted); hero rows are

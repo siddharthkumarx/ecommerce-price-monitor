@@ -6,8 +6,12 @@
 //   final    the animated SVG inline, every animation paused at the end of the loop
 //   reduced  the animated SVG inline with prefers-reduced-motion: reduce
 //   still    <name>-still.svg loaded as <img>, the way the README's <picture> shows it
-// "reduced" and "still" must match "final" pixel for pixel (under 0.5 % differing),
-// "reduced" must run no animation, and the hero's result number must be visible.
+// "reduced" and "still" must match "final": compared at quarter size, so text
+// anti-aliasing (which differs between composited animated layers and static
+// text) averages out, fewer than 1 % of pixels may differ. As a control, the
+// first frame must differ clearly from the final frame, so the comparison can
+// catch a wrong frame. "reduced" must run no animation, and the hero's result
+// number must be visible.
 // Prints a JSON report; exits 1 on any failure.
 const fs = require("fs");
 const path = require("path");
@@ -45,13 +49,16 @@ async function diff(browser, a, b) {
   const ratio = await page.evaluate(async ([x, y]) => {
     const load = (src) => new Promise((ok) => { const i = new Image(); i.onload = () => ok(i); i.src = src; });
     const [ia, ib] = await Promise.all([load(x), load(y)]);
-    const c = document.createElement("canvas"); c.width = ia.width; c.height = ia.height;
+    const c = document.createElement("canvas");
+    c.width = Math.round(ia.width / 4); c.height = Math.round(ia.height / 4);
     const g = c.getContext("2d");
-    g.drawImage(ia, 0, 0); const da = g.getImageData(0, 0, c.width, c.height).data;
-    g.clearRect(0, 0, c.width, c.height); g.drawImage(ib, 0, 0); const db = g.getImageData(0, 0, c.width, c.height).data;
+    g.imageSmoothingQuality = "high";
+    g.drawImage(ia, 0, 0, c.width, c.height); const da = g.getImageData(0, 0, c.width, c.height).data;
+    g.clearRect(0, 0, c.width, c.height);
+    g.drawImage(ib, 0, 0, c.width, c.height); const db = g.getImageData(0, 0, c.width, c.height).data;
     let bad = 0;
     for (let k = 0; k < da.length; k += 4) {
-      if (Math.abs(da[k] - db[k]) > 24 || Math.abs(da[k + 1] - db[k + 1]) > 24 || Math.abs(da[k + 2] - db[k + 2]) > 24) bad++;
+      if (Math.abs(da[k] - db[k]) > 32 || Math.abs(da[k + 1] - db[k + 1]) > 32 || Math.abs(da[k + 2] - db[k + 2]) > 32) bad++;
     }
     return bad / (da.length / 4);
   }, ["data:image/png;base64," + a.toString("base64"), "data:image/png;base64," + b.toString("base64")]);
@@ -70,6 +77,7 @@ async function diff(browser, a, b) {
     const [, w, h] = animated.match(/viewBox="0 0 (\d+) (\d+)"/);
     const size = { width: Number(w), height: Number(h) };
     const final = await shoot(browser, animated, "no-preference", LOOP_MS - 100, size);
+    const first = await shoot(browser, animated, "no-preference", 1200, size);
     const reduced = await shoot(browser, animated, "reduce", null, size);
     const img = `<img src="data:image/svg+xml;base64,${Buffer.from(still).toString("base64")}" width="${w}" height="${h}" style="display:block">`;
     const stillShot = await shoot(browser, img, "no-preference", null, size);
@@ -84,13 +92,15 @@ async function diff(browser, a, b) {
       name,
       reduced_vs_final: await diff(browser, reduced.png, final.png),
       still_img_vs_final: await diff(browser, stillShot.png, final.png),
+      first_vs_final: await diff(browser, first.png, final.png),
       reduced_running_animations: reduced.info.running,
       hero_result_opacity: reduced.info.b3,
       hero_first_beat_opacity: reduced.info.b1,
     };
     const pass =
-      r.reduced_vs_final < 0.005 &&
-      r.still_img_vs_final < 0.005 &&
+      r.first_vs_final > 0.03 &&
+      r.reduced_vs_final < 0.01 &&
+      r.still_img_vs_final < 0.01 &&
       r.reduced_running_animations === 0 &&
       (name !== "hero" || (r.hero_result_opacity === "1" && r.hero_first_beat_opacity === "0"));
     r.pass = pass;
