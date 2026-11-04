@@ -117,7 +117,8 @@ def test_normalize_cents_compare_at_and_rejects() -> None:
     ]
     assert rows[0].product_title == "Tee"
     assert stats.compare_at_ignored == 1
-    assert stats.rejected == 3
+    assert stats.free == 1  # the $0.00 variant: out of scope, not an error
+    assert stats.rejected == 2
     assert any("duplicate" in e for e in stats.examples)
 
 
