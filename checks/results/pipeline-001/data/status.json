@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-11-04T00:14:05Z",
+  "first_run": null,
+  "days_running": 0,
+  "runs_total": 1,
+  "runs_good": 0,
+  "runs_held": 1,
+  "missed_runs": 0,
+  "missed_slots": [],
+  "last_run": {
+    "run_id": "20261103T234233Z",
+    "started_at": "2026-11-03T23:42:33Z",
+    "status": "held",
+    "duration_s": 1891.9,
+    "stores_ok": 22,
+    "stores_total": 30,
+    "rows_live": 0,
+    "hold_reasons": [
+      "branch-basics: validation rejected 77 of 143 rows",
+      "crown-affair: validation rejected 5 of 116 rows",
+      "hydrapak: validation rejected 115 of 494 rows",
+      "jlab: validation rejected 52 of 438 rows"
+    ]
+  },
+  "rows_today": 0
+}
