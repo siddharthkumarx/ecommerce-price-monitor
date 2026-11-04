@@ -4,6 +4,8 @@
 * Times: one UTC ``observed_at`` per store fetch.
 * ``compare_at_price`` below the price is a stale merchant value: it is dropped
   and counted (docs/decisions.md, D-007).
+* $0 variants (free gifts, samples, add-ons) are out of scope (price > 0) and
+  counted as ``free``, not as rejects (D-018).
 * Rows that still fail validation are rejected and counted, never repaired.
 """
 
@@ -40,6 +42,7 @@ def slim_product(raw: dict[str, Any]) -> dict[str, Any]:
 @dataclass
 class NormalizeStats:
     rows: int = 0
+    free: int = 0
     rejected: int = 0
     compare_at_ignored: int = 0
     examples: list[str] = field(default_factory=list)
@@ -66,6 +69,10 @@ def normalize_products(
     for product in products:
         for variant in product.get("variants") or []:
             price = price_to_cents(variant.get("price"))
+            if price == 0:
+                # Free gifts, samples and add-ons: out of scope (price > 0), not an error.
+                stats.free += 1
+                continue
             compare_at = price_to_cents(variant.get("compare_at_price"))
             if compare_at is not None and price is not None and compare_at < price:
                 compare_at = None

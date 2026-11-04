@@ -56,7 +56,7 @@ class RunConfig:
     data: Path
     history_in: Path | None = None
     history_out: Path | None = None
-    concurrency: int = 3
+    concurrency: int = 5
     polite: PoliteConfig = field(default_factory=lambda: PoliteConfig(delay_s=4.0, jitter_s=3.0))
     edge_interval_s: float = 3.0
     edge_jitter_s: float = 1.5
@@ -107,6 +107,7 @@ def process(
     per_store: dict[str, list[VariantRow]] = {}
     rejected: dict[str, int] = {}
     compare_at_ignored = 0
+    free_variants = 0
     reject_examples: dict[str, list[str]] = {}
     for f in fetches:
         if not f.complete:
@@ -116,6 +117,7 @@ def process(
         rows += store_rows
         rejected[f.store_id] = stats.rejected
         compare_at_ignored += stats.compare_at_ignored
+        free_variants += stats.free
         if stats.examples:
             reject_examples[f.store_id] = stats.examples
 
@@ -179,6 +181,7 @@ def process(
         "rows_rejected": sum(rejected.values()),
         "reject_examples": reject_examples,
         "compare_at_ignored": compare_at_ignored,
+        "free_variants": free_variants,
         "events": events_by_type,
         "parquet_rows": parquet_rows,
         "requests": sum(f.requests for f in fetches),
@@ -241,7 +244,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--data", type=Path, default=Path("data"))
     p.add_argument("--history-in", type=Path)
     p.add_argument("--history-out", type=Path)
-    p.add_argument("--concurrency", type=int, default=3)
+    p.add_argument("--concurrency", type=int, default=5, help="stores in flight")
     # Daily pace (docs/decisions.md, D-005).
     p.add_argument("--delay", type=float, default=4.0, help="per-store delay, seconds")
     p.add_argument("--jitter", type=float, default=3.0, help="per-store jitter, seconds")
