@@ -25,7 +25,11 @@ def load_stores(path: Path) -> list[Store]:
     raw = yaml.safe_load(path.read_text(encoding="utf-8"))
     stores = [
         Store(
-            id=str(s["id"]), name=str(s["name"]), category=str(s["category"]), host=str(s["host"])
+            id=str(s["id"]),
+            name=str(s["name"]),
+            category=str(s["category"]),
+            host=str(s["host"]),
+            screen_reviewed=frozenset(str(t) for t in s.get("screen_reviewed") or []),
         )
         for s in raw["stores"]
     ]

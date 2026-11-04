@@ -23,3 +23,8 @@ reviews:
     titles: ["6mm Output Female Cigarette Adapter"]
     verdict: false_positive
     reason: 'A 12 V car-socket ("cigarette lighter") power adapter.'
+  - store: Koio
+    category: tobacco/vape
+    titles: ["Monza Leather in Tobacco"]
+    verdict: false_positive
+    reason: '"Tobacco" is a leather colour name on a sneaker. Evidence: checks/results/pipeline-001 (Koio predates the screen in recon-003).'
