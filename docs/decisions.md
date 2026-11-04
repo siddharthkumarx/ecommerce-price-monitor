@@ -241,3 +241,46 @@ themselves and some get variant offers wrong. Rule: a `.js` mismatch blocks the
 store (status `mismatch`, not updated); a JSON-LD price difference alone is
 recorded per store as `jsonld_disagrees` in `runs.jsonl` and does not block.
 JSON-LD stays the currency proof (D-006).
+
+## D-020 - 45-minute run on one runner, 25 stores (2026-11-04, owner decision)
+
+Owner rule: one daily run must finish in under 45 minutes on a single runner,
+reached with a smaller store list. Parallel jobs are ruled out: spreading requests
+over several runners' IPs would work around Shopify's per-IP limit (INC-005),
+which this project never does. Until the public publish, Actions minutes are a
+private budget of 2,000 a month shared with another repository.
+
+- **Store list:** the best 25 stores, at least 4 per category (`MAX_STORES`,
+  `MIN_PER_CATEGORY` in `src/pricemon/sources.py`). Ranking inside a category:
+  US shops first, then fewest recon caveats (shop not registered in the US;
+  USD proven by the theme only, no JSON-LD offer; needed a reviewed content-screen
+  hit), then larger catalogs. Trimming moves the weakest store (most caveats,
+  from the largest category, smallest catalog) to reserve until 25 remain.
+  Result: audio 6, apparel 5, beauty 4, home & kitchen 5, outdoor 5; 12,037
+  variants. Reserve: Koio, Westman Atelier, Goal Zero, Six Moon Designs (reviewed
+  screen hits) and Otherland (theme-only currency proof). All in `docs/sources.md`.
+- **Budget:** no new store request after 38 minutes (`RunConfig.budget_s`); the
+  pipeline step times out at 41 minutes and the job at 45, which covers setup,
+  the Parquet upload and the data commit.
+- **Requests per run:** 25 robots.txt + 31 `/products.json` pages + 25 `.js` + 25
+  product pages = 106. Estimate: about 8-9 minutes without throttling; about 27
+  minutes at the throttling `pipeline-003` saw (15.3 s per successful request
+  including 429 cooldowns).
+- **`.js` sample not reduced further:** it is already 1 product per store per run
+  (D-010). Fewer would leave some stores without a `.js` cross-check on a given
+  day, which weakens the witness check, so the saving (at most 25 requests) is
+  not taken.
+- **Minutes:** a daily run bills about 10-30 minutes plus setup; a CI push bills
+  about 4 minutes (4 jobs, rounded up per job); a `checks` run bills its duration.
+  Live checks are therefore requested only when they answer a question.
+
+## D-021 - BFCM runs per day are one workflow flag (2026-11-04, owner decision)
+
+From 26 Nov to 1 Dec 2026: 4 runs a day only if the repository is public by
+26 Nov, otherwise 2. The switch is `env.BFCM_RUNS_PER_DAY` ("2" or "4") at the
+top of `.github/workflows/daily.yml`. Slots: 06:17 every day, 18:17 on BFCM days,
+and 00:17 and 12:17 on BFCM days only when the flag is "4". Those two extra slots
+pass through a 2-minute `slot` job that reads the flag; every other trigger skips
+that job, so it costs nothing on normal days. The pipeline reads the same
+variable (`schedule.active_crons`), so "missed runs" counts only slots meant to
+run. Supersedes the BFCM part of D-013.
