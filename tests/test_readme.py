@@ -97,18 +97,39 @@ def _font_sizes(svg: str) -> list[float]:
 def test_visuals_follow_the_rules(two_runs: tuple[Path, Path]) -> None:
     data, stores = two_runs
     f = collect(data, stores)
-    for svg in (hero(f), pipeline(), maintenance(f), hero_square(f)):
-        assert len(svg.encode()) < 1_000_000
-        assert "<script" not in svg
-        assert not re.search(r'(?:href|src|url\()\s*=?\s*"?https?:', svg)  # no external loads
-        assert "prefers-reduced-motion" in svg
-        assert " 9s infinite" in svg
-        assert "<title" in svg
-        assert "<desc" in svg
-    for svg in (hero(f), pipeline(), maintenance(f)):
-        assert min(_font_sizes(svg)) >= 22
-    assert min(_font_sizes(hero_square(f))) >= 40
-    assert "EXAMPLE" in maintenance(f)  # drawn timeline is labelled
+    visuals = {"hero": hero(f), "pipeline": pipeline(), "maintenance": maintenance(f)}
+    square = hero_square(f)
+    for v in [*visuals.values(), square]:
+        for svg in (v.render(), v.render(animated=False)):
+            assert len(svg.encode()) < 1_000_000
+            assert "<script" not in svg
+            assert not re.search(r'(?:href|src|url\()\s*=?\s*"?https?:', svg)  # no external loads
+            assert "<title" in svg
+            assert "<desc" in svg
+        animated, still = v.render(), v.render(animated=False)
+        assert " 9s infinite" in animated
+        assert "prefers-reduced-motion" in animated
+        assert "!important" in animated.split("prefers-reduced-motion", 1)[1]  # final state forced
+        assert "@keyframes" not in still
+    # Phone-readable: headings >= 36 px, everything else >= 30 px (EXAMPLE label excepted).
+    for name, v in visuals.items():
+        sizes = [
+            float(size)
+            for size, text in re.findall(r'font-size="([\d.]+)"[^>]*>([^<]*)<', v.render())
+            if text != "EXAMPLE"
+        ]
+        assert min(sizes) >= 30, name
+        assert max(sizes) >= 36, name
+    assert min(_font_sizes(square.render())) >= 40
+    assert "EXAMPLE" in visuals["maintenance"].render()  # drawn timeline is labelled
+
+
+def test_row_labels_are_short() -> None:
+    from pricemon.visuals import row_label
+
+    assert row_label("Big Agnes", "Fly Creek HV 1 Carbon Footprint", 21) == "Big Agnes · Fly Creek"
+    assert len(row_label("A very long store name indeed", "Product", 20)) <= 20
+    assert row_label("Year & Day", "All Day & Night Dip Dishes", 22) == "Year & Day · All Day"
 
 
 # -- internal links -------------------------------------------------------------------

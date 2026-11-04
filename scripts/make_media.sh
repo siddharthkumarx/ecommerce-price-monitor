@@ -20,7 +20,7 @@ uv run python -c "
 from pathlib import Path
 from pricemon.report import collect
 from pricemon.visuals import hero_square
-Path('$work/hero-square.svg').write_text(hero_square(collect(Path('data'), Path('config/stores.yml'))))
+Path('$work/hero-square.svg').write_text(hero_square(collect(Path('data'), Path('config/stores.yml'))).render())
 "
 node scripts/render_media.cjs frames "$work/hero-square.svg" "$work/frames"
 mkdir -p media

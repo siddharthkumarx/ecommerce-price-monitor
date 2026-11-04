@@ -14,3 +14,4 @@ build/
 /site/
 /work/
 requirements-audit.txt
+node_modules/

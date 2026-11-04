@@ -1,0 +1,42 @@
+# Renders the README visuals in Chromium and checks their reduced-motion final frame.
+# Runs only when the visuals code or its check changes (it installs a browser, which
+# costs Actions minutes). The daily run's own commits do not trigger workflows.
+name: visuals
+
+on:
+  push:
+    paths:
+      - src/pricemon/visuals.py
+      - src/pricemon/report.py
+      - templates/README.md.j2
+      - scripts/check_visuals.cjs
+      - tests/test_visuals_render.py
+      - .github/workflows/visuals.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visuals-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - run: uv sync --locked
+      - name: Install Playwright 1.63.0 and Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Reduced-motion and still frames match the final frame
+        env:
+          REQUIRE_PLAYWRIGHT: "1"
+        run: uv run pytest -q -rs tests/test_visuals_render.py
