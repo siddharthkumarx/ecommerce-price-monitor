@@ -119,7 +119,7 @@ class ReconResult:
                 fails.append("robots disallows product page")
             if self.content_flags:
                 fails.append("excluded category: " + ", ".join(sorted(self.content_flags)))
-        if any(cause == "http 429" for cause in self.retry_causes):
+        if any(cause.startswith("http 429") for cause in self.retry_causes):
             fails.append("needed 429 retries")
         return (not fails, fails)
 

@@ -267,3 +267,19 @@ def test_challenge_with_long_retry_after_counts_as_block() -> None:
     run(session.load_robots())
     with pytest.raises(StoreStopped, match="blocked: cloudflare challenge"):
         run(session.get("/products.json"))
+
+
+def test_retry_details_name_the_request_kind_and_retry_after() -> None:
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return httpx.Response(429, headers={"Retry-After": "7"})
+        return httpx.Response(200, json={})
+
+    session, _, _ = session_for(robots_then(handler))
+    run(session.load_robots())
+    run(session.get("/products/tee.js"))
+    assert session.retry_causes == ["http 429"]
+    assert session.retry_details == ["http 429 on product .js, retry-after 7s"]
