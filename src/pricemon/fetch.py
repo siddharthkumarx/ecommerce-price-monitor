@@ -57,6 +57,7 @@ class WitnessResult:
     jsonld_compared: int = 0
     jsonld_price_diffs: int = 0
     jsonld_stock_diffs: int = 0
+    first_diff: str | None = None
     currencies: list[str] = field(default_factory=list)
     theme_currency: str | None = None
 
@@ -73,6 +74,7 @@ class StoreFetch:
     requests: int = 0
     retries: int = 0
     retry_causes: list[str] = field(default_factory=list)
+    retry_details: list[str] = field(default_factory=list)
     elapsed_s: float = 0.0
     witnesses: list[WitnessResult] = field(default_factory=list)
     content_flags: dict[str, list[str]] = field(default_factory=dict)
@@ -103,6 +105,7 @@ class StoreFetch:
             "requests": self.requests,
             "retries": self.retries,
             "retry_causes": self.retry_causes,
+            "retry_details": self.retry_details,
             "elapsed_s": self.elapsed_s,
             "currencies": sorted(self.currencies),
             "witnesses": [w.__dict__ for w in self.witnesses],
@@ -197,8 +200,12 @@ async def _witness_page(session: StoreSession, product: dict[str, Any], w: Witne
         vid = offer_variant_id(offer)
         w.jsonld_compared += 1
         if vid is not None and vid in catalog:
-            if price != price_to_cents(catalog[vid].get("price")):
+            expected_price = price_to_cents(catalog[vid].get("price"))
+            if price != expected_price:
                 w.jsonld_price_diffs += 1
+                w.first_diff = w.first_diff or (
+                    f"variant {vid}: JSON-LD {price} vs catalog {expected_price} cents"
+                )
             stock = offer_availability(offer)
             expected = "in_stock" if catalog[vid].get("available") else "out_of_stock"
             if stock is not None and stock != expected:
@@ -206,6 +213,9 @@ async def _witness_page(session: StoreSession, product: dict[str, Any], w: Witne
                 w.jsonld_stock_diffs += 1
         elif price not in catalog_prices:
             w.jsonld_price_diffs += 1
+            w.first_diff = w.first_diff or (
+                f"offer {vid or 'without variant id'}: JSON-LD {price} cents not in catalog prices"
+            )
     if not offers:
         w.jsonld = "no_offers"
     elif w.jsonld_price_diffs:
@@ -229,6 +239,7 @@ async def fetch_store(session: StoreSession, store: Store, day: date) -> StoreFe
     out.requests = session.requests_made
     out.retries = session.retries_made
     out.retry_causes = list(session.retry_causes)
+    out.retry_details = list(session.retry_details)
     out.elapsed_s = round(time.monotonic() - started, 1)
     if out.status != "ok":
         out.products = [] if out.status == "failed" else out.products

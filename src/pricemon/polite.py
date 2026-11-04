@@ -79,6 +79,20 @@ def detect_block(status: int, final_url: str, body_head: str) -> str | None:
     return None
 
 
+def request_kind(url: str) -> str:
+    """A coarse, content-free label for a request path, for retry diagnostics."""
+    path = urlsplit(url).path
+    if path == "/robots.txt":
+        return "robots.txt"
+    if path == "/products.json":
+        return "products.json"
+    if path.startswith("/products/") and path.endswith(".js"):
+        return "product .js"
+    if path.startswith("/products/"):
+        return "product page"
+    return path.split("/")[1] if "/" in path[1:] else path
+
+
 def parse_retry_after(value: str | None, now: datetime | None = None) -> float | None:
     """Parse a ``Retry-After`` header (delta-seconds or HTTP-date) into seconds."""
     if value is None:
@@ -181,6 +195,7 @@ class StoreSession:
     requests_made: int = 0
     retries_made: int = 0
     retry_causes: list[str] = field(default_factory=list)
+    retry_details: list[str] = field(default_factory=list)
     _next_at: float = 0.0
 
     def __post_init__(self) -> None:
@@ -210,6 +225,8 @@ class StoreSession:
     async def _send(self, url: str, accept: str) -> httpx.Response:
         """Send one GET with retry rules applied. Raises StoreStopped."""
         last_problem = "no attempt"
+        kind = request_kind(url)
+        retry_after: float | None = None
         for attempt in range(1, self.config.max_attempts + 1):
             if self.edge is not None and self.edge.halted_reason:
                 raise self._stop(self.edge.halted_reason)
@@ -239,6 +256,8 @@ class StoreSession:
             if attempt < self.config.max_attempts:
                 self.retries_made += 1
                 self.retry_causes.append(last_problem)
+                ra = "-" if retry_after is None else f"{retry_after:g}s"
+                self.retry_details.append(f"{last_problem} on {kind}, retry-after {ra}")
                 self._next_at = self.clock() + wait + self.rng.uniform(0.0, self.config.jitter_s)
         raise self._stop(f"retries exhausted: {last_problem}")
 

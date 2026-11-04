@@ -116,7 +116,7 @@ class StoreRecord:
             if any(m in stopped for m in markers):
                 reasons.append(f"{rid}: {stopped}")
             if "retry_causes" in r:
-                n429 = sum(1 for c in r["retry_causes"] if c == "http 429")
+                n429 = sum(1 for c in r["retry_causes"] if c.startswith("http 429"))
                 if n429:
                     reasons.append(f"{rid}: {n429} retr{'y' if n429 == 1 else 'ies'} on 429")
             elif r.get("retries"):
