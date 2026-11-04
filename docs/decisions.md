@@ -101,7 +101,8 @@ Requests per run, from the recon catalog sizes of the 30 stores: robots.txt (30)
 page) + 2 sampled products x (`.js` + product page) (120) = **187 requests**.
 
 Estimate: `recon-004` measured 6.82 s per request at a 5 s mean run-wide
-interval, i.e. about 1.8 s of latency and per-store waiting on top of the pace.
+interval, i.e. about 1.8 s of latency and per-store waiting on top of the pace
+(that run also included 429 backoffs, so the true overhead is lower).
 At the daily 3.75 s mean interval: 187 x (3.75 + 1.8) s = **about 17 minutes**,
 plus about 3 minutes of retry headroom (backoff and Retry-After up to 120 s on a
 few stores) = **about 20 minutes**, inside the 30-minute budget. The pipeline
