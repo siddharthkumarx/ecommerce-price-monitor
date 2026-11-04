@@ -75,9 +75,11 @@ class StoreFetch:
     retries: int = 0
     retry_causes: list[str] = field(default_factory=list)
     retry_details: list[str] = field(default_factory=list)
+    request_log: list[tuple[float, str, str]] = field(default_factory=list)
     elapsed_s: float = 0.0
     witnesses: list[WitnessResult] = field(default_factory=list)
     content_flags: dict[str, list[str]] = field(default_factory=dict)
+    jsonld_disagrees: list[str] = field(default_factory=list)
 
     @property
     def complete(self) -> bool:
@@ -106,10 +108,12 @@ class StoreFetch:
             "retries": self.retries,
             "retry_causes": self.retry_causes,
             "retry_details": self.retry_details,
+            "request_log": [list(entry) for entry in self.request_log],
             "elapsed_s": self.elapsed_s,
             "currencies": sorted(self.currencies),
             "witnesses": [w.__dict__ for w in self.witnesses],
             "content_flags": self.content_flags,
+            "jsonld_disagrees": self.jsonld_disagrees,
         }
 
 
@@ -240,6 +244,7 @@ async def fetch_store(session: StoreSession, store: Store, day: date) -> StoreFe
     out.retries = session.retries_made
     out.retry_causes = list(session.retry_causes)
     out.retry_details = list(session.retry_details)
+    out.request_log = list(session.request_log)
     out.elapsed_s = round(time.monotonic() - started, 1)
     if out.status != "ok":
         out.products = [] if out.status == "failed" else out.products
@@ -267,10 +272,13 @@ async def _fetch(session: StoreSession, store: Store, day: date, out: StoreFetch
     if not out.currencies:
         out.status, out.reason = "failed", "no currency proof on sampled product pages"
         return
-    bad = [f"{w.handle}: .js {w.js}" for w in out.witnesses if w.js != "match"] + [
-        f"{w.handle}: JSON-LD {w.jsonld}" for w in out.witnesses if w.jsonld == "mismatch"
-    ]
+    # products.json and .js come from the same backend: if they agree, a JSON-LD
+    # price difference is a theme fault, recorded but not blocking (D-019).
+    bad = [f"{w.handle}: .js {w.js}" for w in out.witnesses if w.js != "match"]
     if bad:
         out.status, out.reason = "mismatch", "; ".join(bad)
         return
+    out.jsonld_disagrees = [
+        f"{w.handle}: {w.first_diff}" for w in out.witnesses if w.jsonld == "mismatch"
+    ]
     out.status = "ok"

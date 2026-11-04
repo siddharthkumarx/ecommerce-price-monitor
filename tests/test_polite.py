@@ -346,3 +346,18 @@ def test_time_budget_stops_new_requests() -> None:
     with pytest.raises(StoreStopped, match="time budget"):
         run(session.get("/products.json"))
     assert len(seen) == 1  # only robots.txt
+
+
+def test_request_log_records_time_kind_and_status() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={})
+
+    session, fake, _ = session_for(robots_then(handler))
+    session.edge = EdgeGuard(interval_s=0.0, jitter_s=0.0, sleep=fake.sleep, clock=fake.clock)
+    run(session.load_robots())
+    run(session.get("/products.json"))
+    assert [(k, s) for _, k, s in session.request_log] == [
+        ("robots.txt", "200"),
+        ("products.json", "200"),
+    ]
+    assert session.request_log[1][0] >= 3.0  # seconds since run start
