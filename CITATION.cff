@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite it as below."
+title: "Shopify price monitor: daily prices, sales and stock of US D2C brands"
+type: software
+authors:
+  - family-names: Kumar
+    given-names: Siddharth
+    email: hello@siddharthkumar.com
+    website: "https://siddharthkumar.com"
+repository-code: "https://github.com/siddharthkumarx/ecommerce-price-monitor"
+url: "https://siddharthkumar.com/ecommerce-price-monitor/"
+license: MIT
+version: 0.1.0
+date-released: 2026-11-04
+keywords:
+  - web scraping
+  - price monitoring
+  - e-commerce
+  - shopify
+  - data pipeline
+  - duckdb
+  - parquet
