@@ -35,6 +35,9 @@ config/stores.yml ──► fetch ──► validate ──► batch guard ─�
 | `outputs.py` | Change log, `runs.jsonl`, `status.json`, shields.io badge files, snapshot aggregates (DuckDB). |
 | `schedule.py` | The cron slots of `daily.yml` as data, for "missed runs" (a test keeps both equal). |
 | `alert.py` | Whether a run needs an alert, and the alert text. |
+| `report.py` | Facts about the latest real run (sample rows, changes, quality counts) for the README, visuals and dataset card. |
+| `readme.py` | Renders `README.md` and `data/README.md` from `templates/` (D-022). |
+| `visuals.py` | Generates `assets/hero.svg`, `pipeline.svg`, `maintenance-loop.svg` (D-022). |
 | `sheets.py` | Google Sheet publish with `GOOGLE_SA_JSON` (skips cleanly without it). |
 | `site.py` | Static dashboard build into `site/`. |
 | `run.py` | The daily pipeline entry point and exit codes. |
