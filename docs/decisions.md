@@ -111,7 +111,15 @@ Measured, `pipeline-001` (2026-11-03, concurrency 3): **31.5 minutes**, over bud
 (INC-003). 231 requests including 67 retries, every one an HTTP 429. Stores
 waiting out a backoff left the run-wide pace idle. Change: 5 stores in flight
 with the same run-wide pace, so the total request rate does not rise.
-`pipeline-002` measures the result; see `docs/build-progress.md` item 19.
+`pipeline-002` (5 in flight): Shopify answers every throttled request with
+`Retry-After: 60`, and honouring it per store escalated to challenges (INC-004).
+Final design: a 429 pauses the whole run for its Retry-After and slows the
+run-wide pace adaptively (x1.5 per 429, eased back after 10 successes); one
+witness product per store (127 requests per run); and a hard 27-minute budget
+after which no request starts, so a run always ends inside 30 minutes, at the
+cost of a `partial` status if Shopify throttles hard. Estimate without throttling:
+127 x (3.75 + 1.0) s = about 10 minutes; each 429 adds about 60 s run-wide.
+`pipeline-003` measures it.
 
 ## D-006 - Currency proof holds the run (2026-11-03, owner rule)
 
@@ -151,8 +159,9 @@ The full history is the monthly Parquet release asset. This keeps git small
 
 `products.json` covers every row. The `.js` and JSON-LD witnesses cost one
 request each per product, so they are sampled: 2 products per store per run,
-chosen by a stable hash of the run date, store and product id. Over a month this
-covers about 60 products per store while keeping the run inside the time budget.
+chosen by a stable hash of the run date, store and product id. Changed from 2 to
+1 product per store after INC-004 to keep the run inside the time budget: over a
+month this still covers about 30 products per store.
 
 ## D-011 - Content screen (2026-11-03)
 
