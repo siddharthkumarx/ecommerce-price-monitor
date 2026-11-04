@@ -20,8 +20,11 @@ Every recon file is evidence. A store is dropped when **any** run shows one of
 and when its latest recon fails for any other reason (not Shopify, catalog over
 3,000 variants, currency not proven USD, witness mismatch).
 
-Among the stores left, at most ``PER_CATEGORY`` per category are *selected*: US
-shops first (``/meta.json`` country), then larger catalogs. The rest are *reserve*.
+Among the stores left, at most ``PER_CATEGORY`` per category are *selected*,
+ranked US shops first (``/meta.json`` country), then fewest recon caveats, then
+larger catalogs; the list is then trimmed to ``MAX_STORES`` (owner decision D-020:
+one run in 45 minutes on a single runner), never below ``MIN_PER_CATEGORY`` per
+category. The rest are *reserve*.
 """
 
 from __future__ import annotations
@@ -37,6 +40,9 @@ import yaml
 
 PER_CATEGORY = 8
 MIN_PER_CATEGORY = 4
+# Owner decision (D-020): one daily run must finish in 45 minutes on a single runner,
+# reached with a smaller list, never by spreading requests over several runners.
+MAX_STORES = 25
 CATEGORY_TITLES = {
     "audio": "Audio",
     "apparel": "Apparel",
@@ -83,6 +89,7 @@ class StoreRecord:
     category: str
     history: list[tuple[str, dict[str, Any]]] = field(default_factory=list)
     reviews: list[ScreenReview] = field(default_factory=list)
+    reserve_reason: str | None = None
 
     def _reviewed(self, category: str, examples: list[str]) -> ScreenReview | None:
         for review in self.reviews:
@@ -96,6 +103,18 @@ class StoreRecord:
 
     def reviewed_titles(self) -> list[str]:
         return sorted(t for r in self.reviews if r.verdict == "false_positive" for t in r.titles)
+
+    def caveats(self) -> list[str]:
+        """Recon caveats used to rank otherwise equal stores (fewer is cleaner)."""
+        r = self.latest
+        out: list[str] = []
+        if r.get("meta_country") != "US":
+            out.append("shop not registered in the US")
+        if not r.get("jsonld_currency"):
+            out.append("USD proven by the theme only, no JSON-LD offer")
+        if self.reviews:
+            out.append("needed a reviewed content-screen hit")
+        return out
 
     def review_notes(self) -> list[str]:
         return [f"screen hit reviewed ({r.category}): {r.reason}" for r in self.reviews]
@@ -158,8 +177,19 @@ def collect(
 
 
 def classify(
-    records: list[StoreRecord], per_category: int = PER_CATEGORY
+    records: list[StoreRecord],
+    per_category: int = PER_CATEGORY,
+    max_stores: int = MAX_STORES,
+    min_per_category: int = MIN_PER_CATEGORY,
 ) -> dict[str, list[StoreRecord]]:
+    """Split records into selected, reserve and dropped.
+
+    Ranking inside a category: US shops first, then fewest recon caveats, then
+    larger catalogs. At most ``per_category`` per category; then, while more than
+    ``max_stores`` are selected, the weakest store (most caveats, from the largest
+    category, smallest catalog) moves to reserve, never leaving a category with
+    fewer than ``min_per_category``.
+    """
     groups: dict[str, list[StoreRecord]] = {"selected": [], "reserve": [], "dropped": []}
     by_cat: dict[str, list[StoreRecord]] = defaultdict(list)
     for rec in records:
@@ -167,12 +197,36 @@ def classify(
             groups["dropped"].append(rec)
         else:
             by_cat[rec.category].append(rec)
-    for rows in by_cat.values():
+    chosen: dict[str, list[StoreRecord]] = {}
+    for cat, rows in by_cat.items():
         rows.sort(
-            key=lambda x: (x.latest.get("meta_country") != "US", -x.latest["variants"], x.store)
+            key=lambda x: (
+                x.latest.get("meta_country") != "US",
+                len(x.caveats()),
+                -x.latest["variants"],
+                x.store,
+            )
         )
-        groups["selected"] += rows[:per_category]
-        groups["reserve"] += rows[per_category:]
+        chosen[cat] = rows[:per_category]
+        for rec in rows[per_category:]:
+            rec.reserve_reason = f"more than {per_category} in the category"
+            groups["reserve"].append(rec)
+    while sum(len(v) for v in chosen.values()) > max_stores:
+        options = [
+            (len(rec.caveats()), len(rows), -int(rec.latest["variants"]), rec.store, cat, rec)
+            for cat, rows in chosen.items()
+            if len(rows) > min_per_category
+            for rec in rows
+        ]
+        if not options:
+            break
+        *_, cat, weakest = max(options, key=lambda o: o[:4])
+        chosen[cat].remove(weakest)
+        caveats = "; ".join(weakest.caveats()) or "no caveats"
+        weakest.reserve_reason = f"trimmed to {max_stores} stores for the run budget ({caveats})"
+        groups["reserve"].append(weakest)
+    for rows in chosen.values():
+        groups["selected"] += rows
     return groups
 
 
@@ -226,6 +280,8 @@ def _notes(rec: StoreRecord) -> str:
     if r.get("js_crosscheck") == "match":
         bits.append(".js prices match")
     bits += rec.review_notes()
+    if rec.reserve_reason:
+        bits.append(f"reserve: {rec.reserve_reason}")
     bits.append("runs: " + ", ".join(rid for rid, _ in rec.history))
     return "; ".join(bits)
 

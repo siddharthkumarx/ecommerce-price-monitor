@@ -49,13 +49,6 @@ stores:
     host: www.greats.com
     recon_variants: 901
     recon_products: 97
-  - id: koio
-    name: "Koio"
-    category: apparel
-    host: www.koio.co
-    recon_variants: 875
-    recon_products: 122
-    screen_reviewed: ["Monza Leather in Tobacco"]
   - id: lunya
     name: "Lunya"
     category: apparel
@@ -99,13 +92,6 @@ stores:
     recon_variants: 714
     recon_products: 150
     screen_reviewed: ["Lifted Bum Bums & Spirits"]
-  - id: westman-atelier
-    name: "Westman Atelier"
-    category: beauty
-    host: www.westman-atelier.com
-    recon_variants: 345
-    recon_products: 245
-    screen_reviewed: ["Face Trace Contour Stick - Whiskey"]
   - id: bee-s-wrap
     name: "Bee's Wrap"
     category: home_kitchen
@@ -124,12 +110,6 @@ stores:
     host: homesick.com
     recon_variants: 255
     recon_products: 252
-  - id: otherland
-    name: "Otherland"
-    category: home_kitchen
-    host: www.otherland.com
-    recon_variants: 54
-    recon_products: 54
   - id: sheets-giggles
     name: "Sheets & Giggles"
     category: home_kitchen
@@ -148,13 +128,6 @@ stores:
     host: www.bigagnes.com
     recon_variants: 724
     recon_products: 282
-  - id: goal-zero
-    name: "Goal Zero"
-    category: outdoor
-    host: goalzero.com
-    recon_variants: 413
-    recon_products: 394
-    screen_reviewed: ["6mm Output Female Cigarette Adapter"]
   - id: gossamer-gear
     name: "Gossamer Gear"
     category: outdoor
@@ -179,10 +152,3 @@ stores:
     host: www.ovejanegrabikepacking.com
     recon_variants: 1079
     recon_products: 214
-  - id: six-moon-designs
-    name: "Six Moon Designs"
-    category: outdoor
-    host: www.sixmoondesigns.com
-    recon_variants: 633
-    recon_products: 121
-    screen_reviewed: ["TITANIUM WINE FLASK"]
