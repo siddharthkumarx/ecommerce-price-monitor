@@ -61,4 +61,8 @@ item says how to verify it.
     retry: each adds load to the same throttle.
 20. **GitHub Pages deploy** - `todo` after the public publish: add
     `actions/upload-pages-artifact` + `actions/deploy-pages` to `daily.yml`, gated
-    on a repository variable `PAGES_ENABLED == 'true'`.
+    on a repository variable `PAGES_ENABLED == 'true'`. Then run a Lighthouse
+    audit on the live URL (target 100 in all four categories) and record it in
+    `docs/decisions.md`. Already in place for it: no JavaScript, inline CSS,
+    preloaded self-hosted fonts with `font-display: swap`, `lang`, meta
+    description, inline favicon, focusable scroll regions, contrast >= 4.5:1.

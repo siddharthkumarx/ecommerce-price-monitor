@@ -294,6 +294,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 <title>Shopify price monitor</title>
 <meta name="description" content="{esc(description)}">
 <meta name="theme-color" content="#0B1416">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1416'/%3E%3Cpath d='M7 21l6-6 4 4 8-9' fill='none' stroke='%232FBFAE' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
