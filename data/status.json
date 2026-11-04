@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-11-04T09:15:40Z",
+  "first_run": "2026-11-04T08:46:55Z",
+  "days_running": 1,
+  "runs_total": 1,
+  "runs_good": 1,
+  "runs_held": 0,
+  "missed_runs": 0,
+  "missed_slots": [],
+  "last_run": {
+    "run_id": "20261104T084655Z",
+    "started_at": "2026-11-04T08:46:55Z",
+    "status": "ok",
+    "duration_s": 1725.0,
+    "stores_ok": 25,
+    "stores_total": 25,
+    "rows_live": 11769,
+    "hold_reasons": []
+  },
+  "rows_today": 11769
+}
