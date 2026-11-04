@@ -6,12 +6,13 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+import pytest
 import yaml
 
 from pricemon.fetch import StoreFetch, WitnessResult
 from pricemon.outputs import build_status, read_runs, snapshot_summary
 from pricemon.run import EXIT_HELD, EXIT_OK, EXIT_PARTIAL, RunConfig, process
-from pricemon.schedule import CRONS, missed_slots, slots
+from pricemon.schedule import BFCM_EXTRA_CRONS, CRONS, active_crons, missed_slots, slots
 
 ROOT = Path(__file__).resolve().parents[1]
 DAY1 = datetime(2026, 11, 4, 6, 17, tzinfo=UTC)
@@ -139,22 +140,22 @@ def test_crons_match_daily_workflow() -> None:
     assert tuple(s["cron"] for s in triggers["schedule"]) == CRONS
 
 
-def test_black_friday_window_has_four_runs_a_day() -> None:
+@pytest.mark.parametrize("runs_per_day", [2, 4])
+def test_black_friday_window_follows_the_flag(runs_per_day: int) -> None:
     start = datetime(2026, 11, 25, tzinfo=UTC)
     end = datetime(2026, 12, 3, tzinfo=UTC)
     per_day: dict[str, int] = {}
-    for s in slots(start, end):
+    for s in slots(start, end, active_crons(runs_per_day)):
         per_day[s.date().isoformat()] = per_day.get(s.date().isoformat(), 0) + 1
-    assert per_day == {
-        "2026-11-25": 1,
-        "2026-11-26": 4,
-        "2026-11-27": 4,
-        "2026-11-28": 4,
-        "2026-11-29": 4,
-        "2026-11-30": 4,
-        "2026-12-01": 4,
-        "2026-12-02": 1,
-    }
+    bfcm = ["2026-11-26", "2026-11-27", "2026-11-28", "2026-11-29", "2026-11-30", "2026-12-01"]
+    assert per_day == {"2026-11-25": 1, **dict.fromkeys(bfcm, runs_per_day), "2026-12-02": 1}
+
+
+def test_workflow_flag_is_valid_and_gates_the_extra_slots() -> None:
+    wf = yaml.safe_load((ROOT / ".github" / "workflows" / "daily.yml").read_text())
+    assert wf["env"]["BFCM_RUNS_PER_DAY"] in ("2", "4")
+    gate = wf["jobs"]["slot"]["if"]
+    assert all(c in gate for c in BFCM_EXTRA_CRONS)
 
 
 def test_missed_slots_and_status(tmp_path: Path) -> None:

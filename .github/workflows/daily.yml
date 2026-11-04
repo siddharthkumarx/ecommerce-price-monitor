@@ -4,10 +4,17 @@ name: daily
 
 on:
   schedule:
-    - cron: "17 6 * * *"
-    - cron: "17 0,12,18 26-30 11 *"
-    - cron: "17 0,12,18 1 12 *"
+    - cron: "17 6 * * *"          # every day
+    - cron: "17 18 26-30 11 *"    # BFCM second run, 26-30 Nov
+    - cron: "17 18 1 12 *"        # BFCM second run, 1 Dec
+    - cron: "17 0,12 26-30 11 *"  # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
+    - cron: "17 0,12 1 12 *"      # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
   workflow_dispatch:
+
+env:
+  # Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): "4" runs a day only if the
+  # repository is public by 26 Nov, otherwise "2" (06:17 and 18:17 UTC). D-021.
+  BFCM_RUNS_PER_DAY: "2"
 
 permissions:
   contents: write
@@ -18,9 +25,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  run:
+  # Only the two extra BFCM slots pass through this gate; every other trigger skips it
+  # (a skipped job costs no Actions minutes).
+  slot:
+    if: github.event.schedule == '17 0,12 26-30 11 *' || github.event.schedule == '17 0,12 1 12 *'
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 2
+    outputs:
+      run: ${{ steps.decide.outputs.run }}
+    steps:
+      - name: Extra BFCM slot runs only with BFCM_RUNS_PER_DAY "4"
+        id: decide
+        run: |
+          if [ "$BFCM_RUNS_PER_DAY" = "4" ]; then run=true; else run=false; fi
+          echo "BFCM_RUNS_PER_DAY=$BFCM_RUNS_PER_DAY, run=$run"
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+
+  run:
+    needs: slot
+    if: ${{ !cancelled() && (needs.slot.result == 'skipped' || needs.slot.outputs.run == 'true') }}
+    runs-on: ubuntu-24.04
+    # Owner limit: one daily run under 45 minutes on a single runner (D-020).
+    timeout-minutes: 45
     env:
       GH_TOKEN: ${{ github.token }}
       BRANCH: ${{ github.ref_name }}
@@ -54,7 +80,7 @@ jobs:
 
       - name: Run pipeline
         id: run
-        timeout-minutes: 32
+        timeout-minutes: 41
         run: |
           set +e
           args=(--stores config/stores.yml --data data --history-out "work/price_history_$MONTH.parquet")
