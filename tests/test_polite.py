@@ -361,3 +361,15 @@ def test_request_log_records_time_kind_and_status() -> None:
         ("products.json", "200"),
     ]
     assert session.request_log[1][0] >= 3.0  # seconds since run start
+
+
+def test_persistent_throttling_halts_the_run() -> None:
+    edge = EdgeGuard(interval_s=1.0, max_consecutive_429=3, clock=lambda: 0.0)
+    edge.throttled(60)
+    edge.throttled(60)
+    edge.succeeded()  # a success resets the streak
+    edge.throttled(60)
+    edge.throttled(60)
+    assert edge.halted_reason is None
+    edge.throttled(60)
+    assert edge.halted_reason == "run halted: edge throttling persisted (3 429s in a row)"

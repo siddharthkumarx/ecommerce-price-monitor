@@ -152,7 +152,9 @@ class EdgeGuard:
     * ``succeeded()`` eases the interval back towards ``interval_s`` after
       ``ease_after`` successes in a row;
     * ``deadline`` (monotonic seconds) is the run's time budget: once passed, no
-      new request starts and sessions stop with ``run halted: time budget``.
+      new request starts and sessions stop with ``run halted: time budget``;
+    * ``max_consecutive_429`` 429s in a row with no success in between mean the
+      edge refuses this IP for now: the run halts instead of knocking (INC-005).
     """
 
     interval_s: float = 2.0
@@ -162,6 +164,7 @@ class EdgeGuard:
     backoff_factor: float = 1.5
     max_interval_s: float = 12.0
     ease_after: int = 10
+    max_consecutive_429: int = 8
     deadline: float | None = None
     sleep: Sleep = asyncio.sleep
     clock: Callable[[], float] = time.monotonic
@@ -174,6 +177,7 @@ class EdgeGuard:
     cooldown_s: float = 0.0
     _next_at: float = 0.0
     _streak: int = 0
+    _consecutive_429: int = 0
     _blocks: list[tuple[float, str]] = field(default_factory=list)
     _lock: asyncio.Lock = field(default_factory=asyncio.Lock)
 
@@ -198,6 +202,12 @@ class EdgeGuard:
         """A 429 anywhere: pause the whole run and slow the run-wide pace."""
         self.throttle_events += 1
         self._streak = 0
+        self._consecutive_429 += 1
+        if self._consecutive_429 >= self.max_consecutive_429 and self.halted_reason is None:
+            # The edge keeps refusing this IP: stop knocking (INC-005).
+            self.halted_reason = (
+                f"run halted: edge throttling persisted ({self._consecutive_429} 429s in a row)"
+            )
         until = self.clock() + retry_after_s
         if until > self._next_at:
             self.cooldown_s += until - max(self._next_at, self.clock())
@@ -207,6 +217,7 @@ class EdgeGuard:
         )
 
     def succeeded(self) -> None:
+        self._consecutive_429 = 0
         self._streak += 1
         if self._streak >= self.ease_after and self.current_interval_s > self.interval_s:
             self.current_interval_s = max(
