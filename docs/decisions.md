@@ -227,3 +227,13 @@ Jones Road). The owner rule `price > 0` stays; such variants are skipped before
 validation and counted as `free_variants` in `runs.jsonl`. They no longer count
 towards the 2 % reject share, which is meant to catch malformed data. A missing
 or unparseable price is still a reject.
+
+## D-019 - JSON-LD is a soft witness for prices (2026-11-04)
+
+`pipeline-003`: Richer Poorer's JSON-LD showed $8.00 where `/products.json` and
+`.js` both showed $3.00, and Sol de Janeiro's $26.00 against $39.00. Both stores'
+catalog and `.js` (the same Shopify backend) agreed. Themes build JSON-LD
+themselves and some get variant offers wrong. Rule: a `.js` mismatch blocks the
+store (status `mismatch`, not updated); a JSON-LD price difference alone is
+recorded per store as `jsonld_disagrees` in `runs.jsonl` and does not block.
+JSON-LD stays the currency proof (D-006).
