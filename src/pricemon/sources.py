@@ -230,6 +230,18 @@ def classify(
     return groups
 
 
+# The repository was renamed on 2026-11-05; recon evidence keeps the URLs it recorded
+# (GitHub redirects them), the register links the current name.
+RENAMED = (
+    "/siddharthkumarx/ecommerce-price-monitor-wip/",
+    "/siddharthkumarx/ecommerce-price-monitor/",
+)
+
+
+def current_url(url: str | None) -> str | None:
+    return url.replace(*RENAMED) if url else url
+
+
 def _order(rec: StoreRecord) -> tuple[int, str]:
     order = list(CATEGORY_TITLES)
     return (order.index(rec.category) if rec.category in order else 99, rec.store.lower())
@@ -333,7 +345,7 @@ def render(
         "",
         *(
             f"- `{p['meta']['id']}`: finished {p['meta']['finished_utc']}, "
-            f"{len(p['results'])} stores, [Actions run]({p['meta']['run_url']})"
+            f"{len(p['results'])} stores, [Actions run]({current_url(p['meta']['run_url'])})"
             for _, p in sources
         ),
         "",

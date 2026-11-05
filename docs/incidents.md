@@ -4,7 +4,7 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
 
 ## INC-001 - Shared Shopify edge throttled the recon runner (2026-11-03)
 
-- **Run:** `recon-001`, [Actions run 41723890450](https://github.com/siddharthkumarx/ecommerce-price-monitor-wip/actions/runs/41723890450),
+- **Run:** `recon-001`, [Actions run 41723890450](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/41723890450),
   results in `checks/results/recon-001/`.
 - **What happened:** the first ~35 stores answered normally. From then on almost every store
   returned a Cloudflare challenge (`window._cf_chl_opt`, HTTP 429) on its very first request
@@ -39,7 +39,7 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
 
 ## INC-003 - First full dry run held, over the time budget (2026-11-04)
 
-- **Run:** `pipeline-001`, [Actions run 41741247983](https://github.com/siddharthkumarx/ecommerce-price-monitor-wip/actions/runs/41741247983),
+- **Run:** `pipeline-001`, [Actions run 41741247983](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/41741247983),
   results in `checks/results/pipeline-001/`.
 - **What happened:** status `held`, 22 of 30 stores complete, 31.5 minutes.
   - Validation rejects above 2 % held the run for 4 stores. All rejects were $0
