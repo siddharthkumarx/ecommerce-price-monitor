@@ -1,0 +1,120 @@
+observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
+2026-11-05T09:41:31Z,bee-s-wrap,10278575702291,53186903736595,bread-bag,Bread Bag,Bakery Lane,out_of_stock,1999,1999,,,
+2026-11-05T09:41:31Z,big-agnes,8497224909049,45429832122617,ws-piney-mountain-jacket,W's Piney Mountain UL Jacket,Nasturtium / XS,out_of_stock,10498,10498,34995,34995,
+2026-11-05T09:41:31Z,big-agnes,8641776255225,45797537710329,blacktail-three,Blacktail 3 - Warm Olive,Default Title,removed,34995,,34995,,
+2026-11-05T09:41:31Z,big-agnes,10103588323577,48587183980793,blacktail-three-warm-olive,Blacktail 3 - Warm Olive,Default Title,new,,34995,,34995,
+2026-11-05T09:41:31Z,big-agnes,15304183152889,67378232197369,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XL,back_in_stock,29995,29995,39995,39995,
+2026-11-05T09:41:31Z,crown-affair,7886936014911,41996461572159,the-refresh-ritual-set,The Hair Refresh Ritual Set,Default Title,out_of_stock,4800,4800,7100,7100,
+2026-11-05T09:41:31Z,crown-affair,7924357627967,42435503292479,the-towel-embroidery,The Towel - Embroidery,Embroidered Green Towel,back_in_stock,7900,7900,,,
+2026-11-05T09:41:31Z,hydrapak,9228731449577,51630539604201,hydrapak-skyflask-made-for-hydrogel,SkyFlask™ — Made For Hydrogel,Clear,out_of_stock,4000,4000,,,
+2026-11-05T09:41:31Z,hydrapak,7499993645289,51630888845545,pioneer-10l,Pioneer™ 10L,Black,out_of_stock,4225,4225,6500,6500,
+2026-11-05T09:41:31Z,jones-road,7307639193750,41597705257110,what-the-foundation,What The Foundation,Light,out_of_stock,4600,4600,,,
+2026-11-05T09:41:31Z,jones-road,15393307197590,67586001469590,the-pinky-bronze-kit-2-0,The Pinky Bronze Kit 2.0,The Pinky Bronze Kit 2.0,new,,6600,,9000,
+2026-11-05T09:41:31Z,jones-road,15393308311702,67586003599510,the-lip-trio,The Lip Trio,The Lip Trio,new,,4800,,6600,
+2026-11-05T09:41:31Z,jones-road,15393309655190,67586006024342,the-eyeshadow-quad,The Eyeshadow Quad,Just Browns,new,,3500,,,
+2026-11-05T09:41:31Z,jones-road,15393309655190,67586011791510,the-eyeshadow-quad,The Eyeshadow Quad,Live a Little,new,,3500,,,
+2026-11-05T09:41:31Z,jones-road,15393314373782,67586016018582,the-illuminator,The Illuminator,Baby Pink,new,,3200,,,
+2026-11-05T09:41:31Z,jones-road,15393314373782,67586016051350,the-illuminator,The Illuminator,Pearl,new,,3200,,,
+2026-11-05T09:41:31Z,jones-road,15393314373782,67586018508950,the-illuminator,The Illuminator,Champagne,new,,3200,,,
+2026-11-05T09:41:31Z,jones-road,15393314373782,67586018541718,the-illuminator,The Illuminator,Golden Bronze,new,,3200,,,
+2026-11-05T09:41:31Z,lunya,7080179171371,40713940074539,womens-washable-silk-bias-slip-dress-immersed-black,Washable Silk Bias Slip Dress,Immersed Black / M,back_in_stock,19800,19800,,,
+2026-11-05T09:41:31Z,lunya,7111445315627,40788682145835,mens-washable-silk-set-deep-blue,Men's Washable Silk Set,Deep Blue / XXL,back_in_stock,27800,27800,,,
+2026-11-05T09:41:31Z,lunya,7111448494123,40788708851755,mens-washable-silk-boxer-deep-blue,Men's Washable Silk Boxer,Deep Blue / XL,out_of_stock,8800,8800,,,
+2026-11-05T09:41:31Z,lunya,7260508913707,41142289498155,seamless-modal-bare-bralette-immersed-black,Seamless Modal Bare Bralette,Immersed Black / XL,out_of_stock,4800,4800,,,
+2026-11-05T09:41:31Z,lunya,7296957317163,41258612686891,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / M,out_of_stock,4800,4800,,,
+2026-11-05T09:41:31Z,lunya,7415234658347,41897487892523,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / M,out_of_stock,6800,6800,,,
+2026-11-05T09:41:31Z,lunya,7419230879787,41907201277995,womens-washable-silk-long-sleeve-pant-set-immersed-black-3,Washable Silk Long Sleeve Pant Set,Immersed Black / L,out_of_stock,29800,29800,,,
+2026-11-05T09:41:31Z,lunya,7428175429675,41940211007531,womens-slumberknit-shawl-collar-button-down-pant-set-calliope-wine-royal-lagoon,Slumberknit™ Shawl Collar Button Down Pant Set,Calliope Wine/Royal Lagoon / L,back_in_stock,15800,15800,,,
+2026-11-05T09:41:31Z,lunya,7763964592171,42592626245675,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / S,out_of_stock,12800,12800,,,
+2026-11-05T09:41:31Z,lunya,7763965214763,42592629030955,womens-airy-cotton-piped-button-down-stillwater-stripespring-clover,Airy Cotton Piped Button Down,Stillwater Stripe/Spring Clover / XS,back_in_stock,12800,12800,,,
+2026-11-05T09:41:31Z,lunya,7849299312683,43346801360939,womens-washable-silk-side-stripe-pant-chili-pepper-soft-ivory,Washable Silk Side Stripe Pant,Chili Pepper/Soft Ivory / XS,removed,22800,,,,
+2026-11-05T09:41:31Z,lunya,7849299312683,43346801393707,womens-washable-silk-side-stripe-pant-chili-pepper-soft-ivory,Washable Silk Side Stripe Pant,Chili Pepper/Soft Ivory / S,removed,22800,,,,
+2026-11-05T09:41:31Z,lunya,7849299312683,43346801426475,womens-washable-silk-side-stripe-pant-chili-pepper-soft-ivory,Washable Silk Side Stripe Pant,Chili Pepper/Soft Ivory / M,removed,22800,,,,
+2026-11-05T09:41:31Z,lunya,7849299312683,43346801459243,womens-washable-silk-side-stripe-pant-chili-pepper-soft-ivory,Washable Silk Side Stripe Pant,Chili Pepper/Soft Ivory / L,removed,22800,,,,
+2026-11-05T09:41:31Z,lunya,7849299312683,43346801492011,womens-washable-silk-side-stripe-pant-chili-pepper-soft-ivory,Washable Silk Side Stripe Pant,Chili Pepper/Soft Ivory / XL,removed,22800,,,,
+2026-11-05T09:41:31Z,lunya,7849299673131,43346802999339,womens-linen-embroidered-eyelet-tank-whisper-blue,Linen Embroidered Eyelet Tank,Whisper Blue / XS,out_of_stock,12800,12800,,,
+2026-11-05T09:41:31Z,lunya,7849300099115,43346805358635,womens-washable-silk-bias-cami-short-set-deep-blue,Washable Silk Bias Cami Short Set,Deep Blue / S,out_of_stock,17800,17800,,,
+2026-11-05T09:41:31Z,lunya,7849300099115,43346805391403,womens-washable-silk-bias-cami-short-set-deep-blue,Washable Silk Bias Cami Short Set,Deep Blue / M,out_of_stock,17800,17800,,,
+2026-11-05T09:41:31Z,lunya,7849300525099,43346807488555,womens-organic-cotton-seersucker-pant-deep-blue,Organic Cotton Seersucker Pant,Deep Blue / L,back_in_stock,14800,14800,,,
+2026-11-05T09:41:31Z,lunya,7849301344299,43346811846699,womens-silksweats-midweight-reversible-short-blushed-lavender,Silksweats™ Midweight Reversible Short,Blushed Lavender / M,out_of_stock,9800,9800,,,
+2026-11-05T09:41:31Z,oveja-negra,1575140458598,15531042799718,royale-hip-pack,Royale™ Hip Pack,Coyote/Black / Hip Pack,back_in_stock,11000,11000,,,
+2026-11-05T09:41:31Z,oveja-negra,1575140458598,47688279490865,royale-hip-pack,Royale™ Hip Pack,Serape / Hip Pack,back_in_stock,11000,11000,,,
+2026-11-05T09:41:31Z,oveja-negra,737701560422,49408755597617,portero-roll-top-backpack-wack-pack,Portero™ Roll-Top Backpack - WACK PACK,Wack Donuts / Backpack,out_of_stock,18000,18000,,,
+2026-11-05T09:41:31Z,oveja-negra,10370489876785,51722952769841,honey-lip-balm-by-rock-mountain-beeswax-co,Honey Lip Balm by Rocky Mountain Beeswax Co.,Peppermint,back_in_stock,600,600,,,
+2026-11-05T09:41:31Z,shokz,3952931340375,29526109618263,openswim,OpenSwim,Black,back_in_stock,14995,14995,,,
+2026-11-05T09:41:31Z,shokz,3952931340375,30260726595671,openswim,OpenSwim,Blue,back_in_stock,14995,14995,,,
+2026-11-05T09:41:31Z,shokz,7553403486408,43666962743496,refurbished-openmove,OpenMove (Refurbished),Pink,back_in_stock,5995,5995,7995,7995,
+2026-11-05T09:41:31Z,shokz,8037585092808,45229740064968,openrunpro2,OpenRun Pro 2,TCS New York City Marathon Co-branded Edition / Mini,out_of_stock,19995,19995,,,
+2026-11-05T09:41:31Z,sol-de-janeiro,6847448678502,40031086608486,30ml-brazilian-crush-cheirosa-68-beija-flor™-perfume-mist,Free 30ml Cheirosa 68 Beija Flor™ Perfume Mist,Default Title,new,,1,,,
+2026-11-05T09:41:31Z,sol-de-janeiro,15405065764966,67617524056166,cheirosa-68-beija-flor™-perfume-mist-30ml,Cheirosa 68 Perfume Mist (30ml),Default Title,new,,1200,,,
+2026-11-05T09:41:31Z,sol-de-janeiro,8112828940390,67797652832358,beauty-bag,Beauty Bag,Cheirosa 76 Blue,out_of_stock,1800,1800,,,
+2026-11-05T09:41:31Z,soundcore-us,6180785324222,40954173489342,life-a2-nc,Life A2 NC | Bluetooth Noise Cancelling Earbuds,Black,price_up,5999,6999,,,16.7
+2026-11-05T09:41:31Z,soundcore-us,8633247629502,45655767580862,d1200-liberty-buds-wireless-semi-in-ear,Liberty Buds | Wireless Semi-in-Ear Earbuds with ANC,Midnight Black,removed,9999,,,,
+2026-11-05T09:41:31Z,soundcore-us,8633247629502,45655767613630,d1200-liberty-buds-wireless-semi-in-ear,Liberty Buds | Wireless Semi-in-Ear Earbuds with ANC,Pearl White,removed,9999,,,,
+2026-11-05T09:41:31Z,soundcore-us,8633912656062,45658494271678,a3388z11-87,Stylish Butterfly Accessory | Exclusive Design for soundcore AeroClip,Default Title,back_in_stock,1999,1999,,,
+2026-11-05T09:41:31Z,soundcore-us,8704985039038,46379173511358,soundcore-liberty-5-refurbished,Liberty 5 (Refurbished),Black,price_up,6495,12999,,,100.1
+2026-11-05T09:41:31Z,soundcore-us,8704985039038,46379173576894,soundcore-liberty-5-refurbished,Liberty 5 (Refurbished),Navy Blue,price_up,6499,12999,,,100.0
+2026-11-05T09:41:31Z,soundcore-us,9026111439038,49136845422782,aerofit-2-pro-refurbished,AeroFit 2 Pro (Refurbished),Gloss White,out_of_stock,17999,17999,,,
+2026-11-05T09:41:31Z,soundcore-us,9026111439038,49136845455550,aerofit-2-pro-refurbished,AeroFit 2 Pro (Refurbished),Matte Purple,out_of_stock,17999,17999,,,
+2026-11-05T09:41:31Z,soundcore-us,9026111439038,49136845488318,aerofit-2-pro-refurbished,AeroFit 2 Pro (Refurbished),Gloss Blue,out_of_stock,17999,17999,,,
+2026-11-05T09:41:31Z,state-liberty,7084949569617,40348750774353,the-bonino-blue-gingham-made-to-order,"""The Bonino"" Blue Gingham","""The Bonino"" Blue Gingham / Standard / 1009",removed,15000,,,,
+2026-11-05T09:41:31Z,state-liberty,7856706289745,42897830838353,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,38 Short / Heathered Forest Green,back_in_stock,48000,48000,,,
+2026-11-05T09:41:31Z,state-liberty,7856706289745,42897830936657,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,42 / Heathered Forest Green,back_in_stock,48000,48000,,,
+2026-11-05T09:41:31Z,state-liberty,15662688763985,58920131067985,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",L / Mini Grey Dot Print,out_of_stock,10500,10500,,,
+2026-11-05T09:41:31Z,state-liberty,15662688763985,58920131100753,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",XL / Mini Grey Dot Print,out_of_stock,10500,10500,,,
+2026-11-05T09:41:31Z,state-liberty,15662689058897,58920132673617,the-broadway-pink-mid-stripe,"""The Broadway"" Pink Mid-Stripe",S / Pink Mid-Stripe,removed,10500,,,,
+2026-11-05T09:41:31Z,state-liberty,15662689058897,58920132706385,the-broadway-pink-mid-stripe,"""The Broadway"" Pink Mid-Stripe",M / Pink Mid-Stripe,removed,10500,,,,
+2026-11-05T09:41:31Z,state-liberty,15662689058897,58920132739153,the-broadway-pink-mid-stripe,"""The Broadway"" Pink Mid-Stripe",L / Pink Mid-Stripe,removed,10500,,,,
+2026-11-05T09:41:31Z,state-liberty,15662689058897,58920132771921,the-broadway-pink-mid-stripe,"""The Broadway"" Pink Mid-Stripe",XL / Pink Mid-Stripe,removed,10500,,,,
+2026-11-05T09:41:31Z,state-liberty,15662689058897,58920132804689,the-broadway-pink-mid-stripe,"""The Broadway"" Pink Mid-Stripe",2XL / Pink Mid-Stripe,removed,10500,,,,
+2026-11-05T09:41:31Z,state-liberty,15662689058897,58920132837457,the-broadway-pink-mid-stripe,"""The Broadway"" Pink Mid-Stripe",3XL / Pink Mid-Stripe,removed,10500,,,,
+2026-11-05T09:41:31Z,state-liberty,15662689157201,58920132935761,the-rocky-powder-blue-with-white-stripes,"""The Rocky"" Powder Blue with White Stripes",S / Powder Blue with White Stripes,out_of_stock,10500,10500,,,
+2026-11-05T09:41:31Z,state-liberty,15662689157201,58920133066833,the-rocky-powder-blue-with-white-stripes,"""The Rocky"" Powder Blue with White Stripes",2XL / Powder Blue with White Stripes,out_of_stock,10500,10500,,,
+2026-11-05T09:41:31Z,state-liberty,15664968368209,58968547983441,sunglasses-matte-black,Sunglasses - Matte Black,Matte Black,new,,15800,,,
+2026-11-05T09:41:31Z,state-liberty,15664968499281,58968548180049,sunglasses-tortoise-shell,Sunglasses - Tortoise Shell,Tortoise Shell,new,,15800,,,
+2026-11-05T09:41:31Z,state-liberty,15706952204369,59128811356241,athletic-fit-stretch-suit-pants-ash-brown-crosshatch,Athletic Fit Stretch Suit Pants - Ash Brown Crosshatch,33W | 34-36L / Ash Brown Crosshatch,back_in_stock,18000,18000,,,
+2026-11-05T09:41:31Z,state-liberty,15770069270609,59396980244561,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,44 Short / Textured Tan with Olive Windowpane,out_of_stock,55000,55000,,,
+2026-11-05T09:41:31Z,state-liberty,15826150260817,59566047363153,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,XL / Solid Sage Green,back_in_stock,9200,9200,,,
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188298321,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,36 / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188331089,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,38 / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188363857,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,40 / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188396625,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,42 / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188429393,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,44 / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188462161,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,46 / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188494929,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,48 / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188527697,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,38 Short / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188560465,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,40 Short / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188593233,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,42 Short / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188626001,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,44 Short / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826168840273,59566188658769,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,46 Short / Charcoal with Ash Mini Stripe,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191050833,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,36 / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191083601,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,38 / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191116369,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,40 / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191149137,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,42 / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191181905,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,44 / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191214673,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,46 / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191247441,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,48 / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191280209,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,38 Short / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191312977,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,40 Short / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191345745,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,42 Short / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191378513,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,44 Short / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15826169167953,59566191411281,athletic-fit-stretch-wool-blazer-navy-and-midnight-plaid,Athletic Fit Stretch Wool Blazer - Navy and Midnight Plaid,46 Short / Navy and Midnight Plaid,price_up,55000,58500,,,6.4
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892997783633,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,29 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892997816401,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,30 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892997849169,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,31 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892997881937,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,32 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892997914705,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,33 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892997947473,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,34 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892997980241,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,36 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892998013009,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,38 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934530617425,59892998045777,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,40 / Charcoal with Ash Mini Stripe,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893016821841,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,29 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893016854609,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,30 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893016887377,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,31 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893016920145,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,32 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893016952913,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,33 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893016985681,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,34 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893017018449,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,36 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893017051217,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,38 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,state-liberty,15934534680657,59893017083985,athletic-fit-stretch-wool-suit-pants-navy-and-midnight-plaid,Athletic Fit Stretch Wool Suit Pants - Navy and Midnight Plaid,40 / Navy and Midnight Plaid,price_up,18000,20000,,,11.1
+2026-11-05T09:41:31Z,year-day,6936593858731,40588832604331,steak-knives,Steak Knives,Matte Gold,out_of_stock,10000,10000,,,

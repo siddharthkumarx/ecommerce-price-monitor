@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,769 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,767 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -14,7 +14,7 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 4 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 5 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
@@ -24,19 +24,32 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 | Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $59.00 | $88.00 | yes |
 
-The full table has 11,769 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,767 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-The run of 4 November 2026 was the first one: it recorded 11,769 prices as the starting point. From the next run on, this list shows every price drop, price rise, new sale, sale ending, sold-out item and restock.
+In the run of 5 November 2026: 45 price rises, 28 items sold out, 18 items back in stock, 13 new product options, 15 product options removed. The biggest moves:
+
+| Store | Product | What changed | Before | Now |
+|---|---|---|---:|---:|
+| Soundcore (US) | [Liberty 5 (Refurbished) (Black)](https://us.soundcore.com/products/soundcore-liberty-5-refurbished) | Price up (+100.1%) | $64.95 | $129.99 |
+| Soundcore (US) | [Liberty 5 (Refurbished) (Navy Blue)](https://us.soundcore.com/products/soundcore-liberty-5-refurbished) | Price up (+100.0%) | $64.99 | $129.99 |
+| Soundcore (US) | [Life A2 NC \| Bluetooth Noise Cancelling Earbuds (Black)](https://us.soundcore.com/products/life-a2-nc) | Price up (+16.7%) | $59.99 | $69.99 |
+| State & Liberty | [Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe (29 / Charcoal with Ash Mini Stripe)](https://stateandliberty.com/products/athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe) | Price up (+11.1%) | $180.00 | $200.00 |
+| State & Liberty | [Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe (30 / Charcoal with Ash Mini Stripe)](https://stateandliberty.com/products/athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe) | Price up (+11.1%) | $180.00 | $200.00 |
+| State & Liberty | [Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe (31 / Charcoal with Ash Mini Stripe)](https://stateandliberty.com/products/athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe) | Price up (+11.1%) | $180.00 | $200.00 |
+| State & Liberty | [Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe (32 / Charcoal with Ash Mini Stripe)](https://stateandliberty.com/products/athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe) | Price up (+11.1%) | $180.00 | $200.00 |
+| State & Liberty | [Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe (33 / Charcoal with Ash Mini Stripe)](https://stateandliberty.com/products/athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe) | Price up (+11.1%) | $180.00 | $200.00 |
+
+Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
 ## Why you can trust this data
 
 - **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 268 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 150 page requests in 28.8 minutes, and no store blocked us.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 24 of 25 stores proved US dollars.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 216 free gifts and samples left out on purpose, not held.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 24 of 25 stores updated; 1 kept their previous prices.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 110 page requests in 9.9 minutes, and no store blocked us.
 
 ## How it works
 
@@ -51,7 +64,7 @@ The run of 4 November 2026 was the first one: it recorded 11,769 prices as the s
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 1."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 2."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -98,7 +111,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 4 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 5 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -117,12 +130,12 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-04T08:46:55Z` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-05T09:41:31Z` |
 | `store_id` | text | Store | `bee-s-wrap` |
-| `variant_id` | integer | Product option | `40940355059759` |
-| `product_title` | text | Product name | `The Lunch Pack` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `new` |
-| `old_price_cents` | integer or empty | Price before, US cents | `(empty)` |
+| `variant_id` | integer | Product option | `53186903736595` |
+| `product_title` | text | Product name | `Bread Bag` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
+| `old_price_cents` | integer or empty | Price before, US cents | `1999` |
 | `new_price_cents` | integer or empty | Price after, US cents | `1999` |
 | `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
 | `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
