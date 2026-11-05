@@ -77,4 +77,7 @@ item says how to verify it.
 23. **First real daily run** - `in progress`. Neither the 06:17 UTC schedule nor
     the owner's manual run on 2026-11-04 had appeared in the Actions run list by
     08:40 UTC. Read the first run's `data/runs.jsonl` line when it lands.
-24. **Public publish** - `todo`, owner: follow `docs/publish-checklist.md`.
+24. **Public publish** - `done`, see item 25.
+25. **Published in place** - `done` (2026-11-05). Public, renamed, `main`; history
+    rewritten once (no `docs/private/`, no signatures); maintainers' guide at
+    `docs/maintainers.md`. Remaining owner steps: `docs/publish-checklist.md`.

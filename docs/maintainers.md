@@ -1,4 +1,4 @@
-# docs/maintainers.md
+# Maintainers' guide
 
 Working notes for any agent continuing this build. Read this file, then
 `docs/build-progress.md` ("Continue here" below points at the next item).
@@ -23,8 +23,8 @@ number by hand into docs, README, dashboard or SVGs.
 - `git config core.hooksPath .githooks`. Commit-message policy: no trailers except
   `Signed-off-by`, and no "Generated with" footer. The `commit-msg` hook removes
   them; the `ci` workflow job `commit-messages` fails on any commit that has one.
-- Never open a pull request. Work on the designated branch and push it.
-- The working branch is the repository's default branch, so scheduled runs commit
+- Never open a pull request. Work on `main` and push it.
+- `main` is the repository's default branch, and scheduled runs commit
   `data/` to it too. Always `git pull --rebase` before you push. The workflows'
   own commits retry their push with `git pull --rebase` (up to 4 times).
 - Small, meaningful commits (`area: what and why`). Update
@@ -38,7 +38,7 @@ The development sandbox cannot reach shops. Never request a shop from the
 sandbox. Every live check runs on GitHub Actions:
 
 1. Edit `checks/request.yml` (new `id`, a `check` type, arguments).
-2. Commit and push to the working branch. `.github/workflows/checks.yml` runs on
+2. Commit and push to `main`. `.github/workflows/checks.yml` runs on
    any push that changes that file (`permissions: contents: write`).
 3. The workflow commits results to `checks/results/<id>/` on the same branch.
 4. `git pull` and read them. Results are evidence: keep them committed.
@@ -72,8 +72,9 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   split a run over several jobs or runners: that would spread requests over more
   IPs and work around Shopify's per-IP limit. Keep it inside the budget with the
   store list (25 stores, at least 4 per category, `MAX_STORES` in `sources.py`).
-- Actions minutes are a private budget (2,000 a month, shared with another repo)
-  until the public publish: request live checks only when they answer a question.
+- The repository is public, so Actions minutes on standard runners are free; still
+  request live checks only when they answer a question, because each one adds load
+  on the stores (INC-005).
 - Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): **one flag**,
   `env.BFCM_RUNS_PER_DAY` in `.github/workflows/daily.yml`. Set it to `"4"` only if
   the repository is public by 26 Nov; otherwise leave `"2"` (06:17 and 18:17 UTC).
@@ -125,8 +126,8 @@ config/         stores.yml (generated from recon evidence), screen-review.yml
 checks/         candidates.yml, request.yml, results/<id>/ (committed evidence)
 data/           pipeline outputs committed by the daily workflow
 site/           built dashboard
-docs/           sources, architecture, build-progress, decisions, incidents, publish-checklist,
-                repo-settings, private/ (call explainer, removed at publish)
+docs/           maintainers (this guide), sources, architecture, build-progress, decisions,
+                incidents, publish-checklist, repo-settings
 templates/      README.md.j2, DATASET_CARD.md.j2 (sources of the generated READMEs)
 assets/         generated visuals, icons (Simple Icons, CC0), LICENSES.md
 tests/          pytest with golden fixtures in tests/fixtures/
