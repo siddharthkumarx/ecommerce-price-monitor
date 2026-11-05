@@ -62,18 +62,15 @@ item says how to verify it.
     `edge.throttle_events`, duration. Then follow the options at the end of
     INC-005 if stores keep being lost to 429s. Do not start live checks just to
     retry: each adds load to the same throttle.
-20. **GitHub Pages deploy** - `todo` after the public publish: add
-    `actions/upload-pages-artifact` + `actions/deploy-pages` to `daily.yml`, gated
-    on a repository variable `PAGES_ENABLED == 'true'`. Then run a Lighthouse
-    audit on the live URL (target 100 in all four categories) and record it in
-    `docs/decisions.md`. Already in place for it: no JavaScript, inline CSS,
-    preloaded self-hosted fonts with `font-display: swap`, `lang`, meta
-    description, inline favicon, focusable scroll regions, contrast >= 4.5:1.
+20. **GitHub Pages deploy** - `done` in the workflow (D-026): `pages` job in
+    `daily.yml`, gated on the repository variable `PAGES_ENABLED`. Owner: set Pages
+    source to "GitHub Actions" and `PAGES_ENABLED=true`, then run a Lighthouse audit
+    on the live URL and record it in `docs/decisions.md`.
 21. **45-minute budget and 25-store list** - `done` (D-020). `sources.py` trims to
     25 stores (at least 4 per category); `docs/sources.md` and `config/stores.yml`
     regenerated; request budget 38 min, step 41, job 45.
-22. **BFCM flag** - `done` (D-021). `env.BFCM_RUNS_PER_DAY` in `daily.yml`, "2"
-    until the repo is public; set "4" only if public by 26 Nov 2026.
+22. **BFCM flag** - `done` (D-021, D-026). `env.BFCM_RUNS_PER_DAY` is "4": the repo
+    has been public since 5 Nov 2026.
 23. **First real daily run** - `in progress`. Neither the 06:17 UTC schedule nor
     the owner's manual run on 2026-11-04 had appeared in the Actions run list by
     08:40 UTC. Read the first run's `data/runs.jsonl` line when it lands.

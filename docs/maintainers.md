@@ -76,9 +76,11 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   request live checks only when they answer a question, because each one adds load
   on the stores (INC-005).
 - Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): **one flag**,
-  `env.BFCM_RUNS_PER_DAY` in `.github/workflows/daily.yml`. Set it to `"4"` only if
-  the repository is public by 26 Nov; otherwise leave `"2"` (06:17 and 18:17 UTC).
-  D-021.
+  `env.BFCM_RUNS_PER_DAY` in `.github/workflows/daily.yml`, now `"4"` (00:17, 06:17,
+  12:17 and 18:17 UTC) because the repository is public (D-021, D-026). `"2"` would
+  run 06:17 and 18:17 only.
+- GitHub Pages: the `pages` job in `daily.yml` deploys `site/` when the repository
+  variable `PAGES_ENABLED` is `true` (D-026).
 
 ### Dashboard look
 

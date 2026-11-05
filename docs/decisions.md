@@ -373,3 +373,16 @@ From an independent review that rendered every SVG:
   the README.
 - **Publishing** goes to a fresh public repository with a clean `main`; this one
   is never renamed (`docs/publish-checklist.md`).
+
+## D-026 - GitHub Pages deploy, and BFCM at 4 runs a day (2026-11-05, owner decisions)
+
+- **Pages.** The `daily` workflow packages `site/` with
+  `actions/upload-pages-artifact` (v5.0.0) and a separate `pages` job deploys it
+  with `actions/deploy-pages` (v5.0.1), both pinned by commit SHA. The deploy job
+  holds only `pages: write` and `id-token: write` and runs in the `github-pages`
+  environment. Both are skipped unless the repository variable `PAGES_ENABLED` is
+  `true`, so nothing deploys before Pages is switched on. A held run is deployed
+  too: the dashboard shows the held status, with the last good data.
+- **BFCM.** The repository has been public since 5 Nov 2026, so under D-021
+  `BFCM_RUNS_PER_DAY` is `"4"`: 00:17, 06:17, 12:17 and 18:17 UTC from 26 Nov to
+  1 Dec 2026. "Missed runs" counts those four slots on those days.
