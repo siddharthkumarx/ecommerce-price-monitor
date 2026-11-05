@@ -81,3 +81,6 @@ item says how to verify it.
 25. **Published in place** - `done` (2026-11-05). Public, renamed, `main`; history
     rewritten once (no `docs/private/`, no signatures); maintainers' guide at
     `docs/maintainers.md`. Remaining owner steps: `docs/publish-checklist.md`.
+26. **INC-006 fixes** - `done`. Rebase with `-X theirs` in the data commit; the month
+    Parquet file reverts runs whose commit did not land. The next good run repairs
+    the 4 November file.

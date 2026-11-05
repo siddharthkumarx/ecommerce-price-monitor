@@ -42,6 +42,7 @@ from pricemon.outputs import (
     build_status,
     event_counts,
     iso,
+    parse_iso,
     read_runs,
     write_status,
 )
@@ -177,6 +178,9 @@ def process(
                 month_start,
                 run_at,
                 cfg.history_out,
+                committed_runs=[
+                    parse_iso(r["started_at"]) for r in history if r["status"] in ("ok", "partial")
+                ],
             )
 
     failed = [f for f in fetches if not f.complete]

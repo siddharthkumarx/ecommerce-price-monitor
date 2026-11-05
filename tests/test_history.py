@@ -131,3 +131,51 @@ def test_unchanged_variant_keeps_valid_from_and_refreshes_title(tmp_path: Path) 
     (only,) = result.open_versions
     assert only.valid_from == RUN1
     assert only.product_title == "Renamed"
+
+
+RUN3 = datetime(2026, 11, 6, 6, 17, tzinfo=UTC)
+
+
+def us(t: datetime) -> int:
+    return int(t.timestamp() * 1_000_000)
+
+
+def _month_rows(path: Path) -> list[tuple[str, int, int | None, int | None]]:
+    con = duckdb.connect()
+    rows = con.execute(
+        "SELECT store_id, variant_id, epoch_us(valid_from), epoch_us(valid_to) "
+        "FROM read_parquet(?) ORDER BY variant_id, valid_from",
+        [str(path)],
+    ).fetchall()
+    return [(s, int(v), f, t) for s, v, f, t in rows]
+
+
+def test_a_run_whose_commit_failed_is_reverted_in_the_month_file(tmp_path: Path) -> None:
+    """INC-006: run 2 uploaded the month file but its snapshot commit failed."""
+    snap = tmp_path / "snapshot.csv"
+    month = tmp_path / "month.parquet"
+
+    con = connect()
+    load_snapshot(con, snap)
+    r1 = merge(con, [row("a", 1, 2800, RUN1), row("a", 2, 2800, RUN1)], {"a"}, RUN1)
+    write_snapshot(con, r1.open_versions, snap)
+    update_month_parquet(con, None, r1.open_versions, r1.closed_versions, NOV, RUN1, month)
+
+    # Run 2: price change uploaded to the month file, snapshot never committed.
+    con = connect()
+    load_snapshot(con, snap)
+    r2 = merge(con, [row("a", 1, 2000, RUN2), row("a", 2, 2800, RUN2)], {"a"}, RUN2)
+    update_month_parquet(con, month, r2.open_versions, r2.closed_versions, NOV, RUN2, month)
+
+    # Run 3 starts from run 1's snapshot: variant 1 is back at 2800, variant 2 moved.
+    con = connect()
+    load_snapshot(con, snap)
+    r3 = merge(con, [row("a", 1, 2800, RUN3), row("a", 2, 3000, RUN3)], {"a"}, RUN3)
+    update_month_parquet(
+        con, month, r3.open_versions, r3.closed_versions, NOV, RUN3, month, committed_runs=[RUN1]
+    )
+    assert _month_rows(month) == [
+        ("a", 1, us(RUN1), None),  # run 2's close is reverted, its new version dropped
+        ("a", 2, us(RUN1), us(RUN3)),
+        ("a", 2, us(RUN3), None),
+    ]

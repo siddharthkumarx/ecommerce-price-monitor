@@ -293,6 +293,29 @@ def write_snapshot(con: duckdb.DuckDBPyConnection, versions: list[Version], path
         con.unregister("open_arrow")
 
 
+def _revert_uncommitted(con: duckdb.DuckDBPyConnection, known: list[datetime]) -> None:
+    con.execute("CREATE OR REPLACE TABLE known_runs (t TIMESTAMPTZ)")
+    con.executemany("INSERT INTO known_runs VALUES (?)", [[t] for t in known])
+    dropped = con.execute(
+        "SELECT count(*) FROM month_prev WHERE valid_from NOT IN (SELECT t FROM known_runs)"
+    ).fetchone()
+    reopened = con.execute(
+        "SELECT count(*) FROM month_prev WHERE valid_to IS NOT NULL "
+        "AND valid_to NOT IN (SELECT t FROM known_runs)"
+    ).fetchone()
+    con.execute("DELETE FROM month_prev WHERE valid_from NOT IN (SELECT t FROM known_runs)")
+    con.execute(
+        "UPDATE month_prev SET valid_to = NULL "
+        "WHERE valid_to IS NOT NULL AND valid_to NOT IN (SELECT t FROM known_runs)"
+    )
+    if (dropped and dropped[0]) or (reopened and reopened[0]):
+        print(
+            f"history repair: dropped {dropped[0] if dropped else 0} versions and re-opened "
+            f"{reopened[0] if reopened else 0} from runs whose commit did not land",
+            flush=True,
+        )
+
+
 def update_month_parquet(
     con: duckdb.DuckDBPyConnection,
     existing: Path | None,
@@ -301,12 +324,19 @@ def update_month_parquet(
     month_start: datetime,
     exported_at: datetime,
     out: Path,
+    committed_runs: Iterable[datetime] | None = None,
 ) -> int:
     """Rewrite the month file: every version valid at any time in the month.
 
     Union of the existing month file, versions closed in this run and the current
     open versions; on a duplicate key ``(store_id, variant_id, valid_from)`` a
     closed row wins over an open one. Returns the number of rows written.
+
+    ``committed_runs``: start times of the runs whose data commit landed
+    (``runs.jsonl``). A run can upload this file and then fail to commit its
+    snapshot (INC-006); its traces are reverted here: versions it opened are
+    dropped and versions it closed are re-opened, so the file agrees with the
+    committed snapshot again.
     """
     out.parent.mkdir(parents=True, exist_ok=True)
     con.register("open_arrow", _versions_table(open_versions))
@@ -314,6 +344,8 @@ def update_month_parquet(
     try:
         if existing is not None and existing.exists():
             con.execute(_MONTH_PREV_LOAD, [str(existing)])
+            if committed_runs is not None:
+                _revert_uncommitted(con, [*committed_runs, exported_at])
         else:
             con.execute(_MONTH_PREV_EMPTY)
         con.execute(_MONTH_BUILD, [exported_at, month_start])

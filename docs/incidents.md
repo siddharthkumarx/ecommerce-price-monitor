@@ -111,3 +111,24 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   fewer requests per run (the `.js` witness for a rotating third of the stores),
   a lower run-wide rate with a longer budget (needs the owner's agreement on the
   30-minute rule), or a smaller store list.
+
+## INC-006 - A data commit lost a rebase race with a human push (2026-11-04)
+
+- **Run:** the scheduled `daily` run that GitHub started at 14:35 UTC (the 06:17
+  slot, queued about eight hours late), Actions run 41849075647; alert issue #2.
+- **What happened:** the pipeline succeeded and uploaded the month's Parquet
+  history, but `Commit data` failed: while it ran, README and visual changes were
+  pushed by hand, and its `git pull --rebase` stopped on conflicts in `README.md`,
+  `assets/hero.svg` and `assets/maintenance-loop.svg`. The four retries could not
+  continue a rebase in progress.
+- **Consequence:** the release's month file held versions opened and closed by a
+  run that `runs.jsonl` and the snapshot do not know. The next run started from
+  the older snapshot, so its change log covers both days.
+- **Fixes:** the commit step rebases with `-X theirs` (the run's own `data/`,
+  README and visuals win; every run regenerates them) and aborts a failed rebase
+  before retrying. `update_month_parquet` now reverts the traces of any run missing
+  from the committed run log (drops versions it opened, re-opens versions it
+  closed), so the month file agrees with the snapshot again on the next run.
+  Regression test: `tests/test_history.py::test_a_run_whose_commit_failed_is_reverted_in_the_month_file`.
+- **Process:** do not push rendered files (`README.md`, `assets/*.svg`) while a
+  `daily` run is in progress.
