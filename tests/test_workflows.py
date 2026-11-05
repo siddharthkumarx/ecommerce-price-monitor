@@ -45,3 +45,13 @@ def test_daily_commits_data_only_after_the_history_upload() -> None:
     assert names.index("Upload history to release") < names.index("Commit data")
     assert daily["concurrency"] == {"group": "daily", "cancel-in-progress": False}
     assert daily["jobs"]["run"]["timeout-minutes"] <= 45  # owner limit (D-020)
+
+
+def test_pages_deploy_is_gated_and_least_privilege() -> None:
+    daily = _load(WORKFLOWS[[p.name for p in WORKFLOWS].index("daily.yml")])
+    pages = daily["jobs"]["pages"]
+    assert "vars.PAGES_ENABLED == 'true'" in pages["if"]
+    assert pages["permissions"] == {"pages": "write", "id-token": "write"}
+    assert pages["environment"]["name"] == "github-pages"
+    upload = next(s for s in daily["jobs"]["run"]["steps"] if s.get("id") == "pages_artifact")
+    assert "vars.PAGES_ENABLED == 'true'" in upload["if"]
