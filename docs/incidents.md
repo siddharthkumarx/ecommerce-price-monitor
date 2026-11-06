@@ -132,3 +132,69 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   Regression test: `tests/test_history.py::test_a_run_whose_commit_failed_is_reverted_in_the_month_file`.
 - **Process:** do not push rendered files (`README.md`, `assets/*.svg`) while a
   `daily` run is in progress.
+
+## INC-007 - The daily schedule did not fire on `main` (2026-11-06)
+
+- **Slot:** 06:17 UTC on 2026-11-06, the first daily slot after the publish on
+  5 Nov (public, renamed, default branch renamed to `main`, history of `main`
+  rewritten and force-pushed once).
+- **What happened:** GitHub created no `schedule` run for `daily.yml`: no run, no
+  queued run, no record in `data/runs.jsonl`. The owner's manual run
+  ([Actions run 42197509596](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/42197509596),
+  `workflow_dispatch` at 09:46 UTC) filled the day: ok, 25 of 25 stores.
+- **Evidence** (Actions API, read 2026-11-06 12:20 UTC):
+  - In the repository's whole run history there is one `schedule` run, for any
+    workflow: run 41849075647, created 2026-11-04 14:35:24 UTC on the old default
+    branch. It was the 06:17 slot, 8 h 18 min late (INC-006).
+  - 2026-11-05 06:17 slot: no run. The repository was still private and out of
+    Actions minutes; it went public later that morning.
+  - 2026-11-06 06:17 slot: no run, on `main`, public, workflow state `active`.
+  - The workflow `daily` (id 406332445) was disabled and enabled through the API
+    on 5 Nov 09:41 UTC (`updated_at` 2026-11-05T09:41:16Z). Commit `f462ccb`
+    then changed `daily.yml` on `main` (pushed 11:15 UTC). The `schedule` block
+    itself was last changed by `97f954e` on 3 Nov, before the rename and rewrite.
+  - Manual runs and push-triggered workflows on `main` worked throughout.
+- **Cause:** not provable from outside: GitHub shows no schedule registration
+  state, and its documentation says scheduled runs can be delayed or dropped at
+  times of high load. The two likely causes are a schedule registration that did
+  not follow the default-branch rename and history rewrite, or a dropped slot. The
+  4 Nov run suggests heavy delays for this repository even before the publish.
+  Either way, the setup had no same-day guard: a missing slot was noticed only
+  by a person.
+- **Fixes:**
+  - **Watchdog.** `.github/workflows/watchdog.yml` is a separate workflow with
+    its own schedule, at 08:47 and 16:47 UTC. It checks whether a run of status
+    ok, partial or held started at or after the latest daily slot
+    (`python -m pricemon.schedule check`, standard library only). If none did and
+    no daily run is queued or running, it starts `daily.yml` by hand, opens or
+    updates a `run-alert` issue and fails. A failed run also triggers GitHub's
+    failure email. A rescue at 08:47 lands within the 3-hour grace, so the
+    "missed runs" badge counts the slot as run.
+  - **Late slots skip.** The `slot` gate job in `daily.yml` now sees every
+    trigger. A scheduled run whose slot is already filled (by a manual or
+    watchdog run) skips the pipeline, so a slot that GitHub starts hours late
+    does not fetch every store a second time.
+  - **Re-arm.** The push of these changes is a fresh push to `main` that changes
+    `daily.yml` and adds a second scheduled workflow. The owner disables and
+    re-enables `daily` once more in the web UI after it (the API toggle of 5 Nov
+    was not enough on its own).
+- **How a repeat is detected:** the watchdog issue, titled "Scheduled daily run
+  missed", on the same day. If it repeats on several days while the watchdog
+  itself fires, `daily.yml`'s schedule is dead. The next step is then to move the
+  daily workflow to a new file name, which GitHub registers as a new workflow.
+  If the watchdog does not fire either, the repository's schedules are not
+  firing at all. That is a GitHub support case, and runs are started by hand
+  until then.
+- **Regression tests:** `tests/test_schedule.py`.
+
+## INC-008 - Moving a tag re-ran a live check (2026-11-05)
+
+- **Run:** `checks`, [Actions run 42038565568](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/42038565568),
+  13:45 UTC. It was triggered by pushing the moved tag `data-2026-11`.
+- **What happened:** `checks.yml` filtered on `paths: [checks/request.yml]` only.
+  GitHub matched that filter for the tag push too, and the last
+  request (`pipeline-004`) ran again against all 25 stores: 8 minutes, ok, no
+  429s. Its results could not be committed (the push to the tag was rejected),
+  so the run left nothing behind except the load on the stores.
+- **Fix:** `checks.yml` runs on branch pushes only (`branches: ["**"]`); a test
+  keeps tags out (`tests/test_workflows.py`).

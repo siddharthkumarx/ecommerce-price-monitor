@@ -386,3 +386,21 @@ From an independent review that rendered every SVG:
 - **BFCM.** The repository has been public since 5 Nov 2026, so under D-021
   `BFCM_RUNS_PER_DAY` is `"4"`: 00:17, 06:17, 12:17 and 18:17 UTC from 26 Nov to
   1 Dec 2026. "Missed runs" counts those four slots on those days.
+
+## D-027 - Same-day watchdog and late-slot skip (2026-11-06, INC-007)
+
+- **Watchdog, not a second daily cron.** A backup cron inside `daily.yml` would
+  share the schedule that failed, so the guard is a separate workflow,
+  `watchdog.yml`, at 08:47 and 16:47 UTC (`WATCHDOG_CRONS` in `schedule.py`,
+  tested against the file). These are not run slots: "missed runs" still counts
+  only the `daily.yml` slots.
+- **What counts as run:** a `runs.jsonl` record of status ok, partial or held that
+  started at or after the latest slot. A held run counts, because a second run
+  hours later would accept the hold before the owner looked at it (D-008). A
+  crashed run does not, so the watchdog retries once; the crash already raised
+  its own alert.
+- **No double runs:** the watchdog does nothing while a daily run is queued or
+  running. A scheduled run that finds its slot already filled skips the pipeline.
+  At most one extra run per slot, and only when no run has filled the slot.
+- **Notice:** a `run-alert` issue (a comment if one is open) and a failed
+  workflow run, the same channel as a failed daily run.

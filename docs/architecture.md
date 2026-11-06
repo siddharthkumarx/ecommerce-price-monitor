@@ -33,7 +33,7 @@ config/stores.yml ──► fetch ──► validate ──► batch guard ─�
 | `history.py` | DuckDB SCD2 merge, snapshot CSV, monthly Parquet. |
 | `changes.py` | Change events between the previous and new open versions. |
 | `outputs.py` | Change log, `runs.jsonl`, `status.json`, shields.io badge files, snapshot aggregates (DuckDB). |
-| `schedule.py` | The cron slots of `daily.yml` as data, for "missed runs" (a test keeps both equal). |
+| `schedule.py` | The cron slots of `daily.yml` and `watchdog.yml` as data (tests keep them equal), "missed runs", and the slot check used by the daily gate and the watchdog (INC-007). |
 | `alert.py` | Whether a run needs an alert, and the alert text. |
 | `report.py` | Facts about the latest real run (sample rows, changes, quality counts) for the README, visuals and dataset card. |
 | `readme.py` | Renders `README.md` and `data/README.md` from `templates/` (D-022). |
@@ -169,11 +169,12 @@ with no `runs.jsonl` entry of status `ok`/`partial` within 3 hours after the slo
 | workflow | trigger | notes |
 |---|---|---|
 | `ci.yml` | every push | commit-message check, ruff, mypy, pytest, gitleaks, pip-audit, file-size check |
-| `checks.yml` | push changing `checks/request.yml` | live checks; commits `checks/results/<id>/` |
-| `daily.yml` | `17 6 * * *`; on 26 Nov to 1 Dec 2026 also 18:17, and 00:17 and 12:17 only when `env.BFCM_RUNS_PER_DAY` is "4" (D-021); `workflow_dispatch` | job `timeout-minutes: 45` (D-020), no request after 38 minutes, a `pages` job that deploys `site/` when `vars.PAGES_ENABLED` is `true` (D-026), `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). |
+| `checks.yml` | branch push changing `checks/request.yml` (never a tag push, INC-008) | live checks; commits `checks/results/<id>/` |
+| `daily.yml` | `17 6 * * *`; on 26 Nov to 1 Dec 2026 also 18:17, and 00:17 and 12:17 only when `env.BFCM_RUNS_PER_DAY` is "4" (D-021); `workflow_dispatch` | job `timeout-minutes: 45` (D-020), no request after 38 minutes, a `pages` job that deploys `site/` when `vars.PAGES_ENABLED` is `true` (D-026), `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). A `slot` gate job skips a scheduled run whose slot is already filled (D-027). |
+| `watchdog.yml` | `47 8 * * *`, `47 16 * * *`; `workflow_dispatch` | if no ok, partial or held run started since the latest daily slot and none is queued or running: starts `daily.yml`, opens or updates a `run-alert` issue, fails (INC-007, D-027) |
 
-Scheduled workflows run on the default branch, which is the working branch until
-the public publish.
+Scheduled workflows run on the default branch, `main`. GitHub can start a slot
+hours late or drop it (INC-006, INC-007); the watchdog covers both.
 
 ## Exit codes of `python -m pricemon.run`
 

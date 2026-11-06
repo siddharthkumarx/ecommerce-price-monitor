@@ -71,9 +71,8 @@ item says how to verify it.
     regenerated; request budget 38 min, step 41, job 45.
 22. **BFCM flag** - `done` (D-021, D-026). `env.BFCM_RUNS_PER_DAY` is "4": the repo
     has been public since 5 Nov 2026.
-23. **First real daily run** - `in progress`. Neither the 06:17 UTC schedule nor
-    the owner's manual run on 2026-11-04 had appeared in the Actions run list by
-    08:40 UTC. Read the first run's `data/runs.jsonl` line when it lands.
+23. **First real daily run** - `done`. First scheduled run 2026-11-04 (8 h late,
+    INC-006); daily since then, see `data/runs.jsonl`.
 24. **Public publish** - `done`, see item 25.
 25. **Published in place** - `done` (2026-11-05). Public, renamed, `main`; history
     rewritten once (no `docs/private/`, no signatures); maintainers' guide at
@@ -81,3 +80,9 @@ item says how to verify it.
 26. **INC-006 fixes** - `done`. Rebase with `-X theirs` in the data commit; the month
     Parquet file reverts runs whose commit did not land. The next good run repairs
     the 4 November file.
+27. **Same-day watchdog** - `done` (INC-007, D-027). `.github/workflows/watchdog.yml`
+    (08:47 and 16:47 UTC) starts a missed daily slot and raises a `run-alert` issue;
+    the `slot` gate in `daily.yml` skips a scheduled run whose slot is filled.
+    Verify: `uv run pytest tests/test_schedule.py`; on GitHub, the 2026-11-07 06:17
+    UTC `schedule` run, or else the 08:47 watchdog rescue and its issue.
+28. **Live checks never run on tag pushes** - `done` (INC-008).

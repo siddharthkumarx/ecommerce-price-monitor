@@ -79,6 +79,11 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   `env.BFCM_RUNS_PER_DAY` in `.github/workflows/daily.yml`, now `"4"` (00:17, 06:17,
   12:17 and 18:17 UTC) because the repository is public (D-021, D-026). `"2"` would
   run 06:17 and 18:17 only.
+- Missed slots: `watchdog.yml` (08:47 and 16:47 UTC) starts the daily run if the
+  latest slot has no ok, partial or held run, and opens a `run-alert` issue. A
+  scheduled run whose slot was already filled skips (INC-007, D-027). If
+  `daily` shows no `schedule` runs for days, disable and re-enable it in the
+  web UI (Actions, daily, the "..." menu); if that fails, rename the file.
 - GitHub Pages: the `pages` job in `daily.yml` deploys `site/` when the repository
   variable `PAGES_ENABLED` is `true` (D-026).
 
