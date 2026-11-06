@@ -1,0 +1,83 @@
+# Same-day guard for a missed daily run (INC-007). If no run has filled the latest
+# daily slot, it starts the daily workflow by hand, opens a run-alert issue and
+# fails, so GitHub also emails the owner. A separate workflow with its own
+# schedule, so a daily.yml schedule that does not fire does not silence it.
+# Keep the cron lines identical to WATCHDOG_CRONS in src/pricemon/schedule.py (tested).
+name: watchdog
+
+on:
+  schedule:
+    - cron: "47 8 * * *"   # 2.5 h after the 06:17 slot
+    - cron: "47 16 * * *"  # second look, after the 12:17 BFCM slot
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+  issues: write
+
+concurrency:
+  group: watchdog
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          sparse-checkout: |
+            data/runs.jsonl
+            src/pricemon
+            .github/workflows/daily.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Was the latest daily slot run?
+        id: check
+        run: |
+          PYTHONPATH=src python3 -m pricemon.schedule check --runs data/runs.jsonl \
+            --workflow .github/workflows/daily.yml | tee -a "$GITHUB_OUTPUT"
+
+      # A slot that GitHub started late and that is still queued or running is not
+      # missed; starting another run would only queue behind it.
+      - name: Is a daily run queued or running?
+        id: busy
+        if: steps.check.outputs.covered == 'false'
+        run: |
+          n=0
+          for status in requested pending waiting queued in_progress; do
+            c="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/daily.yml/runs?status=$status" --jq .total_count)"
+            n=$((n + c))
+          done
+          echo "daily runs queued or running: $n"
+          if [ "$n" -gt 0 ]; then echo "busy=true" >> "$GITHUB_OUTPUT"; else echo "busy=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Start the missed run and raise an alert
+        id: rescue
+        if: steps.check.outputs.covered == 'false' && steps.busy.outputs.busy == 'false'
+        env:
+          SLOT: ${{ steps.check.outputs.slot }}
+          BRANCH: ${{ github.event.repository.default_branch }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DAILY_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily.yml
+        run: |
+          gh workflow run daily.yml --ref "$BRANCH"
+          {
+            printf 'No `daily` run filled the %s slot by %s UTC, so the watchdog started one by hand.\n\n' \
+              "$SLOT" "$(date -u +%Y-%m-%dT%H:%MZ)"
+            printf -- '- Watchdog run: %s\n- Daily runs: %s\n\n' "$RUN_URL" "$DAILY_URL"
+            printf 'If this repeats, the daily schedule is not firing: see INC-007 in docs/incidents.md.\n'
+          } > alert.md
+          gh label create run-alert --color E9A93C --description "Daily run failed or held" --force
+          number="$(gh issue list --label run-alert --state open --json number --jq '.[0].number')"
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file alert.md
+          else
+            gh issue create --title "Scheduled daily run missed" --label run-alert --body-file alert.md
+          fi
+          echo "::error::the $SLOT slot was missed; a daily run was started and an issue raised"
+          exit 1

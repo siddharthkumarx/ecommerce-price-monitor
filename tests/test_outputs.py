@@ -154,8 +154,8 @@ def test_black_friday_window_follows_the_flag(runs_per_day: int) -> None:
 def test_workflow_flag_is_valid_and_gates_the_extra_slots() -> None:
     wf = yaml.safe_load((ROOT / ".github" / "workflows" / "daily.yml").read_text())
     assert wf["env"]["BFCM_RUNS_PER_DAY"] in ("2", "4")
-    gate = wf["jobs"]["slot"]["if"]
-    assert all(c in gate for c in BFCM_EXTRA_CRONS)
+    gate = next(st["run"] for st in wf["jobs"]["slot"]["steps"] if st.get("id") == "decide")
+    assert all(f'"{c}"' in gate for c in BFCM_EXTRA_CRONS)
 
 
 def test_missed_slots_and_status(tmp_path: Path) -> None:

@@ -26,25 +26,57 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Only the two extra BFCM slots pass through this gate; every other trigger skips it
-  # (a skipped job costs no Actions minutes).
+  # Decides whether this trigger runs the pipeline. A manual run always does. A
+  # scheduled run does not when its slot was already run: GitHub can start a slot
+  # hours late (INC-006, INC-007), after a manual or watchdog run filled it. The two
+  # extra BFCM slots run only with BFCM_RUNS_PER_DAY "4" (D-021).
   slot:
-    if: github.event.schedule == '17 0,12 26-30 11 *' || github.event.schedule == '17 0,12 1 12 *'
     runs-on: ubuntu-24.04
-    timeout-minutes: 2
+    timeout-minutes: 5
     outputs:
       run: ${{ steps.decide.outputs.run }}
     steps:
-      - name: Extra BFCM slot runs only with BFCM_RUNS_PER_DAY "4"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout: |
+            data/runs.jsonl
+            src/pricemon
+          sparse-checkout-cone-mode: false
+
+      - name: Decide
         id: decide
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
-          if [ "$BFCM_RUNS_PER_DAY" = "4" ]; then run=true; else run=false; fi
-          echo "BFCM_RUNS_PER_DAY=$BFCM_RUNS_PER_DAY, run=$run"
-          echo "run=$run" >> "$GITHUB_OUTPUT"
+          if [ "$EVENT" != "schedule" ]; then
+            echo "$EVENT: runs"
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          case "$SCHEDULE" in
+            "17 0,12 26-30 11 *" | "17 0,12 1 12 *")
+              if [ "$BFCM_RUNS_PER_DAY" != "4" ]; then
+                echo "extra BFCM slot, BFCM_RUNS_PER_DAY=$BFCM_RUNS_PER_DAY: skipped"
+                echo "run=false" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              ;;
+          esac
+          # Fails open: if the check itself fails, the pipeline runs.
+          PYTHONPATH=src python3 -m pricemon.schedule check --runs data/runs.jsonl | tee check.txt ||
+            echo "slot check failed, running"
+          if grep -qx "covered=true" check.txt; then
+            echo "schedule '$SCHEDULE': slot already run, skipped"
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
 
   run:
     needs: slot
-    if: ${{ !cancelled() && (needs.slot.result == 'skipped' || needs.slot.outputs.run == 'true') }}
+    if: ${{ !cancelled() && needs.slot.outputs.run == 'true' }}
     runs-on: ubuntu-24.04
     # Owner limit: one daily run under 45 minutes on a single runner (D-020).
     timeout-minutes: 45
