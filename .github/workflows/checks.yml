@@ -5,6 +5,10 @@ name: checks
 
 on:
   push:
+    # Branches only: a tag push carries every file, so without this filter moving a
+    # tag re-ran the last live check against every store (INC-008).
+    branches:
+      - "**"
     paths:
       - checks/request.yml
 

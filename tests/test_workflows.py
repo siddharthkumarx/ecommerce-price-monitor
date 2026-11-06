@@ -55,3 +55,11 @@ def test_pages_deploy_is_gated_and_least_privilege() -> None:
     assert pages["environment"]["name"] == "github-pages"
     upload = next(s for s in daily["jobs"]["run"]["steps"] if s.get("id") == "pages_artifact")
     assert "vars.PAGES_ENABLED == 'true'" in upload["if"]
+
+
+def test_live_checks_never_run_on_a_tag_push() -> None:
+    checks = _load(WORKFLOWS[[p.name for p in WORKFLOWS].index("checks.yml")])
+    push = (checks.get("on") or checks.get(True))["push"]  # PyYAML reads `on` as True
+    assert push["branches"] == ["**"]  # INC-008
+    assert "tags" not in push
+    assert push["paths"] == ["checks/request.yml"]
