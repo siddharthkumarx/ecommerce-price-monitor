@@ -59,7 +59,8 @@ def test_pages_deploy_is_gated_and_least_privilege() -> None:
 
 def test_live_checks_never_run_on_a_tag_push() -> None:
     checks = _load(WORKFLOWS[[p.name for p in WORKFLOWS].index("checks.yml")])
-    push = (checks.get("on") or checks.get(True))["push"]  # PyYAML reads `on` as True
+    triggers: dict[Any, Any] = checks
+    push = triggers["on" if "on" in triggers else True]["push"]  # PyYAML reads `on` as True
     assert push["branches"] == ["**"]  # INC-008
     assert "tags" not in push
     assert push["paths"] == ["checks/request.yml"]

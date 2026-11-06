@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import pytest
 import yaml
@@ -31,9 +32,10 @@ def run(started: str, status: str = "ok", run_id: str = "r") -> dict[str, object
     return {"run_id": run_id, "started_at": started, "status": status}
 
 
-def _on(path: Path) -> dict[str, object]:
-    wf = yaml.safe_load(path.read_text())
-    return wf.get("on") or wf.get(True)  # PyYAML reads the key `on` as True
+def _on(path: Path) -> dict[str, Any]:
+    wf: dict[Any, Any] = yaml.safe_load(path.read_text())
+    on: dict[str, Any] = wf["on" if "on" in wf else True]  # PyYAML reads the key `on` as True
+    return on
 
 
 def test_watchdog_crons_match_its_workflow_and_are_not_run_slots() -> None:
