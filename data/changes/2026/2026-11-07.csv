@@ -1,0 +1,140 @@
+observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
+2026-11-07T09:31:31Z,big-agnes,7743100059897,43184954671353,c-bar-2-footprint,C Bar 2 Footprint,Default Title,out_of_stock,1600,1600,4000,4000,
+2026-11-07T09:31:31Z,big-agnes,8497224909049,45429832253689,ws-piney-mountain-jacket,W's Piney Mountain UL Jacket,Nasturtium / XL,removed,10498,,34995,,
+2026-11-07T09:31:31Z,big-agnes,8497224777977,46908084224249,ms-zetto-ul-jacket,M's Zetto UL Jacket,Blackberry Cordial / SM,removed,17497,,34995,,
+2026-11-07T09:31:31Z,big-agnes,8497224843513,46908084486393,ws-bearsley-jacket,W's Bearsley UL Jacket,Cendre Blue / LG,removed,17497,,34995,,
+2026-11-07T09:31:31Z,big-agnes,8497224941817,46908084977913,ms-shovelhead-jacket,M's Shovelhead Jacket,Saffron/Bronze Brown / SM,out_of_stock,14997,14997,29995,29995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378231902457,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XS,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378231902457,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XS,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378231935225,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / SM,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378231935225,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / SM,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378231967993,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / MD,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378231967993,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / MD,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232000761,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / LG,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232000761,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / LG,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232033529,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XL,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232033529,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XL,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232066297,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XS,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232066297,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XS,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232099065,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / SM,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232099065,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / SM,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232131833,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / MD,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232131833,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / MD,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232164601,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / LG,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232164601,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / LG,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232197369,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XL,price_up,29995,39995,39995,39995,33.3
+2026-11-07T09:31:31Z,big-agnes,15304183152889,67378232197369,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XL,discount_end,29995,39995,39995,39995,
+2026-11-07T09:31:31Z,greats,7866065125424,42708504608816,the-charlie-mineral-grey-mens,The Charlie - Mineral Grey,15 / Mineral Grey,out_of_stock,21500,21500,21500,21500,
+2026-11-07T09:31:31Z,hydrapak,9418905944297,51856932602089,tcs-new-york-city-marathon-tempo-pro-400ml,TCS New York City Marathon Tempo Pro 400ml,White,back_in_stock,2400,2400,,,
+2026-11-07T09:31:31Z,hyperlite-mountain-gear,631421698093,7376557703213,1-4-uhmwpe-core-guy-line,1.4 UHMWPE Core Guy Line,Default Title,back_in_stock,1700,1700,,,
+2026-11-07T09:31:31Z,hyperlite-mountain-gear,1438438031405,13707575427117,aquamira-water-treatment-1-oz,Aquamira Water Treatment 1 oz.,Default Title,out_of_stock,1499,1499,,,
+2026-11-07T09:31:31Z,hyperlite-mountain-gear,6588846538797,42157624721453,til-the-end-tee,Til the End Tee,L / Black/Grey,out_of_stock,3200,3200,,,
+2026-11-07T09:31:31Z,jlab,7033004818504,41043854786632,star-spangled-jbuds-lux-anc-headphones,Star Spangled JBuds Lux ANC Headphones,Default Title,out_of_stock,9999,9999,9999,9999,
+2026-11-07T09:31:31Z,jlab,7136733462600,41376924762184,gaming-chair-black,Gaming Chair Black,Default Title,price_down,99999,39999,99999,39999,-60.0
+2026-11-07T09:31:31Z,jlab,7151128051784,41439431688264,jbuds-lux-anc-jbuds-mini-anc-jelle-blush-fund-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Blush Fund Bundle,Default Title,new,,9998,,14998,
+2026-11-07T09:31:31Z,lunya,7067802370091,40683013898283,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / M,out_of_stock,28800,28800,,,
+2026-11-07T09:31:31Z,lunya,7111444398123,40788678869035,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / S,out_of_stock,27800,27800,,,
+2026-11-07T09:31:31Z,lunya,7186737233963,40989071278123,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / XS,new,,16800,,,
+2026-11-07T09:31:31Z,lunya,7186737233963,40989071310891,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / S,new,,16800,,,
+2026-11-07T09:31:31Z,lunya,7186737233963,40989071343659,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / M,new,,16800,,,
+2026-11-07T09:31:31Z,lunya,7186737233963,40989071376427,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / L,new,,16800,,,
+2026-11-07T09:31:31Z,lunya,7186737233963,40989071409195,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / XL,new,,16800,,,
+2026-11-07T09:31:31Z,lunya,7186750832683,40989105979435,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / S,out_of_stock,19800,19800,,,
+2026-11-07T09:31:31Z,lunya,7186750832683,40989106012203,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / M,out_of_stock,19800,19800,,,
+2026-11-07T09:31:31Z,lunya,7255208427563,41131610570795,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / XS,out_of_stock,11800,11800,,,
+2026-11-07T09:31:31Z,lunya,7255208427563,41131610603563,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / S,out_of_stock,11800,11800,,,
+2026-11-07T09:31:31Z,lunya,7168122224683,41454177517611,womens-cottonsilk-slipper-sock-oat-marl,Cottonsilk™ Slipper Sock,Oat Marl / S,removed,6800,,,,
+2026-11-07T09:31:31Z,lunya,7168122224683,41454177550379,womens-cottonsilk-slipper-sock-oat-marl,Cottonsilk™ Slipper Sock,Oat Marl / M,removed,6800,,,,
+2026-11-07T09:31:31Z,lunya,7168122224683,41454177583147,womens-cottonsilk-slipper-sock-oat-marl,Cottonsilk™ Slipper Sock,Oat Marl / L,removed,6800,,,,
+2026-11-07T09:31:31Z,lunya,7415234658347,41897487892523,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / M,back_in_stock,6800,6800,,,
+2026-11-07T09:31:31Z,lunya,7763964100651,42592623788075,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XS,new,,18800,,,
+2026-11-07T09:31:31Z,lunya,7763964100651,42592623820843,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / S,new,,18800,,,
+2026-11-07T09:31:31Z,lunya,7763964100651,42592623853611,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / M,new,,18800,,,
+2026-11-07T09:31:31Z,lunya,7763964100651,42592623886379,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / L,new,,18800,,,
+2026-11-07T09:31:31Z,lunya,7763964100651,42592623919147,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XL,new,,18800,,,
+2026-11-07T09:31:31Z,lunya,7763964264491,42592624312363,the-quintessential-duvet-cover-morning-fog,The Quintessential Duvet Cover,Morning Fog / King,out_of_stock,29800,29800,,,
+2026-11-07T09:31:31Z,lunya,7763964592171,42592626245675,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / S,out_of_stock,12800,12800,,,
+2026-11-07T09:31:31Z,lunya,7849299279915,43346801033259,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XS,new,,28800,,,
+2026-11-07T09:31:31Z,lunya,7849299279915,43346801066027,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / S,new,,28800,,,
+2026-11-07T09:31:31Z,lunya,7849299279915,43346801098795,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / M,new,,28800,,,
+2026-11-07T09:31:31Z,lunya,7849299279915,43346801131563,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / L,new,,28800,,,
+2026-11-07T09:31:31Z,lunya,7849299279915,43346801164331,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XL,new,,28800,,,
+2026-11-07T09:31:31Z,lunya,7849300262955,43346806079531,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / XS,back_in_stock,21800,21800,,,
+2026-11-07T09:31:31Z,oveja-negra,9570616207,32633642447,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Black,out_of_stock,6500,6500,,,
+2026-11-07T09:31:31Z,oveja-negra,268104269851,3651650617371,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,Large / Wack Pack,back_in_stock,6000,6000,,,
+2026-11-07T09:31:31Z,oveja-negra,9505700164,39364375937126,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Coyote Brown,out_of_stock,5500,5500,,,
+2026-11-07T09:31:31Z,oveja-negra,9570616207,39568375021670,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Serape,out_of_stock,6500,6500,,,
+2026-11-07T09:31:31Z,oveja-negra,268104269851,48593377198385,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,Large / Wack Donuts,back_in_stock,6000,6000,,,
+2026-11-07T09:31:31Z,oveja-negra,10050104885553,50179408199985,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,L / Black,back_in_stock,12000,12000,,,
+2026-11-07T09:31:31Z,oveja-negra,9505790852,51450515652913,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Jalapeño / Large,out_of_stock,6000,6000,,,
+2026-11-07T09:31:31Z,oveja-negra,4998968967270,56558655865137,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Snack Pack Top Tube Bag- Large - Wack,price_down,4875,4500,6500,6000,-7.7
+2026-11-07T09:31:31Z,skullcandy,7619928096825,43531490885689,dime-evo,Dime® Evo,True Black,back_in_stock,4999,4999,,,
+2026-11-07T09:31:31Z,skullcandy,7928435507257,44561766318137,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,True Black,back_in_stock,15999,15999,,,
+2026-11-07T09:31:31Z,sol-de-janeiro,8091912896614,45908262453350,cheiroso-cologne-mist-duo,Cheiroso Cologne Mist Duo,Default Title,out_of_stock,4700,4700,,,
+2026-11-07T09:31:31Z,sol-de-janeiro,15434354262118,67797736915046,sol-de-janeiro-x-aurelia-nobels-cheirosa-perfume-mist,Sol de Janeiro x Aurelia Nobels Cheirosa Perfume Mist,90ml,back_in_stock,2600,2600,,,
+2026-11-07T09:31:31Z,sol-de-janeiro,15468130795622,67930216136806,small-gift-wrap,Small Gift Wrap,Default Title,new,,500,,,
+2026-11-07T09:31:31Z,sol-de-janeiro,15468131057766,67930217480294,medium-gift-wrap,Medium Gift Wrap,Default Title,new,,1000,,,
+2026-11-07T09:31:31Z,soundcore-us,8777712599230,46660694343870,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Misty Blue | 1-Pack,back_in_stock,3999,3999,,,
+2026-11-07T09:31:31Z,soundcore-us,8800468304062,49579284168894,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / Liberty 5 Pro Max x soundcore 2,new,,27598,,,
+2026-11-07T09:31:31Z,soundcore-us,8800468304062,49579284201662,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / Liberty 5 Pro Max x soundcore 2,new,,27598,,,
+2026-11-07T09:31:31Z,state-liberty,7856706289745,42897830903889,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,40 Short / Heathered Forest Green,out_of_stock,48000,48000,,,
+2026-11-07T09:31:31Z,state-liberty,15662688763985,58920131035217,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",M / Mini Grey Dot Print,back_in_stock,10500,10500,,,
+2026-11-07T09:31:31Z,state-liberty,15770067206225,59396971528273,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,42 Short / Brown & Tan Windowpane,out_of_stock,55000,55000,,,
+2026-11-07T09:31:31Z,state-liberty,15770067206225,59396971593809,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,46 Short / Brown & Tan Windowpane,out_of_stock,55000,55000,,,
+2026-11-07T09:31:31Z,state-liberty,15770068156497,59396978180177,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,38 Short / Oxford Blue Plaid,back_in_stock,55000,55000,,,
+2026-11-07T09:31:31Z,state-liberty,15770068156497,59396978245713,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,42 Short / Oxford Blue Plaid,out_of_stock,55000,55000,,,
+2026-11-07T09:31:31Z,state-liberty,15770068156497,59396978311249,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,46 Short / Oxford Blue Plaid,out_of_stock,55000,55000,,,
+2026-11-07T09:31:31Z,state-liberty,15770069270609,59396980179025,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,40 Short / Textured Tan with Olive Windowpane,out_of_stock,55000,55000,,,
+2026-11-07T09:31:31Z,state-liberty,15826150260817,59566047363153,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,XL / Solid Sage Green,out_of_stock,9200,9200,,,
+2026-11-07T09:31:31Z,state-liberty,15826150654033,59566050672721,the-robert-pale-blue,''The Robert'' - Pale Blue,L / Pale Blue,out_of_stock,9200,9200,,,
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186594385,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,36 / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186627153,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,38 / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186659921,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,40 / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186692689,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,42 / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186725457,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,44 / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186758225,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,46 / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186790993,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,48 / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186823761,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,38 Short / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186856529,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,40 Short / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186889297,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,42 Short / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186922065,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,44 Short / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15826168610897,59566186954833,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,46 Short / Lightweight Heathered Latte,price_down,55000,48000,,,-12.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890107985,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,29 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890140753,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,30 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890173521,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,31 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890206289,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,32 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890239057,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,33 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890271825,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,34 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890304593,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,36 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890337361,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,38 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,state-liberty,15934510006353,59892890370129,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,40 / Lightweight Heathered Latte,price_down,18000,15000,,,-16.7
+2026-11-07T09:31:31Z,year-day,7943705264299,43640019812523,outdoor-serving-platter,Outdoor Serving Platter,Moon,price_up,3900,4800,6200,,23.1
+2026-11-07T09:31:31Z,year-day,7943705264299,43640019812523,outdoor-serving-platter,Outdoor Serving Platter,Moon,discount_end,3900,4800,6200,,
+2026-11-07T09:31:31Z,year-day,7943705264299,43640019845291,outdoor-serving-platter,Outdoor Serving Platter,Palm,price_up,3900,4800,6200,,23.1
+2026-11-07T09:31:31Z,year-day,7943705264299,43640019845291,outdoor-serving-platter,Outdoor Serving Platter,Palm,discount_end,3900,4800,6200,,
+2026-11-07T09:31:31Z,year-day,7943705264299,43640019878059,outdoor-serving-platter,Outdoor Serving Platter,Canyon,price_up,3900,4800,6200,,23.1
+2026-11-07T09:31:31Z,year-day,7943705264299,43640019878059,outdoor-serving-platter,Outdoor Serving Platter,Canyon,discount_end,3900,4800,6200,,
+2026-11-07T09:31:31Z,year-day,7943708967083,43640031543467,outdoor-serving-bowl,Outdoor Serving Bowl,Moon,price_up,2500,3200,5800,,28.0
+2026-11-07T09:31:31Z,year-day,7943708967083,43640031543467,outdoor-serving-bowl,Outdoor Serving Bowl,Moon,discount_end,2500,3200,5800,,
+2026-11-07T09:31:31Z,year-day,7943708967083,43640031576235,outdoor-serving-bowl,Outdoor Serving Bowl,Palm,price_up,2500,3200,5800,,28.0
+2026-11-07T09:31:31Z,year-day,7943708967083,43640031576235,outdoor-serving-bowl,Outdoor Serving Bowl,Palm,discount_end,2500,3200,5800,,
+2026-11-07T09:31:31Z,year-day,7943708967083,43640031609003,outdoor-serving-bowl,Outdoor Serving Bowl,Canyon,price_up,2500,3200,5800,,28.0
+2026-11-07T09:31:31Z,year-day,7943708967083,43640031609003,outdoor-serving-bowl,Outdoor Serving Bowl,Canyon,discount_end,2500,3200,5800,,
+2026-11-07T09:31:31Z,year-day,7943716602027,43640040652971,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Moon,price_up,2800,3400,6200,,21.4
+2026-11-07T09:31:31Z,year-day,7943716602027,43640040652971,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Moon,discount_end,2800,3400,6200,,
+2026-11-07T09:31:31Z,year-day,7943716602027,43640040685739,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Palm,price_up,2800,3400,6200,,21.4
+2026-11-07T09:31:31Z,year-day,7943716602027,43640040685739,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Palm,discount_end,2800,3400,6200,,
+2026-11-07T09:31:31Z,year-day,7943716602027,43640040718507,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Canyon,price_up,2800,3400,6200,,21.4
+2026-11-07T09:31:31Z,year-day,7943716602027,43640040718507,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Canyon,discount_end,2800,3400,6200,,
+2026-11-07T09:31:31Z,year-day,7943719092395,43640044945579,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Moon,price_up,4200,5200,9000,,23.8
+2026-11-07T09:31:31Z,year-day,7943719092395,43640044945579,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Moon,discount_end,4200,5200,9000,,
+2026-11-07T09:31:31Z,year-day,7943719092395,43640044978347,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Palm,price_up,4200,5200,9000,,23.8
+2026-11-07T09:31:31Z,year-day,7943719092395,43640044978347,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Palm,discount_end,4200,5200,9000,,
+2026-11-07T09:31:31Z,year-day,7943719092395,43640045011115,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Canyon,price_up,4200,5200,9000,,23.8
+2026-11-07T09:31:31Z,year-day,7943719092395,43640045011115,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Canyon,discount_end,4200,5200,9000,,
+2026-11-07T09:31:31Z,year-day,7950076182699,43656281653419,the-outdoor-serving-set,The Outdoor Serving Set,Moon,price_up,7200,11400,18000,,58.3
+2026-11-07T09:31:31Z,year-day,7950076182699,43656281653419,the-outdoor-serving-set,The Outdoor Serving Set,Moon,discount_end,7200,11400,18000,,
+2026-11-07T09:31:31Z,year-day,7950076182699,43656281686187,the-outdoor-serving-set,The Outdoor Serving Set,Palm,price_up,7200,11400,18000,,58.3
+2026-11-07T09:31:31Z,year-day,7950076182699,43656281686187,the-outdoor-serving-set,The Outdoor Serving Set,Palm,discount_end,7200,11400,18000,,
+2026-11-07T09:31:31Z,year-day,7950076182699,43656281718955,the-outdoor-serving-set,The Outdoor Serving Set,Canyon,price_up,7200,11400,18000,,58.3
+2026-11-07T09:31:31Z,year-day,7950076182699,43656281718955,the-outdoor-serving-set,The Outdoor Serving Set,Canyon,discount_end,7200,11400,18000,,

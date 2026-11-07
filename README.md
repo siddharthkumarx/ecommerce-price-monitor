@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,755 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,769 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -14,7 +14,7 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 6 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 7 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
@@ -24,22 +24,22 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 | Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $59.00 | $88.00 | yes |
 
-The full table has 11,755 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,769 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 6 November 2026: 9 price drops, 9 sales started, 32 items sold out, 29 items back in stock, 16 new product options, 28 product options removed. The biggest moves:
+In the run of 7 November 2026: 23 price drops, 25 price rises, 25 sales ended, 27 items sold out, 13 items back in stock, 20 new product options, 6 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| JLab | [JBuds Mini True Wireless Earbuds Black](https://www.jlab.com/products/jbuds-mini-true-wireless-earbuds-black) | Price down, Sale started (-25.0%) | $39.99 | $29.99 |
-| JLab | [JBuds Mini True Wireless Earbuds Mint](https://www.jlab.com/products/jbuds-mini-true-wireless-earbuds-mint) | Price down, Sale started (-25.0%) | $39.99 | $29.99 |
-| JLab | [JBuds Mini True Wireless Earbuds Pink](https://www.jlab.com/products/jbuds-mini-true-wireless-earbuds-pink) | Price down, Sale started (-25.0%) | $39.99 | $29.99 |
-| JLab | [JBuds Mini True Wireless Earbuds Sage Gray](https://www.jlab.com/products/jbuds-mini-true-wireless-earbuds-sage-gray) | Price down, Sale started (-25.0%) | $39.99 | $29.99 |
-| JLab | [JBuds Mini True Wireless Earbuds Teal](https://www.jlab.com/products/jbuds-mini-true-wireless-earbuds-teal) | Price down, Sale started (-25.0%) | $39.99 | $29.99 |
-| JLab | [JBuds Mini ANC True Wireless Earbuds Blue](https://www.jlab.com/products/jbuds-mini-anc-true-wireless-earbuds-blue) | Price down, Sale started (-20.9%) | $42.99 | $33.99 |
-| JLab | [JBuds Mini ANC True Wireless Earbuds Graphite](https://www.jlab.com/products/jbuds-mini-anc-true-wireless-earbuds-graphite) | Price down, Sale started (-20.9%) | $42.99 | $33.99 |
-| JLab | [JBuds Mini ANC True Wireless Earbuds Pastel Pink](https://www.jlab.com/products/jbuds-mini-anc-true-wireless-earbuds-pastel-pink) | Price down, Sale started (-20.9%) | $42.99 | $33.99 |
+| JLab | [Gaming Chair Black](https://www.jlab.com/products/gaming-chair-black) | Price down (-60.0%) | $999.99 | $399.99 |
+| Year & Day | [The Outdoor Serving Set (Moon)](https://yearandday.com/products/the-outdoor-serving-set) | Price up, Sale ended (+58.3%) | $72.00 | $114.00 |
+| Year & Day | [The Outdoor Serving Set (Palm)](https://yearandday.com/products/the-outdoor-serving-set) | Price up, Sale ended (+58.3%) | $72.00 | $114.00 |
+| Year & Day | [The Outdoor Serving Set (Canyon)](https://yearandday.com/products/the-outdoor-serving-set) | Price up, Sale ended (+58.3%) | $72.00 | $114.00 |
+| Big Agnes | [W's Trudy Jacket (Black/Asphalt / XS)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
+| Big Agnes | [W's Trudy Jacket (Black/Asphalt / SM)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
+| Big Agnes | [W's Trudy Jacket (Black/Asphalt / MD)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
+| Big Agnes | [W's Trudy Jacket (Black/Asphalt / LG)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -49,7 +49,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 269 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 110 page requests in 8.7 minutes, and no store blocked us.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 116 page requests in 16.8 minutes, and no store blocked us.
 
 ## How it works
 
@@ -64,7 +64,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 3."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 4."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -111,7 +111,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 6 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 7 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -130,16 +130,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-06T09:46:16Z` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-07T09:31:31Z` |
 | `store_id` | text | Store | `jlab` |
-| `variant_id` | integer | Product option | `40342860169288` |
-| `product_title` | text | Product name | `JBuds Mini True Wireless Earbuds Black` |
+| `variant_id` | integer | Product option | `41376924762184` |
+| `product_title` | text | Product name | `Gaming Chair Black` |
 | `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `3999` |
-| `new_price_cents` | integer or empty | Price after, US cents | `2999` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `3999` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `3999` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-25.0` |
+| `old_price_cents` | integer or empty | Price before, US cents | `99999` |
+| `new_price_cents` | integer or empty | Price after, US cents | `39999` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `99999` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `39999` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-60.0` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 

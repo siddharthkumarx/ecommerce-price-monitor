@@ -85,7 +85,7 @@ big-agnes,7670109405433,46174023057657,big-six-armchair,Big Six Armchair,Black,3
 big-agnes,7670109405433,46174023090425,big-six-armchair,Big Six Armchair,Brown Sugar,31995,31995,true,2026-11-04T08:46:55Z
 big-agnes,7743098290425,43184952344825,shepherds-hook-replacement-stake,Replacement Shepherds Hook Stake,Default Title,100,100,true,2026-11-04T08:46:55Z
 big-agnes,7743099011321,43184953557241,pumphouse-ultra,Pumphouse Ultra,Default Title,3995,3995,true,2026-11-04T08:46:55Z
-big-agnes,7743100059897,43184954671353,c-bar-2-footprint,C Bar 2 Footprint,Default Title,1600,4000,true,2026-11-04T08:46:55Z
+big-agnes,7743100059897,43184954671353,c-bar-2-footprint,C Bar 2 Footprint,Default Title,1600,4000,false,2026-11-07T09:31:31Z
 big-agnes,7743102910713,43184961421561,battle-mountain-2,Battle Mountain 2,Default Title,71996,79995,true,2026-11-04T08:46:55Z
 big-agnes,7743104778489,43184967647481,guard-station-8,Guard Station 8,Default Title,199995,199995,true,2026-11-04T08:46:55Z
 big-agnes,7743106154745,43184969089273,fly-creek-hv-1-carbon-footprint,Fly Creek HV 1 Carbon Footprint,Default Title,3500,7000,true,2026-11-04T08:46:55Z
@@ -263,7 +263,6 @@ big-agnes,8497224777977,45429830648057,ms-zetto-ul-jacket,M's Zetto UL Jacket,Ce
 big-agnes,8497224777977,45429830680825,ms-zetto-ul-jacket,M's Zetto UL Jacket,Cendre Blue / SM,17497,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224777977,45429830779129,ms-zetto-ul-jacket,M's Zetto UL Jacket,Cendre Blue / XL,17497,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224777977,45429830811897,ms-zetto-ul-jacket,M's Zetto UL Jacket,Cendre Blue / XXL,17497,34995,true,2026-11-04T08:46:55Z
-big-agnes,8497224777977,46908084224249,ms-zetto-ul-jacket,M's Zetto UL Jacket,Blackberry Cordial / SM,17497,34995,false,2026-11-06T09:46:16Z
 big-agnes,8497224777977,67355427078393,ms-zetto-ul-jacket,M's Zetto UL Jacket,Quarry / XS,34995,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224777977,67355427111161,ms-zetto-ul-jacket,M's Zetto UL Jacket,Quarry / SM,34995,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224777977,67355427143929,ms-zetto-ul-jacket,M's Zetto UL Jacket,Quarry / MD,34995,34995,true,2026-11-04T08:46:55Z
@@ -283,7 +282,6 @@ big-agnes,8497224843513,45429831532793,ws-bearsley-jacket,W's Bearsley UL Jacket
 big-agnes,8497224843513,45429831565561,ws-bearsley-jacket,W's Bearsley UL Jacket,Black / XL,34995,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224843513,46908084388089,ws-bearsley-jacket,W's Bearsley UL Jacket,Cendre Blue / XS,17497,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224843513,46908084420857,ws-bearsley-jacket,W's Bearsley UL Jacket,Cendre Blue / SM,17497,34995,true,2026-11-04T08:46:55Z
-big-agnes,8497224843513,46908084486393,ws-bearsley-jacket,W's Bearsley UL Jacket,Cendre Blue / LG,17497,34995,false,2026-11-04T08:46:55Z
 big-agnes,8497224843513,67355427438841,ws-bearsley-jacket,W's Bearsley UL Jacket,Quarry / XS,34995,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224843513,67355427471609,ws-bearsley-jacket,W's Bearsley UL Jacket,Quarry / SM,34995,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224843513,67355427504377,ws-bearsley-jacket,W's Bearsley UL Jacket,Quarry / MD,34995,34995,true,2026-11-04T08:46:55Z
@@ -294,7 +292,6 @@ big-agnes,8497224843513,67355427635449,ws-bearsley-jacket,W's Bearsley UL Jacket
 big-agnes,8497224843513,67355427668217,ws-bearsley-jacket,W's Bearsley UL Jacket,Mint Leaf / MD,34995,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224843513,67355427700985,ws-bearsley-jacket,W's Bearsley UL Jacket,Mint Leaf / LG,34995,34995,true,2026-11-04T08:46:55Z
 big-agnes,8497224843513,67355427733753,ws-bearsley-jacket,W's Bearsley UL Jacket,Mint Leaf / XL,34995,34995,true,2026-11-04T08:46:55Z
-big-agnes,8497224909049,45429832253689,ws-piney-mountain-jacket,W's Piney Mountain UL Jacket,Nasturtium / XL,10498,34995,false,2026-11-06T09:46:16Z
 big-agnes,8497224941817,45429832286457,ms-shovelhead-jacket,M's Shovelhead Jacket,Black/Asphalt / XS,29995,29995,true,2026-11-04T08:46:55Z
 big-agnes,8497224941817,45429832319225,ms-shovelhead-jacket,M's Shovelhead Jacket,Black/Asphalt / SM,29995,29995,true,2026-11-04T08:46:55Z
 big-agnes,8497224941817,45429832351993,ms-shovelhead-jacket,M's Shovelhead Jacket,Black/Asphalt / MD,29995,29995,true,2026-11-04T08:46:55Z
@@ -307,7 +304,7 @@ big-agnes,8497224941817,45429832745209,ms-shovelhead-jacket,M's Shovelhead Jacke
 big-agnes,8497224941817,45429832777977,ms-shovelhead-jacket,M's Shovelhead Jacket,Legion Blue/Tapestry / LG,29995,29995,true,2026-11-04T08:46:55Z
 big-agnes,8497224941817,45429832810745,ms-shovelhead-jacket,M's Shovelhead Jacket,Legion Blue/Tapestry / XL,29995,29995,true,2026-11-04T08:46:55Z
 big-agnes,8497224941817,45429832843513,ms-shovelhead-jacket,M's Shovelhead Jacket,Legion Blue/Tapestry / XXL,29995,29995,true,2026-11-04T08:46:55Z
-big-agnes,8497224941817,46908084977913,ms-shovelhead-jacket,M's Shovelhead Jacket,Saffron/Bronze Brown / SM,14997,29995,true,2026-11-04T08:46:55Z
+big-agnes,8497224941817,46908084977913,ms-shovelhead-jacket,M's Shovelhead Jacket,Saffron/Bronze Brown / SM,14997,29995,false,2026-11-07T09:31:31Z
 big-agnes,8497224941817,67355427766521,ms-shovelhead-jacket,M's Shovelhead Jacket,Eucalyptus/Asphalt / XS,29995,29995,true,2026-11-04T08:46:55Z
 big-agnes,8497224941817,67355427799289,ms-shovelhead-jacket,M's Shovelhead Jacket,Eucalyptus/Asphalt / SM,29995,29995,true,2026-11-04T08:46:55Z
 big-agnes,8497224941817,67355427832057,ms-shovelhead-jacket,M's Shovelhead Jacket,Eucalyptus/Asphalt / MD,29995,29995,true,2026-11-04T08:46:55Z
@@ -792,16 +789,16 @@ big-agnes,10103588323577,48587183980793,blacktail-three-warm-olive,Blacktail 3 -
 big-agnes,15265595195641,67252808843513,mtnglo®-pump-and-light-mini,mtnGLO® Pump and Light Mini,Default Title,3995,3995,true,2026-11-04T08:46:55Z
 big-agnes,15265595326713,67252809007353,mtnglo®-pump-and-lantern,mtnGLO® Pump and Lantern,Default Title,4995,4995,true,2026-11-04T08:46:55Z
 big-agnes,15271953006841,67266174058745,dream-island-twenty-degree,Dream Island 20,Default Title,32995,32995,false,2026-11-06T09:46:16Z
-big-agnes,15304183152889,67378231902457,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XS,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378231935225,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / SM,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378231967993,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / MD,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378232000761,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / LG,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378232033529,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XL,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378232066297,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XS,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378232099065,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / SM,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378232131833,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / MD,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378232164601,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / LG,29995,39995,true,2026-11-04T08:46:55Z
-big-agnes,15304183152889,67378232197369,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XL,29995,39995,true,2026-11-05T09:41:31Z
+big-agnes,15304183152889,67378231902457,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XS,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378231935225,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / SM,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378231967993,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / MD,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378232000761,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / LG,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378232033529,womens-trudy-down-jacket,W's Trudy Jacket,Black/Asphalt / XL,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378232066297,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XS,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378232099065,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / SM,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378232131833,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / MD,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378232164601,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / LG,39995,39995,true,2026-11-07T09:31:31Z
+big-agnes,15304183152889,67378232197369,womens-trudy-down-jacket,W's Trudy Jacket,Arctic Wolf/Eucalyptus / XL,39995,39995,true,2026-11-07T09:31:31Z
 branch-basics,5528818286756,42885177376932,starter-kit-oxygen-boost,Premium Starter Kit,Plastic,7500,,true,2026-11-04T08:46:55Z
 branch-basics,5528818286756,42885177409700,starter-kit-oxygen-boost,Premium Starter Kit,Glass,12500,,true,2026-11-04T08:46:55Z
 branch-basics,5528822218916,42520645009572,laundry-kit,Laundry Kit,Plastic,6900,,true,2026-11-04T08:46:55Z
@@ -2395,7 +2392,7 @@ greats,7866065125424,42708504477744,the-charlie-mineral-grey-mens,The Charlie - 
 greats,7866065125424,42708504510512,the-charlie-mineral-grey-mens,The Charlie - Mineral Grey,12 / Mineral Grey,21500,21500,true,2026-11-04T08:46:55Z
 greats,7866065125424,42708504543280,the-charlie-mineral-grey-mens,The Charlie - Mineral Grey,13 / Mineral Grey,21500,21500,true,2026-11-04T08:46:55Z
 greats,7866065125424,42708504576048,the-charlie-mineral-grey-mens,The Charlie - Mineral Grey,14 / Mineral Grey,21500,21500,true,2026-11-04T08:46:55Z
-greats,7866065125424,42708504608816,the-charlie-mineral-grey-mens,The Charlie - Mineral Grey,15 / Mineral Grey,21500,21500,true,2026-11-04T08:46:55Z
+greats,7866065125424,42708504608816,the-charlie-mineral-grey-mens,The Charlie - Mineral Grey,15 / Mineral Grey,21500,21500,false,2026-11-07T09:31:31Z
 greats,7866065125424,42708504641584,the-charlie-mineral-grey-mens,The Charlie - Mineral Grey,16 / Mineral Grey,21500,21500,false,2026-11-04T08:46:55Z
 greats,7866610450480,42709926707248,the-reign-ecru-mens,The Reign - Ecru,7 / Ecru,19900,19900,false,2026-11-04T08:46:55Z
 greats,7866610450480,42709926740016,the-reign-ecru-mens,The Reign - Ecru,8 / Ecru,19900,19900,false,2026-11-04T08:46:55Z
@@ -3164,7 +3161,7 @@ hydrapak,9362154258665,51643986247913,bank-of-america-chicago-marathon-tempo-pro
 hydrapak,9407683199209,51790397505769,modern-adventure-pro-breakaway-surge-20oz,Modern Adventure Pro Breakaway Surge 20oz,White,1000,,true,2026-11-04T08:46:55Z
 hydrapak,9408981827817,51793858232553,modern-adventure-pro-breakaway-surge-20oz-2-pack,Modern Adventure Pro Breakaway Surge 20oz 2-Pack,Default Title,2000,,true,2026-11-04T08:46:55Z
 hydrapak,9418786668777,51856244605161,california-international-marathon-tempo-pro-525ml,California International Marathon Tempo Pro 525ml,White,2300,,true,2026-11-04T08:46:55Z
-hydrapak,9418905944297,51856932602089,tcs-new-york-city-marathon-tempo-pro-400ml,TCS New York City Marathon Tempo Pro 400ml,White,2400,,false,2026-11-04T08:46:55Z
+hydrapak,9418905944297,51856932602089,tcs-new-york-city-marathon-tempo-pro-400ml,TCS New York City Marathon Tempo Pro 400ml,White,2400,,true,2026-11-07T09:31:31Z
 hydrapak,9418908106985,51856943677673,tcs-new-york-city-marathon-tempo-pro-525ml,TCS New York City Marathon Tempo Pro 525ml,White,2500,,true,2026-11-04T08:46:55Z
 hydrapak,9425459216617,51887899443433,limited-edition-2-pack-food-water-rover-bowls,Limited Edition 2-Pack Food & Water Rover Bowls,Default Title,2300,,true,2026-11-04T08:46:55Z
 hydrapak,15412078837993,67666840256745,apex™-rush,Apex™ Rush,Charcoal,1300,,true,2026-11-04T08:46:55Z
@@ -3229,7 +3226,7 @@ hyperlite-mountain-gear,631420190765,7376552853549,porter-water-bottle-holder-20
 hyperlite-mountain-gear,631420583981,7376554164269,ultralight-tent-stake-kit,Ultralight Tent Stake Kit,Default Title,3900,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,631421239341,7376556261421,pack-accessory-straps,Pack Accessory Straps,Default Title,2000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,631421272109,7376556294189,dyneema-repair-kit,Dyneema® Repair Kit,Default Title,1500,,true,2026-11-04T08:46:55Z
-hyperlite-mountain-gear,631421698093,7376557703213,1-4-uhmwpe-core-guy-line,1.4 UHMWPE Core Guy Line,Default Title,1700,,false,2026-11-04T08:46:55Z
+hyperlite-mountain-gear,631421698093,7376557703213,1-4-uhmwpe-core-guy-line,1.4 UHMWPE Core Guy Line,Default Title,1700,,true,2026-11-07T09:31:31Z
 hyperlite-mountain-gear,631421960237,7376558850093,2-8-uhmwpe-core-guy-line,2.8 UHMWPE Core Guy Line,Default Title,2000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,631424450605,7376566157357,goat-tote,G.O.A.T. Tote,20L / White,12500,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,631424450605,8236994297901,goat-tote,G.O.A.T. Tote,20L / Black,12500,,true,2026-11-04T08:46:55Z
@@ -3262,7 +3259,7 @@ hyperlite-mountain-gear,1302445588525,39417824804909,repack,REpack,Grey,5300,,tr
 hyperlite-mountain-gear,1314291384365,13658259324973,shoulder-pocket,Shoulder Pocket,Black,6000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,1314291384365,41825870938157,shoulder-pocket,Shoulder Pocket,White,6000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,1438428495917,13707528437805,titanium-long-handle-spoon,Vargo Titanium Long-Handle Spoon,Default Title,1495,,true,2026-11-04T08:46:55Z
-hyperlite-mountain-gear,1438438031405,13707575427117,aquamira-water-treatment-1-oz,Aquamira Water Treatment 1 oz.,Default Title,1499,,true,2026-11-04T08:46:55Z
+hyperlite-mountain-gear,1438438031405,13707575427117,aquamira-water-treatment-1-oz,Aquamira Water Treatment 1 oz.,Default Title,1499,,false,2026-11-07T09:31:31Z
 hyperlite-mountain-gear,1438597185581,13708435750957,therm-a-rest-neoair-xlite-sleeping-pad,Therm-a-Rest NeoAir® XLite™ NXT Sleeping Pad,Regular,20995,,false,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,1438597185581,43046448693293,therm-a-rest-neoair-xlite-sleeping-pad,Therm-a-Rest NeoAir® XLite™ NXT Sleeping Pad,Regular Wide,21995,,false,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,1438605475885,13708456198189,platy-2-liter-water-bottle,Platy 2.0L Ultralight Collapsible Water Bottle,Default Title,1895,,false,2026-11-04T08:46:55Z
@@ -3282,7 +3279,7 @@ hyperlite-mountain-gear,6549503508525,39301370871853,jetboil-stash-backpacking-c
 hyperlite-mountain-gear,6588846538797,42157624328237,til-the-end-tee,Til the End Tee,XS / Black/Grey,3200,,false,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,6588846538797,42157624459309,til-the-end-tee,Til the End Tee,S / Black/Grey,3200,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,6588846538797,42157624590381,til-the-end-tee,Til the End Tee,M / Black/Grey,3200,,false,2026-11-04T08:46:55Z
-hyperlite-mountain-gear,6588846538797,42157624721453,til-the-end-tee,Til the End Tee,L / Black/Grey,3200,,true,2026-11-04T08:46:55Z
+hyperlite-mountain-gear,6588846538797,42157624721453,til-the-end-tee,Til the End Tee,L / Black/Grey,3200,,false,2026-11-07T09:31:31Z
 hyperlite-mountain-gear,6588846538797,42157624852525,til-the-end-tee,Til the End Tee,XL / Black/Grey,3200,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,6588846538797,42157624983597,til-the-end-tee,Til the End Tee,XXL / Black/Grey,3200,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,6588848439341,39419503444013,vargo-titanium-ti-lite-750ml-mug,Vargo Titanium Ti-Lite 750ml Mug,Default Title,5495,,true,2026-11-04T08:46:55Z
@@ -3925,7 +3922,7 @@ jlab,7023550857288,41010423431240,go-pods-anc-true-wireless-earbuds-cloud,Go Pod
 jlab,7023556165704,41010438438984,go-pop-anc-true-wireless-earbuds-cloud,Go Pop ANC True Wireless Earbuds Cloud,Default Title,3199,3199,true,2026-11-04T08:46:55Z
 jlab,7023561900104,41010495717448,epic-lux-lab-edition-anc-over-ear-headphones-cloud,Epic Lux Lab Edition ANC Over-Ear Headphones Cloud,Default Title,20999,20999,true,2026-11-04T08:46:55Z
 jlab,7026955616328,41021436297288,blue-xl-speaker-headphones,JLab Blue XL Speaker Headphones,Default Title,12999,19999,true,2026-11-04T08:46:55Z
-jlab,7033004818504,41043854786632,star-spangled-jbuds-lux-anc-headphones,Star Spangled JBuds Lux ANC Headphones,Default Title,9999,9999,true,2026-11-04T08:46:55Z
+jlab,7033004818504,41043854786632,star-spangled-jbuds-lux-anc-headphones,Star Spangled JBuds Lux ANC Headphones,Default Title,9999,9999,false,2026-11-07T09:31:31Z
 jlab,7033294848072,41044769079368,nightfall-wireless-gaming-mouse-black,Nightfall Wireless Gaming Mouse Black,Default Title,3399,3999,true,2026-11-04T08:46:55Z
 jlab,7033294979144,41044769308744,nightfall-wireless-gaming-mouse-pink,Nightfall Wireless Gaming Mouse Pink,Default Title,3399,3999,true,2026-11-04T08:46:55Z
 jlab,7033295011912,41044769538120,nightfall-wireless-gaming-mouse-white,Nightfall Wireless Gaming Mouse White,Default Title,3399,3999,true,2026-11-04T08:46:55Z
@@ -3985,11 +3982,12 @@ jlab,7115250303048,41317251809352,jbuds-open-sport-2-earbuds-black,JBuds Open Sp
 jlab,7115250958408,41317254201416,jbuds-open-sport-2-earbuds-navy,JBuds Open Sport 2 Earbuds Navy,Default Title,5299,5299,false,2026-11-04T08:46:55Z
 jlab,7115251613768,41317256134728,jbuds-open-sport-2-earbuds-sandstone,JBuds Open Sport 2 Earbuds Sandstone,Default Title,5299,5299,false,2026-11-04T08:46:55Z
 jlab,7118556823624,41323491229768,jbuds-open-sport-2-earbuds-dusty-rose,JBuds Open Sport 2 Earbuds Dusty Rose,Default Title,5299,5299,false,2026-11-04T08:46:55Z
-jlab,7136733462600,41376924762184,gaming-chair-black,Gaming Chair Black,Default Title,99999,99999,true,2026-11-04T08:46:55Z
+jlab,7136733462600,41376924762184,gaming-chair-black,Gaming Chair Black,Default Title,39999,39999,true,2026-11-07T09:31:31Z
 jlab,7151124316232,41439425396808,jbuds-lux-anc-jbuds-mini-anc-jelle-fir-sure-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Fir Sure Bundle,Default Title,9998,14998,true,2026-11-04T08:46:55Z
 jlab,7151127199816,41439430082632,jbuds-lux-anc-jbuds-mini-anc-jelle-gold-digger-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Gold Digger Bundle,Default Title,9998,14998,false,2026-11-06T09:46:16Z
 jlab,7151127461960,41439430639688,jbuds-lux-anc-jbuds-mini-anc-jelle-pearl-next-door-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Pearl Next Door Bundle,Default Title,9998,14998,true,2026-11-04T08:46:55Z
 jlab,7151127822408,41439431229512,jbuds-lux-anc-jbuds-mini-anc-jelle-royal-caviar-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Royal Caviar Bundle,Default Title,9998,14998,true,2026-11-04T08:46:55Z
+jlab,7151128051784,41439431688264,jbuds-lux-anc-jbuds-mini-anc-jelle-blush-fund-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Blush Fund Bundle,Default Title,9998,14998,false,2026-11-07T09:31:31Z
 jlab,7154094604360,41455776956488,jbuds-lux-anc-jbuds-mini-anc-graphite-bundle,JBuds Lux ANC & JBuds Mini ANC Graphite Bundle,Default Title,9998,12298,true,2026-11-04T08:46:55Z
 jlab,7154099486792,41455794815048,jbuds-lux-anc-mauve-jbuds-mini-anc-pastel-pink-bundle,JBuds Lux ANC Mauve & JBuds Mini ANC Pastel Pink Bundle,Default Title,9998,12298,true,2026-11-04T08:46:55Z
 jlab,15779102195784,57598353768520,pop-party-ultra-portable-bluetooth-speaker-mulberry-2-pack,Pop Party Ultra-Portable Bluetooth Speaker Mulberry 2 Pack,Default Title,4998,4998,true,2026-11-04T08:46:55Z
@@ -4473,7 +4471,7 @@ lunya,7067788771371,40682962583595,womens-washable-silk-robe-tranquil-white,Wash
 lunya,7067788771371,40773313265707,womens-washable-silk-robe-tranquil-white,Washable Silk Robe,Tranquil White / 1X,27800,,true,2026-11-04T08:46:55Z
 lunya,7067802370091,40683013701675,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / XS,28800,,true,2026-11-04T08:46:55Z
 lunya,7067802370091,40683013799979,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / S,28800,,false,2026-11-04T08:46:55Z
-lunya,7067802370091,40683013898283,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / M,28800,,true,2026-11-04T08:46:55Z
+lunya,7067802370091,40683013898283,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / M,28800,,false,2026-11-07T09:31:31Z
 lunya,7067802370091,40683013963819,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / L,28800,,false,2026-11-04T08:46:55Z
 lunya,7067802370091,40683013996587,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / XL,28800,,false,2026-11-04T08:46:55Z
 lunya,7067802370091,43865948880939,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / 2X,28800,,false,2026-11-04T08:46:55Z
@@ -4590,7 +4588,7 @@ lunya,7111443218475,40788674773035,mens-washable-silk-button-up-set-meditative-g
 lunya,7111443218475,40788674805803,mens-washable-silk-button-up-set-meditative-grey,Men's Washable Silk Button Up Set,Meditative Grey / L,29800,,false,2026-11-04T08:46:55Z
 lunya,7111443218475,40788674838571,mens-washable-silk-button-up-set-meditative-grey,Men's Washable Silk Button Up Set,Meditative Grey / XL,29800,,true,2026-11-04T08:46:55Z
 lunya,7111443218475,40788674871339,mens-washable-silk-button-up-set-meditative-grey,Men's Washable Silk Button Up Set,Meditative Grey / XXL,29800,,true,2026-11-04T08:46:55Z
-lunya,7111444398123,40788678869035,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / S,27800,,true,2026-11-04T08:46:55Z
+lunya,7111444398123,40788678869035,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / S,27800,,false,2026-11-07T09:31:31Z
 lunya,7111444398123,40788678901803,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / M,27800,,true,2026-11-04T08:46:55Z
 lunya,7111444398123,40788678934571,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / L,27800,,false,2026-11-04T08:46:55Z
 lunya,7111444398123,40788678967339,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / XL,27800,,false,2026-11-04T08:46:55Z
@@ -4647,9 +4645,6 @@ lunya,7166083104811,40938667704363,womens-washable-silk-tulip-back-set-hum-fores
 lunya,7166321655851,40939597987883,mens-washable-silk-robe,Men's Washable Silk Robe,Immersed Black / S M,29800,,true,2026-11-04T08:46:55Z
 lunya,7166321655851,40939598053419,mens-washable-silk-robe,Men's Washable Silk Robe,Immersed Black / L,29800,,true,2026-11-04T08:46:55Z
 lunya,7166321655851,40939598086187,mens-washable-silk-robe,Men's Washable Silk Robe,Immersed Black / XL XXL,29800,,true,2026-11-04T08:46:55Z
-lunya,7168122224683,41454177517611,womens-cottonsilk-slipper-sock-oat-marl,Cottonsilk™ Slipper Sock,Oat Marl / S,6800,,false,2026-11-04T08:46:55Z
-lunya,7168122224683,41454177550379,womens-cottonsilk-slipper-sock-oat-marl,Cottonsilk™ Slipper Sock,Oat Marl / M,6800,,false,2026-11-04T08:46:55Z
-lunya,7168122224683,41454177583147,womens-cottonsilk-slipper-sock-oat-marl,Cottonsilk™ Slipper Sock,Oat Marl / L,6800,,true,2026-11-04T08:46:55Z
 lunya,7168187203627,40943218786347,womens-soft-modal-rib-tee-short-set-immersed-black,Soft Modal Rib Tee Short Set,Immersed Black / XS,12800,,true,2026-11-04T08:46:55Z
 lunya,7168187203627,40943218819115,womens-soft-modal-rib-tee-short-set-immersed-black,Soft Modal Rib Tee Short Set,Immersed Black / S,12800,,true,2026-11-04T08:46:55Z
 lunya,7168187203627,40943218851883,womens-soft-modal-rib-tee-short-set-immersed-black,Soft Modal Rib Tee Short Set,Immersed Black / M,12800,,true,2026-11-04T08:46:55Z
@@ -4673,9 +4668,14 @@ lunya,7182122942507,40977542086699,womens-washable-silk-tulip-back-set-delicate-
 lunya,7182122942507,40977542119467,womens-washable-silk-tulip-back-set-delicate-pink,Washable Silk Tulip Back Set,Delicate Pink / M,18800,,true,2026-11-04T08:46:55Z
 lunya,7182122942507,40977542152235,womens-washable-silk-tulip-back-set-delicate-pink,Washable Silk Tulip Back Set,Delicate Pink / L,18800,,true,2026-11-04T08:46:55Z
 lunya,7182122942507,40977542185003,womens-washable-silk-tulip-back-set-delicate-pink,Washable Silk Tulip Back Set,Delicate Pink / XL,18800,,true,2026-11-04T08:46:55Z
+lunya,7186737233963,40989071278123,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / XS,16800,,false,2026-11-07T09:31:31Z
+lunya,7186737233963,40989071310891,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / S,16800,,false,2026-11-07T09:31:31Z
+lunya,7186737233963,40989071343659,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / M,16800,,true,2026-11-07T09:31:31Z
+lunya,7186737233963,40989071376427,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / L,16800,,false,2026-11-07T09:31:31Z
+lunya,7186737233963,40989071409195,womens-washable-silk-oversized-sleep-tee-deep-blue,Washable Silk Oversized Sleep Tee,Deep Blue / XL,16800,,false,2026-11-07T09:31:31Z
 lunya,7186750832683,40989105946667,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / XS,19800,,false,2026-11-04T08:46:55Z
-lunya,7186750832683,40989105979435,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / S,19800,,true,2026-11-04T08:46:55Z
-lunya,7186750832683,40989106012203,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / M,19800,,true,2026-11-04T08:46:55Z
+lunya,7186750832683,40989105979435,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / S,19800,,false,2026-11-07T09:31:31Z
+lunya,7186750832683,40989106012203,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / M,19800,,false,2026-11-07T09:31:31Z
 lunya,7186750832683,40989106044971,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / L,19800,,true,2026-11-04T08:46:55Z
 lunya,7186750832683,40989106077739,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / XL,19800,,true,2026-11-04T08:46:55Z
 lunya,7186752503851,40989109354539,womens-washable-silk-robe-delicate-pink,Washable Silk Robe,Delicate Pink / XS S,27800,,true,2026-11-04T08:46:55Z
@@ -4764,8 +4764,8 @@ lunya,7255024893995,41131082121259,womens-soft-modal-rib-v-neck-henley-immersed-
 lunya,7255024893995,41131082154027,womens-soft-modal-rib-v-neck-henley-immersed-black,Soft Modal Rib V-Neck Henley,Immersed Black / M,11800,,false,2026-11-04T08:46:55Z
 lunya,7255024893995,41131082186795,womens-soft-modal-rib-v-neck-henley-immersed-black,Soft Modal Rib V-Neck Henley,Immersed Black / L,11800,,true,2026-11-04T08:46:55Z
 lunya,7255024893995,41131082219563,womens-soft-modal-rib-v-neck-henley-immersed-black,Soft Modal Rib V-Neck Henley,Immersed Black / XL,11800,,false,2026-11-04T08:46:55Z
-lunya,7255208427563,41131610570795,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / XS,11800,,true,2026-11-04T08:46:55Z
-lunya,7255208427563,41131610603563,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / S,11800,,true,2026-11-04T08:46:55Z
+lunya,7255208427563,41131610570795,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / XS,11800,,false,2026-11-07T09:31:31Z
+lunya,7255208427563,41131610603563,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / S,11800,,false,2026-11-07T09:31:31Z
 lunya,7255208427563,41131610636331,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / M,11800,,true,2026-11-04T08:46:55Z
 lunya,7255208427563,41131610669099,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / L,11800,,false,2026-11-04T08:46:55Z
 lunya,7255208427563,41131610701867,womens-soft-modal-rib-v-neck-henley-sincere-white,Soft Modal Rib V-Neck Henley,Sincere White / XL,11800,,true,2026-11-04T08:46:55Z
@@ -4933,7 +4933,7 @@ lunya,7394814591019,41779017482283,womens-organic-pima-tee-short-set-storm-grey-
 lunya,7394814591019,41779017515051,womens-organic-pima-tee-short-set-storm-grey-heather,Organic Pima Tee Short Set,Storm Grey Heather / XL,12800,,true,2026-11-04T08:46:55Z
 lunya,7415234658347,41897487826987,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XS,6800,,true,2026-11-04T08:46:55Z
 lunya,7415234658347,41897487859755,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / S,6800,,true,2026-11-04T08:46:55Z
-lunya,7415234658347,41897487892523,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / M,6800,,false,2026-11-05T09:41:31Z
+lunya,7415234658347,41897487892523,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / M,6800,,true,2026-11-07T09:31:31Z
 lunya,7415234658347,41897487925291,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / L,6800,,true,2026-11-04T08:46:55Z
 lunya,7415234658347,41897487958059,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XL,6800,,true,2026-11-04T08:46:55Z
 lunya,7415237083179,41897496412203,womens-seamless-modal-tank-sincere-white-1,Seamless Modal Tank,Sincere White / XS,6800,,true,2026-11-04T08:46:55Z
@@ -5146,6 +5146,11 @@ lunya,7763964067883,42592623493163,womens-silksweats-lightweight-terry-slim-fit-
 lunya,7763964067883,42592623525931,womens-silksweats-lightweight-terry-slim-fit-raglan-delicate-pink,Silksweats™ Lightweight Terry Slim Fit Raglan,Delicate Pink / M,13800,,true,2026-11-04T08:46:55Z
 lunya,7763964067883,42592623558699,womens-silksweats-lightweight-terry-slim-fit-raglan-delicate-pink,Silksweats™ Lightweight Terry Slim Fit Raglan,Delicate Pink / L,13800,,false,2026-11-04T08:46:55Z
 lunya,7763964067883,42592623591467,womens-silksweats-lightweight-terry-slim-fit-raglan-delicate-pink,Silksweats™ Lightweight Terry Slim Fit Raglan,Delicate Pink / XL,13800,,false,2026-11-04T08:46:55Z
+lunya,7763964100651,42592623788075,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XS,18800,,false,2026-11-07T09:31:31Z
+lunya,7763964100651,42592623820843,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / S,18800,,false,2026-11-07T09:31:31Z
+lunya,7763964100651,42592623853611,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / M,18800,,false,2026-11-07T09:31:31Z
+lunya,7763964100651,42592623886379,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / L,18800,,true,2026-11-07T09:31:31Z
+lunya,7763964100651,42592623919147,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XL,18800,,false,2026-11-07T09:31:31Z
 lunya,7763964166187,42592623624235,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / XS,7800,,true,2026-11-04T08:46:55Z
 lunya,7763964166187,42592623657003,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / S,7800,,false,2026-11-04T08:46:55Z
 lunya,7763964166187,42592623689771,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / M,7800,,false,2026-11-04T08:46:55Z
@@ -5162,7 +5167,7 @@ lunya,7763964231723,42592624574507,womens-slumberknit-shawl-collar-button-down-p
 lunya,7763964231723,42592624607275,womens-slumberknit-shawl-collar-button-down-pant-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Button Down Pant Set,Lunar White/Quiet Lilac / L,15800,,true,2026-11-04T08:46:55Z
 lunya,7763964231723,42592624640043,womens-slumberknit-shawl-collar-button-down-pant-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Button Down Pant Set,Lunar White/Quiet Lilac / XL,15800,,true,2026-11-04T08:46:55Z
 lunya,7763964264491,42592624279595,the-quintessential-duvet-cover-morning-fog,The Quintessential Duvet Cover,Morning Fog / Queen,27800,,true,2026-11-04T08:46:55Z
-lunya,7763964264491,42592624312363,the-quintessential-duvet-cover-morning-fog,The Quintessential Duvet Cover,Morning Fog / King,29800,,true,2026-11-04T08:46:55Z
+lunya,7763964264491,42592624312363,the-quintessential-duvet-cover-morning-fog,The Quintessential Duvet Cover,Morning Fog / King,29800,,false,2026-11-07T09:31:31Z
 lunya,7763964264491,43274562404395,the-quintessential-duvet-cover-morning-fog,The Quintessential Duvet Cover,Morning Fog / Twin,24800,,false,2026-11-04T08:46:55Z
 lunya,7763964330027,42592624672811,womens-washable-silk-tulip-back-set-morning-wisteria,Washable Silk Tulip Back Set,Morning Wisteria / XS,18800,,true,2026-11-04T08:46:55Z
 lunya,7763964330027,42592624705579,womens-washable-silk-tulip-back-set-morning-wisteria,Washable Silk Tulip Back Set,Morning Wisteria / S,18800,,true,2026-11-04T08:46:55Z
@@ -5200,7 +5205,7 @@ lunya,7763964526635,42592626114603,womens-pointelle-wide-leg-pant-buttercream,Po
 lunya,7763964526635,42592626147371,womens-pointelle-wide-leg-pant-buttercream,Pointelle Wide Leg Pant,Buttercream / L,11800,,true,2026-11-04T08:46:55Z
 lunya,7763964526635,42592626180139,womens-pointelle-wide-leg-pant-buttercream,Pointelle Wide Leg Pant,Buttercream / XL,11800,,true,2026-11-04T08:46:55Z
 lunya,7763964592171,42592626212907,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / XS,12800,,true,2026-11-04T08:46:55Z
-lunya,7763964592171,42592626245675,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / S,12800,,true,2026-11-06T09:46:16Z
+lunya,7763964592171,42592626245675,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / S,12800,,false,2026-11-07T09:31:31Z
 lunya,7763964592171,42592626278443,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / M,12800,,false,2026-11-04T08:46:55Z
 lunya,7763964592171,42592626311211,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / L,12800,,true,2026-11-04T08:46:55Z
 lunya,7763964592171,42592626343979,womens-organic-pima-straight-leg-pant-storm-grey-heather,Organic Pima Straight Leg Pant,Storm Grey Heather / XL,12800,,true,2026-11-04T08:46:55Z
@@ -5449,6 +5454,11 @@ lunya,7849299247147,43346800902187,womens-washable-silk-tie-front-short-set-curr
 lunya,7849299247147,43346800934955,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / M,21800,,true,2026-11-04T08:46:55Z
 lunya,7849299247147,43346800967723,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / L,21800,,true,2026-11-04T08:46:55Z
 lunya,7849299247147,43346801000491,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / XL,21800,,true,2026-11-04T08:46:55Z
+lunya,7849299279915,43346801033259,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XS,28800,,true,2026-11-07T09:31:31Z
+lunya,7849299279915,43346801066027,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / S,28800,,false,2026-11-07T09:31:31Z
+lunya,7849299279915,43346801098795,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / M,28800,,false,2026-11-07T09:31:31Z
+lunya,7849299279915,43346801131563,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / L,28800,,false,2026-11-07T09:31:31Z
+lunya,7849299279915,43346801164331,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XL,28800,,false,2026-11-07T09:31:31Z
 lunya,7849299345451,43346801524779,womens-soft-modal-rib-foldover-short-current-blue,Soft Modal Rib Foldover Short,Current Blue / XS,7800,,true,2026-11-04T08:46:55Z
 lunya,7849299345451,43346801557547,womens-soft-modal-rib-foldover-short-current-blue,Soft Modal Rib Foldover Short,Current Blue / S,7800,,true,2026-11-04T08:46:55Z
 lunya,7849299345451,43346801590315,womens-soft-modal-rib-foldover-short-current-blue,Soft Modal Rib Foldover Short,Current Blue / M,7800,,true,2026-11-04T08:46:55Z
@@ -5582,7 +5592,7 @@ lunya,7849300230187,43346805948459,womens-airy-cotton-short-sunset-stripe,Airy C
 lunya,7849300230187,43346805981227,womens-airy-cotton-short-sunset-stripe,Airy Cotton Short,Sunset Stripe / M,8800,,true,2026-11-04T08:46:55Z
 lunya,7849300230187,43346806013995,womens-airy-cotton-short-sunset-stripe,Airy Cotton Short,Sunset Stripe / L,8800,,true,2026-11-04T08:46:55Z
 lunya,7849300230187,43346806046763,womens-airy-cotton-short-sunset-stripe,Airy Cotton Short,Sunset Stripe / XL,8800,,true,2026-11-04T08:46:55Z
-lunya,7849300262955,43346806079531,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / XS,21800,,false,2026-11-06T09:46:16Z
+lunya,7849300262955,43346806079531,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / XS,21800,,true,2026-11-07T09:31:31Z
 lunya,7849300262955,43346806112299,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / S,21800,,true,2026-11-04T08:46:55Z
 lunya,7849300262955,43346806145067,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / M,21800,,true,2026-11-04T08:46:55Z
 lunya,7849300262955,43346806177835,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / L,21800,,false,2026-11-04T08:46:55Z
@@ -6137,7 +6147,7 @@ nécessaire,15404531777649,67636361920625,the-body-exfoliator-physical-chemical-
 nécessaire,15404555272305,67636419952753,the-body-wash-the-body-exfoliator-olibanum,The Body Wash + The Body Exfoliator,Olibanum,6300,,true,2026-11-04T08:46:55Z
 oveja-negra,9505700164,32385831684,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Black,5500,,false,2026-11-04T08:46:55Z
 oveja-negra,9505700164,32385832004,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Multicam® Black,5500,,false,2026-11-04T08:46:55Z
-oveja-negra,9505700164,39364375937126,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Coyote Brown,5500,,true,2026-11-04T08:46:55Z
+oveja-negra,9505700164,39364375937126,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Coyote Brown,5500,,false,2026-11-07T09:31:31Z
 oveja-negra,9505700164,39673266995302,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Serape,5500,,false,2026-11-04T08:46:55Z
 oveja-negra,9505700164,50324962836785,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Raspberry Beret,5500,,true,2026-11-04T08:46:55Z
 oveja-negra,9505700164,50324962869553,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Party Animal,5500,,false,2026-11-04T08:46:55Z
@@ -6152,7 +6162,7 @@ oveja-negra,9505790852,39700408959078,snack-pack-top-tube-bags-large-xl,Snack Pa
 oveja-negra,9505790852,49911815209265,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Teal / XL,6500,,false,2026-11-04T08:46:55Z
 oveja-negra,9505790852,50728169931057,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Denim / Large,6000,,false,2026-11-04T08:46:55Z
 oveja-negra,9505790852,50728169963825,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Denim / XL,6500,,false,2026-11-04T08:46:55Z
-oveja-negra,9505790852,51450515652913,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Jalapeño / Large,6000,,true,2026-11-04T08:46:55Z
+oveja-negra,9505790852,51450515652913,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Jalapeño / Large,6000,,false,2026-11-07T09:31:31Z
 oveja-negra,9505790852,51450515685681,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Jalapeño / XL,6500,,false,2026-11-04T08:46:55Z
 oveja-negra,9505790852,51489327251761,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Raspberry Beret / Large,6000,,true,2026-11-04T08:46:55Z
 oveja-negra,9505790852,51489327284529,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Raspberry Beret / XL,6500,,false,2026-11-04T08:46:55Z
@@ -6171,9 +6181,9 @@ oveja-negra,9570610703,39568373153894,lunchbox-handlebar-bag,Lunchbox™ Handleb
 oveja-negra,9570610703,44476745646385,lunchbox-handlebar-bag,Lunchbox™ Handlebar Bag,Jalapeño / Accessory Bag,5500,,false,2026-11-04T08:46:55Z
 oveja-negra,9570610703,49649492885809,lunchbox-handlebar-bag,Lunchbox™ Handlebar Bag,Raspberry Beret / Accessory Bag,5500,,false,2026-11-04T08:46:55Z
 oveja-negra,9570613071,32633630287,front-end-loader,Front End Loader™ - Dry Bag Mount,Black / Harness,6000,,true,2026-11-04T08:46:55Z
-oveja-negra,9570616207,32633642447,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Black,6500,,true,2026-11-04T08:46:55Z
+oveja-negra,9570616207,32633642447,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Black,6500,,false,2026-11-07T09:31:31Z
 oveja-negra,9570616207,32288496975974,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Coyote Brown,6500,,true,2026-11-04T08:46:55Z
-oveja-negra,9570616207,39568375021670,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Serape,6500,,true,2026-11-04T08:46:55Z
+oveja-negra,9570616207,39568375021670,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Serape,6500,,false,2026-11-07T09:31:31Z
 oveja-negra,9570616207,39581844504678,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Party Animal,6500,,false,2026-11-04T08:46:55Z
 oveja-negra,9570616207,51461155389745,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Raspberry Beret,6500,,true,2026-11-04T08:46:55Z
 oveja-negra,9570616207,51486806999345,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Denim Denim,6500,,true,2026-11-04T08:46:55Z
@@ -6204,9 +6214,9 @@ oveja-negra,153184534555,1971991085083,bootlegger-fork-bag,Bootlegger Fork Bag (
 oveja-negra,153184534555,39350092890214,bootlegger-fork-bag,Bootlegger Fork Bag (Direct Mount),Coyote Brown / One Size,8000,,true,2026-11-04T08:46:55Z
 oveja-negra,153184534555,39558519717990,bootlegger-fork-bag,Bootlegger Fork Bag (Direct Mount),Serape / One Size,8000,,true,2026-11-04T08:46:55Z
 oveja-negra,153184534555,52290403729713,bootlegger-fork-bag,Bootlegger Fork Bag (Direct Mount),Highlighter / One Size,8000,,false,2026-11-04T08:46:55Z
-oveja-negra,268104269851,3651650617371,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,Large / Wack Pack,6000,,false,2026-11-04T08:46:55Z
+oveja-negra,268104269851,3651650617371,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,Large / Wack Pack,6000,,true,2026-11-07T09:31:31Z
 oveja-negra,268104269851,3651793846299,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,XL / Wack Pack,6500,,false,2026-11-04T08:46:55Z
-oveja-negra,268104269851,48593377198385,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,Large / Wack Donuts,6000,,false,2026-11-04T08:46:55Z
+oveja-negra,268104269851,48593377198385,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,Large / Wack Donuts,6000,,true,2026-11-07T09:31:31Z
 oveja-negra,268104269851,48593377231153,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,Large / Wack BMFS,6000,,false,2026-11-04T08:46:55Z
 oveja-negra,268104269851,48593377263921,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,XL / Wack Donuts,6500,,false,2026-11-04T08:46:55Z
 oveja-negra,268104269851,48593377296689,snack-pack-large-xl-wack-pack,Snack Pack™ - Large/XL - WACK PACK,XL / Wack BMFS,6500,,false,2026-11-04T08:46:55Z
@@ -6308,7 +6318,7 @@ oveja-negra,4998968967270,56541940711729,stupendously-sexy-seconds,STUPENDOUSLY 
 oveja-negra,4998968967270,56558652981553,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Chuckbucket - Handlebar Bag - Denim Denim,4875,6500,false,2026-11-04T08:46:55Z
 oveja-negra,4998968967270,56558653407537,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Chuckbucket - Handlebar Bag - Razz Beret,4875,6500,false,2026-11-04T08:46:55Z
 oveja-negra,4998968967270,56558655766833,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Chuckbucket - Handlebar Bag - Wack,4875,6500,false,2026-11-04T08:46:55Z
-oveja-negra,4998968967270,56558655865137,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Chuckbucket - Handlebar Bag - Black,4875,6500,false,2026-11-04T08:46:55Z
+oveja-negra,4998968967270,56558655865137,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Snack Pack Top Tube Bag- Large - Wack,4500,6000,false,2026-11-07T09:31:31Z
 oveja-negra,4999047184486,32262991118438,bladder-hose-clip,Bladder Hose Clip,w/OneWrap,300,,true,2026-11-04T08:46:55Z
 oveja-negra,4999047184486,32262991151206,bladder-hose-clip,Bladder Hose Clip,Just the Clip,200,,true,2026-11-04T08:46:55Z
 oveja-negra,6617408700518,39398896762982,bananas-for-bikepacking-patch,🍌Bananas for Bikepacking🍌 - Patch,Default Title,600,,false,2026-11-04T08:46:55Z
@@ -6740,7 +6750,7 @@ oveja-negra,10044237250865,50161523753265,superwedgie-2-0-frame-bag-wack-pack,Su
 oveja-negra,10044237250865,50161523786033,superwedgie-2-0-frame-bag-wack-pack,Superwedgie™ 2.0 Frame Bag - WACK PACK™,L / Wack Donuts,12000,,false,2026-11-04T08:46:55Z
 oveja-negra,10044237250865,50161523818801,superwedgie-2-0-frame-bag-wack-pack,Superwedgie™ 2.0 Frame Bag - WACK PACK™,L / Wack BMFS,12000,,false,2026-11-04T08:46:55Z
 oveja-negra,10050104885553,50179408101681,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,S / Black,11500,,false,2026-11-04T08:46:55Z
-oveja-negra,10050104885553,50179408199985,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,L / Black,12000,,false,2026-11-04T08:46:55Z
+oveja-negra,10050104885553,50179408199985,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,L / Black,12000,,true,2026-11-07T09:31:31Z
 oveja-negra,10050104885553,52803304522033,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,S / Coyote,11500,,false,2026-11-04T08:46:55Z
 oveja-negra,10050104885553,52803304554801,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,S / Serape,11500,,false,2026-11-04T08:46:55Z
 oveja-negra,10050104885553,52803304587569,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,L / Coyote,12000,,false,2026-11-04T08:46:55Z
@@ -7748,7 +7758,7 @@ skullcandy,7479493394489,45276014772281,push-anc-active,Push® ANC Active,Primer
 skullcandy,7479562764345,43208559919161,push-play-active,Push® Play Active,Black/Orange,6499,,false,2026-11-04T08:46:55Z
 skullcandy,7479562764345,43208559951929,push-play-active,Push® Play Active,Preppy Blue,6499,,false,2026-11-04T08:46:55Z
 skullcandy,7482235322425,43215584297017,sesh-anc-active,Sesh® ANC Active,Black/Orange,9499,,true,2026-11-04T08:46:55Z
-skullcandy,7619928096825,43531490885689,dime-evo,Dime® Evo,True Black,4999,,false,2026-11-04T08:46:55Z
+skullcandy,7619928096825,43531490885689,dime-evo,Dime® Evo,True Black,4999,,true,2026-11-07T09:31:31Z
 skullcandy,7619928096825,43531490918457,dime-evo,Dime® Evo,Bone,4999,,true,2026-11-06T09:46:16Z
 skullcandy,7619928096825,43531490951225,dime-evo,Dime® Evo,Preppy Sage,4999,,false,2026-11-04T08:46:55Z
 skullcandy,7619928096825,44705200209977,dime-evo,Dime® Evo,Primer,4999,,false,2026-11-04T08:46:55Z
@@ -7779,7 +7789,7 @@ skullcandy,7928389206073,45346594848825,push-720-open-earbuds,Push® 720 Open,Ch
 skullcandy,7928389206073,45710846853177,push-720-open-earbuds,Push® 720 Open,Future,14999,,false,2026-11-04T08:46:55Z
 skullcandy,7928389206073,45710848622649,push-720-open-earbuds,Push® 720 Open,Cement,14999,,true,2026-11-04T08:46:55Z
 skullcandy,7928389206073,45710848950329,push-720-open-earbuds,Push® 720 Open,Crazy Pink,14999,,false,2026-11-04T08:46:55Z
-skullcandy,7928435507257,44561766318137,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,True Black,15999,,false,2026-11-04T08:46:55Z
+skullcandy,7928435507257,44561766318137,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,True Black,15999,,true,2026-11-07T09:31:31Z
 skullcandy,7928435507257,44561766350905,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,Bone,15999,,true,2026-11-04T08:46:55Z
 skullcandy,7929955385401,44571384938553,crusher-plyr-720-gaming-headphones,Crusher® PLYR® 720,Digi-Black Xbox,26999,,true,2026-11-04T08:46:55Z
 skullcandy,7929955385401,44571384971321,crusher-plyr-720-gaming-headphones,Crusher® PLYR® 720,Digi-Black Multi-Platform,26999,,true,2026-11-04T08:46:55Z
@@ -8487,7 +8497,7 @@ sol-de-janeiro,8068371415142,45841597333606,cheiroso-10,Cheiroso 10 Cologne Mist
 sol-de-janeiro,8068381212774,45841596547174,cheiroso-7,Cheiroso 7 Cologne Mist,90ml,2600,,true,2026-11-04T08:46:55Z
 sol-de-janeiro,8069048238182,45844337524838,leite-nectar-perfume-mist-limited-edition,Leite Néctar Perfume Mist | Limited Edition,90ml,2600,,true,2026-11-04T08:46:55Z
 sol-de-janeiro,8069048369254,45844329857126,leite-cafe-perfume-mist-limited-edition,Leite Café Perfume Mist | Limited Edition,90ml,2600,,true,2026-11-04T08:46:55Z
-sol-de-janeiro,8091912896614,45908262453350,cheiroso-cologne-mist-duo,Cheiroso Cologne Mist Duo,Default Title,4700,,true,2026-11-04T08:46:55Z
+sol-de-janeiro,8091912896614,45908262453350,cheiroso-cologne-mist-duo,Cheiroso Cologne Mist Duo,Default Title,4700,,false,2026-11-07T09:31:31Z
 sol-de-janeiro,8100324048998,45934659698790,sun-drenched-bundle,Sun-Drenched Bundle,Default Title,6300,,true,2026-11-04T08:46:55Z
 sol-de-janeiro,8100573544550,45935163867238,cheiroso-layering-play,Cheiroso Layering Play,Default Title,4700,,true,2026-11-04T08:46:55Z
 sol-de-janeiro,8104849768550,46367271747686,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 62 Yellow,1800,,true,2026-11-04T08:46:55Z
@@ -8581,7 +8591,9 @@ sol-de-janeiro,15405065764966,67617524056166,cheirosa-68-beija-flor™-perfume-m
 sol-de-janeiro,15420185935974,67699076005990,wish-ribbons,Wish Ribbons,Yellow-Red,800,,true,2026-11-04T08:46:55Z
 sol-de-janeiro,15420185935974,67699076038758,wish-ribbons,Wish Ribbons,Purple-Pink,800,,true,2026-11-04T08:46:55Z
 sol-de-janeiro,15420185935974,67699076071526,wish-ribbons,Wish Ribbons,Magenta-Teal,800,,true,2026-11-04T08:46:55Z
-sol-de-janeiro,15434354262118,67797736915046,sol-de-janeiro-x-aurelia-nobels-cheirosa-perfume-mist,Sol de Janeiro x Aurelia Nobels Cheirosa Perfume Mist,90ml,2600,,false,2026-11-04T08:46:55Z
+sol-de-janeiro,15434354262118,67797736915046,sol-de-janeiro-x-aurelia-nobels-cheirosa-perfume-mist,Sol de Janeiro x Aurelia Nobels Cheirosa Perfume Mist,90ml,2600,,true,2026-11-07T09:31:31Z
+sol-de-janeiro,15468130795622,67930216136806,small-gift-wrap,Small Gift Wrap,Default Title,500,,true,2026-11-07T09:31:31Z
+sol-de-janeiro,15468131057766,67930217480294,medium-gift-wrap,Medium Gift Wrap,Default Title,1000,,true,2026-11-07T09:31:31Z
 soundcore-us,6109030547646,37651975995582,a3116011,Motion+ | Portable Speaker with Intense Bass,Black,11998,,false,2026-11-04T08:46:55Z
 soundcore-us,6109030842558,37651979108542,a3167,soundcore Flare Mini | Portable Speaker for Parties,Black,4299,,false,2026-11-04T08:46:55Z
 soundcore-us,6109031530686,37651982516414,a3025,soundcore Life Q20 | Over-Ear Headphones with Hybrid ANC,Black,5999,,false,2026-11-04T08:46:55Z
@@ -9789,7 +9801,7 @@ soundcore-us,8777712500926,46660694180030,a110a-anker-prime-26k-300w-power-bank,
 soundcore-us,8777712566462,46660694245566,a2687-anker-prime-charger-160w-3-ports-gan,"Anker Prime Charger (160W, 3 Ports, Smart Display)",Default Title,14999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712599230,46660694278334,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Aurora White | 1-Pack,3999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712599230,46660694311102,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Black Stone | 1-Pack,3999,,true,2026-11-04T08:46:55Z
-soundcore-us,8777712599230,46660694343870,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Misty Blue | 1-Pack,3999,,false,2026-11-04T08:46:55Z
+soundcore-us,8777712599230,46660694343870,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Misty Blue | 1-Pack,3999,,true,2026-11-07T09:31:31Z
 soundcore-us,8777712599230,46660694376638,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Orange | 1-Pack,3999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712631998,46660695031998,a25n1-anker-prime-qi2-25w-foldable-3-in-1-wireless-charger,"Anker Prime Wireless Charging Station (3-in-1, MagGo, AirCool, Foldable)",Gray,14999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712631998,46660695064766,a25n1-anker-prime-qi2-25w-foldable-3-in-1-wireless-charger,"Anker Prime Wireless Charging Station (3-in-1, MagGo, AirCool, Foldable)",Radiant White,14999,,false,2026-11-04T08:46:55Z
@@ -9849,10 +9861,12 @@ soundcore-us,8798336549054,47082989387966,soundcore-q30-bluetooth-noise-cancelli
 soundcore-us,8798336549054,47082989420734,soundcore-q30-bluetooth-noise-cancelling-headphones,soundcore Q30 | Bluetooth Noise Cancelling Headphones,Sakura Pink,8599,,true,2026-11-04T08:46:55Z
 soundcore-us,8798336549054,47165623468222,soundcore-q30-bluetooth-noise-cancelling-headphones,soundcore Q30 | Bluetooth Noise Cancelling Headphones,White,8599,,true,2026-11-04T08:46:55Z
 soundcore-us,8798450712766,47089092329662,d2090-soundcore-space-flow-ai-projection-mapping,soundcore Nebula SpaceFlow | AI Mapping Projection Accessory for Nebula X1 Pro & X1,Default Title,79900,,true,2026-11-04T08:46:55Z
-soundcore-us,8800468304062,47169011482814,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / soundcore Liberty 5 Pro Max,22999,,true,2026-11-04T08:46:55Z
-soundcore-us,8800468304062,47169011515582,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / soundcore Liberty 5 Pro Max,22999,,true,2026-11-04T08:46:55Z
-soundcore-us,8800468304062,49256298119358,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / soundcore Liberty 5 Pro Max x Anker Nano Charger 45W,26998,,true,2026-11-04T08:46:55Z
-soundcore-us,8800468304062,49256298152126,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / soundcore Liberty 5 Pro Max x Anker Nano Charger 45W,26998,,true,2026-11-04T08:46:55Z
+soundcore-us,8800468304062,47169011482814,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / Liberty 5 Pro Max,22999,,true,2026-11-04T08:46:55Z
+soundcore-us,8800468304062,47169011515582,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / Liberty 5 Pro Max,22999,,true,2026-11-04T08:46:55Z
+soundcore-us,8800468304062,49256298119358,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / Liberty 5 Pro Max x Anker Nano Charger 45W,26998,,true,2026-11-04T08:46:55Z
+soundcore-us,8800468304062,49256298152126,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / Liberty 5 Pro Max x Anker Nano Charger 45W,26998,,true,2026-11-04T08:46:55Z
+soundcore-us,8800468304062,49579284168894,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / Liberty 5 Pro Max x soundcore 2,27598,,true,2026-11-07T09:31:31Z
+soundcore-us,8800468304062,49579284201662,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / Liberty 5 Pro Max x soundcore 2,27598,,true,2026-11-07T09:31:31Z
 soundcore-us,8809110077630,47458308522174,d1203z21-94,"soundcore Liberty 5 Pro Ear Tips Kit -- Color White, Blue, Pink",Pearl White,1999,,true,2026-11-04T08:46:55Z
 soundcore-us,8809110077630,47458308554942,d1203z21-94,"soundcore Liberty 5 Pro Ear Tips Kit -- Color White, Blue, Pink",Pearl Blue,1999,,true,2026-11-04T08:46:55Z
 soundcore-us,8809110077630,47458308587710,d1203z21-94,"soundcore Liberty 5 Pro Ear Tips Kit -- Color White, Blue, Pink",Rose Gold,1999,,true,2026-11-04T08:46:55Z
@@ -10144,7 +10158,7 @@ state-liberty,7856706289745,42897830772817,athletic-fit-stretch-blazer-heathered
 state-liberty,7856706289745,42897830805585,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,38 / Heathered Forest Green,48000,,true,2026-11-04T08:46:55Z
 state-liberty,7856706289745,42897830838353,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,38 Short / Heathered Forest Green,48000,,true,2026-11-05T09:41:31Z
 state-liberty,7856706289745,42897830871121,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,40 / Heathered Forest Green,48000,,true,2026-11-04T08:46:55Z
-state-liberty,7856706289745,42897830903889,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,40 Short / Heathered Forest Green,48000,,true,2026-11-04T08:46:55Z
+state-liberty,7856706289745,42897830903889,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,40 Short / Heathered Forest Green,48000,,false,2026-11-07T09:31:31Z
 state-liberty,7856706289745,42897830936657,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,42 / Heathered Forest Green,48000,,true,2026-11-05T09:41:31Z
 state-liberty,7856706289745,42897830969425,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,42 Short / Heathered Forest Green,48000,,false,2026-11-04T08:46:55Z
 state-liberty,7856706289745,42897831002193,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,44 / Heathered Forest Green,48000,,true,2026-11-06T09:46:16Z
@@ -10322,7 +10336,7 @@ state-liberty,15662688665681,58920130773073,the-matty-dark-green-light-blue-mini
 state-liberty,15662688665681,58920130805841,the-matty-dark-green-light-blue-mini-check,"""The Matty"" Dark Green & Light Blue Mini Check",2XL / Dark Green & Light Blue Mini Check,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15662688665681,58920130838609,the-matty-dark-green-light-blue-mini-check,"""The Matty"" Dark Green & Light Blue Mini Check",3XL / Dark Green & Light Blue Mini Check,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15662688763985,58920131002449,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",S / Mini Grey Dot Print,10500,,true,2026-11-04T08:46:55Z
-state-liberty,15662688763985,58920131035217,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",M / Mini Grey Dot Print,10500,,false,2026-11-04T08:46:55Z
+state-liberty,15662688763985,58920131035217,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",M / Mini Grey Dot Print,10500,,true,2026-11-07T09:31:31Z
 state-liberty,15662688763985,58920131067985,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",L / Mini Grey Dot Print,10500,,false,2026-11-05T09:41:31Z
 state-liberty,15662688763985,58920131100753,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",XL / Mini Grey Dot Print,10500,,true,2026-11-06T09:46:16Z
 state-liberty,15662688763985,58920131133521,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",2XL / Mini Grey Dot Print,10500,,true,2026-11-04T08:46:55Z
@@ -10770,9 +10784,9 @@ state-liberty,15770067206225,59396971397201,athletic-fit-stretch-blazer-brown-ta
 state-liberty,15770067206225,59396971429969,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,48 / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770067206225,59396971462737,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,38 Short / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770067206225,59396971495505,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,40 Short / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770067206225,59396971528273,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,42 Short / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
+state-liberty,15770067206225,59396971528273,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,42 Short / Brown & Tan Windowpane,55000,,false,2026-11-07T09:31:31Z
 state-liberty,15770067206225,59396971561041,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,44 Short / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770067206225,59396971593809,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,46 Short / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
+state-liberty,15770067206225,59396971593809,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,46 Short / Brown & Tan Windowpane,55000,,false,2026-11-07T09:31:31Z
 state-liberty,15770067664977,59396973330513,athletic-fit-stretch-blazer-cream-plaid,Athletic Fit Stretch Blazer - Cream Plaid,36 / Cream Plaid,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770067664977,59396973363281,athletic-fit-stretch-blazer-cream-plaid,Athletic Fit Stretch Blazer - Cream Plaid,38 / Cream Plaid,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770067664977,59396973396049,athletic-fit-stretch-blazer-cream-plaid,Athletic Fit Stretch Blazer - Cream Plaid,40 / Cream Plaid,55000,,true,2026-11-04T08:46:55Z
@@ -10804,11 +10818,11 @@ state-liberty,15770068156497,59396978049105,athletic-fit-stretch-blazer-oxford-b
 state-liberty,15770068156497,59396978081873,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,44 / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770068156497,59396978114641,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,46 / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770068156497,59396978147409,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,48 / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770068156497,59396978180177,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,38 Short / Oxford Blue Plaid,55000,,false,2026-11-04T08:46:55Z
+state-liberty,15770068156497,59396978180177,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,38 Short / Oxford Blue Plaid,55000,,true,2026-11-07T09:31:31Z
 state-liberty,15770068156497,59396978212945,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,40 Short / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770068156497,59396978245713,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,42 Short / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
+state-liberty,15770068156497,59396978245713,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,42 Short / Oxford Blue Plaid,55000,,false,2026-11-07T09:31:31Z
 state-liberty,15770068156497,59396978278481,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,44 Short / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770068156497,59396978311249,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,46 Short / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
+state-liberty,15770068156497,59396978311249,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,46 Short / Oxford Blue Plaid,55000,,false,2026-11-07T09:31:31Z
 state-liberty,15770069270609,59396979916881,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,36 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396979949649,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,38 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396979982417,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,40 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
@@ -10817,7 +10831,7 @@ state-liberty,15770069270609,59396980047953,athletic-fit-stretch-blazer-textured
 state-liberty,15770069270609,59396980080721,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,46 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396980113489,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,48 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396980146257,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,38 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770069270609,59396980179025,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,40 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
+state-liberty,15770069270609,59396980179025,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,40 Short / Textured Tan with Olive Windowpane,55000,,false,2026-11-07T09:31:31Z
 state-liberty,15770069270609,59396980211793,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,42 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396980244561,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,44 Short / Textured Tan with Olive Windowpane,55000,,false,2026-11-05T09:41:31Z
 state-liberty,15770069270609,59396980277329,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,46 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
@@ -10926,12 +10940,12 @@ state-liberty,15826147475537,59566021115985,the-gino-solid-dark-olive-green,''Th
 state-liberty,15826150260817,59566047264849,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,S / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150260817,59566047297617,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,M / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150260817,59566047330385,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,L / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826150260817,59566047363153,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,XL / Solid Sage Green,9200,,true,2026-11-05T09:41:31Z
+state-liberty,15826150260817,59566047363153,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,XL / Solid Sage Green,9200,,false,2026-11-07T09:31:31Z
 state-liberty,15826150260817,59566047395921,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,2XL / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150260817,59566047428689,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,3XL / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050607185,the-robert-pale-blue,''The Robert'' - Pale Blue,S / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050639953,the-robert-pale-blue,''The Robert'' - Pale Blue,M / Pale Blue,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826150654033,59566050672721,the-robert-pale-blue,''The Robert'' - Pale Blue,L / Pale Blue,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15826150654033,59566050672721,the-robert-pale-blue,''The Robert'' - Pale Blue,L / Pale Blue,9200,,false,2026-11-07T09:31:31Z
 state-liberty,15826150654033,59566050705489,the-robert-pale-blue,''The Robert'' - Pale Blue,XL / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050738257,the-robert-pale-blue,''The Robert'' - Pale Blue,2XL / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050771025,the-robert-pale-blue,''The Robert'' - Pale Blue,3XL / Pale Blue,9200,,true,2026-11-04T08:46:55Z
@@ -10947,18 +10961,18 @@ state-liberty,15826167070801,59566182334545,lightweight-knit-down-vest-olive,Lig
 state-liberty,15826167070801,59566182367313,lightweight-knit-down-vest-olive,Lightweight Knit Down Vest - Olive,XL / Olive,17500,,true,2026-11-04T08:46:55Z
 state-liberty,15826167070801,59566182400081,lightweight-knit-down-vest-olive,Lightweight Knit Down Vest - Olive,2XL / Olive,17500,,true,2026-11-04T08:46:55Z
 state-liberty,15826167070801,59566182432849,lightweight-knit-down-vest-olive,Lightweight Knit Down Vest - Olive,3XL / Olive,17500,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186594385,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,36 / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186627153,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,38 / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186659921,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,40 / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186692689,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,42 / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186725457,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,44 / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186758225,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,46 / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186790993,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,48 / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186823761,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,38 Short / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186856529,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,40 Short / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186889297,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,42 Short / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186922065,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,44 Short / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15826168610897,59566186954833,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,46 Short / Lightweight Heathered Latte,55000,,true,2026-11-04T08:46:55Z
+state-liberty,15826168610897,59566186594385,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,36 / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186627153,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,38 / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186659921,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,40 / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186692689,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,42 / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186725457,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,44 / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186758225,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,46 / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186790993,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,48 / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186823761,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,38 Short / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186856529,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,40 Short / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186889297,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,42 Short / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186922065,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,44 Short / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
+state-liberty,15826168610897,59566186954833,athletic-fit-stretch-blazer-heathered-latte,Athletic Fit Stretch Blazer - Lightweight Heathered Latte,46 Short / Lightweight Heathered Latte,48000,,true,2026-11-07T09:31:31Z
 state-liberty,15826168840273,59566188298321,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,36 / Charcoal with Ash Mini Stripe,58500,,true,2026-11-05T09:41:31Z
 state-liberty,15826168840273,59566188331089,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,38 / Charcoal with Ash Mini Stripe,58500,,true,2026-11-05T09:41:31Z
 state-liberty,15826168840273,59566188363857,athletic-fit-stretch-wool-blazer-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Blazer - Charcoal with Ash Mini Stripe,40 / Charcoal with Ash Mini Stripe,58500,,true,2026-11-05T09:41:31Z
@@ -11153,15 +11167,15 @@ state-liberty,15890252103761,59765487730769,knit-sweater-bomber-taupe,Knit Sweat
 state-liberty,15890252103761,59765487763537,knit-sweater-bomber-taupe,Knit Sweater Bomber - Taupe,3XL / Taupe,28500,,true,2026-11-04T08:46:55Z
 state-liberty,15890673172561,59766433153105,athletic-fit-stretch-suit-ash-brown-crosshatch,Athletic Fit Stretch Suit - Ash Brown Crosshatch,Ash Brown Crosshatch / Ash Brown,69500,73000,true,2026-11-04T08:46:55Z
 state-liberty,15890673434705,59766433742929,athletic-fit-stretch-suit-light-blue-plaid,Athletic Fit Stretch Suit - Light Blue Plaid,Light Blue Plaid / Blue,69500,73000,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890107985,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,29 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890140753,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,30 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890173521,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,31 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890206289,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,32 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890239057,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,33 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890271825,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,34 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890304593,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,36 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890337361,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,38 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
-state-liberty,15934510006353,59892890370129,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,40 / Lightweight Heathered Latte,18000,,true,2026-11-04T08:46:55Z
+state-liberty,15934510006353,59892890107985,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,29 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890140753,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,30 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890173521,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,31 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890206289,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,32 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890239057,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,33 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890271825,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,34 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890304593,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,36 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890337361,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,38 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
+state-liberty,15934510006353,59892890370129,athletic-fit-stretch-suit-pants-lightweight-heathered-latte,Athletic Fit Stretch Suit Pants - Lightweight Heathered Latte,40 / Lightweight Heathered Latte,15000,,true,2026-11-07T09:31:31Z
 state-liberty,15934530617425,59892997783633,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,29 / Charcoal with Ash Mini Stripe,20000,,true,2026-11-05T09:41:31Z
 state-liberty,15934530617425,59892997816401,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,30 / Charcoal with Ash Mini Stripe,20000,,true,2026-11-05T09:41:31Z
 state-liberty,15934530617425,59892997849169,athletic-fit-stretch-wool-suit-pants-charcoal-with-ash-mini-stripe,Athletic Fit Stretch Wool Suit Pants - Charcoal with Ash Mini Stripe,31 / Charcoal with Ash Mini Stripe,20000,,true,2026-11-05T09:41:31Z
@@ -11448,21 +11462,21 @@ year-day,7847488422059,43337802809515,rectangular-baker,Rectangular Baker,Moon,1
 year-day,7847488422059,43337802875051,rectangular-baker,Rectangular Baker,Palm,13400,,true,2026-11-04T08:46:55Z
 year-day,7847491338411,43337816768683,nested-mixing-bowl-set,Nested Mixing Bowl Set,Moon,12000,,true,2026-11-04T08:46:55Z
 year-day,7847491338411,43337816834219,nested-mixing-bowl-set,Nested Mixing Bowl Set,Palm,12000,,true,2026-11-04T08:46:55Z
-year-day,7943705264299,43640019812523,outdoor-serving-platter,Outdoor Serving Platter,Moon,3900,6200,true,2026-11-04T08:46:55Z
-year-day,7943705264299,43640019845291,outdoor-serving-platter,Outdoor Serving Platter,Palm,3900,6200,true,2026-11-04T08:46:55Z
-year-day,7943705264299,43640019878059,outdoor-serving-platter,Outdoor Serving Platter,Canyon,3900,6200,true,2026-11-04T08:46:55Z
-year-day,7943708967083,43640031543467,outdoor-serving-bowl,Outdoor Serving Bowl,Moon,2500,5800,true,2026-11-04T08:46:55Z
-year-day,7943708967083,43640031576235,outdoor-serving-bowl,Outdoor Serving Bowl,Palm,2500,5800,true,2026-11-04T08:46:55Z
-year-day,7943708967083,43640031609003,outdoor-serving-bowl,Outdoor Serving Bowl,Canyon,2500,5800,true,2026-11-04T08:46:55Z
-year-day,7943716602027,43640040652971,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Moon,2800,6200,true,2026-11-04T08:46:55Z
-year-day,7943716602027,43640040685739,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Palm,2800,6200,true,2026-11-04T08:46:55Z
-year-day,7943716602027,43640040718507,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Canyon,2800,6200,true,2026-11-04T08:46:55Z
-year-day,7943719092395,43640044945579,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Moon,4200,9000,true,2026-11-04T08:46:55Z
-year-day,7943719092395,43640044978347,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Palm,4200,9000,true,2026-11-04T08:46:55Z
-year-day,7943719092395,43640045011115,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Canyon,4200,9000,true,2026-11-04T08:46:55Z
-year-day,7950076182699,43656281653419,the-outdoor-serving-set,The Outdoor Serving Set,Moon,7200,18000,true,2026-11-04T08:46:55Z
-year-day,7950076182699,43656281686187,the-outdoor-serving-set,The Outdoor Serving Set,Palm,7200,18000,true,2026-11-04T08:46:55Z
-year-day,7950076182699,43656281718955,the-outdoor-serving-set,The Outdoor Serving Set,Canyon,7200,18000,true,2026-11-04T08:46:55Z
+year-day,7943705264299,43640019812523,outdoor-serving-platter,Outdoor Serving Platter,Moon,4800,,true,2026-11-07T09:31:31Z
+year-day,7943705264299,43640019845291,outdoor-serving-platter,Outdoor Serving Platter,Palm,4800,,true,2026-11-07T09:31:31Z
+year-day,7943705264299,43640019878059,outdoor-serving-platter,Outdoor Serving Platter,Canyon,4800,,true,2026-11-07T09:31:31Z
+year-day,7943708967083,43640031543467,outdoor-serving-bowl,Outdoor Serving Bowl,Moon,3200,,true,2026-11-07T09:31:31Z
+year-day,7943708967083,43640031576235,outdoor-serving-bowl,Outdoor Serving Bowl,Palm,3200,,true,2026-11-07T09:31:31Z
+year-day,7943708967083,43640031609003,outdoor-serving-bowl,Outdoor Serving Bowl,Canyon,3200,,true,2026-11-07T09:31:31Z
+year-day,7943716602027,43640040652971,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Moon,3400,,true,2026-11-07T09:31:31Z
+year-day,7943716602027,43640040685739,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Palm,3400,,true,2026-11-07T09:31:31Z
+year-day,7943716602027,43640040718507,outdoor-low-serving-bowl,Outdoor Low Serving Bowl,Canyon,3400,,true,2026-11-07T09:31:31Z
+year-day,7943719092395,43640044945579,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Moon,5200,,true,2026-11-07T09:31:31Z
+year-day,7943719092395,43640044978347,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Palm,5200,,true,2026-11-07T09:31:31Z
+year-day,7943719092395,43640045011115,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Canyon,5200,,true,2026-11-07T09:31:31Z
+year-day,7950076182699,43656281653419,the-outdoor-serving-set,The Outdoor Serving Set,Moon,11400,,true,2026-11-07T09:31:31Z
+year-day,7950076182699,43656281686187,the-outdoor-serving-set,The Outdoor Serving Set,Palm,11400,,true,2026-11-07T09:31:31Z
+year-day,7950076182699,43656281718955,the-outdoor-serving-set,The Outdoor Serving Set,Canyon,11400,,true,2026-11-07T09:31:31Z
 year-day,8070294339755,43991832723627,everyday-napkin-placemat-set,Everyday Napkin Placemat Set,moon,3600,16000,true,2026-11-04T08:46:55Z
 year-day,8070294339755,43991832756395,everyday-napkin-placemat-set,Everyday Napkin Placemat Set,dune,3600,16000,true,2026-11-04T08:46:55Z
 year-day,8070294339755,43991832789163,everyday-napkin-placemat-set,Everyday Napkin Placemat Set,palm,3600,16000,true,2026-11-04T08:46:55Z

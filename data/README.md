@@ -28,8 +28,8 @@ Daily prices, sale ("compare-at") prices and stock for every product option of 2
 
 ## Dataset summary
 
-- **Latest run:** 6 November 2026, 09:46 UTC, status `ok`, 25 of 25 stores updated.
-- **Rows in the latest snapshot:** 11,755 product options.
+- **Latest run:** 7 November 2026, 09:31 UTC, status `ok`, 25 of 25 stores updated.
+- **Rows in the latest snapshot:** 11,769 product options.
 - **Stores by category:** apparel 5, audio 6, beauty 4, home_kitchen 5, outdoor 5. The list and the evidence for every included and excluded store: [docs/sources.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/docs/sources.md).
 - **Cadence:** one run a day at 06:17 UTC (4 a day from 26 Nov to 1 Dec 2026).
 
