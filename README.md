@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,769 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,764 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -14,7 +14,7 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 7 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 8 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
@@ -24,32 +24,32 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 | Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $59.00 | $88.00 | yes |
 
-The full table has 11,769 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,764 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 7 November 2026: 23 price drops, 25 price rises, 25 sales ended, 27 items sold out, 13 items back in stock, 20 new product options, 6 product options removed. The biggest moves:
+In the run of 8 November 2026: 1 price rise, 16 items sold out, 3 items back in stock, 5 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| JLab | [Gaming Chair Black](https://www.jlab.com/products/gaming-chair-black) | Price down (-60.0%) | $999.99 | $399.99 |
-| Year & Day | [The Outdoor Serving Set (Moon)](https://yearandday.com/products/the-outdoor-serving-set) | Price up, Sale ended (+58.3%) | $72.00 | $114.00 |
-| Year & Day | [The Outdoor Serving Set (Palm)](https://yearandday.com/products/the-outdoor-serving-set) | Price up, Sale ended (+58.3%) | $72.00 | $114.00 |
-| Year & Day | [The Outdoor Serving Set (Canyon)](https://yearandday.com/products/the-outdoor-serving-set) | Price up, Sale ended (+58.3%) | $72.00 | $114.00 |
-| Big Agnes | [W's Trudy Jacket (Black/Asphalt / XS)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
-| Big Agnes | [W's Trudy Jacket (Black/Asphalt / SM)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
-| Big Agnes | [W's Trudy Jacket (Black/Asphalt / MD)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
-| Big Agnes | [W's Trudy Jacket (Black/Asphalt / LG)](https://www.bigagnes.com/products/womens-trudy-down-jacket) | Price up, Sale ended (+33.3%) | $299.95 | $399.95 |
+| Oveja Negra | [STUPENDOUSLY SEXY SECONDS (1/2 Pack Frame Bag - Large - Black -)](https://www.ovejanegrabikepacking.com/products/stupendously-sexy-seconds) | Price up (+69.2%) | $48.75 | $82.50 |
+| Jones Road | [The Best Pencil (Espresso)](https://www.jonesroadbeauty.com/products/the-best-pencil) | Sold out | $24.00 | $24.00 |
+| Jones Road | [The Bronzer (Dusty Rose)](https://www.jonesroadbeauty.com/products/the-bronzer) | Sold out | $38.00 | $38.00 |
+| Lunya | [Seamless Modal Tank (Immersed Black / M)](https://lunya.co/products/womens-seamless-modal-tank-immersed-black-1) | Sold out | $68.00 | $68.00 |
+| Lunya | [Seamless Modal Tank (Sincere White / L)](https://lunya.co/products/womens-seamless-modal-tank-sincere-white-1) | Sold out | $68.00 | $68.00 |
+| Lunya | [Washable Silk Bias Cami Short Set (Deep Blue / S)](https://lunya.co/products/womens-washable-silk-bias-cami-short-set-deep-blue) | Sold out | $178.00 | $178.00 |
+| Lunya | [Washable Silk Crossover Pant Set (Deep Blue / M)](https://lunya.co/products/womens-washable-silk-crossover-pant-set-deep-blue) | Sold out | $298.00 | $298.00 |
+| Lunya | [Washable Silk Long Sleeve Pant Set (Tranquil White / M)](https://lunya.co/products/womens-washable-silk-long-sleeve-pant-set-tranquil-white) | Sold out | $298.00 | $298.00 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 269 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 116 page requests in 16.8 minutes, and no store blocked us.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 21 of 21 checked products matched exactly.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 20 of 25 stores proved US dollars.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 213 free gifts and samples left out on purpose, not held.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 20 of 25 stores updated; 5 kept their previous prices.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 117 page requests in 21.1 minutes, and no store blocked us.
 
 ## How it works
 
@@ -64,7 +64,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 4."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 5."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -111,7 +111,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 7 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 8 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -130,16 +130,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-07T09:31:31Z` |
-| `store_id` | text | Store | `jlab` |
-| `variant_id` | integer | Product option | `41376924762184` |
-| `product_title` | text | Product name | `Gaming Chair Black` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `99999` |
-| `new_price_cents` | integer or empty | Price after, US cents | `39999` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `99999` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `39999` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-60.0` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-08T13:29:52Z` |
+| `store_id` | text | Store | `jones-road` |
+| `variant_id` | integer | Product option | `42347618042006` |
+| `product_title` | text | Product name | `The Bronzer` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
+| `old_price_cents` | integer or empty | Price before, US cents | `3800` |
+| `new_price_cents` | integer or empty | Price after, US cents | `3800` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
