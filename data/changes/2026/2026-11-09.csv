@@ -1,0 +1,295 @@
+observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
+2026-11-09T16:27:42Z,bee-s-wrap,7042405335087,51780513202451,the-lunch-pack,The Lunch Pack,Ocean,out_of_stock,1999,1999,,,
+2026-11-09T16:27:42Z,bee-s-wrap,10278575702291,53186903736595,bread-bag,Bread Bag,Bakery Lane,back_in_stock,1999,1999,,,
+2026-11-09T16:27:42Z,bee-s-wrap,7042405400623,54645622538515,single-wrap,Single Wrap,Medium,back_in_stock,699,699,,,
+2026-11-09T16:27:42Z,greats,7260200337456,40896891912240,the-royale-2-0-nero-mens,The Royale 2.0 - Nero,7 / Nero,out_of_stock,19900,19900,19900,19900,
+2026-11-09T16:27:42Z,hydrapak,8800983384297,47938876637417,gear-cleaning-kit,Gear Cleaning Kit,Default Title,out_of_stock,1500,1500,,,
+2026-11-09T16:27:42Z,hydrapak,8956297445609,48477338468585,gear-cleaning-kit-bundle-1,Gear Cleaning Kit Bundle,Default Title,out_of_stock,3330,3330,3700,3700,
+2026-11-09T16:27:42Z,hydrapak,9407683199209,51790397505769,modern-adventure-pro-breakaway-surge-20oz,Modern Adventure Pro Breakaway Surge 20oz,White,out_of_stock,1000,1000,,,
+2026-11-09T16:27:42Z,hydrapak,9408981827817,51793858232553,modern-adventure-pro-breakaway-surge-20oz-2-pack,Modern Adventure Pro Breakaway Surge 20oz 2-Pack,Default Title,out_of_stock,2000,2000,,,
+2026-11-09T16:27:42Z,hydrapak,9418905944297,51856932602089,tcs-new-york-city-marathon-tempo-pro-400ml,TCS New York City Marathon Tempo Pro 400ml,White,out_of_stock,2400,2400,,,
+2026-11-09T16:27:42Z,jlab,6822508036168,40133841420360,epic-keyboard-mouse-bundle,JLab Epic Keyboard Mouse Bundle,Default Title,price_down,9998,9198,12998,12998,-8.0
+2026-11-09T16:27:42Z,jlab,6823845494856,40135943323720,jbuds-keyboard-mouse-bundle,JLab JBuds Keyboard Mouse Bundle,Default Title,price_down,5998,4638,6998,6899,-22.7
+2026-11-09T16:27:42Z,jlab,6823898120264,40136127184968,jbuds-mini-color-bundle,JBuds Mini Color Bundle,Default Title,price_down,19995,13999,19995,19995,-30.0
+2026-11-09T16:27:42Z,jlab,6823898120264,40136127184968,jbuds-mini-color-bundle,JBuds Mini Color Bundle,Default Title,discount_start,19995,13999,19995,19995,
+2026-11-09T16:27:42Z,jlab,6893521600584,40342860169288,jbuds-mini-true-wireless-earbuds-black,JBuds Mini True Wireless Earbuds Black,,price_up,2999,3999,3999,3999,33.3
+2026-11-09T16:27:42Z,jlab,6893521600584,40342860169288,jbuds-mini-true-wireless-earbuds-black,JBuds Mini True Wireless Earbuds Black,,discount_end,2999,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,6893536018504,40342906110024,jbuddies-studio-on-ear-kids-wired-headphones-pink-gray,JBuddies Studio On-Ear Kids Wired Headphones Pink/Gray,Purple/Pink,price_down,1999,1299,1999,1999,-35.0
+2026-11-09T16:27:42Z,jlab,6893536018504,40342906110024,jbuddies-studio-on-ear-kids-wired-headphones-pink-gray,JBuddies Studio On-Ear Kids Wired Headphones Pink/Gray,Purple/Pink,discount_start,1999,1299,1999,1999,
+2026-11-09T16:27:42Z,jlab,6893536608328,40342906667080,go-recharge-wireless-mouse-black,GO Charge Wireless Mouse Black,Default Title,price_down,1999,1799,1999,1999,-10.0
+2026-11-09T16:27:42Z,jlab,6893536608328,40342906667080,go-recharge-wireless-mouse-black,GO Charge Wireless Mouse Black,Default Title,discount_start,1999,1799,1999,1999,
+2026-11-09T16:27:42Z,jlab,6893537230920,40342907387976,jbuddies-studio-on-ear-kids-wired-headphones-graphite-violet,JBuddies Studio On-Ear Kids Wired Headphones Graphite/Violet,Violet,price_down,1999,1299,1999,1999,-35.0
+2026-11-09T16:27:42Z,jlab,6893537230920,40342907387976,jbuddies-studio-on-ear-kids-wired-headphones-graphite-violet,JBuddies Studio On-Ear Kids Wired Headphones Graphite/Violet,Violet,discount_start,1999,1299,1999,1999,
+2026-11-09T16:27:42Z,jlab,6893537624136,40342907748424,jbuds-mini-true-wireless-earbuds-sage-gray,JBuds Mini True Wireless Earbuds Sage Gray,,price_up,2999,3999,3999,3999,33.3
+2026-11-09T16:27:42Z,jlab,6893537624136,40342907748424,jbuds-mini-true-wireless-earbuds-sage-gray,JBuds Mini True Wireless Earbuds Sage Gray,,discount_end,2999,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,6893537951816,40342908043336,jbuds-mouse-black,JBuds Wireless Mouse Black,Default Title,price_up,2499,2999,2999,2999,20.0
+2026-11-09T16:27:42Z,jlab,6893537951816,40342908043336,jbuds-mouse-black,JBuds Wireless Mouse Black,Default Title,discount_end,2499,2999,2999,2999,
+2026-11-09T16:27:42Z,jlab,6893538181192,40342908207176,jbuds-ergonomic-mouse-black,JBuds Ergonomic Mouse Black,Default Title,price_down,3999,3399,3999,3999,-15.0
+2026-11-09T16:27:42Z,jlab,6893538181192,40342908207176,jbuds-ergonomic-mouse-black,JBuds Ergonomic Mouse Black,Default Title,discount_start,3999,3399,3999,3999,
+2026-11-09T16:27:42Z,jlab,6893538050120,40342908239944,jbuds-mini-true-wireless-earbuds-pink,JBuds Mini True Wireless Earbuds Pink,,price_up,2999,3999,3999,3999,33.3
+2026-11-09T16:27:42Z,jlab,6893538050120,40342908239944,jbuds-mini-true-wireless-earbuds-pink,JBuds Mini True Wireless Earbuds Pink,,discount_end,2999,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,6893538345032,40342908436552,jbuddies-studio-on-ear-kids-wired-headphones-graphite-blue,JBuddies Studio On-Ear Kids Wired Headphones Graphite/Blue,Blue,price_down,1999,1299,1999,1999,-35.0
+2026-11-09T16:27:42Z,jlab,6893538345032,40342908436552,jbuddies-studio-on-ear-kids-wired-headphones-graphite-blue,JBuddies Studio On-Ear Kids Wired Headphones Graphite/Blue,Blue,discount_start,1999,1299,1999,1999,
+2026-11-09T16:27:42Z,jlab,6893538476104,40342908600392,jbuds-keyboard-black,JBuds Wireless Keyboard Black,Default Title,price_up,3499,3999,3999,3999,14.3
+2026-11-09T16:27:42Z,jlab,6893538476104,40342908600392,jbuds-keyboard-black,JBuds Wireless Keyboard Black,Default Title,discount_end,3499,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,6893538803784,40342908895304,jbuddies-studio-on-ear-kids-wired-headphones-blue-pink,JBuddies Studio On-Ear Kids Wired Headphones Blue/Pink,Pink,price_down,1999,1299,1999,1999,-35.0
+2026-11-09T16:27:42Z,jlab,6893538803784,40342908895304,jbuddies-studio-on-ear-kids-wired-headphones-blue-pink,JBuddies Studio On-Ear Kids Wired Headphones Blue/Pink,Pink,discount_start,1999,1299,1999,1999,
+2026-11-09T16:27:42Z,jlab,6893539098696,40342909157448,go-mouse-keyboard-set-black,GO Mouse-Keyboard Black,Default Title,price_down,2999,2499,2999,2999,-16.7
+2026-11-09T16:27:42Z,jlab,6893539098696,40342909157448,go-mouse-keyboard-set-black,GO Mouse-Keyboard Black,Default Title,discount_start,2999,2499,2999,2999,
+2026-11-09T16:27:42Z,jlab,6893539360840,40342909452360,jbuds-mini-true-wireless-earbuds-mint,JBuds Mini True Wireless Earbuds Mint,,price_up,2999,3999,3999,3999,33.3
+2026-11-09T16:27:42Z,jlab,6893539360840,40342909452360,jbuds-mini-true-wireless-earbuds-mint,JBuds Mini True Wireless Earbuds Mint,,discount_end,2999,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,6893539786824,40342909845576,jbuds-mini-true-wireless-earbuds-teal,JBuds Mini True Wireless Earbuds Teal,,price_up,2999,3999,3999,3999,33.3
+2026-11-09T16:27:42Z,jlab,6893539786824,40342909845576,jbuds-mini-true-wireless-earbuds-teal,JBuds Mini True Wireless Earbuds Teal,,discount_end,2999,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,6893541130312,40342911287368,flex-open-earbuds-black,Flex Open Earbuds Black,Black,price_down,4249,3999,5299,5299,-5.9
+2026-11-09T16:27:42Z,jlab,6893541261384,40342911418440,flex-open-earbuds-teal,Flex Open Earbuds Teal,Teal,price_down,4249,3999,5299,5299,-5.9
+2026-11-09T16:27:42Z,jlab,6894973780040,40350627463240,go-pop-plus-true-wireless-earbuds-navy,GO POP+ True Wireless Earbuds Navy,Navy,price_up,2499,2999,3199,3199,20.0
+2026-11-09T16:27:42Z,jlab,6899969949768,40370418843720,epic-sport-anc-3-true-wireless-earbuds-black,Epic Sport ANC 3 True Wireless Earbuds Black,Default Title,price_up,7499,10499,10499,10499,40.0
+2026-11-09T16:27:42Z,jlab,6899969949768,40370418843720,epic-sport-anc-3-true-wireless-earbuds-black,Epic Sport ANC 3 True Wireless Earbuds Black,Default Title,discount_end,7499,10499,10499,10499,
+2026-11-09T16:27:42Z,jlab,6912655786056,40406752690248,go-pop-plus-true-wireless-earbuds-violet,GO POP+ True Wireless Earbuds Violet,Violet,price_up,2499,2999,3199,3199,20.0
+2026-11-09T16:27:42Z,jlab,6917727912008,40427394334792,go-pop-plus-true-wireless-earbuds-clear,GO POP+ True Wireless Earbuds Clear,Clear,price_down,3699,3499,3699,3699,-5.4
+2026-11-09T16:27:42Z,jlab,6917727912008,40427394334792,go-pop-plus-true-wireless-earbuds-clear,GO POP+ True Wireless Earbuds Clear,Clear,discount_start,3699,3499,3699,3699,
+2026-11-09T16:27:42Z,jlab,6918913884232,40440044519496,jbuddies-studio-on-ear-kids-wired-headphones-peach,JBuddies Studio On-Ear Kids Wired Headphones Peach,Orange,price_down,1999,1299,1999,1999,-35.0
+2026-11-09T16:27:42Z,jlab,6918913884232,40440044519496,jbuddies-studio-on-ear-kids-wired-headphones-peach,JBuddies Studio On-Ear Kids Wired Headphones Peach,Orange,discount_start,1999,1299,1999,1999,
+2026-11-09T16:27:42Z,jlab,6918914441288,40440045568072,jbuddies-studio-on-ear-kids-wired-headphones-blue-green,JBuddies Studio On-Ear Kids Wired Headphones Blue/Green,Green,price_down,1999,1299,1999,1999,-35.0
+2026-11-09T16:27:42Z,jlab,6918914441288,40440045568072,jbuddies-studio-on-ear-kids-wired-headphones-blue-green,JBuddies Studio On-Ear Kids Wired Headphones Blue/Green,Green,discount_start,1999,1299,1999,1999,
+2026-11-09T16:27:42Z,jlab,6918915981384,40440047403080,jbuddies-studio-on-ear-kids-wired-headphones-dark-pink,JBuddies Studio On-Ear Kids Wired Headphones Dark Pink,Dark Pink,price_down,1999,1299,1999,1999,-35.0
+2026-11-09T16:27:42Z,jlab,6918915981384,40440047403080,jbuddies-studio-on-ear-kids-wired-headphones-dark-pink,JBuddies Studio On-Ear Kids Wired Headphones Dark Pink,Dark Pink,discount_start,1999,1299,1999,1999,
+2026-11-09T16:27:42Z,jlab,6918917652552,40440054743112,jbuddies-pop-wireless-kids-headphones-teal,JBuddies Pop Wireless Kids Headphones Teal,Teal,price_down,2199,1799,2199,2199,-18.2
+2026-11-09T16:27:42Z,jlab,6918917652552,40440054743112,jbuddies-pop-wireless-kids-headphones-teal,JBuddies Pop Wireless Kids Headphones Teal,Teal,discount_start,2199,1799,2199,2199,
+2026-11-09T16:27:42Z,jlab,6918921519176,40440067358792,jbuddies-pop-wireless-kids-headphones-pink,JBuddies Pop Wireless Kids Headphones Pink,Pink,price_down,2199,1799,2199,2199,-18.2
+2026-11-09T16:27:42Z,jlab,6918921519176,40440067358792,jbuddies-pop-wireless-kids-headphones-pink,JBuddies Pop Wireless Kids Headphones Pink,Pink,discount_start,2199,1799,2199,2199,
+2026-11-09T16:27:42Z,jlab,6918934757448,40440139874376,jbuddies-anc-kids-headphones-blue-red,JBuddies ANC Kids Headphones Blue/Red,Blue/Red,price_up,2699,3199,3199,3199,18.5
+2026-11-09T16:27:42Z,jlab,6918934757448,40440139874376,jbuddies-anc-kids-headphones-blue-red,JBuddies ANC Kids Headphones Blue/Red,Blue/Red,discount_end,2699,3199,3199,3199,
+2026-11-09T16:27:42Z,jlab,6918945636424,40440153112648,jbuddies-anc-kids-headphones-purple-pink,JBuddies ANC Kids Headphones Purple/Pink,Purple/Pink,price_up,2699,3199,3199,3199,18.5
+2026-11-09T16:27:42Z,jlab,6918945636424,40440153112648,jbuddies-anc-kids-headphones-purple-pink,JBuddies ANC Kids Headphones Purple/Pink,Purple/Pink,discount_end,2699,3199,3199,3199,
+2026-11-09T16:27:42Z,jlab,6929665949768,40483815620680,go-pop-plus-gift-set-black,Go Pop+ Cloud Black and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929667588168,40483817226312,go-pop-plus-gift-set-white,Go Pop+ Cloud White and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929668571208,40483818209352,go-pop-plus-gift-set-dark-pink,Go Pop+ Dark Pink and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929669587016,40483819257928,go-pop-plus-gift-set-lilac,Go Pop+ Lilac and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929671618632,40483821486152,go-pop-plus-gift-set-mauve,Go Pop+ Cloud Mauve and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929672175688,40483822141512,go-pop-plus-gift-set-mint,Go Pop+ Cloud Mint and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929673322568,40483823386696,go-pop-plus-gift-set-pink,Go Pop+ Cloud Pink and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929673814088,40483823910984,go-pop-plus-gift-set-rose,Go Pop+ Cloud Rose and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929674469448,40483825156168,go-pop-plus-gift-set-slate,Go Pop+ Cloud Slate and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929675223112,40483825942600,go-pop-plus-gift-set-teal,Go Pop+ Cloud Teal and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6929676271688,40483827023944,go-pop-plus-gift-set-light-blue,Go Pop+ Cloud Light Blue and Cloud Foam Tips Gift Set,Default Title,price_down,2998,2958,3898,3898,-1.3
+2026-11-09T16:27:42Z,jlab,6932183810120,40495129493576,flow-mouse-keyboard-bundle-black,Flow Mouse & Keyboard Bundle Black,Default Title,price_down,5999,4999,5999,5999,-16.7
+2026-11-09T16:27:42Z,jlab,6932183810120,40495129493576,flow-mouse-keyboard-bundle-black,Flow Mouse & Keyboard Bundle Black,Default Title,discount_start,5999,4999,5999,5999,
+2026-11-09T16:27:42Z,jlab,6953251864648,40552942141512,flex-open-earbuds-white,Flex Open Earbuds White,White,price_down,4249,3999,5299,5299,-5.9
+2026-11-09T16:27:42Z,jlab,6960393355336,40574837260360,epic-open-sport-air-conduction-wireless-earbuds-black,Epic Open Sport Air Conduction Wireless Earbuds Black,Default Title,price_up,7349,10499,10499,10499,42.9
+2026-11-09T16:27:42Z,jlab,6960393355336,40574837260360,epic-open-sport-air-conduction-wireless-earbuds-black,Epic Open Sport Air Conduction Wireless Earbuds Black,Default Title,discount_end,7349,10499,10499,10499,
+2026-11-09T16:27:42Z,jlab,6969329778760,40599214129224,jbuds-lux-graphite-flex-open-black,JBuds Lux Graphite & Flex Open Black,Default Title,price_down,10998,9998,12998,13798,-9.1
+2026-11-09T16:27:42Z,jlab,6969409044552,40599516479560,jbuds-mini-tones-go-tones-plus-4625-w-earbuds-set,JBuds Mini Tones & Go Tones+ 4625 W Earbuds Set,Default Title,price_down,5498,5358,6498,6698,-2.5
+2026-11-09T16:27:42Z,jlab,6969409536072,40599517495368,jbuds-mini-tones-go-tones-plus-7572-w-earbuds-set,JBuds Mini Tones & Go Tones+ 7572 W Earbuds Set,Default Title,price_down,5498,5358,6498,6698,-2.5
+2026-11-09T16:27:42Z,jlab,6969409634376,40599518085192,jbuds-mini-tones-go-tones-plus-728-n-earbuds-set,JBuds Mini Tones & Go Tones+ 728 N Earbuds Set,Default Title,price_down,5498,5358,6498,6698,-2.5
+2026-11-09T16:27:42Z,jlab,6970052149320,40601562644552,go-party-portable-bluetooth-speaker-black,Go Party Portable Bluetooth Speaker Black,Black,price_down,3499,2799,3499,3499,-20.0
+2026-11-09T16:27:42Z,jlab,6970052149320,40601562644552,go-party-portable-bluetooth-speaker-black,Go Party Portable Bluetooth Speaker Black,Black,discount_start,3499,2799,3499,3499,
+2026-11-09T16:27:42Z,jlab,6972307537992,40610337882184,go-party-portable-bluetooth-speaker-cyan,Go Party Portable Bluetooth Speaker Cyan,Cyan,price_down,3499,2799,3499,3499,-20.0
+2026-11-09T16:27:42Z,jlab,6972307537992,40610337882184,go-party-portable-bluetooth-speaker-cyan,Go Party Portable Bluetooth Speaker Cyan,Cyan,discount_start,3499,2799,3499,3499,
+2026-11-09T16:27:42Z,jlab,6972308357192,40610340241480,go-party-portable-bluetooth-speaker-mulberry,Go Party Portable Bluetooth Speaker Mulberry,Mulberry,price_down,3499,2799,3499,3499,-20.0
+2026-11-09T16:27:42Z,jlab,6972308357192,40610340241480,go-party-portable-bluetooth-speaker-mulberry,Go Party Portable Bluetooth Speaker Mulberry,Mulberry,discount_start,3499,2799,3499,3499,
+2026-11-09T16:27:42Z,jlab,6972308783176,40610341060680,go-party-portable-bluetooth-speaker-navy,Go Party Portable Bluetooth Speaker Navy,Navy,price_down,3499,2799,3499,3499,-20.0
+2026-11-09T16:27:42Z,jlab,6972308783176,40610341060680,go-party-portable-bluetooth-speaker-navy,Go Party Portable Bluetooth Speaker Navy,Navy,discount_start,3499,2799,3499,3499,
+2026-11-09T16:27:42Z,jlab,6972309110856,40610341421128,go-party-portable-bluetooth-speaker-pink,Go Party Portable Bluetooth Speaker Pink,Default Title,price_down,3499,2799,3499,3499,-20.0
+2026-11-09T16:27:42Z,jlab,6972309110856,40610341421128,go-party-portable-bluetooth-speaker-pink,Go Party Portable Bluetooth Speaker Pink,Default Title,discount_start,3499,2799,3499,3499,
+2026-11-09T16:27:42Z,jlab,6972541304904,40611347267656,epic-party-portable-bluetooth-speaker-black,Epic Party Portable Bluetooth Speaker Black,Default Title,price_down,18999,16999,18999,18999,-10.5
+2026-11-09T16:27:42Z,jlab,6972541304904,40611347267656,epic-party-portable-bluetooth-speaker-black,Epic Party Portable Bluetooth Speaker Black,Default Title,discount_start,18999,16999,18999,18999,
+2026-11-09T16:27:42Z,jlab,6973572186184,40613091115080,fourth-of-july-fireworks-family-pack,Fourth of July Fireworks Family Pack,Default Title,price_down,7999,7037,7999,8796,-12.0
+2026-11-09T16:27:42Z,jlab,6973572186184,40613091115080,fourth-of-july-fireworks-family-pack,Fourth of July Fireworks Family Pack,Default Title,discount_start,7999,7037,7999,8796,
+2026-11-09T16:27:42Z,jlab,6984716189768,40661855862856,epic-pods-anc-true-wireless-earbuds-black,Epic Pods ANC True Wireless Earbuds Black,Default Title,price_up,6999,10499,10499,10499,50.0
+2026-11-09T16:27:42Z,jlab,6984716189768,40661855862856,epic-pods-anc-true-wireless-earbuds-black,Epic Pods ANC True Wireless Earbuds Black,Default Title,discount_end,6999,10499,10499,10499,
+2026-11-09T16:27:42Z,jlab,7005273292872,40782267646024,epic-lab-edition-headphones-earbuds-set,Epic Lab Edition Headphones & Earbuds Set,Default Title,price_down,37498,33598,41998,41998,-10.4
+2026-11-09T16:27:42Z,jlab,7007853609032,40789910159432,usb-a-to-usb-c-charging-cable-blue,USB-A to USB-C Charging Cable Blue,Default Title,price_up,600,1000,1000,1000,66.7
+2026-11-09T16:27:42Z,jlab,7007853609032,40789910159432,usb-a-to-usb-c-charging-cable-blue,USB-A to USB-C Charging Cable Blue,Default Title,discount_end,600,1000,1000,1000,
+2026-11-09T16:27:42Z,jlab,7008110706760,40790792142920,jbuds-party-portable-bluetooth-speaker-black-2-pack,JBuds Party Portable Bluetooth Speaker Black 2 Pack,Default Title,price_down,9998,9598,11998,11998,-4.0
+2026-11-09T16:27:42Z,jlab,7008111001672,40790793355336,pop-party-ultra-portable-bluetooth-speaker-black-2-pack,Pop Party Ultra-Portable Bluetooth Speaker Black 2 Pack,Default Title,price_down,4498,3998,4998,4998,-11.1
+2026-11-09T16:27:42Z,jlab,7033294848072,41044769079368,nightfall-wireless-gaming-mouse-black,Nightfall Wireless Gaming Mouse Black,Default Title,price_up,3399,3999,3999,3999,17.7
+2026-11-09T16:27:42Z,jlab,7033294848072,41044769079368,nightfall-wireless-gaming-mouse-black,Nightfall Wireless Gaming Mouse Black,Default Title,discount_end,3399,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,7033294979144,41044769308744,nightfall-wireless-gaming-mouse-pink,Nightfall Wireless Gaming Mouse Pink,Default Title,price_up,3399,3999,3999,3999,17.7
+2026-11-09T16:27:42Z,jlab,7033294979144,41044769308744,nightfall-wireless-gaming-mouse-pink,Nightfall Wireless Gaming Mouse Pink,Default Title,discount_end,3399,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,7033295011912,41044769538120,nightfall-wireless-gaming-mouse-white,Nightfall Wireless Gaming Mouse White,Default Title,price_up,3399,3999,3999,3999,17.7
+2026-11-09T16:27:42Z,jlab,7033295011912,41044769538120,nightfall-wireless-gaming-mouse-white,Nightfall Wireless Gaming Mouse White,Default Title,discount_end,3399,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,7033295700040,41044771995720,nightfall-full-size-wired-gaming-keyboard-black,Nightfall Full-Size Wired Gaming Keyboard Black,Default Title,price_up,3399,3999,3999,3999,17.7
+2026-11-09T16:27:42Z,jlab,7033295700040,41044771995720,nightfall-full-size-wired-gaming-keyboard-black,Nightfall Full-Size Wired Gaming Keyboard Black,Default Title,discount_end,3399,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,7033296355400,41044772651080,nightfall-full-size-wired-gaming-keyboard-white,Nightfall Full-Size Wired Gaming Keyboard White,Default Title,price_up,3399,3999,3999,3999,17.7
+2026-11-09T16:27:42Z,jlab,7033296355400,41044772651080,nightfall-full-size-wired-gaming-keyboard-white,Nightfall Full-Size Wired Gaming Keyboard White,Default Title,discount_end,3399,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,7033296486472,41044772782152,nightfall-full-size-wired-gaming-keyboard-pink,Nightfall Full-Size Wired Gaming Keyboard Pink,Default Title,price_up,3399,3999,3999,3999,17.7
+2026-11-09T16:27:42Z,jlab,7033296486472,41044772782152,nightfall-full-size-wired-gaming-keyboard-pink,Nightfall Full-Size Wired Gaming Keyboard Pink,Default Title,discount_end,3399,3999,3999,3999,
+2026-11-09T16:27:42Z,jlab,7037853925448,41062192578632,jbuddies-studio-on-ear-kids-wired-type-c-headphones-blue-gray,JBuddies Studio On-Ear Kids Wired Type-C Headphones Blue/Gray,Default Title,price_down,2499,1799,2499,2499,-28.0
+2026-11-09T16:27:42Z,jlab,7037853925448,41062192578632,jbuddies-studio-on-ear-kids-wired-type-c-headphones-blue-gray,JBuddies Studio On-Ear Kids Wired Type-C Headphones Blue/Gray,Default Title,discount_start,2499,1799,2499,2499,
+2026-11-09T16:27:42Z,jlab,7037855563848,41062202146888,jbuddies-studio-on-ear-kids-wired-type-c-headphones-blue-green,JBuddies Studio On-Ear Kids Wired Type-C Headphones Blue/Green,Default Title,price_down,2499,1799,2499,2499,-28.0
+2026-11-09T16:27:42Z,jlab,7037855563848,41062202146888,jbuddies-studio-on-ear-kids-wired-type-c-headphones-blue-green,JBuddies Studio On-Ear Kids Wired Type-C Headphones Blue/Green,Default Title,discount_start,2499,1799,2499,2499,
+2026-11-09T16:27:42Z,jlab,7037855858760,41062202802248,jbuddies-studio-on-ear-kids-wired-type-c-headphones-blue-pink,JBuddies Studio On-Ear Kids Wired Type-C Headphones Blue/Pink,Default Title,price_down,2499,1799,2499,2499,-28.0
+2026-11-09T16:27:42Z,jlab,7037855858760,41062202802248,jbuddies-studio-on-ear-kids-wired-type-c-headphones-blue-pink,JBuddies Studio On-Ear Kids Wired Type-C Headphones Blue/Pink,Default Title,discount_start,2499,1799,2499,2499,
+2026-11-09T16:27:42Z,jlab,7037856350280,41062204080200,jbuddies-studio-on-ear-kids-wired-type-c-headphones-dark-pink,JBuddies Studio On-Ear Kids Wired Type-C Headphones Dark Pink,Default Title,price_down,2499,1799,2499,2499,-28.0
+2026-11-09T16:27:42Z,jlab,7037856350280,41062204080200,jbuddies-studio-on-ear-kids-wired-type-c-headphones-dark-pink,JBuddies Studio On-Ear Kids Wired Type-C Headphones Dark Pink,Default Title,discount_start,2499,1799,2499,2499,
+2026-11-09T16:27:42Z,jlab,7037856415816,41062204145736,jbuddies-studio-on-ear-kids-wired-type-c-headphones-graphite-violet,JBuddies Studio On-Ear Kids Wired Type-C Headphones Graphite/Violet,Default Title,price_down,2499,1799,2499,2499,-28.0
+2026-11-09T16:27:42Z,jlab,7037856415816,41062204145736,jbuddies-studio-on-ear-kids-wired-type-c-headphones-graphite-violet,JBuddies Studio On-Ear Kids Wired Type-C Headphones Graphite/Violet,Default Title,discount_start,2499,1799,2499,2499,
+2026-11-09T16:27:42Z,jlab,7038022615112,41062696026184,jbuddies-studio-on-ear-kids-wired-type-c-headphones-peach,JBuddies Studio On-Ear Kids Wired Type-C Headphones Peach,Default Title,price_down,2499,1799,2499,2499,-28.0
+2026-11-09T16:27:42Z,jlab,7038022615112,41062696026184,jbuddies-studio-on-ear-kids-wired-type-c-headphones-peach,JBuddies Studio On-Ear Kids Wired Type-C Headphones Peach,Default Title,discount_start,2499,1799,2499,2499,
+2026-11-09T16:27:42Z,jlab,7040252444744,41068031672392,go-work-wireless-on-ear-headset-gen-3-black,GO Work Wireless On-Ear Headset Gen 3 Black,Default Title,price_up,4769,5299,5299,5299,11.1
+2026-11-09T16:27:42Z,jlab,7040252444744,41068031672392,go-work-wireless-on-ear-headset-gen-3-black,GO Work Wireless On-Ear Headset Gen 3 Black,Default Title,discount_end,4769,5299,5299,5299,
+2026-11-09T16:27:42Z,jlab,7041115881544,41070571946056,midnight-wireless-gaming-headset-black,Midnight Wireless Gaming Headset Black,Default Title,price_down,10499,5199,10499,10499,-50.5
+2026-11-09T16:27:42Z,jlab,7041115881544,41070571946056,midnight-wireless-gaming-headset-black,Midnight Wireless Gaming Headset Black,Default Title,discount_start,10499,5199,10499,10499,
+2026-11-09T16:27:42Z,jlab,7041132855368,41070639906888,daybreak-wireless-gaming-headset-black,Daybreak Wireless Gaming Headset Black,Default Title,price_down,14999,12750,14999,14999,-15.0
+2026-11-09T16:27:42Z,jlab,7041132855368,41070639906888,daybreak-wireless-gaming-headset-black,Daybreak Wireless Gaming Headset Black,Default Title,discount_start,14999,12750,14999,14999,
+2026-11-09T16:27:42Z,jlab,7041133215816,41070640857160,daybreak-tkl-wired-magnetic-gaming-keyboard-black,Daybreak TKL Wired Magnetic Gaming Keyboard Black,Default Title,price_down,16999,14450,16999,16999,-15.0
+2026-11-09T16:27:42Z,jlab,7041133215816,41070640857160,daybreak-tkl-wired-magnetic-gaming-keyboard-black,Daybreak TKL Wired Magnetic Gaming Keyboard Black,Default Title,discount_start,16999,14450,16999,16999,
+2026-11-09T16:27:42Z,jlab,7041495564360,41071713157192,nightfall-gaming-family-pink,Nightfall Gaming Family Pink,Default Title,price_down,14497,10638,14497,14497,-26.6
+2026-11-09T16:27:42Z,jlab,7041495564360,41071713157192,nightfall-gaming-family-pink,Nightfall Gaming Family Pink,Default Title,discount_start,14497,10638,14497,14497,
+2026-11-09T16:27:42Z,jlab,7041496252488,41071714533448,nightfall-gaming-family-white,Nightfall Gaming Family White,Default Title,price_down,14497,10638,14497,14497,-26.6
+2026-11-09T16:27:42Z,jlab,7041496252488,41071714533448,nightfall-gaming-family-white,Nightfall Gaming Family White,Default Title,discount_start,14497,10638,14497,14497,
+2026-11-09T16:27:42Z,jlab,7041496416328,41071714795592,nightfall-gaming-family-black,Nightfall Gaming Family Black,Default Title,price_down,14497,10638,14497,14497,-26.6
+2026-11-09T16:27:42Z,jlab,7041496416328,41071714795592,nightfall-gaming-family-black,Nightfall Gaming Family Black,Default Title,discount_start,14497,10638,14497,14497,
+2026-11-09T16:27:42Z,jlab,7041497104456,41071716368456,midnight-gaming-family-black,Midnight Gaming Family Black,Default Title,price_down,27497,17758,27497,27497,-35.4
+2026-11-09T16:27:42Z,jlab,7041497104456,41071716368456,midnight-gaming-family-black,Midnight Gaming Family Black,Default Title,discount_start,27497,17758,27497,27497,
+2026-11-09T16:27:42Z,jlab,7041497169992,41071716433992,daybreak-gaming-family-black,Daybreak Gaming Family Black,Default Title,price_down,41997,29759,41997,41997,-29.1
+2026-11-09T16:27:42Z,jlab,7041497169992,41071716433992,daybreak-gaming-family-black,Daybreak Gaming Family Black,Default Title,discount_start,41997,29759,41997,41997,
+2026-11-09T16:27:42Z,jlab,7052063866952,41105155981384,jbuddies-studio-on-ear-kids-wired-type-c-headphones-pink,JBuddies Studio On-Ear Kids Wired Type-C Headphones Pink,Default Title,price_down,2499,1799,2499,2499,-28.0
+2026-11-09T16:27:42Z,jlab,7052063866952,41105155981384,jbuddies-studio-on-ear-kids-wired-type-c-headphones-pink,JBuddies Studio On-Ear Kids Wired Type-C Headphones Pink,Default Title,discount_start,2499,1799,2499,2499,
+2026-11-09T16:27:42Z,jlab,7064481398856,41141696233544,epic-go-pods-anc-earbuds-black-gift-set,Epic & Go Pods ANC Earbuds Black Gift Set,Default Title,price_down,10998,8158,13698,13698,-25.8
+2026-11-09T16:27:42Z,jlab,7064484380744,41141708816456,jbuds-party-speaker-jbuds-lux-anc-headphones-bundle,JBuds Party Speaker + JBuds Lux ANC Headphones Bundle,Default Title,price_down,14498,11598,14498,14498,-20.0
+2026-11-09T16:27:42Z,jlab,7064484380744,41141708816456,jbuds-party-speaker-jbuds-lux-anc-headphones-bundle,JBuds Party Speaker + JBuds Lux ANC Headphones Bundle,Default Title,discount_start,14498,11598,14498,14498,
+2026-11-09T16:27:42Z,jlab,7068046655560,41156403003464,epic-lux-lab-anc-jbuds-lux-anc-headphones-gift-set,Epic Lux Lab ANC & JBuds Lux ANC Headphones Gift Set,Default Title,price_down,24998,23598,29498,29498,-5.6
+2026-11-09T16:27:42Z,jlab,7068594470984,41157971476552,epic-speaker-epic-lux-lab-edition-gift-set,Epic Speaker & Epic Lux Lab Edition Gift Set,Default Title,price_down,39998,30398,39998,39998,-24.0
+2026-11-09T16:27:42Z,jlab,7068594470984,41157971476552,epic-speaker-epic-lux-lab-edition-gift-set,Epic Speaker & Epic Lux Lab Edition Gift Set,Default Title,discount_start,39998,30398,39998,39998,
+2026-11-09T16:27:42Z,jlab,7069819240520,41161333145672,go-work-3-go-pop-cam-work-bundle,Go Work 3 & GO Pop Cam Work Bundle,Default Title,price_down,6998,5814,7798,7798,-16.9
+2026-11-09T16:27:42Z,jlab,7070016995400,41161808740424,jbuddies-pop-wireless-kids-headphones-grey-black,JBuddies Pop Wireless Kids Headphones Grey/Black,Default Title,price_down,2199,1799,2199,2199,-18.2
+2026-11-09T16:27:42Z,jlab,7070016995400,41161808740424,jbuddies-pop-wireless-kids-headphones-grey-black,JBuddies Pop Wireless Kids Headphones Grey/Black,Default Title,discount_start,2199,1799,2199,2199,
+2026-11-09T16:27:42Z,jlab,7070622482504,41163856248904,jbuds-lux-anc-jelle-headphones-royal-caviar,JBuds Lux ANC Jelle Headphones Royal Caviar,Default Title,price_up,6999,9999,9999,9999,42.9
+2026-11-09T16:27:42Z,jlab,7070622482504,41163856248904,jbuds-lux-anc-jelle-headphones-royal-caviar,JBuds Lux ANC Jelle Headphones Royal Caviar,Default Title,discount_end,6999,9999,9999,9999,
+2026-11-09T16:27:42Z,jlab,7070622941256,41163856969800,jbuds-lux-anc-jelle-headphones-gold-digger,JBuds Lux ANC Jelle Headphones Gold Digger,Default Title,price_up,6999,9999,9999,9999,42.9
+2026-11-09T16:27:42Z,jlab,7070622941256,41163856969800,jbuds-lux-anc-jelle-headphones-gold-digger,JBuds Lux ANC Jelle Headphones Gold Digger,Default Title,discount_end,6999,9999,9999,9999,
+2026-11-09T16:27:42Z,jlab,7070623039560,41163857461320,jbuds-lux-anc-jelle-headphones-fir-sure,JBuds Lux ANC Jelle Headphones Fir Sure,Default Title,price_up,6999,9999,9999,9999,42.9
+2026-11-09T16:27:42Z,jlab,7070623039560,41163857461320,jbuds-lux-anc-jelle-headphones-fir-sure,JBuds Lux ANC Jelle Headphones Fir Sure,Default Title,discount_end,6999,9999,9999,9999,
+2026-11-09T16:27:42Z,jlab,7070623203400,41163857723464,jbuds-lux-anc-jelle-headphones-pearl-next-door,JBuds Lux ANC Jelle Headphones Pearl Next Door,Default Title,price_up,6999,9999,9999,9999,42.9
+2026-11-09T16:27:42Z,jlab,7070623203400,41163857723464,jbuds-lux-anc-jelle-headphones-pearl-next-door,JBuds Lux ANC Jelle Headphones Pearl Next Door,Default Title,discount_end,6999,9999,9999,9999,
+2026-11-09T16:27:42Z,jlab,7095232790600,41240518623304,jbuds-party-black-jbuds-mini-black-gift-set,JBuds Party Black + JBuds Black Mini Gift Set,Default Title,price_down,9998,7198,9998,9998,-28.0
+2026-11-09T16:27:42Z,jlab,7095232790600,41240518623304,jbuds-party-black-jbuds-mini-black-gift-set,JBuds Party Black + JBuds Black Mini Gift Set,Default Title,discount_start,9998,7198,9998,9998,
+2026-11-09T16:27:42Z,jlab,7136733462600,41376924762184,gaming-chair-black,Gaming Chair Black,Default Title,discount_start,39999,39999,39999,49999,
+2026-11-09T16:27:42Z,jlab,7151128051784,41439431688264,jbuds-lux-anc-jbuds-mini-anc-jelle-blush-fund-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Blush Fund Bundle,Default Title,removed,9998,,14998,,
+2026-11-09T16:27:42Z,jlab,7154094604360,41455776956488,jbuds-lux-anc-jbuds-mini-anc-graphite-bundle,JBuds Lux ANC & JBuds Mini ANC Graphite Bundle,Default Title,price_down,9998,9518,12298,12798,-4.8
+2026-11-09T16:27:42Z,jlab,7154099486792,41455794815048,jbuds-lux-anc-mauve-jbuds-mini-anc-pastel-pink-bundle,JBuds Lux ANC Mauve & JBuds Mini ANC Pastel Pink Bundle,Default Title,price_down,9998,9518,12298,12798,-4.8
+2026-11-09T16:27:42Z,jlab,15779102195784,57598353768520,pop-party-ultra-portable-bluetooth-speaker-mulberry-2-pack,Pop Party Ultra-Portable Bluetooth Speaker Mulberry 2 Pack,Default Title,price_down,4998,3998,4998,4998,-20.0
+2026-11-09T16:27:42Z,jlab,15779102195784,57598353768520,pop-party-ultra-portable-bluetooth-speaker-mulberry-2-pack,Pop Party Ultra-Portable Bluetooth Speaker Mulberry 2 Pack,Default Title,discount_start,4998,3998,4998,4998,
+2026-11-09T16:27:42Z,jlab,15779102523464,57598356684872,pop-party-ultra-portable-bluetooth-speaker-navy-2-pack,Pop Party Ultra-Portable Bluetooth Speaker Navy 2 Pack,Default Title,price_down,4998,3998,4998,4998,-20.0
+2026-11-09T16:27:42Z,jlab,15779102523464,57598356684872,pop-party-ultra-portable-bluetooth-speaker-navy-2-pack,Pop Party Ultra-Portable Bluetooth Speaker Navy 2 Pack,Default Title,discount_start,4998,3998,4998,4998,
+2026-11-09T16:27:42Z,jlab,15783812759624,57613644529736,nightfall-gaming-keyboard-mouse-bundle-black,Nightfall Gaming Keyboard & Mouse Bundle Black,Default Title,price_down,7998,5438,,7998,-32.0
+2026-11-09T16:27:42Z,jlab,15783812759624,57613644529736,nightfall-gaming-keyboard-mouse-bundle-black,Nightfall Gaming Keyboard & Mouse Bundle Black,Default Title,discount_start,7998,5438,,7998,
+2026-11-09T16:27:42Z,jlab,15783812792392,57613644562504,nightfall-gaming-keyboard-mouse-bundle-white,Nightfall Gaming Keyboard & Mouse Bundle White,Default Title,price_down,7998,5438,,7998,-32.0
+2026-11-09T16:27:42Z,jlab,15783812792392,57613644562504,nightfall-gaming-keyboard-mouse-bundle-white,Nightfall Gaming Keyboard & Mouse Bundle White,Default Title,discount_start,7998,5438,,7998,
+2026-11-09T16:27:42Z,jlab,15783812857928,57613644955720,nightfall-gaming-keyboard-mouse-bundle-pink,Nightfall Gaming Keyboard & Mouse Bundle Pink,Default Title,new,,5438,,7998,
+2026-11-09T16:27:42Z,jlab,15784215674952,57615292956744,epic-party-portable-bluetooth-speaker-black-2-pack,Epic Party Portable Bluetooth Speaker Black 2 Pack,Default Title,price_down,37998,27198,37998,37998,-28.4
+2026-11-09T16:27:42Z,jlab,15784215674952,57615292956744,epic-party-portable-bluetooth-speaker-black-2-pack,Epic Party Portable Bluetooth Speaker Black 2 Pack,Default Title,discount_start,37998,27198,37998,37998,
+2026-11-09T16:27:42Z,lunya,7067802370091,40683013799979,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / S,back_in_stock,28800,28800,,,
+2026-11-09T16:27:42Z,lunya,7255024893995,41131082154027,womens-soft-modal-rib-v-neck-henley-immersed-black,Soft Modal Rib V-Neck Henley,Immersed Black / M,back_in_stock,11800,11800,,,
+2026-11-09T16:27:42Z,lunya,7271365705771,41177557631019,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XS,removed,14800,,,,
+2026-11-09T16:27:42Z,lunya,7271365705771,41177557663787,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / S,removed,14800,,,,
+2026-11-09T16:27:42Z,lunya,7271365705771,41177557696555,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / M,removed,14800,,,,
+2026-11-09T16:27:42Z,lunya,7271365705771,41177557729323,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / L,removed,14800,,,,
+2026-11-09T16:27:42Z,lunya,7271365705771,41177557762091,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XL,removed,14800,,,,
+2026-11-09T16:27:42Z,lunya,7296955318315,41258601513003,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / S,out_of_stock,4800,4800,,,
+2026-11-09T16:27:42Z,lunya,7415234658347,41897487826987,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XS,out_of_stock,6800,6800,,,
+2026-11-09T16:27:42Z,lunya,7419116159019,41906940379179,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / XS,removed,25800,,,,
+2026-11-09T16:27:42Z,lunya,7419116159019,41906940411947,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / S,removed,25800,,,,
+2026-11-09T16:27:42Z,lunya,7419116159019,41906940444715,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / M,removed,25800,,,,
+2026-11-09T16:27:42Z,lunya,7419116159019,41906940477483,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / L,removed,25800,,,,
+2026-11-09T16:27:42Z,lunya,7419116159019,41906940510251,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / XL,removed,25800,,,,
+2026-11-09T16:27:42Z,lunya,7428176183339,41940215037995,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / XS,removed,11800,,,,
+2026-11-09T16:27:42Z,lunya,7428176183339,41940215070763,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / S,removed,11800,,,,
+2026-11-09T16:27:42Z,lunya,7428176183339,41940215103531,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / M,removed,11800,,,,
+2026-11-09T16:27:42Z,lunya,7428176183339,41940215136299,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / L,removed,11800,,,,
+2026-11-09T16:27:42Z,lunya,7428176183339,41940215169067,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / XL,removed,11800,,,,
+2026-11-09T16:27:42Z,lunya,7763964395563,42592625262635,womens-soft-modal-rib-foldover-short-quiet-lilac,Soft Modal Rib Foldover Short,Quiet Lilac / L,out_of_stock,7800,7800,,,
+2026-11-09T16:27:42Z,lunya,7849299148843,43346800607275,womens-organic-cotton-seersucker-short-fresh-herb,Organic Cotton Seersucker Short,Fresh Herb / M,out_of_stock,8800,8800,,,
+2026-11-09T16:27:42Z,lunya,7849300262955,43346806079531,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / XS,out_of_stock,21800,21800,,,
+2026-11-09T16:27:42Z,oveja-negra,9570616207,32633642447,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Black,back_in_stock,6500,6500,,,
+2026-11-09T16:27:42Z,oveja-negra,9570616207,39568375021670,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Serape,back_in_stock,6500,6500,,,
+2026-11-09T16:27:42Z,oveja-negra,1650778144870,48334164656433,copy-of-snack-pack-bolt-on,BOLT-ON Snack Pack™ - WACK PACK,WACK DONUTS / Bolt On,back_in_stock,7000,7000,,,
+2026-11-09T16:27:42Z,oveja-negra,9250760196401,52109745357105,swag-bag-mini-1,Swag Bag w/ Patch - WACK PACK,Swag Bag Mini w/ Patch Wack Donuts,back_in_stock,2800,2800,,,
+2026-11-09T16:27:42Z,oveja-negra,10847016714545,56440851530033,adorn-biodegradable-glitter-gel,Adorn- Biodegradable Glitter Gel,Lavender,out_of_stock,1600,1600,,,
+2026-11-09T16:27:42Z,oveja-negra,4998968967270,56558655865137,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Snack Pack Top Tube Bag- BOLT ON - Wack Donuts,price_up,4500,5250,6000,7000,16.7
+2026-11-09T16:27:42Z,shokz,8255454413000,44849173299400,refurbished-openswimpro,OpenSwim Pro (Refurbished),Red,out_of_stock,16995,16995,22995,22995,
+2026-11-09T16:27:42Z,shokz,8319189024968,45097187311816,opendots-2-copy,OpenDots 2 (ShokzSquad),Grey,out_of_stock,19995,19995,,,
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46049432731705,crusher-720-headphones,Crusher® 720,True Black,price_down,20999,13999,,20999,-33.3
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46049432731705,crusher-720-headphones,Crusher® 720,True Black,discount_start,20999,13999,,20999,
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077587750969,crusher-720-headphones,Crusher® 720,Plasma,price_down,20999,13999,,20999,-33.3
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077587750969,crusher-720-headphones,Crusher® 720,Plasma,discount_start,20999,13999,,20999,
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077605969977,crusher-720-headphones,Crusher® 720,Future,price_down,20999,13999,,20999,-33.3
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077605969977,crusher-720-headphones,Crusher® 720,Future,discount_start,20999,13999,,20999,
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077618749497,crusher-720-headphones,Crusher® 720,Cement,price_down,20999,13999,,20999,-33.3
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077618749497,crusher-720-headphones,Crusher® 720,Cement,discount_start,20999,13999,,20999,
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077629366329,crusher-720-headphones,Crusher® 720,Primer,price_down,20999,13999,,20999,-33.3
+2026-11-09T16:27:42Z,skullcandy,8311500865593,46077629366329,crusher-720-headphones,Crusher® 720,Primer,discount_start,20999,13999,,20999,
+2026-11-09T16:27:42Z,sol-de-janeiro,8091912896614,45908262453350,cheiroso-cologne-mist-duo,Cheiroso Cologne Mist Duo,Default Title,back_in_stock,4700,4700,,,
+2026-11-09T16:27:42Z,soundcore-us,8486374965438,45088206094526,liberty-5-left-and-right-replacement-earbuds,Liberty 5 Left and Right Replacement Earbuds,Black,out_of_stock,6899,6899,,,
+2026-11-09T16:27:42Z,soundcore-us,8519442923710,45188528603326,soundcore-p41i-left-and-right-replacement-earbuds,soundcore P41i Left and Right Replacement Earbuds,Midnight Black,out_of_stock,2999,2999,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565169854,45579514020030,space-one-seckill,Space One Active Noise Cancelling Headphones,Jet Black,new,,9999,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565169854,45579514052798,space-one-seckill,Space One Active Noise Cancelling Headphones,Latte Cream,new,,9999,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565169854,45579514085566,space-one-seckill,Space One Active Noise Cancelling Headphones,Sky Blue,new,,9999,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517755582,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Black / Solo,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517788350,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Black / Partner Bundle,new,,25998,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517821118,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Pearl White / Solo,new,,12999,,12999,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517853886,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Pearl White / Partner Bundle,new,,25998,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517886654,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Minty Green / Solo,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517919422,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Minty Green / Partner Bundle,new,,25998,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517952190,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Blue / Solo,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,8613565989054,45579517984958,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Blue / Partner Bundle,new,,25998,,,
+2026-11-09T16:27:42Z,soundcore-us,8653901430974,45740368396478,soundcore-space-one-pro-seckill,soundcore Space One Pro FlexiCurve Over-Ear Headphone,Jet Black,new,,19999,,,
+2026-11-09T16:27:42Z,soundcore-us,8653901430974,45740368429246,soundcore-space-one-pro-seckill,soundcore Space One Pro FlexiCurve Over-Ear Headphone,Cream White,new,,19999,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323202750,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Glacier Blue / Solo,new,,16999,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323235518,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Glacier Blue / Partner Bundle,new,,33998,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323268286,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Midnight Black / Solo,new,,16999,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323301054,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Midnight Black / Partner Bundle,new,,33998,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323333822,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Champagne Mist / Solo,new,,16999,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323366590,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Champagne Mist / Partner Bundle,new,,33998,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323399358,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Rosy Brown / Solo,new,,16999,,,
+2026-11-09T16:27:42Z,soundcore-us,8656039575742,45749323432126,soundcore-aeroclip-open-ear-clip-on-earbuds-seckill,soundcore AeroClip Open-Ear Clip-On Earbuds with Adaptive Comfort,Rosy Brown / Partner Bundle,new,,33998,,,
+2026-11-09T16:27:42Z,soundcore-us,8657906663614,45754346897598,soundcore-liberty-4-pro-noise-seckill,soundcore Liberty 4 Pro Noise Cancelling True-Wireless Earbuds,Glossy Black,new,,14999,,,
+2026-11-09T16:27:42Z,soundcore-us,8657906663614,45754346930366,soundcore-liberty-4-pro-noise-seckill,soundcore Liberty 4 Pro Noise Cancelling True-Wireless Earbuds,Matte Black,new,,14999,,,
+2026-11-09T16:27:42Z,soundcore-us,8657906663614,45754346963134,soundcore-liberty-4-pro-noise-seckill,soundcore Liberty 4 Pro Noise Cancelling True-Wireless Earbuds,BIue,new,,14999,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377649854,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Moonlit White / Solo,new,,19999,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377682622,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Moonlit White / Partner Bundle,new,,39998,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377715390,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Mist Green / Solo,new,,19999,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377748158,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Mist Green / Partner Bundle,new,,39998,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377780926,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Mist Lilac / Solo,new,,19999,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377813694,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Mist Lilac / Partner Bundle,new,,39998,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377846462,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Lunar White / Solo,new,,19999,,,
+2026-11-09T16:27:42Z,soundcore-us,8663966482622,45767377879230,soundcore-sleep-a30-seckill,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System special,Lunar White / Partner Bundle,new,,39998,,,
+2026-11-09T16:27:42Z,soundcore-us,8704983400638,46379170496702,soundcore-p30i-refurbished,P30i (Refurbished),White,out_of_stock,4999,4999,,,
+2026-11-09T16:27:42Z,soundcore-us,8704985039038,46379173511358,soundcore-liberty-5-refurbished,Liberty 5 (Refurbished),Black,back_in_stock,12999,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,8741092688062,46476907511998,soundcore-nebula-x1-seckill,soundcore Nebula X1 4K Triple Laser Projector with Micro Gimbal,NEBULA X1 Projector,new,,299900,,,
+2026-11-09T16:27:42Z,soundcore-us,8741092688062,46476907544766,soundcore-nebula-x1-seckill,soundcore Nebula X1 4K Triple Laser Projector with Micro Gimbal,NEBULA X1 + Accessory Pack Bundle,new,,399800,,,
+2026-11-09T16:27:42Z,soundcore-us,8741092688062,46476907577534,soundcore-nebula-x1-seckill,soundcore Nebula X1 4K Triple Laser Projector with Micro Gimbal,NEBULA X1 + Carry Case Bundle,new,,319800,,,
+2026-11-09T16:27:42Z,soundcore-us,8741092688062,46476907610302,soundcore-nebula-x1-seckill,soundcore Nebula X1 4K Triple Laser Projector with Micro Gimbal,NEBULA X1 + 100-Inch Screen Bundle,new,,316800,,,
+2026-11-09T16:27:42Z,soundcore-us,8741136072894,46477332611262,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Midnight Black,new,,15900,,,
+2026-11-09T16:27:42Z,soundcore-us,8741136072894,46477332644030,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Pearl White,new,,15900,,,
+2026-11-09T16:27:42Z,soundcore-us,8771157262526,46631139737790,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Matte Black,new,,17999,,,
+2026-11-09T16:27:42Z,soundcore-us,8771157262526,46631139770558,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Gloss White,new,,17999,,,
+2026-11-09T16:27:42Z,soundcore-us,8771157262526,46631139803326,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Matte Purple,new,,17999,,,
+2026-11-09T16:27:42Z,soundcore-us,8777712337086,46660693786814,a2697-anker-charger-140w-4-port,"Anker Charger (140W, 4-Port, PD 3.1) with USB-C Cable",Black,out_of_stock,8999,8999,,,
+2026-11-09T16:27:42Z,soundcore-us,8771157262526,46760027914430,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Gloss Blue,new,,17999,,,
+2026-11-09T16:27:42Z,soundcore-us,9018214613182,49108791951550,accessories-4-pairs-for-aeroclip-2,Accessories (4 pairs) for AeroClip 2,Accessories (4 pairs),new,,2999,,,
+2026-11-09T16:27:42Z,soundcore-us,9116210626750,49529573277886,soundcore-500-gift-card,soundcore $500 Gift Card,$500.00,new,,50000,,,
+2026-11-09T16:27:42Z,soundcore-us,9116256272574,49529672007870,soundcore-800-gift-card,soundcore $800 Gift Card,$800.00,new,,80000,,,
+2026-11-09T16:27:42Z,soundcore-us,9116264825022,49529719357630,soundcore-4-000-gift-card,"soundcore $4,000 Gift Card",$4000.00,new,,400000,,,
+2026-11-09T16:27:42Z,soundcore-us,9116260139198,49529733677246,soundcore-2-000-gift-card,"soundcore $2,000 Gift Card",$2000.00,new,,200000,,,
+2026-11-09T16:27:42Z,soundcore-us,9119729090750,49552200106174,mysterybox-26bf49,Black Friday Mystery Box $49.99,Default Title,new,,4999,,,
+2026-11-09T16:27:42Z,soundcore-us,9119775064254,49552428433598,mysterybox-26bf69,Black Friday Mystery Box $69.99,Default Title,new,,6999,,,
+2026-11-09T16:27:42Z,soundcore-us,9121526153406,49561107595454,mysterybox-26bf84,Black Friday Mystery Box $84.99,Default Title,new,,8499,,,
+2026-11-09T16:27:42Z,soundcore-us,9121540702398,49561189351614,mysterybox-26bf113,Black Friday Mystery Box $113.99,Default Title,new,,11399,,,
+2026-11-09T16:27:42Z,soundcore-us,9121546928318,49561220317374,black-friday-mystery-box-379-99,Black Friday Mystery Box $379.99,Default Title,new,,37999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125508120766,49576832958654,soundcore-sport-x20-seckill,soundcore Sport X20 Comfortable In-Ear Sport Earbuds with Hook,Black,new,,7999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125508120766,49576832991422,soundcore-sport-x20-seckill,soundcore Sport X20 Comfortable In-Ear Sport Earbuds with Hook,White,new,,7999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125508120766,49576833024190,soundcore-sport-x20-seckill,soundcore Sport X20 Comfortable In-Ear Sport Earbuds with Hook,Green,new,,7999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125514019006,49576857469118,anker-soundcore-liberty-buds-2-seckill,Anker soundcore Liberty Buds 2 Certified Comfortable Wireless Earbuds for Calls,Mother of Pearl Version,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125514019006,49576857501886,anker-soundcore-liberty-buds-2-seckill,Anker soundcore Liberty Buds 2 Certified Comfortable Wireless Earbuds for Calls,Silver White,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125514019006,49576857534654,anker-soundcore-liberty-buds-2-seckill,Anker soundcore Liberty Buds 2 Certified Comfortable Wireless Earbuds for Calls,Glossy Black,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125519982782,49576871035070,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Seafoam Green,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125519982782,49576871067838,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Linen White,new,,12999,,,
+2026-11-09T16:27:42Z,soundcore-us,9125519982782,49576871100606,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Jet Black,new,,12999,,,
+2026-11-09T16:27:42Z,state-liberty,6844270674001,39845290737745,athletic-fit-stretch-pants-heathered-forest-green,Athletic Fit Stretch Suit Pants - Heathered Forest Green,32W | 33-35L,back_in_stock,15000,15000,,,
+2026-11-09T16:27:42Z,state-liberty,15652313006161,58579109806161,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",S / White with Lilac Stripe,out_of_stock,10500,10500,,,
+2026-11-09T16:27:42Z,state-liberty,15662688763985,58920131035217,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",M / Mini Grey Dot Print,out_of_stock,10500,10500,,,
+2026-11-09T16:27:42Z,state-liberty,15706956103761,59128820727889,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,2XL / Black Diamond Geo,out_of_stock,10500,10500,,,
+2026-11-09T16:27:42Z,year-day,15140935008627,52803570073971,the-splatter-core-set,The Splatter Core Set,Plum,out_of_stock,25200,25200,28000,28000,
