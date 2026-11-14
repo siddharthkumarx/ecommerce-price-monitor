@@ -2,7 +2,6 @@ store_id,product_id,variant_id,handle,product_title,variant_title,price_cents,co
 bee-s-wrap,7042405335087,40940355059759,the-lunch-pack,The Lunch Pack,Bees and Bears,1999,,true,2026-11-04T08:46:55Z
 bee-s-wrap,7042405335087,45748248543507,the-lunch-pack,The Lunch Pack,Under the Sea,1999,,true,2026-11-04T08:46:55Z
 bee-s-wrap,7042405335087,49163040227603,the-lunch-pack,The Lunch Pack,Honeycomb,1999,,true,2026-11-04T08:46:55Z
-bee-s-wrap,7042405335087,51780513202451,the-lunch-pack,The Lunch Pack,Ocean,1999,,false,2026-11-09T16:27:42Z
 bee-s-wrap,7042405335087,51825643094291,the-lunch-pack,The Lunch Pack,Botanical Blue,1999,,true,2026-11-04T08:46:55Z
 bee-s-wrap,7042405400623,40940355354671,single-wrap,Single Wrap,Large,799,,true,2026-11-04T08:46:55Z
 bee-s-wrap,7042405400623,54645622538515,single-wrap,Single Wrap,Medium,699,,true,2026-11-09T16:27:42Z
@@ -164,7 +163,7 @@ big-agnes,7827637633273,43494236848377,zoom-ul-insulated,Zoom UL Insulated,"20""
 big-agnes,7827637633273,43494236881145,zoom-ul-insulated,Zoom UL Insulated,"25"" x 78""",19996,24995,true,2026-11-04T08:46:55Z
 big-agnes,7827637633273,43494236913913,zoom-ul-insulated,Zoom UL Insulated,"25"" x 72""",19996,24995,true,2026-11-04T08:46:55Z
 big-agnes,7827783581945,43495324975353,divide,Divide,"20"" x 72""",7996,9995,true,2026-11-04T08:46:55Z
-big-agnes,7827783581945,43495325008121,divide,Divide,"25"" x 78""",11196,13995,true,2026-11-04T08:46:55Z
+big-agnes,7827783581945,43495325008121,divide,Divide,"25"" x 78""",11196,13995,false,2026-11-14T13:36:42Z
 big-agnes,7827783581945,43495325040889,divide,Divide,"25"" x 72""",10396,12995,true,2026-11-04T08:46:55Z
 big-agnes,7827783680249,43495325401337,divide-insulated,Divide Insulated,"20"" x 72""",10396,12995,true,2026-11-04T08:46:55Z
 big-agnes,7827783680249,43495325466873,divide-insulated,Divide Insulated,"50"" x 78""",21596,26995,true,2026-11-04T08:46:55Z
@@ -946,7 +945,7 @@ crown-affair,7916405620799,42424773050431,the-volume-to-go-set,The Volume To-Go 
 crown-affair,7924357627967,42435499917375,the-towel-embroidery,The Towel - Embroidery,Embroidered White Towel,7900,,true,2026-11-04T08:46:55Z
 crown-affair,7924357627967,42435499950143,the-towel-embroidery,The Towel - Embroidery,Embroidered Black Towel,7900,,true,2026-11-04T08:46:55Z
 crown-affair,7924357627967,42435503292479,the-towel-embroidery,The Towel - Embroidery,Embroidered Green Towel,7900,,true,2026-11-05T09:41:31Z
-crown-affair,7924357627967,44106349084735,the-towel-embroidery,The Towel - Embroidery,Embroidered Bordeaux Towel,7900,,true,2026-11-04T08:46:55Z
+crown-affair,7924357627967,44106349084735,the-towel-embroidery,The Towel - Embroidery,Embroidered Bordeaux Towel,7900,,false,2026-11-14T13:36:42Z
 crown-affair,8059430142015,42783894044735,the-smoothing-air-dry-cream,The Smoothing Air Dry Cream,Default Title,3800,,true,2026-11-04T08:46:55Z
 crown-affair,8070650003519,42836648951871,the-prime-and-define-duo,The Prime and Define Duo,Default Title,7740,,true,2026-11-04T08:46:55Z
 crown-affair,8070748864575,42837146206271,the-air-dry-cream-set,The Air Dry Cream Set,Default Title,8000,,true,2026-11-04T08:46:55Z
@@ -1010,31 +1009,31 @@ feat-clothing,7384533139521,41614383972417,mens-standard-short,The Men's Standar
 feat-clothing,7384533139521,41614384267329,mens-standard-short,The Men's Standard Shorts,Black / XL,4500,,false,2026-11-04T08:46:55Z
 feat-clothing,7384533139521,41614384463937,mens-standard-short,The Men's Standard Shorts,Black / XXL,4500,,true,2026-11-04T08:46:55Z
 feat-clothing,7384533139521,41614384496705,mens-standard-short,The Men's Standard Shorts,Black / XXXL,4500,,false,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41767237648449,the-mens-standard-joggers,The Men's Standard Joggers,Black / XS,5900,,false,2026-11-06T09:46:16Z
-feat-clothing,7450707722305,41767237681217,the-mens-standard-joggers,The Men's Standard Joggers,Black / S,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41767237713985,the-mens-standard-joggers,The Men's Standard Joggers,Black / M,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41767237746753,the-mens-standard-joggers,The Men's Standard Joggers,Black / L,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41767237779521,the-mens-standard-joggers,The Men's Standard Joggers,Black / XL,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41767237812289,the-mens-standard-joggers,The Men's Standard Joggers,Black / XXL,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41769374122049,the-mens-standard-joggers,The Men's Standard Joggers,Black / XXXL,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41880050729025,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / S,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41880050761793,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / M,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41880050794561,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / L,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41880050827329,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / XL,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41880050860097,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / XXL,5900,,true,2026-11-04T08:46:55Z
-feat-clothing,7450707722305,41880050892865,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / XXXL,5900,,false,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659120705,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / S,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659153473,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / M,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659186241,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / L,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659219009,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / XL,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659251777,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / XXL,5900,8800,false,2026-11-06T09:46:16Z
-feat-clothing,7463596458049,41827659284545,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / XXXL,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659350081,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / S,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659382849,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / M,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659415617,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / L,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659448385,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / XL,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659481153,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / XXL,5900,8800,true,2026-11-04T08:46:55Z
-feat-clothing,7463596458049,41827659513921,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / XXXL,5900,8800,true,2026-11-04T08:46:55Z
+feat-clothing,7450707722305,41767237648449,the-mens-standard-joggers,The Men's Standard Joggers,Black / XS,4400,5900,false,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41767237681217,the-mens-standard-joggers,The Men's Standard Joggers,Black / S,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41767237713985,the-mens-standard-joggers,The Men's Standard Joggers,Black / M,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41767237746753,the-mens-standard-joggers,The Men's Standard Joggers,Black / L,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41767237779521,the-mens-standard-joggers,The Men's Standard Joggers,Black / XL,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41767237812289,the-mens-standard-joggers,The Men's Standard Joggers,Black / XXL,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41769374122049,the-mens-standard-joggers,The Men's Standard Joggers,Black / XXXL,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41880050729025,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / S,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41880050761793,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / M,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41880050794561,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / L,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41880050827329,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / XL,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41880050860097,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / XXL,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41880050892865,the-mens-standard-joggers,The Men's Standard Joggers,Oatmilk / XXXL,4400,5900,false,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659120705,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / S,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659153473,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / M,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659186241,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / L,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659219009,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / XL,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659251777,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / XXL,4400,8800,false,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659284545,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Pacific / XXXL,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659350081,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / S,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659382849,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / M,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659415617,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / L,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659448385,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / XL,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659481153,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / XXL,4400,8800,true,2026-11-14T13:36:42Z
+feat-clothing,7463596458049,41827659513921,mens-roam-joggers-limited-edition-fall-colors,The Men's Standard Joggers - Limited,Eden / XXXL,4400,8800,true,2026-11-14T13:36:42Z
 feat-clothing,7463598456897,41827667443777,womens-roam-joggers-limited-edition-fall-colors,The Women's Standard Joggers - Limited,Pacific / XS,5900,8800,true,2026-11-04T08:46:55Z
 feat-clothing,7463598456897,41827667476545,womens-roam-joggers-limited-edition-fall-colors,The Women's Standard Joggers - Limited,Pacific / S,5900,8800,false,2026-11-06T09:46:16Z
 feat-clothing,7463598456897,41827667509313,womens-roam-joggers-limited-edition-fall-colors,The Women's Standard Joggers - Limited,Pacific / M,5900,8800,true,2026-11-04T08:46:55Z
@@ -1191,36 +1190,36 @@ feat-clothing,7658606166081,42817407647809,the-mens-cafe-pant,The Men's Café Pa
 feat-clothing,7658606166081,42817407680577,the-mens-cafe-pant,The Men's Café Pant,Khaki / XL,8900,,true,2026-11-04T08:46:55Z
 feat-clothing,7658606166081,42817407713345,the-mens-cafe-pant,The Men's Café Pant,Khaki / XXL,8900,,true,2026-11-04T08:46:55Z
 feat-clothing,7658606166081,42817407746113,the-mens-cafe-pant,The Men's Café Pant,Khaki / XXXL,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817407975489,the-womens-cafe-pant,The Women's Café Pant,Espresso / XS,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408008257,the-womens-cafe-pant,The Women's Café Pant,Espresso / S,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408041025,the-womens-cafe-pant,The Women's Café Pant,Espresso / M,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408073793,the-womens-cafe-pant,The Women's Café Pant,Espresso / L,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408106561,the-womens-cafe-pant,The Women's Café Pant,Espresso / XL,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408139329,the-womens-cafe-pant,The Women's Café Pant,Espresso / XXL,8900,,false,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408204865,the-womens-cafe-pant,The Women's Café Pant,Khaki / XS,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408237633,the-womens-cafe-pant,The Women's Café Pant,Khaki / S,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408270401,the-womens-cafe-pant,The Women's Café Pant,Khaki / M,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408303169,the-womens-cafe-pant,The Women's Café Pant,Khaki / L,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408335937,the-womens-cafe-pant,The Women's Café Pant,Khaki / XL,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658606231617,42817408368705,the-womens-cafe-pant,The Women's Café Pant,Khaki / XXL,8900,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817409810497,the-mens-cafe-jacket,The Men's Café Coat,Espresso / S,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817409843265,the-mens-cafe-jacket,The Men's Café Coat,Espresso / M,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817409876033,the-mens-cafe-jacket,The Men's Café Coat,Espresso / L,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817409908801,the-mens-cafe-jacket,The Men's Café Coat,Espresso / XL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817409941569,the-mens-cafe-jacket,The Men's Café Coat,Espresso / XXL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817409974337,the-mens-cafe-jacket,The Men's Café Coat,Espresso / XXXL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817410039873,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / S,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817410072641,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / M,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817410105409,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / L,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817410138177,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / XL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817410170945,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / XXL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42817410203713,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / XXXL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42829149405249,the-mens-cafe-jacket,The Men's Café Coat,Sencha / S,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42829149438017,the-mens-cafe-jacket,The Men's Café Coat,Sencha / M,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42829149470785,the-mens-cafe-jacket,The Men's Café Coat,Sencha / L,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42829149503553,the-mens-cafe-jacket,The Men's Café Coat,Sencha / XL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42829149536321,the-mens-cafe-jacket,The Men's Café Coat,Sencha / XXL,9800,,true,2026-11-04T08:46:55Z
-feat-clothing,7658607149121,42829149569089,the-mens-cafe-jacket,The Men's Café Coat,Sencha / XXXL,9800,,true,2026-11-04T08:46:55Z
+feat-clothing,7658606231617,42817407975489,the-womens-cafe-pant,The Women's Café Pant,Espresso / XS,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408008257,the-womens-cafe-pant,The Women's Café Pant,Espresso / S,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408041025,the-womens-cafe-pant,The Women's Café Pant,Espresso / M,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408073793,the-womens-cafe-pant,The Women's Café Pant,Espresso / L,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408106561,the-womens-cafe-pant,The Women's Café Pant,Espresso / XL,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408139329,the-womens-cafe-pant,The Women's Café Pant,Espresso / XXL,6800,8900,false,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408204865,the-womens-cafe-pant,The Women's Café Pant,Khaki / XS,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408237633,the-womens-cafe-pant,The Women's Café Pant,Khaki / S,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408270401,the-womens-cafe-pant,The Women's Café Pant,Khaki / M,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408303169,the-womens-cafe-pant,The Women's Café Pant,Khaki / L,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408335937,the-womens-cafe-pant,The Women's Café Pant,Khaki / XL,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658606231617,42817408368705,the-womens-cafe-pant,The Women's Café Pant,Khaki / XXL,6800,8900,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817409810497,the-mens-cafe-jacket,The Men's Café Coat,Espresso / S,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817409843265,the-mens-cafe-jacket,The Men's Café Coat,Espresso / M,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817409876033,the-mens-cafe-jacket,The Men's Café Coat,Espresso / L,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817409908801,the-mens-cafe-jacket,The Men's Café Coat,Espresso / XL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817409941569,the-mens-cafe-jacket,The Men's Café Coat,Espresso / XXL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817409974337,the-mens-cafe-jacket,The Men's Café Coat,Espresso / XXXL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817410039873,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / S,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817410072641,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / M,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817410105409,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / L,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817410138177,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / XL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817410170945,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / XXL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42817410203713,the-mens-cafe-jacket,The Men's Café Coat,EarlGrey / XXXL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42829149405249,the-mens-cafe-jacket,The Men's Café Coat,Sencha / S,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42829149438017,the-mens-cafe-jacket,The Men's Café Coat,Sencha / M,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42829149470785,the-mens-cafe-jacket,The Men's Café Coat,Sencha / L,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42829149503553,the-mens-cafe-jacket,The Men's Café Coat,Sencha / XL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42829149536321,the-mens-cafe-jacket,The Men's Café Coat,Sencha / XXL,7200,9800,true,2026-11-14T13:36:42Z
+feat-clothing,7658607149121,42829149569089,the-mens-cafe-jacket,The Men's Café Coat,Sencha / XXXL,7200,9800,true,2026-11-14T13:36:42Z
 feat-clothing,7658607312961,42817410531393,the-womens-cafe-jacket,The Women's Café Coat,Espresso / XS,9800,,true,2026-11-04T08:46:55Z
 feat-clothing,7658607312961,42817410564161,the-womens-cafe-jacket,The Women's Café Coat,Espresso / S,9800,,true,2026-11-04T08:46:55Z
 feat-clothing,7658607312961,42817410596929,the-womens-cafe-jacket,The Women's Café Coat,Espresso / M,9800,,true,2026-11-04T08:46:55Z
@@ -2672,7 +2671,7 @@ homesick,7787124162622,41724196192318,poolside-candle,Poolside Candle,Default Ti
 homesick,7803386003518,41776882745406,iced-coffee-candle,Iced Coffee Candle,Default Title,2097,2995,true,2026-11-13T14:39:06Z
 homesick,7816036614206,41830690750526,fortress-of-solitude-car-freshener,Fortress of Solitude Car Freshener,Default Title,629,899,true,2026-11-13T14:39:06Z
 homesick,7826807947326,41872049537086,poolside-car-freshener,Poolside Car Freshener,Default Title,489,699,false,2026-11-13T14:39:06Z
-homesick,7826810568766,41872062349374,strawberry-season-car-freshener,Strawberry Season Car Freshener,Default Title,489,699,true,2026-11-13T14:39:06Z
+homesick,7826810568766,41872062349374,strawberry-season-car-freshener,Strawberry Season Car Freshener,Default Title,489,699,false,2026-11-14T13:36:42Z
 homesick,7826814959678,41872092233790,take-a-hike-car-freshener,Take A Hike Car Freshener,Default Title,489,699,false,2026-11-13T14:39:06Z
 homesick,7826815778878,41872095379518,summer-treat-car-freshener,Summer Treat Car Freshener,Default Title,489,699,true,2026-11-13T14:39:06Z
 homesick,7826816073790,41872096231486,happy-camper-car-freshener,Happy Camper Car Freshener,Default Title,489,699,true,2026-11-13T14:39:06Z
@@ -2710,7 +2709,7 @@ homesick,7871939346494,42043057864766,regan-s-room-candle,Regan’s Room Candle,
 homesick,7871939379262,42043057897534,camp-crystal-lake-candle,Camp Crystal Lake Candle,Default Title,2447,3495,true,2026-11-13T14:39:06Z
 homesick,7879235272766,42055793410110,batmobile-car-freshener,Batmobile Car Freshener,Default Title,629,899,true,2026-11-13T14:39:06Z
 homesick,7884076286014,42064229957694,lukes-diner-candle,Gilmore Girls Luke’s Diner Candle,Default Title,2447,3495,true,2026-11-13T14:39:06Z
-homesick,7884076384318,42064230023230,stars-hollow-candle,Gilmore Girls Stars Hollow Candle,Default Title,3495,3495,true,2026-11-04T08:46:55Z
+homesick,7884076384318,42064230023230,stars-hollow-candle,Gilmore Girls Stars Hollow Candle,Default Title,2447,3495,true,2026-11-14T13:36:42Z
 homesick,7887110406206,42071999348798,26-2-candle,26.2 Candle,Default Title,2097,2995,false,2026-11-13T14:39:06Z
 homesick,7914221862974,42131450167358,freshly-washed-candle,Freshly Washed Candle,Default Title,2447,3495,true,2026-11-13T14:39:06Z
 homesick,7914221895742,42131450200126,cuddle-up-fresh-candle,Cuddle Up Fresh Candle,Default Title,2447,3495,true,2026-11-13T14:39:06Z
@@ -3556,7 +3555,7 @@ hyperlite-mountain-gear,8266390175789,44154353254445,quilt-pad-straps,Quilt Pad 
 hyperlite-mountain-gear,8269058703405,44162644344877,vertex-32,Vertex 32,Small,35000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8269058703405,44162644410413,vertex-32,Vertex 32,Medium,35000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8269058703405,44162644475949,vertex-32,Vertex 32,Large,35000,,true,2026-11-04T08:46:55Z
-hyperlite-mountain-gear,8325909479469,44349554360365,logo-sticker-pack,Logo Sticker Pack,Default Title,500,,false,2026-11-04T08:46:55Z
+hyperlite-mountain-gear,8325909479469,44349554360365,logo-sticker-pack,Logo Sticker Pack,Default Title,500,,true,2026-11-14T13:36:42Z
 hyperlite-mountain-gear,8416647020589,44667983069229,pemi-15,Pemi 15,Small,25000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8416647020589,44667983101997,pemi-15,Pemi 15,Medium,25000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8416647020589,44667983134765,pemi-15,Pemi 15,Large,25000,,true,2026-11-04T08:46:55Z
@@ -3723,7 +3722,7 @@ jlab,6893539590216,40342909681736,hear-otc-hearing-aid-cloud,Hear OTC Hearing Ai
 jlab,6893539655752,40342909747272,jbuds-sport-anc-4-true-wireless-earbuds-pink,JBuds Sport ANC 4 True Wireless Earbuds Pink,Pink,7499,7499,true,2026-11-04T08:46:55Z
 jlab,6893539688520,40342909780040,go-talk-usb-microphone-white,GO Talk USB Microphone White,Default Title,4999,4999,true,2026-11-04T08:46:55Z
 jlab,6893539721288,40342909812808,epic-air-anc-true-wireless-earbuds-gen-2-black,Epic Air ANC True Wireless Earbuds 2nd Generation Black,Default Title,9999,9999,false,2026-11-04T08:46:55Z
-jlab,6893539754056,40342909878344,go-work-pop-wireless-on-ear-headset-black,GO Work POP Wireless On-Ear Headset Black,Black,3999,3999,false,2026-11-10T14:57:00Z
+jlab,6893539754056,40342909878344,go-work-pop-wireless-on-ear-headset-black,GO Work POP Wireless On-Ear Headset Black,Black,3999,3999,true,2026-11-14T13:36:42Z
 jlab,6893539786824,40342909845576,jbuds-mini-true-wireless-earbuds-teal,JBuds Mini True Wireless Earbuds Teal,"",3999,3999,true,2026-11-09T16:27:42Z
 jlab,6893539819592,40342910009416,jbuds-anc-true-wireless-earbuds-gen-3-black,JBuds ANC True Wireless Earbuds Gen 3 Black,Default Title,3999,6499,true,2026-11-13T14:39:06Z
 jlab,6893539852360,40342909976648,jbuddies-pro-wireless-over-ear-kids-headphones-blue,JBuddies Pro Wireless Over-Ear Kids Headphones Blue,Default Title,3499,3499,true,2026-11-04T08:46:55Z
@@ -3900,10 +3899,10 @@ jlab,6972308783176,40610341060680,go-party-portable-bluetooth-speaker-navy,Go Pa
 jlab,6972309110856,40610341421128,go-party-portable-bluetooth-speaker-pink,Go Party Portable Bluetooth Speaker Pink,Default Title,2799,3499,false,2026-11-09T16:27:42Z
 jlab,6972313927752,40610353872968,pop-party-ultra-portable-bluetooth-speaker-black,Pop Party Ultra-Portable Bluetooth Speaker Black,Black,2499,2499,true,2026-11-04T08:46:55Z
 jlab,6972413673544,40610951790664,pop-party-ultra-portable-bluetooth-speaker-mulberry,Pop Party Ultra-Portable Bluetooth Speaker Mulberry,Mulberry,2499,2499,true,2026-11-04T08:46:55Z
-jlab,6972532654152,40611301556296,pop-party-ultra-portable-bluetooth-speaker-cyan,Pop Party Ultra-Portable Bluetooth Speaker Cyan,Cyan,2499,2499,false,2026-11-04T08:46:55Z
-jlab,6972532752456,40611301818440,pop-party-ultra-portable-bluetooth-speaker-lime,Pop Party Ultra-Portable Bluetooth Speaker Lime,Default Title,2499,2499,false,2026-11-04T08:46:55Z
+jlab,6972532654152,40611301556296,pop-party-ultra-portable-bluetooth-speaker-cyan,Pop Party Ultra-Portable Bluetooth Speaker Cyan,Cyan,2499,2499,true,2026-11-14T13:36:42Z
+jlab,6972532752456,40611301818440,pop-party-ultra-portable-bluetooth-speaker-lime,Pop Party Ultra-Portable Bluetooth Speaker Lime,Default Title,2499,2499,true,2026-11-14T13:36:42Z
 jlab,6972532817992,40611301916744,pop-party-ultra-portable-bluetooth-speaker-navy,Pop Party Ultra-Portable Bluetooth Speaker Navy,Navy,2499,2499,true,2026-11-04T08:46:55Z
-jlab,6972532850760,40611301949512,pop-party-ultra-portable-bluetooth-speaker-pink,Pop Party Ultra-Portable Bluetooth Speaker Pink,Pink,2499,2499,false,2026-11-04T08:46:55Z
+jlab,6972532850760,40611301949512,pop-party-ultra-portable-bluetooth-speaker-pink,Pop Party Ultra-Portable Bluetooth Speaker Pink,Pink,2499,2499,true,2026-11-14T13:36:42Z
 jlab,6972541304904,40611347267656,epic-party-portable-bluetooth-speaker-black,Epic Party Portable Bluetooth Speaker Black,Default Title,16999,18999,true,2026-11-09T16:27:42Z
 jlab,6973572186184,40613091115080,fourth-of-july-fireworks-family-pack,Fourth of July Fireworks Family Pack,Default Title,7037,8796,true,2026-11-09T16:27:42Z
 jlab,6977649672264,40629788115016,blue-crew-t-shirt,Blue Crew T-Shirt,Small,2500,,false,2026-11-04T08:46:55Z
@@ -4522,7 +4521,7 @@ lunya,7067808563243,40683035983915,womens-washable-silk-cami-pant-set-immersed-b
 lunya,7067809415211,40683038703659,womens-washable-silk-long-robe-immersed-black,Washable Silk Long Robe,Immersed Black / XS S,29800,,true,2026-11-04T08:46:55Z
 lunya,7067809415211,40683038769195,womens-washable-silk-long-robe-immersed-black,Washable Silk Long Robe,Immersed Black / M,29800,,true,2026-11-04T08:46:55Z
 lunya,7067809415211,40683038801963,womens-washable-silk-long-robe-immersed-black,Washable Silk Long Robe,Immersed Black / L XL,29800,,true,2026-11-04T08:46:55Z
-lunya,7067809579051,40683039227947,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / XS S,29800,,false,2026-11-12T15:20:05Z
+lunya,7067809579051,40683039227947,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / XS S,29800,,true,2026-11-14T13:36:42Z
 lunya,7067809579051,40683039260715,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / M,29800,,true,2026-11-04T08:46:55Z
 lunya,7067809579051,40683039293483,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / L XL,29800,,true,2026-11-04T08:46:55Z
 lunya,7067810299947,40683040931883,womens-washable-silk-elastic-strap-jumpsuit-immersed-black,Washable Silk Elastic Strap Jumpsuit,Immersed Black / XS,27800,,true,2026-11-04T08:46:55Z
@@ -4545,7 +4544,7 @@ lunya,7067811577899,40683046076459,womens-cottonsilk-ribbed-legging-mellow-grey-
 lunya,7067811577899,40683046174763,womens-cottonsilk-ribbed-legging-mellow-grey-heather,Cottonsilk™ Ribbed Legging,Mellow Grey Heather / M,19800,,true,2026-11-04T08:46:55Z
 lunya,7067811577899,40683046240299,womens-cottonsilk-ribbed-legging-mellow-grey-heather,Cottonsilk™ Ribbed Legging,Mellow Grey Heather / L,19800,,true,2026-11-04T08:46:55Z
 lunya,7067811577899,40683046338603,womens-cottonsilk-ribbed-legging-mellow-grey-heather,Cottonsilk™ Ribbed Legging,Mellow Grey Heather / XL,19800,,true,2026-11-04T08:46:55Z
-lunya,7067812102187,40683047452715,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / XS,28800,,true,2026-11-04T08:46:55Z
+lunya,7067812102187,40683047452715,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / XS,28800,,false,2026-11-14T13:36:42Z
 lunya,7067812102187,40683047518251,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / S,28800,,false,2026-11-04T08:46:55Z
 lunya,7067812102187,40683047551019,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / M,28800,,false,2026-11-12T15:20:05Z
 lunya,7067812102187,40683047649323,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / L,28800,,false,2026-11-04T08:46:55Z
@@ -4602,7 +4601,7 @@ lunya,7111443218475,40788674773035,mens-washable-silk-button-up-set-meditative-g
 lunya,7111443218475,40788674805803,mens-washable-silk-button-up-set-meditative-grey,Men's Washable Silk Button Up Set,Meditative Grey / L,29800,,false,2026-11-04T08:46:55Z
 lunya,7111443218475,40788674838571,mens-washable-silk-button-up-set-meditative-grey,Men's Washable Silk Button Up Set,Meditative Grey / XL,29800,,true,2026-11-04T08:46:55Z
 lunya,7111443218475,40788674871339,mens-washable-silk-button-up-set-meditative-grey,Men's Washable Silk Button Up Set,Meditative Grey / XXL,29800,,true,2026-11-04T08:46:55Z
-lunya,7111444398123,40788678869035,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / S,27800,,false,2026-11-07T09:31:31Z
+lunya,7111444398123,40788678869035,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / S,27800,,true,2026-11-14T13:36:42Z
 lunya,7111444398123,40788678901803,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / M,27800,,true,2026-11-04T08:46:55Z
 lunya,7111444398123,40788678934571,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / L,27800,,false,2026-11-04T08:46:55Z
 lunya,7111444398123,40788678967339,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / XL,27800,,false,2026-11-04T08:46:55Z
@@ -4664,8 +4663,6 @@ lunya,7168187203627,40943218819115,womens-soft-modal-rib-tee-short-set-immersed-
 lunya,7168187203627,40943218851883,womens-soft-modal-rib-tee-short-set-immersed-black,Soft Modal Rib Tee Short Set,Immersed Black / M,12800,,true,2026-11-04T08:46:55Z
 lunya,7168187203627,40943218884651,womens-soft-modal-rib-tee-short-set-immersed-black,Soft Modal Rib Tee Short Set,Immersed Black / L,12800,,true,2026-11-04T08:46:55Z
 lunya,7168187203627,40943218917419,womens-soft-modal-rib-tee-short-set-immersed-black,Soft Modal Rib Tee Short Set,Immersed Black / XL,12800,,true,2026-11-04T08:46:55Z
-lunya,7176850571307,40964858150955,womens-weighted-washable-silk-sleep-mask-deep-blue,Weighted Silk Sleep Mask,Deep Blue / S,9500,,true,2026-11-13T14:39:06Z
-lunya,7176850571307,40964858183723,womens-weighted-washable-silk-sleep-mask-deep-blue,Weighted Silk Sleep Mask,Deep Blue / L,9500,,false,2026-11-13T14:39:06Z
 lunya,7182117470251,40977529208875,womens-washable-silk-tulip-back-set-immersed-black,Washable Silk Tulip Back Set,Immersed Black / XS,18800,,true,2026-11-04T08:46:55Z
 lunya,7182117470251,40977529241643,womens-washable-silk-tulip-back-set-immersed-black,Washable Silk Tulip Back Set,Immersed Black / S,18800,,true,2026-11-04T08:46:55Z
 lunya,7182117470251,40977529274411,womens-washable-silk-tulip-back-set-immersed-black,Washable Silk Tulip Back Set,Immersed Black / M,18800,,true,2026-11-04T08:46:55Z
@@ -4736,7 +4733,7 @@ lunya,7244968067115,41109278654507,womens-washable-silk-high-rise-pant-set-tranq
 lunya,7244968067115,41109278687275,womens-washable-silk-high-rise-pant-set-tranquil-white,Washable Silk High Rise Pant Set,Tranquil White / L,28800,,true,2026-11-04T08:46:55Z
 lunya,7244968067115,41109278720043,womens-washable-silk-high-rise-pant-set-tranquil-white,Washable Silk High Rise Pant Set,Tranquil White / XL,28800,,true,2026-11-04T08:46:55Z
 lunya,7244984549419,41109329281067,womens-washable-silk-tee-pant-set-delicate-pink,Washable Silk Tee Pant Set,Delicate Pink / XS,28800,,true,2026-11-04T08:46:55Z
-lunya,7244984549419,41109329313835,womens-washable-silk-tee-pant-set-delicate-pink,Washable Silk Tee Pant Set,Delicate Pink / S,28800,,true,2026-11-13T14:39:06Z
+lunya,7244984549419,41109329313835,womens-washable-silk-tee-pant-set-delicate-pink,Washable Silk Tee Pant Set,Delicate Pink / S,28800,,false,2026-11-14T13:36:42Z
 lunya,7244984549419,41109329346603,womens-washable-silk-tee-pant-set-delicate-pink,Washable Silk Tee Pant Set,Delicate Pink / M,28800,,false,2026-11-04T08:46:55Z
 lunya,7244984549419,41109329379371,womens-washable-silk-tee-pant-set-delicate-pink,Washable Silk Tee Pant Set,Delicate Pink / L,28800,,false,2026-11-04T08:46:55Z
 lunya,7244984549419,41109329412139,womens-washable-silk-tee-pant-set-delicate-pink,Washable Silk Tee Pant Set,Delicate Pink / XL,28800,,false,2026-11-04T08:46:55Z
@@ -4767,7 +4764,7 @@ lunya,7254647603243,41129938878507,womens-seamless-modal-hipster-hushed-tan-1,Se
 lunya,7254647603243,41129938911275,womens-seamless-modal-hipster-hushed-tan-1,Seamless Modal Hipster,Hushed Tan / XL,3800,,false,2026-11-04T08:46:55Z
 lunya,7254650585131,41434557218859,womens-seamless-modal-hipster-sincere-white-1,Seamless Modal Hipster,Sincere White / XS,3800,,true,2026-11-04T08:46:55Z
 lunya,7254650585131,41434557251627,womens-seamless-modal-hipster-sincere-white-1,Seamless Modal Hipster,Sincere White / S,3800,,false,2026-11-04T08:46:55Z
-lunya,7254650585131,41434557284395,womens-seamless-modal-hipster-sincere-white-1,Seamless Modal Hipster,Sincere White / M,3800,,false,2026-11-04T08:46:55Z
+lunya,7254650585131,41434557284395,womens-seamless-modal-hipster-sincere-white-1,Seamless Modal Hipster,Sincere White / M,3800,,true,2026-11-14T13:36:42Z
 lunya,7254650585131,41434557317163,womens-seamless-modal-hipster-sincere-white-1,Seamless Modal Hipster,Sincere White / L,3800,,true,2026-11-04T08:46:55Z
 lunya,7254650585131,41434557349931,womens-seamless-modal-hipster-sincere-white-1,Seamless Modal Hipster,Sincere White / XL,3800,,true,2026-11-04T08:46:55Z
 lunya,7255024893995,41131082088491,womens-soft-modal-rib-v-neck-henley-immersed-black,Soft Modal Rib V-Neck Henley,Immersed Black / XS,11800,,true,2026-11-04T08:46:55Z
@@ -4837,7 +4834,7 @@ lunya,7271365705771,41177557631019,womens-organic-pima-wide-leg-pant-deep-blue,O
 lunya,7271365705771,41177557663787,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / S,14800,,false,2026-11-10T14:57:00Z
 lunya,7271365705771,41177557696555,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / M,14800,,false,2026-11-10T14:57:00Z
 lunya,7271365705771,41177557729323,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / L,14800,,false,2026-11-10T14:57:00Z
-lunya,7271365705771,41177557762091,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XL,14800,,true,2026-11-10T14:57:00Z
+lunya,7271365705771,41177557762091,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XL,14800,,false,2026-11-14T13:36:42Z
 lunya,7271368818731,41177565298731,womens-organic-pima-tee-short-set-deep-blue,Organic Pima Tee Short Set,Deep Blue / XS,12800,,true,2026-11-04T08:46:55Z
 lunya,7271368818731,41177565331499,womens-organic-pima-tee-short-set-deep-blue,Organic Pima Tee Short Set,Deep Blue / S,12800,,false,2026-11-04T08:46:55Z
 lunya,7271368818731,41177565364267,womens-organic-pima-tee-short-set-deep-blue,Organic Pima Tee Short Set,Deep Blue / M,12800,,false,2026-11-04T08:46:55Z
@@ -4859,7 +4856,7 @@ lunya,7296946798635,41258571595819,mens-soft-modal-boxer-brief-immersed-black-1,
 lunya,7296946798635,41258571628587,mens-soft-modal-boxer-brief-immersed-black-1,Men's Soft Modal Boxer Brief,Immersed Black / XXL,3800,,false,2026-11-13T14:39:06Z
 lunya,7296946798635,41258574250027,mens-soft-modal-boxer-brief-immersed-black-1,Men's Soft Modal Boxer Brief,Immersed Black / S,3800,,true,2026-11-13T14:39:06Z
 lunya,7296955318315,41258601480235,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / XS,4800,,false,2026-11-04T08:46:55Z
-lunya,7296955318315,41258601513003,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / S,4800,,true,2026-11-11T14:28:24Z
+lunya,7296955318315,41258601513003,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / S,4800,,false,2026-11-14T13:36:42Z
 lunya,7296955318315,41258601545771,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / M,4800,,true,2026-11-04T08:46:55Z
 lunya,7296955318315,41258601578539,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / L,4800,,true,2026-11-04T08:46:55Z
 lunya,7296955318315,41258601611307,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / XL,4800,,false,2026-11-04T08:46:55Z
@@ -4942,7 +4939,7 @@ lunya,7394814591019,41779017416747,womens-organic-pima-tee-short-set-storm-grey-
 lunya,7394814591019,41779017449515,womens-organic-pima-tee-short-set-storm-grey-heather,Organic Pima Tee Short Set,Storm Grey Heather / M,12800,,true,2026-11-04T08:46:55Z
 lunya,7394814591019,41779017482283,womens-organic-pima-tee-short-set-storm-grey-heather,Organic Pima Tee Short Set,Storm Grey Heather / L,12800,,true,2026-11-04T08:46:55Z
 lunya,7394814591019,41779017515051,womens-organic-pima-tee-short-set-storm-grey-heather,Organic Pima Tee Short Set,Storm Grey Heather / XL,12800,,true,2026-11-04T08:46:55Z
-lunya,7415234658347,41897487826987,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XS,6800,,true,2026-11-10T14:57:00Z
+lunya,7415234658347,41897487826987,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XS,6800,,false,2026-11-14T13:36:42Z
 lunya,7415234658347,41897487859755,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / S,6800,,true,2026-11-04T08:46:55Z
 lunya,7415234658347,41897487892523,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / M,6800,,false,2026-11-13T14:39:06Z
 lunya,7415234658347,41897487925291,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / L,6800,,true,2026-11-04T08:46:55Z
@@ -5130,7 +5127,7 @@ lunya,7763963969579,42592622936107,womens-slumberknit-shawl-collar-short-sleeve-
 lunya,7763963969579,42592622968875,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / S,14800,,false,2026-11-04T08:46:55Z
 lunya,7763963969579,42592623001643,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / M,14800,,false,2026-11-04T08:46:55Z
 lunya,7763963969579,42592623034411,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / L,14800,,false,2026-11-04T08:46:55Z
-lunya,7763963969579,42592623067179,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / XL,14800,,false,2026-11-04T08:46:55Z
+lunya,7763963969579,42592623067179,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / XL,14800,,true,2026-11-14T13:36:42Z
 lunya,7763964035115,42592623263787,womens-washable-silk-button-up-long-sleeve-short-set-french-butter,Washable Silk Button Up Long Sleeve Short Set,French Butter / XS,25800,,false,2026-11-04T08:46:55Z
 lunya,7763964035115,42592623296555,womens-washable-silk-button-up-long-sleeve-short-set-french-butter,Washable Silk Button Up Long Sleeve Short Set,French Butter / S,25800,,true,2026-11-04T08:46:55Z
 lunya,7763964035115,42592623329323,womens-washable-silk-button-up-long-sleeve-short-set-french-butter,Washable Silk Button Up Long Sleeve Short Set,French Butter / M,25800,,true,2026-11-04T08:46:55Z
@@ -5211,7 +5208,7 @@ lunya,7763964788779,42592626933803,mens-mens-slumberknit-pant-deep-blue,Men's Sl
 lunya,7763964788779,42592626966571,mens-mens-slumberknit-pant-deep-blue,Men's Slumberknit™ Pant,Deep Blue / XL,9800,,false,2026-11-04T08:46:55Z
 lunya,7763964788779,42592626999339,mens-mens-slumberknit-pant-deep-blue,Men's Slumberknit™ Pant,Deep Blue / XXL,9800,,true,2026-11-04T08:46:55Z
 lunya,7763964821547,42592627032107,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / XS,11800,,true,2026-11-04T08:46:55Z
-lunya,7763964821547,42592627064875,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / S,11800,,true,2026-11-04T08:46:55Z
+lunya,7763964821547,42592627064875,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / S,11800,,false,2026-11-14T13:36:42Z
 lunya,7763964821547,42592627097643,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / M,11800,,false,2026-11-04T08:46:55Z
 lunya,7763964821547,42592627130411,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / L,11800,,false,2026-11-04T08:46:55Z
 lunya,7763964821547,42592627163179,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / XL,11800,,false,2026-11-04T08:46:55Z
@@ -5422,7 +5419,7 @@ lunya,7849299050539,43346800148523,womens-organic-cotton-seersucker-wide-sleeve-
 lunya,7849299050539,43346800181291,womens-organic-cotton-seersucker-wide-sleeve-fresh-herb,Organic Cotton Seersucker Wide Sleeve,Fresh Herb / XL,12800,,false,2026-11-04T08:46:55Z
 lunya,7849299083307,43346800214059,womens-organic-cotton-seersucker-pant-fresh-herb,Organic Cotton Seersucker Pant,Fresh Herb / XS,14800,,true,2026-11-04T08:46:55Z
 lunya,7849299083307,43346800246827,womens-organic-cotton-seersucker-pant-fresh-herb,Organic Cotton Seersucker Pant,Fresh Herb / S,14800,,true,2026-11-04T08:46:55Z
-lunya,7849299083307,43346800279595,womens-organic-cotton-seersucker-pant-fresh-herb,Organic Cotton Seersucker Pant,Fresh Herb / M,14800,,true,2026-11-04T08:46:55Z
+lunya,7849299083307,43346800279595,womens-organic-cotton-seersucker-pant-fresh-herb,Organic Cotton Seersucker Pant,Fresh Herb / M,14800,,false,2026-11-14T13:36:42Z
 lunya,7849299083307,43346800312363,womens-organic-cotton-seersucker-pant-fresh-herb,Organic Cotton Seersucker Pant,Fresh Herb / L,14800,,false,2026-11-04T08:46:55Z
 lunya,7849299083307,43346800345131,womens-organic-cotton-seersucker-pant-fresh-herb,Organic Cotton Seersucker Pant,Fresh Herb / XL,14800,,true,2026-11-04T08:46:55Z
 lunya,7849299148843,43346800541739,womens-organic-cotton-seersucker-short-fresh-herb,Organic Cotton Seersucker Short,Fresh Herb / XS,8800,,true,2026-11-04T08:46:55Z
@@ -5519,7 +5516,7 @@ lunya,7849299836971,43346804178987,mens-washable-silk-boxer-garden-moss,Men's Wa
 lunya,7849299836971,43346804211755,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / M,8800,,true,2026-11-04T08:46:55Z
 lunya,7849299836971,43346804244523,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / L,8800,,true,2026-11-04T08:46:55Z
 lunya,7849299836971,43346804277291,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / XL,8800,,false,2026-11-04T08:46:55Z
-lunya,7849299836971,43346804310059,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / XXL,8800,,true,2026-11-04T08:46:55Z
+lunya,7849299836971,43346804310059,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / XXL,8800,,false,2026-11-14T13:36:42Z
 lunya,7849299869739,43346804015147,womens-washable-silk-bias-cami-pant-set-riviera-dot,Washable Silk Bias Cami Pant Set,Riviera Dot / XS,27800,,true,2026-11-04T08:46:55Z
 lunya,7849299869739,43346804047915,womens-washable-silk-bias-cami-pant-set-riviera-dot,Washable Silk Bias Cami Pant Set,Riviera Dot / S,27800,,true,2026-11-04T08:46:55Z
 lunya,7849299869739,43346804080683,womens-washable-silk-bias-cami-pant-set-riviera-dot,Washable Silk Bias Cami Pant Set,Riviera Dot / M,27800,,true,2026-11-04T08:46:55Z
@@ -5578,7 +5575,7 @@ lunya,7849300230187,43346805948459,womens-airy-cotton-short-sunset-stripe,Airy C
 lunya,7849300230187,43346805981227,womens-airy-cotton-short-sunset-stripe,Airy Cotton Short,Sunset Stripe / M,8800,,true,2026-11-04T08:46:55Z
 lunya,7849300230187,43346806013995,womens-airy-cotton-short-sunset-stripe,Airy Cotton Short,Sunset Stripe / L,8800,,true,2026-11-04T08:46:55Z
 lunya,7849300230187,43346806046763,womens-airy-cotton-short-sunset-stripe,Airy Cotton Short,Sunset Stripe / XL,8800,,true,2026-11-04T08:46:55Z
-lunya,7849300262955,43346806079531,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / XS,21800,,false,2026-11-09T16:27:42Z
+lunya,7849300262955,43346806079531,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / XS,21800,,true,2026-11-14T13:36:42Z
 lunya,7849300262955,43346806112299,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / S,21800,,true,2026-11-04T08:46:55Z
 lunya,7849300262955,43346806145067,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / M,21800,,true,2026-11-04T08:46:55Z
 lunya,7849300262955,43346806177835,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / L,21800,,false,2026-11-04T08:46:55Z
@@ -5859,7 +5856,7 @@ master-dynamic,2476472705,8328271617,digital-gift-card,Digital Gift Card,$299,29
 master-dynamic,2476472705,8328271681,digital-gift-card,Digital Gift Card,$399,39900,,true,2026-11-04T08:46:55Z
 master-dynamic,2476472705,8328271745,digital-gift-card,Digital Gift Card,$449,44900,,true,2026-11-04T08:46:55Z
 master-dynamic,2476472705,8328271809,digital-gift-card,Digital Gift Card,$499,49900,,true,2026-11-04T08:46:55Z
-master-dynamic,6086454407,20477693831,mw60-ear-pads,MW60 Ear Pads,Burgundy,4900,,false,2026-11-04T08:46:55Z
+master-dynamic,6086454407,20477693831,mw60-ear-pads,MW60 Ear Pads,Burgundy,4900,,true,2026-11-14T13:36:42Z
 master-dynamic,6086454407,20477755719,mw60-ear-pads,MW60 Ear Pads,Olive,4900,,true,2026-11-04T08:46:55Z
 master-dynamic,6086454407,41648964039,mw60-ear-pads,MW60 Ear Pads,Navy,4900,,true,2026-11-04T08:46:55Z
 master-dynamic,6086454407,12382409523277,mw60-ear-pads,MW60 Ear Pads,White / Grey,4900,,true,2026-11-04T08:46:55Z
@@ -5867,7 +5864,7 @@ master-dynamic,6086454407,12382409556045,mw60-ear-pads,MW60 Ear Pads,Royal,4900,
 master-dynamic,10218749831,42191365255,mh40-for-0-95-over-ear-headphones,MH40 Headphones for Leica 0.95,Black / Black Leather / Black Metal,24900,,false,2026-11-04T08:46:55Z
 master-dynamic,10218749831,12295835877453,mh40-for-0-95-over-ear-headphones,MH40 Headphones for Leica 0.95,Silver / Black Leather / Silver Metal,24900,,false,2026-11-04T08:46:55Z
 master-dynamic,1335974690893,12295831683149,usb-c-to-3-5mm-audio-cable,USB-C to 3.5mm Audio Cable,Black,4900,,false,2026-11-04T08:46:55Z
-master-dynamic,1335974690893,12295831715917,usb-c-to-3-5mm-audio-cable,USB-C to 3.5mm Audio Cable,Silver,4900,,false,2026-11-04T08:46:55Z
+master-dynamic,1335974690893,12295831715917,usb-c-to-3-5mm-audio-cable,USB-C to 3.5mm Audio Cable,Silver,4900,,true,2026-11-14T13:36:42Z
 master-dynamic,1346963013709,12295828242509,mw50-wireless-on-and-over-ear-headphones,MW50+,Silver Metal / Black Leather,29900,,false,2026-11-04T08:46:55Z
 master-dynamic,1346963013709,12295828275277,mw50-wireless-on-and-over-ear-headphones,MW50+,Silver Metal / Brown Leather,29900,,false,2026-11-04T08:46:55Z
 master-dynamic,1383862173773,12506545520717,mw50-on-ear-pads,MW50+ On-Ear Ear Pads,Black,4500,,true,2026-11-04T08:46:55Z
@@ -5875,14 +5872,14 @@ master-dynamic,1383862173773,12506545553485,mw50-on-ear-pads,MW50+ On-Ear Ear Pa
 master-dynamic,1383862206541,12506545684557,mw50-over-ear-ear-pads,MW50+ Over-Ear Ear Pads,Black,4900,,true,2026-11-04T08:46:55Z
 master-dynamic,1383862206541,12506545717325,mw50-over-ear-ear-pads,MW50+ Over-Ear Ear Pads,Brown,4900,,true,2026-11-04T08:46:55Z
 master-dynamic,1565009543245,13171723337805,customization,Case Engraving,Steel Case,3000,,true,2026-11-04T08:46:55Z
-master-dynamic,1568288604237,30154867638349,gift-wrap,Gift Wrap,Black,750,,true,2026-11-04T08:46:55Z
+master-dynamic,1568288604237,30154867638349,gift-wrap,Gift Wrap,Black,850,,true,2026-11-14T13:36:42Z
 master-dynamic,4628313899085,32612194418765,mw65-headphones-for-0-95,MW65 Headphones for Leica 0.95,Black / Black Leather / Black Metal,49900,,false,2026-11-04T08:46:55Z
 master-dynamic,4633380225101,32470220963917,mw65-ear-pads,MW65 Ear Pads,Black,4900,,false,2026-11-04T08:46:55Z
 master-dynamic,4633380225101,32470220996685,mw65-ear-pads,MW65 Ear Pads,Brown,4900,,false,2026-11-04T08:46:55Z
 master-dynamic,4811723210829,33023837470797,mh40-wireless-ear-pads,MH40 Wireless Ear Pads,Black,4900,,false,2026-11-04T08:46:55Z
 master-dynamic,4811723210829,33023837503565,mh40-wireless-ear-pads,MH40 Wireless Ear Pads,Brown,4900,,false,2026-11-04T08:46:55Z
 master-dynamic,4811723210829,33023837536333,mh40-wireless-ear-pads,MH40 Wireless Ear Pads,Navy,4900,,false,2026-11-04T08:46:55Z
-master-dynamic,4811723210829,33023837569101,mh40-wireless-ear-pads,MH40 Wireless Ear Pads,Grey,4900,,false,2026-11-04T08:46:55Z
+master-dynamic,4811723210829,33023837569101,mh40-wireless-ear-pads,MH40 Wireless Ear Pads,Grey,4900,,true,2026-11-14T13:36:42Z
 master-dynamic,4820674052173,33045849178189,mw01-wireless-bluetooth-adapter,MW01 Wireless,Silver/Black,6900,,false,2026-11-04T08:46:55Z
 master-dynamic,5970353193152,37149332537536,mw65-lamborghini,MW65 Automobili Lamborghini,Black / Black / Grey,49900,,false,2026-11-04T08:46:55Z
 master-dynamic,5970353193152,37149332570304,mw65-lamborghini,MW65 Automobili Lamborghini,Black / Black / Yellow,49900,,false,2026-11-04T08:46:55Z
@@ -5895,13 +5892,13 @@ master-dynamic,6778516603072,40244310376640,mw08-sport-active-noise-cancelling-t
 master-dynamic,6852579426496,40558046838976,mw08-sport-ear-tips,Silicone and Foam Ear Tips,Black,2900,,true,2026-11-04T08:46:55Z
 master-dynamic,6895611183296,40783063646400,headphone-engraving,Headphone Engraving,Default Title,3000,,true,2026-11-04T08:46:55Z
 master-dynamic,6903446569152,40808913535168,mg20-wireless-gaming-headphones,MG20,Black Onyx,44900,,false,2026-11-04T08:46:55Z
-master-dynamic,6903446569152,40808913567936,mg20-wireless-gaming-headphones,MG20,Galactic White,44900,,false,2026-11-04T08:46:55Z
+master-dynamic,6903446569152,40808913567936,mg20-wireless-gaming-headphones,MG20,Galactic White,44900,,true,2026-11-14T13:36:42Z
 master-dynamic,6903446569152,43134810620096,mg20-wireless-gaming-headphones,MG20,Moss Green,44900,,false,2026-11-04T08:46:55Z
 master-dynamic,6903446569152,43134812291264,mg20-wireless-gaming-headphones,MG20,Sand Dune,44900,,false,2026-11-04T08:46:55Z
 master-dynamic,7146211049664,41684741783744,mw75-active-noise-cancelling-wireless-headphones,MW75,Gunmetal / Black Leather,59900,,false,2026-11-04T08:46:55Z
 master-dynamic,7146211049664,41684742242496,mw75-active-noise-cancelling-wireless-headphones,MW75,Silver Metal / Brown Leather,59900,,false,2026-11-04T08:46:55Z
 master-dynamic,7146211049664,41684745420992,mw75-active-noise-cancelling-wireless-headphones,MW75,Black Metal / Black Leather,59900,,false,2026-11-04T08:46:55Z
-master-dynamic,7146211049664,42904588976320,mw75-active-noise-cancelling-wireless-headphones,MW75,Silver Metal / Grey Leather,59900,,false,2026-11-04T08:46:55Z
+master-dynamic,7146211049664,42904588976320,mw75-active-noise-cancelling-wireless-headphones,MW75,Silver Metal / Grey Leather,59900,,true,2026-11-14T13:36:42Z
 master-dynamic,7146211049664,43616799391936,mw75-active-noise-cancelling-wireless-headphones,MW75,Silver Metal / Navy Leather,59900,,false,2026-11-04T08:46:55Z
 master-dynamic,7146211049664,43687925121216,mw75-active-noise-cancelling-wireless-headphones,MW75,Gunmetal / Navy Leather,59900,,false,2026-11-04T08:46:55Z
 master-dynamic,7146211049664,43687925153984,mw75-active-noise-cancelling-wireless-headphones,MW75,Silver Metal / Black Leather,59900,,false,2026-11-04T08:46:55Z
@@ -5932,10 +5929,10 @@ master-dynamic,7387943010496,43251456049344,mg20-detachable-boom-microphone,MG20
 master-dynamic,7387943010496,43251456082112,mg20-detachable-boom-microphone,MG20 Detachable Boom Microphone,Gunmetal,8900,,true,2026-11-04T08:46:55Z
 master-dynamic,7462095978688,43527423262912,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Silver Metal / Brown Leather,39900,,false,2026-11-04T08:46:55Z
 master-dynamic,7462095978688,43527423295680,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Black Metal / Black Leather,39900,,false,2026-11-04T08:46:55Z
-master-dynamic,7462095978688,43527423328448,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Gunmetal / Black Leather,39900,,false,2026-11-04T08:46:55Z
+master-dynamic,7462095978688,43527423328448,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Gunmetal / Black Leather,39900,,true,2026-11-14T13:36:42Z
 master-dynamic,7462095978688,43527423393984,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Silver Metal / Navy Leather,39900,,false,2026-11-04T08:46:55Z
-master-dynamic,7462095978688,43687927546048,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Gunmetal / Navy Leather,39900,,false,2026-11-04T08:46:55Z
-master-dynamic,7462095978688,45992140669120,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Black Metal / White Leather,39900,,false,2026-11-04T08:46:55Z
+master-dynamic,7462095978688,43687927546048,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Gunmetal / Navy Leather,39900,,true,2026-11-14T13:36:42Z
+master-dynamic,7462095978688,45992140669120,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Black Metal / White Leather,39900,,true,2026-11-14T13:36:42Z
 master-dynamic,7462095978688,45992512848064,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Silver Metal / Tan Leather,39900,,false,2026-11-04T08:46:55Z
 master-dynamic,7462095978688,47591823737024,mh40-wireless-over-ear-headphones-v2,MH40 Wireless,Grey Metal / Sliver Leather,39900,,false,2026-11-04T08:46:55Z
 master-dynamic,7467414388928,43550190731456,mg20-bugatti,MG20 BUGATTI,Nocturne / Jet Orange,59900,,false,2026-11-04T08:46:55Z
@@ -6180,12 +6177,12 @@ oveja-negra,9505700164,32385831684,snack-pack-top-tube-bag-small,Snack Pack™ -
 oveja-negra,9505700164,32385832004,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Multicam® Black,5500,,false,2026-11-04T08:46:55Z
 oveja-negra,9505700164,39364375937126,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Coyote Brown,5500,,false,2026-11-07T09:31:31Z
 oveja-negra,9505700164,39673266995302,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Serape,5500,,false,2026-11-04T08:46:55Z
-oveja-negra,9505700164,50324962836785,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Raspberry Beret,5500,,true,2026-11-04T08:46:55Z
+oveja-negra,9505700164,50324962836785,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Raspberry Beret,5500,,false,2026-11-14T13:36:42Z
 oveja-negra,9505700164,50324962869553,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Party Animal,5500,,false,2026-11-04T08:46:55Z
-oveja-negra,9505700164,55189317091633,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Jalapeño,5500,,true,2026-11-04T08:46:55Z
+oveja-negra,9505700164,55189317091633,snack-pack-top-tube-bag-small,Snack Pack™ - Small,Small / Jalapeño,5500,,false,2026-11-14T13:36:42Z
 oveja-negra,9505790852,32386247556,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Black / Large,6000,,true,2026-11-04T08:46:55Z
 oveja-negra,9505790852,32386277316,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Black / XL,6500,,false,2026-11-04T08:46:55Z
-oveja-negra,9505790852,6490529333275,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Serape / Large,6000,,true,2026-11-04T08:46:55Z
+oveja-negra,9505790852,6490529333275,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Serape / Large,6000,,false,2026-11-14T13:36:42Z
 oveja-negra,9505790852,32257071939686,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Coyote Brown / Large,6000,,true,2026-11-04T08:46:55Z
 oveja-negra,9505790852,32257078100070,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Coyote Brown / XL,6500,,false,2026-11-04T08:46:55Z
 oveja-negra,9505790852,39687129071718,snack-pack-top-tube-bags-large-xl,Snack Pack™ - Large/XL,Serape / XL,6500,,false,2026-11-04T08:46:55Z
@@ -6214,19 +6211,19 @@ oveja-negra,9570610703,49649492885809,lunchbox-handlebar-bag,Lunchbox™ Handleb
 oveja-negra,9570613071,32633630287,front-end-loader,Front End Loader™ - Dry Bag Mount,Black / Harness,6000,,true,2026-11-04T08:46:55Z
 oveja-negra,9570616207,32633642447,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Black,6500,,false,2026-11-11T14:28:24Z
 oveja-negra,9570616207,32288496975974,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Coyote Brown,6500,,true,2026-11-04T08:46:55Z
-oveja-negra,9570616207,39568375021670,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Serape,6500,,true,2026-11-09T16:27:42Z
+oveja-negra,9570616207,39568375021670,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Serape,6500,,false,2026-11-14T13:36:42Z
 oveja-negra,9570616207,39581844504678,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Party Animal,6500,,false,2026-11-04T08:46:55Z
 oveja-negra,9570616207,51461155389745,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Raspberry Beret,6500,,true,2026-11-04T08:46:55Z
 oveja-negra,9570616207,51486806999345,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Denim Denim,6500,,true,2026-11-04T08:46:55Z
 oveja-negra,9570616207,52609617625393,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Jalapeno,6500,,true,2026-11-04T08:46:55Z
 oveja-negra,10023923471,35254852495,snack-pack-bolt-on,BOLT-ON Snack Pack™,Black / Bolt On,7000,,true,2026-11-04T08:46:55Z
-oveja-negra,10023923471,32320033554534,snack-pack-bolt-on,BOLT-ON Snack Pack™,Coyote Brown / Bolt On,7000,,true,2026-11-04T08:46:55Z
+oveja-negra,10023923471,32320033554534,snack-pack-bolt-on,BOLT-ON Snack Pack™,Coyote Brown / Bolt On,7000,,false,2026-11-14T13:36:42Z
 oveja-negra,10023923471,39627724587110,snack-pack-bolt-on,BOLT-ON Snack Pack™,Serape / Bolt On,7000,,false,2026-11-11T14:28:24Z
 oveja-negra,10023923471,51145007431985,snack-pack-bolt-on,BOLT-ON Snack Pack™,Multicam Black / Bolt On,7000,,false,2026-11-04T08:46:55Z
 oveja-negra,10023923471,51206493372721,snack-pack-bolt-on,BOLT-ON Snack Pack™,Denim / Bolt On,7000,,false,2026-11-04T08:46:55Z
 oveja-negra,10023923471,51255991402801,snack-pack-bolt-on,BOLT-ON Snack Pack™,Teal / Bolt On,7000,,false,2026-11-04T08:46:55Z
-oveja-negra,10023923471,51613900505393,snack-pack-bolt-on,BOLT-ON Snack Pack™,Jalapeño / Bolt On,7000,,true,2026-11-04T08:46:55Z
-oveja-negra,10023923471,51865294373169,snack-pack-bolt-on,BOLT-ON Snack Pack™,Raspberry Beret / Bolt On,7000,,true,2026-11-04T08:46:55Z
+oveja-negra,10023923471,51613900505393,snack-pack-bolt-on,BOLT-ON Snack Pack™,Jalapeño / Bolt On,7000,,false,2026-11-14T13:36:42Z
+oveja-negra,10023923471,51865294373169,snack-pack-bolt-on,BOLT-ON Snack Pack™,Raspberry Beret / Bolt On,7000,,false,2026-11-14T13:36:42Z
 oveja-negra,10023923471,52886554313009,snack-pack-bolt-on,BOLT-ON Snack Pack™,Party Animal / Bolt On,7000,,false,2026-11-04T08:46:55Z
 oveja-negra,10255999887,37042801807,gift-card,Gift Card,$150.00,15000,,true,2026-11-04T08:46:55Z
 oveja-negra,10255999887,37042801935,gift-card,Gift Card,$200.00,20000,,true,2026-11-04T08:46:55Z
@@ -6273,7 +6270,7 @@ oveja-negra,624936845339,39393913569382,snack-pack-small-angle,Snack Pack™ - S
 oveja-negra,624936845339,39752370159718,snack-pack-small-angle,Snack Pack™ - Small Angle,Small-Angle / Serape,5500,,false,2026-11-04T08:46:55Z
 oveja-negra,624936845339,50731432280369,snack-pack-small-angle,Snack Pack™ - Small Angle,Small-Angle / Sangre de Vida,5500,,false,2026-11-04T08:46:55Z
 oveja-negra,624936845339,52433728536881,snack-pack-small-angle,Snack Pack™ - Small Angle,Small-Angle / Jalapeno,5500,,false,2026-11-04T08:46:55Z
-oveja-negra,624936845339,52433728569649,snack-pack-small-angle,Snack Pack™ - Small Angle,Small-Angle / Raspberry Beret,5500,,true,2026-11-04T08:46:55Z
+oveja-negra,624936845339,52433728569649,snack-pack-small-angle,Snack Pack™ - Small Angle,Small-Angle / Raspberry Beret,5500,,false,2026-11-14T13:36:42Z
 oveja-negra,730692648987,6586150617115,bootlegger-fork-bag-direct-mount-wack-pack,Bootlegger Fork Bag (Direct Mount) - WACK PACK™,Wack Pack / 2L,8000,,true,2026-11-04T08:46:55Z
 oveja-negra,730692648987,48956682535217,bootlegger-fork-bag-direct-mount-wack-pack,Bootlegger Fork Bag (Direct Mount) - WACK PACK™,Wack Donuts / 2L,8000,,true,2026-11-04T08:46:55Z
 oveja-negra,737701560422,8101253185638,portero-roll-top-backpack-wack-pack,Portero™ Roll-Top Backpack - WACK PACK,Wack Pack / Backpack,18000,,true,2026-11-04T08:46:55Z
@@ -6285,7 +6282,7 @@ oveja-negra,1296959045734,12121511723110,full-frame-bags,Bodega Full Frame Bag,X
 oveja-negra,1296959045734,39744533397606,full-frame-bags,Bodega Full Frame Bag,S / Serape,15500,,false,2026-11-04T08:46:55Z
 oveja-negra,1296959045734,39744535134310,full-frame-bags,Bodega Full Frame Bag,M / Serape,16000,,false,2026-11-11T14:28:24Z
 oveja-negra,1296959045734,39778005581926,full-frame-bags,Bodega Full Frame Bag,S / Highlighter,15500,,false,2026-11-04T08:46:55Z
-oveja-negra,1296959045734,39846919733350,full-frame-bags,Bodega Full Frame Bag,L / Serape,17500,,true,2026-11-04T08:46:55Z
+oveja-negra,1296959045734,39846919733350,full-frame-bags,Bodega Full Frame Bag,L / Serape,17500,,false,2026-11-14T13:36:42Z
 oveja-negra,1296959045734,39846920454246,full-frame-bags,Bodega Full Frame Bag,XL / Serape,18000,,false,2026-11-04T08:46:55Z
 oveja-negra,1296959045734,44524958810417,full-frame-bags,Bodega Full Frame Bag,M / Highlighter,16000,,false,2026-11-04T08:46:55Z
 oveja-negra,1296959045734,49283411378481,full-frame-bags,Bodega Full Frame Bag,M / Teal,16000,,false,2026-11-04T08:46:55Z
@@ -6319,7 +6316,7 @@ oveja-negra,1640609841254,16048389914726,bodega-full-frame-bag-wack,Bodega Full 
 oveja-negra,1640609841254,50284475547953,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,S / Wack Donuts,15500,,false,2026-11-04T08:46:55Z
 oveja-negra,1640609841254,50284475580721,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,S / Wack BMFS,15500,,false,2026-11-04T08:46:55Z
 oveja-negra,1640609841254,50284475613489,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,M / Wack Donuts,16000,,false,2026-11-04T08:46:55Z
-oveja-negra,1640609841254,50284475646257,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,M / Wack BMFS,16000,,true,2026-11-04T08:46:55Z
+oveja-negra,1640609841254,50284475646257,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,M / Wack BMFS,16000,,false,2026-11-14T13:36:42Z
 oveja-negra,1640609841254,50284475679025,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,L / Wack Donuts,17500,,true,2026-11-04T08:46:55Z
 oveja-negra,1640609841254,50284475711793,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,L / Wack BMFS,17500,,false,2026-11-04T08:46:55Z
 oveja-negra,1640609841254,50284475744561,bodega-full-frame-bag-wack,Bodega Full Frame Bag - WACK PACK™,XL / Wack Donuts,18000,,true,2026-11-04T08:46:55Z
@@ -7302,9 +7299,9 @@ richer-poorer,6589665706080,42342838829152,womens-recycled-fleece-wide-leg-pant,
 sheets-giggles,9198882259118,48652838011054,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,White / Queen,24900,,true,2026-11-04T08:46:55Z
 sheets-giggles,9198882259118,48652838043822,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Silver / Queen,24900,,true,2026-11-04T08:46:55Z
 sheets-giggles,9198882259118,48652838076590,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Denim / Queen,24900,,false,2026-11-04T08:46:55Z
-sheets-giggles,9198882259118,48652838109358,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Aloe / Queen,24900,,false,2026-11-10T14:57:00Z
+sheets-giggles,9198882259118,48652838109358,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Aloe / Queen,24900,,true,2026-11-14T13:36:42Z
 sheets-giggles,9198882259118,48652838142126,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Charcoal / Queen,24900,,true,2026-11-04T08:46:55Z
-sheets-giggles,9198882259118,48653340803246,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,White / King,27900,,false,2026-11-04T08:46:55Z
+sheets-giggles,9198882259118,48653340803246,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,White / King,27900,,true,2026-11-14T13:36:42Z
 sheets-giggles,9198882259118,48653340836014,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Silver / King,27900,,true,2026-11-04T08:46:55Z
 sheets-giggles,9198882259118,48653340868782,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Denim / King,27900,,true,2026-11-04T08:46:55Z
 sheets-giggles,9198882259118,48653340901550,arctic-aire-max-100-tencel-lyocell-sheet-set,100% Tencel® Lyocell Sheet Set,Aloe / King,27900,,true,2026-11-04T08:46:55Z
@@ -7318,11 +7315,11 @@ sheets-giggles,9200609263790,48656477225134,eucalyptus-lyocell-pillowcase-set-co
 sheets-giggles,9200609263790,48656477257902,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Silver,6900,,false,2026-11-10T14:57:00Z
 sheets-giggles,9200609263790,48656479912110,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,Queen / White,6900,,false,2026-11-04T08:46:55Z
 sheets-giggles,9200609263790,48656479944878,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,Queen / Charcoal,5900,,false,2026-11-10T14:57:00Z
-sheets-giggles,9200609263790,48656479977646,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,Queen / Aloe,6900,,false,2026-11-10T14:57:00Z
-sheets-giggles,9200609263790,48656480010414,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,Queen / Denim,5900,,false,2026-11-10T14:57:00Z
-sheets-giggles,9200609263790,48656480043182,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / White,5900,,false,2026-11-10T14:57:00Z
+sheets-giggles,9200609263790,48656479977646,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,Queen / Aloe,6900,,true,2026-11-14T13:36:42Z
+sheets-giggles,9200609263790,48656480010414,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,Queen / Denim,5900,,true,2026-11-14T13:36:42Z
+sheets-giggles,9200609263790,48656480043182,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / White,5900,,true,2026-11-14T13:36:42Z
 sheets-giggles,9200609263790,48656480075950,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Charcoal,6900,,true,2026-11-11T14:28:24Z
-sheets-giggles,9200609263790,48656480108718,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Aloe,5900,,false,2026-11-10T14:57:00Z
+sheets-giggles,9200609263790,48656480108718,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Aloe,5900,,true,2026-11-14T13:36:42Z
 sheets-giggles,9200609263790,48656480141486,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Denim,6900,,false,2026-11-10T14:57:00Z
 sheets-giggles,15131175157934,66860002050222,bamboo-sheet-set,Bamboo Sheet Set,Charcoal / Twin,16900,,true,2026-11-11T14:28:24Z
 sheets-giggles,15131175157934,66860002082990,bamboo-sheet-set,Bamboo Sheet Set,Charcoal / Full,18900,,true,2026-11-11T14:28:24Z
@@ -8659,7 +8656,7 @@ soundcore-us,6109039755454,37652057391294,a3117011,soundcore 3 | Bluetooth Speak
 soundcore-us,6109039755454,48171122983102,a3117011,soundcore 3 | Bluetooth Speaker with Stereo Sound,Black / 2-Pack (True Wireless Stereo),11998,,true,2026-11-04T08:46:55Z
 soundcore-us,6109040148670,37652061552830,a3119011,soundcore Mini 3 | Mini Bluetooth Party Speaker,Black,4099,,false,2026-11-04T08:46:55Z
 soundcore-us,6124307218622,40612240490686,motion-boom,soundcore Motion Boom | Outdoor Bluetooth Speaker,Black,10999,,true,2026-11-04T08:46:55Z
-soundcore-us,6180785324222,40954173489342,life-a2-nc,Life A2 NC | Bluetooth Noise Cancelling Earbuds,Black,6999,,false,2026-11-11T14:28:24Z
+soundcore-us,6180785324222,40954173489342,life-a2-nc,Life A2 NC | Bluetooth Noise Cancelling Earbuds,Black,5999,,false,2026-11-14T13:36:42Z
 soundcore-us,6182560202942,40612099784894,life-a1,Life A1 | Bluetooth Earbuds with Customized Sound,Black,4999,,false,2026-11-04T08:46:55Z
 soundcore-us,6192075505854,39281729536190,a3919023,Life P2 | Wireless Earbuds with Microphone,White,3298,,false,2026-11-04T08:46:55Z
 soundcore-us,6231016276158,39704819695806,a3910022,Liberty Air 2 | TWS Earbuds for Home Offices,White,2395,,false,2026-11-04T08:46:55Z
@@ -8730,7 +8727,7 @@ soundcore-us,7364793827518,41956103487678,space-a40-a3936011,soundcore Space A40
 soundcore-us,7364793827518,44247347364030,space-a40-a3936011,soundcore Space A40 | Long-Lasting Noise Cancelling Earbuds,White,9999,,true,2026-11-04T08:46:55Z
 soundcore-us,7364793827518,44247347462334,space-a40-a3936011,soundcore Space A40 | Long-Lasting Noise Cancelling Earbuds,Navy Blue,9999,,true,2026-11-04T08:46:55Z
 soundcore-us,7364793827518,44505896452286,space-a40-a3936011,soundcore Space A40 | Long-Lasting Noise Cancelling Earbuds,Fresh Green,9999,,true,2026-11-04T08:46:55Z
-soundcore-us,7364793827518,44505896485054,space-a40-a3936011,soundcore Space A40 | Long-Lasting Noise Cancelling Earbuds,Purple,9999,,true,2026-11-04T08:46:55Z
+soundcore-us,7364793827518,44505896485054,space-a40-a3936011,soundcore Space A40 | Long-Lasting Noise Cancelling Earbuds,Purple,9999,,false,2026-11-14T13:36:42Z
 soundcore-us,7364813160638,41956218110142,space-q45-a3040011,soundcore Space Q45 | Long-Lasting Noise Cancelling Headphones,Black,14999,,false,2026-11-04T08:46:55Z
 soundcore-us,7364813160638,44247924572350,space-q45-a3040011,soundcore Space Q45 | Long-Lasting Noise Cancelling Headphones,White,14999,,false,2026-11-04T08:46:55Z
 soundcore-us,7364813160638,44247924605118,space-q45-a3040011,soundcore Space Q45 | Long-Lasting Noise Cancelling Headphones,Blue,14999,,false,2026-11-04T08:46:55Z
@@ -9158,7 +9155,7 @@ soundcore-us,8560932552894,45330825478334,soundcore-sleep-a30-offline,soundcore 
 soundcore-us,8568612880574,45358838481086,a3955z11,P40i,Black,7999,,true,2026-11-04T08:46:55Z
 soundcore-us,8568612880574,45358838513854,a3955z11,P40i,Oat White,7999,,true,2026-11-04T08:46:55Z
 soundcore-us,8568612880574,45358838546622,a3955z11,P40i,Navy Blue,7999,,true,2026-11-04T08:46:55Z
-soundcore-us,8568612880574,45358838579390,a3955z11,P40i,Purple,8999,,false,2026-11-13T14:39:06Z
+soundcore-us,8568612880574,45358838579390,a3955z11,P40i,Purple,8999,,true,2026-11-14T13:36:42Z
 soundcore-us,8576587497662,45402934640830,a3874z12-92,soundcore Care AeroFit 2 AI Assistant,Default Title,999,,true,2026-11-04T08:46:55Z
 soundcore-us,8579272605886,45411019161790,3874x-soundcore-aerofit-2-ai-assistant-translate-earbuds,soundcore AeroFit 2 AI Assistant | AI Translation for a Connected World,Jet Black / Solo,12999,,true,2026-11-04T08:46:55Z
 soundcore-us,8579272605886,45411019194558,3874x-soundcore-aerofit-2-ai-assistant-translate-earbuds,soundcore AeroFit 2 AI Assistant | AI Translation for a Connected World,Pearl White / Solo,12999,,true,2026-11-04T08:46:55Z
@@ -9381,7 +9378,7 @@ soundcore-us,8704976978110,46379132354750,soundcore-space-a40-refurbished,Space 
 soundcore-us,8704976978110,46379132387518,soundcore-space-a40-refurbished,Space A40 (Refurbished),Purple,9999,,false,2026-11-04T08:46:55Z
 soundcore-us,8704977436862,46379135271102,soundcore-q20i-refurbished,Q20i (Refurbished),White,6999,,true,2026-11-04T08:46:55Z
 soundcore-us,8704977436862,46379135303870,soundcore-q20i-refurbished,Q20i (Refurbished),Black,6999,,true,2026-11-04T08:46:55Z
-soundcore-us,8704977699006,46379136319678,q20i-refurbished,Q20i (Refurbished),Navy Blue,6999,,true,2026-11-04T08:46:55Z
+soundcore-us,8704977699006,46379136319678,q20i-refurbished,Q20i (Refurbished),Navy Blue,6999,,false,2026-11-14T13:36:42Z
 soundcore-us,8704977699006,46379136352446,q20i-refurbished,Q20i (Refurbished),Pink,6999,,true,2026-11-04T08:46:55Z
 soundcore-us,8704979828926,46379149164734,soundcore-aerofit-2-refurbished,AeroFit 2 (Refurbished),Midnight Black,12999,,true,2026-11-04T08:46:55Z
 soundcore-us,8704979828926,46379149230270,soundcore-aerofit-2-refurbished,AeroFit 2 (Refurbished),Pearl White,12999,12999,true,2026-11-04T08:46:55Z
@@ -9416,10 +9413,10 @@ soundcore-us,8704985039038,46379173511358,soundcore-liberty-5-refurbished,Libert
 soundcore-us,8704985039038,46379173576894,soundcore-liberty-5-refurbished,Liberty 5 (Refurbished),Navy Blue,12999,,true,2026-11-05T09:41:31Z
 soundcore-us,8704985497790,46379174723774,soundcore-sleep-a30-refurbished,Sleep A30  (Refurbished),Moonlit White,19999,,true,2026-11-04T08:46:55Z
 soundcore-us,8704985497790,46379174789310,soundcore-sleep-a30-refurbished,Sleep A30  (Refurbished),Mist Green,19999,,true,2026-11-04T08:46:55Z
-soundcore-us,8704985497790,47978494820542,soundcore-sleep-a30-refurbished,Sleep A30  (Refurbished),Lunar White Special,19999,,true,2026-11-13T14:39:06Z
+soundcore-us,8704985497790,47978494820542,soundcore-sleep-a30-refurbished,Sleep A30  (Refurbished),Lunar White Special,19999,,false,2026-11-14T13:36:42Z
 soundcore-us,8704985497790,49123372073150,soundcore-sleep-a30-refurbished,Sleep A30  (Refurbished),Mist Lilac Special,19999,,true,2026-11-04T08:46:55Z
 soundcore-us,8704985825470,46379175084222,soundcore-p40i-refurbished,P40i (Refurbished),Black,7999,,true,2026-11-04T08:46:55Z
-soundcore-us,8704985825470,46379175116990,soundcore-p40i-refurbished,P40i (Refurbished),Oat White,7999,,true,2026-11-04T08:46:55Z
+soundcore-us,8704985825470,46379175116990,soundcore-p40i-refurbished,P40i (Refurbished),Oat White,7999,,false,2026-11-14T13:36:42Z
 soundcore-us,8704985825470,46379175149758,soundcore-p40i-refurbished,P40i (Refurbished),Navy Blue,7999,,true,2026-11-04T08:46:55Z
 soundcore-us,8704985825470,47978651058366,soundcore-p40i-refurbished,P40i (Refurbished),Purple,7999,,true,2026-11-04T08:46:55Z
 soundcore-us,8704986054846,46379182686398,soundcore-select-4-go-bluetooth-shower-speaker-by-anker-refurbished,Select 4 Go (Refurbished),Midnight Black,3499,,false,2026-11-04T08:46:55Z
@@ -9779,7 +9776,7 @@ soundcore-us,8741136072894,49626064126142,anker-soundcore-work-seckill,Anker sou
 soundcore-us,8741154685118,46477389234366,soundcore-2-refurbished,soundcore 2 (Refurbished),Black,4599,,true,2026-11-04T08:46:55Z
 soundcore-us,8741154685118,47978628448446,soundcore-2-refurbished,soundcore 2 (Refurbished),Sky Blue,4599,,false,2026-11-04T08:46:55Z
 soundcore-us,8741154685118,47978628481214,soundcore-2-refurbished,soundcore 2 (Refurbished),Blue,4599,,false,2026-11-04T08:46:55Z
-soundcore-us,8741161631934,46477408698558,soundcore-boom-3i-refurbished,Boom 3i (Refurbished),Adventurer Black,12999,,true,2026-11-04T08:46:55Z
+soundcore-us,8741161631934,46477408698558,soundcore-boom-3i-refurbished,Boom 3i (Refurbished),Adventurer Black,12999,,false,2026-11-14T13:36:42Z
 soundcore-us,8741161631934,46477408764094,soundcore-boom-3i-refurbished,Boom 3i (Refurbished),Deep Ocean Blue,12999,,false,2026-11-04T08:46:55Z
 soundcore-us,8741161631934,46477408829630,soundcore-boom-3i-refurbished,Boom 3i (Refurbished),Jungle Green,12999,,false,2026-11-04T08:46:55Z
 soundcore-us,8741161631934,46477408895166,soundcore-boom-3i-refurbished,Boom 3i (Refurbished),Desert Rose Brown,12999,,false,2026-11-04T08:46:55Z
@@ -9869,7 +9866,7 @@ soundcore-us,8777712337086,46660693786814,a2697-anker-charger-140w-4-port,"Anker
 soundcore-us,8777712337086,46660693819582,a2697-anker-charger-140w-4-port,"Anker Charger (140W, 4-Port, PD 3.1) with USB-C Cable",Silver,8999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712369854,46660693852350,a1695-anker-power-bank-25000mah-165w,"Anker Laptop Power Bank (25K, 165W, Built-In and Retractable Cables)",Black,11999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712369854,46660693885118,a1695-anker-power-bank-25000mah-165w,"Anker Laptop Power Bank (25K, 165W, Built-In and Retractable Cables)",Silver,11999,,false,2026-11-04T08:46:55Z
-soundcore-us,8777712468158,46660694114494,a83b3-anker-prime-charging-docking-station-14-in-1-triple-display-140w,"Anker Prime Docking Station (14-in-1, Triple Display, DisplayLink) with DL7400",Dark Gray (Standard Edition),29999,,false,2026-11-12T15:20:05Z
+soundcore-us,8777712468158,46660694114494,a83b3-anker-prime-charging-docking-station-14-in-1-triple-display-140w,"Anker Prime Docking Station (14-in-1, Triple Display, DisplayLink) with DL7400",Dark Gray (Standard Edition),29999,,true,2026-11-14T13:36:42Z
 soundcore-us,8777712500926,46660694180030,a110a-anker-prime-26k-300w-power-bank,"Anker Prime Power Bank (26K, 300W)",Default Title,22999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712566462,46660694245566,a2687-anker-prime-charger-160w-3-ports-gan,"Anker Prime Charger (160W, 3 Ports, Smart Display)",Default Title,14999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712599230,46660694278334,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Aurora White | 1-Pack,3999,,false,2026-11-11T14:28:24Z
@@ -10057,14 +10054,18 @@ soundcore-us,8994032648382,49041079664830,d1206-liberty-buds-2-ai-powered-in-ear
 soundcore-us,8994032648382,49579192811710,d1206-liberty-buds-2-ai-powered-in-ear-earbuds-for-calls,Anker soundcore Liberty Buds 2 | Certified Comfortable Wireless Earbuds for Calls,Mother of Pearl Version / Liberty Buds 2 x soundcore 2,17598,,true,2026-11-06T09:46:16Z
 soundcore-us,8994032648382,49579192844478,d1206-liberty-buds-2-ai-powered-in-ear-earbuds-for-calls,Anker soundcore Liberty Buds 2 | Certified Comfortable Wireless Earbuds for Calls,Silver White / Liberty Buds 2 x soundcore 2,17598,,true,2026-11-06T09:46:16Z
 soundcore-us,8994032648382,49579192877246,d1206-liberty-buds-2-ai-powered-in-ear-earbuds-for-calls,Anker soundcore Liberty Buds 2 | Certified Comfortable Wireless Earbuds for Calls,Glossy Black / Liberty Buds 2 x soundcore 2,17598,,true,2026-11-06T09:46:16Z
-soundcore-us,8994049425598,49041094967486,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Burgundy Red / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
-soundcore-us,8994049425598,49041095000254,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Mist Blue / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
-soundcore-us,8994049425598,49041095033022,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Midnight Black / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
-soundcore-us,8994049425598,49041095065790,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Cloud White / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
-soundcore-us,8994049425598,49571881713854,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Burgundy Red / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
-soundcore-us,8994049425598,49571881746622,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Mist Blue / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
-soundcore-us,8994049425598,49571881779390,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Midnight Black / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
-soundcore-us,8994049425598,49571881812158,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore Aeroclip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Cloud White / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
+soundcore-us,8994049425598,49041094967486,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Burgundy Red / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
+soundcore-us,8994049425598,49041095000254,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Mist Blue / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
+soundcore-us,8994049425598,49041095033022,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Midnight Black / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
+soundcore-us,8994049425598,49041095065790,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Cloud White / Anker soundcore Aeroclip 2,16999,,true,2026-11-04T08:46:55Z
+soundcore-us,8994049425598,49571881713854,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Burgundy Red / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
+soundcore-us,8994049425598,49571881746622,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Mist Blue / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
+soundcore-us,8994049425598,49571881779390,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Midnight Black / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
+soundcore-us,8994049425598,49571881812158,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Cloud White / Aeroclip 2 x soundcore 2,22998,,true,2026-11-06T09:46:16Z
+soundcore-us,8994049425598,49679001911486,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Burgundy Red / AeroClip 2 + Anker MagGo 2 Pro,27998,,true,2026-11-14T13:36:42Z
+soundcore-us,8994049425598,49679001944254,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Mist Blue / AeroClip 2 + Anker MagGo 2 Pro,27998,,true,2026-11-14T13:36:42Z
+soundcore-us,8994049425598,49679001977022,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Midnight Black / AeroClip 2 + Anker MagGo 2 Pro,27998,,true,2026-11-14T13:36:42Z
+soundcore-us,8994049425598,49679002009790,d1105-aeroclip-2-clip-on-earbuds-with-clearest-calls,Anker soundcore AeroClip 2 |  Guinness-Certified Clip-On Earbuds for Clear Calls,Cloud White / AeroClip 2 + Anker MagGo 2 Pro,27998,,true,2026-11-14T13:36:42Z
 soundcore-us,9013047001278,49095343571134,d1105z11-83,Anker soundcore AeroClip 2 Butterfly Style Decoration,Butterfly Style,1999,,true,2026-11-04T08:46:55Z
 soundcore-us,9013047066814,49095358152894,d1105z11-85,Anker soundcore AeroClip 2 Petal Style Decoration,Petal Style,1999,,true,2026-11-04T08:46:55Z
 soundcore-us,9013047099582,49095364706494,d1105z11-84,Anker soundcore AeroClip 2 Bow Style Decoration,Bow Style,1999,,true,2026-11-04T08:46:55Z
@@ -10299,12 +10300,12 @@ state-liberty,15565794279505,58263624548433,open-button-overcoat-brushed-brown-t
 state-liberty,15565794279505,58263624581201,open-button-overcoat-brushed-brown-taupe,Open Button Overcoat - Brushed Brown & Taupe,XL / Brushed Brown & Taupe,45000,,true,2026-11-11T14:28:24Z
 state-liberty,15565794279505,58263624613969,open-button-overcoat-brushed-brown-taupe,Open Button Overcoat - Brushed Brown & Taupe,2XL / Brushed Brown & Taupe,45000,,true,2026-11-11T14:28:24Z
 state-liberty,15565794279505,58263624646737,open-button-overcoat-brushed-brown-taupe,Open Button Overcoat - Brushed Brown & Taupe,3XL / Brushed Brown & Taupe,45000,,true,2026-11-11T14:28:24Z
-state-liberty,15565799850065,58263676190801,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash",S / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
-state-liberty,15565799850065,58263676223569,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash",M / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
-state-liberty,15565799850065,58263676256337,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash",L / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
-state-liberty,15565799850065,58263676289105,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash",XL / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
-state-liberty,15565799850065,58263676321873,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash",2XL / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
-state-liberty,15565799850065,58263676354641,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash",3XL / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15565799850065,58263676190801,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash Polo",S / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15565799850065,58263676223569,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash Polo",M / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15565799850065,58263676256337,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash Polo",L / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15565799850065,58263676289105,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash Polo",XL / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15565799850065,58263676321873,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash Polo",2XL / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15565799850065,58263676354641,the-orr-black-grey-abstract-dash,"""The Orr"" Black & Grey Abstract Dash Polo",3XL / Black & Grey Abstract Dash,9200,,true,2026-11-13T14:39:06Z
 state-liberty,15573696446545,58290621579345,athletic-fit-stretch-suit-pants-textured-tan-with-olive-windowpane,Athletic Fit Stretch Suit Pants - Textured Tan with Olive Windowpane,29W | 30-32L / Textured Tan with Olive Windowpane,18000,,true,2026-11-04T08:46:55Z
 state-liberty,15573696446545,58290621612113,athletic-fit-stretch-suit-pants-textured-tan-with-olive-windowpane,Athletic Fit Stretch Suit Pants - Textured Tan with Olive Windowpane,30W | 31-33L / Textured Tan with Olive Windowpane,18000,,true,2026-11-04T08:46:55Z
 state-liberty,15573696446545,58290621644881,athletic-fit-stretch-suit-pants-textured-tan-with-olive-windowpane,Athletic Fit Stretch Suit Pants - Textured Tan with Olive Windowpane,31W | 32-34L / Textured Tan with Olive Windowpane,18000,,true,2026-11-04T08:46:55Z
@@ -10422,12 +10423,12 @@ state-liberty,15652317036625,59227777761361,swim-trunks-brown-and-black,Swim Tru
 state-liberty,15652317036625,59227777794129,swim-trunks-brown-and-black,Swim Trunks - Brown & Black,L / Brown & Black,8200,,true,2026-11-04T08:46:55Z
 state-liberty,15652317036625,59227777826897,swim-trunks-brown-and-black,Swim Trunks - Brown & Black,XL / Brown & Black,8200,,true,2026-11-04T08:46:55Z
 state-liberty,15652317036625,59227777859665,swim-trunks-brown-and-black,Swim Trunks - Brown & Black,2XL / Brown & Black,8200,,false,2026-11-04T08:46:55Z
-state-liberty,15652318675025,58579144966225,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe",S / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15652318675025,58579144998993,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe",M / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15652318675025,58579145031761,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe",L / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15652318675025,58579145064529,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe",XL / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15652318675025,58579145097297,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe",2XL / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15652318675025,58579145130065,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe",3XL / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15652318675025,58579144966225,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe Polo",S / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15652318675025,58579144998993,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe Polo",M / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15652318675025,58579145031761,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe Polo",L / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15652318675025,58579145064529,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe Polo",XL / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15652318675025,58579145097297,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe Polo",2XL / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15652318675025,58579145130065,the-vine-green-khaki-sketch-stripe,"""The Vine"" Green & Khaki Sketch Stripe Polo",3XL / Green & Khaki Sketch Stripe,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15662690795601,58920161804369,the-summit-graphite-blue-and-grey-textured-grid,"""The Summit"" Graphite Blue and Grey Textured Grid",S / Graphite Blue and Grey Textured Grid,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15662690795601,58920161837137,the-summit-graphite-blue-and-grey-textured-grid,"""The Summit"" Graphite Blue and Grey Textured Grid",M / Graphite Blue and Grey Textured Grid,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15662690795601,58920161869905,the-summit-graphite-blue-and-grey-textured-grid,"""The Summit"" Graphite Blue and Grey Textured Grid",L / Graphite Blue and Grey Textured Grid,10500,,true,2026-11-04T08:46:55Z
@@ -10906,10 +10907,10 @@ state-liberty,15770068156497,59396978081873,athletic-fit-stretch-blazer-oxford-b
 state-liberty,15770068156497,59396978114641,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,46 / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770068156497,59396978147409,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,48 / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770068156497,59396978180177,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,38 Short / Oxford Blue Plaid,55000,,false,2026-11-08T13:29:52Z
-state-liberty,15770068156497,59396978212945,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,40 Short / Oxford Blue Plaid,55000,,false,2026-11-08T13:29:52Z
-state-liberty,15770068156497,59396978245713,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,42 Short / Oxford Blue Plaid,55000,,false,2026-11-07T09:31:31Z
+state-liberty,15770068156497,59396978212945,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,40 Short / Oxford Blue Plaid,55000,,true,2026-11-14T13:36:42Z
+state-liberty,15770068156497,59396978245713,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,42 Short / Oxford Blue Plaid,55000,,true,2026-11-14T13:36:42Z
 state-liberty,15770068156497,59396978278481,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,44 Short / Oxford Blue Plaid,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770068156497,59396978311249,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,46 Short / Oxford Blue Plaid,55000,,true,2026-11-12T15:20:05Z
+state-liberty,15770068156497,59396978311249,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,46 Short / Oxford Blue Plaid,55000,,false,2026-11-14T13:36:42Z
 state-liberty,15770069270609,59396979916881,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,36 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396979949649,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,38 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396979982417,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,40 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
@@ -10919,7 +10920,7 @@ state-liberty,15770069270609,59396980080721,athletic-fit-stretch-blazer-textured
 state-liberty,15770069270609,59396980113489,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,48 / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396980146257,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,38 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770069270609,59396980179025,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,40 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-13T14:39:06Z
-state-liberty,15770069270609,59396980211793,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,42 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
+state-liberty,15770069270609,59396980211793,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,42 Short / Textured Tan with Olive Windowpane,55000,,false,2026-11-14T13:36:42Z
 state-liberty,15770069270609,59396980244561,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,44 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-08T13:29:52Z
 state-liberty,15770069270609,59396980277329,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,46 Short / Textured Tan with Olive Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770074120273,59396990074961,waffle-patch-pocket-button-down-heathered-white,Waffle Patch Pocket Button Down - Heathered White,Heathered White / S,12800,,true,2026-11-04T08:46:55Z
@@ -11020,19 +11021,19 @@ state-liberty,15826146656337,59566012006481,cotton-denim-dress-shirt-navy,Cotton
 state-liberty,15826146656337,59566012039249,cotton-denim-dress-shirt-navy,Cotton Denim Dress Shirt - Navy,3XL / Navy,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15826147475537,59566020952145,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,S / Solid Dark Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826147475537,59566020984913,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,M / Solid Dark Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826147475537,59566021017681,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,L / Solid Dark Green,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15826147475537,59566021017681,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,L / Solid Dark Green,9200,,false,2026-11-14T13:36:42Z
 state-liberty,15826147475537,59566021050449,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,XL / Solid Dark Green,9200,,false,2026-11-04T08:46:55Z
 state-liberty,15826147475537,59566021083217,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,2XL / Solid Dark Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826147475537,59566021115985,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,3XL / Solid Dark Green,9200,,false,2026-11-04T08:46:55Z
 state-liberty,15826150260817,59566047264849,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,S / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150260817,59566047297617,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,M / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826150260817,59566047330385,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,L / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
+state-liberty,15826150260817,59566047330385,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,L / Solid Sage Green,9200,,false,2026-11-14T13:36:42Z
 state-liberty,15826150260817,59566047363153,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,XL / Solid Sage Green,9200,,false,2026-11-07T09:31:31Z
 state-liberty,15826150260817,59566047395921,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,2XL / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150260817,59566047428689,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,3XL / Solid Sage Green,9200,,false,2026-11-10T14:57:00Z
 state-liberty,15826150654033,59566050607185,the-robert-pale-blue,''The Robert'' - Pale Blue,S / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050639953,the-robert-pale-blue,''The Robert'' - Pale Blue,M / Pale Blue,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826150654033,59566050672721,the-robert-pale-blue,''The Robert'' - Pale Blue,L / Pale Blue,9200,,true,2026-11-13T14:39:06Z
+state-liberty,15826150654033,59566050672721,the-robert-pale-blue,''The Robert'' - Pale Blue,L / Pale Blue,9200,,false,2026-11-14T13:36:42Z
 state-liberty,15826150654033,59566050705489,the-robert-pale-blue,''The Robert'' - Pale Blue,XL / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050738257,the-robert-pale-blue,''The Robert'' - Pale Blue,2XL / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050771025,the-robert-pale-blue,''The Robert'' - Pale Blue,3XL / Pale Blue,9200,,true,2026-11-04T08:46:55Z
@@ -11446,7 +11447,7 @@ year-day,6936590319787,40588817170603,big-spoon,Big Spoon,Matte Gold,2500,,true,
 year-day,6936590319787,40588817203371,big-spoon,Big Spoon,Matte Steel,2000,,true,2026-11-04T08:46:55Z
 year-day,6936590745771,41195341414571,small-fork,Small Fork,Polished Steel,1800,,true,2026-11-04T08:46:55Z
 year-day,6936590745771,41195341447339,small-fork,Small Fork,Matte Black,2300,,true,2026-11-04T08:46:55Z
-year-day,6936590745771,41195341480107,small-fork,Small Fork,Matte Gold,2300,,true,2026-11-04T08:46:55Z
+year-day,6936590745771,41195341480107,small-fork,Small Fork,Matte Gold,2300,,false,2026-11-14T13:36:42Z
 year-day,6936590745771,41195341512875,small-fork,Small Fork,Matte Steel,1800,,false,2026-11-06T09:46:16Z
 year-day,6936590778539,41195347017899,small-spoon,Small Spoon,Polished Steel,1800,,true,2026-11-04T08:46:55Z
 year-day,6936590778539,41195347050667,small-spoon,Small Spoon,Matte Black,2300,,true,2026-11-04T08:46:55Z
@@ -11481,31 +11482,31 @@ year-day,7075655254187,41090624684203,digital-gift-card,Digital Gift Card,$250.0
 year-day,7075655254187,41090624716971,digital-gift-card,Digital Gift Card,$300.00,30000,,true,2026-11-04T08:46:55Z
 year-day,7075655254187,41090624749739,digital-gift-card,Digital Gift Card,$400.00,40000,,true,2026-11-04T08:46:55Z
 year-day,7075655254187,41090624782507,digital-gift-card,Digital Gift Card,$500.00,50000,,true,2026-11-04T08:46:55Z
-year-day,7308365725867,41728463405227,the-stocked-set,The Stocked Set,Moon,27000,30000,false,2026-11-04T08:46:55Z
-year-day,7308365725867,41728463437995,the-stocked-set,The Stocked Set,Fog,27000,30000,true,2026-11-04T08:46:55Z
-year-day,7308365725867,41728463470763,the-stocked-set,The Stocked Set,Midnight,27000,30000,true,2026-11-04T08:46:55Z
-year-day,7308365725867,41728463503531,the-stocked-set,The Stocked Set,Daybreak,27000,30000,true,2026-11-04T08:46:55Z
-year-day,7308365725867,42186775003307,the-stocked-set,The Stocked Set,Palm,27000,30000,true,2026-11-04T08:46:55Z
-year-day,7308365725867,42186775036075,the-stocked-set,The Stocked Set,Canyon,27000,30000,true,2026-11-04T08:46:55Z
-year-day,7308365725867,42946694381739,the-stocked-set,The Stocked Set,Dune,27000,30000,false,2026-11-04T08:46:55Z
-year-day,7308365725867,44503278715051,the-stocked-set,The Stocked Set,Plum,27000,30000,true,2026-11-04T08:46:55Z
-year-day,7308365889707,41728464683179,the-core-set,The Core Set,Moon,23760,26400,false,2026-11-04T08:46:55Z
-year-day,7308365889707,41728464715947,the-core-set,The Core Set,Fog,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308365889707,41728464748715,the-core-set,The Core Set,Midnight,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308365889707,41728464781483,the-core-set,The Core Set,Daybreak,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308365889707,42186774347947,the-core-set,The Core Set,Palm,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308365889707,42186774380715,the-core-set,The Core Set,Canyon,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308365889707,42946690220203,the-core-set,The Core Set,Dune,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308365889707,44503277502635,the-core-set,The Core Set,Plum,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308365889707,52800029229427,the-core-set,The Core Set,Balsam,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7308366250155,41728467173547,the-server-set,The Serving Set,Moon,18000,20000,true,2026-11-04T08:46:55Z
-year-day,7308366250155,41728467206315,the-server-set,The Serving Set,Fog,18000,20000,true,2026-11-04T08:46:55Z
-year-day,7308366250155,41728467239083,the-server-set,The Serving Set,Midnight,18000,20000,true,2026-11-04T08:46:55Z
-year-day,7308366250155,41728467271851,the-server-set,The Serving Set,Daybreak,18000,20000,true,2026-11-04T08:46:55Z
-year-day,7308366250155,42186789585067,the-server-set,The Serving Set,Palm,18000,20000,true,2026-11-04T08:46:55Z
-year-day,7308366250155,42186789617835,the-server-set,The Serving Set,Canyon,18000,20000,true,2026-11-04T08:46:55Z
-year-day,7308366250155,42946694348971,the-server-set,The Serving Set,Dune,18000,20000,true,2026-11-04T08:46:55Z
-year-day,7308366250155,44503278256299,the-server-set,The Serving Set,Plum,18000,20000,true,2026-11-04T08:46:55Z
+year-day,7308365725867,41728463405227,the-stocked-set,The Stocked Set,Moon,30000,,false,2026-11-14T13:36:42Z
+year-day,7308365725867,41728463437995,the-stocked-set,The Stocked Set,Fog,30000,,true,2026-11-14T13:36:42Z
+year-day,7308365725867,41728463470763,the-stocked-set,The Stocked Set,Midnight,30000,,true,2026-11-14T13:36:42Z
+year-day,7308365725867,41728463503531,the-stocked-set,The Stocked Set,Daybreak,30000,,true,2026-11-14T13:36:42Z
+year-day,7308365725867,42186775003307,the-stocked-set,The Stocked Set,Palm,30000,,true,2026-11-14T13:36:42Z
+year-day,7308365725867,42186775036075,the-stocked-set,The Stocked Set,Canyon,30000,,true,2026-11-14T13:36:42Z
+year-day,7308365725867,42946694381739,the-stocked-set,The Stocked Set,Dune,30000,,false,2026-11-14T13:36:42Z
+year-day,7308365725867,44503278715051,the-stocked-set,The Stocked Set,Plum,30000,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,41728464683179,the-core-set,The Core Set,Moon,26400,,false,2026-11-14T13:36:42Z
+year-day,7308365889707,41728464715947,the-core-set,The Core Set,Fog,26400,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,41728464748715,the-core-set,The Core Set,Midnight,26400,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,41728464781483,the-core-set,The Core Set,Daybreak,26400,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,42186774347947,the-core-set,The Core Set,Palm,26400,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,42186774380715,the-core-set,The Core Set,Canyon,26400,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,42946690220203,the-core-set,The Core Set,Dune,26400,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,44503277502635,the-core-set,The Core Set,Plum,26400,,true,2026-11-14T13:36:42Z
+year-day,7308365889707,52800029229427,the-core-set,The Core Set,Balsam,26400,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,41728467173547,the-server-set,The Serving Set,Moon,20000,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,41728467206315,the-server-set,The Serving Set,Fog,20000,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,41728467239083,the-server-set,The Serving Set,Midnight,20000,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,41728467271851,the-server-set,The Serving Set,Daybreak,20000,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,42186789585067,the-server-set,The Serving Set,Palm,20000,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,42186789617835,the-server-set,The Serving Set,Canyon,20000,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,42946694348971,the-server-set,The Serving Set,Dune,20000,,true,2026-11-14T13:36:42Z
+year-day,7308366250155,44503278256299,the-server-set,The Serving Set,Plum,20000,,true,2026-11-14T13:36:42Z
 year-day,7448404721835,42628955832491,placemats,Placemats,Lagoon,2000,12000,true,2026-11-04T08:46:55Z
 year-day,7460909580459,52478618567027,champagne-glasses,Champagne Glasses,Clear,4800,8000,true,2026-11-04T08:46:55Z
 year-day,7533223968939,42410100621483,cake-server,Cake Server,Polished Steel,5500,,true,2026-11-04T08:46:55Z
@@ -11536,9 +11537,9 @@ year-day,7640778408107,42680265900203,outdoor-small-plates,Outdoor Small Plates,
 year-day,7640790106283,42680327504043,outdoor-big-bowls,Outdoor Big Bowls,Moon,7000,,true,2026-11-04T08:46:55Z
 year-day,7640790106283,42680327536811,outdoor-big-bowls,Outdoor Big Bowls,Palm,7000,,true,2026-11-04T08:46:55Z
 year-day,7640790106283,42680327569579,outdoor-big-bowls,Outdoor Big Bowls,Canyon,7000,,true,2026-11-04T08:46:55Z
-year-day,7640796528811,42680354832555,the-outdoor-core-set,The Outdoor Core Set,Moon,23760,26400,false,2026-11-04T08:46:55Z
-year-day,7640796528811,42680354865323,the-outdoor-core-set,The Outdoor Core Set,Palm,23760,26400,true,2026-11-04T08:46:55Z
-year-day,7640796528811,42680354898091,the-outdoor-core-set,The Outdoor Core Set,Canyon,23760,26400,false,2026-11-04T08:46:55Z
+year-day,7640796528811,42680354832555,the-outdoor-core-set,The Outdoor Core Set,Moon,26400,,false,2026-11-14T13:36:42Z
+year-day,7640796528811,42680354865323,the-outdoor-core-set,The Outdoor Core Set,Palm,26400,,true,2026-11-14T13:36:42Z
+year-day,7640796528811,42680354898091,the-outdoor-core-set,The Outdoor Core Set,Canyon,26400,,false,2026-11-14T13:36:42Z
 year-day,7666731548843,42748246982827,pitcher,Pitcher,Moon,8200,,true,2026-11-04T08:46:55Z
 year-day,7666731548843,42748247113899,pitcher,Pitcher,Palm,8200,,true,2026-11-04T08:46:55Z
 year-day,7666731548843,62185170207091,pitcher,Pitcher,Dune,8200,,true,2026-11-04T08:46:55Z
@@ -11546,15 +11547,15 @@ year-day,7736249352363,42970737115307,treat-plates,Treat Plates,Dune,5200,,true,
 year-day,7736249352363,42970737213611,treat-plates,Treat Plates,Moon,5200,,true,2026-11-04T08:46:55Z
 year-day,7736249352363,42970737246379,treat-plates,Treat Plates,Fog,5200,,true,2026-11-04T08:46:55Z
 year-day,7736249352363,42970737344683,treat-plates,Treat Plates,Palm,5200,,true,2026-11-04T08:46:55Z
-year-day,7744629571755,43087163621547,home-for-the-holidays-set,Home For The Holidays Set,moon,14310,15900,true,2026-11-04T08:46:55Z
-year-day,7744629571755,43087163654315,home-for-the-holidays-set,Home For The Holidays Set,fog,14310,15900,true,2026-11-04T08:46:55Z
-year-day,7744629571755,43087163687083,home-for-the-holidays-set,Home For The Holidays Set,daybreak,14310,15900,true,2026-11-04T08:46:55Z
-year-day,7744629571755,43087163719851,home-for-the-holidays-set,Home For The Holidays Set,midnight,14310,15900,true,2026-11-04T08:46:55Z
-year-day,7744629571755,43087163752619,home-for-the-holidays-set,Home For The Holidays Set,palm,14310,15900,true,2026-11-04T08:46:55Z
-year-day,7744629571755,43087163785387,home-for-the-holidays-set,Home For The Holidays Set,canyon,14310,15900,true,2026-11-04T08:46:55Z
-year-day,7744630128811,43087164506283,the-yes-chef-set,The Yes Chef Set,moon,18360,20400,false,2026-11-04T08:46:55Z
-year-day,7744630128811,43087164539051,the-yes-chef-set,The Yes Chef Set,fog,18360,20400,false,2026-11-04T08:46:55Z
-year-day,7744630128811,43087164604587,the-yes-chef-set,The Yes Chef Set,palm,18360,20400,true,2026-11-04T08:46:55Z
+year-day,7744629571755,43087163621547,home-for-the-holidays-set,Home For The Holidays Set,moon,15900,,true,2026-11-14T13:36:42Z
+year-day,7744629571755,43087163654315,home-for-the-holidays-set,Home For The Holidays Set,fog,15900,,true,2026-11-14T13:36:42Z
+year-day,7744629571755,43087163687083,home-for-the-holidays-set,Home For The Holidays Set,daybreak,15900,,true,2026-11-14T13:36:42Z
+year-day,7744629571755,43087163719851,home-for-the-holidays-set,Home For The Holidays Set,midnight,15900,,true,2026-11-14T13:36:42Z
+year-day,7744629571755,43087163752619,home-for-the-holidays-set,Home For The Holidays Set,palm,15900,,true,2026-11-14T13:36:42Z
+year-day,7744629571755,43087163785387,home-for-the-holidays-set,Home For The Holidays Set,canyon,15900,,true,2026-11-14T13:36:42Z
+year-day,7744630128811,43087164506283,the-yes-chef-set,The Yes Chef Set,moon,20400,,false,2026-11-14T13:36:42Z
+year-day,7744630128811,43087164539051,the-yes-chef-set,The Yes Chef Set,fog,20400,,false,2026-11-14T13:36:42Z
+year-day,7744630128811,43087164604587,the-yes-chef-set,The Yes Chef Set,palm,20400,,true,2026-11-14T13:36:42Z
 year-day,7847487439019,43337795338411,square-baker,Square Baker,Moon,12400,,true,2026-11-04T08:46:55Z
 year-day,7847487439019,43337795403947,square-baker,Square Baker,Palm,12400,,true,2026-11-04T08:46:55Z
 year-day,7847488422059,43337802809515,rectangular-baker,Rectangular Baker,Moon,13400,,true,2026-11-04T08:46:55Z
@@ -11573,9 +11574,9 @@ year-day,7943716602027,43640040718507,outdoor-low-serving-bowl,Outdoor Low Servi
 year-day,7943719092395,43640044945579,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Moon,5200,,true,2026-11-07T09:31:31Z
 year-day,7943719092395,43640044978347,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Palm,5200,,true,2026-11-07T09:31:31Z
 year-day,7943719092395,43640045011115,outdoor-oval-low-serving-bowl,Outdoor Oval Low Serving Bowl,Canyon,5200,,true,2026-11-07T09:31:31Z
-year-day,7950076182699,43656281653419,the-outdoor-serving-set,The Outdoor Serving Set,Moon,10260,11400,true,2026-11-12T15:20:05Z
-year-day,7950076182699,43656281686187,the-outdoor-serving-set,The Outdoor Serving Set,Palm,10260,11400,true,2026-11-12T15:20:05Z
-year-day,7950076182699,43656281718955,the-outdoor-serving-set,The Outdoor Serving Set,Canyon,10260,11400,true,2026-11-12T15:20:05Z
+year-day,7950076182699,43656281653419,the-outdoor-serving-set,The Outdoor Serving Set,Moon,11400,,true,2026-11-14T13:36:42Z
+year-day,7950076182699,43656281686187,the-outdoor-serving-set,The Outdoor Serving Set,Palm,11400,,true,2026-11-14T13:36:42Z
+year-day,7950076182699,43656281718955,the-outdoor-serving-set,The Outdoor Serving Set,Canyon,11400,,true,2026-11-14T13:36:42Z
 year-day,8070294339755,43991832723627,everyday-napkin-placemat-set,Everyday Napkin Placemat Set,moon,3600,16000,true,2026-11-04T08:46:55Z
 year-day,8070294339755,43991832756395,everyday-napkin-placemat-set,Everyday Napkin Placemat Set,dune,3600,16000,true,2026-11-04T08:46:55Z
 year-day,8070294339755,43991832789163,everyday-napkin-placemat-set,Everyday Napkin Placemat Set,palm,3600,16000,true,2026-11-04T08:46:55Z
@@ -11592,74 +11593,74 @@ year-day,8233288794283,44515904225451,mini-bowls,Mini Bowls,Palm,5200,,true,2026
 year-day,8233288794283,44515904323755,mini-bowls,Mini Bowls,Dune,5200,,true,2026-11-04T08:46:55Z
 year-day,8233288794283,44515904356523,mini-bowls,Mini Bowls,Plum,5200,,true,2026-11-04T08:46:55Z
 year-day,8233297871019,52478654316915,white-wine-glasses,White Wine Glasses,Clear,8000,,true,2026-11-04T08:46:55Z
-year-day,14618288324979,52477114614131,the-holiday-baking-set,The Holiday Baking Set,Moon / Moon,20250,22500,true,2026-11-04T08:46:55Z
-year-day,14618288324979,52477114679667,the-holiday-baking-set,The Holiday Baking Set,Moon / Palm,20250,22500,true,2026-11-04T08:46:55Z
-year-day,14618288324979,52477114876275,the-holiday-baking-set,The Holiday Baking Set,Palm / Moon,20250,22500,true,2026-11-04T08:46:55Z
-year-day,14618288324979,52477114941811,the-holiday-baking-set,The Holiday Baking Set,Palm / Palm,20250,22500,true,2026-11-04T08:46:55Z
-year-day,14618290979187,51637615755635,the-merry-mornings-set,The Merry Mornings Set,Plum / Daybreak,8100,9000,true,2026-11-04T08:46:55Z
-year-day,14618290979187,51637615788403,the-merry-mornings-set,The Merry Mornings Set,Plum / Fog,8100,9000,true,2026-11-04T08:46:55Z
-year-day,14618290979187,51637615853939,the-merry-mornings-set,The Merry Mornings Set,Plum / Moon,8100,9000,true,2026-11-04T08:46:55Z
-year-day,14618290979187,51637615886707,the-merry-mornings-set,The Merry Mornings Set,Plum / Midnight,8100,9000,true,2026-11-04T08:46:55Z
-year-day,14618290979187,51637615919475,the-merry-mornings-set,The Merry Mornings Set,Plum / Palm,8100,9000,true,2026-11-04T08:46:55Z
-year-day,14618290979187,51637615952243,the-merry-mornings-set,The Merry Mornings Set,Plum / Canyon,8100,9000,true,2026-11-04T08:46:55Z
-year-day,14618290979187,51637615985011,the-merry-mornings-set,The Merry Mornings Set,Plum / Dune,8100,9000,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165285777779,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Daybreak,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165285810547,the-merry-mornings-set,The Merry Mornings Set,Fog / Daybreak,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165285843315,the-merry-mornings-set,The Merry Mornings Set,Midnight / Daybreak,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165285876083,the-merry-mornings-set,The Merry Mornings Set,Dune / Daybreak,10080,11200,false,2026-11-04T08:46:55Z
-year-day,14618290979187,67165285908851,the-merry-mornings-set,The Merry Mornings Set,Moon / Daybreak,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165285941619,the-merry-mornings-set,The Merry Mornings Set,Palm / Daybreak,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165285974387,the-merry-mornings-set,The Merry Mornings Set,Canyon / Daybreak,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286007155,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Fog,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286039923,the-merry-mornings-set,The Merry Mornings Set,Fog / Fog,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286072691,the-merry-mornings-set,The Merry Mornings Set,Midnight / Fog,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286105459,the-merry-mornings-set,The Merry Mornings Set,Dune / Fog,10080,11200,false,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286138227,the-merry-mornings-set,The Merry Mornings Set,Moon / Fog,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286170995,the-merry-mornings-set,The Merry Mornings Set,Palm / Fog,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286203763,the-merry-mornings-set,The Merry Mornings Set,Canyon / Fog,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286236531,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Moon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286269299,the-merry-mornings-set,The Merry Mornings Set,Fog / Moon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286302067,the-merry-mornings-set,The Merry Mornings Set,Midnight / Moon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286334835,the-merry-mornings-set,The Merry Mornings Set,Dune / Moon,10080,11200,false,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286367603,the-merry-mornings-set,The Merry Mornings Set,Moon / Moon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286400371,the-merry-mornings-set,The Merry Mornings Set,Palm / Moon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286433139,the-merry-mornings-set,The Merry Mornings Set,Canyon / Moon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286465907,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Midnight,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286498675,the-merry-mornings-set,The Merry Mornings Set,Fog / Midnight,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286531443,the-merry-mornings-set,The Merry Mornings Set,Midnight / Midnight,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286564211,the-merry-mornings-set,The Merry Mornings Set,Dune / Midnight,10080,11200,false,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286596979,the-merry-mornings-set,The Merry Mornings Set,Moon / Midnight,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286629747,the-merry-mornings-set,The Merry Mornings Set,Palm / Midnight,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286662515,the-merry-mornings-set,The Merry Mornings Set,Canyon / Midnight,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286695283,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Palm,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286728051,the-merry-mornings-set,The Merry Mornings Set,Fog / Palm,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286760819,the-merry-mornings-set,The Merry Mornings Set,Midnight / Palm,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286793587,the-merry-mornings-set,The Merry Mornings Set,Dune / Palm,10080,11200,false,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286826355,the-merry-mornings-set,The Merry Mornings Set,Moon / Palm,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286859123,the-merry-mornings-set,The Merry Mornings Set,Palm / Palm,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286891891,the-merry-mornings-set,The Merry Mornings Set,Canyon / Palm,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286924659,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Canyon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286957427,the-merry-mornings-set,The Merry Mornings Set,Fog / Canyon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165286990195,the-merry-mornings-set,The Merry Mornings Set,Midnight / Canyon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287022963,the-merry-mornings-set,The Merry Mornings Set,Dune / Canyon,10080,11200,false,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287055731,the-merry-mornings-set,The Merry Mornings Set,Moon / Canyon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287088499,the-merry-mornings-set,The Merry Mornings Set,Palm / Canyon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287121267,the-merry-mornings-set,The Merry Mornings Set,Canyon / Canyon,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287154035,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Dune,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287186803,the-merry-mornings-set,The Merry Mornings Set,Fog / Dune,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287219571,the-merry-mornings-set,The Merry Mornings Set,Midnight / Dune,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287252339,the-merry-mornings-set,The Merry Mornings Set,Dune / Dune,10080,11200,false,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287285107,the-merry-mornings-set,The Merry Mornings Set,Moon / Dune,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287317875,the-merry-mornings-set,The Merry Mornings Set,Palm / Dune,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14618290979187,67165287350643,the-merry-mornings-set,The Merry Mornings Set,Canyon / Dune,10080,11200,true,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211224435,the-bowl-over-set,The Bowl Over Set,Plum,16560,18400,true,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211257203,the-bowl-over-set,The Bowl Over Set,Moon,16560,18400,false,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211289971,the-bowl-over-set,The Bowl Over Set,Fog,16560,18400,true,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211322739,the-bowl-over-set,The Bowl Over Set,Daybreak,16560,18400,true,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211355507,the-bowl-over-set,The Bowl Over Set,Palm,16560,18400,true,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211388275,the-bowl-over-set,The Bowl Over Set,Canyon,16560,18400,true,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211421043,the-bowl-over-set,The Bowl Over Set,Dune,16560,18400,true,2026-11-04T08:46:55Z
-year-day,14621292462451,64633211453811,the-bowl-over-set,The Bowl Over Set,Midnight,16560,18400,true,2026-11-04T08:46:55Z
+year-day,14618288324979,52477114614131,the-holiday-baking-set,The Holiday Baking Set,Moon / Moon,22500,,true,2026-11-14T13:36:42Z
+year-day,14618288324979,52477114679667,the-holiday-baking-set,The Holiday Baking Set,Moon / Palm,22500,,true,2026-11-14T13:36:42Z
+year-day,14618288324979,52477114876275,the-holiday-baking-set,The Holiday Baking Set,Palm / Moon,22500,,true,2026-11-14T13:36:42Z
+year-day,14618288324979,52477114941811,the-holiday-baking-set,The Holiday Baking Set,Palm / Palm,22500,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,51637615755635,the-merry-mornings-set,The Merry Mornings Set,Plum / Daybreak,9000,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,51637615788403,the-merry-mornings-set,The Merry Mornings Set,Plum / Fog,9000,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,51637615853939,the-merry-mornings-set,The Merry Mornings Set,Plum / Moon,9000,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,51637615886707,the-merry-mornings-set,The Merry Mornings Set,Plum / Midnight,9000,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,51637615919475,the-merry-mornings-set,The Merry Mornings Set,Plum / Palm,9000,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,51637615952243,the-merry-mornings-set,The Merry Mornings Set,Plum / Canyon,9000,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,51637615985011,the-merry-mornings-set,The Merry Mornings Set,Plum / Dune,9000,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165285777779,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Daybreak,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165285810547,the-merry-mornings-set,The Merry Mornings Set,Fog / Daybreak,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165285843315,the-merry-mornings-set,The Merry Mornings Set,Midnight / Daybreak,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165285876083,the-merry-mornings-set,The Merry Mornings Set,Dune / Daybreak,11200,,false,2026-11-14T13:36:42Z
+year-day,14618290979187,67165285908851,the-merry-mornings-set,The Merry Mornings Set,Moon / Daybreak,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165285941619,the-merry-mornings-set,The Merry Mornings Set,Palm / Daybreak,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165285974387,the-merry-mornings-set,The Merry Mornings Set,Canyon / Daybreak,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286007155,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Fog,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286039923,the-merry-mornings-set,The Merry Mornings Set,Fog / Fog,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286072691,the-merry-mornings-set,The Merry Mornings Set,Midnight / Fog,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286105459,the-merry-mornings-set,The Merry Mornings Set,Dune / Fog,11200,,false,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286138227,the-merry-mornings-set,The Merry Mornings Set,Moon / Fog,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286170995,the-merry-mornings-set,The Merry Mornings Set,Palm / Fog,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286203763,the-merry-mornings-set,The Merry Mornings Set,Canyon / Fog,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286236531,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Moon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286269299,the-merry-mornings-set,The Merry Mornings Set,Fog / Moon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286302067,the-merry-mornings-set,The Merry Mornings Set,Midnight / Moon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286334835,the-merry-mornings-set,The Merry Mornings Set,Dune / Moon,11200,,false,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286367603,the-merry-mornings-set,The Merry Mornings Set,Moon / Moon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286400371,the-merry-mornings-set,The Merry Mornings Set,Palm / Moon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286433139,the-merry-mornings-set,The Merry Mornings Set,Canyon / Moon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286465907,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Midnight,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286498675,the-merry-mornings-set,The Merry Mornings Set,Fog / Midnight,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286531443,the-merry-mornings-set,The Merry Mornings Set,Midnight / Midnight,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286564211,the-merry-mornings-set,The Merry Mornings Set,Dune / Midnight,11200,,false,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286596979,the-merry-mornings-set,The Merry Mornings Set,Moon / Midnight,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286629747,the-merry-mornings-set,The Merry Mornings Set,Palm / Midnight,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286662515,the-merry-mornings-set,The Merry Mornings Set,Canyon / Midnight,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286695283,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Palm,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286728051,the-merry-mornings-set,The Merry Mornings Set,Fog / Palm,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286760819,the-merry-mornings-set,The Merry Mornings Set,Midnight / Palm,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286793587,the-merry-mornings-set,The Merry Mornings Set,Dune / Palm,11200,,false,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286826355,the-merry-mornings-set,The Merry Mornings Set,Moon / Palm,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286859123,the-merry-mornings-set,The Merry Mornings Set,Palm / Palm,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286891891,the-merry-mornings-set,The Merry Mornings Set,Canyon / Palm,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286924659,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Canyon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286957427,the-merry-mornings-set,The Merry Mornings Set,Fog / Canyon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165286990195,the-merry-mornings-set,The Merry Mornings Set,Midnight / Canyon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287022963,the-merry-mornings-set,The Merry Mornings Set,Dune / Canyon,11200,,false,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287055731,the-merry-mornings-set,The Merry Mornings Set,Moon / Canyon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287088499,the-merry-mornings-set,The Merry Mornings Set,Palm / Canyon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287121267,the-merry-mornings-set,The Merry Mornings Set,Canyon / Canyon,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287154035,the-merry-mornings-set,The Merry Mornings Set,Daybreak / Dune,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287186803,the-merry-mornings-set,The Merry Mornings Set,Fog / Dune,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287219571,the-merry-mornings-set,The Merry Mornings Set,Midnight / Dune,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287252339,the-merry-mornings-set,The Merry Mornings Set,Dune / Dune,11200,,false,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287285107,the-merry-mornings-set,The Merry Mornings Set,Moon / Dune,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287317875,the-merry-mornings-set,The Merry Mornings Set,Palm / Dune,11200,,true,2026-11-14T13:36:42Z
+year-day,14618290979187,67165287350643,the-merry-mornings-set,The Merry Mornings Set,Canyon / Dune,11200,,true,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211224435,the-bowl-over-set,The Bowl Over Set,Plum,18400,,true,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211257203,the-bowl-over-set,The Bowl Over Set,Moon,18400,,false,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211289971,the-bowl-over-set,The Bowl Over Set,Fog,18400,,true,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211322739,the-bowl-over-set,The Bowl Over Set,Daybreak,18400,,true,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211355507,the-bowl-over-set,The Bowl Over Set,Palm,18400,,true,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211388275,the-bowl-over-set,The Bowl Over Set,Canyon,18400,,true,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211421043,the-bowl-over-set,The Bowl Over Set,Dune,18400,,true,2026-11-14T13:36:42Z
+year-day,14621292462451,64633211453811,the-bowl-over-set,The Bowl Over Set,Midnight,18400,,true,2026-11-14T13:36:42Z
 year-day,14881839022451,51994895024499,crescent-four-person-flatware-settings,Crescent Four-Person Flatware Settings,Polished Steel,25000,,true,2026-11-04T08:46:55Z
 year-day,14881839022451,51994895057267,crescent-four-person-flatware-settings,Crescent Four-Person Flatware Settings,Matte Steel,25000,,true,2026-11-04T08:46:55Z
 year-day,14881839022451,51994895090035,crescent-four-person-flatware-settings,Crescent Four-Person Flatware Settings,Matte Gold,35000,,true,2026-11-04T08:46:55Z
@@ -11695,12 +11696,12 @@ year-day,15140934418803,52803561455987,splatter-low-serving-bowl,Splatter Low Se
 year-day,15140934418803,52803561488755,splatter-low-serving-bowl,Splatter Low Serving Bowl,Plum,7400,,true,2026-11-04T08:46:55Z
 year-day,15140934582643,52803566829939,splatter-pitcher,Splatter Pitcher,Dune,9000,,true,2026-11-04T08:46:55Z
 year-day,15140934582643,52803566862707,splatter-pitcher,Splatter Pitcher,Plum,9000,,true,2026-11-04T08:46:55Z
-year-day,15140935008627,52803570073971,the-splatter-core-set,The Splatter Core Set,Plum,25200,28000,true,2026-11-12T15:20:05Z
-year-day,15140935008627,52803570106739,the-splatter-core-set,The Splatter Core Set,Midnight,25200,28000,true,2026-11-04T08:46:55Z
-year-day,15140935008627,52803570205043,the-splatter-core-set,The Splatter Core Set,Dune,25200,28000,true,2026-11-04T08:46:55Z
-year-day,15140935008627,52803570237811,the-splatter-core-set,The Splatter Core Set,Palm,25200,28000,true,2026-11-04T08:46:55Z
-year-day,15145278013811,52823002284403,the-splatter-serving-set,The Splatter Serving Set,Plum,18000,20000,true,2026-11-04T08:46:55Z
-year-day,15145278013811,52823002317171,the-splatter-serving-set,The Splatter Serving Set,Dune,18000,20000,true,2026-11-04T08:46:55Z
+year-day,15140935008627,52803570073971,the-splatter-core-set,The Splatter Core Set,Plum,28000,,true,2026-11-14T13:36:42Z
+year-day,15140935008627,52803570106739,the-splatter-core-set,The Splatter Core Set,Midnight,28000,,true,2026-11-14T13:36:42Z
+year-day,15140935008627,52803570205043,the-splatter-core-set,The Splatter Core Set,Dune,28000,,true,2026-11-14T13:36:42Z
+year-day,15140935008627,52803570237811,the-splatter-core-set,The Splatter Core Set,Palm,28000,,true,2026-11-14T13:36:42Z
+year-day,15145278013811,52823002284403,the-splatter-serving-set,The Splatter Serving Set,Plum,20000,,true,2026-11-14T13:36:42Z
+year-day,15145278013811,52823002317171,the-splatter-serving-set,The Splatter Serving Set,Dune,20000,,true,2026-11-14T13:36:42Z
 year-day,15206469173619,62213656379763,appetizer-flatware-set-1,Appetizer Flatware Set,Matte Black,2240,5600,true,2026-11-04T08:46:55Z
 year-day,15206470353267,62213660901747,cake-server-1,Cake Server,Matte Steel,2200,5500,true,2026-11-04T08:46:55Z
 year-day,15206470353267,64643947135347,cake-server-1,Cake Server,Matte Black,2600,5500,true,2026-11-04T08:46:55Z
@@ -11750,14 +11751,14 @@ year-day,15210983358835,62230964240755,olive-dish,Olive Dish,Moon,4500,,true,202
 year-day,15210983522675,62230965223795,cove-short-glass,Cove Short Glass,Clear,6500,,true,2026-11-04T08:46:55Z
 year-day,15210983620979,62230965387635,cove-tall-glass,Cove Tall Glass,Clear,7000,,true,2026-11-04T08:46:55Z
 year-day,15210983719283,62230965649779,martini-glass,Martini Glass,Clear,8000,,true,2026-11-04T08:46:55Z
-year-day,15228896772467,62301710811507,the-glossy-core-set,The Glossy Core Set,Palm,23760,26400,true,2026-11-04T08:46:55Z
-year-day,15228896772467,62301710844275,the-glossy-core-set,The Glossy Core Set,Dune,23760,26400,true,2026-11-04T08:46:55Z
-year-day,15228896772467,62301710877043,the-glossy-core-set,The Glossy Core Set,Moon,23760,26400,true,2026-11-04T08:46:55Z
+year-day,15228896772467,62301710811507,the-glossy-core-set,The Glossy Core Set,Palm,26400,,true,2026-11-14T13:36:42Z
+year-day,15228896772467,62301710844275,the-glossy-core-set,The Glossy Core Set,Dune,26400,,true,2026-11-14T13:36:42Z
+year-day,15228896772467,62301710877043,the-glossy-core-set,The Glossy Core Set,Moon,26400,,true,2026-11-14T13:36:42Z
 year-day,15356041724275,62782796005747,palisades-serving-fork-spoon,Palisades Serving Fork & Spoon,Polished Steel,7600,,true,2026-11-04T08:46:55Z
 year-day,15356086124915,62782937465203,crescent-serving-fork-spoon,Crescent Serving Fork & Spoon,Vintage Gold,9000,,true,2026-11-04T08:46:55Z
 year-day,15398185894259,62913952645491,classic-matte-steel-small-fork-set,Classic Small Fork Set,Polished Steel,6500,,true,2026-11-04T08:46:55Z
 year-day,15398185894259,62913952678259,classic-matte-steel-small-fork-set,Classic Small Fork Set,Matte Steel,6500,,false,2026-11-04T08:46:55Z
-year-day,15398185894259,62913952711027,classic-matte-steel-small-fork-set,Classic Small Fork Set,Matte Gold,8500,,true,2026-11-04T08:46:55Z
+year-day,15398185894259,62913952711027,classic-matte-steel-small-fork-set,Classic Small Fork Set,Matte Gold,8500,,false,2026-11-14T13:36:42Z
 year-day,15398185894259,62913952743795,classic-matte-steel-small-fork-set,Classic Small Fork Set,Matte Black,8500,,true,2026-11-04T08:46:55Z
 year-day,15411067322739,62992703979891,classic-small-spoon-set,Classic Small Spoon Set,Polished Steel,6500,,true,2026-11-04T08:46:55Z
 year-day,15411067322739,62992704012659,classic-small-spoon-set,Classic Small Spoon Set,Matte Steel,6500,,false,2026-11-04T08:46:55Z
@@ -11775,7 +11776,7 @@ year-day,15412004913523,62995828310387,classic-big-spoon-set,Classic Big Spoon S
 year-day,15412004913523,62995828343155,classic-big-spoon-set,Classic Big Spoon Set,Matte Steel,7500,,true,2026-11-04T08:46:55Z
 year-day,15412004913523,62995828375923,classic-big-spoon-set,Classic Big Spoon Set,Matte Black,9500,,true,2026-11-04T08:46:55Z
 year-day,15412004913523,62995828408691,classic-big-spoon-set,Classic Big Spoon Set,Matte Gold,9500,,true,2026-11-04T08:46:55Z
-year-day,15412055998835,62995964100979,classic-5-piece-setting,Classic 5 Piece Setting,Matte Gold,12000,,true,2026-11-04T08:46:55Z
+year-day,15412055998835,62995964100979,classic-5-piece-setting,Classic 5 Piece Setting,Matte Gold,12000,,false,2026-11-14T13:36:42Z
 year-day,15412055998835,62995964166515,classic-5-piece-setting,Classic 5 Piece Setting,Polished Steel,9500,,true,2026-11-04T08:46:55Z
 year-day,15412055998835,62995964199283,classic-5-piece-setting,Classic 5 Piece Setting,Matte Steel,9500,,false,2026-11-04T08:46:55Z
 year-day,15412055998835,62995964232051,classic-5-piece-setting,Classic 5 Piece Setting,Matte Black,12000,,true,2026-11-04T08:46:55Z
@@ -11790,8 +11791,8 @@ year-day,15539494748531,64629454504307,sequoia-big-bowls,Sequoia Big Bowls,Sequo
 year-day,15539495829875,64629472952691,sequoia-small-bowls,Sequoia Small Bowls,Sequoia,12000,,true,2026-11-04T08:46:55Z
 year-day,15539498516851,64629556904307,sequoia-serving-bowl,Sequoia Serving Bowl,Sequoia,9500,,true,2026-11-04T08:46:55Z
 year-day,15539499401587,64629559787891,sequoia-oval-serving-platter,Sequoia Oval Serving Platter,Sequoia,10500,,true,2026-11-04T08:46:55Z
-year-day,15539504906611,64629573910899,sequoia-core-set,Sequoia Core Set,Sequoia,46800,52000,true,2026-11-04T08:46:55Z
-year-day,15539506807155,64629580005747,sequoia-serving-set,Sequoia Serving Set,Sequoia,18000,20000,true,2026-11-04T08:46:55Z
+year-day,15539504906611,64629573910899,sequoia-core-set,Sequoia Core Set,Sequoia,52000,,true,2026-11-14T13:36:42Z
+year-day,15539506807155,64629580005747,sequoia-serving-set,Sequoia Serving Set,Sequoia,20000,,true,2026-11-14T13:36:42Z
 year-day,15543761731955,64643637215603,mini-bowls-2,Mini Bowls,Canyon,2100,5200,true,2026-11-04T08:46:55Z
 year-day,15543797055859,64643709075827,bud-vase-2,Bud Vase,Plum,2200,4400,true,2026-11-04T08:46:55Z
 year-day,15543846273395,64643827958131,oval-low-serving-bowl-2,Oval Low Serving Bowl,Midnight,4900,9800,true,2026-11-04T08:46:55Z
@@ -11801,57 +11802,57 @@ year-day,15543846273395,64643828089203,oval-low-serving-bowl-2,Oval Low Serving 
 year-day,15543871504755,64643911745907,all-day-night-dip-dishes-2,All Day & Night Dip Dishes,Fog,2200,4400,true,2026-11-04T08:46:55Z
 year-day,15543871504755,64643911876979,all-day-night-dip-dishes-2,All Day & Night Dip Dishes,Canyon,2200,4400,true,2026-11-04T08:46:55Z
 year-day,15543871504755,64643911942515,all-day-night-dip-dishes-2,All Day & Night Dip Dishes,Plum,2200,4400,true,2026-11-04T08:46:55Z
-year-day,15544892719475,64647863042419,the-moon-starter-set,The Moon Starter Set,Moon,17460,19400,true,2026-11-04T08:46:55Z
-year-day,15597408911731,67107602989427,merry-martini-set,Merry Martini Set,Default Title,11250,12500,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636478323,all-is-served-set,All Is Served Set,Balsam / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636511091,all-is-served-set,All Is Served Set,Balsam / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636543859,all-is-served-set,All Is Served Set,Balsam / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636576627,all-is-served-set,All Is Served Set,Balsam / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636609395,all-is-served-set,All Is Served Set,Balsam / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636642163,all-is-served-set,All Is Served Set,Plum / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636674931,all-is-served-set,All Is Served Set,Plum / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636707699,all-is-served-set,All Is Served Set,Plum / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636740467,all-is-served-set,All Is Served Set,Plum / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636773235,all-is-served-set,All Is Served Set,Plum / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636806003,all-is-served-set,All Is Served Set,Midnight / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636838771,all-is-served-set,All Is Served Set,Midnight / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636871539,all-is-served-set,All Is Served Set,Midnight / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636904307,all-is-served-set,All Is Served Set,Midnight / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636937075,all-is-served-set,All Is Served Set,Midnight / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107636969843,all-is-served-set,All Is Served Set,Fog / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637002611,all-is-served-set,All Is Served Set,Fog / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637035379,all-is-served-set,All Is Served Set,Fog / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637068147,all-is-served-set,All Is Served Set,Fog / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637100915,all-is-served-set,All Is Served Set,Fog / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637133683,all-is-served-set,All Is Served Set,Daybreak / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637166451,all-is-served-set,All Is Served Set,Daybreak / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637199219,all-is-served-set,All Is Served Set,Daybreak / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637231987,all-is-served-set,All Is Served Set,Daybreak / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637264755,all-is-served-set,All Is Served Set,Daybreak / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637297523,all-is-served-set,All Is Served Set,Palm / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637330291,all-is-served-set,All Is Served Set,Palm / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637363059,all-is-served-set,All Is Served Set,Palm / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637395827,all-is-served-set,All Is Served Set,Palm / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637428595,all-is-served-set,All Is Served Set,Palm / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637461363,all-is-served-set,All Is Served Set,Canyon / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637494131,all-is-served-set,All Is Served Set,Canyon / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637526899,all-is-served-set,All Is Served Set,Canyon / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637559667,all-is-served-set,All Is Served Set,Canyon / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637592435,all-is-served-set,All Is Served Set,Canyon / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637625203,all-is-served-set,All Is Served Set,Dune / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637657971,all-is-served-set,All Is Served Set,Dune / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637690739,all-is-served-set,All Is Served Set,Dune / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637723507,all-is-served-set,All Is Served Set,Dune / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637756275,all-is-served-set,All Is Served Set,Dune / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637789043,all-is-served-set,All Is Served Set,Moon / Matte Gold,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637821811,all-is-served-set,All Is Served Set,Moon / Matte Black,14220,15800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637854579,all-is-served-set,All Is Served Set,Moon / Polished Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637887347,all-is-served-set,All Is Served Set,Moon / Matte Steel,13320,14800,true,2026-11-04T08:46:55Z
-year-day,15597425328499,67107637920115,all-is-served-set,All Is Served Set,Moon / Vintage Gold,14670,16300,true,2026-11-04T08:46:55Z
-year-day,15597430735219,67107644899699,the-party-starter-set,The Party Starter Set,Balsam,13860,15400,true,2026-11-04T08:46:55Z
-year-day,15597430735219,67107644932467,the-party-starter-set,The Party Starter Set,Multi,13860,15400,true,2026-11-04T08:46:55Z
-year-day,15597430735219,67107644965235,the-party-starter-set,The Party Starter Set,Moon,13860,15400,true,2026-11-04T08:46:55Z
-year-day,15597430735219,67107644998003,the-party-starter-set,The Party Starter Set,Midnight,13860,15400,true,2026-11-04T08:46:55Z
-year-day,15597430735219,67107645030771,the-party-starter-set,The Party Starter Set,Daybreak,13860,15400,true,2026-11-04T08:46:55Z
-year-day,15597430735219,67107645063539,the-party-starter-set,The Party Starter Set,Palm,13860,15400,true,2026-11-04T08:46:55Z
-year-day,15597430735219,67107645096307,the-party-starter-set,The Party Starter Set,Dune,13860,15400,true,2026-11-04T08:46:55Z
+year-day,15544892719475,64647863042419,the-moon-starter-set,The Moon Starter Set,Moon,19400,,true,2026-11-14T13:36:42Z
+year-day,15597408911731,67107602989427,merry-martini-set,Merry Martini Set,Default Title,12500,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636478323,all-is-served-set,All Is Served Set,Balsam / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636511091,all-is-served-set,All Is Served Set,Balsam / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636543859,all-is-served-set,All Is Served Set,Balsam / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636576627,all-is-served-set,All Is Served Set,Balsam / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636609395,all-is-served-set,All Is Served Set,Balsam / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636642163,all-is-served-set,All Is Served Set,Plum / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636674931,all-is-served-set,All Is Served Set,Plum / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636707699,all-is-served-set,All Is Served Set,Plum / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636740467,all-is-served-set,All Is Served Set,Plum / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636773235,all-is-served-set,All Is Served Set,Plum / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636806003,all-is-served-set,All Is Served Set,Midnight / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636838771,all-is-served-set,All Is Served Set,Midnight / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636871539,all-is-served-set,All Is Served Set,Midnight / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636904307,all-is-served-set,All Is Served Set,Midnight / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636937075,all-is-served-set,All Is Served Set,Midnight / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107636969843,all-is-served-set,All Is Served Set,Fog / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637002611,all-is-served-set,All Is Served Set,Fog / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637035379,all-is-served-set,All Is Served Set,Fog / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637068147,all-is-served-set,All Is Served Set,Fog / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637100915,all-is-served-set,All Is Served Set,Fog / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637133683,all-is-served-set,All Is Served Set,Daybreak / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637166451,all-is-served-set,All Is Served Set,Daybreak / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637199219,all-is-served-set,All Is Served Set,Daybreak / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637231987,all-is-served-set,All Is Served Set,Daybreak / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637264755,all-is-served-set,All Is Served Set,Daybreak / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637297523,all-is-served-set,All Is Served Set,Palm / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637330291,all-is-served-set,All Is Served Set,Palm / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637363059,all-is-served-set,All Is Served Set,Palm / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637395827,all-is-served-set,All Is Served Set,Palm / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637428595,all-is-served-set,All Is Served Set,Palm / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637461363,all-is-served-set,All Is Served Set,Canyon / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637494131,all-is-served-set,All Is Served Set,Canyon / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637526899,all-is-served-set,All Is Served Set,Canyon / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637559667,all-is-served-set,All Is Served Set,Canyon / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637592435,all-is-served-set,All Is Served Set,Canyon / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637625203,all-is-served-set,All Is Served Set,Dune / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637657971,all-is-served-set,All Is Served Set,Dune / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637690739,all-is-served-set,All Is Served Set,Dune / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637723507,all-is-served-set,All Is Served Set,Dune / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637756275,all-is-served-set,All Is Served Set,Dune / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637789043,all-is-served-set,All Is Served Set,Moon / Matte Gold,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637821811,all-is-served-set,All Is Served Set,Moon / Matte Black,15800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637854579,all-is-served-set,All Is Served Set,Moon / Polished Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637887347,all-is-served-set,All Is Served Set,Moon / Matte Steel,14800,,true,2026-11-14T13:36:42Z
+year-day,15597425328499,67107637920115,all-is-served-set,All Is Served Set,Moon / Vintage Gold,16300,,true,2026-11-14T13:36:42Z
+year-day,15597430735219,67107644899699,the-party-starter-set,The Party Starter Set,Balsam,15400,,true,2026-11-14T13:36:42Z
+year-day,15597430735219,67107644932467,the-party-starter-set,The Party Starter Set,Multi,15400,,true,2026-11-14T13:36:42Z
+year-day,15597430735219,67107644965235,the-party-starter-set,The Party Starter Set,Moon,15400,,true,2026-11-14T13:36:42Z
+year-day,15597430735219,67107644998003,the-party-starter-set,The Party Starter Set,Midnight,15400,,true,2026-11-14T13:36:42Z
+year-day,15597430735219,67107645030771,the-party-starter-set,The Party Starter Set,Daybreak,15400,,true,2026-11-14T13:36:42Z
+year-day,15597430735219,67107645063539,the-party-starter-set,The Party Starter Set,Palm,15400,,true,2026-11-14T13:36:42Z
+year-day,15597430735219,67107645096307,the-party-starter-set,The Party Starter Set,Dune,15400,,true,2026-11-14T13:36:42Z

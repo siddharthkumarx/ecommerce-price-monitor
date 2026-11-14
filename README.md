@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,856 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,857 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -14,32 +14,32 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 13 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 14 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
 | Big Agnes | [Fly Creek HV 1 Carbon Footprint](https://www.bigagnes.com/products/fly-creek-hv-1-carbon-footprint) | $35.00 | $70.00 | yes |
+| Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $44.00 | $88.00 | yes |
 | JLab | [Daybreak Gaming Family Black](https://www.jlab.com/products/daybreak-gaming-family-black) | $209.98 | $419.97 | yes |
 | Year & Day | [All Day & Night Dip Dishes (Fog)](https://yearandday.com/products/all-day-night-dip-dishes-2) | $22.00 | $44.00 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
-| Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $59.00 | $88.00 | yes |
 
-The full table has 11,856 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,857 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 13 November 2026: 299 price drops, 4 price rises, 272 sales started, 43 items sold out, 10 items back in stock, 29 new product options, 30 product options removed. The biggest moves:
+In the run of 14 November 2026: 57 price drops, 174 price rises, 44 sales started, 173 sales ended, 34 items sold out, 28 items back in stock, 4 new product options, 3 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Soundcore (US) | [Boom 2 (Refurbished) (Explorer Blue)](https://us.soundcore.com/products/a3138011-f0) | Price down (-100.0%) | $9,999,999.99 | $84.99 |
-| JLab | [JBuds ANC True Wireless Earbuds Gen 3 Black](https://www.jlab.com/products/jbuds-anc-true-wireless-earbuds-gen-3-black) | Price down, Sale started (-38.5%) | $64.99 | $39.99 |
-| JLab | [GO POP+ True Wireless Earbuds Navy (Navy)](https://www.jlab.com/products/go-pop-plus-true-wireless-earbuds-navy) | Price down (-36.7%) | $29.99 | $18.99 |
-| JLab | [GO POP+ True Wireless Earbuds Violet (Violet)](https://www.jlab.com/products/go-pop-plus-true-wireless-earbuds-violet) | Price down (-36.7%) | $29.99 | $18.99 |
-| JLab | [JBuds Mini ANC Jelle True Wireless Earbuds Blush Fund](https://www.jlab.com/products/jbuds-mini-anc-jelle-true-wireless-earbuds-blush-fund) | Price down, Sale started (-32.0%) | $49.99 | $33.99 |
-| JLab | [JBuds Mini ANC Jelle True Wireless Earbuds Fir Sure](https://www.jlab.com/products/jbuds-mini-anc-jelle-true-wireless-earbuds-fir-sure) | Price down, Sale started (-32.0%) | $49.99 | $33.99 |
-| JLab | [JBuds Mini ANC Jelle True Wireless Earbuds Gold Digger](https://www.jlab.com/products/jbuds-mini-anc-jelle-true-wireless-earbuds-gold-digger) | Price down, Sale started (-32.0%) | $49.99 | $33.99 |
-| JLab | [JBuds Mini ANC Jelle True Wireless Earbuds Pearl Next Door](https://www.jlab.com/products/jbuds-mini-anc-jelle-true-wireless-earbuds-pearl-next-door) | Price down, Sale started, Sold out (-32.0%) | $49.99 | $33.99 |
+| Homesick | [Gilmore Girls Stars Hollow Candle](https://homesick.com/products/stars-hollow-candle) | Price down, Sale started (-30.0%) | $34.95 | $24.47 |
+| Feat Clothing | [The Men's Café Coat (Espresso / S)](https://featclothing.com/products/the-mens-cafe-jacket) | Price down, Sale started (-26.5%) | $98.00 | $72.00 |
+| Feat Clothing | [The Men's Café Coat (Espresso / M)](https://featclothing.com/products/the-mens-cafe-jacket) | Price down, Sale started (-26.5%) | $98.00 | $72.00 |
+| Feat Clothing | [The Men's Café Coat (Espresso / L)](https://featclothing.com/products/the-mens-cafe-jacket) | Price down, Sale started (-26.5%) | $98.00 | $72.00 |
+| Feat Clothing | [The Men's Café Coat (Espresso / XL)](https://featclothing.com/products/the-mens-cafe-jacket) | Price down, Sale started (-26.5%) | $98.00 | $72.00 |
+| Feat Clothing | [The Men's Café Coat (Espresso / XXL)](https://featclothing.com/products/the-mens-cafe-jacket) | Price down, Sale started (-26.5%) | $98.00 | $72.00 |
+| Feat Clothing | [The Men's Café Coat (Espresso / XXXL)](https://featclothing.com/products/the-mens-cafe-jacket) | Price down, Sale started (-26.5%) | $98.00 | $72.00 |
+| Feat Clothing | [The Men's Café Coat (EarlGrey / S)](https://featclothing.com/products/the-mens-cafe-jacket) | Price down, Sale started (-26.5%) | $98.00 | $72.00 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -47,9 +47,9 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 - **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 261 free gifts and samples left out on purpose, not held.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 262 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.6 minutes, and no store blocked us.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.7 minutes, and no store blocked us.
 
 ## How it works
 
@@ -64,7 +64,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 10."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 11."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -111,7 +111,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 13 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 14 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -130,16 +130,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-13T14:39:06Z` |
-| `store_id` | text | Store | `homesick` |
-| `variant_id` | integer | Product option | `251230814225` |
-| `product_title` | text | Product name | `Utah Candle` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-14T13:36:42Z` |
+| `store_id` | text | Store | `feat-clothing` |
+| `variant_id` | integer | Product option | `41767237648449` |
+| `product_title` | text | Product name | `The Men's Standard Joggers` |
 | `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `2995` |
-| `new_price_cents` | integer or empty | Price after, US cents | `2097` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `2995` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `2995` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-30.0` |
+| `old_price_cents` | integer or empty | Price before, US cents | `5900` |
+| `new_price_cents` | integer or empty | Price after, US cents | `4400` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `5900` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-25.4` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 

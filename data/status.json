@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-13T14:45:40Z",
+  "generated_at": "2026-11-14T13:43:21Z",
   "first_run": "2026-11-04T08:46:55Z",
-  "days_running": 10,
-  "runs_total": 10,
-  "runs_good": 10,
+  "days_running": 11,
+  "runs_total": 11,
+  "runs_good": 11,
   "runs_held": 0,
-  "missed_runs": 9,
+  "missed_runs": 10,
   "missed_slots": [
     "2026-11-05T06:17:00Z",
     "2026-11-06T06:17:00Z",
@@ -15,17 +15,18 @@
     "2026-11-10T06:17:00Z",
     "2026-11-11T06:17:00Z",
     "2026-11-12T06:17:00Z",
-    "2026-11-13T06:17:00Z"
+    "2026-11-13T06:17:00Z",
+    "2026-11-14T06:17:00Z"
   ],
   "last_run": {
-    "run_id": "20261113T143906Z",
-    "started_at": "2026-11-13T14:39:06Z",
+    "run_id": "20261114T133642Z",
+    "started_at": "2026-11-14T13:36:42Z",
     "status": "ok",
-    "duration_s": 393.4,
+    "duration_s": 399.4,
     "stores_ok": 25,
     "stores_total": 25,
-    "rows_live": 11856,
+    "rows_live": 11857,
     "hold_reasons": []
   },
-  "rows_today": 11856
+  "rows_today": 11857
 }
