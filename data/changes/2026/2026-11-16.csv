@@ -1,0 +1,967 @@
+observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
+2026-11-16T15:53:26Z,big-agnes,8497225302265,45429836808441,ks-ice-house-jacket,Kids' Ice House Jacket,Chinois Green/Brown Sugar/Nasturtium / MD,out_of_stock,6798,6798,16995,16995,
+2026-11-16T15:53:26Z,crown-affair,1821628956735,44099564929087,the-towel,The Towel,Bordeaux Towel,out_of_stock,5900,5900,,,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,29560217292,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Grey / Small / S/M Curved PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,29560217292,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Grey / Small / S/M Curved PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8764297804,30213289932,shoulder-strap-pockets,Shoulder Strap Pocket,Large / Grey,price_down,2200,1760,,2200,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8764297804,30213289932,shoulder-strap-pockets,Shoulder Strap Pocket,Large / Grey,discount_start,2200,1760,,2200,
+2026-11-16T15:53:26Z,gossamer-gear,8764297996,30213290380,clear-waterproof-pack-liners,Clear Waterproof Pack Liners,Default Title,price_down,750,600,,750,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8764297996,30213290380,clear-waterproof-pack-liners,Clear Waterproof Pack Liners,Default Title,discount_start,750,600,,750,
+2026-11-16T15:53:26Z,gossamer-gear,8838946380,30496347596,the-one,The One,Default Title,price_down,31500,26775,,31500,-15.0
+2026-11-16T15:53:26Z,gossamer-gear,8838946380,30496347596,the-one,The One,Default Title,discount_start,31500,26775,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8838946572,30496347916,the-one-pole-sets,The One and Two Pole Sets,Aluminum,price_down,3800,3040,,3800,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8838946572,30496347916,the-one-pole-sets,The One and Two Pole Sets,Aluminum,discount_start,3800,3040,,3800,
+2026-11-16T15:53:26Z,gossamer-gear,8838946828,30496350540,twinn-tarp,Twinn Tarp,Default Title,price_down,17500,14875,,17500,-15.0
+2026-11-16T15:53:26Z,gossamer-gear,8838946828,30496350540,twinn-tarp,Twinn Tarp,Default Title,discount_start,17500,14875,,17500,
+2026-11-16T15:53:26Z,gossamer-gear,8838947212,30496353228,polycryo-tent-footprint-ground-cloths,Polycryo Tent Footprint,Default Title,price_down,1300,1040,,1300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8838947212,30496353228,polycryo-tent-footprint-ground-cloths,Polycryo Tent Footprint,Default Title,discount_start,1300,1040,,1300,
+2026-11-16T15:53:26Z,gossamer-gear,8839268108,30497157388,the-crotch-pot,The Crotch Pot,Default Title,price_down,1900,1330,,1900,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8839268108,30497157388,the-crotch-pot,The Crotch Pot,Default Title,discount_start,1900,1330,,1900,
+2026-11-16T15:53:26Z,gossamer-gear,8839269516,30497160460,storage-sacks,Storage Sacks,Ditty Large (Zipper),price_down,1400,980,,1400,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8839269516,30497160460,storage-sacks,Storage Sacks,Ditty Large (Zipper),discount_start,1400,980,,1400,
+2026-11-16T15:53:26Z,gossamer-gear,8839273100,30497170188,lightrek-pack-bungee-attachment,Lightrek Pack Bungee Attachment,Grey,price_down,495,396,,495,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839273100,30497170188,lightrek-pack-bungee-attachment,Lightrek Pack Bungee Attachment,Grey,discount_start,495,396,,495,
+2026-11-16T15:53:26Z,gossamer-gear,8839269516,30708717964,storage-sacks,Storage Sacks,Ditty Small (Zipper),price_down,1100,770,,1100,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8839269516,30708717964,storage-sacks,Storage Sacks,Ditty Small (Zipper),discount_start,1100,770,,1100,
+2026-11-16T15:53:26Z,gossamer-gear,10091244620,36452018380,lt5-three-piece-carbon-trekking-poles-pair,LT5 Three Piece Carbon Trekking Poles (pair),Default Title,price_down,19500,15600,,19500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,10091244620,36452018380,lt5-three-piece-carbon-trekking-poles-pair,LT5 Three Piece Carbon Trekking Poles (pair),Default Title,discount_start,19500,15600,,19500,
+2026-11-16T15:53:26Z,gossamer-gear,10091490764,36452941644,fast-belt,Fastbelt,Default Title,price_down,2100,1680,,2100,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,10091490764,36452941644,fast-belt,Fastbelt,Default Title,discount_start,2100,1680,,2100,
+2026-11-16T15:53:26Z,gossamer-gear,11619445196,45352160396,the-two,The Two,Default Title,price_down,37500,31875,,37500,-15.0
+2026-11-16T15:53:26Z,gossamer-gear,11619445196,45352160396,the-two,The Two,Default Title,discount_start,37500,31875,,37500,
+2026-11-16T15:53:26Z,gossamer-gear,8764297804,21197931413558,shoulder-strap-pockets,Shoulder Strap Pocket,Medium / Grey,price_down,2000,1600,,2000,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8764297804,21197931413558,shoulder-strap-pockets,Shoulder Strap Pocket,Medium / Grey,discount_start,2000,1600,,2000,
+2026-11-16T15:53:26Z,gossamer-gear,4165741903926,30282106437686,bottle-rocket,Bottle Rocket,Default Title,price_down,2300,1840,2300,2300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,4165741903926,30282106437686,bottle-rocket,Bottle Rocket,Default Title,discount_start,2300,1840,2300,2300,
+2026-11-16T15:53:26Z,gossamer-gear,4165746851894,30282174038070,feedbag,Feedbag,Default Title,price_down,1197,957,2200,1197,-20.1
+2026-11-16T15:53:26Z,gossamer-gear,4165763825718,30282397057078,handsfree-umbrella-clamp,Handsfree Umbrella Clamp,Default Title,price_down,599,479,,599,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,4165763825718,30282397057078,handsfree-umbrella-clamp,Handsfree Umbrella Clamp,Default Title,discount_start,599,479,,599,
+2026-11-16T15:53:26Z,gossamer-gear,8839273100,30745027412022,lightrek-pack-bungee-attachment,Lightrek Pack Bungee Attachment,Black,price_down,495,396,,495,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839273100,30745027412022,lightrek-pack-bungee-attachment,Lightrek Pack Bungee Attachment,Black,discount_start,495,396,,495,
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,30858667851830,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Titanium Grey / Medium,price_down,20500,13325,,20500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,30858667851830,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Titanium Grey / Medium,discount_start,20500,13325,,20500,
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,30858667917366,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Titanium Grey / Large,price_down,20500,13325,,20500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,30858667917366,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Titanium Grey / Large,discount_start,20500,13325,,20500,
+2026-11-16T15:53:26Z,gossamer-gear,4263673856054,30858683318326,vagabond-jet,Vagabond Jet,Default Title,price_down,13000,9750,,13000,-25.0
+2026-11-16T15:53:26Z,gossamer-gear,4263673856054,30858683318326,vagabond-jet,Vagabond Jet,Default Title,discount_start,13000,9750,,13000,
+2026-11-16T15:53:26Z,gossamer-gear,4420909498422,31749241897014,beanie,Beanies,Grey,price_down,1899,1329,,1899,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,4420909498422,31749241897014,beanie,Beanies,Grey,discount_start,1899,1329,,1899,
+2026-11-16T15:53:26Z,gossamer-gear,8764251852,32461736181814,gorilla-50,Gorilla 50 Ultralight Backpack,Grey / Small / S/M Curved PVT Hipbelt,price_down,27500,17875,,27500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,8764251852,32461736181814,gorilla-50,Gorilla 50 Ultralight Backpack,Grey / Small / S/M Curved PVT Hipbelt,discount_start,27500,17875,,27500,
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,32716596969526,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Titanium Grey / Small,price_down,20500,13325,,20500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,32716596969526,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Titanium Grey / Small,discount_start,20500,13325,,20500,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,32940879642678,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Green / Small / S/M Curved PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,32940879642678,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Green / Small / S/M Curved PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,1562411499574,32941382172726,bumster,Bumster,Green,price_down,2900,2030,,2900,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,1562411499574,32941382172726,bumster,Bumster,Green,discount_start,2900,2030,,2900,
+2026-11-16T15:53:26Z,gossamer-gear,1562411499574,32941382205494,bumster,Bumster,Grey,price_down,2900,2030,,2900,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,1562411499574,32941382205494,bumster,Bumster,Grey,discount_start,2900,2030,,2900,
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002648535094,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / S,price_down,1000,700,,1000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002648535094,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / S,discount_start,1000,700,,1000,
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002649059382,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / M,price_down,1000,700,,1000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002649059382,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / M,discount_start,1000,700,,1000,
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002649714742,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / L,price_down,1000,700,,1000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002649714742,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / L,discount_start,1000,700,,1000,
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002650009654,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / XL,price_down,1000,700,,1000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,4362335944758,33002650009654,gossamer-gear-t-shirts,Gossamer Gear T-Shirts,Badge Shirt / XL,discount_start,1000,700,,1000,
+2026-11-16T15:53:26Z,gossamer-gear,8764295756,33020534718518,kumo-36-superlight-backpack,Kumo 36 Superlight Backpack,Grey / Small,price_down,18000,11700,,18000,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,8764295756,33020534718518,kumo-36-superlight-backpack,Kumo 36 Superlight Backpack,Grey / Small,discount_start,18000,11700,,18000,
+2026-11-16T15:53:26Z,gossamer-gear,8764295756,33020534751286,kumo-36-superlight-backpack,Kumo 36 Superlight Backpack,Grey / Medium,price_down,18000,11700,,18000,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,8764295756,33020534751286,kumo-36-superlight-backpack,Kumo 36 Superlight Backpack,Grey / Medium,discount_start,18000,11700,,18000,
+2026-11-16T15:53:26Z,gossamer-gear,8764296460,39992776753206,minimalist-19-daypack,Minimalist 19 Daypack,Grey,price_down,6900,4830,,6900,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8764296460,39992776753206,minimalist-19-daypack,Minimalist 19 Daypack,Grey,discount_start,6900,4830,,6900,
+2026-11-16T15:53:26Z,gossamer-gear,6793370566710,40132352475190,little-sit-pads,Little Sit Pads,Grey,price_down,800,640,,800,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,6793370566710,40132352475190,little-sit-pads,Little Sit Pads,Grey,discount_start,800,640,,800,
+2026-11-16T15:53:26Z,gossamer-gear,8839271820,40134759612470,thinlight-foam-pad,"Thinlight Foam Pad - 1/8""",Rolled,price_down,2200,1760,,2200,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839271820,40134759612470,thinlight-foam-pad,"Thinlight Foam Pad - 1/8""",Rolled,discount_start,2200,1760,,2200,
+2026-11-16T15:53:26Z,gossamer-gear,8839271820,40134759645238,thinlight-foam-pad,"Thinlight Foam Pad - 1/8""",Folded,price_down,3200,2560,,3200,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839271820,40134759645238,thinlight-foam-pad,"Thinlight Foam Pad - 1/8""",Folded,discount_start,3200,2560,,3200,
+2026-11-16T15:53:26Z,gossamer-gear,6793370566710,40487786414134,little-sit-pads,Little Sit Pads,Orange,price_down,800,640,,800,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,6793370566710,40487786414134,little-sit-pads,Little Sit Pads,Orange,discount_start,800,640,,800,
+2026-11-16T15:53:26Z,gossamer-gear,6894888910902,40547954524214,snack-sack,Snack Sack,Default Title,price_down,2200,1540,,2200,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6894888910902,40547954524214,snack-sack,Snack Sack,Default Title,discount_start,2200,1540,,2200,
+2026-11-16T15:53:26Z,gossamer-gear,6914192146486,40639101829174,fast-kumo,Fast Kumo 36 Fastpack,S/M,price_down,19000,12350,,19000,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,6914192146486,40639101829174,fast-kumo,Fast Kumo 36 Fastpack,S/M,discount_start,19000,12350,,19000,
+2026-11-16T15:53:26Z,gossamer-gear,6914192146486,40639101861942,fast-kumo,Fast Kumo 36 Fastpack,M/L,price_down,19000,12350,,19000,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,6914192146486,40639101861942,fast-kumo,Fast Kumo 36 Fastpack,M/L,discount_start,19000,12350,,19000,
+2026-11-16T15:53:26Z,gossamer-gear,8764296460,40709010751542,minimalist-19-daypack,Minimalist 19 Daypack,Tropical Mist,price_down,6900,4830,,6900,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8764296460,40709010751542,minimalist-19-daypack,Minimalist 19 Daypack,Tropical Mist,discount_start,6900,4830,,6900,
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,40784046948406,hats-1,Hats,Black Mesh,price_down,2500,1750,,2500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,40784046948406,hats-1,Hats,Black Mesh,discount_start,2500,1750,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,6914681405494,40966542065718,loris,Loris 25 Daypack,Tropical Mist,price_down,13500,9450,,13500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6914681405494,40966542065718,loris,Loris 25 Daypack,Tropical Mist,discount_start,13500,9450,,13500,
+2026-11-16T15:53:26Z,gossamer-gear,6914681405494,40966542098486,loris,Loris 25 Daypack,Grey,price_down,13500,9450,,13500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6914681405494,40966542098486,loris,Loris 25 Daypack,Grey,discount_start,13500,9450,,13500,
+2026-11-16T15:53:26Z,gossamer-gear,7035466645558,41058169978934,bumster-jet,Bumster Jet,Default Title,price_down,4500,3150,,4500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7035466645558,41058169978934,bumster-jet,Bumster Jet,Default Title,discount_start,4500,3150,,4500,
+2026-11-16T15:53:26Z,gossamer-gear,7054815494198,41135850848310,potpocket,PotPocket,Medium,price_down,2200,1760,,2200,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7054815494198,41135850848310,potpocket,PotPocket,Medium,discount_start,2200,1760,,2200,
+2026-11-16T15:53:26Z,gossamer-gear,7054815494198,41135851012150,potpocket,PotPocket,Large,price_down,2500,2000,,2500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7054815494198,41135851012150,potpocket,PotPocket,Large,discount_start,2500,2000,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,123577630732,41136750723126,air-flow-sitlight-camp-seat,Air Flow SitLight,"Large - 21""",price_down,2400,1920,,2400,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,123577630732,41136750723126,air-flow-sitlight-camp-seat,Air Flow SitLight,"Large - 21""",discount_start,2400,1920,,2400,
+2026-11-16T15:53:26Z,gossamer-gear,123577630732,41136760946742,air-flow-sitlight-camp-seat,Air Flow SitLight,"Medium - 19""",price_down,2400,1920,,2400,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,123577630732,41136760946742,air-flow-sitlight-camp-seat,Air Flow SitLight,"Medium - 19""",discount_start,2400,1920,,2400,
+2026-11-16T15:53:26Z,gossamer-gear,123577630732,41136762945590,air-flow-sitlight-camp-seat,Air Flow SitLight,"Small - 17""",price_down,2400,1920,,2400,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,123577630732,41136762945590,air-flow-sitlight-camp-seat,Air Flow SitLight,"Small - 17""",discount_start,2400,1920,,2400,
+2026-11-16T15:53:26Z,gossamer-gear,1562411499574,41136822386742,bumster,Bumster,Tropical Mist,price_down,2900,2030,,2900,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,1562411499574,41136822386742,bumster,Bumster,Tropical Mist,discount_start,2900,2030,,2900,
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,41136826056758,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Tropical Mist / Large,price_down,20500,13325,20500,20500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,41136826056758,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Tropical Mist / Large,discount_start,20500,13325,20500,20500,
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,41136827433014,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Tropical Mist / Medium,price_down,20500,13325,,20500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,41136827433014,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Tropical Mist / Medium,discount_start,20500,13325,,20500,
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,41136833364022,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Tropical Mist / Small,price_down,20500,13325,,20500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,4263670546486,41136833364022,g4-20-42-ultralight-backpack,G4-20 Ultralight 42 Backpack,Tropical Mist / Small,discount_start,20500,13325,,20500,
+2026-11-16T15:53:26Z,gossamer-gear,6914681405494,41136956604470,loris,Loris 25 Daypack,Green,price_down,13500,9450,,13500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6914681405494,41136956604470,loris,Loris 25 Daypack,Green,discount_start,13500,9450,,13500,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,41136981213238,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Tropical Mist / Small / S/M Curved PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,41136981213238,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Tropical Mist / Small / S/M Curved PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8764296460,41136984391734,minimalist-19-daypack,Minimalist 19 Daypack,Green,price_down,6900,4830,,6900,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8764296460,41136984391734,minimalist-19-daypack,Minimalist 19 Daypack,Green,discount_start,6900,4830,,6900,
+2026-11-16T15:53:26Z,gossamer-gear,8839272076,41137061036086,sitlight-camp-seat,SitLight,"21""",price_down,1300,1040,,1300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839272076,41137061036086,sitlight-camp-seat,SitLight,"21""",discount_start,1300,1040,,1300,
+2026-11-16T15:53:26Z,gossamer-gear,8839272076,41137061068854,sitlight-camp-seat,SitLight,"19""",price_down,1300,1040,,1300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839272076,41137061068854,sitlight-camp-seat,SitLight,"19""",discount_start,1300,1040,,1300,
+2026-11-16T15:53:26Z,gossamer-gear,8839272076,41137061101622,sitlight-camp-seat,SitLight,"17""",price_down,1300,1040,,1300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839272076,41137061101622,sitlight-camp-seat,SitLight,"17""",discount_start,1300,1040,,1300,
+2026-11-16T15:53:26Z,gossamer-gear,7290367803446,42121523200054,aero-jet,Aero Jet,Default Title,price_down,22500,16875,,22500,-25.0
+2026-11-16T15:53:26Z,gossamer-gear,7290367803446,42121523200054,aero-jet,Aero Jet,Default Title,discount_start,22500,16875,,22500,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330760758,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Grey / Medium / M Straight PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330760758,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Grey / Medium / M Straight PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330793526,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Grey / Large / M Straight PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330793526,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Grey / Large / M Straight PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330859062,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Green / Medium / M Straight PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330859062,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Green / Medium / M Straight PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330891830,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Green / Large / M Straight PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330891830,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Green / Large / M Straight PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330957366,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Tropical Mist / Medium / M Straight PVT Hipbelt,price_down,31500,22050,,31500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8621015692,42131330957366,mariposa-60-lightweight-backpack,Mariposa 60 Backpack,Tropical Mist / Medium / M Straight PVT Hipbelt,discount_start,31500,22050,,31500,
+2026-11-16T15:53:26Z,gossamer-gear,8764251852,42131380305974,gorilla-50,Gorilla 50 Ultralight Backpack,Grey / Medium / M Straight PVT Hipbelt,price_down,27500,17875,,27500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,8764251852,42131380305974,gorilla-50,Gorilla 50 Ultralight Backpack,Grey / Medium / M Straight PVT Hipbelt,discount_start,27500,17875,,27500,
+2026-11-16T15:53:26Z,gossamer-gear,8764251852,42131380338742,gorilla-50,Gorilla 50 Ultralight Backpack,Grey / Large / M Straight PVT Hipbelt,price_down,27500,17875,,27500,-35.0
+2026-11-16T15:53:26Z,gossamer-gear,8764251852,42131380338742,gorilla-50,Gorilla 50 Ultralight Backpack,Grey / Large / M Straight PVT Hipbelt,discount_start,27500,17875,,27500,
+2026-11-16T15:53:26Z,gossamer-gear,8839271820,42879197511734,thinlight-foam-pad,"Thinlight Foam Pad - 1/8""",Rolled Wide,price_down,3200,2560,,3200,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8839271820,42879197511734,thinlight-foam-pad,"Thinlight Foam Pad - 1/8""",Rolled Wide,discount_start,3200,2560,,3200,
+2026-11-16T15:53:26Z,gossamer-gear,7648901824566,43011834970166,gvp-foam-donut,GVP Foam Donut,Default Title,price_down,600,480,,600,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7648901824566,43011834970166,gvp-foam-donut,GVP Foam Donut,Default Title,discount_start,600,480,,600,
+2026-11-16T15:53:26Z,gossamer-gear,7648902086710,43011841785910,folded-torso-foam-pad-3-8,"Torso Foam Pad - 3/8""",Default Title,price_down,3300,2640,,3300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7648902086710,43011841785910,folded-torso-foam-pad-3-8,"Torso Foam Pad - 3/8""",Default Title,discount_start,3300,2640,,3300,
+2026-11-16T15:53:26Z,gossamer-gear,7668835057718,43072647233590,riksak,RikSak,Default Title,price_down,4500,3600,,4500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7668835057718,43072647233590,riksak,RikSak,Default Title,discount_start,4500,3600,,4500,
+2026-11-16T15:53:26Z,gossamer-gear,7668844494902,43072718798902,jet-pack-dirty-clean-cube,Dirty/Clean Cube,Default Title,price_down,3000,2400,,3000,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7668844494902,43072718798902,jet-pack-dirty-clean-cube,Dirty/Clean Cube,Default Title,discount_start,3000,2400,,3000,
+2026-11-16T15:53:26Z,gossamer-gear,7712214515766,43330260041782,stake-bag,Stake Bag,Default Title,price_down,800,560,,800,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7712214515766,43330260041782,stake-bag,Stake Bag,Default Title,discount_start,800,560,,800,
+2026-11-16T15:53:26Z,gossamer-gear,7718429360182,43362377236534,passporter,PassPorter,Default Title,price_down,2500,2000,,2500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7718429360182,43362377236534,passporter,PassPorter,Default Title,discount_start,2500,2000,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,7730662735926,43417144524854,jet-dollar-collar-hold,Jet Dollar Collar,Default Title,price_down,597,477,1500,597,-20.1
+2026-11-16T15:53:26Z,gossamer-gear,8838947340,43441984634934,liteflex-hiking-chrome-umbrella,Lightrek Hiking Umbrella,Chrome,price_down,4300,3440,,4300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8838947340,43441984634934,liteflex-hiking-chrome-umbrella,Lightrek Hiking Umbrella,Chrome,discount_start,4300,3440,,4300,
+2026-11-16T15:53:26Z,gossamer-gear,8838947340,43441984667702,liteflex-hiking-chrome-umbrella,Lightrek Hiking Umbrella,Gold,price_down,4300,3440,,4300,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8838947340,43441984667702,liteflex-hiking-chrome-umbrella,Lightrek Hiking Umbrella,Gold,discount_start,4300,3440,,4300,
+2026-11-16T15:53:26Z,gossamer-gear,7751522582582,43487072452662,travel-umbrella,Travel Umbrella,Default Title,price_down,4500,3600,,4500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7751522582582,43487072452662,travel-umbrella,Travel Umbrella,Default Title,discount_start,4500,3600,,4500,
+2026-11-16T15:53:26Z,gossamer-gear,7825153228854,43701715533878,shoe-cube,Shoe Cube,Default Title,price_down,1600,1280,,1600,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7825153228854,43701715533878,shoe-cube,Shoe Cube,Default Title,discount_start,1600,1280,,1600,
+2026-11-16T15:53:26Z,gossamer-gear,7825167876150,43701827076150,compression-cubes,Compression Cubes,Full,price_down,2500,2000,,2500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7825167876150,43701827076150,compression-cubes,Compression Cubes,Full,discount_start,2500,2000,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,7825167876150,43701827108918,compression-cubes,Compression Cubes,Half,price_down,2000,1600,,2000,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7825167876150,43701827108918,compression-cubes,Compression Cubes,Half,discount_start,2000,1600,,2000,
+2026-11-16T15:53:26Z,gossamer-gear,7828013809718,43710930616374,jet-oddittys,Jet Oddittys,Coated,price_down,1400,1120,,1400,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7828013809718,43710930616374,jet-oddittys,Jet Oddittys,Coated,discount_start,1400,1120,,1400,
+2026-11-16T15:53:26Z,gossamer-gear,7828013809718,43710930649142,jet-oddittys,Jet Oddittys,Stretch Mesh,price_down,1400,1120,,1400,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7828013809718,43710930649142,jet-oddittys,Jet Oddittys,Stretch Mesh,discount_start,1400,1120,,1400,
+2026-11-16T15:53:26Z,gossamer-gear,7898936967222,43944034074678,pack-jacket,Pack Jacket,Default Title,price_down,5500,4400,,5500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7898936967222,43944034074678,pack-jacket,Pack Jacket,Default Title,discount_start,5500,4400,,5500,
+2026-11-16T15:53:26Z,gossamer-gear,7898939064374,43944036663350,little-towel,Little Towel,Default Title,price_down,1000,800,,1000,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7898939064374,43944036663350,little-towel,Little Towel,Default Title,discount_start,1000,800,,1000,
+2026-11-16T15:53:26Z,gossamer-gear,7910402490422,43984706928694,the-black-belt,The Blackbelt,Default Title,price_down,1050,840,,1050,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7910402490422,43984706928694,the-black-belt,The Blackbelt,Default Title,discount_start,1050,840,,1050,
+2026-11-16T15:53:26Z,gossamer-gear,7921616322614,44035791257654,the-free,The Free,Default Title,price_down,40000,34000,,40000,-15.0
+2026-11-16T15:53:26Z,gossamer-gear,7921616322614,44035791257654,the-free,The Free,Default Title,discount_start,40000,34000,,40000,
+2026-11-16T15:53:26Z,gossamer-gear,7665591156790,44206166409270,piku-sling,Piku Sling,Glacier,price_down,7500,5250,,7500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7665591156790,44206166409270,piku-sling,Piku Sling,Glacier,discount_start,7500,5250,,7500,
+2026-11-16T15:53:26Z,gossamer-gear,7665591156790,44208722378806,piku-sling,Piku Sling,Badlands,price_down,7500,5250,,7500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7665591156790,44208722378806,piku-sling,Piku Sling,Badlands,discount_start,7500,5250,,7500,
+2026-11-16T15:53:26Z,gossamer-gear,7666428379190,44208728440886,skala-38-ultralight-backpack,Skala 38 Ultralight Backpack,Glacier,price_down,22500,15750,,22500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7666428379190,44208728440886,skala-38-ultralight-backpack,Skala 38 Ultralight Backpack,Glacier,discount_start,22500,15750,,22500,
+2026-11-16T15:53:26Z,gossamer-gear,7666428379190,44208728473654,skala-38-ultralight-backpack,Skala 38 Ultralight Backpack,Badlands,price_down,22500,15750,,22500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7666428379190,44208728473654,skala-38-ultralight-backpack,Skala 38 Ultralight Backpack,Badlands,discount_start,22500,15750,,22500,
+2026-11-16T15:53:26Z,gossamer-gear,7666420482102,44208747020342,grit-28l-fastpack,Grit 28 Fastpack,Glacier,price_down,18000,12600,,18000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7666420482102,44208747020342,grit-28l-fastpack,Grit 28 Fastpack,Glacier,discount_start,18000,12600,,18000,
+2026-11-16T15:53:26Z,gossamer-gear,7666420482102,44208747053110,grit-28l-fastpack,Grit 28 Fastpack,Badlands,price_down,18000,12600,,18000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7666420482102,44208747053110,grit-28l-fastpack,Grit 28 Fastpack,Badlands,discount_start,18000,12600,,18000,
+2026-11-16T15:53:26Z,gossamer-gear,7666416255030,44208748822582,cima-15-daypack,Cima 15 Daypack,Glacier,price_down,12000,8400,,12000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7666416255030,44208748822582,cima-15-daypack,Cima 15 Daypack,Glacier,discount_start,12000,8400,,12000,
+2026-11-16T15:53:26Z,gossamer-gear,7666416255030,44208748855350,cima-15-daypack,Cima 15 Daypack,Badlands,price_down,12000,8400,,12000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7666416255030,44208748855350,cima-15-daypack,Cima 15 Daypack,Badlands,discount_start,12000,8400,,12000,
+2026-11-16T15:53:26Z,gossamer-gear,7962772602934,44209614782518,vetta-20-daypack,Vetta 20L Daypack,Glacier,price_down,14000,9800,,14000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7962772602934,44209614782518,vetta-20-daypack,Vetta 20L Daypack,Glacier,discount_start,14000,9800,,14000,
+2026-11-16T15:53:26Z,gossamer-gear,7962772602934,44209614815286,vetta-20-daypack,Vetta 20L Daypack,Badlands,price_down,14000,9800,,14000,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,7962772602934,44209614815286,vetta-20-daypack,Vetta 20L Daypack,Badlands,discount_start,14000,9800,,14000,
+2026-11-16T15:53:26Z,gossamer-gear,7962782236726,44209684480054,sidequest,Sidequest,Badlands,price_down,5500,4400,,5500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7962782236726,44209684480054,sidequest,Sidequest,Badlands,discount_start,5500,4400,,5500,
+2026-11-16T15:53:26Z,gossamer-gear,7962782236726,44209684512822,sidequest,Sidequest,Glacier,price_down,5500,4400,,5500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7962782236726,44209684512822,sidequest,Sidequest,Glacier,discount_start,5500,4400,,5500,
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44261946785846,hats-1,Hats,Black Dad Hat,price_down,2500,1750,,2500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44261946785846,hats-1,Hats,Black Dad Hat,discount_start,2500,1750,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44261946818614,hats-1,Hats,Tan Dad Hat,price_down,2500,1750,,2500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44261946818614,hats-1,Hats,Tan Dad Hat,discount_start,2500,1750,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44262896140342,hats-1,Hats,Black Trucker Hat,price_down,2500,1750,,2500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44262896140342,hats-1,Hats,Black Trucker Hat,discount_start,2500,1750,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44262896173110,hats-1,Hats,Grey Endurance Hat,price_down,2500,1750,,2500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,6958727626806,44262896173110,hats-1,Hats,Grey Endurance Hat,discount_start,2500,1750,,2500,
+2026-11-16T15:53:26Z,gossamer-gear,8054220587062,44453745229878,jet-cube,Jet Cube,Default Title,price_down,2000,1600,,2000,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8054220587062,44453745229878,jet-cube,Jet Cube,Default Title,discount_start,2000,1600,,2000,
+2026-11-16T15:53:26Z,gossamer-gear,8101373837366,44556796133430,webbing-strap,Webbing Strap,Default Title,price_down,1050,840,,1050,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8101373837366,44556796133430,webbing-strap,Webbing Strap,Default Title,discount_start,1050,840,,1050,
+2026-11-16T15:53:26Z,gossamer-gear,8174025310262,44783798583350,ft3-folding-trekking-poles,FT3 Folding Trekking Poles,Default Title,price_down,24500,19600,,24500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,8174025310262,44783798583350,ft3-folding-trekking-poles,FT3 Folding Trekking Poles,Default Title,discount_start,24500,19600,,24500,
+2026-11-16T15:53:26Z,gossamer-gear,8661373878326,46144840073270,vanish-jet-packable-duffel,Vanish Jet Duffel 38L & 58L,58L,price_down,15500,10850,,15500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8661373878326,46144840073270,vanish-jet-packable-duffel,Vanish Jet Duffel 38L & 58L,58L,discount_start,15500,10850,,15500,
+2026-11-16T15:53:26Z,gossamer-gear,8661373878326,46144840106038,vanish-jet-packable-duffel,Vanish Jet Duffel 38L & 58L,38L,price_down,13500,9450,,13500,-30.0
+2026-11-16T15:53:26Z,gossamer-gear,8661373878326,46144840106038,vanish-jet-packable-duffel,Vanish Jet Duffel 38L & 58L,38L,discount_start,13500,9450,,13500,
+2026-11-16T15:53:26Z,gossamer-gear,7825161257014,46151366967350,clear-cube,Clear Cubes,Regular,price_down,2000,1600,,2000,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7825161257014,46151366967350,clear-cube,Clear Cubes,Regular,discount_start,2000,1600,,2000,
+2026-11-16T15:53:26Z,gossamer-gear,7825161257014,46151367000118,clear-cube,Clear Cubes,Small,price_down,1500,1200,,1500,-20.0
+2026-11-16T15:53:26Z,gossamer-gear,7825161257014,46151367000118,clear-cube,Clear Cubes,Small,discount_start,1500,1200,,1500,
+2026-11-16T15:53:26Z,greats,7184202334256,40729623101488,the-charlie-nero-mens,The Charlie - Nero,Nero / 11,out_of_stock,21500,21500,21500,21500,
+2026-11-16T15:53:26Z,greats,7260200337456,40896892272688,the-royale-2-0-nero-mens,The Royale 2.0 - Nero,14 / Nero,out_of_stock,19900,19900,19900,19900,
+2026-11-16T15:53:26Z,greats,7667086065712,42006350790704,the-reign-navy-mens,The Reign - Navy,16 / Navy,out_of_stock,19900,19900,19900,19900,
+2026-11-16T15:53:26Z,homesick,9969883601,251230814225,utah-candle,Utah Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883601,251230814225,utah-candle,Utah Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883921,251230978065,west-virginia-candle,West Virginia Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883921,251230978065,west-virginia-candle,West Virginia Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969884049,251231010833,wyoming-candle,Wyoming Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969884049,251231010833,wyoming-candle,Wyoming Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10041816529,251239268369,beach-cottage-candle,Beach Cottage Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10041816529,251239268369,beach-cottage-candle,Beach Cottage Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10041816465,251239301137,love-letters-candle,Love Letters Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10041816465,251239301137,love-letters-candle,Love Letters Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10008884881,251239727121,chicago-candle,Chicago Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10008884881,251239727121,chicago-candle,Chicago Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969877777,289226457105,alaska-candle,Alaska Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969877777,289226457105,alaska-candle,Alaska Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969877905,289226653713,arkansas-candle,Arkansas Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969877905,289226653713,arkansas-candle,Arkansas Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879377,289231372305,hawaii-candle,Hawaii Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879377,289231372305,hawaii-candle,Hawaii Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879569,289231503377,idaho-candle,Idaho Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879569,289231503377,idaho-candle,Idaho Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880081,289231667217,kansas-candle,Kansas Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880081,289231667217,kansas-candle,Kansas Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880337,289231765521,los-angeles-candle,Los Angeles Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880337,289231765521,los-angeles-candle,Los Angeles Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881169,289233272849,missouri-candle,Missouri Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881169,289233272849,missouri-candle,Missouri Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881105,289233403921,mississippi-candle,Mississippi Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881105,289233403921,mississippi-candle,Mississippi Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881233,289233436689,montana-candle,Montana Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881233,289233436689,montana-candle,Montana Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882065,289233534993,north-dakota-candle,North Dakota Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882065,289233534993,north-dakota-candle,North Dakota Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881297,289233567761,nebraska-candle,Nebraska Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881297,289233567761,nebraska-candle,Nebraska Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881489,289233600529,new-hampshire-candle,New Hampshire Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881489,289233600529,new-hampshire-candle,New Hampshire Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881617,289233666065,new-job-candle,New Job Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881617,289233666065,new-job-candle,New Job Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881681,289233698833,new-mexico-candle,New Mexico Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881681,289233698833,new-mexico-candle,New Mexico Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882769,289234550801,road-trip-candle,Road Trip Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882769,289234550801,road-trip-candle,Road Trip Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882961,289234649105,south-carolina-candle,South Carolina Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882961,289234649105,south-carolina-candle,South Carolina Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883089,289235664913,south-dakota-candle,South Dakota Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883089,289235664913,south-dakota-candle,South Dakota Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969878161,289707851793,boston-candle,Boston Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969878161,289707851793,boston-candle,Boston Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883665,290142978065,vermont-candle,Vermont Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883665,290142978065,vermont-candle,Vermont Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969878801,290303442961,delaware-candle,Delaware Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969878801,290303442961,delaware-candle,Delaware Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880529,290627780625,maine-candle,Maine Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880529,290627780625,maine-candle,Maine Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880913,290627813393,michigan-candle,Michigan Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880913,290627813393,michigan-candle,Michigan Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882449,290628075537,oregon-candle,Oregon Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882449,290628075537,oregon-candle,Oregon Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969877649,290789294097,alabama-candle,Alabama Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969877649,290789294097,alabama-candle,Alabama Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879953,290792603665,iowa-candle,Iowa Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879953,290792603665,iowa-candle,Iowa Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879889,290792996881,indiana-candle,Indiana Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879889,290792996881,indiana-candle,Indiana Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882193,290793455633,ohio-candle,Ohio Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882193,290793455633,ohio-candle,Ohio Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882257,290793488401,oklahoma-candle,Oklahoma Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882257,290793488401,oklahoma-candle,Oklahoma Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882641,290793586705,rhode-island-candle,Rhode Island Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882641,290793586705,rhode-island-candle,Rhode Island Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,4907575428,290793947153,southern-california-candle,SoCal - Southern California Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,4907575428,290793947153,southern-california-candle,SoCal - Southern California Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883409,290794307601,tennessee-candle,Tennessee Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883409,290794307601,tennessee-candle,Tennessee Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969877841,290949890065,arizona-candle,Arizona Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969877841,290949890065,arizona-candle,Arizona Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969878097,290949922833,book-club-candle,Book Club Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969878097,290949922833,book-club-candle,Book Club Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6305405380,290949955601,colorado-candle,Colorado Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6305405380,290949955601,colorado-candle,Colorado Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883857,290950021137,washington-dc-candle,Washington D.C. Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883857,290950021137,washington-dc-candle,Washington D.C. Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880593,290950152209,maryland-candle,Maryland Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880593,290950152209,maryland-candle,Maryland Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881425,290950217745,nevada-candle,Nevada Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881425,290950217745,nevada-candle,Nevada Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881873,290950250513,new-york-city-candle,New York City Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881873,290950250513,new-york-city-candle,New York City Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882833,290950381585,san-francisco-candle,San Francisco Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882833,290950381585,san-francisco-candle,San Francisco Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969878609,291004514321,connecticut-candle,Connecticut Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969878609,291004514321,connecticut-candle,Connecticut Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879313,291310075921,latkes-and-lights-candle,Latkes and Lights Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879313,291310075921,latkes-and-lights-candle,Latkes and Lights Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880401,291310108689,louisiana-candle,Louisiana Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880401,291310108689,louisiana-candle,Louisiana Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880657,291310141457,massachusetts-candle,Massachusetts Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880657,291310141457,massachusetts-candle,Massachusetts Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883793,291310403601,washington-candle,Washington Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883793,291310403601,washington-candle,Washington Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969878929,291325116433,florida-candle,Florida Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969878929,291325116433,florida-candle,Florida Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879185,291325181969,georgia-candle,Georgia Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879185,291325181969,georgia-candle,Georgia Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879505,291325214737,the-nutcracker-candle,The Nutcracker Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879505,291325214737,the-nutcracker-candle,The Nutcracker Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969879633,291325247505,illinois-candle,Illinois Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969879633,291325247505,illinois-candle,Illinois Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969880145,291325313041,kentucky-candle,Kentucky Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969880145,291325313041,kentucky-candle,Kentucky Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6305410820,291325345809,minnesota-candle,Minnesota Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6305410820,291325345809,minnesota-candle,Minnesota Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882001,291325378577,north-carolina-candle,North Carolina Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882001,291325378577,north-carolina-candle,North Carolina Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882129,291325411345,northern-california-candle,NorCal - Northern California Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882129,291325411345,northern-california-candle,NorCal - Northern California Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,4990870852,291326394385,new-jersey-candle,New Jersey Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,4990870852,291326394385,new-jersey-candle,New Jersey Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969881745,291326656529,new-york-candle,New York Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969881745,291326656529,new-york-candle,New York Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969882513,291326689297,pennsylvania-candle,Pennsylvania Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969882513,291326689297,pennsylvania-candle,Pennsylvania Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883473,291326754833,texas-candle,Texas Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883473,291326754833,texas-candle,Texas Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,9969883729,291326820369,virginia-candle,Virginia Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,9969883729,291326820369,virginia-candle,Virginia Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6296307716,291326853137,wisconsin-candle,Wisconsin Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6296307716,291326853137,wisconsin-candle,Wisconsin Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,1404450209854,12347187527742,new-home-candle,New Home Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,1404450209854,12347187527742,new-home-candle,New Home Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,1433371574334,12404535623742,pumpkin-picking-candle,Pumpkin Picking Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,1433371574334,12404535623742,pumpkin-picking-candle,Pumpkin Picking Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,1984706674750,18387140706366,birthday-party-candle,Birthday Party Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,1984706674750,18387140706366,birthday-party-candle,Birthday Party Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,2042761805886,18766315126846,four-twenty-candle,Four Twenty Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,2042761805886,18766315126846,four-twenty-candle,Four Twenty Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,2266330071102,20376693440574,winter-mantel-candle,Winter Mantel Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,2266330071102,20376693440574,winter-mantel-candle,Winter Mantel Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,2266332364862,20376717557822,lets-toast-candle,Let's Toast Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,2266332364862,20376717557822,lets-toast-candle,Let's Toast Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,4451622879294,31594167173182,thank-you-mom,"Thank You, Mom Candle",Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,4451622879294,31594167173182,thank-you-mom,"Thank You, Mom Candle",Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,4598431219774,32132366893118,thanks-candle,Thanks Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,4598431219774,32132366893118,thanks-candle,Thanks Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,4660222820414,32265715417150,ski-trip-candle,Ski Trip Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,4660222820414,32265715417150,ski-trip-candle,Ski Trip Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,4746946445374,32525915062334,home-office-candle,Home Office Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,4746946445374,32525915062334,home-office-candle,Home Office Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,4747791106110,32529489821758,tissue-paper,Tissue Paper,Default Title,price_up,210,300,300,300,42.9
+2026-11-16T15:53:26Z,homesick,4747791106110,32529489821758,tissue-paper,Tissue Paper,Default Title,discount_end,210,300,300,300,
+2026-11-16T15:53:26Z,homesick,4747899895870,32529970430014,texas-car-freshener,Texas Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,4747899895870,32529970430014,texas-car-freshener,Texas Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,4747901272126,32529974657086,wick-trimmer,Wick Trimmer,Default Title,price_up,1330,1900,1900,1900,42.9
+2026-11-16T15:53:26Z,homesick,4747901272126,32529974657086,wick-trimmer,Wick Trimmer,Default Title,discount_end,1330,1900,1900,1900,
+2026-11-16T15:53:26Z,homesick,4793824510014,32691384778814,four-twenty-car-freshener,Four Twenty Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,4793824510014,32691384778814,four-twenty-car-freshener,Four Twenty Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,6535180845118,39245819084862,gone-hiking-candle,Gone Hiking Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6535180845118,39245819084862,gone-hiking-candle,Gone Hiking Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6574624178238,39401399189566,just-married-candle,Just Married Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6574624178238,39401399189566,just-married-candle,Just Married Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6580841742398,39419973369918,lake-living-candle,Lake Living Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6580841742398,39419973369918,lake-living-candle,Lake Living Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6628304617534,39544898355262,autumn-hayride-candle,Autumn Hayride Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6628304617534,39544898355262,autumn-hayride-candle,Autumn Hayride Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6787089072190,39653332156478,evening-unwind-candle,Evening Unwind Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6787089072190,39653332156478,evening-unwind-candle,Evening Unwind Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6942541840446,39751099351102,team-bride-candle,Team Bride Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6942541840446,39751099351102,team-bride-candle,Team Bride Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6981275746366,39780648779838,bonfire-nights-candle,Bonfire Nights Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6981275746366,39780648779838,bonfire-nights-candle,Bonfire Nights Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,6994823839806,39789557448766,snow-day-candle,Snow Day Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,6994823839806,39789557448766,snow-day-candle,Snow Day Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7065196199998,39863433986110,harry-potter-hufflepuff-candle,Harry Potter Hufflepuff™ Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7065196199998,39863433986110,harry-potter-hufflepuff-candle,Harry Potter Hufflepuff™ Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7065201344574,39863450206270,harry-potter-ravenclaw-candle,Harry Potter Ravenclaw™ Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7065201344574,39863450206270,harry-potter-ravenclaw-candle,Harry Potter Ravenclaw™ Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7065207472190,39863464984638,harry-potter-slytherin-candle,Harry Potter Slytherin™ Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7065207472190,39863464984638,harry-potter-slytherin-candle,Harry Potter Slytherin™ Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7065222840382,39863499948094,harry-potter-hogwarts-3-wick-candle,Harry Potter Hogwarts™ 3-Wick Candle,Default Title,price_up,3847,5495,5495,5495,42.8
+2026-11-16T15:53:26Z,homesick,7065222840382,39863499948094,harry-potter-hogwarts-3-wick-candle,Harry Potter Hogwarts™ 3-Wick Candle,Default Title,discount_end,3847,5495,5495,5495,
+2026-11-16T15:53:26Z,homesick,7065222840382,39863499948094,harry-potter-hogwarts-3-wick-candle,Harry Potter Hogwarts™ 3-Wick Candle,Default Title,out_of_stock,3847,5495,5495,5495,
+2026-11-16T15:53:26Z,homesick,7070968021054,39870782832702,harry-potter-gryffindor-candle,Harry Potter Gryffindor™ Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7070968021054,39870782832702,harry-potter-gryffindor-candle,Harry Potter Gryffindor™ Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7089711841342,39893800484926,homesick-matches,Homesick Matches,Default Title,price_up,140,200,200,200,42.9
+2026-11-16T15:53:26Z,homesick,7089711841342,39893800484926,homesick-matches,Homesick Matches,Default Title,discount_end,140,200,200,200,
+2026-11-16T15:53:26Z,homesick,7109293703230,39925859450942,single-13-75oz-candle-gift-box,Premium 13.75oz Candle Gift Box,Default Title,price_up,1050,1500,1500,1500,42.9
+2026-11-16T15:53:26Z,homesick,7109293703230,39925859450942,single-13-75oz-candle-gift-box,Premium 13.75oz Candle Gift Box,Default Title,discount_end,1050,1500,1500,1500,
+2026-11-16T15:53:26Z,homesick,7110734446654,39930419609662,friends-central-perk-candle,FRIENDS™ Central Perk™ Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7110734446654,39930419609662,friends-central-perk-candle,FRIENDS™ Central Perk™ Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7123218628670,39966400774206,19th-hole-candle,19th Hole Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7123218628670,39966400774206,19th-hole-candle,19th Hole Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7123220365374,39966406377534,tennis-league-candle,Tennis League Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7123220365374,39966406377534,tennis-league-candle,Tennis League Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7149525631038,40034129739838,game-day-candle,Game Day Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7149525631038,40034129739838,game-day-candle,Game Day Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7149526253630,40034130460734,new-baby-candle,New Baby Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7149526253630,40034130460734,new-baby-candle,New Baby Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7188227326014,40127065587774,orchard-picnic-candle,Orchard Picnic Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7188227326014,40127065587774,orchard-picnic-candle,Orchard Picnic Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7188231127102,40127067848766,friendsgiving-candle,Friendsgiving Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7188231127102,40127067848766,friendsgiving-candle,Friendsgiving Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7236228874302,40152132452414,winter-mantel-linen-room-spray,Winter Mantel Linen & Room Spray,Default Title,price_up,979,1399,1399,1399,42.9
+2026-11-16T15:53:26Z,homesick,7236228874302,40152132452414,winter-mantel-linen-room-spray,Winter Mantel Linen & Room Spray,Default Title,discount_end,979,1399,1399,1399,
+2026-11-16T15:53:26Z,homesick,7240208580670,40163446685758,harry-potter-diagon-alley-candle,Harry Potter Diagon Alley™ Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7240208580670,40163446685758,harry-potter-diagon-alley-candle,Harry Potter Diagon Alley™ Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7240209924158,40163448848446,harry-potter-platform-9-candle,Harry Potter Platform 9 ¾™ Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7240209924158,40163448848446,harry-potter-platform-9-candle,Harry Potter Platform 9 ¾™ Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7240210448446,40163449438270,harry-potter-quidditch-pitch-candle,Harry Potter Quidditch Pitch™ Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7240210448446,40163449438270,harry-potter-quidditch-pitch-candle,Harry Potter Quidditch Pitch™ Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7244879626302,40178492604478,camera-match-holder,Camera Match Holder,Default Title,price_up,1960,2800,2800,2800,42.9
+2026-11-16T15:53:26Z,homesick,7244879626302,40178492604478,camera-match-holder,Camera Match Holder,Default Title,discount_end,1960,2800,2800,2800,
+2026-11-16T15:53:26Z,homesick,7244886966334,40178521669694,log-cabin-candle,Log Cabin Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7244886966334,40178521669694,log-cabin-candle,Log Cabin Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7253926412350,40223559778366,gimbels-candle,Gimbels Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7253926412350,40223559778366,gimbels-candle,Gimbels Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7293452451902,40317169532990,jerrys-apartment-candle,Seinfeld Jerry's Apartment Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7293452451902,40317169532990,jerrys-apartment-candle,Seinfeld Jerry's Apartment Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7303173341246,40368447094846,in-our-hearts-candle,In Our Hearts Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7303173341246,40368447094846,in-our-hearts-candle,In Our Hearts Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7312163078206,40398026539070,great-outdoors-candle,Great Outdoors Candle,Default Title,price_up,1397,1995,1995,1995,42.8
+2026-11-16T15:53:26Z,homesick,7312163078206,40398026539070,great-outdoors-candle,Great Outdoors Candle,Default Title,discount_end,1397,1995,1995,1995,
+2026-11-16T15:53:26Z,homesick,7403808161854,40630528475198,silicone-lid,Silicone Lid,Default Title,price_up,1049,1499,1499,1499,42.9
+2026-11-16T15:53:26Z,homesick,7403808161854,40630528475198,silicone-lid,Silicone Lid,Default Title,discount_end,1049,1499,1499,1499,
+2026-11-16T15:53:26Z,homesick,7492958322750,40880948903998,new-grad-candle,New Grad Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7492958322750,40880948903998,new-grad-candle,New Grad Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7528124973118,40952548655166,beach-vacay-mini-candle-trio,Beach Vacay Mini Candle Trio,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7528124973118,40952548655166,beach-vacay-mini-candle-trio,Beach Vacay Mini Candle Trio,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7528474968126,40954143768638,eurotrip-mini-candle-trio,EuroTrip Mini Candle Trio,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7528474968126,40954143768638,eurotrip-mini-candle-trio,EuroTrip Mini Candle Trio,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7616842203198,41147351957566,pickleball-court-candle,Pickleball Court Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7616842203198,41147351957566,pickleball-court-candle,Pickleball Court Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7631790276670,41183985074238,hawaii-car-freshener-1,Hawaii Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7631790276670,41183985074238,hawaii-car-freshener-1,Hawaii Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7631790932030,41183987204158,southern-california-car-freshener,Southern California Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7631790932030,41183987204158,southern-california-car-freshener,Southern California Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7631791652926,41183993331774,new-york-city-car-freshener-1,New York City Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7631791652926,41183993331774,new-york-city-car-freshener-1,New York City Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7631792144446,41183997001790,beach-cottage-car-freshener-2,Beach Cottage Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7631792144446,41183997001790,beach-cottage-car-freshener-2,Beach Cottage Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7642827358270,41210847756350,peak-foliage-candle,Peak Foliage Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7642827358270,41210847756350,peak-foliage-candle,Peak Foliage Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7642827948094,41210848870462,cozy-sweater-candle,Cozy Sweater Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7642827948094,41210848870462,cozy-sweater-candle,Cozy Sweater Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7665074569278,41277690937406,pumpkin-picking-car-freshener-1,Pumpkin Picking Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7665074569278,41277690937406,pumpkin-picking-car-freshener-1,Pumpkin Picking Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7665075060798,41277692543038,ski-trip-car-freshener-1,Ski Trip Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7665075060798,41277692543038,ski-trip-car-freshener-1,Ski Trip Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7665075748926,41277694050366,winter-mantel-car-freshener-1,Winter Mantel Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7665075748926,41277694050366,winter-mantel-car-freshener-1,Winter Mantel Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7676194914366,41306037944382,monicas-apartment-candle,FRIENDS™ Monica's Apartment Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7676194914366,41306037944382,monicas-apartment-candle,FRIENDS™ Monica's Apartment Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7685858492478,41338588495934,forbidden-forest-candle,Harry Potter™ Forbidden Forest Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7685858492478,41338588495934,forbidden-forest-candle,Harry Potter™ Forbidden Forest Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7685858852926,41338589970494,the-great-hall-candle,Harry Potter™ The Great Hall Candle,Default Title,price_up,2587,3695,3695,3695,42.8
+2026-11-16T15:53:26Z,homesick,7685858852926,41338589970494,the-great-hall-candle,Harry Potter™ The Great Hall Candle,Default Title,discount_end,2587,3695,3695,3695,
+2026-11-16T15:53:26Z,homesick,7701440200766,41405504749630,christmas-morning-candle,Christmas Morning Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7701440200766,41405504749630,christmas-morning-candle,Christmas Morning Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7701440266302,41405504979006,gingerbread-house-candle,Gingerbread House Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7701440266302,41405504979006,gingerbread-house-candle,Gingerbread House Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7701441183806,41405509075006,yellow-brick-road-candle,The Wizard Of Oz - Yellow Brick Road Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7701441183806,41405509075006,yellow-brick-road-candle,The Wizard Of Oz - Yellow Brick Road Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7701441413182,41405509926974,no-place-like-home-car-freshener,The Wizard Of Oz - No Place Like Home Car Freshener,Default Title,price_up,840,1200,1200,1200,42.9
+2026-11-16T15:53:26Z,homesick,7701441413182,41405509926974,no-place-like-home-car-freshener,The Wizard Of Oz - No Place Like Home Car Freshener,Default Title,discount_end,840,1200,1200,1200,
+2026-11-16T15:53:26Z,homesick,7710339563582,41436607447102,harry-potter-honeydukes-candle-trio,Harry Potter Honeydukes™ Candle Trio,Default Title,price_up,2797,3995,3995,3995,42.8
+2026-11-16T15:53:26Z,homesick,7710339563582,41436607447102,harry-potter-honeydukes-candle-trio,Harry Potter Honeydukes™ Candle Trio,Default Title,discount_end,2797,3995,3995,3995,
+2026-11-16T15:53:26Z,homesick,7751628193854,41607288487998,getting-it-done,Yelp - Getting It Done,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7751628193854,41607288487998,getting-it-done,Yelp - Getting It Done,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7757154811966,41627233222718,festival-beats-candle,Festival Beats Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7757154811966,41627233222718,festival-beats-candle,Festival Beats Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7757157433406,41627240955966,golden-hour-candle,Golden Hour Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7757157433406,41627240955966,golden-hour-candle,Golden Hour Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7762483052606,41643661951038,pilates-princess-candle,Pilates Princess Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7762483052606,41643661951038,pilates-princess-candle,Pilates Princess Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7774390353982,41676106891326,grandma-s-cookies-candle,Grandma’s Cookies Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7774390353982,41676106891326,grandma-s-cookies-candle,Grandma’s Cookies Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7774401298494,41676137660478,mom-s-day-off-candle,Mom’s Day Off Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7774401298494,41676137660478,mom-s-day-off-candle,Mom’s Day Off Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7779308929086,41694605049918,happy-camper-candle,Happy Camper Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7779308929086,41694605049918,happy-camper-candle,Happy Camper Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7785098805310,41718288908350,thank-you-dad-candle,"Thank You, Dad Candle",Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7785098805310,41718288908350,thank-you-dad-candle,"Thank You, Dad Candle",Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7787123408958,41724192849982,strawberry-season-candle,Strawberry Season Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7787123408958,41724192849982,strawberry-season-candle,Strawberry Season Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7787124162622,41724196192318,poolside-candle,Poolside Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7787124162622,41724196192318,poolside-candle,Poolside Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7803386003518,41776882745406,iced-coffee-candle,Iced Coffee Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7803386003518,41776882745406,iced-coffee-candle,Iced Coffee Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7816036614206,41830690750526,fortress-of-solitude-car-freshener,Fortress of Solitude Car Freshener,Default Title,price_up,629,899,899,899,42.9
+2026-11-16T15:53:26Z,homesick,7816036614206,41830690750526,fortress-of-solitude-car-freshener,Fortress of Solitude Car Freshener,Default Title,discount_end,629,899,899,899,
+2026-11-16T15:53:26Z,homesick,7826807947326,41872049537086,poolside-car-freshener,Poolside Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7826807947326,41872049537086,poolside-car-freshener,Poolside Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7826810568766,41872062349374,strawberry-season-car-freshener,Strawberry Season Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7826810568766,41872062349374,strawberry-season-car-freshener,Strawberry Season Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7826814959678,41872092233790,take-a-hike-car-freshener,Take A Hike Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7826814959678,41872092233790,take-a-hike-car-freshener,Take A Hike Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7826815778878,41872095379518,summer-treat-car-freshener,Summer Treat Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7826815778878,41872095379518,summer-treat-car-freshener,Summer Treat Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7826816073790,41872096231486,happy-camper-car-freshener,Happy Camper Car Freshener,Default Title,price_up,489,699,699,699,42.9
+2026-11-16T15:53:26Z,homesick,7826816073790,41872096231486,happy-camper-car-freshener,Happy Camper Car Freshener,Default Title,discount_end,489,699,699,699,
+2026-11-16T15:53:26Z,homesick,7835014398014,41901208043582,beach-cottage-mini-candle,Beach Cottage Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835014398014,41901208043582,beach-cottage-mini-candle,Beach Cottage Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835017281598,41901220954174,book-club-mini-candle,Book Club Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835017281598,41901220954174,book-club-mini-candle,Book Club Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835017314366,41901221085246,bonfire-nights-mini-candle,Bonfire Nights Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835017314366,41901221085246,bonfire-nights-mini-candle,Bonfire Nights Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835017379902,41901221150782,lets-toast-mini-candle,Let's Toast Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835017379902,41901221150782,lets-toast-mini-candle,Let's Toast Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835017445438,41901221216318,gone-hiking-mini-candle,Gone Hiking Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835017445438,41901221216318,gone-hiking-mini-candle,Gone Hiking Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835017740350,41901221675070,hawaii-mini-candle,Hawaii Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835017740350,41901221675070,hawaii-mini-candle,Hawaii Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835017871422,41901222461502,new-home-mini-candle,New Home Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835017871422,41901222461502,new-home-mini-candle,New Home Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835018002494,41901222592574,new-york-city-mini-candle,New York City Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835018002494,41901222592574,new-york-city-mini-candle,New York City Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7835018035262,41901223116862,thanks-mini-candle,Thanks Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7835018035262,41901223116862,thanks-mini-candle,Thanks Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7840554876990,41922781610046,local-honey-candle,Local Honey Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7840554876990,41922781610046,local-honey-candle,Local Honey Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7840561004606,41922813919294,hot-cider-candle,Hot Cider Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7840561004606,41922813919294,hot-cider-candle,Hot Cider Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7840561659966,41922818146366,burnt-marshmallow-candle,Burnt Marshmallow Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7840561659966,41922818146366,burnt-marshmallow-candle,Burnt Marshmallow Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7840565788734,41922842001470,host-with-the-most-candle,Host With The Most Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7840565788734,41922842001470,host-with-the-most-candle,Host With The Most Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7841003831358,41925381390398,olipop-orange-cream-candle,Olipop Orange Cream Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7841003831358,41925381390398,olipop-orange-cream-candle,Olipop Orange Cream Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7841004322878,41925382111294,olipop-variety-pack,Olipop Variety Pack,Default Title,price_up,3147,4495,4495,4495,42.8
+2026-11-16T15:53:26Z,homesick,7841004322878,41925382111294,olipop-variety-pack,Olipop Variety Pack,Default Title,discount_end,3147,4495,4495,4495,
+2026-11-16T15:53:26Z,homesick,7841023590462,41925478318142,friday-night-lights-candle,Friday Night Lights Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7841023590462,41925478318142,friday-night-lights-candle,Friday Night Lights Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7849995305022,41975295311934,the-kitchen-candle,The Kitchen Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7849995305022,41975295311934,the-kitchen-candle,The Kitchen Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7849995796542,41975297146942,the-bathroom-candle,The Bathroom Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7849995796542,41975297146942,the-bathroom-candle,The Bathroom Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7849996124222,41975298195518,the-bar-candle,The Bar Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7849996124222,41975298195518,the-bar-candle,The Bar Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7849996156990,41975298228286,the-living-room-candle,The Living Room Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7849996156990,41975298228286,the-living-room-candle,The Living Room Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7849996255294,41975298457662,the-bedroom-candle,The Bedroom Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7849996255294,41975298457662,the-bedroom-candle,The Bedroom Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7859745128510,42000819617854,the-kitchen-linen-room-spray,The Kitchen Linen & Room Spray,Default Title,price_up,977,1395,1395,1395,42.8
+2026-11-16T15:53:26Z,homesick,7859745128510,42000819617854,the-kitchen-linen-room-spray,The Kitchen Linen & Room Spray,Default Title,discount_end,977,1395,1395,1395,
+2026-11-16T15:53:26Z,homesick,7859745161278,42000819650622,the-bathroom-linen-room-spray,The Bathroom Linen & Room Spray,Default Title,price_up,977,1395,1395,1395,42.8
+2026-11-16T15:53:26Z,homesick,7859745161278,42000819650622,the-bathroom-linen-room-spray,The Bathroom Linen & Room Spray,Default Title,discount_end,977,1395,1395,1395,
+2026-11-16T15:53:26Z,homesick,7859745194046,42000819683390,the-bar-linen-room-spray,The Bar Linen & Room Spray,Default Title,price_up,977,1395,1395,1395,42.8
+2026-11-16T15:53:26Z,homesick,7859745194046,42000819683390,the-bar-linen-room-spray,The Bar Linen & Room Spray,Default Title,discount_end,977,1395,1395,1395,
+2026-11-16T15:53:26Z,homesick,7859745226814,42000819716158,the-living-room-linen-room-spray,The Living Room Linen & Room Spray,Default Title,price_up,977,1395,1395,1395,42.8
+2026-11-16T15:53:26Z,homesick,7859745226814,42000819716158,the-living-room-linen-room-spray,The Living Room Linen & Room Spray,Default Title,discount_end,977,1395,1395,1395,
+2026-11-16T15:53:26Z,homesick,7859745259582,42000819748926,the-bedroom-linen-room-spray,The Bedroom Linen & Room Spray,Default Title,price_up,977,1395,1395,1395,42.8
+2026-11-16T15:53:26Z,homesick,7859745259582,42000819748926,the-bedroom-linen-room-spray,The Bedroom Linen & Room Spray,Default Title,discount_end,977,1395,1395,1395,
+2026-11-16T15:53:26Z,homesick,7864768987198,42025643475006,flourish-and-blotts-candle,Harry Potter™ Flourish and Blotts Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7864768987198,42025643475006,flourish-and-blotts-candle,Harry Potter™ Flourish and Blotts Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7864769019966,42025643507774,the-burrow-candle,Harry Potter™ The Burrow Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7864769019966,42025643507774,the-burrow-candle,Harry Potter™ The Burrow Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7864769151038,42025643638846,hagrid-s-hut-candle,Harry Potter™ Hagrid’s Hut Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7864769151038,42025643638846,hagrid-s-hut-candle,Harry Potter™ Hagrid’s Hut Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7871939313726,42043057831998,derry-sewer-candle,Derry Sewer Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7871939313726,42043057831998,derry-sewer-candle,Derry Sewer Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7871939346494,42043057864766,regan-s-room-candle,Regan’s Room Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7871939346494,42043057864766,regan-s-room-candle,Regan’s Room Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7871939379262,42043057897534,camp-crystal-lake-candle,Camp Crystal Lake Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7871939379262,42043057897534,camp-crystal-lake-candle,Camp Crystal Lake Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7879235272766,42055793410110,batmobile-car-freshener,Batmobile Car Freshener,Default Title,price_up,629,899,899,899,42.9
+2026-11-16T15:53:26Z,homesick,7879235272766,42055793410110,batmobile-car-freshener,Batmobile Car Freshener,Default Title,discount_end,629,899,899,899,
+2026-11-16T15:53:26Z,homesick,7884076286014,42064229957694,lukes-diner-candle,Gilmore Girls Luke’s Diner Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7884076286014,42064229957694,lukes-diner-candle,Gilmore Girls Luke’s Diner Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7884076384318,42064230023230,stars-hollow-candle,Gilmore Girls Stars Hollow Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7884076384318,42064230023230,stars-hollow-candle,Gilmore Girls Stars Hollow Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7887110406206,42071999348798,26-2-candle,26.2 Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7887110406206,42071999348798,26-2-candle,26.2 Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7914221862974,42131450167358,freshly-washed-candle,Freshly Washed Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7914221862974,42131450167358,freshly-washed-candle,Freshly Washed Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7914221895742,42131450200126,cuddle-up-fresh-candle,Cuddle Up Fresh Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7914221895742,42131450200126,cuddle-up-fresh-candle,Cuddle Up Fresh Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7934064656446,42183308836926,o-christmas-tree-candle,"O, Christmas Tree Candle",Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7934064656446,42183308836926,o-christmas-tree-candle,"O, Christmas Tree Candle",Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7934064689214,42183308869694,peppermint-season-candle,Peppermint Season Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7934064689214,42183308869694,peppermint-season-candle,Peppermint Season Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7934064721982,42183308902462,winter-wonderland-candle,Winter Wonderland Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7934064721982,42183308902462,winter-wonderland-candle,Winter Wonderland Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7934064754750,42183308935230,challah-day-candle,Challah-Day Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7934064754750,42183308935230,challah-day-candle,Challah-Day Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7959936991294,42265977061438,harry-potter-hufflepuff-car-freshener,Harry Potter Hufflepuff™ Car Freshener,Default Title,price_up,629,899,899,899,42.9
+2026-11-16T15:53:26Z,homesick,7959936991294,42265977061438,harry-potter-hufflepuff-car-freshener,Harry Potter Hufflepuff™ Car Freshener,Default Title,discount_end,629,899,899,899,
+2026-11-16T15:53:26Z,homesick,7959950229566,42266043023422,harry-potter-slytherin-car-freshener,Harry Potter Slytherin™ Car Freshener,Default Title,price_up,629,899,899,899,42.9
+2026-11-16T15:53:26Z,homesick,7959950229566,42266043023422,harry-potter-slytherin-car-freshener,Harry Potter Slytherin™ Car Freshener,Default Title,discount_end,629,899,899,899,
+2026-11-16T15:53:26Z,homesick,7959950491710,42266046595134,harry-potter-ravenclaw-car-freshener,Harry Potter Ravenclaw™ Car Freshener,Default Title,price_up,629,899,899,899,42.9
+2026-11-16T15:53:26Z,homesick,7959950491710,42266046595134,harry-potter-ravenclaw-car-freshener,Harry Potter Ravenclaw™ Car Freshener,Default Title,discount_end,629,899,899,899,
+2026-11-16T15:53:26Z,homesick,7959950622782,42266047053886,harry-potter-gryffindor-car-freshener,Harry Potter Gryffindor™ Car Freshener,Default Title,price_up,629,899,899,899,42.9
+2026-11-16T15:53:26Z,homesick,7959950622782,42266047053886,harry-potter-gryffindor-car-freshener,Harry Potter Gryffindor™ Car Freshener,Default Title,discount_end,629,899,899,899,
+2026-11-16T15:53:26Z,homesick,7966798151742,42295182590014,hot-cocoa-candle,Hot Cocoa Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7966798151742,42295182590014,hot-cocoa-candle,Hot Cocoa Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7966798315582,42295182753854,sledding-candle,Sledding Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,7966798315582,42295182753854,sledding-candle,Sledding Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,7967686721598,42298268057662,ruby-red-slippers-candle,The Wizard Of Oz - Ruby Red Slippers Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7967686721598,42298268057662,ruby-red-slippers-candle,The Wizard Of Oz - Ruby Red Slippers Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7970256027710,42311001276478,friends-joey-chandler-s-apartment-candle,FRIENDS™ Joey & Chandler’s Apartment Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,7970256027710,42311001276478,friends-joey-chandler-s-apartment-candle,FRIENDS™ Joey & Chandler’s Apartment Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,7995262304318,42406061539390,thank-you-mom-mini-candle,"Thank You, Mom Mini Candle",Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7995262304318,42406061539390,thank-you-mom-mini-candle,"Thank You, Mom Mini Candle",Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7995262337086,42406061572158,love-letters-mini-candle,Love Letters Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7995262337086,42406061572158,love-letters-mini-candle,Love Letters Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7995262369854,42406061604926,just-married-mini-candle,Just Married Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7995262369854,42406061604926,just-married-mini-candle,Just Married Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,7995262435390,42406061670462,evening-unwind-mini-candle,Evening Unwind Mini Candle,Default Title,price_up,697,995,995,995,42.8
+2026-11-16T15:53:26Z,homesick,7995262435390,42406061670462,evening-unwind-mini-candle,Evening Unwind Mini Candle,Default Title,discount_end,697,995,995,995,
+2026-11-16T15:53:26Z,homesick,8001510342718,42448205021246,the-powerpuff-girls-bubbles-candle,The Powerpuff Girls Bubbles Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,8001510342718,42448205021246,the-powerpuff-girls-bubbles-candle,The Powerpuff Girls Bubbles Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,8001510932542,42448205611070,the-powerpuff-girls-buttercup-candle,The Powerpuff Girls Buttercup Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,8001510932542,42448205611070,the-powerpuff-girls-buttercup-candle,The Powerpuff Girls Buttercup Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,8001511161918,42448206299198,the-powerpuff-girls-blossom-candle,The Powerpuff Girls Blossom Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,8001511161918,42448206299198,the-powerpuff-girls-blossom-candle,The Powerpuff Girls Blossom Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,8031443746878,42537870786622,3-wick-new-home-candle,New Home 3-Wick Candle,Default Title,price_up,3497,4995,4995,4995,42.8
+2026-11-16T15:53:26Z,homesick,8031443746878,42537870786622,3-wick-new-home-candle,New Home 3-Wick Candle,Default Title,discount_end,3497,4995,4995,4995,
+2026-11-16T15:53:26Z,homesick,8031747211326,42538371645502,dream-candle,Dream Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8031747211326,42538371645502,dream-candle,Dream Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8031747932222,42538372792382,aura-candle,Aura Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8031747932222,42538372792382,aura-candle,Aura Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8031748292670,42538374430782,uplift-candle,Uplift Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8031748292670,42538374430782,uplift-candle,Uplift Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8032085803070,42539989434430,beauty-rest-candle,Beauty Rest Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8032085803070,42539989434430,beauty-rest-candle,Beauty Rest Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8032086982718,42539997429822,matcha-latte-candle,Matcha Latte Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8032086982718,42539997429822,matcha-latte-candle,Matcha Latte Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8032096256062,42540059721790,open-window-candle,Open Window Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8032096256062,42540059721790,open-window-candle,Open Window Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8032098975806,42540079415358,rinse-repeat-candle,Rinse & Repeat Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8032098975806,42540079415358,rinse-repeat-candle,Rinse & Repeat Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8032099467326,42540081610814,spicy-marg-candle,Spicy Marg Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8032099467326,42540081610814,spicy-marg-candle,Spicy Marg Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8109485817918,42857977151550,main-street-cafe-candle,Main Street Café Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8109485817918,42857977151550,main-street-cafe-candle,Main Street Café Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8109490634814,42857996582974,espresso-bean-candle,Espresso Bean Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8109490634814,42857996582974,espresso-bean-candle,Espresso Bean Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8109497876542,42858048258110,house-blend-candle,House Blend Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8109497876542,42858048258110,house-blend-candle,House Blend Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8109500137534,42858067656766,just-one-more-cup-candle,Just One More Cup Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8109500137534,42858067656766,just-one-more-cup-candle,Just One More Cup Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8109500530750,42858069295166,first-sip-candle,First Sip Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8109500530750,42858069295166,first-sip-candle,First Sip Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8109501153342,42858074472510,sunday-morning-candle,Sunday Morning Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8109501153342,42858074472510,sunday-morning-candle,Sunday Morning Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8110593343550,42861380632638,usa-250-candle,USA 250 Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8110593343550,42861380632638,usa-250-candle,USA 250 Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8120973164606,42889902325822,on-the-pitch-candle,On the Pitch Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8120973164606,42889902325822,on-the-pitch-candle,On the Pitch Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8120973688894,42889907634238,winning-goal-candle,Winning Goal Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8120973688894,42889907634238,winning-goal-candle,Winning Goal Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8209801871422,43182220443710,lemonade-stand-candle,Lemonade Stand Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8209801871422,43182220443710,lemonade-stand-candle,Lemonade Stand Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8209822122046,43182245543998,sunkissed-candle,Sunkissed Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8209822122046,43182245543998,sunkissed-candle,Sunkissed Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8209823825982,43182247739454,summer-fling-candle,Summer Fling Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8209823825982,43182247739454,summer-fling-candle,Summer Fling Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8209825628222,43182249836606,stay-cation-candle,Stay-Cation Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8209825628222,43182249836606,stay-cation-candle,Stay-Cation Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8209827430462,43182251671614,fresh-cut-grass-candle,Fresh Cut Grass Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8209827430462,43182251671614,fresh-cut-grass-candle,Fresh Cut Grass Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8209865015358,43182297186366,wild-tomato-candle,Wild Tomato Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8209865015358,43182297186366,wild-tomato-candle,Wild Tomato Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,8209867112510,43182300397630,pickling-season-candle,Pickling Season Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,8209867112510,43182300397630,pickling-season-candle,Pickling Season Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10314002333758,50517655453758,sense-and-sensibility-the-norland-estate-candle,Sense and Sensibility The Norland Estate Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314002333758,50517655453758,sense-and-sensibility-the-norland-estate-candle,Sense and Sensibility The Norland Estate Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,10314024026174,50517681209406,sense-and-sensibility-elinors-sense-candle,Sense and Sensibility Elinor's Sense Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314024026174,50517681209406,sense-and-sensibility-elinors-sense-candle,Sense and Sensibility Elinor's Sense Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,10314032513086,50517693399102,sense-and-sensibility-mariannes-sensibility-candle,Sense and Sensibility Marianne's Sensibility Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314032513086,50517693399102,sense-and-sensibility-mariannes-sensibility-candle,Sense and Sensibility Marianne's Sensibility Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,10314044375102,50517755134014,holiday-traditions-candle,Holiday Traditions Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10314044375102,50517755134014,holiday-traditions-candle,Holiday Traditions Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10314058498110,50517793734718,mistletoe-and-holly-candle,Mistletoe and Holly Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10314058498110,50517793734718,mistletoe-and-holly-candle,Mistletoe and Holly Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10314098638910,50517928575038,roasted-chestnuts-candle,Roasted Chestnuts Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10314098638910,50517928575038,roasted-chestnuts-candle,Roasted Chestnuts Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10314107027518,50517956984894,siberian-forest-candle,Siberian Forest Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10314107027518,50517956984894,siberian-forest-candle,Siberian Forest Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10314110828606,50517973729342,witching-hour-candle,Witching Hour Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10314110828606,50517973729342,witching-hour-candle,Witching Hour Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10314117873726,50517993816126,yuletide-dreams-candle,Yuletide Dreams Candle,Default Title,price_up,2097,2995,2995,2995,42.8
+2026-11-16T15:53:26Z,homesick,10314117873726,50517993816126,yuletide-dreams-candle,Yuletide Dreams Candle,Default Title,discount_end,2097,2995,2995,2995,
+2026-11-16T15:53:26Z,homesick,10314122919998,50518007087166,parks-project-big-sur-candle,Parks Project Big Sur Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314122919998,50518007087166,parks-project-big-sur-candle,Parks Project Big Sur Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,10314128326718,50518021439550,parks-project-joshua-tree-candle,Parks Project Joshua Tree Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314128326718,50518021439550,parks-project-joshua-tree-candle,Parks Project Joshua Tree Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,10314140155966,50518056370238,parks-project-take-me-to-a-national-park-candle,Parks Project Take Me To A National Park Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314140155966,50518056370238,parks-project-take-me-to-a-national-park-candle,Parks Project Take Me To A National Park Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,10314151166014,50518203924542,parks-project-yosemite-candle,Parks Project Yosemite Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314151166014,50518203924542,parks-project-yosemite-candle,Parks Project Yosemite Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,10314153820222,50518215098430,parks-project-zion-candle,Parks Project Zion Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,10314153820222,50518215098430,parks-project-zion-candle,Parks Project Zion Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,15397412929598,67593374761022,vita-coco-strawberries-creme-candle,Vita Coco Strawberries & Creme Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,15397412929598,67593374761022,vita-coco-strawberries-creme-candle,Vita Coco Strawberries & Creme Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,homesick,15430527680574,67902552997950,vita-coco-frosted-lemonade-candle,Vita Coco Frosted Lemonade Candle,Default Title,price_up,2447,3495,3495,3495,42.8
+2026-11-16T15:53:26Z,homesick,15430527680574,67902552997950,vita-coco-frosted-lemonade-candle,Vita Coco Frosted Lemonade Candle,Default Title,discount_end,2447,3495,3495,3495,
+2026-11-16T15:53:26Z,hydrapak,8303970484457,46459927363817,tempo-bottle-3-pack-525ml,Tempo Bottle 3-Pack 525ml,Default Title,out_of_stock,2700,2700,,,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,48236566479081,basecamp-bundle,Basecamp Bundle,Clear / Mammoth,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,48236566872297,basecamp-bundle,Basecamp Bundle,Charcoal / Mammoth,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,48236567265513,basecamp-bundle,Basecamp Bundle,Aspen / Mammoth,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,48236567658729,basecamp-bundle,Basecamp Bundle,Bay / Mammoth,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620478812393,basecamp-bundle,Basecamp Bundle,Clear / Glacier Blue,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620478845161,basecamp-bundle,Basecamp Bundle,Clear / Golden Yellow,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620478877929,basecamp-bundle,Basecamp Bundle,Clear / Sage Green,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479009001,basecamp-bundle,Basecamp Bundle,Charcoal / Glacier Blue,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479041769,basecamp-bundle,Basecamp Bundle,Charcoal / Golden Yellow,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479074537,basecamp-bundle,Basecamp Bundle,Charcoal / Sage Green,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479205609,basecamp-bundle,Basecamp Bundle,Aspen / Glacier Blue,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479238377,basecamp-bundle,Basecamp Bundle,Aspen / Golden Yellow,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479271145,basecamp-bundle,Basecamp Bundle,Aspen / Sage Green,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479402217,basecamp-bundle,Basecamp Bundle,Bay / Glacier Blue,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479434985,basecamp-bundle,Basecamp Bundle,Bay / Golden Yellow,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,8649251717353,51620479467753,basecamp-bundle,Basecamp Bundle,Bay / Sage Green,out_of_stock,19980,19980,22200,22200,
+2026-11-16T15:53:26Z,hydrapak,9073039933673,51630603993321,seeker-™-6l-gravity-filter-kit,Seeker+™ 6L Gravity Filter Kit,Clear,out_of_stock,15000,15000,,,
+2026-11-16T15:53:26Z,hydrapak,9418786668777,51856244605161,california-international-marathon-tempo-pro-525ml,California International Marathon Tempo Pro 525ml,White,out_of_stock,2300,2300,,,
+2026-11-16T15:53:26Z,hydrapak,15469723746537,67990447063273,california-international-marathon-skyflask™-500ml,California International Marathon SkyFlask™ 500ml,Clear,new,,3300,,,
+2026-11-16T15:53:26Z,lunya,7067811577899,40683045978155,womens-cottonsilk-ribbed-legging-mellow-grey-heather,Cottonsilk™ Ribbed Legging,Mellow Grey Heather / XS,out_of_stock,19800,19800,,,
+2026-11-16T15:53:26Z,lunya,7111444398123,40788678869035,copy-of-mens-washable-silk-set-immersed-black,Men's Washable Silk Set,Immersed Black / S,out_of_stock,27800,27800,,,
+2026-11-16T15:53:26Z,lunya,7111448756267,40788709474347,mens-washable-silk-boxer-immersed-black,Men's Washable Silk Boxer,Immersed Black / S,out_of_stock,8800,8800,,,
+2026-11-16T15:53:26Z,lunya,7244984549419,41109329346603,womens-washable-silk-tee-pant-set-delicate-pink,Washable Silk Tee Pant Set,Delicate Pink / M,back_in_stock,28800,28800,,,
+2026-11-16T15:53:26Z,lunya,7271568244779,41178286784555,womens-spa-terry-robe-sincere-white,Spa Terry Robe,Sincere White / XS S,out_of_stock,14800,14800,,,
+2026-11-16T15:53:26Z,lunya,7428174774315,41940207697963,mens-slumberknit-pant-shaded-olive,Men's Slumberknit™ Pant,Shaded Olive / M,out_of_stock,9800,9800,,,
+2026-11-16T15:53:26Z,lunya,7763965214763,42592629096491,womens-airy-cotton-piped-button-down-stillwater-stripespring-clover,Airy Cotton Piped Button Down,Stillwater Stripe/Spring Clover / M,out_of_stock,12800,12800,,,
+2026-11-16T15:53:26Z,lunya,7849300099115,43346805325867,womens-washable-silk-bias-cami-short-set-deep-blue,Washable Silk Bias Cami Short Set,Deep Blue / XS,out_of_stock,17800,17800,,,
+2026-11-16T15:53:26Z,lunya,7849301278763,43346811584555,womens-washable-silk-romper-lilac-bloom,Washable Silk Romper,Lilac Bloom / XS,out_of_stock,22800,22800,,,
+2026-11-16T15:53:26Z,oveja-negra,8262681100593,44681121300785,1-2-pack-2-0-frame-bag,1/2 Pack™ 2.0 Frame Bag,S / Black,back_in_stock,10500,10500,,,
+2026-11-16T15:53:26Z,oveja-negra,10044237250865,50156144689457,superwedgie-2-0-frame-bag-wack-pack,Superwedgie™ 2.0 Frame Bag - WACK PACK™,L / Wack Pack,back_in_stock,12000,12000,,,
+2026-11-16T15:53:26Z,oveja-negra,10044237250865,50161523786033,superwedgie-2-0-frame-bag-wack-pack,Superwedgie™ 2.0 Frame Bag - WACK PACK™,L / Wack Donuts,back_in_stock,12000,12000,,,
+2026-11-16T15:53:26Z,oveja-negra,9250760196401,50255648063793,swag-bag-mini-1,Swag Bag w/ Patch - WACK PACK,Swag Bag w/ Patch,out_of_stock,3200,3200,,,
+2026-11-16T15:53:26Z,oveja-negra,10416224076081,51911504560433,corduroy-hats,Corduroy Hats - Customizable,Baby Blue,out_of_stock,2500,2500,,,
+2026-11-16T15:53:26Z,oveja-negra,380998025243,52135161463089,roll-top-backpack,Portero™ Roll-Top Backpack,Pueblo Chile / Backpack,back_in_stock,18000,18000,,,
+2026-11-16T15:53:26Z,sheets-giggles,9200609263790,48656480075950,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Charcoal,out_of_stock,6900,6900,,,
+2026-11-16T15:53:26Z,shokz,4606165549143,32327111671895,openmove,OpenMove,White,back_in_stock,7995,7995,,,
+2026-11-16T15:53:26Z,shokz,4606165549143,32327111704663,openmove,OpenMove,Grey,back_in_stock,7995,7995,,,
+2026-11-16T15:53:26Z,shokz,7187094700232,44598518644936,openrun,OpenRun,Black / Standard / USB-C,back_in_stock,12995,12995,,,
+2026-11-16T15:53:26Z,shokz,8312944754888,45067752734920,openfit-2plus-refurbished,OpenFit 2+ (Refurbished),Purple,out_of_stock,14995,14995,,,
+2026-11-16T15:53:26Z,skullcandy,7191197548601,42010465337401,skullcandy-ecobuds,Skullcandy EcoBuds™,Glacier,out_of_stock,2499,2499,,,
+2026-11-16T15:53:26Z,skullcandy,7390752505913,42965436071993,slyr-pro-multi-platform-wireless-gaming-headset,SLYR® Pro Wireless,PlayStation,price_down,12499,7999,,12499,-36.0
+2026-11-16T15:53:26Z,skullcandy,7390752505913,42965436071993,slyr-pro-multi-platform-wireless-gaming-headset,SLYR® Pro Wireless,PlayStation,discount_start,12499,7999,,12499,
+2026-11-16T15:53:26Z,skullcandy,7390752505913,43012534763577,slyr-pro-multi-platform-wireless-gaming-headset,SLYR® Pro Wireless,Xbox®,price_down,12499,7999,,12499,-36.0
+2026-11-16T15:53:26Z,skullcandy,7390752505913,43012534763577,slyr-pro-multi-platform-wireless-gaming-headset,SLYR® Pro Wireless,Xbox®,discount_start,12499,7999,,12499,
+2026-11-16T15:53:26Z,skullcandy,7191195713593,43202619408441,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Bone,price_down,20999,8999,,20999,-57.1
+2026-11-16T15:53:26Z,skullcandy,7191195713593,43202619408441,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Bone,discount_start,20999,8999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,43456297173049,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Bone,price_down,23999,11999,,23999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,43456297173049,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Bone,discount_start,23999,11999,,23999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,43768858804281,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Plasma,price_down,23999,11999,,23999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,43768858804281,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Plasma,discount_start,23999,11999,,23999,
+2026-11-16T15:53:26Z,skullcandy,7686092161081,43838997037113,icon-anc,Icon® ANC,True Black,price_down,9999,4999,,9999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7686092161081,43838997037113,icon-anc,Icon® ANC,True Black,discount_start,9999,4999,,9999,
+2026-11-16T15:53:26Z,skullcandy,7686092161081,43838997069881,icon-anc,Icon® ANC,Bone/Orange,price_down,9999,4999,,9999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7686092161081,43838997069881,icon-anc,Icon® ANC,Bone/Orange,discount_start,9999,4999,,9999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44088360697913,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Primer,price_down,23999,11999,,23999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44088360697913,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Primer,discount_start,23999,11999,,23999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44235968512057,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,True Black,price_down,23999,11999,,23999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44235968512057,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,True Black,discount_start,23999,11999,,23999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520444473,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,True Black,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520444473,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,True Black,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520477241,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Bone,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520477241,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Bone,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520510009,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Plasma,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520510009,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Plasma,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520542777,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Primer,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520542777,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Primer,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520575545,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Leopard,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,44375520575545,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Leopard,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7883339530297,44402118393913,crusher-540-active,Crusher® 540 Active,Soft,price_down,20999,9999,,20999,-52.4
+2026-11-16T15:53:26Z,skullcandy,7883339530297,44402118393913,crusher-540-active,Crusher® 540 Active,Soft,discount_start,20999,9999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7883339530297,44402118524985,crusher-540-active,Crusher® 540 Active,Concrete,price_down,20999,9999,,20999,-52.4
+2026-11-16T15:53:26Z,skullcandy,7883339530297,44402118524985,crusher-540-active,Crusher® 540 Active,Concrete,discount_start,20999,9999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7191195713593,44446973165625,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Primer,price_down,20999,8999,,20999,-57.1
+2026-11-16T15:53:26Z,skullcandy,7191195713593,44446973165625,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Primer,discount_start,20999,8999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7686092161081,44470942859321,icon-anc,Icon® ANC,Primer,price_down,9999,4999,,9999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7686092161081,44470942859321,icon-anc,Icon® ANC,Primer,discount_start,9999,4999,,9999,
+2026-11-16T15:53:26Z,skullcandy,7883339530297,44494413594681,crusher-540-active,Crusher® 540 Active,Coal,price_down,20999,9999,,20999,-52.4
+2026-11-16T15:53:26Z,skullcandy,7883339530297,44494413594681,crusher-540-active,Crusher® 540 Active,Coal,discount_start,20999,9999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7191195713593,44522482794553,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Realtree APX Black/Orange,price_down,21999,9399,,21999,-57.3
+2026-11-16T15:53:26Z,skullcandy,7191195713593,44522482794553,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Realtree APX Black/Orange,discount_start,21999,9399,,21999,
+2026-11-16T15:53:26Z,skullcandy,7927174332473,44557819215929,aviator-900-anc-headphones,Aviator® 900 ANC,True Black,price_down,29999,17999,,29999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7927174332473,44557819215929,aviator-900-anc-headphones,Aviator® 900 ANC,True Black,discount_start,29999,17999,,29999,
+2026-11-16T15:53:26Z,skullcandy,7928389206073,44561435000889,push-720-open-earbuds,Push® 720 Open,Black/Silver,price_down,14999,7999,,14999,-46.7
+2026-11-16T15:53:26Z,skullcandy,7928389206073,44561435000889,push-720-open-earbuds,Push® 720 Open,Black/Silver,discount_start,14999,7999,,14999,
+2026-11-16T15:53:26Z,skullcandy,7928435507257,44561766318137,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,True Black,price_down,15999,8999,,15999,-43.8
+2026-11-16T15:53:26Z,skullcandy,7928435507257,44561766318137,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,True Black,discount_start,15999,8999,,15999,
+2026-11-16T15:53:26Z,skullcandy,7928435507257,44561766350905,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,Bone,price_down,15999,8999,,15999,-43.8
+2026-11-16T15:53:26Z,skullcandy,7928435507257,44561766350905,hesh-540-anc-noise-canceling-headphones,Hesh® 540 ANC,Bone,discount_start,15999,8999,,15999,
+2026-11-16T15:53:26Z,skullcandy,7953824874553,44645127290937,hesh-360-wireless-headphones,Hesh® 360,True Black,price_down,9999,5999,,9999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7953824874553,44645127290937,hesh-360-wireless-headphones,Hesh® 360,True Black,discount_start,9999,5999,,9999,
+2026-11-16T15:53:26Z,skullcandy,7953824874553,44645127323705,hesh-360-wireless-headphones,Hesh® 360,Bone,price_down,9999,5999,,9999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7953824874553,44645127323705,hesh-360-wireless-headphones,Hesh® 360,Bone,discount_start,9999,5999,,9999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44698436206649,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Hazard,price_down,23999,11999,,23999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44698436206649,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Hazard,discount_start,23999,11999,,23999,
+2026-11-16T15:53:26Z,skullcandy,7988121665593,44796678864953,icon-180-wireless-headphones,Icon® 180,True Black,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7988121665593,44796678864953,icon-180-wireless-headphones,Icon® 180,True Black,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,7988121665593,44796678897721,icon-180-wireless-headphones,Icon® 180,Bone,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7988121665593,44796678897721,icon-180-wireless-headphones,Icon® 180,Bone,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,7928389206073,44835272359993,push-720-open-earbuds,Push® 720 Open,Bone/Gold,price_down,14999,7999,,14999,-46.7
+2026-11-16T15:53:26Z,skullcandy,7928389206073,44835272359993,push-720-open-earbuds,Push® 720 Open,Bone/Gold,discount_start,14999,7999,,14999,
+2026-11-16T15:53:26Z,skullcandy,8021838889017,44879375761465,jib-usb-c,Jib® USB C,True Black,price_down,1499,799,,1499,-46.7
+2026-11-16T15:53:26Z,skullcandy,8021838889017,44879375761465,jib-usb-c,Jib® USB C,True Black,discount_start,1499,799,,1499,
+2026-11-16T15:53:26Z,skullcandy,8021838889017,44879375794233,jib-usb-c,Jib® USB C,Bone,price_down,1499,799,,1499,-46.7
+2026-11-16T15:53:26Z,skullcandy,8021838889017,44879375794233,jib-usb-c,Jib® USB C,Bone,discount_start,1499,799,,1499,
+2026-11-16T15:53:26Z,skullcandy,8021838889017,44879375827001,jib-usb-c,Jib® USB C,Plasma,price_down,1499,799,,1499,-46.7
+2026-11-16T15:53:26Z,skullcandy,8021838889017,44879375827001,jib-usb-c,Jib® USB C,Plasma,discount_start,1499,799,,1499,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44933635407929,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Drab,price_down,23999,11999,,23999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,44933635407929,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Drab,discount_start,23999,11999,,23999,
+2026-11-16T15:53:26Z,skullcandy,7191195713593,45061353865273,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,True Black,price_down,20999,8999,,20999,-57.1
+2026-11-16T15:53:26Z,skullcandy,7191195713593,45061353865273,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,True Black,discount_start,20999,8999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7883339530297,45138862538809,crusher-540-active,Crusher® 540 Active,Forest,price_down,20999,9999,,20999,-52.4
+2026-11-16T15:53:26Z,skullcandy,7883339530297,45138862538809,crusher-540-active,Crusher® 540 Active,Forest,discount_start,20999,9999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7883339530297,45146487652409,crusher-540-active,Crusher® 540 Active,Smoke,price_down,20999,9999,,20999,-52.4
+2026-11-16T15:53:26Z,skullcandy,7883339530297,45146487652409,crusher-540-active,Crusher® 540 Active,Smoke,discount_start,20999,9999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7927174332473,45182422450233,aviator-900-anc-headphones,Aviator® 900 ANC,Tortoise,price_down,29999,17999,,29999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7927174332473,45182422450233,aviator-900-anc-headphones,Aviator® 900 ANC,Tortoise,discount_start,29999,17999,,29999,
+2026-11-16T15:53:26Z,skullcandy,7191195713593,45242474037305,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Chill Grey,price_down,20999,8999,,20999,-57.1
+2026-11-16T15:53:26Z,skullcandy,7191195713593,45242474037305,crusher-evo-sensory-bass-headphones-with-personal-sound,Crusher® Evo,Chill Grey,discount_start,20999,8999,,20999,
+2026-11-16T15:53:26Z,skullcandy,7928389206073,45321429647417,push-720-open-earbuds,Push® 720 Open,Glimmer,price_down,14999,7999,,14999,-46.7
+2026-11-16T15:53:26Z,skullcandy,7928389206073,45321429647417,push-720-open-earbuds,Push® 720 Open,Glimmer,discount_start,14999,7999,,14999,
+2026-11-16T15:53:26Z,skullcandy,7928389206073,45346594848825,push-720-open-earbuds,Push® 720 Open,Chrome,price_down,14999,7999,,14999,-46.7
+2026-11-16T15:53:26Z,skullcandy,7928389206073,45346594848825,push-720-open-earbuds,Push® 720 Open,Chrome,discount_start,14999,7999,,14999,
+2026-11-16T15:53:26Z,skullcandy,8198560546873,45558136602681,push-540-open-earbuds,Push® 540 Open,True Black,price_down,9999,5999,,9999,-40.0
+2026-11-16T15:53:26Z,skullcandy,8198560546873,45558136602681,push-540-open-earbuds,Push® 540 Open,True Black,discount_start,9999,5999,,9999,
+2026-11-16T15:53:26Z,skullcandy,8198560546873,45558136635449,push-540-open-earbuds,Push® 540 Open,Bone,price_down,9999,5999,,9999,-40.0
+2026-11-16T15:53:26Z,skullcandy,8198560546873,45558136635449,push-540-open-earbuds,Push® 540 Open,Bone,discount_start,9999,5999,,9999,
+2026-11-16T15:53:26Z,skullcandy,7988121665593,45585565286457,icon-180-wireless-headphones,Icon® 180,Future,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7988121665593,45585565286457,icon-180-wireless-headphones,Icon® 180,Future,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,7988121665593,45585566629945,icon-180-wireless-headphones,Icon® 180,Cement,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7988121665593,45585566629945,icon-180-wireless-headphones,Icon® 180,Cement,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,7988121665593,45585568071737,icon-180-wireless-headphones,Icon® 180,Crazy Pink,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7988121665593,45585568071737,icon-180-wireless-headphones,Icon® 180,Crazy Pink,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,8198560546873,45660599550009,push-540-open-earbuds,Push® 540 Open,Plasma,price_down,9999,5999,,9999,-40.0
+2026-11-16T15:53:26Z,skullcandy,8198560546873,45660599550009,push-540-open-earbuds,Push® 540 Open,Plasma,discount_start,9999,5999,,9999,
+2026-11-16T15:53:26Z,skullcandy,8226087829561,45683703054393,dime-360,Dime® 360,True Black,price_down,4999,3999,,4999,-20.0
+2026-11-16T15:53:26Z,skullcandy,8226087829561,45683703054393,dime-360,Dime® 360,True Black,discount_start,4999,3999,,4999,
+2026-11-16T15:53:26Z,skullcandy,8226087829561,45683703087161,dime-360,Dime® 360,Bone,price_down,4999,3999,,4999,-20.0
+2026-11-16T15:53:26Z,skullcandy,8226087829561,45683703087161,dime-360,Dime® 360,Bone,discount_start,4999,3999,,4999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45689207423033,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Realtree EDGE COLORS Hazard,price_down,25999,12999,,25999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45689207423033,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Realtree EDGE COLORS Hazard,discount_start,25999,12999,,25999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45689209552953,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Realtree EDGE COLORS Espresso,price_down,25999,12999,,25999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45689209552953,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Realtree EDGE COLORS Espresso,discount_start,25999,12999,,25999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45689209552953,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Realtree EDGE COLORS Espresso,out_of_stock,25999,12999,,25999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45689211125817,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Realtree EDGE COLORS Drab,price_down,25999,12999,,25999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45689211125817,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,Realtree EDGE COLORS Drab,discount_start,25999,12999,,25999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,45710793670713,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Future,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,45710793670713,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Future,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,45710796652601,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Cement,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,45710796652601,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Cement,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7874985328697,45710797668409,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Crazy Pink,price_down,12999,7999,,12999,-38.5
+2026-11-16T15:53:26Z,skullcandy,7874985328697,45710797668409,method-360-anc-noise-canceling-earbuds,Method® 360 ANC,Crazy Pink,discount_start,12999,7999,,12999,
+2026-11-16T15:53:26Z,skullcandy,7928389206073,45710848622649,push-720-open-earbuds,Push® 720 Open,Cement,price_down,14999,7999,,14999,-46.7
+2026-11-16T15:53:26Z,skullcandy,7928389206073,45710848622649,push-720-open-earbuds,Push® 720 Open,Cement,discount_start,14999,7999,,14999,
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45883036893241,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,All Love,price_down,25999,12999,,25999,-50.0
+2026-11-16T15:53:26Z,skullcandy,7191197089849,45883036893241,crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling,Crusher® ANC 2,All Love,discount_start,25999,12999,,25999,
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973944959033,session-360,Session® 360,True Black,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973944959033,session-360,Session® 360,True Black,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973944991801,session-360,Session® 360,Plasma,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973944991801,session-360,Session® 360,Plasma,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973945024569,session-360,Session® 360,Primer,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973945024569,session-360,Session® 360,Primer,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973945057337,session-360,Session® 360,Cement,price_down,4999,2999,,4999,-40.0
+2026-11-16T15:53:26Z,skullcandy,8306537300025,45973945057337,session-360,Session® 360,Cement,discount_start,4999,2999,,4999,
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952331833,session-540,Session® 540,True Black,price_down,6999,3999,,6999,-42.9
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952331833,session-540,Session® 540,True Black,discount_start,6999,3999,,6999,
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952364601,session-540,Session® 540,Plasma,price_down,6999,3999,,6999,-42.9
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952364601,session-540,Session® 540,Plasma,discount_start,6999,3999,,6999,
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952397369,session-540,Session® 540,Primer,price_down,6999,3999,,6999,-42.9
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952397369,session-540,Session® 540,Primer,discount_start,6999,3999,,6999,
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952430137,session-540,Session® 540,Cement,price_down,6999,3999,,6999,-42.9
+2026-11-16T15:53:26Z,skullcandy,8306538676281,45973952430137,session-540,Session® 540,Cement,discount_start,6999,3999,,6999,
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351763513,crusher-1080-anc-headphones,Crusher® 1080 ANC,True Black,price_down,27999,19999,,27999,-28.6
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351763513,crusher-1080-anc-headphones,Crusher® 1080 ANC,True Black,discount_start,27999,19999,,27999,
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351796281,crusher-1080-anc-headphones,Crusher® 1080 ANC,Candy,price_down,27999,19999,,27999,-28.6
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351796281,crusher-1080-anc-headphones,Crusher® 1080 ANC,Candy,discount_start,27999,19999,,27999,
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351829049,crusher-1080-anc-headphones,Crusher® 1080 ANC,Primer,price_down,27999,19999,,27999,-28.6
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351829049,crusher-1080-anc-headphones,Crusher® 1080 ANC,Primer,discount_start,27999,19999,,27999,
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351861817,crusher-1080-anc-headphones,Crusher® 1080 ANC,Cement,price_down,27999,19999,,27999,-28.6
+2026-11-16T15:53:26Z,skullcandy,8311500636217,46042351861817,crusher-1080-anc-headphones,Crusher® 1080 ANC,Cement,discount_start,27999,19999,,27999,
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46049432731705,crusher-720-headphones,Crusher® 720,True Black,price_up,13999,20999,20999,,50.0
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46049432731705,crusher-720-headphones,Crusher® 720,True Black,discount_end,13999,20999,20999,,
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077587750969,crusher-720-headphones,Crusher® 720,Plasma,price_up,13999,20999,20999,,50.0
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077587750969,crusher-720-headphones,Crusher® 720,Plasma,discount_end,13999,20999,20999,,
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077605969977,crusher-720-headphones,Crusher® 720,Future,price_up,13999,20999,20999,,50.0
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077605969977,crusher-720-headphones,Crusher® 720,Future,discount_end,13999,20999,20999,,
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077618749497,crusher-720-headphones,Crusher® 720,Cement,price_up,13999,20999,20999,,50.0
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077618749497,crusher-720-headphones,Crusher® 720,Cement,discount_end,13999,20999,20999,,
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077629366329,crusher-720-headphones,Crusher® 720,Primer,price_up,13999,20999,20999,,50.0
+2026-11-16T15:53:26Z,skullcandy,8311500865593,46077629366329,crusher-720-headphones,Crusher® 720,Primer,discount_end,13999,20999,20999,,
+2026-11-16T15:53:26Z,skullcandy,8368230989881,46282692984889,session-900,Session® 900,True Black,price_down,14999,11999,,14999,-20.0
+2026-11-16T15:53:26Z,skullcandy,8368230989881,46282692984889,session-900,Session® 900,True Black,discount_start,14999,11999,,14999,
+2026-11-16T15:53:26Z,skullcandy,8368230989881,46282693017657,session-900,Session® 900,Primer,price_down,14999,11999,,14999,-20.0
+2026-11-16T15:53:26Z,skullcandy,8368230989881,46282693017657,session-900,Session® 900,Primer,discount_start,14999,11999,,14999,
+2026-11-16T15:53:26Z,skullcandy,8368230989881,46282693050425,session-900,Session® 900,Cement,price_down,14999,11999,,14999,-20.0
+2026-11-16T15:53:26Z,skullcandy,8368230989881,46282693050425,session-900,Session® 900,Cement,discount_start,14999,11999,,14999,
+2026-11-16T15:53:26Z,skullcandy,7953824874553,50854417465401,hesh-360-wireless-headphones,Hesh® 360,Future,price_down,9999,5999,,9999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7953824874553,50854417465401,hesh-360-wireless-headphones,Hesh® 360,Future,discount_start,9999,5999,,9999,
+2026-11-16T15:53:26Z,skullcandy,7953824874553,50854417498169,hesh-360-wireless-headphones,Hesh® 360,Plasma,price_down,9999,5999,,9999,-40.0
+2026-11-16T15:53:26Z,skullcandy,7953824874553,50854417498169,hesh-360-wireless-headphones,Hesh® 360,Plasma,discount_start,9999,5999,,9999,
+2026-11-16T15:53:26Z,soundcore-us,6109031530686,37651982549182,a3025,soundcore Life Q20 | Over-Ear Headphones with Hybrid ANC,Silver,out_of_stock,5999,5999,,,
+2026-11-16T15:53:26Z,soundcore-us,8338820530366,44604959948990,liberty-4-pro-ear-tips-kit,Liberty 4 Pro Ear Tips Kit,Light Blue,out_of_stock,1399,1399,,,
+2026-11-16T15:53:26Z,soundcore-us,8543066489022,45277505355966,bundle-a3878z21-1-a3330z11-1,soundcore V40i & C30i,Pearl White,removed,14998,,,,
+2026-11-16T15:53:26Z,soundcore-us,8535293165758,45473171275966,d1301-sleep-a30-smart-anc-earbuds-for-sleeping,soundcore Sleep A30 Special / Sleep A30 | The World's First Sleep Earbuds with a Triple Noise Reduction System,Mist Green / Partner Bundle,out_of_stock,39998,39998,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565169854,45579514020030,space-one-seckill,Space One Active Noise Cancelling Headphones,Jet Black,removed,9999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565169854,45579514052798,space-one-seckill,Space One Active Noise Cancelling Headphones,Latte Cream,removed,9999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565169854,45579514085566,space-one-seckill,Space One Active Noise Cancelling Headphones,Sky Blue,removed,9999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517755582,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Black / Solo,removed,12999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517788350,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Black / Partner Bundle,removed,25998,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517821118,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Pearl White / Solo,removed,12999,,12999,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517853886,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Pearl White / Partner Bundle,removed,25998,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517886654,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Minty Green / Solo,removed,12999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517919422,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Minty Green / Partner Bundle,removed,25998,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517952190,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Blue / Solo,removed,12999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8613565989054,45579517984958,aerofit-2-seckill,AeroFit 2 Adjustable Open-Ear Wireless Earbuds,Midnight Blue / Partner Bundle,removed,25998,,,,
+2026-11-16T15:53:26Z,soundcore-us,8633247629502,45655767646398,d1200-liberty-buds-wireless-semi-in-ear,Liberty Buds | Wireless Semi-in-Ear Earbuds with ANC,Light Blue,out_of_stock,9999,9999,,,
+2026-11-16T15:53:26Z,soundcore-us,8741136072894,46477332611262,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Midnight Black / 8 GB,removed,15999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8741136072894,46477332644030,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Pearl White / 8 GB,removed,15999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8771157262526,46631139737790,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Matte Black,removed,17999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8771157262526,46631139770558,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Gloss White,removed,17999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8771157262526,46631139803326,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Matte Purple,removed,17999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8777707716798,46660680024254,c300-dc,Anker SOLIX C300 DC Portable Power Station - 288Wh| 300W,Go Without Solar,price_up,24999,34999,,,40.0
+2026-11-16T15:53:26Z,soundcore-us,8777707716798,46660680057022,c300-dc,Anker SOLIX C300 DC Portable Power Station - 288Wh| 300W,60W Solar Panel,price_down,999999999,34999,,,-100.0
+2026-11-16T15:53:26Z,soundcore-us,8771157262526,46760027914430,3875-seckill,AeroFit 2 Pro Dual-Form Earbuds with Open-Ear and Active Noise Cancellation Form,Gloss Blue,removed,17999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8535293165758,49544347975870,d1301-sleep-a30-smart-anc-earbuds-for-sleeping,soundcore Sleep A30 Special / Sleep A30 | The World's First Sleep Earbuds with a Triple Noise Reduction System,Mist Green / Sound Sleep Bundle,out_of_stock,24598,24598,,,
+2026-11-16T15:53:26Z,soundcore-us,9125508120766,49576832958654,soundcore-sport-x20-seckill,soundcore Sport X20 Comfortable In-Ear Sport Earbuds with Hook,Black,removed,7999,,,,
+2026-11-16T15:53:26Z,soundcore-us,9125508120766,49576832991422,soundcore-sport-x20-seckill,soundcore Sport X20 Comfortable In-Ear Sport Earbuds with Hook,White,removed,7999,,,,
+2026-11-16T15:53:26Z,soundcore-us,9125508120766,49576833024190,soundcore-sport-x20-seckill,soundcore Sport X20 Comfortable In-Ear Sport Earbuds with Hook,Green,removed,7999,,,,
+2026-11-16T15:53:26Z,soundcore-us,9125519982782,49576871035070,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Seafoam Green,removed,12999,,,,
+2026-11-16T15:53:26Z,soundcore-us,9125519982782,49576871067838,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Linen White,removed,12999,,,,
+2026-11-16T15:53:26Z,soundcore-us,9125519982782,49576871100606,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Jet Black,removed,12999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8741136072894,49626064093374,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Midnight Black / 64 GB,removed,16999,,,,
+2026-11-16T15:53:26Z,soundcore-us,8741136072894,49626064126142,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Pearl White / 64 GB,removed,16999,,,,
+2026-11-16T15:53:26Z,state-liberty,6844270674001,39845290704977,athletic-fit-stretch-pants-heathered-forest-green,Athletic Fit Stretch Suit Pants - Heathered Forest Green,31W | 32-34L,out_of_stock,15000,15000,,,
+2026-11-16T15:53:26Z,state-liberty,7703350083665,42097331667025,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",L / Navy Pinstripe,out_of_stock,10500,10500,,,
+2026-11-16T15:53:26Z,state-liberty,7856706289745,42897831067729,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,46 / Heathered Forest Green,out_of_stock,48000,48000,,,
+2026-11-16T15:53:26Z,state-liberty,15666750390353,58976346472529,athletic-fit-stretch-blazer-crimson-with-burgundy-big-windowpane,Athletic Fit Stretch Blazer - Crimson with Burgundy Big Windowpane,44 Short / Crimson with Burgundy Big Windowpane,out_of_stock,55000,55000,,,
+2026-11-16T15:53:26Z,state-liberty,15706956103761,59128820727889,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,2XL / Black Diamond Geo,back_in_stock,10500,10500,,,
+2026-11-16T15:53:26Z,state-liberty,15732052328529,59227760132177,athletic-fit-stretch-blazer-solid-grey,Athletic Fit Stretch Blazer - Solid Grey,42 Short / Solid Grey,out_of_stock,55000,55000,,,
+2026-11-16T15:53:26Z,state-liberty,15770068156497,59396978212945,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,40 Short / Oxford Blue Plaid,out_of_stock,55000,55000,,,
+2026-11-16T15:53:26Z,state-liberty,15770068156497,59396978245713,athletic-fit-stretch-blazer-oxford-blue-plaid,Athletic Fit Stretch Blazer - Oxford Blue Plaid,42 Short / Oxford Blue Plaid,out_of_stock,55000,55000,,,
+2026-11-16T15:53:26Z,state-liberty,15770069270609,59396980179025,athletic-fit-stretch-blazer-textured-tan-with-olive-windowpane,Athletic Fit Stretch Blazer - Textured Tan with Olive Windowpane,40 Short / Textured Tan with Olive Windowpane,out_of_stock,55000,55000,,,

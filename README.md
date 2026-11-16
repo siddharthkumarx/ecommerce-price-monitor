@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,843 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,818 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -14,7 +14,7 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 15 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 16 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
@@ -24,22 +24,22 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Year & Day | [All Day & Night Dip Dishes (Fog)](https://yearandday.com/products/all-day-night-dip-dishes-2) | $22.00 | $44.00 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,843 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,818 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 15 November 2026: 2 price rises, 20 items sold out, 6 items back in stock, 14 product options removed. The biggest moves:
+In the run of 16 November 2026: 188 price drops, 253 price rises, 185 sales started, 252 sales ended, 52 items sold out, 9 items back in stock, 1 new product option, 26 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Soundcore (US) | [Anker SOLIX C300 DC Portable Power Station - 288Wh\| 300W (60W Solar Panel)](https://us.soundcore.com/products/c300-dc) | Price up (+3344381.6%) | $299.00 | $9,999,999.99 |
-| Soundcore (US) | [Life A2 NC \| Bluetooth Noise Cancelling Earbuds (Black)](https://us.soundcore.com/products/life-a2-nc) | Price up (+16.7%) | $59.99 | $69.99 |
-| Big Agnes | [W's Bearsley UL Jacket (Cendre Blue / XS)](https://www.bigagnes.com/products/ws-bearsley-jacket) | Sold out | $174.97 | $174.97 |
-| Feat Clothing | [The Standard Hoodie - Limited (Eden / XXL)](https://featclothing.com/products/unisex-roam-hoodie-limited-edition) | Sold out | $55.00 | $55.00 |
-| Hyperlite Mountain Gear | [Therm-a-Rest NeoAir® XTherm™ NXT Sleeping Pad (Regular)](https://hyperlitemountaingear.com/products/therm-a-rest-neoair-xtherm-vapor-sleeping-pad) | Sold out | $239.95 | $239.95 |
-| Hyperlite Mountain Gear | [Til the End Tee (XL / Black/Grey)](https://hyperlitemountaingear.com/products/til-the-end-tee) | Sold out | $32.00 | $32.00 |
-| JLab | [JBuds J6MS In-Ear Single Earbud](https://www.jlab.com/products/jbuds-j6ms-in-ear-single-earbud-black) | Sold out | $19.99 | $19.99 |
-| Lunya | [Linen Embroidered Eyelet Tank (Whisper Blue / L)](https://lunya.co/products/womens-linen-embroidered-eyelet-tank-whisper-blue) | Sold out | $128.00 | $128.00 |
+| Soundcore (US) | [Anker SOLIX C300 DC Portable Power Station - 288Wh\| 300W (60W Solar Panel)](https://us.soundcore.com/products/c300-dc) | Price down (-100.0%) | $9,999,999.99 | $349.99 |
+| Skullcandy | [Crusher® Evo (Realtree APX Black/Orange)](https://www.skullcandy.com/products/crusher-evo-sensory-bass-headphones-with-personal-sound) | Price down, Sale started (-57.3%) | $219.99 | $93.99 |
+| Skullcandy | [Crusher® Evo (Bone)](https://www.skullcandy.com/products/crusher-evo-sensory-bass-headphones-with-personal-sound) | Price down, Sale started (-57.1%) | $209.99 | $89.99 |
+| Skullcandy | [Crusher® Evo (Primer)](https://www.skullcandy.com/products/crusher-evo-sensory-bass-headphones-with-personal-sound) | Price down, Sale started (-57.1%) | $209.99 | $89.99 |
+| Skullcandy | [Crusher® Evo (True Black)](https://www.skullcandy.com/products/crusher-evo-sensory-bass-headphones-with-personal-sound) | Price down, Sale started (-57.1%) | $209.99 | $89.99 |
+| Skullcandy | [Crusher® Evo (Chill Grey)](https://www.skullcandy.com/products/crusher-evo-sensory-bass-headphones-with-personal-sound) | Price down, Sale started (-57.1%) | $209.99 | $89.99 |
+| Skullcandy | [Crusher® 540 Active (Soft)](https://www.skullcandy.com/products/crusher-540-active) | Price down, Sale started (-52.4%) | $209.99 | $99.99 |
+| Skullcandy | [Crusher® 540 Active (Concrete)](https://www.skullcandy.com/products/crusher-540-active) | Price down, Sale started (-52.4%) | $209.99 | $99.99 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -47,7 +47,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 - **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 262 free gifts and samples left out on purpose, not held.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 260 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
 - **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.6 minutes, and no store blocked us.
 
@@ -64,7 +64,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 12."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 13."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -111,7 +111,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 15 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 16 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -130,16 +130,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-15T13:59:11Z` |
-| `store_id` | text | Store | `big-agnes` |
-| `variant_id` | integer | Product option | `46908084388089` |
-| `product_title` | text | Product name | `W's Bearsley UL Jacket` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
-| `old_price_cents` | integer or empty | Price before, US cents | `17497` |
-| `new_price_cents` | integer or empty | Price after, US cents | `17497` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `34995` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `34995` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-16T15:53:26Z` |
+| `store_id` | text | Store | `gossamer-gear` |
+| `variant_id` | integer | Product option | `29560217292` |
+| `product_title` | text | Product name | `Mariposa 60 Backpack` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
+| `old_price_cents` | integer or empty | Price before, US cents | `31500` |
+| `new_price_cents` | integer or empty | Price after, US cents | `22050` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `31500` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-30.0` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
