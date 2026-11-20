@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,796 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,767 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -14,42 +14,42 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 19 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 20 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
-| Big Agnes | [Fly Creek HV 1 Carbon Footprint](https://www.bigagnes.com/products/fly-creek-hv-1-carbon-footprint) | $35.00 | $70.00 | yes |
+| Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
 | Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $44.00 | $88.00 | yes |
 | JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
 | Year & Day | [All Day & Night Dip Dishes (Fog)](https://yearandday.com/products/all-day-night-dip-dishes-2) | $22.00 | $44.00 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,796 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,767 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 19 November 2026: 219 price drops, 775 price rises, 148 sales started, 59 items sold out, 19 items back in stock, 65 new product options, 67 product options removed. The biggest moves:
+In the run of 20 November 2026: 99 price drops, 24 price rises, 61 sales started, 23 sales ended, 44 items sold out, 51 items back in stock, 30 new product options, 59 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Lunya | [Organic Cotton Crew Sock (Sincere White/Hushed Tan / OS)](https://lunya.co/products/organic-cotton-crew-sock-sincere-white-hushed-tan) | Price up (+80.0%) | $11.00 | $19.80 |
-| Lunya | [Organic Cotton Ruffle Sock (Sincere White / OS)](https://lunya.co/products/womens-organic-cotton-ruffle-sock-sincere-white) | Price up (+80.0%) | $11.00 | $19.80 |
-| Lunya | [Spa Terry Headband (Sincere White / OS)](https://lunya.co/products/womens-spa-terry-headband-sincere-white) | Price up (+80.0%) | $19.00 | $34.20 |
-| Lunya | [Spa Terry Wash Cuffs (Sincere White / OS)](https://lunya.co/products/spa-terry-wash-cuffs-sincere-white) | Price up (+60.0%) | $19.00 | $30.40 |
-| Hyperlite Mountain Gear | [Drawstring Stuff Sacks (0.3L / Gray)](https://hyperlitemountaingear.com/products/drawstring-stuff-sacks) | Price down (-51.6%) | $31.00 | $15.00 |
-| Hyperlite Mountain Gear | [Drawstring Stuff Sacks (0.3L / White)](https://hyperlitemountaingear.com/products/drawstring-stuff-sacks) | Price down (-51.6%) | $31.00 | $15.00 |
-| Hyperlite Mountain Gear | [Drawstring Stuff Sacks (0.3L / Spruce Green)](https://hyperlitemountaingear.com/products/drawstring-stuff-sacks) | Price down (-51.6%) | $31.00 | $15.00 |
-| JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | Price down, Sale started (-50.1%) | $104.99 | $52.44 |
+| Skullcandy | [Crusher® ANC 2 (Leopard)](https://www.skullcandy.com/products/crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling) | Price up, Sale ended (+100.0%) | $129.99 | $259.99 |
+| Soundcore (US) | [ANKER AeroClip 2 - Left Ear Grip (Black)](https://us.soundcore.com/products/d1105z11-81) | Price down (-100.0%) | $9,999,999.99 | $79.99 |
+| Big Agnes | [Women's Sidewinder SL 20° (Petite)](https://www.bigagnes.com/products/womens-sidewinder-sl-20) | Price down (-60.0%) | $187.46 | $74.98 |
+| Big Agnes | [Pumphouse Ultra](https://www.bigagnes.com/products/pumphouse-ultra) | Price down, Sale started (-50.0%) | $39.95 | $19.97 |
+| Big Agnes | [Tiger Wall UL3 Bikepack Solution Dye](https://www.bigagnes.com/products/tiger-wall-ul3-bikepack) | Price down (-41.2%) | $467.45 | $274.97 |
+| Big Agnes | [W's Tonal Trail Sign T-Shirt (SM)](https://www.bigagnes.com/products/ws-trail-sign) | Price down, Sale started (-40.0%) | $39.95 | $23.97 |
+| Big Agnes | [W's Tonal Trail Sign T-Shirt (MD)](https://www.bigagnes.com/products/ws-trail-sign) | Price down, Sale started (-40.0%) | $39.95 | $23.97 |
+| Big Agnes | [W's Tonal Trail Sign T-Shirt (LG)](https://www.bigagnes.com/products/ws-trail-sign) | Price down, Sale started (-40.0%) | $39.95 | $23.97 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 24 of 24 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 24 of 25 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 259 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 24 of 25 stores updated; 1 kept their previous prices.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.5 minutes, and no store blocked us.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 270 free gifts and samples left out on purpose, not held.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.8 minutes, and no store blocked us.
 
 ## How it works
 
@@ -64,7 +64,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 16."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 17."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -111,35 +111,35 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 19 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 20 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
 | `store_id` | text | Store, as listed in `config/stores.yml` | `big-agnes` |
-| `product_id` | integer | The store's product id | `7743106154745` |
-| `variant_id` | integer | The store's id for this option (size, colour); unique per store | `43184969089273` |
-| `handle` | text | Product address: `https://<store>/products/<handle>` | `fly-creek-hv-1-carbon-footprint` |
-| `product_title` | text | Product name as shown by the store | `Fly Creek HV 1 Carbon Footprint` |
+| `product_id` | integer | The store's product id | `7870967939321` |
+| `variant_id` | integer | The store's id for this option (size, colour); unique per store | `43639575019769` |
+| `handle` | text | Product address: `https://<store>/products/<handle>` | `gold-camp-3-footprint` |
+| `product_title` | text | Product name as shown by the store | `Gold Camp 3 Footprint` |
 | `variant_title` | text | Option name (`Default Title` when there is only one) | `Default Title` |
-| `price_cents` | integer | Current price in US cents | `3500` |
-| `compare_at_cents` | integer or empty | "Was" price in US cents when on sale, else empty | `7000` |
+| `price_cents` | integer | Current price in US cents | `2500` |
+| `compare_at_cents` | integer or empty | "Was" price in US cents when on sale, else empty | `5000` |
 | `available` | true/false | In stock | `true` |
-| `valid_from` | UTC time | When this price and stock state was first seen | `2026-11-04T08:46:55Z` |
+| `valid_from` | UTC time | When this price and stock state was first seen | `2026-11-20T15:30:59Z` |
 
 The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes), one row per change:
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-19T15:49:25Z` |
-| `store_id` | text | Store | `hyperlite-mountain-gear` |
-| `variant_id` | integer | Product option | `7376541417517` |
-| `product_title` | text | Product name | `Drawstring Stuff Sacks` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-20T15:30:59Z` |
+| `store_id` | text | Store | `bee-s-wrap` |
+| `variant_id` | integer | Product option | `67855091695891` |
+| `product_title` | text | Product name | `Bee's Wrap Reusable Beeswax Compostable Food Wraps - 2ct` |
 | `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `3100` |
-| `new_price_cents` | integer or empty | Price after, US cents | `1500` |
+| `old_price_cents` | integer or empty | Price before, US cents | `1499` |
+| `new_price_cents` | integer or empty | Price after, US cents | `999` |
 | `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-51.6` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `1499` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-33.4` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
