@@ -234,7 +234,13 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
     the same UTC day (before the next slot), held when only held runs started in
     that window, missed when no run did. It is computed from `data/runs.jsonl`,
     which is not rewritten: the 17 slots from 4 to 20 Nov are 0 on time, 17 late,
-    0 missed. `status.json` has the counts under `schedule`; the README shows an
-    "on time" badge next to "missed runs", and the FAQ states the counts.
+    0 missed. `status.json` keeps these counts for every slot under `schedule`.
+  - **What readers see.** The headline is delivery: "Daily runs delivered: 17 of
+    17" (slots with a good run, late or not). The on-time count, its badge and any
+    on-time percentage start at the first slot dispatched by the on-time trigger
+    (`on_time_since`; run records carry `dispatch.slot` and `dispatch.by`, and the
+    watchdog's dispatches do not count). Until then the badge reads "on time: from
+    next run". One computed note covers the earlier slots: "Before <date>, GitHub
+    started the scheduled run 7-10 h late; every day was still delivered (INC-009)."
 - **Regression tests:** `tests/test_schedule.py` (gate and accounting, including
   the committed run log) and `tests/test_outputs.py`.

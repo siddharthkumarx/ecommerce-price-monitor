@@ -116,12 +116,29 @@ def build_status(
     }
 
 
+ACCENT = "0B7468"
+
+
+def on_time_text(schedule: dict[str, Any]) -> tuple[str, str]:
+    """(label, value) of the on-time count shown to readers (INC-009).
+
+    It starts at the first slot dispatched by the on-time trigger: before that,
+    ("on time", "from next run"); after, ("on time since 22 Nov", "3 of 3").
+    """
+    since = schedule.get("on_time_since")
+    counts = schedule.get("since") or {}
+    if not since or not counts.get("slots"):
+        return "on time", "from next run"
+    day = parse_iso(str(since))
+    return f"on time since {day.day} {day:%b}", f"{counts['on_time']} of {counts['slots']}"
+
+
 def _on_time_badge(schedule: dict[str, Any]) -> dict[str, Any]:
-    """Slots started on time (within 2 h) out of all slots judged so far."""
-    slots, on_time = int(schedule.get("slots", 0)), int(schedule.get("on_time", 0))
-    if not slots:
-        return _badge("on time", "no slots yet", AMBER)
-    return _badge("on time", f"{on_time} of {slots}", TEAL if on_time == slots else AMBER)
+    label, value = on_time_text(schedule)
+    counts = schedule.get("since") or {}
+    if value == "from next run":
+        return _badge(label, value, ACCENT)
+    return _badge(label, value, TEAL if counts["on_time"] == counts["slots"] else AMBER)
 
 
 def write_status(data: Path, status: dict[str, Any]) -> None:

@@ -222,3 +222,12 @@ def test_only_good_runs_feed_last_run(status: str) -> None:
     assert feed is not None
     assert feed["last_run"]["run_id"] == runs[0]["run_id"]
     assert feed["totals"]["runs_total"] == 2
+
+
+def test_feed_shows_delivery_and_no_on_time_count_before_the_trigger() -> None:
+    feed = json.loads((ROOT / "data" / "public" / "feed.json").read_text())
+    sched = feed["schedule"]
+    assert sched["delivered"] == sched["slots"]
+    assert sched["on_time_since"] is None
+    assert sched["on_time_pct"] is None
+    assert sched["note"].endswith("(INC-009).")

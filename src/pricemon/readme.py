@@ -19,6 +19,7 @@ from typing import Any
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+from pricemon.outputs import on_time_text
 from pricemon.report import EVENT_WORDS, Facts, collect
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -104,6 +105,7 @@ def context(data: Path, stores: Path, public: Path, now: datetime | None = None)
         "f": f,
         "q": f.quality,
         "sched": f.status["schedule"],
+        "on_time": dict(zip(("label", "value"), on_time_text(f.status["schedule"]), strict=True)),
         "stores": f.stores,
         "pub": pub,
         "repo_url": repo_url,

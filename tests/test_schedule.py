@@ -16,6 +16,7 @@ from pricemon.schedule import (
     accounting,
     active_crons,
     check_slot,
+    dispatch_slot,
     gate,
     latest_slot,
     main,
@@ -266,3 +267,97 @@ def test_accounting_of_the_real_history_counts_late_runs_not_missed_runs() -> No
     cutoff = [r for r in runs if r["started_at"] < "2026-11-21"]
     acc = accounting(cutoff, at(21, 0, 0), active_crons(2))
     assert (acc["slots"], acc["on_time"], acc["late"], acc["missed"]) == (17, 0, 17, 0)
+
+
+# -- the on-time count starts with the on-time trigger (INC-009) ----------------------
+def dispatched(
+    started: str, slot: str, by: str = "trigger", status: str = "ok"
+) -> dict[str, object]:
+    r = run(started, status, run_id=started)
+    r["trigger"] = "workflow_dispatch"
+    r["dispatch"] = {"slot": slot, "by": by}
+    return r
+
+
+def scheduled(started: str) -> dict[str, object]:
+    r = run(started, run_id=started)
+    r["trigger"] = "schedule"
+    return r
+
+
+HISTORY = [
+    scheduled("2026-11-19T15:49:25Z"),  # 9 h 32 late
+    scheduled("2026-11-20T15:30:59Z"),  # 9 h 13 late
+    scheduled("2026-11-21T13:29:00Z"),  # 7 h 12 late
+]
+
+
+def test_before_the_trigger_every_slot_is_kept_but_no_on_time_count_is_shown() -> None:
+    runs = [*HISTORY, dispatched("2026-11-21T20:00:00Z", "2026-11-21T06:17Z", by="watchdog")]
+    acc = accounting(runs, at(22, 5), active_crons(2))
+    assert (acc["slots"], acc["delivered"], acc["late"], acc["on_time"]) == (3, 3, 3, 0)
+    assert acc["on_time_since"] is None  # a watchdog dispatch is not the on-time trigger
+    assert acc["on_time_pct"] is None
+    assert acc["note"] == (
+        "So far GitHub started the scheduled run 7-9 h late; "
+        "every day was still delivered (INC-009)."
+    )
+
+
+def test_on_time_count_and_percentage_start_at_the_first_dispatched_slot() -> None:
+    runs = [
+        *HISTORY,
+        dispatched("2026-11-22T06:18:10Z", "2026-11-22T06:17Z"),
+        dispatched("2026-11-23T06:18:05Z", "2026-11-23T06:17Z"),
+        # 24 Nov: the dispatch failed; GitHub's late schedule event filled the slot.
+        scheduled("2026-11-24T14:02:00Z"),
+    ]
+    acc = accounting(runs, at(25, 5), active_crons(2))
+    assert acc["on_time_since"] == "2026-11-22T06:17:00Z"
+    assert acc["since"] == {"slots": 3, "on_time": 2, "late": 1, "held": 0, "missed": 0}
+    assert acc["on_time_pct"] == 66.7  # only slots from 22 Nov on
+    # Every earlier slot stays in the counts.
+    assert (acc["slots"], acc["delivered"], acc["on_time"], acc["late"]) == (6, 6, 2, 4)
+    assert acc["note"] == (
+        "Before 22 Nov 2026, GitHub started the scheduled run 7-9 h late; "
+        "every day was still delivered (INC-009)."
+    )
+
+
+def test_note_says_how_many_were_delivered_when_a_day_was_missed() -> None:
+    runs = [HISTORY[0], HISTORY[2], dispatched("2026-11-22T06:18:00Z", "2026-11-22T06:17Z")]
+    acc = accounting(runs, at(22, 9), active_crons(2))
+    assert str(acc["note"]).endswith("; 2 of 3 due runs were still delivered (INC-009).")
+
+
+def test_dispatch_slot_is_normalised_and_check_is_not_a_slot() -> None:
+    assert dispatch_slot("2026-11-22T06:17Z") == "2026-11-22T06:17:00Z"
+    assert dispatch_slot("check") == ""
+    assert dispatch_slot("") == ""
+    assert dispatch_slot("not a time") == ""
+
+
+def test_runs_record_who_dispatched_their_slot(monkeypatch: pytest.MonkeyPatch) -> None:
+    from pricemon.run import _env_run_meta
+
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "workflow_dispatch")
+    monkeypatch.setenv("DISPATCH_SLOT", "2026-11-22T06:17Z")
+    monkeypatch.setenv("DISPATCH_BY", "")
+    assert _env_run_meta()["dispatch"] == {"slot": "2026-11-22T06:17:00Z", "by": "trigger"}
+    monkeypatch.setenv("DISPATCH_BY", "watchdog")
+    assert _env_run_meta()["dispatch"]["by"] == "watchdog"
+    monkeypatch.setenv("DISPATCH_SLOT", "")
+    assert "dispatch" not in _env_run_meta()  # a manual run
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "schedule")
+    monkeypatch.setenv("DISPATCH_SLOT", "2026-11-22T06:17Z")
+    assert "dispatch" not in _env_run_meta()
+
+
+def test_workflows_pass_the_dispatch_to_the_run_record() -> None:
+    daily = yaml.safe_load((WF / "daily.yml").read_text())
+    assert "by" in _on(WF / "daily.yml")["workflow_dispatch"]["inputs"]
+    step = next(s for s in daily["jobs"]["run"]["steps"] if s.get("id") == "run")
+    assert step["env"] == {"DISPATCH_SLOT": "${{ inputs.slot }}", "DISPATCH_BY": "${{ inputs.by }}"}
+    watchdog = yaml.safe_load((WF / "watchdog.yml").read_text())
+    rescue = next(s for s in watchdog["jobs"]["check"]["steps"] if s.get("id") == "rescue")
+    assert "-f by=watchdog" in rescue["run"]

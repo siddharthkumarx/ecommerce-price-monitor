@@ -1,6 +1,6 @@
 {
   "schema": "steadydata.feed/v1",
-  "generated_at": "2026-11-20T22:22:58Z",
+  "generated_at": "2026-11-20T23:07:20Z",
   "monitor": {
     "id": "ecommerce-price-monitor",
     "title": "Daily price monitor, 25 US online stores",
@@ -57,12 +57,15 @@
     "runs_held": 0
   },
   "schedule": {
-    "on_time_window_h": 2,
     "slots": 17,
+    "delivered": 17,
+    "missed": 0,
+    "on_time_window_h": 2,
+    "on_time_since": null,
+    "on_time_slots": 0,
     "on_time": 0,
-    "late": 17,
-    "held": 0,
-    "missed": 0
+    "on_time_pct": null,
+    "note": "So far GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009)."
   },
   "daily": [
     {"date":"2026-11-05","runs":1,"rows_live":11767,"price_down":0,"price_up":45,"discount_start":0,"discount_end":0,"out_of_stock":28,"back_in_stock":18,"new":13,"removed":15},

@@ -180,9 +180,12 @@ def test_status_counts_on_time_late_and_missed_slots(tmp_path: Path) -> None:
     assert sched["late_slots"] == ["2026-11-06T06:17:00Z"]
     assert status["rows_today"] == 13
     write_status(tmp_path, status)
+    assert sched["delivered"] == 3
+    # No run came from the on-time trigger yet: no on-time count is shown.
+    assert sched["on_time_since"] is None
+    assert sched["on_time_pct"] is None
     badge = json.loads((tmp_path / "badges" / "on-time-runs.json").read_text())
-    assert badge["label"] == "on time"
-    assert badge["message"] == "2 of 4"
+    assert (badge["label"], badge["message"]) == ("on time", "from next run")
 
 
 def test_read_runs_empty(tmp_path: Path) -> None:
@@ -212,3 +215,38 @@ def test_alert_rules() -> None:
         "https://x",
     )
     assert "hold `currency:a`" in text
+
+
+def test_on_time_badge_and_text_start_with_the_trigger(tmp_path: Path) -> None:
+    from pricemon.outputs import on_time_text
+
+    before = {"on_time_since": None, "since": {"slots": 0, "on_time": 0}}
+    assert on_time_text(before) == ("on time", "from next run")
+    after = {"on_time_since": "2026-11-22T06:17:00Z", "since": {"slots": 3, "on_time": 2}}
+    assert on_time_text(after) == ("on time since 22 Nov", "2 of 3")
+    records: list[dict[str, Any]] = [
+        {
+            "run_id": "a",
+            "started_at": "2026-11-21T13:29:00Z",
+            "status": "ok",
+            "trigger": "schedule",
+        },
+        {
+            "run_id": "b",
+            "started_at": "2026-11-22T06:18:00Z",
+            "status": "ok",
+            "trigger": "workflow_dispatch",
+            "dispatch": {"slot": "2026-11-22T06:17:00Z", "by": "trigger"},
+        },
+    ]
+    for r in records:
+        r["rows_observed"] = 1
+    write_status(
+        tmp_path, build_status(records, datetime(2026, 11, 22, 9, tzinfo=UTC), active_crons(2))
+    )
+    badge = json.loads((tmp_path / "badges" / "on-time-runs.json").read_text())
+    assert (badge["label"], badge["message"], badge["color"]) == (
+        "on time since 22 Nov",
+        "1 of 1",
+        "0E8A7D",
+    )

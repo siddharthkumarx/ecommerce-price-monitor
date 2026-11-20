@@ -204,11 +204,80 @@ def slot_states(
     return out
 
 
+def dispatch_slot(value: str) -> str:
+    """The slot a dispatch named, as ``YYYY-MM-DDTHH:MM:SSZ``; "" for none, ``check`` or junk."""
+    value = (value or "").strip()
+    if not value or value == CHECK_SLOT:
+        return ""
+    try:
+        return _parse(value).replace(second=0, microsecond=0).strftime("%Y-%m-%dT%H:%M:%SZ")
+    except ValueError:
+        return ""
+
+
+def trigger_since(runs: list[dict[str, object]]) -> datetime | None:
+    """The first slot the on-time trigger dispatched (a run record with ``dispatch.by``
+    "trigger"); None until it has started one. Watchdog dispatches do not count."""
+    slots_seen = []
+    for r in runs:
+        d = r.get("dispatch")
+        if isinstance(d, dict) and d.get("by") == "trigger" and d.get("slot"):
+            slots_seen.append(_parse(str(d["slot"])))
+    return min(slots_seen) if slots_seen else None
+
+
+def _day(t: datetime) -> str:
+    return f"{t.day} {t:%b %Y}"
+
+
+def schedule_note(
+    runs: list[dict[str, object]], states: list[SlotState], since: datetime | None
+) -> str:
+    """One plain sentence on the slots before the on-time trigger (INC-009).
+
+    The lateness range is that of the scheduled (``schedule``) runs before ``since``,
+    from the run log; the delivery part counts those slots' good runs.
+    """
+    before = [s for s in states if s.state != "pending" and (since is None or s.slot < since)]
+    if not before:
+        return ""
+    trig = {str(r["run_id"]): r.get("trigger") for r in runs}
+    hours = [
+        (_parse(s.started_at) - s.slot).total_seconds() / 3600
+        for s in before
+        if s.run_id and s.started_at and trig.get(s.run_id) == "schedule"
+    ]
+    if hours:
+        lo, hi = int(min(hours)), int(max(hours))
+        span = f"{lo} h" if lo == hi else f"{lo}-{hi} h"
+        late = f"GitHub started the scheduled run {span} late"
+    else:
+        late = "GitHub's scheduler often started runs late"
+    delivered = sum(1 for s in before if s.state in ("on_time", "late"))
+    if delivered == len(before):
+        kept = "every day was still delivered"
+    else:
+        kept = f"{delivered} of {len(before)} due runs were still delivered"
+    if since is None:
+        return f"So far {late}; {kept} (INC-009)."
+    return f"Before {_day(since)}, {late}; {kept} (INC-009)."
+
+
 def accounting(
     runs: list[dict[str, object]], now: datetime, crons: tuple[str, ...] | None = None
 ) -> dict[str, object]:
-    """Counts of on-time, late, held and missed slots for status.json and the badges."""
+    """Slot counts for status.json, the badges and the dashboard.
+
+    Every slot is kept (``slots``, ``on_time``, ``late``, ``held``, ``missed``), and
+    ``delivered`` counts the slots that got a good run, late or not. The on-time count
+    shown to readers starts at the first slot dispatched by the on-time trigger
+    (``on_time_since``): ``since`` holds the counts from that slot on, and
+    ``on_time_pct`` is computed only from those slots (None before).
+    """
     states = slot_states(runs, now, crons)
+    since = trigger_since(runs)
+    after = [s for s in states if since is not None and s.slot >= since and s.state != "pending"]
+    since_on_time = sum(1 for s in after if s.state == "on_time")
 
     def of(kind: str) -> list[SlotState]:
         return [s for s in states if s.state == kind]
@@ -219,6 +288,17 @@ def accounting(
     judged = [s for s in states if s.state != "pending"]
     return {
         "on_time_window_h": int(ON_TIME.total_seconds() // 3600),
+        "delivered": sum(1 for s in judged if s.state in ("on_time", "late")),
+        "on_time_since": since.strftime("%Y-%m-%dT%H:%M:%SZ") if since else None,
+        "since": {
+            "slots": len(after),
+            "on_time": since_on_time,
+            "late": sum(1 for s in after if s.state == "late"),
+            "held": sum(1 for s in after if s.state == "held"),
+            "missed": sum(1 for s in after if s.state == "missed"),
+        },
+        "on_time_pct": round(100 * since_on_time / len(after), 1) if after else None,
+        "note": schedule_note(runs, states, since),
         "slots": len(judged),
         "on_time": len(of("on_time")),
         "late": len(of("late")),

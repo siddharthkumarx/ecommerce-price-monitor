@@ -60,6 +60,10 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
     assert "<b>30 sales started</b>" in text
     assert text.count("<summary>Numbers by day</summary>") == 3
     assert "on time" in text  # the 5 Nov run started at its 06:17 slot
+    # Headline: delivery; the on-time count waits for the on-time trigger (INC-009).
+    assert 'Daily runs delivered</span><span class="value">2 of 2</span>' in text
+    assert "on time: from next run" in text
+    assert "Runs on time" not in text
 
 
 def test_dashboard_empty_state(tmp_path: Path) -> None:

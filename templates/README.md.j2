@@ -8,7 +8,7 @@
 
 [![Last run](https://img.shields.io/endpoint?url={{ raw }}/data/badges/last-run.json)]({{ repo_url }}/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url={{ raw }}/data/badges/days-running.json)]({{ repo_url }}/blob/{{ pub.branch }}/data/runs.jsonl)
-[![Runs on time](https://img.shields.io/endpoint?url={{ raw }}/data/badges/on-time-runs.json)]({{ repo_url }}/blob/{{ pub.branch }}/data/status.json)
+[![On time](https://img.shields.io/endpoint?url={{ raw }}/data/badges/on-time-runs.json)]({{ repo_url }}/blob/{{ pub.branch }}/data/status.json)
 [![Missed runs](https://img.shields.io/endpoint?url={{ raw }}/data/badges/missed-runs.json)]({{ repo_url }}/blob/{{ pub.branch }}/data/status.json)
 [![Rows today](https://img.shields.io/endpoint?url={{ raw }}/data/badges/rows-today.json)]({{ repo_url }}/blob/{{ pub.branch }}/data/latest/snapshot.csv)
 [![Tests](https://img.shields.io/github/actions/workflow/status/{{ pub.repo }}/ci.yml?branch={{ pub.branch }}&label=tests)]({{ repo_url }}/actions/workflows/ci.yml)
@@ -92,7 +92,7 @@ Real problems from building this monitor, with the fix for each. The full write-
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time){% if bfcm_runs == 4 %}, and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December{% endif %}. Each row shows when its current price was first seen, and the [last run badge]({{ repo_url }}/actions/workflows/daily.yml) shows the time of the latest run. So far {{ sched.on_time }} of {{ sched.slots }} due runs started on time (within {{ sched.on_time_window_h }} hours), {{ sched.late }} started later the same day and {{ sched.missed }} {{ "was" if sched.missed == 1 else "were" }} missed: GitHub's scheduler often starts runs hours late, so each run is now also started on time by a direct trigger, with GitHub's schedule kept as the fallback.
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time){% if bfcm_runs == 4 %}, and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December{% endif %}. Each row shows when its current price was first seen, and the [last run badge]({{ repo_url }}/actions/workflows/daily.yml) shows the time of the latest run. {{ sched.delivered }} of {{ sched.slots }} due runs so far were delivered. {% if sched.on_time_since %}Since the on-time trigger took over from GitHub's scheduler, {{ on_time.value }} started on time (within {{ sched.on_time_window_h }} hours).{% else %}From the next run on, each run is started on time by a direct trigger, with GitHub's schedule kept as the fallback.{% endif %} {{ sched.note }}
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.

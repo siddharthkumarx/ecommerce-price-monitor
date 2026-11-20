@@ -21,7 +21,14 @@ from pathlib import Path
 from typing import Any
 
 from pricemon.feed import daily
-from pricemon.outputs import build_status, parse_iso, read_runs, recent_events, snapshot_summary
+from pricemon.outputs import (
+    build_status,
+    on_time_text,
+    parse_iso,
+    read_runs,
+    recent_events,
+    snapshot_summary,
+)
 from pricemon.schedule import slot_states
 from pricemon.stores import Store, load_stores
 
@@ -277,10 +284,9 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
             _kpi("In stock", pct(in_stock, variants), f"{in_stock:,} of {variants:,}"),
             _kpi("On sale", pct(discounted, variants), "below their “was” price"),
             _kpi(
-                "Runs on time",
-                f"{schedule.get('on_time', 0)} of {slots_n}" if slots_n else "-",
-                f"within {schedule.get('on_time_window_h', 2)} h · {schedule.get('late', 0)} late "
-                f"· {status['missed_runs']} missed",
+                "Daily runs delivered",
+                f"{schedule.get('delivered', 0)} of {slots_n}" if slots_n else "-",
+                "{}: {}".format(*on_time_text(schedule)),
             ),
             _kpi(
                 "Days running",
@@ -454,7 +460,8 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         )
     runs_table = (
         _table(
-            "Most recent runs. On time: started within 2 hours of its scheduled slot.",
+            "Most recent runs. On time: started within 2 hours of its scheduled slot. "
+            + str(schedule.get("note") or ""),
             [
                 ("Started UTC", False),
                 ("Status", False),

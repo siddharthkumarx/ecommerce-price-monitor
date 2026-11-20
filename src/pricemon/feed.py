@@ -121,6 +121,26 @@ def daily(runs: list[dict[str, Any]], days: int = DAILY_DAYS) -> list[dict[str, 
     return [by_date[d] for d in sorted(by_date)][-days:]
 
 
+def _schedule(sched: dict[str, Any]) -> dict[str, Any]:
+    """Delivery for every slot; the on-time count only from the on-time trigger's first slot.
+
+    All-time on-time counts stay in status.json: before the trigger, GitHub's late
+    scheduler decided them (INC-009), so they are not a percentage to show.
+    """
+    since = sched.get("since") or {}
+    return {
+        "slots": int(sched.get("slots") or 0),
+        "delivered": int(sched.get("delivered") or 0),
+        "missed": int(sched.get("missed") or 0),
+        "on_time_window_h": int(sched.get("on_time_window_h") or 2),
+        "on_time_since": sched.get("on_time_since"),
+        "on_time_slots": int(since.get("slots") or 0),
+        "on_time": int(since.get("on_time") or 0),
+        "on_time_pct": sched.get("on_time_pct"),
+        "note": sched.get("note") or "",
+    }
+
+
 def _public(path: Path) -> dict[str, Any]:
     if not path.exists():
         return {}
@@ -177,11 +197,7 @@ def build_feed(
             "runs_good": int(status.get("runs_good") or len(good)),
             "runs_held": int(status.get("runs_held") or 0),
         },
-        "schedule": {
-            k: v
-            for k, v in (status.get("schedule") or {}).items()
-            if k in ("on_time_window_h", "slots", "on_time", "late", "held", "missed")
-        },
+        "schedule": _schedule(status.get("schedule") or {}),
         "daily": daily(runs),
     }
 

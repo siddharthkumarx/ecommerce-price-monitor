@@ -20,6 +20,11 @@ on:
         required: false
         type: string
         default: ""
+      by:
+        description: "Who dispatched the slot: empty = the on-time trigger; watchdog = the watchdog"
+        required: false
+        type: string
+        default: ""
 
 env:
   # Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): "4" runs a day only if the
@@ -121,6 +126,9 @@ jobs:
       - name: Run pipeline
         id: run
         timeout-minutes: 41
+        env:
+          DISPATCH_SLOT: ${{ inputs.slot }}
+          DISPATCH_BY: ${{ inputs.by }}
         run: |
           set +e
           args=(--stores config/stores.yml --data data --history-out "work/price_history_$MONTH.parquet")

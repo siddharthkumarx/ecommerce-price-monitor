@@ -65,7 +65,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           DAILY_URL: ${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily.yml
         run: |
-          gh workflow run daily.yml --ref "$BRANCH" -f slot="$SLOT"
+          gh workflow run daily.yml --ref "$BRANCH" -f slot="$SLOT" -f by=watchdog
           {
             printf 'No `daily` run filled the %s slot by %s UTC, so the watchdog started one by hand.\n\n' \
               "$SLOT" "$(date -u +%Y-%m-%dT%H:%MZ)"

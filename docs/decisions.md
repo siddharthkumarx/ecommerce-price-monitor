@@ -419,7 +419,12 @@ From an independent review that rendered every SVG:
 - **Accounting:** on time = a good run started within 2 h after the slot; late =
   the first good run started later the same UTC day; missed = no run. A run
   belongs to the latest slot at or before its start, so one late run never fills
-  two slots. "Missed runs" now means exactly that; "on time" is a separate badge.
+  two slots. "Missed runs" now means exactly that.
+- **Shown to readers** (owner decision, design check of 2026-11-20): delivery
+  ("daily runs delivered", every slot) is the headline; on time is counted only
+  from the first slot the on-time trigger dispatched, so it measures the trigger,
+  not GitHub's late scheduler. Earlier slots stay in `status.json` and the run
+  history, with a one-sentence note computed from the run log.
 
 ## D-029 - SteadyData light look for the dashboard and README visuals (2026-11-20, owner decision)
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T22:22:58Z",
+  "generated_at": "2026-11-20T23:07:20Z",
   "first_run": "2026-11-04T08:46:55Z",
   "days_running": 17,
   "runs_total": 17,
@@ -9,6 +9,17 @@
   "missed_slots": [],
   "schedule": {
     "on_time_window_h": 2,
+    "delivered": 17,
+    "on_time_since": null,
+    "since": {
+      "slots": 0,
+      "on_time": 0,
+      "late": 0,
+      "held": 0,
+      "missed": 0
+    },
+    "on_time_pct": null,
+    "note": "So far GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).",
     "slots": 17,
     "on_time": 0,
     "late": 17,

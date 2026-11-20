@@ -68,6 +68,8 @@ def test_readme_renders_clean_and_in_order(two_runs: tuple[Path, Path]) -> None:
     assert all(alt.strip() for alt in re.findall(r'alt="([^"]*)"', text))
     assert "hello@steadydata.co" in text
     assert "hello@siddharthkumar.com" not in text
+    assert "due runs so far were delivered" in text
+    assert "From the next run on, each run is started on time" in text
     assert "## Want this for your own stores?" in text
     assert "**[Get a free sample](https://steadydata.co/contact/)**" in text
     assert text.rstrip().endswith(

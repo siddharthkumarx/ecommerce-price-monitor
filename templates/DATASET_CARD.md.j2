@@ -69,7 +69,10 @@ Field definitions with real examples: the data dictionary in the [README]({{ rep
 | `checks.rows_compared_with_last_run`, `suspicious_price_moves`, `guard_holds` | The batch guard: rows matched with the last good data, prices that moved below 0.2x or above 5x, hold reasons raised |
 | `totals.days_running` | Days from the first good run to today, inclusive |
 | `totals.runs_total`, `runs_good`, `runs_held` | All runs, ok or partial runs, held runs |
-| `schedule` | Due run slots so far: `on_time` (a good run started within `on_time_window_h` hours), `late` (later the same day), `held`, `missed` |
+| `schedule.slots`, `delivered`, `missed` | Due run slots so far, those that got a good (ok or partial) run, late or not, and those with no run |
+| `schedule.on_time_since` | The first slot started by the on-time trigger (UTC), or empty before it; on-time counts start there |
+| `schedule.on_time_slots`, `on_time`, `on_time_pct` | Slots from `on_time_since` on, those whose good run started within `on_time_window_h` hours, and their share in percent (empty before the first such slot) |
+| `schedule.note` | How the earlier slots went, in one sentence (INC-009) |
 | `daily[]` | Up to 60 UTC dates, oldest first: `runs` (good runs that started that day), `rows_live` (after the day's last good run) and the change counts `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed`, summed over the day's runs. The first run is the baseline (every row `new`) and is left out |
 
 ## Collection

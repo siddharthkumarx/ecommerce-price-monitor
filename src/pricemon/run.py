@@ -48,6 +48,7 @@ from pricemon.outputs import (
     write_status,
 )
 from pricemon.polite import EdgeGuard, PoliteConfig, StoreSession, make_client
+from pricemon.schedule import dispatch_slot
 from pricemon.stores import Store, load_stores
 
 EXIT_OK, EXIT_CRASHED, EXIT_PARTIAL, EXIT_HELD = 0, 1, 2, 3
@@ -105,12 +106,17 @@ def _env_run_meta() -> dict[str, Any]:
         os.environ.get("GITHUB_REPOSITORY"),
         os.environ.get("GITHUB_RUN_ID"),
     )
-    return {
+    meta: dict[str, Any] = {
         "trigger": os.environ.get("GITHUB_EVENT_NAME", "local"),
         "git_sha": os.environ.get("GITHUB_SHA"),
         "run_url": f"{server}/{repo}/actions/runs/{run_id}" if server and repo and run_id else None,
         "version": __version__,
     }
+    # A dispatch that named its slot: the on-time trigger, or the watchdog (INC-009).
+    slot = dispatch_slot(os.environ.get("DISPATCH_SLOT", ""))
+    if meta["trigger"] == "workflow_dispatch" and slot:
+        meta["dispatch"] = {"slot": slot, "by": os.environ.get("DISPATCH_BY") or "trigger"}
+    return meta
 
 
 def process(
