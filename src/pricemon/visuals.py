@@ -7,7 +7,10 @@ copy of each (``*-still.svg``, the final frame, no animation). Rules
 (docs/decisions.md, D-022 and D-025):
 
 * An SVG in a README loads as an image: no external fonts or scripts. Fonts are
-  embedded as base64 WOFF2 (the self-hosted Latin subsets of the dashboard).
+  embedded as base64 WOFF2 (the self-hosted Latin subsets of the dashboard: Plus
+  Jakarta Sans with tabular numbers).
+* SteadyData light look (D-029): a light card with a hairline border, ink text,
+  the accent for coloured text, teal and amber for marks only (never for text).
 * CSS animation only, a 9 s loop whose last 2.4 s hold the final frame.
 * Every element's final-frame state is its default style, so a renderer without
   animation shows the result. Under ``prefers-reduced-motion`` the animations stop
@@ -36,23 +39,28 @@ from pricemon.report import Facts, collect
 ASSETS = Path(__file__).parent / "site_assets"
 ICONS = Path(__file__).resolve().parents[2] / "assets" / "icons"
 
-BG, PANEL, BORDER = "#0B1416", "#0F1C1E", "#1D3331"
-TEXT, BODY, QUIET, TEAL, AMBER = "#EAF2F0", "#C9D8D5", "#7E9996", "#2FBFAE", "#E9A93C"
+# SteadyData light system (D-029). GOOD and AMBER are marks only: below 4.5:1 as text.
+BG, PANEL, BORDER = "#F3F8F7", "#FFFFFF", "#E2EAE8"
+TEXT, BODY, QUIET, ACCENT = "#0B1416", "#3D4B49", "#5F716E", "#0B7468"
+GOOD, AMBER = "#0E8A7D", "#D98E14"
+TEAL = GOOD
 LOOP_S = 9
 MIN_HEADING_PX = 36
 MIN_TEXT_PX = 30
 
 FONT_FILES = {
-    ("IS", 400): "instrument-sans-latin-400-normal.woff2",
-    ("IS", 600): "instrument-sans-latin-600-normal.woff2",
-    ("PM", 500): "ibm-plex-mono-latin-500-normal.woff2",
+    ("PJ", 400): "plus-jakarta-sans-latin-400-normal.woff2",
+    ("PJ", 600): "plus-jakarta-sans-latin-600-normal.woff2",
+    ("PJ", 700): "plus-jakarta-sans-latin-700-normal.woff2",
 }
 
 BASE_CSS = f"""
-.sans{{font-family:IS,"Instrument Sans",system-ui,sans-serif}}
-.mono{{font-family:PM,"IBM Plex Mono",ui-monospace,monospace;font-weight:500}}
-.t{{fill:{TEXT}}}.b{{fill:{BODY}}}.q{{fill:{QUIET}}}.teal{{fill:{TEAL}}}.amber{{fill:{AMBER}}}
-.w6{{font-weight:600}}
+.sans{{font-family:PJ,"Plus Jakarta Sans",system-ui,sans-serif}}
+.num{{font-family:PJ,"Plus Jakarta Sans",system-ui,sans-serif;font-weight:600;
+font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}}
+.t{{fill:{TEXT}}}.b{{fill:{BODY}}}.q{{fill:{QUIET}}}.acc{{fill:{ACCENT}}}
+.good{{fill:{GOOD}}}.amber{{fill:{AMBER}}}
+.w6{{font-weight:600}}.w7{{font-weight:700}}
 """
 
 
@@ -84,7 +92,8 @@ class Visual:
             f'aria-labelledby="title desc">'
             f'<title id="title">{esc(self.title)}</title><desc id="desc">{esc(self.desc)}</desc>'
             f"<style>{fonts_css()}{css}</style>"
-            f'<rect width="{self.width}" height="{self.height}" rx="20" fill="{BG}"/>'
+            f'<rect x="1" y="1" width="{self.width - 2}" height="{self.height - 2}" rx="20" '
+            f'fill="{BG}" stroke="{BORDER}" stroke-width="2"/>'
             f"{self.body}</svg>\n"
         )
 
@@ -181,7 +190,7 @@ def hero(f: Facts, width: int = 1000, height: int = 460) -> Visual:
     cx = width / 2
     stores = len(f.stores)
     b1 = (
-        f'<g class="b1"><text class="sans t w6" x="{cx:g}" y="214" font-size="48" '
+        f'<g class="b1"><text class="sans t w7" x="{cx:g}" y="214" font-size="48" '
         f'text-anchor="middle">Competitor prices change every day.</text>'
         f'<text class="sans b" x="{cx:g}" y="276" font-size="36" text-anchor="middle">'
         f"Nobody can check them all by hand.</text></g>"
@@ -189,30 +198,42 @@ def hero(f: Facts, width: int = 1000, height: int = 460) -> Visual:
     beat2 = [
         f'<rect x="40" y="120" width="250" height="170" rx="16" fill="{PANEL}" '
         f'stroke="{BORDER}" stroke-width="2"/>',
-        icon("shopify", 64, 144, 48, "teal"),
-        f'<text class="mono t" x="64" y="252" font-size="36">{stores} stores</text>',
+        icon("shopify", 64, 144, 48, "acc"),
+        f'<text class="num t" x="64" y="252" font-size="36">{stores} stores</text>',
         f'<path class="flow" d="M304 205 h52" stroke="{TEAL}" stroke-width="5" '
         f'stroke-linecap="round" fill="none"/>',
     ]
     tx, tw, fs = 370, width - 370 - 40, MIN_TEXT_PX
-    chars = int((tw - 48) / (fs * 0.6))
+    chars = int((tw - 48) / (fs * 0.55))  # Plus Jakarta Sans: about 0.55 em a character
     for i, r in enumerate(f.sample[:3]):
         y = 96 + i * 82
         label = row_label(r.store, r.product, chars - len(r.price) - 2)
         beat2.append(
             f'<g class="r{i + 1}"><rect x="{tx}" y="{y}" width="{tw}" height="68" rx="12" '
             f'fill="{PANEL}" stroke="{BORDER}" stroke-width="2"/>'
-            f'<text class="mono b" x="{tx + 24}" y="{y + 44}" font-size="{fs}">{esc(label)}</text>'
-            f'<text class="mono {"amber" if r.discount_pct else "t"}" x="{tx + tw - 24}" '
+            + (
+                f'<rect class="amber" x="{tx + 8}" y="{y + 14}" width="6" height="40" rx="3"/>'
+                if r.discount_pct
+                else ""
+            )
+            + f'<text class="sans b" x="{tx + 24}" y="{y + 44}" font-size="{fs}">{esc(label)}</text>'
+            f'<text class="num t" x="{tx + tw - 24}" '
             f'y="{y + 44}" font-size="{fs}" text-anchor="end">{esc(r.price)}</text></g>'
         )
     beat2.append(
         f'<text class="sans q" x="{tx}" y="380" font-size="{fs}">'
         f"Real rows, run of {esc(f.run_date)}</text>"
     )
+    if any(r.discount_pct for r in f.sample[:3]):
+        # The amber bar marks a row on sale; this is its direct label.
+        beat2.append(
+            f'<rect class="amber" x="{tx + 8}" y="404" width="6" height="28" rx="3"/>'
+            f'<text class="sans q" x="{tx + 24}" y="426" font-size="{fs}">'
+            "on sale: price below its “was” price</text>"
+        )
     b2 = f'<g class="b2">{"".join(beat2)}</g>'
     b3 = (
-        f'<g class="b3"><text class="mono teal" x="{cx:g}" y="248" font-size="110" '
+        f'<g class="b3"><text class="num acc" x="{cx:g}" y="248" font-size="110" '
         f'text-anchor="middle">{f.snapshot_rows:,} prices</text>'
         f'<text class="sans b" x="{cx:g}" y="318" font-size="36" text-anchor="middle">'
         f"from {stores} US online stores, checked every day</text></g>"
@@ -231,16 +252,16 @@ def hero_square(f: Facts, size: int = 1080) -> Visual:
     cx = size / 2
     stores = len(f.stores)
     b1 = (
-        f'<g class="b1"><text class="sans t w6" x="{cx}" y="420" font-size="72" text-anchor="middle">'
-        f'Competitor prices</text><text class="sans t w6" x="{cx}" y="510" font-size="72" '
+        f'<g class="b1"><text class="sans t w7" x="{cx}" y="420" font-size="72" text-anchor="middle">'
+        f'Competitor prices</text><text class="sans t w7" x="{cx}" y="510" font-size="72" '
         f'text-anchor="middle">change every day.</text><text class="sans b" x="{cx}" y="620" '
         f'font-size="48" text-anchor="middle">Nobody can check them all by hand.</text></g>'
     )
     parts = [
         f'<rect x="{cx - 230}" y="150" width="460" height="130" rx="20" fill="{PANEL}" '
         f'stroke="{BORDER}" stroke-width="3"/>',
-        icon("shopify", cx - 200, 185, 60, "teal"),
-        f'<text class="mono t" x="{cx - 120}" y="236" font-size="52">{stores} stores</text>',
+        icon("shopify", cx - 200, 185, 60, "acc"),
+        f'<text class="num t" x="{cx - 120}" y="236" font-size="52">{stores} stores</text>',
         f'<path class="flow" d="M{cx} 300 v70" stroke="{TEAL}" stroke-width="6" '
         f'stroke-linecap="round" fill="none"/>',
     ]
@@ -250,24 +271,35 @@ def hero_square(f: Facts, size: int = 1080) -> Visual:
         parts.append(
             f'<g class="r{i + 1}"><rect x="40" y="{y}" width="{size - 80}" height="110" rx="18" '
             f'fill="{PANEL}" stroke="{BORDER}" stroke-width="3"/>'
-            f'<text class="mono b" x="70" y="{y + 50}" font-size="{fs}">{esc(clip(r.store, 34))}</text>'
-            f'<text class="mono b" x="70" y="{y + 96}" font-size="{fs}">{esc(short(r.product, 22))}</text>'
-            f'<text class="mono {"amber" if r.discount_pct else "t"}" x="{size - 70}" y="{y + 96}" '
+            + (
+                f'<rect class="amber" x="52" y="{y + 18}" width="7" height="74" rx="3.5"/>'
+                if r.discount_pct
+                else ""
+            )
+            + f'<text class="sans t w6" x="76" y="{y + 50}" font-size="{fs}">{esc(clip(r.store, 34))}</text>'
+            f'<text class="sans b" x="76" y="{y + 96}" font-size="{fs}">{esc(short(r.product, 22))}</text>'
+            f'<text class="num t" x="{size - 70}" y="{y + 96}" '
             f'font-size="{fs}" text-anchor="end">{esc(r.price)}</text></g>'
         )
     parts.append(
         f'<text class="sans q" x="{cx}" y="{400 + 3 * 130 + 44}" font-size="40" '
         f'text-anchor="middle">Real rows, run of {esc(f.run_date)}</text>'
     )
+    if any(r.discount_pct for r in f.sample[:3]):
+        y = 400 + 3 * 130 + 104
+        parts.append(
+            f'<rect class="amber" x="{cx - 170}" y="{y - 34}" width="7" height="40" rx="3.5"/>'
+            f'<text class="sans q" x="{cx - 150}" y="{y}" font-size="40">on sale</text>'
+        )
     b2 = f'<g class="b2">{"".join(parts)}</g>'
     b3 = (
-        f'<g class="b3"><text class="mono teal" x="{cx}" y="470" font-size="150" '
-        f'text-anchor="middle">{f.snapshot_rows:,}</text><text class="mono teal" x="{cx}" '
+        f'<g class="b3"><text class="num acc" x="{cx}" y="470" font-size="150" '
+        f'text-anchor="middle">{f.snapshot_rows:,}</text><text class="num acc" x="{cx}" '
         f'y="580" font-size="80" text-anchor="middle">prices</text><text class="sans b" '
         f'x="{cx}" y="700" font-size="48" text-anchor="middle">from {stores} US online stores,'
         f'</text><text class="sans b" x="{cx}" y="770" font-size="48" text-anchor="middle">'
         f'checked every day</text><text class="sans q" x="{cx}" y="{size - 80}" font-size="40" '
-        f'text-anchor="middle">siddharthkumar.com</text></g>'
+        f'text-anchor="middle">Siddharth Kumar · steadydata.co</text></g>'
     )
     desc = f"{f.snapshot_rows:,} prices from {stores} US online stores, checked every day."
     return Visual(
@@ -291,7 +323,7 @@ def pipeline(width: int = 1000, height: int = 340) -> Visual:
     gap = (width - 80 - n * box_w) / (n - 1)
     y = 108
     body = [
-        '<text class="sans t w6" x="40" y="68" font-size="36">One run a day, from store page '
+        '<text class="sans t w7" x="40" y="68" font-size="36">One run a day, from store page '
         "to your spreadsheet.</text>",
     ]
     for i in range(n - 1):
@@ -308,7 +340,7 @@ def pipeline(width: int = 1000, height: int = 340) -> Visual:
             f'<g class="s{i}"><rect x="{x:g}" y="{y}" width="{box_w}" height="{box_h}" rx="16" '
             f'fill="{PANEL}" stroke="{BORDER}" stroke-width="2"/>'
             f'<rect class="lit" x="{x:g}" y="{y}" width="{box_w}" height="{box_h}" rx="16" '
-            f'fill="none" stroke="{TEAL}" stroke-width="3"/>'
+            f'fill="none" stroke="{ACCENT}" stroke-width="3"/>'
         )
         size = 44
         total = len(icons) * size + (len(icons) - 1) * 16
@@ -357,7 +389,7 @@ def maintenance(f: Facts, width: int = 1000, height: int = 390) -> Visual:
         f'<path d="M{xs[0]:g} {y} H{xs[-1]:g}" stroke="{BORDER}" stroke-width="4"/>',
     ]
     for i, x in enumerate(xs):
-        cls = "amber" if i == incident else "teal"
+        cls = "amber" if i == incident else "good"
         body.append(f'<circle class="dot d{i} {cls}" cx="{x:g}" cy="{y}" r="13"/>')
     ix = xs[incident]
     body += [
@@ -367,7 +399,7 @@ def maintenance(f: Facts, width: int = 1000, height: int = 390) -> Visual:
         f'<g class="fix"><path d="M{xs[incident + 1]:g} {y + 22} V{y + 52}" stroke="{TEAL}" '
         f'stroke-width="3"/><text class="sans t" x="40" y="{y + 94}" font-size="32">'
         "Fixed: every store pauses together, then a gentler pace.</text></g>",
-        f'<g class="num"><text class="mono teal" x="40" y="88" font-size="52">'
+        f'<g class="num"><text class="num acc" x="40" y="88" font-size="52">'
         f"{runs_good:,} daily run{'s' if runs_good != 1 else ''} delivered</text></g>",
     ]
     animation = []

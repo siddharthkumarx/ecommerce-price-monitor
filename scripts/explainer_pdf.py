@@ -23,13 +23,13 @@ def main() -> None:
     src = ROOT / "docs" / "private" / "explainer.md"
     body = markdown.markdown(src.read_text(encoding="utf-8"))
     css = f"""
-    @font-face{{font-family:IS;font-weight:400;src:url({font("instrument-sans-latin-400-normal.woff2")})}}
-    @font-face{{font-family:IS;font-weight:600;src:url({font("instrument-sans-latin-600-normal.woff2")})}}
+    @font-face{{font-family:IS;font-weight:400;src:url({font("plus-jakarta-sans-latin-400-normal.woff2")})}}
+    @font-face{{font-family:IS;font-weight:600;src:url({font("plus-jakarta-sans-latin-600-normal.woff2")})}}
     @page{{size:A4;margin:18mm 18mm 20mm}}
     body{{font:400 11pt/1.5 IS,sans-serif;color:#1b2a2d}}
     h1{{font-size:20pt;margin:0 0 6pt;color:#0B1416}}
     h2{{font-size:13pt;margin:16pt 0 4pt;color:#0B1416;
-        border-bottom:1.5pt solid #2FBFAE;padding-bottom:2pt}}
+        border-bottom:1.5pt solid #0B7468;padding-bottom:2pt}}
     p,li{{margin:4pt 0}} code{{font-size:9.5pt}} strong{{color:#0B1416}}
     """
     head = f'<head><meta charset="utf-8"><style>{css}</style></head>'

@@ -80,15 +80,15 @@ Real problems from building this monitor, with the fix for each. The full write-
 - **Brand and category managers:** follow price levels, sale depth and stock across a whole category, store by store.
 - **Analysts:** a clean daily history of prices and stock for trend reports, such as how deep Black Friday discounts go by category.
 
-## Want this for your own sites?
+## Want this for your own stores?
 
-I build and run monitors like this one for any set of online stores or websites.
+SteadyData builds and runs monitors like this one for any set of online stores or websites.
 
 - **Free sample first:** 20-50 real rows from your target sites before you pay anything.
 - **Fixed price:** a fixed monthly fee for a running monitor, or a one-time price for a single collection.
 - **Data on schedule:** daily or weekly, delivered as CSV, Excel, Google Sheets or a database.
 
-**Contact:** [hello@siddharthkumar.com](mailto:hello@siddharthkumar.com) · [siddharthkumar.com](https://siddharthkumar.com)
+**[Get a free sample](https://steadydata.co/contact/)** · [hello@steadydata.co](mailto:hello@steadydata.co)
 
 ## FAQ
 
@@ -211,10 +211,10 @@ Store register with every dropped candidate and its evidence: [docs/sources.md](
 - robots.txt is respected, requests are slow and spaced, and a store that asks us to wait or stop is obeyed.
 - No personal data is collected.
 - No product images or descriptions are stored or republished: only prices, sale prices, stock and product names.
-- Store owners can opt out: email [hello@siddharthkumar.com](mailto:hello@siddharthkumar.com) and the store is removed within 24 hours.
+- Store owners can opt out: email [hello@steadydata.co](mailto:hello@steadydata.co) and the store is removed within 24 hours.
 
 ## License
 
 The code is under the [MIT License](LICENSE). The data is a compilation of public facts (prices and stock) shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); store and product names belong to their owners. See the [dataset card](data/README.md).
 
-Built and maintained by Siddharth Kumar · [siddharthkumar.com](https://siddharthkumar.com)
+Built and maintained by Siddharth Kumar, founder of SteadyData · [steadydata.co](https://steadydata.co) · [siddharthkumar.com](https://siddharthkumar.com)

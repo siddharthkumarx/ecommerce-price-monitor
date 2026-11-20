@@ -15,7 +15,12 @@ uv run python -m pricemon.readme
 uv run python -m pricemon.site --data data --stores config/stores.yml --out "$work/site"
 node scripts/render_media.cjs dashboard "$work/site" assets/dashboard.png
 stores="$(grep -c '^  - id:' config/stores.yml)"
-node scripts/render_media.cjs social src/pricemon/site_assets/fonts "$stores" assets/social-preview.png
+drops="$(uv run python -c "
+import json
+rows = json.load(open('data/public/feed.json'))['daily'][-8:]
+print(','.join(f\"{r['date']}:{r['price_down']}\" for r in rows))
+")"
+node scripts/render_media.cjs social src/pricemon/site_assets/fonts "$stores" "$drops" assets/social-preview.png
 uv run python -c "
 from pathlib import Path
 from pricemon.report import collect

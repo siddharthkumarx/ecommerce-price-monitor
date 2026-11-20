@@ -93,7 +93,7 @@ Field definitions with real examples: the data dictionary in the [README](https:
 
 ## Personal data and opt-out
 
-No personal data. No images or product descriptions. Store owners can request removal at [hello@siddharthkumar.com](mailto:hello@siddharthkumar.com); removal within 24 hours.
+No personal data. No images or product descriptions. Store owners can request removal at [hello@steadydata.co](mailto:hello@steadydata.co); removal within 24 hours.
 
 ## License and citation
 
