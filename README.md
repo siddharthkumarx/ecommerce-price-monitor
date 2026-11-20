@@ -6,6 +6,7 @@
 
 [![Last run](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/last-run.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/days-running.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/runs.jsonl)
+[![Runs on time](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/on-time-runs.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/status.json)
 [![Missed runs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/missed-runs.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/status.json)
 [![Rows today](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/rows-today.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv)
 [![Tests](https://img.shields.io/github/actions/workflow/status/siddharthkumarx/ecommerce-price-monitor/ci.yml?branch=main&label=tests)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/ci.yml)
@@ -92,7 +93,7 @@ I build and run monitors like this one for any set of online stores or websites.
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day, in the early morning US time. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run.
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. So far 0 of 17 due runs started on time (within 2 hours), 17 started later the same day and 0 were missed: GitHub's scheduler often starts runs hours late, so each run is now also started on time by a direct trigger, with GitHub's schedule kept as the fallback.
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.

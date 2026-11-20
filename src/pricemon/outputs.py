@@ -12,7 +12,7 @@ from typing import Any
 import duckdb
 
 from pricemon.changes import EVENT_TYPES, ChangeEvent
-from pricemon.schedule import active_crons, missed_slots
+from pricemon.schedule import accounting
 
 TEAL = "2FBFAE"
 AMBER = "E9A93C"
@@ -83,16 +83,9 @@ def build_status(
     last = runs[-1] if runs else None
     first_good = parse_iso(good[0]["started_at"]) if good else None
     days_running = max(0, (now.date() - first_good.date()).days + 1) if first_good else 0
-    missed = (
-        missed_slots(
-            [parse_iso(r["started_at"]) for r in good],
-            first_good,
-            now,
-            crons if crons is not None else active_crons(),
-        )
-        if first_good
-        else []
-    )
+    # Every daily slot since the first run: on time (a good run started within 2 h),
+    # late (later that day), held or missed (INC-009).
+    schedule = accounting(runs, now, crons)
     today = now.date().isoformat()
     todays = [r for r in good if r["started_at"].startswith(today)]
     return {
@@ -102,8 +95,9 @@ def build_status(
         "runs_total": len(runs),
         "runs_good": len(good),
         "runs_held": sum(1 for r in runs if r["status"] == "held"),
-        "missed_runs": len(missed),
-        "missed_slots": [iso(m) for m in missed[-10:]],
+        "missed_runs": schedule["missed"],
+        "missed_slots": schedule["missed_slots"],
+        "schedule": schedule,
         "last_run": (
             {
                 "run_id": last["run_id"],
@@ -120,6 +114,14 @@ def build_status(
         ),
         "rows_today": todays[-1]["rows_observed"] if todays else 0,
     }
+
+
+def _on_time_badge(schedule: dict[str, Any]) -> dict[str, Any]:
+    """Slots started on time (within 2 h) out of all slots judged so far."""
+    slots, on_time = int(schedule.get("slots", 0)), int(schedule.get("on_time", 0))
+    if not slots:
+        return _badge("on time", "no slots yet", AMBER)
+    return _badge("on time", f"{on_time} of {slots}", TEAL if on_time == slots else AMBER)
 
 
 def write_status(data: Path, status: dict[str, Any]) -> None:
@@ -141,6 +143,7 @@ def write_status(data: Path, status: dict[str, Any]) -> None:
         "missed-runs.json": _badge(
             "missed runs", str(status["missed_runs"]), TEAL if status["missed_runs"] == 0 else AMBER
         ),
+        "on-time-runs.json": _on_time_badge(status.get("schedule") or {}),
         "rows-today.json": _badge(
             "rows today", f"{status['rows_today']:,}", TEAL if status["rows_today"] else AMBER
         ),

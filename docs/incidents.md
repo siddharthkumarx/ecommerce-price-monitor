@@ -198,3 +198,43 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   so the run left nothing behind except the load on the stores.
 - **Fix:** `checks.yml` runs on branch pushes only (`branches: ["**"]`); a test
   keeps tags out (`tests/test_workflows.py`).
+
+## INC-009 - GitHub starts every scheduled slot 7 to 10 hours late (2026-11-20)
+
+- **Runs:** every `schedule` run of `daily` and `watchdog` from 6 to 20 Nov 2026.
+- **Evidence** (public Actions API, `workflows/<file>/runs`, read 2026-11-20):
+  - `daily` (cron `17 6 * * *`): the `schedule` runs of 8 to 20 Nov were created
+    between 13:29 and 16:27 UTC, 7 h 12 min to 10 h 10 min after the 06:17 slot;
+    6 and 7 Nov were 8 h 04 min and 6 h 51 min late. Every day still got one good
+    run (`data/runs.jsonl`), so no data was lost, but none started near 06:17.
+  - `watchdog` (crons `47 8 * * *` and `47 16 * * *`): the 08:47 look ran between
+    15:11 and 19:11 UTC, the 16:47 look between 20:30 and 00:30 UTC the next day.
+    The watchdog found the late daily run already running or done, so it never had
+    to start one.
+  - `status.json` counted 16 "missed runs" and the README badge showed it: the old
+    rule called a slot missed when no run started within 3 hours, so a run 8 hours
+    late counted as missed although the day had its data.
+- **Cause:** GitHub's scheduler delays `schedule` events under load and gives no
+  guarantee on start time. Every cron of this repository drifts by the same hours,
+  so in Black Friday week all four slots would start hours late.
+- **Fixes:**
+  - **On-time trigger.** An external scheduler calls `workflow_dispatch` on
+    `daily.yml` at each slot with the input `slot` (for example
+    `2026-11-26T06:17Z`), using a fine-grained token that holds only Actions read
+    and write on this repository. The `slot` gate (`python -m pricemon.schedule
+    gate`) lets such a dispatch run only for the current slot and only if no run
+    has filled it; a dispatch up to 10 minutes early waits for the slot.
+    `slot=check` proves the trigger and token work without running anything.
+  - **Late events skip.** GitHub's own schedule event arrives hours later, finds
+    the slot filled and skips, so the stores are not read twice. The schedule and
+    the watchdog stay as the fallback: if the dispatch does not come, the late
+    schedule event (or the watchdog, which now passes the slot too) fills it.
+  - **Honest accounting.** A slot is on time when a good run (ok or partial)
+    started within 2 hours after it, late when the first good run started later
+    the same UTC day (before the next slot), held when only held runs started in
+    that window, missed when no run did. It is computed from `data/runs.jsonl`,
+    which is not rewritten: the 17 slots from 4 to 20 Nov are 0 on time, 17 late,
+    0 missed. `status.json` has the counts under `schedule`; the README shows an
+    "on time" badge next to "missed runs", and the FAQ states the counts.
+- **Regression tests:** `tests/test_schedule.py` (gate and accounting, including
+  the committed run log) and `tests/test_outputs.py`.

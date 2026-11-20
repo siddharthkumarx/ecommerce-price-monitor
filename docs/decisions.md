@@ -404,3 +404,19 @@ From an independent review that rendered every SVG:
   At most one extra run per slot, and only when no run has filled the slot.
 - **Notice:** a `run-alert` issue (a comment if one is open) and a failed
   workflow run, the same channel as a failed daily run.
+
+## D-028 - On-time dispatch per slot, honest slot accounting (2026-11-20, INC-009)
+
+- **The schedule is a fallback, not the clock.** Each slot is started by an
+  external `workflow_dispatch` with input `slot`; GitHub's `schedule` event and
+  the watchdog remain, and skip once the slot is filled. One gate decides for
+  every trigger (`pricemon.schedule.gate`), so a dispatch, a late schedule event
+  and a watchdog rescue all follow the same rule: at most one pipeline run per
+  slot unless someone starts a manual run (no `slot`), which always runs.
+- **The trigger's token** is a fine-grained personal access token limited to this
+  repository with only "Actions: read and write" (plus the implied metadata read),
+  90-day expiry. It is never stored in the repository.
+- **Accounting:** on time = a good run started within 2 h after the slot; late =
+  the first good run started later the same UTC day; missed = no run. A run
+  belongs to the latest slot at or before its start, so one late run never fills
+  two slots. "Missed runs" now means exactly that; "on time" is a separate badge.

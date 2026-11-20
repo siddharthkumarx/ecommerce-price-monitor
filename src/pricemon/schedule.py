@@ -12,6 +12,17 @@ that the latest slot was run, and starts it if not (INC-007).
         --workflow .github/workflows/daily.yml
 
 prints ``slot=``, ``covered=`` and ``run_id=`` lines for $GITHUB_OUTPUT.
+
+    python -m pricemon.schedule gate --event schedule --cron "17 6 * * *" \\
+        --runs data/runs.jsonl
+    python -m pricemon.schedule gate --event workflow_dispatch \\
+        --slot 2026-11-26T06:17Z --runs data/runs.jsonl
+
+is the daily workflow's gate: it prints ``run=``, ``slot=``, ``wait_s=`` and
+``reason=``. A dispatch that names its slot (the on-time external trigger, or the
+watchdog) fills that slot exactly like the scheduled run would; GitHub's own
+schedule event, which often arrives hours late, then finds the slot filled and
+skips (INC-009).
 """
 
 from __future__ import annotations
@@ -22,6 +33,7 @@ import os
 import re
 import sys
 from collections.abc import Iterator
+from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
@@ -53,7 +65,17 @@ def active_crons(bfcm_runs_per_day: int | None = None) -> tuple[str, ...]:
 # BFCM slot. Off the hour and the half hour, like every cron here.
 WATCHDOG_CRONS: tuple[str, ...] = ("47 8 * * *", "47 16 * * *")
 
-GRACE = timedelta(hours=3)
+# Honest accounting (INC-009): a slot is on time when a good run started within
+# ON_TIME after it, late when the first good run started later the same UTC day
+# (and before the next slot), missed when no run started in that window.
+ON_TIME = timedelta(hours=2)
+GOOD_STATUSES = frozenset({"ok", "partial"})
+
+# A dispatch that names its slot may arrive this much before it (server clock
+# skew); the gate then waits until the slot so the run starts at or after it.
+EARLY = timedelta(minutes=10)
+# The slot value of a dispatch that only proves the trigger works: never runs.
+CHECK_SLOT = "check"
 
 # A slot counts as run once a run record with one of these statuses started at or
 # after it. "held" counts: the pipeline ran, and running it again sooner would
@@ -95,18 +117,6 @@ def slots(start: datetime, end: datetime, crons: tuple[str, ...] = CRONS) -> Ite
     yield from sorted(times)
 
 
-def missed_slots(
-    run_starts: list[datetime], first: datetime, now: datetime, crons: tuple[str, ...] = CRONS
-) -> list[datetime]:
-    """Slots since ``first`` (exclusive of the last ``GRACE``) with no good run within GRACE."""
-    starts = sorted(run_starts)
-    missed: list[datetime] = []
-    for slot in slots(first, now - GRACE, crons):
-        if not any(slot <= s <= slot + GRACE for s in starts):
-            missed.append(slot)
-    return missed
-
-
 def latest_slot(now: datetime, crons: tuple[str, ...] | None = None) -> datetime | None:
     """The most recent active slot at or before ``now`` (looking back two days)."""
     found = list(
@@ -138,6 +148,156 @@ def check_slot(
     }
 
 
+@dataclass(frozen=True)
+class SlotState:
+    slot: datetime
+    state: str  # on_time | late | held | missed | pending
+    run_id: str = ""
+    started_at: str = ""
+
+
+def slot_states(
+    runs: list[dict[str, object]], now: datetime, crons: tuple[str, ...] | None = None
+) -> list[SlotState]:
+    """Every slot from the day of the first good run up to ``now``, judged from runs.
+
+    A run belongs to the latest slot at or before its start (the slot the daily gate
+    would let it fill). A slot's window ends at the next slot or at the end of its UTC
+    day, whichever is first; an empty window is ``pending`` until it ends, then
+    ``missed``. A slot whose only runs were held is ``held``.
+    """
+    crons = crons or active_crons()
+    good = sorted(
+        (_parse(str(r["started_at"])), str(r["run_id"]), str(r["started_at"]))
+        for r in runs
+        if r.get("status") in GOOD_STATUSES
+    )
+    held = sorted(
+        (_parse(str(r["started_at"])), str(r["run_id"]), str(r["started_at"]))
+        for r in runs
+        if r.get("status") == "held"
+    )
+    if not good and not held:
+        return []
+    first = min(x[0] for x in good + held)
+    day0 = first.replace(hour=0, minute=0, second=0, microsecond=0)
+    times = list(slots(day0, now + timedelta(seconds=1), crons))
+    later = list(slots(now + timedelta(seconds=1), now + timedelta(days=3), crons))
+    out: list[SlotState] = []
+    for i, slot in enumerate(times):
+        nxt = times[i + 1] if i + 1 < len(times) else (later[0] if later else None)
+        day_end = slot.replace(hour=0, minute=0, second=0) + timedelta(days=1)
+        end = min(nxt, day_end) if nxt else day_end
+        filled = [g for g in good if slot <= g[0] < end]
+        if filled:
+            t, run_id, started = filled[0]
+            state = "on_time" if t - slot <= ON_TIME else "late"
+            out.append(SlotState(slot, state, run_id, started))
+            continue
+        held_here = [h for h in held if slot <= h[0] < end]
+        if held_here:
+            out.append(SlotState(slot, "held", held_here[0][1], held_here[0][2]))
+        elif now < end:
+            out.append(SlotState(slot, "pending"))
+        else:
+            out.append(SlotState(slot, "missed"))
+    return out
+
+
+def accounting(
+    runs: list[dict[str, object]], now: datetime, crons: tuple[str, ...] | None = None
+) -> dict[str, object]:
+    """Counts of on-time, late, held and missed slots for status.json and the badges."""
+    states = slot_states(runs, now, crons)
+
+    def of(kind: str) -> list[SlotState]:
+        return [s for s in states if s.state == kind]
+
+    def stamp(items: list[SlotState]) -> list[str]:
+        return [s.slot.strftime("%Y-%m-%dT%H:%M:%SZ") for s in items[-10:]]
+
+    judged = [s for s in states if s.state != "pending"]
+    return {
+        "on_time_window_h": int(ON_TIME.total_seconds() // 3600),
+        "slots": len(judged),
+        "on_time": len(of("on_time")),
+        "late": len(of("late")),
+        "held": len(of("held")),
+        "missed": len(of("missed")),
+        "pending": len(of("pending")),
+        "late_slots": stamp(of("late")),
+        "missed_slots": stamp(of("missed")),
+    }
+
+
+def _is_slot(t: datetime, crons: tuple[str, ...]) -> bool:
+    return t in set(slots(t, t + timedelta(minutes=1), crons))
+
+
+def gate(
+    event: str,
+    runs: list[dict[str, object]],
+    now: datetime,
+    *,
+    cron: str = "",
+    slot: str = "",
+    crons: tuple[str, ...] | None = None,
+) -> dict[str, str]:
+    """Should this trigger of the daily workflow run the pipeline?
+
+    - A manual run (``workflow_dispatch`` without a slot) always runs.
+    - A dispatch naming a slot (the external on-time trigger, the watchdog) runs only
+      for the current slot and only if no run has filled it yet; it may arrive up to
+      ``EARLY`` before the slot and then waits for it. ``slot=check`` never runs: it
+      proves that the trigger and its token work.
+    - A ``schedule`` event runs only if the latest slot is not filled yet; the two
+      extra BFCM slots only with BFCM_RUNS_PER_DAY "4".
+    """
+    crons = crons or active_crons()
+
+    def out(run: bool, reason: str, at: str = "", wait: int = 0) -> dict[str, str]:
+        return {
+            "run": "true" if run else "false",
+            "slot": at,
+            "wait_s": str(wait),
+            "reason": reason,
+        }
+
+    if event == "schedule":
+        if cron in BFCM_EXTRA_CRONS and cron not in crons:
+            return out(False, f"extra BFCM slot '{cron}' is off (BFCM_RUNS_PER_DAY): skipped")
+        c = check_slot(runs, now, crons)
+        if c["covered"] == "true":
+            return out(
+                False, f"slot {c['slot']} already filled by run {c['run_id']}: skipped", c["slot"]
+            )
+        return out(True, f"slot {c['slot']} not filled yet: runs", c["slot"])
+    if event != "workflow_dispatch" or not slot.strip():
+        return out(True, f"{event} without a slot: manual run, runs")
+    slot = slot.strip()
+    if slot == CHECK_SLOT:
+        return out(False, "check dispatch: the trigger works, nothing to run")
+    try:
+        want = _parse(slot).replace(second=0, microsecond=0)
+    except ValueError:
+        return out(False, f"slot '{slot[:40]}' is not an ISO time: skipped")
+    at = want.strftime("%Y-%m-%dT%H:%M:%SZ")
+    if not _is_slot(want, crons):
+        return out(False, f"{at} is not an active daily slot: skipped", at)
+    if now < want - EARLY:
+        return out(False, f"{at} is more than {EARLY} away: skipped", at)
+    wait = max(0, int((want - now).total_seconds()))
+    effective = max(now, want)
+    current = latest_slot(effective, crons)
+    if current != want:
+        cur = current.strftime("%Y-%m-%dT%H:%M:%SZ") if current else "none"
+        return out(False, f"{at} is no longer the current slot ({cur}): skipped", at)
+    c = check_slot(runs, effective, crons)
+    if c["covered"] == "true":
+        return out(False, f"slot {at} already filled by run {c['run_id']}: skipped", at)
+    return out(True, f"dispatch for slot {at}: runs", at, wait)
+
+
 def workflow_flag(text: str) -> int:
     """BFCM_RUNS_PER_DAY as set in the daily workflow's text."""
     m = re.search(r'^\s*BFCM_RUNS_PER_DAY:\s*"?([0-9]+)"?\s*$', text, re.MULTILINE)
@@ -163,12 +323,24 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--runs", default="data/runs.jsonl")
     c.add_argument("--workflow", help="read BFCM_RUNS_PER_DAY from this workflow file")
     c.add_argument("--now", help="ISO time, default now (UTC)")
+    g = sub.add_parser("gate")
+    g.add_argument("--event", required=True)
+    g.add_argument("--cron", default="")
+    g.add_argument("--slot", default="")
+    g.add_argument("--runs", default="data/runs.jsonl")
+    g.add_argument("--workflow", help="read BFCM_RUNS_PER_DAY from this workflow file")
+    g.add_argument("--now", help="ISO time, default now (UTC)")
     a = p.parse_args(argv)
     flag = None
     if a.workflow:
         flag = workflow_flag(Path(a.workflow).read_text(encoding="utf-8"))
     now = _parse(a.now) if a.now else datetime.now(UTC).replace(microsecond=0)
-    result = check_slot(_read_runs(a.runs), now, active_crons(flag))
+    if a.cmd == "gate":
+        result = gate(
+            a.event, _read_runs(a.runs), now, cron=a.cron, slot=a.slot, crons=active_crons(flag)
+        )
+    else:
+        result = check_slot(_read_runs(a.runs), now, active_crons(flag))
     for key, value in result.items():
         print(f"{key}={value}")
     return 0

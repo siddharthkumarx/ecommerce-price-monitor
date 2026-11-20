@@ -103,6 +103,7 @@ def context(data: Path, stores: Path, public: Path, now: datetime | None = None)
     return {
         "f": f,
         "q": f.quality,
+        "sched": f.status["schedule"],
         "stores": f.stores,
         "pub": pub,
         "repo_url": repo_url,

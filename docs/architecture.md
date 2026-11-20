@@ -33,7 +33,7 @@ config/stores.yml ──► fetch ──► validate ──► batch guard ─�
 | `history.py` | DuckDB SCD2 merge, snapshot CSV, monthly Parquet. |
 | `changes.py` | Change events between the previous and new open versions. |
 | `outputs.py` | Change log, `runs.jsonl`, `status.json`, shields.io badge files, snapshot aggregates (DuckDB). |
-| `schedule.py` | The cron slots of `daily.yml` and `watchdog.yml` as data (tests keep them equal), "missed runs", and the slot check used by the daily gate and the watchdog (INC-007). |
+| `schedule.py` | The cron slots of `daily.yml` and `watchdog.yml` as data (tests keep them equal), the gate that decides every daily trigger (on-time dispatch with `slot`, late schedule events, the watchdog; INC-007, INC-009), and the on-time / late / missed slot accounting. |
 | `alert.py` | Whether a run needs an alert, and the alert text. |
 | `report.py` | Facts about the latest real run (sample rows, changes, quality counts) for the README, visuals and dataset card. |
 | `readme.py` | Renders `README.md` and `data/README.md` from `templates/` (D-022). |
@@ -154,7 +154,7 @@ One observation can raise several events (a sale is usually `price_down` +
 | latest snapshot | `data/latest/snapshot.csv` (+ `snapshot.json` summary for the site) | only open versions |
 | daily change log | `data/changes/YYYY/YYYY-MM-DD.csv` (runs of a day append) | events only |
 | run log | `data/runs.jsonl`, one JSON line per run | small |
-| status | `data/status.json` and `data/badges/*.json` (shields.io endpoint schema: days running, last run, missed runs, rows today) | small |
+| status | `data/status.json` and `data/badges/*.json` (shields.io endpoint schema: days running, last run, on time, missed runs, rows today) | small |
 | full history | release `data-YYYY-MM`, asset `price_history_YYYY-MM.parquet` | not in git |
 | Google Sheet | tabs `latest`, `changes_30d`, `runs` | only if `GOOGLE_SA_JSON` and `GOOGLE_SHEET_ID` are set |
 | dashboard | `site/` (static, Pages after publish) | built from `data/` |

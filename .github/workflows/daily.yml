@@ -1,6 +1,7 @@
 # Daily price, discount and stock run. Schedules run on the default branch.
 # Keep the cron lines identical to CRONS in src/pricemon/schedule.py (tested).
 name: daily
+run-name: ${{ inputs.slot && format('daily, slot {0}', inputs.slot) || format('daily, {0}', github.event_name) }}
 
 on:
   schedule:
@@ -9,7 +10,16 @@ on:
     - cron: "17 18 1 12 *"        # BFCM second run, 1 Dec
     - cron: "17 0,12 26-30 11 *"  # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
     - cron: "17 0,12 1 12 *"      # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
+  # GitHub starts the schedule above hours late (INC-009), so an external trigger
+  # dispatches each slot on time with `slot` set; the late schedule event then finds
+  # the slot filled and skips. Without `slot`, a manual run always runs.
   workflow_dispatch:
+    inputs:
+      slot:
+        description: "Slot this run fills, UTC (e.g. 2026-11-26T06:17Z); empty = manual run; check = test the trigger only"
+        required: false
+        type: string
+        default: ""
 
 env:
   # Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): "4" runs a day only if the
@@ -26,13 +36,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Decides whether this trigger runs the pipeline. A manual run always does. A
-  # scheduled run does not when its slot was already run: GitHub can start a slot
-  # hours late (INC-006, INC-007), after a manual or watchdog run filled it. The two
-  # extra BFCM slots run only with BFCM_RUNS_PER_DAY "4" (D-021).
+  # Decides whether this trigger runs the pipeline (pricemon.schedule gate). A manual
+  # run always does. A dispatch that names its slot (the external on-time trigger or
+  # the watchdog) and a scheduled run both run only if the slot is not filled yet:
+  # GitHub starts scheduled slots hours late (INC-006, INC-007, INC-009), after the
+  # on-time dispatch filled them. The two extra BFCM slots run only with
+  # BFCM_RUNS_PER_DAY "4" (D-021).
   slot:
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 15
     outputs:
       run: ${{ steps.decide.outputs.run }}
     steps:
@@ -49,30 +61,23 @@ jobs:
         env:
           EVENT: ${{ github.event_name }}
           SCHEDULE: ${{ github.event.schedule }}
+          SLOT: ${{ inputs.slot }}
         run: |
-          if [ "$EVENT" != "schedule" ]; then
-            echo "$EVENT: runs"
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            exit 0
+          # Fails open: if the gate itself fails, the pipeline runs (except for a
+          # trigger check, which never runs it).
+          if ! PYTHONPATH=src python3 -m pricemon.schedule gate --event "$EVENT" \
+            --cron "$SCHEDULE" --slot "$SLOT" --runs data/runs.jsonl > gate.txt; then
+            if [ "$SLOT" = "check" ]; then echo "run=false" > gate.txt; else echo "run=true" > gate.txt; fi
+            echo "reason=gate failed" >> gate.txt
           fi
-          case "$SCHEDULE" in
-            "17 0,12 26-30 11 *" | "17 0,12 1 12 *")
-              if [ "$BFCM_RUNS_PER_DAY" != "4" ]; then
-                echo "extra BFCM slot, BFCM_RUNS_PER_DAY=$BFCM_RUNS_PER_DAY: skipped"
-                echo "run=false" >> "$GITHUB_OUTPUT"
-                exit 0
-              fi
-              ;;
-          esac
-          # Fails open: if the check itself fails, the pipeline runs.
-          PYTHONPATH=src python3 -m pricemon.schedule check --runs data/runs.jsonl | tee check.txt ||
-            echo "slot check failed, running"
-          if grep -qx "covered=true" check.txt; then
-            echo "schedule '$SCHEDULE': slot already run, skipped"
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=true" >> "$GITHUB_OUTPUT"
+          cat gate.txt
+          wait_s="$(sed -n 's/^wait_s=//p' gate.txt)"
+          if grep -qx "run=true" gate.txt && [ "${wait_s:-0}" -gt 0 ]; then
+            echo "waiting ${wait_s}s for the slot"
+            sleep "$wait_s"
           fi
+          grep -E '^(run|slot|reason)=' gate.txt >> "$GITHUB_OUTPUT"
+          echo "### $(sed -n 's/^reason=//p' gate.txt)" >> "$GITHUB_STEP_SUMMARY"
 
   run:
     needs: slot

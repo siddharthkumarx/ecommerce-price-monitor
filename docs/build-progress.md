@@ -86,3 +86,9 @@ item says how to verify it.
     Verify: `uv run pytest tests/test_schedule.py`; on GitHub, the 2026-11-07 06:17
     UTC `schedule` run, or else the 08:47 watchdog rescue and its issue.
 28. **Live checks never run on tag pushes** - `done` (INC-008).
+29. **On-time dispatch and honest slot accounting** - `done` on branch `light-feed`
+    (INC-009, D-028). `daily.yml` takes the `slot` input; `pricemon.schedule gate`
+    decides every trigger; `status.json` has `schedule` counts and the README an
+    "on time" badge. Verify: `uv run pytest tests/test_schedule.py`; on GitHub, a
+    `daily, slot <time>` run started at the slot and the late `daily, schedule`
+    run of the same day skipped ("already filled").

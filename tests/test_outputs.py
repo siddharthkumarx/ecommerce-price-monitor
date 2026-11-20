@@ -10,9 +10,9 @@ import pytest
 import yaml
 
 from pricemon.fetch import StoreFetch, WitnessResult
-from pricemon.outputs import build_status, read_runs, snapshot_summary
+from pricemon.outputs import build_status, read_runs, snapshot_summary, write_status
 from pricemon.run import EXIT_HELD, EXIT_OK, EXIT_PARTIAL, RunConfig, process
-from pricemon.schedule import BFCM_EXTRA_CRONS, CRONS, active_crons, missed_slots, slots
+from pricemon.schedule import BFCM_EXTRA_CRONS, CRONS, active_crons, gate, slots
 
 ROOT = Path(__file__).resolve().parents[1]
 DAY1 = datetime(2026, 11, 4, 6, 17, tzinfo=UTC)
@@ -98,6 +98,7 @@ def test_two_runs_end_to_end(tmp_path: Path) -> None:
         "days-running.json",
         "last-run.json",
         "missed-runs.json",
+        "on-time-runs.json",
         "rows-today.json",
     }
     assert all(b["schemaVersion"] == 1 for b in badges.values())
@@ -154,23 +155,34 @@ def test_black_friday_window_follows_the_flag(runs_per_day: int) -> None:
 def test_workflow_flag_is_valid_and_gates_the_extra_slots() -> None:
     wf = yaml.safe_load((ROOT / ".github" / "workflows" / "daily.yml").read_text())
     assert wf["env"]["BFCM_RUNS_PER_DAY"] in ("2", "4")
-    gate = next(st["run"] for st in wf["jobs"]["slot"]["steps"] if st.get("id") == "decide")
-    assert all(f'"{c}"' in gate for c in BFCM_EXTRA_CRONS)
+    decide = next(st["run"] for st in wf["jobs"]["slot"]["steps"] if st.get("id") == "decide")
+    assert "pricemon.schedule gate" in decide
+    now = datetime(2026, 11, 27, 13, 0, tzinfo=UTC)
+    for cron in BFCM_EXTRA_CRONS:
+        assert gate("schedule", [], now, cron=cron, crons=active_crons(2))["run"] == "false"
+        assert gate("schedule", [], now, cron=cron, crons=active_crons(4))["run"] == "true"
 
 
-def test_missed_slots_and_status(tmp_path: Path) -> None:
-    first = DAY1
-    runs = [first, DAY1.replace(day=6, minute=40)]  # 5 Nov missed, 6 Nov late but within grace
-    now = datetime(2026, 11, 6, 12, 0, tzinfo=UTC)
-    assert missed_slots(runs, first, now) == [DAY2]
+def test_status_counts_on_time_late_and_missed_slots(tmp_path: Path) -> None:
+    now = datetime(2026, 11, 7, 12, 0, tzinfo=UTC)
     records = [
-        {"run_id": "x", "started_at": "2026-11-04T06:17:00Z", "status": "ok", "rows_observed": 10},
-        {"run_id": "y", "started_at": "2026-11-06T06:40:00Z", "status": "ok", "rows_observed": 12},
+        {"run_id": "x", "started_at": "2026-11-04T06:17:40Z", "status": "ok", "rows_observed": 10},
+        # 5 Nov: no run (missed). 6 Nov: 7 h late. 7 Nov: on time.
+        {"run_id": "y", "started_at": "2026-11-06T13:40:00Z", "status": "ok", "rows_observed": 12},
+        {"run_id": "z", "started_at": "2026-11-07T06:19:00Z", "status": "ok", "rows_observed": 13},
     ]
-    status = build_status(records, now)
-    assert status["days_running"] == 3
+    status = build_status(records, now, active_crons(2))
+    assert status["days_running"] == 4
     assert status["missed_runs"] == 1
-    assert status["rows_today"] == 12
+    assert status["missed_slots"] == ["2026-11-05T06:17:00Z"]
+    sched = status["schedule"]
+    assert (sched["slots"], sched["on_time"], sched["late"], sched["missed"]) == (4, 2, 1, 1)
+    assert sched["late_slots"] == ["2026-11-06T06:17:00Z"]
+    assert status["rows_today"] == 13
+    write_status(tmp_path, status)
+    badge = json.loads((tmp_path / "badges" / "on-time-runs.json").read_text())
+    assert badge["label"] == "on time"
+    assert badge["message"] == "2 of 4"
 
 
 def test_read_runs_empty(tmp_path: Path) -> None:
