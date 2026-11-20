@@ -72,7 +72,7 @@ jobs:
             printf -- '- Watchdog run: %s\n- Daily runs: %s\n\n' "$RUN_URL" "$DAILY_URL"
             printf 'If this repeats, the daily schedule is not firing: see INC-007 in docs/incidents.md.\n'
           } > alert.md
-          gh label create run-alert --color E9A93C --description "Daily run failed or held" --force
+          gh label create run-alert --color D98E14 --description "Daily run failed or held" --force
           number="$(gh issue list --label run-alert --state open --json number --jq '.[0].number')"
           if [ -n "$number" ]; then
             gh issue comment "$number" --body-file alert.md

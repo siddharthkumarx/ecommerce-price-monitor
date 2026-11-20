@@ -14,8 +14,8 @@ import duckdb
 from pricemon.changes import EVENT_TYPES, ChangeEvent
 from pricemon.schedule import accounting
 
-TEAL = "2FBFAE"
-AMBER = "E9A93C"
+TEAL = "0E8A7D"  # SteadyData good (D-029)
+AMBER = "D98E14"  # SteadyData look here (D-029)
 GOOD_STATUSES = ("ok", "partial")
 CHANGE_COLUMNS = [
     "observed_at",

@@ -232,7 +232,7 @@ jobs:
             exit 0
           fi
           echo "raised=true" >> "$GITHUB_OUTPUT"
-          gh label create run-alert --color E9A93C --description "Daily run failed or held" --force
+          gh label create run-alert --color D98E14 --description "Daily run failed or held" --force
           number="$(gh issue list --label run-alert --state open --json number --jq '.[0].number')"
           if [ -n "$number" ]; then
             gh issue comment "$number" --body-file alert.md

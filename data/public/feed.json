@@ -1,6 +1,6 @@
 {
   "schema": "steadydata.feed/v1",
-  "generated_at": "2026-11-20T22:12:36Z",
+  "generated_at": "2026-11-20T22:22:58Z",
   "monitor": {
     "id": "ecommerce-price-monitor",
     "title": "Daily price monitor, 25 US online stores",
