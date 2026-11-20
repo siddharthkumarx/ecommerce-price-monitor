@@ -5,8 +5,9 @@ type: software
 authors:
   - family-names: Kumar
     given-names: Siddharth
-    email: hello@siddharthkumar.com
-    website: "https://siddharthkumar.com"
+    affiliation: SteadyData
+    email: hello@steadydata.co
+    website: "https://steadydata.co"
 repository-code: "https://github.com/siddharthkumarx/ecommerce-price-monitor"
 url: "https://siddharthkumar.com/ecommerce-price-monitor/"
 license: MIT

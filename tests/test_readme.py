@@ -22,7 +22,7 @@ SECTIONS = [
     "## How it works",
     "## What broke and how I fixed it",
     "## Who uses data like this",
-    "## Want this for your own sites?",
+    "## Want this for your own stores?",
     "## FAQ",
     "## Data dictionary",
     "<summary><strong>For engineers</strong></summary>",
@@ -66,7 +66,14 @@ def test_readme_renders_clean_and_in_order(two_runs: tuple[Path, Path]) -> None:
     assert "Alpha \\| Co" in text  # table cells escaped
     assert "30 price drops, 30 sales started" in text  # What changed today, from the run
     assert all(alt.strip() for alt in re.findall(r'alt="([^"]*)"', text))
-    assert "hello@siddharthkumar.com" in text
+    assert "hello@steadydata.co" in text
+    assert "hello@siddharthkumar.com" not in text
+    assert "## Want this for your own stores?" in text
+    assert "**[Get a free sample](https://steadydata.co/contact/)**" in text
+    assert text.rstrip().endswith(
+        "Built and maintained by Siddharth Kumar, founder of SteadyData · "
+        "[steadydata.co](https://steadydata.co) · [siddharthkumar.com](https://siddharthkumar.com)"
+    )
 
 
 def test_dataset_card_renders(two_runs: tuple[Path, Path]) -> None:

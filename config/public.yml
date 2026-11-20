@@ -6,5 +6,9 @@ dashboard: https://siddharthkumar.com/ecommerce-price-monitor/
 # Public Google Sheet (view-only link). Leave empty until one exists.
 sheet: ""
 owner: Siddharth Kumar
+# The owner's own site (also in the collector's user agent).
 site: https://siddharthkumar.com
-email: hello@siddharthkumar.com
+company: SteadyData
+company_site: https://steadydata.co
+contact: https://steadydata.co/contact/
+email: hello@steadydata.co

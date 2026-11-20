@@ -1,7 +1,7 @@
 # Security
 
 Please report a vulnerability or a leaked secret privately to
-hello@siddharthkumar.com, not in a public issue. You will get an answer within
+hello@steadydata.co, not in a public issue. You will get an answer within
 48 hours.
 
 This repository holds no credentials. The only secret it can use,
