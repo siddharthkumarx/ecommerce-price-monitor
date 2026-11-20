@@ -181,7 +181,7 @@ def test_dispatch_slot_rules() -> None:
         gate("workflow_dispatch", [], at(27, 12, 17), slot="2026-11-27T12:17Z", crons=crons)["run"]
         == "false"
     )
-    # A server clock a little fast: the gate waits for the slot.
+    # A caller clock a little fast: the gate waits for the slot.
     early = gate("workflow_dispatch", [], at(22, 6, 15), slot="2026-11-22T06:17Z", crons=crons)
     assert (early["run"], early["wait_s"]) == ("true", "120")
     assert (

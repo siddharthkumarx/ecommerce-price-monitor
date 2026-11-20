@@ -71,7 +71,7 @@ WATCHDOG_CRONS: tuple[str, ...] = ("47 8 * * *", "47 16 * * *")
 ON_TIME = timedelta(hours=2)
 GOOD_STATUSES = frozenset({"ok", "partial"})
 
-# A dispatch that names its slot may arrive this much before it (server clock
+# A dispatch that names its slot may arrive this much before it (a caller clock
 # skew); the gate then waits until the slot so the run starts at or after it.
 EARLY = timedelta(minutes=10)
 # The slot value of a dispatch that only proves the trigger works: never runs.

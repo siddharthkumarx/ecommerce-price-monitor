@@ -454,7 +454,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         )
     runs_table = (
         _table(
-            "Most recent runs. On time: started within 2 hours of its 06:17 UTC slot.",
+            "Most recent runs. On time: started within 2 hours of its scheduled slot.",
             [
                 ("Started UTC", False),
                 ("Status", False),
