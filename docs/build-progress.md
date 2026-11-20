@@ -96,3 +96,12 @@ item says how to verify it.
     `data/public/feed.json` (`steadydata.feed/v1`) atomically at the end of every ok or
     partial run; fields documented in the dataset card. Verify:
     `uv run pytest tests/test_feed.py`.
+31. **SteadyData light look** - `done` on branch `light-feed` (D-029). Dashboard
+    (`site.py`, `style.css`, Plus Jakarta Sans), README visuals, social preview,
+    LinkedIn video and dashboard image re-rendered with `scripts/make_media.sh`.
+    Verify: `node scripts/screenshots.cjs site` and `REQUIRE_PLAYWRIGHT=1 uv run pytest
+    tests/test_visuals_render.py`.
+32. **SteadyData contact and author line** - `done` on branch `light-feed`.
+    `config/public.yml` (`email: hello@steadydata.co`, `contact`), README call to
+    action, SECURITY.md, CITATION.cff, pyproject. Owner: confirm that
+    hello@steadydata.co receives mail before the merge.
