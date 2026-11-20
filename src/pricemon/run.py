@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Any
 
 from pricemon import __version__
+from pricemon.feed import publish as publish_feed
 from pricemon.fetch import StoreFetch, fetch_store
 from pricemon.guard import PrevVersion, accept_repeat, check_batch
 from pricemon.history import (
@@ -231,6 +232,14 @@ def process(
     }
     append_run(data, record)
     write_status(data, build_status(read_runs(data), datetime.now(UTC)))
+    # The public feed: only a published (ok or partial) run rewrites it, so a held
+    # run leaves it as it was and its age shows the staleness. It is additive and
+    # must never fail the run.
+    if not held:
+        try:
+            publish_feed(data, datetime.now(UTC).replace(microsecond=0), cfg.stores)
+        except Exception as exc:  # pragma: no cover - logged, never fatal
+            print(f"public feed not written: {type(exc).__name__}: {exc}", flush=True)
     code = EXIT_HELD if held else (EXIT_PARTIAL if failed else EXIT_OK)
     return code, record
 

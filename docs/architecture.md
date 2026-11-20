@@ -34,6 +34,7 @@ config/stores.yml ──► fetch ──► validate ──► batch guard ─�
 | `changes.py` | Change events between the previous and new open versions. |
 | `outputs.py` | Change log, `runs.jsonl`, `status.json`, shields.io badge files, snapshot aggregates (DuckDB). |
 | `schedule.py` | The cron slots of `daily.yml` and `watchdog.yml` as data (tests keep them equal), the gate that decides every daily trigger (on-time dispatch with `slot`, late schedule events, the watchdog; INC-007, INC-009), and the on-time / late / missed slot accounting. |
+| `feed.py` | The public feed `data/public/feed.json` (`steadydata.feed/v1`), rewritten atomically after every ok or partial run. |
 | `alert.py` | Whether a run needs an alert, and the alert text. |
 | `report.py` | Facts about the latest real run (sample rows, changes, quality counts) for the README, visuals and dataset card. |
 | `readme.py` | Renders `README.md` and `data/README.md` from `templates/` (D-022). |

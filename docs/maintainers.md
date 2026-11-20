@@ -125,6 +125,7 @@ uv run python -m pricemon.run --out data             # the daily pipeline (runne
 uv run python -m pricemon.site --data data --out site # build the dashboard (offline)
 uv run python -m pricemon.visuals                     # README visuals from data/ (offline)
 uv run python -m pricemon.readme                      # README.md + data/README.md from templates/
+uv run python -m pricemon.feed                        # data/public/feed.json from runs.jsonl + status.json
 scripts/make_media.sh                                # dashboard PNG, social preview, LinkedIn video
 ```
 

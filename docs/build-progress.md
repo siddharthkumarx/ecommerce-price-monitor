@@ -92,3 +92,7 @@ item says how to verify it.
     "on time" badge. Verify: `uv run pytest tests/test_schedule.py`; on GitHub, a
     `daily, slot <time>` run started at the slot and the late `daily, schedule`
     run of the same day skipped ("already filled").
+30. **Public feed** - `done` on branch `light-feed`. `src/pricemon/feed.py` writes
+    `data/public/feed.json` (`steadydata.feed/v1`) atomically at the end of every ok or
+    partial run; fields documented in the dataset card. Verify:
+    `uv run pytest tests/test_feed.py`.
