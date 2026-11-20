@@ -1,4 +1,4 @@
-// Screenshot the built dashboard at 360, 768 and 1440 px and run layout checks.
+// Screenshot the built dashboard at 360, 390, 768, 1280 and 1440 px and run layout checks.
 //
 //   uv run python -m pricemon.site --data <data dir> --out site
 //   node scripts/screenshots.cjs site
@@ -12,7 +12,7 @@ const path = require("path");
 const fs = require("fs");
 const { chromium } = require("playwright");
 
-const WIDTHS = [360, 768, 1440];
+const WIDTHS = [360, 390, 768, 1280, 1440];
 
 function contrastProblems() {
   const lum = (r, g, b) => {
@@ -63,7 +63,7 @@ function contrastProblems() {
     if (low.length) problems.push(`${width}px: low contrast ${JSON.stringify(low.slice(0, 5))}`);
     const fonts = await page.evaluate(() => [...document.fonts].filter((f) => f.status === "loaded").map((f) => `${f.family} ${f.weight}`));
     const families = new Set(fonts.map((f) => f.replace(/ \d+$/, "").replace(/"/g, "")));
-    for (const fam of ["Instrument Sans", "IBM Plex Mono"]) if (!families.has(fam)) problems.push(`${width}px: font ${fam} not loaded`);
+    for (const fam of ["Plus Jakarta Sans", "IBM Plex Mono"]) if (!families.has(fam)) problems.push(`${width}px: font ${fam} not loaded`);
     const transition = await page.evaluate(() => getComputedStyle(document.querySelector("a") || document.body).transitionDuration);
     if (transition !== "0s") problems.push(`${width}px: transitions active under reduced motion`);
     await page.screenshot({ path: path.join(out, `dashboard-${width}.png`), fullPage: true });

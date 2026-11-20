@@ -44,9 +44,22 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
     assert "Alpha &amp; Co" in text  # escaped
     assert ">34<" in text  # variants live (30 + 4)
     assert ">88%<" in text  # discounted: 30 of 34
-    assert "Last run 2026-11-05 06:17 UTC: ok" in text
-    assert 'Price down</span> · <span class="amber">Discount start' in text  # one row per sale
-    assert (tmp_path / "site" / "fonts" / "instrument-sans-latin-400-normal.woff2").exists()
+    assert "Latest run 5 Nov 2026, 06:17 UTC: ok" in text
+    assert 'Price down</span> · <span class="tag">' in text  # one row per sale
+    assert (tmp_path / "site" / "fonts" / "plus-jakarta-sans-latin-400-normal.woff2").exists()
+    assert not list((tmp_path / "site" / "fonts").glob("instrument-sans*"))
+    # Light theme, the SteadyData link and the author line.
+    assert '<meta name="theme-color" content="#FFFFFF">' in text
+    assert (
+        'Built by SteadyData · <a href="https://steadydata.co/contact/">Get a free sample</a>'
+        in text
+    )
+    assert "Built and maintained by Siddharth Kumar, founder of SteadyData" in text
+    # The daily charts: the second run's 30 drops and 30 sale starts, numbers also in a table.
+    assert "5 Nov: <b>0 price rises</b>, <b>30 price drops</b>" in text
+    assert "<b>30 sales started</b>" in text
+    assert text.count("<summary>Numbers by day</summary>") == 3
+    assert "on time" in text  # the 5 Nov run started at its 06:17 slot
 
 
 def test_dashboard_empty_state(tmp_path: Path) -> None:
@@ -54,6 +67,7 @@ def test_dashboard_empty_state(tmp_path: Path) -> None:
     text = page.read_text()
     assert "No runs yet" in text
     assert "No changes recorded yet." in text
+    assert "Shown from the second run on" in text
 
 
 def test_pct_never_rounds_a_real_share_to_zero_or_all() -> None:
@@ -64,3 +78,28 @@ def test_pct_never_rounds_a_real_share_to_zero_or_all() -> None:
     assert pct(1435, 1436) == ">99%"
     assert pct(100, 100) == "100%"
     assert pct(1, 0) == "-"
+
+
+def test_reduced_motion_shows_the_final_state() -> None:
+    from pricemon.site import CSS
+
+    assert "@media (prefers-reduced-motion:reduce){*{animation:none!important" in CSS
+    # The bars' default style is their final height; the animation only starts from 0.
+    assert "@keyframes grow{from{transform:scaleY(0)}}" in CSS
+    assert "height:var(--h)" in CSS
+
+
+def test_text_colours_meet_wcag_aa_on_white_and_alt() -> None:
+    def lum(hex_: str) -> float:
+        rgb = [int(hex_[i : i + 2], 16) / 255 for i in (1, 3, 5)]
+        lin = [c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4 for c in rgb]
+        return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]
+
+    def ratio(a: str, b: str) -> float:
+        hi, lo = sorted((lum(a), lum(b)), reverse=True)
+        return (hi + 0.05) / (lo + 0.05)
+
+    for text in ("#0B1416", "#3D4B49", "#5F716E", "#0B7468", "#095E55"):
+        for bg in ("#FFFFFF", "#F3F8F7", "#E3F3F0"):
+            assert ratio(text, bg) >= 4.5, (text, bg)
+    assert ratio("#FFFFFF", "#0B7468") >= 4.5  # button text

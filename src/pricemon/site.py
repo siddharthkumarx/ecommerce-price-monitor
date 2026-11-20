@@ -3,7 +3,9 @@
     python -m pricemon.site --data data --stores config/stores.yml --out site
 
 No JavaScript, no external requests: one HTML file with inline CSS and two
-self-hosted font families (OFL). Every number on the page is read from
+self-hosted font families (OFL): Plus Jakarta Sans (text, tabular numbers) and IBM
+Plex Mono (run IDs). The daily charts are plain HTML and CSS bars with direct labels
+and their numbers in a table. Every number on the page is read from
 ``data/status.json``, ``data/runs.jsonl``, ``data/latest/snapshot.csv`` and
 ``data/changes/``.
 """
@@ -16,8 +18,11 @@ import shutil
 from collections import defaultdict
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
+from pricemon.feed import daily
 from pricemon.outputs import build_status, parse_iso, read_runs, recent_events, snapshot_summary
+from pricemon.schedule import slot_states
 from pricemon.stores import Store, load_stores
 
 ASSETS = Path(__file__).parent / "site_assets"
@@ -31,27 +36,43 @@ CATEGORY_TITLES = {
 EVENT_LABELS = {
     "price_down": "Price down",
     "price_up": "Price up",
-    "discount_start": "Discount start",
-    "discount_end": "Discount end",
-    "out_of_stock": "Out of stock",
+    "discount_start": "Sale started",
+    "discount_end": "Sale ended",
+    "out_of_stock": "Sold out",
     "back_in_stock": "Back in stock",
     "new": "New",
     "removed": "Removed",
 }
-# teal = good / in stock; amber = look here / out of stock / price change
+# good (#0E8A7D) = price drops, sales starting, back in stock; look (#D98E14) = price
+# rises, sales ending, sold out. Colour is never the only cue: every mark has a label.
 EVENT_TONE = {
-    "price_down": "amber",
-    "price_up": "amber",
-    "discount_start": "amber",
-    "discount_end": "amber",
-    "out_of_stock": "amber",
-    "back_in_stock": "teal",
-    "new": "teal",
-    "removed": "quiet",
+    "price_down": "good",
+    "price_up": "look",
+    "discount_start": "good",
+    "discount_end": "look",
+    "out_of_stock": "look",
+    "back_in_stock": "good",
+    "new": "",
+    "removed": "",
 }
 REPO_URL = "https://github.com/siddharthkumarx/ecommerce-price-monitor"
+STEADYDATA_CONTACT = "https://steadydata.co/contact/"
+AUTHOR_LINKS = (
+    ("steadydata.co", "https://steadydata.co"),
+    ("siddharthkumar.com", "https://siddharthkumar.com"),
+)
 
 CSS = (ASSETS / "style.css").read_text(encoding="utf-8")
+MARK = (
+    '<svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" '
+    'rx="8" fill="#0B7468"/><path d="M7 21l6-6 4 4 8-9" fill="none" stroke="#FFFFFF" '
+    'stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+)
+FAVICON = (
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect "
+    "width='32' height='32' rx='8' fill='%230B7468'/%3E%3Cpath d='M7 21l6-6 4 4 8-9' fill='none' "
+    "stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+)
 
 
 def esc(value: object) -> str:
@@ -75,10 +96,22 @@ def pct(part: int, whole: int) -> str:
     return f"{share:.0%}"
 
 
-def _kpi(label: str, value: str, tone: str = "") -> str:
+def day_label(date: str) -> str:
+    """'2026-11-17' -> '17 Nov'."""
+    return datetime.strptime(date, "%Y-%m-%d").strftime("%-d %b")
+
+
+def when_label(ts: str) -> str:
+    """'2026-11-20T15:30:59Z' -> '20 Nov 2026, 15:30 UTC'."""
+    return parse_iso(ts).strftime("%-d %b %Y, %H:%M UTC")
+
+
+def _kpi(label: str, value: str, sub: str = "", small: bool = False) -> str:
+    cls = "value small" if small else "value"
+    sub_html = f'<span class="sub">{esc(sub)}</span>' if sub else ""
     return (
-        f'<li class="panel kpi"><span class="label">{esc(label)}</span>'
-        f'<span class="value {tone}">{esc(value)}</span></li>'
+        f'<li class="card kpi"><span class="label">{esc(label)}</span>'
+        f'<span class="{cls}">{esc(value)}</span>{sub_html}</li>'
     )
 
 
@@ -107,51 +140,189 @@ def td(value: object, num: bool = False, cls: str = "") -> str:
     return f'<td class="{classes}">{esc(value)}</td>' if classes else f"<td>{esc(value)}</td>"
 
 
+def tag(text: str, tone: str) -> str:
+    return (
+        f'<span class="tag"><span class="dot {tone}" aria-hidden="true"></span>{esc(text)}</span>'
+    )
+
+
+def _half(
+    rows: list[dict[str, Any]], key: str, label: str, tone: str, top: float, direction: str
+) -> str:
+    """One side of a diverging bar chart, with its direct series label and value labels."""
+    values = [int(r[key]) for r in rows]
+    n = len(values)
+    peak = max(range(n), key=lambda i: (values[i], i)) if n else -1
+    labelled = {peak} if n and values[peak] else set()
+    if n and values[-1] and (n - 1 - peak) >= 3:
+        labelled.add(n - 1)
+    cols = []
+    for i, (r, v) in enumerate(zip(rows, values, strict=True)):
+        h = 0.0 if not top else 100 * v / top
+        title = f"{day_label(r['date'])}: {v:,} {label.lower()}"
+        val = ""
+        if i in labelled:
+            edge = " start" if i < 2 else (" end" if i > n - 3 else "")
+            val = f'<span class="val{edge}" aria-hidden="true">{v:,}</span>'
+        cols.append(
+            f'<span class="col" style="--h:{h:.1f}%;--i:{i}" title="{esc(title)}">'
+            f'<span class="bar {tone}{" nz" if v else ""}"></span>{val}</span>'
+        )
+    arrow = "↑" if direction == "up" else "↓"
+    series = (
+        f'<span class="series"><span class="swatch {tone}" aria-hidden="true"></span>'
+        f"{esc(label)} {arrow}</span>"
+    )
+    return f'<div class="half {direction}" aria-hidden="true">{series}{"".join(cols)}</div>'
+
+
+def chart(
+    cid: str,
+    title: str,
+    rows: list[dict[str, Any]],
+    up: tuple[str, str, str],
+    down: tuple[str, str, str],
+) -> str:
+    """A diverging daily bar chart (HTML and CSS, no script) with its numbers as a table.
+
+    ``up`` and ``down`` are (key, label, tone). Both halves share one scale.
+    """
+    if not rows:
+        return (
+            f'<figure class="card chart" aria-labelledby="{cid}-h"><h3 id="{cid}-h">'
+            f'{esc(title)}</h3><p class="takeaway">Shown from the second run on: the first run '
+            "is the starting point.</p></figure>"
+        )
+    top = max(max(int(r[up[0]]) for r in rows), max(int(r[down[0]]) for r in rows), 1)
+    last = rows[-1]
+
+    def busiest(key: str) -> dict[str, Any]:
+        return max(rows, key=lambda r: (int(r[key]), r["date"]))
+
+    b_up, b_down = busiest(up[0]), busiest(down[0])
+    takeaway = (
+        f"{esc(day_label(last['date']))}: <b>{int(last[up[0]]):,} {esc(up[1].lower())}</b>, "
+        f"<b>{int(last[down[0]]):,} {esc(down[1].lower())}</b>. Most in one day: "
+        f"{int(b_up[up[0]]):,} {esc(up[1].lower())} ({esc(day_label(b_up['date']))}), "
+        f"{int(b_down[down[0]]):,} {esc(down[1].lower())} ({esc(day_label(b_down['date']))})."
+    )
+    first, final = day_label(rows[0]["date"]), day_label(last["date"])
+    table_rows = [
+        [
+            td(day_label(r["date"])),
+            td(f"{int(r[up[0]]):,}", num=True),
+            td(f"{int(r[down[0]]):,}", num=True),
+        ]
+        for r in reversed(rows)
+    ]
+    numbers = _table(
+        f"{title}, newest first.",
+        [("Day (UTC)", False), (up[1], True), (down[1], True)],
+        table_rows,
+        f"{title}: numbers by day",
+    )
+    return (
+        f'<figure class="card chart" aria-labelledby="{cid}-h">'
+        f'<h3 id="{cid}-h">{esc(title)}</h3><p class="takeaway">{takeaway}</p>'
+        f'<div class="plot">{_half(rows, up[0], up[1], up[2], top, "up")}<div class="axis"></div>'
+        f"{_half(rows, down[0], down[1], down[2], top, 'down')}</div>"
+        f'<div class="xlabels" aria-hidden="true"><span>{esc(first)}</span>'
+        f"<span>{esc(final)}</span></div>"
+        f"<details><summary>Numbers by day</summary>{numbers}</details></figure>"
+    )
+
+
 def render(data: Path, stores: list[Store], now: datetime) -> str:
     runs = read_runs(data)
     status = build_status(runs, now)
+    schedule = status.get("schedule") or {}
     summary = {s["store_id"]: s for s in snapshot_summary(data / "latest" / "snapshot.csv")}
     events = recent_events(data)
     last = status["last_run"]
     good_runs = [r for r in runs if r["status"] in ("ok", "partial")]
     last_good = good_runs[-1] if good_runs else None
+    per_day = daily(runs)
+    states = {s.run_id: s.state for s in slot_states(runs, now) if s.run_id}
 
     variants = sum(int(s["variants"]) for s in summary.values())
     in_stock = sum(int(s["in_stock"]) for s in summary.values())
     discounted = sum(int(s["discounted"]) for s in summary.values())
 
     if last:
-        tone = "teal" if last["status"] == "ok" else "amber"
-        when = parse_iso(last["started_at"]).strftime("%Y-%m-%d %H:%M UTC")
-        pill = f'<span class="dot {tone}" aria-hidden="true"></span>Last run {esc(when)}: {esc(last["status"])}'
+        tone = "good" if last["status"] == "ok" else "look"
+        pill = (
+            f'<span class="dot {tone}" aria-hidden="true"></span>Latest run '
+            f"{esc(when_label(last['started_at']))}: {esc(last['status'])}"
+        )
     else:
         pill = '<span class="dot" aria-hidden="true"></span>No runs yet'
 
+    first_run = status.get("first_run")
+    slots_n = int(schedule.get("slots", 0))
     kpis = "".join(
         [
-            _kpi("Stores", str(len(stores))),
-            _kpi("Variants live", f"{variants:,}"),
-            _kpi("In stock", pct(in_stock, variants), "teal"),
-            _kpi("Discounted", pct(discounted, variants), "amber"),
-            _kpi("Days running", str(status["days_running"])),
             _kpi(
-                "Missed runs",
-                str(status["missed_runs"]),
-                "teal" if not status["missed_runs"] else "amber",
+                "Latest run",
+                when_label(last["started_at"]) if last else "none yet",
+                (
+                    f"{last['status']} · {last.get('stores_ok', 0)} of "
+                    f"{last.get('stores_total', 0)} stores · "
+                    f"{(last.get('duration_s') or 0) / 60:.1f} min"
+                )
+                if last
+                else "",
+                small=True,
+            ),
+            _kpi("Prices live", f"{variants:,}", f"product options in {len(stores)} stores"),
+            _kpi("In stock", pct(in_stock, variants), f"{in_stock:,} of {variants:,}"),
+            _kpi("On sale", pct(discounted, variants), "below their “was” price"),
+            _kpi(
+                "Runs on time",
+                f"{schedule.get('on_time', 0)} of {slots_n}" if slots_n else "-",
+                f"within {schedule.get('on_time_window_h', 2)} h · {schedule.get('late', 0)} late "
+                f"· {status['missed_runs']} missed",
+            ),
+            _kpi(
+                "Days running",
+                str(status["days_running"]),
+                f"since {parse_iso(first_run).strftime('%-d %b %Y')}" if first_run else "",
             ),
         ]
     )
 
     counts = (last_good or {}).get("events") or {}
     event_items = "".join(
-        f"<li><span>{esc(EVENT_LABELS[k])}</span>"
-        f'<b class="{EVENT_TONE[k] if counts.get(k) else "quiet"}">{int(counts.get(k, 0)):,}</b></li>'
+        f'<li><span class="name"><span class="mark {EVENT_TONE[k] if counts.get(k) else ""}" '
+        f'aria-hidden="true"></span>{esc(EVENT_LABELS[k])}</span>'
+        f"<b>{int(counts.get(k, 0)):,}</b></li>"
         for k in EVENT_LABELS
     )
-    when_good = (
-        parse_iso(last_good["started_at"]).strftime("%Y-%m-%d %H:%M UTC")
-        if last_good
-        else "no run yet"
+    when_good = when_label(last_good["started_at"]) if last_good else "no run yet"
+
+    charts = "".join(
+        [
+            chart(
+                "c-price",
+                "Price drops and rises per day",
+                per_day,
+                ("price_up", "Price rises", "look"),
+                ("price_down", "Price drops", "good"),
+            ),
+            chart(
+                "c-sale",
+                "Sales started and ended per day",
+                per_day,
+                ("discount_start", "Sales started", "good"),
+                ("discount_end", "Sales ended", "look"),
+            ),
+            chart(
+                "c-stock",
+                "Stock changes per day",
+                per_day,
+                ("back_in_stock", "Back in stock", "good"),
+                ("out_of_stock", "Sold out", "look"),
+            ),
+        ]
     )
 
     by_cat: dict[str, list[Store]] = defaultdict(list)
@@ -167,14 +338,10 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
             store_rows.append(
                 [
                     f'<td><a href="https://{esc(s.host)}" rel="nofollow noopener">{esc(s.name)}</a></td>',
-                    td(CATEGORY_TITLES[cat], cls="cat hide-sm"),
+                    td(CATEGORY_TITLES[cat], cls="hide-sm"),
                     td(f"{v:,}", num=True),
-                    td(pct(int(agg.get("in_stock", 0)), v), num=True, cls="teal"),
-                    td(
-                        pct(int(agg.get("discounted", 0)), v),
-                        num=True,
-                        cls="amber" if int(agg.get("discounted", 0)) else "quiet",
-                    ),
+                    td(pct(int(agg.get("in_stock", 0)), v), num=True),
+                    td(pct(int(agg.get("discounted", 0)), v), num=True),
                     td(
                         f"{agg['avg_discount_pct']}%"
                         if agg.get("avg_discount_pct") is not None
@@ -182,23 +349,26 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
                         num=True,
                     ),
                     td(usd(agg.get("median_price_cents")), num=True),
-                    td(
-                        state["status"] if state else ("ok" if last else "-"),
-                        cls="amber" if state else "teal",
-                    ),
+                    "<td>"
+                    + (
+                        tag(state["status"], "look")
+                        if state
+                        else (tag("updated", "good") if last else "-")
+                    )
+                    + "</td>",
                 ]
             )
     store_table = _table(
-        "Live snapshot per store. Discounted: compare-at price above price.",
+        "Live snapshot per store. On sale: a “was” (compare-at) price above the price.",
         [
             ("Store", False),
             ("Category", False),
-            ("Variants", True),
+            ("Options", True),
             ("In stock", True),
-            ("Discounted", True),
+            ("On sale", True),
             ("Avg discount", True),
             ("Median price", True),
-            ("Last run", False),
+            ("Latest run", False),
         ],
         store_rows,
         "Stores table",
@@ -206,7 +376,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 
     names = {s.id: s.name for s in stores}
     hosts = {s.id: s.host for s in stores}
-    # One row per variant and run: a sale is "Price down · Discount start".
+    # One row per variant and run: a sale is "Price down · Sale started".
     grouped: dict[tuple[str, str, str], list[dict[str, str]]] = {}
     for e in events:
         grouped.setdefault((e["observed_at"], e["store_id"], e["variant_id"]), []).append(e)
@@ -214,7 +384,8 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 
     def event_cell(group: list[dict[str, str]]) -> str:
         parts = [
-            f'<span class="{EVENT_TONE.get(g["event"], "")}">{esc(EVENT_LABELS.get(g["event"], g["event"]))}</span>'
+            f'<span class="tag"><span class="mark {EVENT_TONE.get(g["event"], "")}" '
+            f'aria-hidden="true"></span>{esc(EVENT_LABELS.get(g["event"], g["event"]))}</span>'
             for g in group
         ]
         return "<td>" + " · ".join(parts) + "</td>"
@@ -230,7 +401,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
                 f'<td class="wrap-cell"><a href="https://{esc(hosts.get(e["store_id"], ""))}/products/{esc(e["handle"])}"'
                 f' rel="nofollow noopener">{esc(e["product_title"])}</a>'
                 + (
-                    f' <span class="quiet">{esc(e["variant_title"])}</span>'
+                    f' <span class="muted">{esc(e["variant_title"])}</span>'
                     if e["variant_title"] not in ("", "Default Title")
                     else ""
                 )
@@ -238,19 +409,19 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
                 event_cell(group),
                 td(usd(e["old_price_cents"]), num=True),
                 td(usd(e["new_price_cents"]), num=True),
-                td(f"{pct_values[0]}%" if pct_values else "", num=True),
+                td(f"{float(pct_values[0]):+.1f}%" if pct_values else "", num=True),
             ]
         )
     events_table = (
         _table(
-            f"Latest {len(event_rows)} changed variants (newest first).",
+            f"Latest {len(event_rows)} changed product options, newest first.",
             [
                 ("UTC", False),
                 ("Store", False),
                 ("Product", False),
-                ("Event", False),
-                ("Old", True),
-                ("New", True),
+                ("What changed", False),
+                ("Before", True),
+                ("Now", True),
                 ("Change", True),
             ],
             event_rows,
@@ -260,27 +431,39 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         else '<p class="note">No changes recorded yet.</p>'
     )
 
-    run_rows = [
-        [
-            td(r["started_at"][:16].replace("T", " ")),
-            td(r["status"], cls="teal" if r["status"] == "ok" else "amber"),
-            td(f"{r.get('duration_s', 0) / 60:.1f} min", num=True),
-            td(f"{r.get('stores_ok', '-')}/{r.get('stores_total', '-')}", num=True),
-            td(f"{r.get('rows_live', 0):,}", num=True),
-            td(f"{sum((r.get('events') or {}).values()):,}", num=True),
-        ]
-        for r in list(reversed(runs))[:14]
-    ]
+    state_words = {"on_time": "on time", "late": "late", "held": "held"}
+    run_rows = []
+    for r in list(reversed(runs))[:14]:
+        run_id = esc(r["run_id"])
+        id_cell = (
+            f'<td><a class="mono" href="{esc(r["run_url"])}" rel="noopener">{run_id}</a></td>'
+            if r.get("run_url")
+            else f'<td class="mono">{run_id}</td>'
+        )
+        run_rows.append(
+            [
+                td(r["started_at"][:16].replace("T", " ")),
+                "<td>" + tag(r["status"], "good" if r["status"] == "ok" else "look") + "</td>",
+                td(state_words.get(states.get(r["run_id"], ""), "extra run")),
+                td(f"{(r.get('duration_s') or 0) / 60:.1f} min", num=True),
+                td(f"{r.get('stores_ok', '-')}/{r.get('stores_total', '-')}", num=True),
+                td(f"{r.get('rows_live', 0):,}", num=True),
+                td(f"{sum((r.get('events') or {}).values()):,}", num=True),
+                id_cell,
+            ]
+        )
     runs_table = (
         _table(
-            "Most recent runs.",
+            "Most recent runs. On time: started within 2 hours of its 06:17 UTC slot.",
             [
                 ("Started UTC", False),
                 ("Status", False),
+                ("Slot", False),
                 ("Duration", True),
                 ("Stores", True),
-                ("Variants", True),
+                ("Prices live", True),
                 ("Changes", True),
+                ("Run ID", False),
             ],
             run_rows,
             "Runs table",
@@ -289,7 +472,11 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         else '<p class="note">No runs yet.</p>'
     )
 
-    description = f"Daily price, discount and stock monitor for {len(stores)} US direct-to-consumer brands on Shopify."
+    author = " · ".join(f'<a href="{u}">{esc(t)}</a>' for t, u in AUTHOR_LINKS)
+    description = (
+        f"Daily price, sale and stock monitor for {len(stores)} US direct-to-consumer brands "
+        "on Shopify."
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -297,25 +484,41 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shopify price monitor</title>
 <meta name="description" content="{esc(description)}">
-<meta name="theme-color" content="#0B1416">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1416'/%3E%3Cpath d='M7 21l6-6 4 4 8-9' fill='none' stroke='%232FBFAE' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="preload" href="fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="{FAVICON}">
+<link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
 </head>
 <body>
 <div class="wrap">
-<header>
-<h1>Shopify price monitor</h1>
-<p class="lede">{esc(description)} Prices, compare-at prices and stock are read once a day from each
-store's public catalog, politely, and every change is logged.</p>
+<div class="topbar">
+<a class="brand" href="{REPO_URL}">{MARK}<span>Shopify price monitor</span></a>
+<span class="by">Built by SteadyData · <a href="{STEADYDATA_CONTACT}">Get a free sample</a></span>
+</div>
+<header class="hero">
+<h1>Every price, sale and stock change from {len(stores)} US online stores</h1>
+<p class="lede">{esc(description)} Each run reads every store's public catalog, politely, checks
+the prices against a second source and logs every change.</p>
 <p class="status" role="status">{pill}</p>
 </header>
 <main>
 <h2 class="sr-only">Key figures</h2>
 <ul class="kpis">{kpis}</ul>
-<section class="panel" aria-labelledby="changes-h">
-<h2 id="changes-h">Changes in the last good run <span class="quiet">({esc(when_good)})</span></h2>
+</main>
+</div>
+<div class="band">
+<section class="wrap" aria-labelledby="trend-h">
+<h2 id="trend-h">What changed, day by day</h2>
+<p class="section-lede">Counts of changes found by each day's runs (UTC). The first run is the
+starting point and is not counted.</p>
+<div class="charts">{charts}</div>
+</section>
+</div>
+<div class="wrap">
+<section aria-labelledby="changes-h">
+<h2 id="changes-h">Changes in the latest good run</h2>
+<p class="section-lede muted">{esc(when_good)}</p>
 <ul class="events">{event_items}</ul>
 </section>
 <section aria-labelledby="stores-h">
@@ -330,17 +533,27 @@ store's public catalog, politely, and every change is logged.</p>
 <h2 id="runs-h">Runs</h2>
 {runs_table}
 </section>
-</main>
+<section aria-labelledby="cta-h">
+<div class="card cta">
+<div><h2 id="cta-h">Want this for your own stores?</h2>
+<p>A free sample from your target sites first, then a fixed monthly price.</p></div>
+<a class="button" href="{STEADYDATA_CONTACT}">Get a free sample</a>
+</div>
+</section>
+</div>
 <footer>
-<p class="note">Method: robots.txt respected, one store request every few seconds with jitter, one pace for the
-whole run, Retry-After honoured, a store stops on any block page. Prices are checked against three witnesses
-(catalog JSON, product JS, JSON-LD) and proven to be USD on every run; a run that looks wrong is held and the
-last good data stays live.</p>
+<div class="wrap">
+<p class="note">Method: robots.txt respected, one store request every few seconds with jitter, one pace for
+the whole run, Retry-After honoured, a store stops on any block page. Every day one product per store is
+re-read from two more sources (its product JS and the page's JSON-LD), and every run proves the prices are in
+US dollars; a run that looks wrong is held and the last good data stays live.</p>
 <p class="note">Data: <a href="{REPO_URL}/blob/main/data/latest/snapshot.csv">latest snapshot (CSV)</a>,
 <a href="{REPO_URL}/tree/main/data/changes">daily change logs</a>,
-<a href="{REPO_URL}/releases">monthly history (Parquet)</a>. Built {esc(now.strftime("%Y-%m-%d %H:%M UTC"))}.</p>
-</footer>
+<a href="{REPO_URL}/releases">monthly history (Parquet)</a>,
+<a href="{REPO_URL}/blob/main/data/public/feed.json">public feed (JSON)</a>. Built {esc(now.strftime("%Y-%m-%d %H:%M UTC"))}.</p>
+<p class="author">Built and maintained by Siddharth Kumar, founder of SteadyData · {author}</p>
 </div>
+</footer>
 </body>
 </html>
 """
@@ -352,7 +565,8 @@ def build(data: Path, stores_path: Path, out: Path, now: datetime | None = None)
     fonts = out / "fonts"
     fonts.mkdir(exist_ok=True)
     for f in (ASSETS / "fonts").iterdir():
-        shutil.copy2(f, fonts / f.name)
+        if f.name.startswith(("plus-jakarta-sans", "ibm-plex-mono-latin-400", "OFL")):
+            shutil.copy2(f, fonts / f.name)
     page = out / "index.html"
     page.write_text(render(data, stores, now or datetime.now(UTC)), encoding="utf-8")
     return page

@@ -96,14 +96,16 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
 
 ### Dashboard look
 
-Background `#0B1416`; panels `#0F1C1E` with border `#1D3331`; main text
-`#EAF2F0`; body text `#C9D8D5`; quiet text `#7E9996`; teal `#2FBFAE` = good / in
-stock; amber `#E9A93C` = look here / out of stock / price change. Instrument Sans
-for headings and text, IBM Plex Mono for data and tables, both self-hosted. No
-external scripts, text contrast at least 4.5:1, 360 to 1920 px, reduced motion
-respected, aim for Lighthouse 100. GitHub Pages is switched on only after the
-public publish; until then verify with Playwright screenshots at 360, 768 and
-1440 px.
+SteadyData light system (D-029). Page `#FFFFFF`, alternate band `#F3F8F7`; cards
+`#FFFFFF` with a `#E2EAE8` border and 14 px radius; headings `#0B1416`, body
+`#3D4B49`, muted `#5F716E`; accent `#0B7468` (hover `#095E55`, soft `#E3F3F0`);
+drops / good `#0E8A7D` and rises / look here `#D98E14`, used for marks only (bars,
+dots), never for text, and always with a direct text label. Plus Jakarta Sans
+(self-hosted Latin subset, tabular numbers) for all text, IBM Plex Mono for IDs;
+`theme-color` `#FFFFFF`. No external scripts, text contrast at least 4.5:1, 360 to
+1920 px, motion only where it explains (the daily bars grow in date order) and
+reduced motion shows the final state. Check with `node scripts/screenshots.cjs site`
+(360, 390, 768, 1280 and 1440 px).
 
 ### README
 

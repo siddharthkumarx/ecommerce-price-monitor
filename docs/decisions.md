@@ -420,3 +420,17 @@ From an independent review that rendered every SVG:
   the first good run started later the same UTC day; missed = no run. A run
   belongs to the latest slot at or before its start, so one late run never fills
   two slots. "Missed runs" now means exactly that; "on time" is a separate badge.
+
+## D-029 - SteadyData light look for the dashboard and README visuals (2026-11-20, owner decision)
+
+- **Palette and type** as in `docs/maintainers.md`, "Dashboard look". The dark theme
+  (D-022) is retired. Teal `#0E8A7D` and amber `#D98E14` are below 4.5:1 on white,
+  so they colour marks only; every mark carries a text label and every chart's
+  numbers are also in a table.
+- **Charts without script:** the daily charts are HTML and CSS bars built by
+  `site.py` from the same daily rows as the public feed (baseline run excluded),
+  diverging around one axis on one shared scale: price rises over drops, sales
+  started over ended, back in stock over sold out.
+- **Links:** "Built by SteadyData · Get a free sample" and the contact call to
+  action go to https://steadydata.co/contact/.
+
