@@ -405,6 +405,13 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         ]
         return "<td>" + " · ".join(parts) + "</td>"
 
+    def product_cell(e: dict[str, str], group: list[dict[str, str]]) -> str:
+        # A removed product's page is gone from the store, so its title is not a link.
+        if all(g["event"] == "removed" for g in group):
+            return esc(e["product_title"])
+        url = f"https://{esc(hosts.get(e['store_id'], ''))}/products/{esc(e['handle'])}"
+        return f'<a href="{url}" rel="nofollow noopener">{esc(e["product_title"])}</a>'
+
     event_rows = []
     for group in latest_groups:
         e = group[0]
@@ -413,8 +420,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
             [
                 td(e["observed_at"][:16].replace("T", " ")),
                 td(names.get(e["store_id"], e["store_id"])),
-                f'<td class="wrap-cell"><a href="https://{esc(hosts.get(e["store_id"], ""))}/products/{esc(e["handle"])}"'
-                f' rel="nofollow noopener">{esc(e["product_title"])}</a>'
+                f'<td class="wrap-cell">{product_cell(e, group)}'
                 + (
                     f' <span class="muted">{esc(e["variant_title"])}</span>'
                     if e["variant_title"] not in ("", "Default Title")
