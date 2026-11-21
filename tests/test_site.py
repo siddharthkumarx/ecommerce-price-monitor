@@ -76,6 +76,29 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
     assert "Runs on time" not in text
 
 
+def test_removed_product_is_not_linked(tmp_path: Path) -> None:
+    stores = _stores_yml(tmp_path / "stores.yml")
+    cfg = RunConfig(stores=stores, data=tmp_path / "data")
+    process(
+        cfg,
+        [fetched("a", catalog(3), DAY1), fetched("b", catalog(2), DAY1)],
+        DAY1,
+        time.monotonic(),
+    )
+    process(
+        cfg,
+        [fetched("a", catalog(2), DAY2), fetched("b", catalog(2), DAY2)],
+        DAY2,
+        time.monotonic(),
+    )
+    text = build(cfg.data, stores, tmp_path / "site").read_text()
+    # The removed row names the product without a link: its page is gone from the store.
+    assert '<td class="wrap-cell">Product 3 <span class="muted">' in text
+    assert "Removed</span></td>" in text
+    # The same product's earlier "New" row still links to it.
+    assert '<a href="https://alpha.example/products/p3" rel="nofollow noopener">' in text
+
+
 def test_dashboard_empty_state(tmp_path: Path) -> None:
     page = build(tmp_path / "nodata", tmp_path / "missing.yml", tmp_path / "site")
     text = page.read_text()
