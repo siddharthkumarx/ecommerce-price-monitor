@@ -38,7 +38,12 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
     text = page.read_text()
 
     assert "<script" not in text  # no JavaScript at all
-    assert 'rel="icon" href="data:image/svg+xml' in text  # no /favicon.ico 404
+    # The SteadyData icon set, served next to the page (no /favicon.ico 404).
+    assert '<link rel="icon" href="favicon.ico" sizes="32x32">' in text
+    assert '<link rel="manifest" href="site.webmanifest">' in text
+    for name in ("favicon.ico", "icon.svg", "apple-touch-icon.png", "site.webmanifest"):
+        assert (tmp_path / "site" / name).exists()
+    assert 'stop-color="#5FE8D6"' in text  # the SteadyData mark in the top bar
     external = re.findall(r'(?:src|href)="(https?:[^"]+)"', text)
     assert all(not u.endswith((".css", ".js", ".woff2")) for u in external)  # no external assets
     assert "Alpha &amp; Co" in text  # escaped

@@ -2,10 +2,10 @@
 
     python -m pricemon.site --data data --stores config/stores.yml --out site
 
-No JavaScript, no external requests: one HTML file with inline CSS and two
+No JavaScript, no external requests: one HTML file with inline CSS, two
 self-hosted font families (OFL): Plus Jakarta Sans (text, tabular numbers) and IBM
-Plex Mono (run IDs). The daily charts are plain HTML and CSS bars with direct labels
-and their numbers in a table. Every number on the page is read from
+Plex Mono (run IDs), and the SteadyData icon set. The daily charts are plain HTML
+and CSS bars with direct labels and their numbers in a table. Every number on the page is read from
 ``data/status.json``, ``data/runs.jsonl``, ``data/latest/snapshot.csv`` and
 ``data/changes/``.
 """
@@ -70,15 +70,23 @@ AUTHOR_LINKS = (
 )
 
 CSS = (ASSETS / "style.css").read_text(encoding="utf-8")
+# The SteadyData mark, the same icon set as steadydata.co (site_assets/icons/ is copied
+# from that site's repo, not edited here).
 MARK = (
-    '<svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" '
-    'rx="8" fill="#0B7468"/><path d="M7 21l6-6 4 4 8-9" fill="none" stroke="#FFFFFF" '
-    'stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    '<svg viewBox="10 7 44 50" width="24" height="28" aria-hidden="true" focusable="false">'
+    '<defs><linearGradient id="sdm" x1="49" x2="15" y1="12" y2="52" gradientUnits="userSpaceOnUse">'
+    '<stop offset="0" stop-color="#1A9486"/><stop offset="1" stop-color="#5FE8D6"/></linearGradient>'
+    '</defs><path fill="none" stroke="url(#sdm)" stroke-linejoin="round" stroke-width="8" '
+    'd="M41 14H22l-6.5 6.5v5L22 32h20l6.5 6.5v5L42 50H23"/><path fill="#D98E14" '
+    'fill-rule="evenodd" d="M40.4 14a6.6 6.6 0 1 0 13.2 0 6.6 6.6 0 1 0-13.2 0m4.1 0a2.5 2.5 0 1 1 '
+    '5 0 2.5 2.5 0 1 1-5 0"/><path fill="#5FE8D6" fill-rule="evenodd" d="M10.4 50a6.6 6.6 0 1 0 '
+    '13.2 0 6.6 6.6 0 1 0-13.2 0m4.1 0a2.5 2.5 0 1 1 5 0 2.5 2.5 0 1 1-5 0"/></svg>'
 )
-FAVICON = (
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect "
-    "width='32' height='32' rx='8' fill='%230B7468'/%3E%3Cpath d='M7 21l6-6 4 4 8-9' fill='none' "
-    "stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+ICON_LINKS = (
+    '<link rel="icon" href="favicon.ico" sizes="32x32">\n'
+    '<link rel="icon" href="icon.svg" type="image/svg+xml">\n'
+    '<link rel="apple-touch-icon" href="apple-touch-icon.png">\n'
+    '<link rel="manifest" href="site.webmanifest">'
 )
 
 
@@ -492,7 +500,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 <title>Shopify price monitor</title>
 <meta name="description" content="{esc(description)}">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="{FAVICON}">
+{ICON_LINKS}
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
@@ -574,6 +582,8 @@ def build(data: Path, stores_path: Path, out: Path, now: datetime | None = None)
     for f in (ASSETS / "fonts").iterdir():
         if f.name.startswith(("plus-jakarta-sans", "ibm-plex-mono-latin-400", "OFL")):
             shutil.copy2(f, fonts / f.name)
+    for f in (ASSETS / "icons").iterdir():
+        shutil.copy2(f, out / f.name)
     page = out / "index.html"
     page.write_text(render(data, stores, now or datetime.now(UTC)), encoding="utf-8")
     return page
