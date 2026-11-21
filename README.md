@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,767 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,729 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -15,42 +15,42 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 20 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 21 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
 | Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $44.00 | $88.00 | yes |
+| Homesick | [Beauty Rest Candle](https://homesick.com/products/beauty-rest-candle) | $14.98 | $29.95 | yes |
 | JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
-| Year & Day | [All Day & Night Dip Dishes (Fog)](https://yearandday.com/products/all-day-night-dip-dishes-2) | $22.00 | $44.00 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,767 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,729 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 20 November 2026: 99 price drops, 24 price rises, 61 sales started, 23 sales ended, 44 items sold out, 51 items back in stock, 30 new product options, 59 product options removed. The biggest moves:
+In the run of 21 November 2026: 273 price drops, 272 sales started, 32 items sold out, 31 items back in stock, 9 new product options, 47 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Skullcandy | [Crusher® ANC 2 (Leopard)](https://www.skullcandy.com/products/crusher-anc-2-sensory-bass-headphones-with-active-noise-canceling) | Price up, Sale ended (+100.0%) | $129.99 | $259.99 |
-| Soundcore (US) | [ANKER AeroClip 2 - Left Ear Grip (Black)](https://us.soundcore.com/products/d1105z11-81) | Price down (-100.0%) | $9,999,999.99 | $79.99 |
-| Big Agnes | [Women's Sidewinder SL 20° (Petite)](https://www.bigagnes.com/products/womens-sidewinder-sl-20) | Price down (-60.0%) | $187.46 | $74.98 |
-| Big Agnes | [Pumphouse Ultra](https://www.bigagnes.com/products/pumphouse-ultra) | Price down, Sale started (-50.0%) | $39.95 | $19.97 |
-| Big Agnes | [Tiger Wall UL3 Bikepack Solution Dye](https://www.bigagnes.com/products/tiger-wall-ul3-bikepack) | Price down (-41.2%) | $467.45 | $274.97 |
-| Big Agnes | [W's Tonal Trail Sign T-Shirt (SM)](https://www.bigagnes.com/products/ws-trail-sign) | Price down, Sale started (-40.0%) | $39.95 | $23.97 |
-| Big Agnes | [W's Tonal Trail Sign T-Shirt (MD)](https://www.bigagnes.com/products/ws-trail-sign) | Price down, Sale started (-40.0%) | $39.95 | $23.97 |
-| Big Agnes | [W's Tonal Trail Sign T-Shirt (LG)](https://www.bigagnes.com/products/ws-trail-sign) | Price down, Sale started (-40.0%) | $39.95 | $23.97 |
+| Homesick | [Beauty Rest Candle](https://homesick.com/products/beauty-rest-candle) | Price down, Sale started (-50.0%) | $29.95 | $14.98 |
+| Homesick | [Matcha Latte Candle](https://homesick.com/products/matcha-latte-candle) | Price down, Sale started (-50.0%) | $29.95 | $14.98 |
+| Homesick | [New Home 3-Wick Candle](https://homesick.com/products/3-wick-new-home-candle) | Price down, Sale started (-50.0%) | $49.95 | $24.98 |
+| Homesick | [Open Window Candle](https://homesick.com/products/open-window-candle) | Price down, Sale started (-50.0%) | $29.95 | $14.98 |
+| Homesick | [Rinse & Repeat Candle](https://homesick.com/products/rinse-repeat-candle) | Price down, Sale started (-50.0%) | $29.95 | $14.98 |
+| Homesick | [Spicy Marg Candle](https://homesick.com/products/spicy-marg-candle) | Price down, Sale started (-50.0%) | $29.95 | $14.98 |
+| Homesick | [The Bar Candle](https://homesick.com/products/the-bar-candle) | Price down, Sale started (-50.0%) | $29.95 | $14.98 |
+| Homesick | [The Bathroom Candle](https://homesick.com/products/the-bathroom-candle) | Price down, Sale started (-50.0%) | $29.95 | $14.98 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
 ## Why you can trust this data
 
 - **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 270 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.8 minutes, and no store blocked us.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 24 of 25 stores proved US dollars.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 206 free gifts and samples left out on purpose, not held.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 24 of 25 stores updated; 1 kept their previous prices.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 111 page requests in 10.9 minutes, and no store blocked us.
 
 ## How it works
 
@@ -65,7 +65,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 17."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 18."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -93,7 +93,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 17 of 17 due runs so far were delivered. From the next run on, each run is started on time by a direct trigger, with GitHub's schedule kept as the fallback. So far GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 18 of 18 due runs so far were delivered. From the next run on, each run is started on time by a direct trigger, with GitHub's schedule kept as the fallback. So far GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
@@ -112,7 +112,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 20 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 21 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -131,16 +131,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-20T15:30:59Z` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-21T14:43:23Z` |
 | `store_id` | text | Store | `bee-s-wrap` |
-| `variant_id` | integer | Product option | `67855091695891` |
-| `product_title` | text | Product name | `Bee's Wrap Reusable Beeswax Compostable Food Wraps - 2ct` |
+| `variant_id` | integer | Product option | `51912035827987` |
+| `product_title` | text | Product name | `Warehouse Bundle Wraps - 16-Pack` |
 | `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `1499` |
-| `new_price_cents` | integer or empty | Price after, US cents | `999` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `1499` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-33.4` |
+| `old_price_cents` | integer or empty | Price before, US cents | `4000` |
+| `new_price_cents` | integer or empty | Price after, US cents | `3600` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `10700` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `10700` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-10.0` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
