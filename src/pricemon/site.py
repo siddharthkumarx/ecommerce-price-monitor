@@ -63,6 +63,7 @@ EVENT_TONE = {
     "removed": "",
 }
 REPO_URL = "https://github.com/siddharthkumarx/ecommerce-price-monitor"
+PAGE_URL = "https://siddharthkumar.com/ecommerce-price-monitor/"
 STEADYDATA_CONTACT = "https://steadydata.co/contact/"
 AUTHOR_LINKS = (
     ("steadydata.co", "https://steadydata.co"),
@@ -499,8 +500,22 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shopify price monitor</title>
 <meta name="description" content="{esc(description)}">
+<link rel="canonical" href="{PAGE_URL}">
 <meta name="theme-color" content="#FFFFFF">
 {ICON_LINKS}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SteadyData">
+<meta property="og:url" content="{PAGE_URL}">
+<meta property="og:title" content="Shopify price monitor">
+<meta property="og:description" content="{esc(description)}">
+<meta property="og:image" content="{PAGE_URL}og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SteadyData case study: a daily price monitor for {len(stores)} US online stores">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shopify price monitor">
+<meta name="twitter:description" content="{esc(description)}">
+<meta name="twitter:image" content="{PAGE_URL}og.png">
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
@@ -584,6 +599,7 @@ def build(data: Path, stores_path: Path, out: Path, now: datetime | None = None)
             shutil.copy2(f, fonts / f.name)
     for f in (ASSETS / "icons").iterdir():
         shutil.copy2(f, out / f.name)
+    shutil.copy2(ASSETS / "og.png", out / "og.png")
     page = out / "index.html"
     page.write_text(render(data, stores, now or datetime.now(UTC)), encoding="utf-8")
     return page
