@@ -44,6 +44,11 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
     for name in ("favicon.ico", "icon.svg", "apple-touch-icon.png", "site.webmanifest"):
         assert (tmp_path / "site" / name).exists()
     assert 'stop-color="#5FE8D6"' in text  # the SteadyData mark in the top bar
+    # Canonical URL and link preview with the 1200 x 630 picture served next to the page.
+    url = "https://siddharthkumar.com/ecommerce-price-monitor/"
+    assert f'<link rel="canonical" href="{url}">' in text
+    assert f'content="{url}og.png"' in text
+    assert (tmp_path / "site" / "og.png").exists()
     external = re.findall(r'(?:src|href)="(https?:[^"]+)"', text)
     assert all(not u.endswith((".css", ".js", ".woff2")) for u in external)  # no external assets
     assert "Alpha &amp; Co" in text  # escaped
