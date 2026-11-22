@@ -225,6 +225,7 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
     gate`) lets such a dispatch run only for the current slot and only if no run
     has filled it; a dispatch up to 10 minutes early waits for the slot.
     `slot=check` proves the trigger and token work without running anything.
+    Since D-030 the trigger is cron-job.org with the fixed input `slot: auto`.
   - **Late events skip.** GitHub's own schedule event arrives hours later, finds
     the slot filled and skips, so the stores are not read twice. The schedule and
     the watchdog stay as the fallback: if the dispatch does not come, the late

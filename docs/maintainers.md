@@ -81,9 +81,10 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   run 06:17 and 18:17 only.
 - On-time slots: GitHub starts scheduled runs 7 to 10 hours late (INC-009), so an
   external trigger dispatches `daily.yml` at each slot with the input `slot`
-  (D-028). The `slot` gate (`python -m pricemon.schedule gate`) runs a dispatch
-  only for the current, unfilled slot; the late schedule event then skips.
-  `slot=check` tests the trigger without running anything.
+  (D-028, D-030; set-up in "On-time trigger" below). The `slot` gate
+  (`python -m pricemon.schedule gate`) runs a dispatch only for the current,
+  unfilled slot; the late schedule event then skips. `slot=check` tests the
+  trigger without running anything.
 - Missed slots: `watchdog.yml` (08:47 and 16:47 UTC) starts the daily run if the
   latest slot has no ok, partial or held run, and opens a `run-alert` issue. A
   scheduled run whose slot was already filled skips (INC-007, D-027). Accounting:
@@ -93,6 +94,28 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   web UI (Actions, daily, the "..." menu); if that fails, rename the file.
 - GitHub Pages: the `pages` job in `daily.yml` deploys `site/` when the repository
   variable `PAGES_ENABLED` is `true` (D-026).
+
+### On-time trigger
+
+cron-job.org (no VPS, no other server, D-030) calls the `workflow_dispatch` API
+with a **fixed** body; `slot: auto` makes the gate pick the active slot
+(`active_crons()`, BFCM slots included) within 10 minutes of now, before or after.
+With no such slot the run skips with a one-line reason. Otherwise it is an explicit
+slot: a dispatch up to 10 minutes early waits for the slot, at most one pipeline
+run per slot, and the run records `dispatch.by` "trigger" (on-time accounting).
+
+- URL: `https://api.github.com/repos/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml/dispatches`
+- Method: `POST`
+- Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`.
+  The token is fine-grained, this repository only, Actions read and write, 90-day
+  expiry; it lives only in cron-job.org, never in the repository. Renew it before
+  it expires.
+- Body: `{"ref":"main","inputs":{"slot":"auto"}}`
+- Schedule, time zone UTC: `17 6 * * *` (every day), plus `17 0,12,18 26-30 11 *`
+  and `17 0,12,18 1 12 *` (BFCM, 26 Nov to 1 Dec). One cron-job.org job per line.
+- Success is HTTP 204. Test the token with the body
+  `{"ref":"main","inputs":{"slot":"check"}}` (runs nothing). A call at any other
+  time skips, so an extra or mistimed call is harmless.
 
 ### Dashboard look
 

@@ -22,7 +22,8 @@ is the daily workflow's gate: it prints ``run=``, ``slot=``, ``wait_s=`` and
 ``reason=``. A dispatch that names its slot (the on-time external trigger, or the
 watchdog) fills that slot exactly like the scheduled run would; GitHub's own
 schedule event, which often arrives hours late, then finds the slot filled and
-skips (INC-009).
+skips (INC-009). ``--slot auto`` (the on-time trigger, whose request body is fixed)
+names the active slot within ``AUTO_WINDOW`` of now, or skips (D-030).
 """
 
 from __future__ import annotations
@@ -76,6 +77,10 @@ GOOD_STATUSES = frozenset({"ok", "partial"})
 EARLY = timedelta(minutes=10)
 # The slot value of a dispatch that only proves the trigger works: never runs.
 CHECK_SLOT = "check"
+# The slot value of a scheduler that cannot put the time in its request body
+# (cron-job.org, D-030): the active slot within AUTO_WINDOW of now, before or after.
+AUTO_SLOT = "auto"
+AUTO_WINDOW = timedelta(minutes=10)
 
 # A slot counts as run once a run record with one of these statuses started at or
 # after it. "held" counts: the pipeline ran, and running it again sooner would
@@ -207,7 +212,7 @@ def slot_states(
 def dispatch_slot(value: str) -> str:
     """The slot a dispatch named, as ``YYYY-MM-DDTHH:MM:SSZ``; "" for none, ``check`` or junk."""
     value = (value or "").strip()
-    if not value or value == CHECK_SLOT:
+    if not value or value in (CHECK_SLOT, AUTO_SLOT):
         return ""
     try:
         return _parse(value).replace(second=0, microsecond=0).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -314,6 +319,20 @@ def _is_slot(t: datetime, crons: tuple[str, ...]) -> bool:
     return t in set(slots(t, t + timedelta(minutes=1), crons))
 
 
+def auto_slot(now: datetime, crons: tuple[str, ...] | None = None) -> datetime | None:
+    """The active slot within ``AUTO_WINDOW`` of ``now`` (before or after), if any.
+
+    Slots are hours apart, so there is at most one; the nearest wins regardless.
+    """
+    near = slots(
+        (now - AUTO_WINDOW).replace(second=0, microsecond=0),
+        now + AUTO_WINDOW + timedelta(seconds=1),
+        crons or active_crons(),
+    )
+    found = [t for t in near if abs(t - now) <= AUTO_WINDOW]
+    return min(found, key=lambda t: abs(t - now)) if found else None
+
+
 def gate(
     event: str,
     runs: list[dict[str, object]],
@@ -329,7 +348,9 @@ def gate(
     - A dispatch naming a slot (the external on-time trigger, the watchdog) runs only
       for the current slot and only if no run has filled it yet; it may arrive up to
       ``EARLY`` before the slot and then waits for it. ``slot=check`` never runs: it
-      proves that the trigger and its token work.
+      proves that the trigger and its token work. ``slot=auto`` names the active slot
+      within ``AUTO_WINDOW`` of now and then follows the same rule; with no such slot
+      it skips.
     - A ``schedule`` event runs only if the latest slot is not filled yet; the two
       extra BFCM slots only with BFCM_RUNS_PER_DAY "4".
     """
@@ -357,6 +378,16 @@ def gate(
     slot = slot.strip()
     if slot == CHECK_SLOT:
         return out(False, "check dispatch: the trigger works, nothing to run")
+    if slot == AUTO_SLOT:
+        found = auto_slot(now, crons)
+        if found is None:
+            mins = int(AUTO_WINDOW.total_seconds() // 60)
+            return out(
+                False,
+                f"auto: no active slot within {mins} minutes of {now:%Y-%m-%dT%H:%M:%SZ}: skipped",
+            )
+        got = gate(event, runs, now, slot=found.strftime("%Y-%m-%dT%H:%M:%SZ"), crons=crons)
+        return {**got, "reason": f"auto: {got['reason']}"}
     try:
         want = _parse(slot).replace(second=0, microsecond=0)
     except ValueError:

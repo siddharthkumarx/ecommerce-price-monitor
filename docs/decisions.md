@@ -426,6 +426,24 @@ From an independent review that rendered every SVG:
   not GitHub's late scheduler. Earlier slots stay in `status.json` and the run
   history, with a one-sentence note computed from the run log.
 
+## D-030 - On-time trigger: cron-job.org with `slot: auto` (2026-11-22, owner decision)
+
+- **Trigger:** cron-job.org calls `POST
+  https://api.github.com/repos/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml/dispatches`
+  with headers `Authorization: Bearer <token>` and `Accept:
+  application/vnd.github+json` and the fixed body
+  `{"ref":"main","inputs":{"slot":"auto"}}`, in UTC at `17 6 * * *`, plus
+  `17 0,12,18` on 26-30 Nov and 1 Dec. No VPS and no other server. The token is as
+  in D-028 (fine-grained, this repository only, Actions read and write, 90 days).
+- **Why `auto`:** a simple cron service cannot put the slot time in the body, and
+  the explicit form (`2026-11-26T06:17Z`) needs it. `auto` means the active slot
+  (`active_crons()`, so the BFCM slots follow `BFCM_RUNS_PER_DAY`) within 10
+  minutes of now, before or after; none means skip with a one-line reason and no
+  run. A resolved slot then takes exactly the explicit-slot path of the gate:
+  EARLY wait, at most one pipeline run per slot, `dispatch.by` "" = the on-time
+  trigger. The run records the resolved slot, not `auto`. `check` and empty keep
+  their meaning.
+
 ## D-029 - SteadyData light look for the dashboard and README visuals (2026-11-20, owner decision)
 
 - **Palette and type** as in `docs/maintainers.md`, "Dashboard look". The dark theme

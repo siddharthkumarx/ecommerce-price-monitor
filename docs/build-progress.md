@@ -105,3 +105,9 @@ item says how to verify it.
     `config/public.yml` (`email: hello@steadydata.co`, `contact`), README call to
     action, SECURITY.md, CITATION.cff, pyproject. Owner: confirm that
     hello@steadydata.co receives mail before the merge.
+33. **On-time trigger with a fixed body (`slot: auto`)** - `done` (D-030).
+    `pricemon.schedule.gate` resolves `auto` to the active slot within 10 minutes;
+    `daily.yml` records the resolved slot. cron-job.org settings in
+    `docs/maintainers.md`, "On-time trigger". Verify: `uv run pytest
+    tests/test_schedule.py`; on GitHub, a `daily, slot auto` run at 06:17 UTC that
+    ran, and the late `daily, schedule` run of the same day skipped.

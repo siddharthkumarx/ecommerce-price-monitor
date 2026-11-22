@@ -11,12 +11,13 @@ on:
     - cron: "17 0,12 26-30 11 *"  # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
     - cron: "17 0,12 1 12 *"      # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
   # GitHub starts the schedule above hours late (INC-009), so an external trigger
-  # dispatches each slot on time with `slot` set; the late schedule event then finds
-  # the slot filled and skips. Without `slot`, a manual run always runs.
+  # (cron-job.org, fixed body `slot: auto`, D-030) dispatches each slot on time; the
+  # late schedule event then finds the slot filled and skips. Without `slot`, a
+  # manual run always runs.
   workflow_dispatch:
     inputs:
       slot:
-        description: "Slot this run fills, UTC (e.g. 2026-11-26T06:17Z); empty = manual run; check = test the trigger only"
+        description: "Slot this run fills, UTC (e.g. 2026-11-26T06:17Z); auto = the active slot within 10 minutes of now, else skip; empty = manual run; check = test the trigger only"
         required: false
         type: string
         default: ""
@@ -52,6 +53,7 @@ jobs:
     timeout-minutes: 15
     outputs:
       run: ${{ steps.decide.outputs.run }}
+      slot: ${{ steps.decide.outputs.slot }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -127,7 +129,8 @@ jobs:
         id: run
         timeout-minutes: 41
         env:
-          DISPATCH_SLOT: ${{ inputs.slot }}
+          # The slot the gate resolved (so `auto` is recorded as the slot it filled).
+          DISPATCH_SLOT: ${{ inputs.slot && (needs.slot.outputs.slot || inputs.slot) || '' }}
           DISPATCH_BY: ${{ inputs.by }}
         run: |
           set +e
