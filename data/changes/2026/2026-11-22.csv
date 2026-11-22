@@ -1,0 +1,375 @@
+observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
+2026-11-22T06:17:32Z,greats,7184125034544,40729288245296,the-reign-nero-mens,The Reign - Nero,Nero / 9.5,out_of_stock,19900,19900,19900,19900,
+2026-11-22T06:17:32Z,greats,7260200337456,40896891977776,the-royale-2-0-nero-mens,The Royale 2.0 - Nero,8.5 / Nero,out_of_stock,19900,19900,19900,19900,
+2026-11-22T06:17:32Z,greats,7260200337456,40896892141616,the-royale-2-0-nero-mens,The Royale 2.0 - Nero,11 / Nero,out_of_stock,19900,19900,19900,19900,
+2026-11-22T06:17:32Z,hyperlite-mountain-gear,8240768647213,44067974414381,vertical-logo-tee,Vertical Logo Tee,Ice Blue / M,out_of_stock,3200,3200,,,
+2026-11-22T06:17:32Z,jlab,6893536313416,40342906404936,jbuds-j6ms-in-ear-single-earbud-black,JBuds J6MS In-Ear Single Earbud,Default Title,out_of_stock,1999,1999,1999,1999,
+2026-11-22T06:17:32Z,jlab,6893536477256,40342906568776,go-tones-plus-true-wireless-earbuds-7572w,Go Tones+ True Wireless Earbuds 7572 W,7572 W,price_down,1899,1749,2699,2699,-7.9
+2026-11-22T06:17:32Z,jlab,6893537165384,40342907224136,go-tones-plus-true-wireless-earbuds-4975c,Go Tones+ True Wireless Earbuds 4975 C,Default Title,price_down,1899,1749,2699,2699,-7.9
+2026-11-22T06:17:32Z,jlab,6893537493064,40342907617352,go-tones-plus-true-wireless-earbuds-474c,Go Tones+ True Wireless Earbuds 474 C,Default Title,price_down,1899,1749,2699,2699,-7.9
+2026-11-22T06:17:32Z,jlab,6893537722440,40342907781192,go-tones-plus-true-wireless-earbuds-155n,Go Tones+ True Wireless Earbuds 155 N,Default Title,price_down,1899,1749,2699,2699,-7.9
+2026-11-22T06:17:32Z,jlab,6893537886280,40342908010568,go-talk-usb-microphone-black,GO Talk USB Microphone Black,Default Title,out_of_stock,4999,4999,4999,4999,
+2026-11-22T06:17:32Z,jlab,6893538082888,40342908141640,jbuddies-studio-2-wireless-kids-headphones-blue-gray,JBuddies Studio 2 Wireless Kids Headphones Blue/Gray,Blue,out_of_stock,2999,2999,2999,2999,
+2026-11-22T06:17:32Z,jlab,6893538771016,40342908764232,go-tones-plus-true-wireless-earbuds-1615c,Go Tones+ True Wireless Earbuds 1615 C,Default Title,price_down,1899,1749,2699,2699,-7.9
+2026-11-22T06:17:32Z,jlab,6893539262536,40342909354056,go-tones-plus-true-wireless-earbuds-728n,Go Tones+ True Wireless Earbuds 728 N,728 N,price_down,1899,1749,2699,2699,-7.9
+2026-11-22T06:17:32Z,jlab,6893540180040,40342910238792,go-tones-plus-true-wireless-earbuds-4625w,Go Tones+ True Wireless Earbuds 4625 W,4625 W,price_down,1899,1749,2699,2699,-7.9
+2026-11-22T06:17:32Z,jlab,6918917652552,40440054743112,jbuddies-pop-wireless-kids-headphones-teal,JBuddies Pop Wireless Kids Headphones Teal,Teal,back_in_stock,1799,1799,2199,2199,
+2026-11-22T06:17:32Z,jlab,6972532654152,40611301556296,pop-party-ultra-portable-bluetooth-speaker-cyan,Pop Party Ultra-Portable Bluetooth Speaker Cyan,Cyan,out_of_stock,2499,2499,2499,2499,
+2026-11-22T06:17:32Z,jlab,6972541304904,40611347267656,epic-party-portable-bluetooth-speaker-black,Epic Party Portable Bluetooth Speaker Black,Default Title,price_up,12600,18999,18999,18999,50.8
+2026-11-22T06:17:32Z,jlab,6972541304904,40611347267656,epic-party-portable-bluetooth-speaker-black,Epic Party Portable Bluetooth Speaker Black,Default Title,discount_end,12600,18999,18999,18999,
+2026-11-22T06:17:32Z,jlab,7076283416648,41182416076872,jbuds-mini-anc-jelle-true-wireless-earbuds-fir-sure,JBuds Mini ANC Jelle True Wireless Earbuds Fir Sure,Default Title,back_in_stock,3999,3999,4999,4999,
+2026-11-22T06:17:32Z,jlab,7151124316232,41439425396808,jbuds-lux-anc-jbuds-mini-anc-jelle-fir-sure-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Fir Sure Bundle,Default Title,back_in_stock,8598,8598,14998,14998,
+2026-11-22T06:17:32Z,lunya,7067802435627,40683014225963,womens-washable-silk-tee-pant-set-immersed-black,Washable Silk Tee Pant Set,Immersed Black / L,out_of_stock,28800,28800,,,
+2026-11-22T06:17:32Z,lunya,7166083104811,40938667573291,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / XS,removed,13160,,18800,,
+2026-11-22T06:17:32Z,lunya,7166083104811,40938667606059,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / S,removed,13160,,18800,,
+2026-11-22T06:17:32Z,lunya,7166083104811,40938667638827,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / M,removed,13160,,18800,,
+2026-11-22T06:17:32Z,lunya,7166083104811,40938667671595,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / L,removed,13160,,18800,,
+2026-11-22T06:17:32Z,lunya,7166083104811,40938667704363,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / XL,removed,13160,,18800,,
+2026-11-22T06:17:32Z,lunya,7186750832683,40989106044971,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / L,out_of_stock,19800,19800,,,
+2026-11-22T06:17:32Z,lunya,7244965150763,41109258960939,3pk-washable-silk-thin-scrunchie-deep-blue-delicate-pink-immersed-black,3pk Washable Silk Thin Scrunchie,Deep Blue/Delicate Pink/Immersed Black / OS,removed,2400,,,,
+2026-11-22T06:17:32Z,lunya,7260510978091,41142294609963,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / XS,removed,4800,,,,
+2026-11-22T06:17:32Z,lunya,7260510978091,41142294642731,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / S,removed,4800,,,,
+2026-11-22T06:17:32Z,lunya,7260510978091,41142294675499,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / M,removed,4800,,,,
+2026-11-22T06:17:32Z,lunya,7260510978091,41142294708267,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / L,removed,4800,,,,
+2026-11-22T06:17:32Z,lunya,7260510978091,41142294741035,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / XL,removed,4800,,,,
+2026-11-22T06:17:32Z,lunya,7271549632555,41178212466731,womens-washable-silk-long-sleeve-jogger-pant-set-deep-blue,Washable Silk Long Sleeve Jogger Pant Set,Deep Blue / XL,out_of_stock,29800,29800,,,
+2026-11-22T06:17:32Z,lunya,7329272954923,41340394078251,the-quintessential-duvet-cover-white,The Quintessential Duvet Cover,White / Queen,out_of_stock,25020,25020,27800,27800,
+2026-11-22T06:17:32Z,lunya,7415234658347,41897487925291,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / L,out_of_stock,6800,6800,,,
+2026-11-22T06:17:32Z,lunya,7415237083179,41897496444971,womens-seamless-modal-tank-sincere-white-1,Seamless Modal Tank,Sincere White / S,out_of_stock,6800,6800,,,
+2026-11-22T06:17:32Z,lunya,7415237083179,41897496543275,womens-seamless-modal-tank-sincere-white-1,Seamless Modal Tank,Sincere White / XL,out_of_stock,6800,6800,,,
+2026-11-22T06:17:32Z,lunya,7419230879787,41907201310763,womens-washable-silk-long-sleeve-pant-set-immersed-black-3,Washable Silk Long Sleeve Pant Set,Immersed Black / XL,out_of_stock,29800,29800,,,
+2026-11-22T06:17:32Z,lunya,7428174643243,41940207337515,mens-silksweats-midweight-reversible-pocket-sweatshirt-napping-dove-heather,Men's Silksweats™ Midweight Reversible Pocket Sweatshirt,Napping Dove Heather / S,out_of_stock,10360,10360,14800,14800,
+2026-11-22T06:17:32Z,lunya,7428175855659,41940213039147,womens-slumberknit-shawl-collar-button-down-pant-set-immersed-black-delicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Immersed Black/Delicate Pink / S,out_of_stock,11060,11060,15800,15800,
+2026-11-22T06:17:32Z,lunya,7708240969771,42382449672235,womens-seamless-modal-flow-legging-musing-moss,Seamless Modal Flow Legging,Musing Moss / S,out_of_stock,6860,6860,9800,9800,
+2026-11-22T06:17:32Z,lunya,7708242116651,42382455308331,womens-slumberknit-shawl-collar-button-down-pant-set-delicate-pink-pomegranate-jewel,Slumberknit™ Shawl Collar Button Down Pant Set,Delicate Pink/Pomegranate Jewel / S,out_of_stock,11060,11060,15800,15800,
+2026-11-22T06:17:32Z,lunya,7763963838507,42592622280747,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / XS,out_of_stock,10360,10360,14800,14800,
+2026-11-22T06:17:32Z,lunya,7763963969579,42592622936107,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / XS,out_of_stock,10360,10360,14800,14800,
+2026-11-22T06:17:32Z,lunya,7763964330027,42592624771115,womens-washable-silk-tulip-back-set-morning-wisteria,Washable Silk Tulip Back Set,Morning Wisteria / L,out_of_stock,13160,13160,18800,18800,
+2026-11-22T06:17:32Z,lunya,7763964461099,42592624836651,womens-soft-modal-rib-v-neck-henley-quiet-lilac,Soft Modal Rib V-neck Henley,Quiet Lilac / XS,removed,8260,,11800,,
+2026-11-22T06:17:32Z,lunya,7763964461099,42592624869419,womens-soft-modal-rib-v-neck-henley-quiet-lilac,Soft Modal Rib V-neck Henley,Quiet Lilac / S,removed,8260,,11800,,
+2026-11-22T06:17:32Z,lunya,7763964461099,42592624902187,womens-soft-modal-rib-v-neck-henley-quiet-lilac,Soft Modal Rib V-neck Henley,Quiet Lilac / M,removed,8260,,11800,,
+2026-11-22T06:17:32Z,lunya,7763964461099,42592624934955,womens-soft-modal-rib-v-neck-henley-quiet-lilac,Soft Modal Rib V-neck Henley,Quiet Lilac / L,removed,8260,,11800,,
+2026-11-22T06:17:32Z,lunya,7763964461099,42592624967723,womens-soft-modal-rib-v-neck-henley-quiet-lilac,Soft Modal Rib V-neck Henley,Quiet Lilac / XL,removed,8260,,11800,,
+2026-11-22T06:17:32Z,lunya,7763965083691,42592628473899,womens-slumberknit-shawl-collar-button-down-pant-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Button Down Pant Set,Bluebell Bloom/spring Clover / L,out_of_stock,11060,11060,15800,15800,
+2026-11-22T06:17:32Z,lunya,7763965607979,42592630800427,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / L,out_of_stock,18480,18480,30800,30800,
+2026-11-22T06:17:32Z,lunya,7763965739051,42592631193643,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / S,out_of_stock,4760,4760,6800,6800,
+2026-11-22T06:17:32Z,lunya,7763965739051,42592631259179,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / L,out_of_stock,4760,4760,6800,6800,
+2026-11-22T06:17:32Z,lunya,7763966001195,42592632733739,womens-organic-pima-wide-sleeve-tee-storm-grey-heather,Organic Pima Wide Sleeve Tee,Storm Grey Heather / M,out_of_stock,6860,6860,9800,9800,
+2026-11-22T06:17:32Z,lunya,7849299247147,43346800934955,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / M,out_of_stock,17440,17440,21800,21800,
+2026-11-22T06:17:32Z,lunya,7849299279915,43346801033259,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XS,removed,28800,,,,
+2026-11-22T06:17:32Z,lunya,7849299279915,43346801066027,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / S,removed,28800,,,,
+2026-11-22T06:17:32Z,lunya,7849299279915,43346801098795,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / M,removed,28800,,,,
+2026-11-22T06:17:32Z,lunya,7849299279915,43346801131563,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / L,removed,28800,,,,
+2026-11-22T06:17:32Z,lunya,7849299279915,43346801164331,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XL,removed,28800,,,,
+2026-11-22T06:17:32Z,lunya,7849300262955,43346806112299,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / S,out_of_stock,17440,17440,21800,21800,
+2026-11-22T06:17:32Z,lunya,7849300262955,43346806145067,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / M,out_of_stock,17440,17440,21800,21800,
+2026-11-22T06:17:32Z,lunya,7849300721707,43346808438827,womens-washable-silk-tee-short-set-lilac-bloom,Washable Silk Tee Short Set,Lilac Bloom / M,out_of_stock,13860,13860,19800,19800,
+2026-11-22T06:17:32Z,lunya,7849300787243,43346808602667,womens-washable-silk-tie-front-pant-set-delicate-pink,Washable Silk Tie Front Pant Set,Delicate Pink / M,out_of_stock,23840,23840,29800,29800,
+2026-11-22T06:17:32Z,lunya,7849301114923,43346809880619,womens-silksweats-midweight-reversible-short-napping-dove-heather,Silksweats™ Midweight Reversible Short,Napping Dove Heather / XS,out_of_stock,6860,6860,9800,9800,
+2026-11-22T06:17:32Z,lunya,7849301180459,43346810667051,womens-silksweats-midweight-reversible-short-chili-pepper,Silksweats™ Midweight Reversible Short,Chili Pepper / XXS,removed,6860,,9800,,
+2026-11-22T06:17:32Z,lunya,7849301180459,43346810699819,womens-silksweats-midweight-reversible-short-chili-pepper,Silksweats™ Midweight Reversible Short,Chili Pepper / XS,removed,6860,,9800,,
+2026-11-22T06:17:32Z,lunya,7849301180459,43346810732587,womens-silksweats-midweight-reversible-short-chili-pepper,Silksweats™ Midweight Reversible Short,Chili Pepper / S,removed,6860,,9800,,
+2026-11-22T06:17:32Z,lunya,7849301180459,43346810765355,womens-silksweats-midweight-reversible-short-chili-pepper,Silksweats™ Midweight Reversible Short,Chili Pepper / M,removed,6860,,9800,,
+2026-11-22T06:17:32Z,lunya,7849301180459,43346810798123,womens-silksweats-midweight-reversible-short-chili-pepper,Silksweats™ Midweight Reversible Short,Chili Pepper / L,removed,6860,,9800,,
+2026-11-22T06:17:32Z,lunya,7849301180459,43346810830891,womens-silksweats-midweight-reversible-short-chili-pepper,Silksweats™ Midweight Reversible Short,Chili Pepper / XL,removed,6860,,9800,,
+2026-11-22T06:17:32Z,lunya,7849301409835,43346811945003,womens-washable-silk-tie-front-short-set-delicate-pink,Washable Silk Tie Front Short Set,Delicate Pink / XS,out_of_stock,17440,17440,21800,21800,
+2026-11-22T06:17:32Z,lunya,7849301475371,43346812174379,washable-silk-sleep-mask-summer-harvest,Washable Silk Sleep Mask,Summer Harvest / L,out_of_stock,5200,5200,6500,6500,
+2026-11-22T06:17:32Z,lunya,8077944160299,45177825132587,womens-organic-pima-wide-leg-pant-rested-charcoal-heather,Organic Pima Wide Leg Pant,Rested Charcoal Heather / S,out_of_stock,11840,11840,14800,14800,
+2026-11-22T06:17:32Z,nécessaire,6806691217521,40031808258161,the-body-bar-2-physical-exfoliant,The Body Exfoliant Bar | 2% Physical Exfoliant,Fragrance-Free / 1 Bar,out_of_stock,1500,1500,,,
+2026-11-22T06:17:32Z,nécessaire,6885390352497,40259064627313,the-body-exfoliant-bar-trio,The Body Exfoliant Bar Trio,Fragrance-Free / 3 Bars,out_of_stock,4500,4500,,,
+2026-11-22T06:17:32Z,nécessaire,7384150573169,42044975513713,bars-hand-key-tray,The New Tendency Complete Set,Aluminum | Stainless Steel,out_of_stock,13800,13800,,,
+2026-11-22T06:17:32Z,nécessaire,7384155291761,42045155737713,bars-tray,The Soap Bar Duo + The Soap Tray,Aluminum | Moss | Fragrance-Free,out_of_stock,9000,9000,,,
+2026-11-22T06:17:32Z,oveja-negra,8262810042673,44681413689649,copy-of-1-2-pack-2-0-frame-bag-wack-pack,1/2 Pack™ 2.0 Frame Bag - WACK PACK™,M / Wack Pack,back_in_stock,10500,10500,,,
+2026-11-22T06:17:32Z,oveja-negra,8262810042673,50583171301681,copy-of-1-2-pack-2-0-frame-bag-wack-pack,1/2 Pack™ 2.0 Frame Bag - WACK PACK™,M / Wack Donuts,back_in_stock,10500,10500,,,
+2026-11-22T06:17:32Z,oveja-negra,10416414916913,51911995982129,beanie-customizable,Beanie - Customizable,Teal-a-rific,out_of_stock,2200,2200,,,
+2026-11-22T06:17:32Z,oveja-negra,10050104885553,52803399876913,superwedgie-2-0-frame-bag,Superwedgie™ 2.0 Frame Bag,S / Jalapeno,back_in_stock,11500,11500,,,
+2026-11-22T06:17:32Z,oveja-negra,4998968967270,57662030971185,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Superwedgie Frame Bag - Small - Jalapeno,new,,8625,,11500,
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,7006559436844,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,240ml,price_down,4800,3600,,4800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,7006559436844,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,240ml,discount_start,4800,3600,,4800,
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,7006564286508,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,90ml,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,7006564286508,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,90ml,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,7439362457644,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,75ml,price_down,2400,1800,,2400,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,7439362457644,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,75ml,discount_start,2400,1800,,2400,
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,9455817588780,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,385ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,9455817588780,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,385ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,9497228050476,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,25ml,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,9497228050476,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,25ml,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,1378606186540,12468936146988,brazilian-bum-bum-scooper,Brazilian Bum Bum Surfboard Spatula,Default Title,price_down,900,700,,900,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,1378606186540,12468936146988,brazilian-bum-bum-scooper,Brazilian Bum Bum Surfboard Spatula,Default Title,discount_start,900,700,,900,
+2026-11-22T06:17:32Z,sol-de-janeiro,4595075711078,31419857633382,new-glowmotions-glow-oils-page,GlowMotions™ Glow Body Oil,Copacabana Bronze,price_down,3600,2700,,3600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,4595075711078,31419857633382,new-glowmotions-glow-oils-page,GlowMotions™ Glow Body Oil,Copacabana Bronze,discount_start,3600,2700,,3600,
+2026-11-22T06:17:32Z,sol-de-janeiro,4595075711078,31419857666150,new-glowmotions-glow-oils-page,GlowMotions™ Glow Body Oil,Rio Sunset,price_down,3600,2700,,3600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,4595075711078,31419857666150,new-glowmotions-glow-oils-page,GlowMotions™ Glow Body Oil,Rio Sunset,discount_start,3600,2700,,3600,
+2026-11-22T06:17:32Z,sol-de-janeiro,4400331817062,31578861994086,brazilian-joia-strengthening-smoothing-conditioner,Brazilian Joia™ Strengthening + Smoothing Conditioner,295ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,4400331817062,31578861994086,brazilian-joia-strengthening-smoothing-conditioner,Brazilian Joia™ Strengthening + Smoothing Conditioner,295ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,4400331817062,31578862026854,brazilian-joia-strengthening-smoothing-conditioner,Brazilian Joia™ Strengthening + Smoothing Conditioner,90ml,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,4400331817062,31578862026854,brazilian-joia-strengthening-smoothing-conditioner,Brazilian Joia™ Strengthening + Smoothing Conditioner,90ml,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,4400320905318,31578936082534,brazilian-joia-strengthening-smoothing-shampoo,Brazilian Joia™ Strengthening + Smoothing Shampoo,295ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,4400320905318,31578936082534,brazilian-joia-strengthening-smoothing-shampoo,Brazilian Joia™ Strengthening + Smoothing Shampoo,295ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,4400320905318,31578936115302,brazilian-joia-strengthening-smoothing-shampoo,Brazilian Joia™ Strengthening + Smoothing Shampoo,90ml,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,4400320905318,31578936115302,brazilian-joia-strengthening-smoothing-shampoo,Brazilian Joia™ Strengthening + Smoothing Shampoo,90ml,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,4612203053158,31996806725734,sol-cheirosa-62,SOL Cheirosa 62™,50ml,price_down,8000,6000,,8000,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,4612203053158,31996806725734,sol-cheirosa-62,SOL Cheirosa 62™,50ml,discount_start,8000,6000,,8000,
+2026-11-22T06:17:32Z,sol-de-janeiro,4612203053158,31996806758502,sol-cheirosa-62,SOL Cheirosa 62™,8ml,price_down,2800,2100,,2800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,4612203053158,31996806758502,sol-cheirosa-62,SOL Cheirosa 62™,8ml,discount_start,2800,2100,,2800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6543712551014,39262789435494,bom-dia-bright-body-cream,Bom Dia Bright™ Body Cream,75ml,price_down,2400,1800,,2400,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6543712551014,39262789435494,bom-dia-bright-body-cream,Bom Dia Bright™ Body Cream,75ml,discount_start,2400,1800,,2400,
+2026-11-22T06:17:32Z,sol-de-janeiro,6543712551014,39262789468262,bom-dia-bright-body-cream,Bom Dia Bright™ Body Cream,240ml,price_down,4800,3600,,4800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6543712551014,39262789468262,bom-dia-bright-body-cream,Bom Dia Bright™ Body Cream,240ml,discount_start,4800,3600,,4800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6562357117030,39299178037350,cheirosa-62-hair-body-fragrance-mist,Cheirosa 62™ Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,6562357117030,39299178037350,cheirosa-62-hair-body-fragrance-mist,Cheirosa 62™ Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,6562357117030,39299178070118,cheirosa-62-hair-body-fragrance-mist,Cheirosa 62™ Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6562357117030,39299178070118,cheirosa-62-hair-body-fragrance-mist,Cheirosa 62™ Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,3935836799078,39412337672294,cheirosa-39-perfume-mist,Cheirosa 39 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,3935836799078,39412337672294,cheirosa-39-perfume-mist,Cheirosa 39 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,4917752103014,39412583399526,cheirosa-71-body-fragrance-mist,Cheirosa 71 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,4917752103014,39412583399526,cheirosa-71-body-fragrance-mist,Cheirosa 71 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,4917752103014,39412583432294,cheirosa-71-body-fragrance-mist,Cheirosa 71 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,4917752103014,39412583432294,cheirosa-71-body-fragrance-mist,Cheirosa 71 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,6568925692006,39417934282854,cheirosa-40-hair-body-fragrance-mist,Cheirosa 40 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6568925692006,39417934282854,cheirosa-40-hair-body-fragrance-mist,Cheirosa 40 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6568925692006,39417934315622,cheirosa-40-hair-body-fragrance-mist,Cheirosa 40 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,6568925692006,39417934315622,cheirosa-40-hair-body-fragrance-mist,Cheirosa 40 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,4826898038886,39433419128934,bum-bum-body-scrub,Bum Bum Body Scrub,220g,price_down,4200,3200,,4200,-23.8
+2026-11-22T06:17:32Z,sol-de-janeiro,4826898038886,39433419128934,bum-bum-body-scrub,Bum Bum Body Scrub,220g,discount_start,4200,3200,,4200,
+2026-11-22T06:17:32Z,sol-de-janeiro,4826898038886,39433419161702,bum-bum-body-scrub,Bum Bum Body Scrub,20g,price_down,1000,800,,1000,-20.0
+2026-11-22T06:17:32Z,sol-de-janeiro,4826898038886,39433419161702,bum-bum-body-scrub,Bum Bum Body Scrub,20g,discount_start,1000,800,,1000,
+2026-11-22T06:17:32Z,sol-de-janeiro,6562357117030,39540165935206,cheirosa-62-hair-body-fragrance-mist,Cheirosa 62™ Perfume Mist,Refill (240ml),price_down,3400,2600,,3400,-23.5
+2026-11-22T06:17:32Z,sol-de-janeiro,6562357117030,39540165935206,cheirosa-62-hair-body-fragrance-mist,Cheirosa 62™ Perfume Mist,Refill (240ml),discount_start,3400,2600,,3400,
+2026-11-22T06:17:32Z,sol-de-janeiro,6694127632486,39553939013734,beija-flor-elasti-cream,Beija Flor™ Elasti-Cream,240ml,price_down,4800,3600,,4800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6694127632486,39553939013734,beija-flor-elasti-cream,Beija Flor™ Elasti-Cream,240ml,discount_start,4800,3600,,4800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6694127632486,39553939046502,beija-flor-elasti-cream,Beija Flor™ Elasti-Cream,75ml,price_down,2400,1800,,2400,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6694127632486,39553939046502,beija-flor-elasti-cream,Beija Flor™ Elasti-Cream,75ml,discount_start,2400,1800,,2400,
+2026-11-22T06:17:32Z,sol-de-janeiro,6715103903846,39605854928998,cheirosa-68-perfume-mist,Cheirosa 68 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,6715103903846,39605854928998,cheirosa-68-perfume-mist,Cheirosa 68 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,6715103903846,39605854961766,cheirosa-68-perfume-mist,Cheirosa 68 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6715103903846,39605854961766,cheirosa-68-perfume-mist,Cheirosa 68 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6715891744870,39636028162150,brazilian-joia-milky-leave-in-conditioner,Milky Leave-In Conditioner Cheirosa 62™,210ml,price_down,3000,2300,,3000,-23.3
+2026-11-22T06:17:32Z,sol-de-janeiro,6715891744870,39636028162150,brazilian-joia-milky-leave-in-conditioner,Milky Leave-In Conditioner Cheirosa 62™,210ml,discount_start,3000,2300,,3000,
+2026-11-22T06:17:32Z,sol-de-janeiro,6715891744870,39636028194918,brazilian-joia-milky-leave-in-conditioner,Milky Leave-In Conditioner Cheirosa 62™,60ml,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6715891744870,39636028194918,brazilian-joia-milky-leave-in-conditioner,Milky Leave-In Conditioner Cheirosa 62™,60ml,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6735790702694,39673290686566,sol-yellow-wide-tooth-comb-online-exclusive-limited-edition,"SOL Yellow Wide Tooth Comb | Online Exclusive, Limited Edition",Default Title,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6735790702694,39673290686566,sol-yellow-wide-tooth-comb-online-exclusive-limited-edition,"SOL Yellow Wide Tooth Comb | Online Exclusive, Limited Edition",Default Title,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,39745859813478,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,385ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,39745859813478,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,385ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,39745859846246,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,90ml,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,39745859846246,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,90ml,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,6705548558438,39981672562790,rio-deo-aluminum-free-deodorant-cheirosa-40,Rio Deo Aluminum-Free Deodorant Cheirosa 40,2oz,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,6705548558438,39981672562790,rio-deo-aluminum-free-deodorant-cheirosa-40,Rio Deo Aluminum-Free Deodorant Cheirosa 40,2oz,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6705548558438,39981672595558,rio-deo-aluminum-free-deodorant-cheirosa-40,Rio Deo Aluminum-Free Deodorant Cheirosa 40,2oz Refill,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6705548558438,39981672595558,rio-deo-aluminum-free-deodorant-cheirosa-40,Rio Deo Aluminum-Free Deodorant Cheirosa 40,2oz Refill,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6837309407334,39982202781798,bum-bum-body-firmeza-massage-tool,Body Firmeza Massage Tool,Default Title,price_down,2000,1500,,2000,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6837309407334,39982202781798,bum-bum-body-firmeza-massage-tool,Body Firmeza Massage Tool,Default Title,discount_start,2000,1500,,2000,
+2026-11-22T06:17:32Z,sol-de-janeiro,6568890368102,39992627789926,rio-deo-aluminum-free-deodorant,Rio Deo Aluminum-Free Deodorant Cheirosa 62™,2oz,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,6568890368102,39992627789926,rio-deo-aluminum-free-deodorant,Rio Deo Aluminum-Free Deodorant Cheirosa 62™,2oz,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6568890368102,39992627822694,rio-deo-aluminum-free-deodorant,Rio Deo Aluminum-Free Deodorant Cheirosa 62™,2oz Refill,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6568890368102,39992627822694,rio-deo-aluminum-free-deodorant,Rio Deo Aluminum-Free Deodorant Cheirosa 62™,2oz Refill,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6847424233574,40031019925606,cheirosa-87-rio-radiance-perfume-mist,Cheirosa 87 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6847424233574,40031019925606,cheirosa-87-rio-radiance-perfume-mist,Cheirosa 87 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6847424233574,40031019958374,cheirosa-87-rio-radiance-perfume-mist,Cheirosa 87 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,6847424233574,40031019958374,cheirosa-87-rio-radiance-perfume-mist,Cheirosa 87 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,40129485832294,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,240ml Refill,price_down,4400,3300,,4400,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,40129485832294,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,240ml Refill,discount_start,4400,3300,,4400,
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,40163142434918,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,385ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,40163142434918,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,385ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,40163142467686,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,90ml,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,40163142467686,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,90ml,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,6866563465318,40163154296934,rio-deo-aluminum-free-deodorant-cheirosa-68,Rio Deo Aluminum-Free Deodorant Cheirosa 68,2oz,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,6866563465318,40163154296934,rio-deo-aluminum-free-deodorant-cheirosa-68,Rio Deo Aluminum-Free Deodorant Cheirosa 68,2oz,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6866563465318,40163154329702,rio-deo-aluminum-free-deodorant-cheirosa-68,Rio Deo Aluminum-Free Deodorant Cheirosa 68,2oz Refill,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6866563465318,40163154329702,rio-deo-aluminum-free-deodorant-cheirosa-68,Rio Deo Aluminum-Free Deodorant Cheirosa 68,2oz Refill,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6919601291366,40373044248678,delicia-drench-body-butter,Delícia Drench™ Body Butter,240ml,price_down,4800,3600,,4800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6919601291366,40373044248678,delicia-drench-body-butter,Delícia Drench™ Body Butter,240ml,discount_start,4800,3600,,4800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6919601291366,40373044346982,delicia-drench-body-butter,Delícia Drench™ Body Butter,75ml,price_down,2400,1800,,2400,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6919601291366,40373044346982,delicia-drench-body-butter,Delícia Drench™ Body Butter,75ml,discount_start,2400,1800,,2400,
+2026-11-22T06:17:32Z,sol-de-janeiro,6942033313894,40457357295718,cheirosa-59-perfume-mist,Cheirosa 59 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,6942033313894,40457357295718,cheirosa-59-perfume-mist,Cheirosa 59 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,6942033313894,40457357328486,cheirosa-59-perfume-mist,Cheirosa 59 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6942033313894,40457357328486,cheirosa-59-perfume-mist,Cheirosa 59 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,6942033313894,40457570418790,cheirosa-59-perfume-mist,Cheirosa 59 Perfume Mist,Refill (240ml),price_down,3400,2600,,3400,-23.5
+2026-11-22T06:17:32Z,sol-de-janeiro,6942033313894,40457570418790,cheirosa-59-perfume-mist,Cheirosa 59 Perfume Mist,Refill (240ml),discount_start,3400,2600,,3400,
+2026-11-22T06:17:32Z,sol-de-janeiro,7055416590438,40898302902374,rio-radiance-sun-visor,Rio Radiance™ Sun Visor,Default Title,price_down,3000,2300,,3000,-23.3
+2026-11-22T06:17:32Z,sol-de-janeiro,7055416590438,40898302902374,rio-radiance-sun-visor,Rio Radiance™ Sun Visor,Default Title,discount_start,3000,2300,,3000,
+2026-11-22T06:17:32Z,sol-de-janeiro,7187838271590,41297981898854,cheirosa-48-perfume-mist,Cheirosa 48 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,7187838271590,41297981898854,cheirosa-48-perfume-mist,Cheirosa 48 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,7187838271590,41297981931622,cheirosa-48-perfume-mist,Cheirosa 48 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7187838271590,41297981931622,cheirosa-48-perfume-mist,Cheirosa 48 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7215706767462,41330071797862,cheirosa-76-perfume-mist,Cheirosa 76 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,7215706767462,41330071797862,cheirosa-76-perfume-mist,Cheirosa 76 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,7215706767462,41330071830630,cheirosa-76-perfume-mist,Cheirosa 76 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7215706767462,41330071830630,cheirosa-76-perfume-mist,Cheirosa 76 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,41847958405222,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,150ml,price_down,3600,2700,,3600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,538465337388,41847958405222,brazilian-bum-bum-cream,Brazilian Bum Bum® Cream,150ml,discount_start,3600,2700,,3600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7215706767462,41918759927910,cheirosa-76-perfume-mist,Cheirosa 76 Perfume Mist,Refill (240ml),price_down,3400,2600,,3400,-23.5
+2026-11-22T06:17:32Z,sol-de-janeiro,7215706767462,41918759927910,cheirosa-76-perfume-mist,Cheirosa 76 Perfume Mist,Refill (240ml),discount_start,3400,2600,,3400,
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,42104159797350,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,385ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,42104159797350,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,385ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,42104159895654,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,90ml,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,42104159895654,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,90ml,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,7440353198182,42132774027366,hair-towel,Sol Dual-Sided Hair Towel,Default Title,price_down,3500,2600,,3500,-25.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7440353198182,42132774027366,hair-towel,Sol Dual-Sided Hair Towel,Default Title,discount_start,3500,2600,,3500,
+2026-11-22T06:17:32Z,sol-de-janeiro,7450758676582,42170847461478,rio-deo-aluminum-free-deodorant-cheirosa-59,Rio Deo Aluminum-Free Deodorant Cheirosa 59,2oz,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,7450758676582,42170847461478,rio-deo-aluminum-free-deodorant-cheirosa-59,Rio Deo Aluminum-Free Deodorant Cheirosa 59,2oz,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7450758676582,42170847494246,rio-deo-aluminum-free-deodorant-cheirosa-59,Rio Deo Aluminum-Free Deodorant Cheirosa 59,2oz Refill,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7450758676582,42170847494246,rio-deo-aluminum-free-deodorant-cheirosa-59,Rio Deo Aluminum-Free Deodorant Cheirosa 59,2oz Refill,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7504560554086,42351352741990,dry-body-brush,Dry Body Brush,Default Title,price_down,2000,1500,,2000,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7504560554086,42351352741990,dry-body-brush,Dry Body Brush,Default Title,discount_start,2000,1500,,2000,
+2026-11-22T06:17:32Z,sol-de-janeiro,6763447943270,42606018232422,bom-dia-bright-body-scrub,Bom Dia Body Scrub,220g,price_down,4200,3200,,4200,-23.8
+2026-11-22T06:17:32Z,sol-de-janeiro,6763447943270,42606018232422,bom-dia-bright-body-scrub,Bom Dia Body Scrub,220g,discount_start,4200,3200,,4200,
+2026-11-22T06:17:32Z,sol-de-janeiro,6781817258086,42606018625638,bum-bum-body-firmeza-oil,Bum Bum Body Firmeza Oil,100ml,price_down,5200,3900,,5200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6781817258086,42606018625638,bum-bum-body-firmeza-oil,Bum Bum Body Firmeza Oil,100ml,discount_start,5200,3900,,5200,
+2026-11-22T06:17:32Z,sol-de-janeiro,7488445546598,42606019051622,beija-flor-body-oil,Beija Flor™ Elasti-Body Oil,100ml,price_down,5200,3900,,5200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7488445546598,42606019051622,beija-flor-body-oil,Beija Flor™ Elasti-Body Oil,100ml,discount_start,5200,3900,,5200,
+2026-11-22T06:17:32Z,sol-de-janeiro,538466713644,42606030880870,brazilian-kiss-cupuacu-lip-butter-doce-de-leite,Brazilian Kiss Cupuaçu Lip Butter,6.2g,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,538466713644,42606030880870,brazilian-kiss-cupuacu-lip-butter-doce-de-leite,Brazilian Kiss Cupuaçu Lip Butter,6.2g,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,538465566764,42606031503462,samba-2-step-foot-fetish-care,Samba Foot Fetish Care,90ml,price_down,2700,2000,,2700,-25.9
+2026-11-22T06:17:32Z,sol-de-janeiro,538465566764,42606031503462,samba-2-step-foot-fetish-care,Samba Foot Fetish Care,90ml,discount_start,2700,2000,,2700,
+2026-11-22T06:17:32Z,sol-de-janeiro,6623274795110,42617509150822,brazilian-touch-hand-cream,Brazilian Touch™ Hand Cream,50ml,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6623274795110,42617509150822,brazilian-touch-hand-cream,Brazilian Touch™ Hand Cream,50ml,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7643727822950,42745313001574,badalada-baseball-cap,Badalada Baseball Cap,Default Title,price_down,2800,2100,,2800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7643727822950,42745313001574,badalada-baseball-cap,Badalada Baseball Cap,Default Title,discount_start,2800,2100,,2800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7644552265830,42750578294886,badalada-beach-towel,Badalada Oversized Beach Towel,Default Title,price_down,4800,3600,,4800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7644552265830,42750578294886,badalada-beach-towel,Badalada Oversized Beach Towel,Default Title,discount_start,4800,3600,,4800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7644552364134,42750578557030,badalada-crossbody-belt-bag,Badalada Crossbody Belt Bag,Default Title,price_down,3500,2600,,3500,-25.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7644552364134,42750578557030,badalada-crossbody-belt-bag,Badalada Crossbody Belt Bag,Default Title,discount_start,3500,2600,,3500,
+2026-11-22T06:17:32Z,sol-de-janeiro,7644550824038,42750583144550,badalada-t-shirt,Badalada Relaxed Tee,Small,price_down,3500,2600,,3500,-25.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7644550824038,42750583144550,badalada-t-shirt,Badalada Relaxed Tee,Small,discount_start,3500,2600,,3500,
+2026-11-22T06:17:32Z,sol-de-janeiro,7644550824038,42750583177318,badalada-t-shirt,Badalada Relaxed Tee,Medium,price_down,3500,2600,,3500,-25.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7644550824038,42750583177318,badalada-t-shirt,Badalada Relaxed Tee,Medium,discount_start,3500,2600,,3500,
+2026-11-22T06:17:32Z,sol-de-janeiro,7644550824038,42750583210086,badalada-t-shirt,Badalada Relaxed Tee,Large,price_down,3500,2600,,3500,-25.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7644550824038,42750583210086,badalada-t-shirt,Badalada Relaxed Tee,Large,discount_start,3500,2600,,3500,
+2026-11-22T06:17:32Z,sol-de-janeiro,7646237786214,42756008083558,glowmotions-body-oil-glow-anywhere-set,Glowmotions™ Body Oil Glow Anywhere Set,Default Title,price_down,3200,2400,,3200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7646237786214,42756008083558,glowmotions-body-oil-glow-anywhere-set,Glowmotions™ Body Oil Glow Anywhere Set,Default Title,discount_start,3200,2400,,3200,
+2026-11-22T06:17:32Z,sol-de-janeiro,7646315839590,42756235559014,glowmotions-body-brush,Glowmotions Body Brush,Default Title,price_down,2200,1700,,2200,-22.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7646315839590,42756235559014,glowmotions-body-brush,Glowmotions Body Brush,Default Title,discount_start,2200,1700,,2200,
+2026-11-22T06:17:32Z,sol-de-janeiro,7634052218982,42766641594470,body-badalada-lotion,Body Badalada™ Vitamin-Infused Lotion,400ml,price_down,2800,2100,,2800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7634052218982,42766641594470,body-badalada-lotion,Body Badalada™ Vitamin-Infused Lotion,400ml,discount_start,2800,2100,,2800,
+2026-11-22T06:17:32Z,sol-de-janeiro,4826898038886,42947476750438,bum-bum-body-scrub,Bum Bum Body Scrub,75g,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,4826898038886,42947476750438,bum-bum-body-scrub,Bum Bum Body Scrub,75g,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6694127632486,42964899332198,beija-flor-elasti-cream,Beija Flor™ Elasti-Cream,150ml,price_down,3600,2700,,3600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6694127632486,42964899332198,beija-flor-elasti-cream,Beija Flor™ Elasti-Cream,150ml,discount_start,3600,2700,,3600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7790428487782,43678824857702,cheirosa-91-perfume-mist,Cheirosa 91 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,7790428487782,43678824857702,cheirosa-91-perfume-mist,Cheirosa 91 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,7790428487782,43678824890470,cheirosa-91-perfume-mist,Cheirosa 91 Perfume Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7790428487782,43678824890470,cheirosa-91-perfume-mist,Cheirosa 91 Perfume Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7790428487782,43678824923238,cheirosa-91-perfume-mist,Cheirosa 91 Perfume Mist,Refill (240ml),price_down,3400,2600,,3400,-23.5
+2026-11-22T06:17:32Z,sol-de-janeiro,7790428487782,43678824923238,cheirosa-91-perfume-mist,Cheirosa 91 Perfume Mist,Refill (240ml),discount_start,3400,2600,,3400,
+2026-11-22T06:17:32Z,sol-de-janeiro,7790441431142,43679299305574,rosa-charmosa-dewy-cream,Rosa Charmosa™ Dewy Cream,240ml,price_down,4800,3600,,4800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7790441431142,43679299305574,rosa-charmosa-dewy-cream,Rosa Charmosa™ Dewy Cream,240ml,discount_start,4800,3600,,4800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7790441431142,43679299338342,rosa-charmosa-dewy-cream,Rosa Charmosa™ Dewy Cream,75ml,price_down,2400,1800,,2400,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7790441431142,43679299338342,rosa-charmosa-dewy-cream,Rosa Charmosa™ Dewy Cream,75ml,discount_start,2400,1800,,2400,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854350794854,44403078234214,cheirosa-62-jelly-perfume-balm,Cheirosa 62™ Jelly Perfume Balm,Default Title,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7854350794854,44403078234214,cheirosa-62-jelly-perfume-balm,Cheirosa 62™ Jelly Perfume Balm,Default Title,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854353481830,44403085770854,cheirosa-68-jelly-perfume-balm,Cheirosa 68 Jelly Perfume Balm,Default Title,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7854353481830,44403085770854,cheirosa-68-jelly-perfume-balm,Cheirosa 68 Jelly Perfume Balm,Default Title,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854355447910,44403092783206,cheirosa-40-jelly-perfume-balm,Cheirosa 40 Jelly Perfume Balm,Default Title,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7854355447910,44403092783206,cheirosa-40-jelly-perfume-balm,Cheirosa 40 Jelly Perfume Balm,Default Title,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152027750,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,X-Small,price_down,3800,2900,,3800,-23.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152027750,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,X-Small,discount_start,3800,2900,,3800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152060518,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,Small,price_down,3800,2900,,3800,-23.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152060518,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,Small,discount_start,3800,2900,,3800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152093286,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,Medium,price_down,3800,2900,,3800,-23.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152093286,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,Medium,discount_start,3800,2900,,3800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152126054,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,Large,price_down,3800,2900,,3800,-23.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152126054,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,Large,discount_start,3800,2900,,3800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152158822,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,X-Large,price_down,3800,2900,,3800,-23.7
+2026-11-22T06:17:32Z,sol-de-janeiro,7854375927910,44403152158822,rosa-poplin-boxer-shorts,Rosa Poplin Boxer Shorts,X-Large,discount_start,3800,2900,,3800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,44820261109862,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,1 Liter,price_down,5800,4400,,5800,-24.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,44820261109862,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,1 Liter,discount_start,5800,4400,,5800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,44820261142630,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,1 Liter Refill,price_down,5000,3800,,5000,-24.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6763438964838,44820261142630,bom-dia-bright-body-wash,Bom Dia Bright™ Clarifying AHA BHA Body Wash,1 Liter Refill,discount_start,5000,3800,,5000,
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,44820279853158,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,1 Liter,price_down,5800,4400,,5800,-24.1
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,44820279853158,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,1 Liter,discount_start,5800,4400,,5800,
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,44820279885926,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,1 Liter Refill,price_down,5000,3800,,5000,-24.0
+2026-11-22T06:17:32Z,sol-de-janeiro,6866560057446,44820279885926,beija-flor-renewing-body-wash,Beija Flor™ Renewing Body Wash,1 Liter Refill,discount_start,5000,3800,,5000,
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,44820291420262,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,1 Liter Refill,price_down,5000,3800,,5000,-24.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,44820291420262,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,1 Liter Refill,discount_start,5000,3800,,5000,
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,44820422459494,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,1 Liter,price_down,5800,4400,,5800,-24.1
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,44820422459494,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,1 Liter,discount_start,5800,4400,,5800,
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,44820422492262,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,1 Liter Refill,price_down,5000,3800,,5000,-24.0
+2026-11-22T06:17:32Z,sol-de-janeiro,538466582572,44820422492262,brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel,Brazilian Play Moisturizing Shower Cream-Gel,1 Liter Refill,discount_start,5000,3800,,5000,
+2026-11-22T06:17:32Z,sol-de-janeiro,7880858992742,44820832944230,sol-passport-birthday-gift-perfume-mist-30ml,Sol Passport Birthday Gift - Perfume Mist (30ml),Cheirosa 62,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7880858992742,44820832944230,sol-passport-birthday-gift-perfume-mist-30ml,Sol Passport Birthday Gift - Perfume Mist (30ml),Cheirosa 62,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,7880858992742,44820832976998,sol-passport-birthday-gift-perfume-mist-30ml,Sol Passport Birthday Gift - Perfume Mist (30ml),Cheirosa 59,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7880858992742,44820832976998,sol-passport-birthday-gift-perfume-mist-30ml,Sol Passport Birthday Gift - Perfume Mist (30ml),Cheirosa 59,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,7880858992742,44820833009766,sol-passport-birthday-gift-perfume-mist-30ml,Sol Passport Birthday Gift - Perfume Mist (30ml),Cheirosa 39,price_down,1200,900,,1200,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7880858992742,44820833009766,sol-passport-birthday-gift-perfume-mist-30ml,Sol Passport Birthday Gift - Perfume Mist (30ml),Cheirosa 39,discount_start,1200,900,,1200,
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,44834511683686,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,1 Liter,price_down,5800,4400,,5800,-24.1
+2026-11-22T06:17:32Z,sol-de-janeiro,7432285683814,44834511683686,delicia-drench-shower-oil,Delícia Drench™ Shower Oil,1 Liter,discount_start,5800,4400,,5800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7958251241574,45427172016230,body-badalada-skin-refresh-water-lotion,Body Badalada™ Skin Refresh Water Lotion,400ml,price_down,2800,2100,,2800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7958251241574,45427172016230,body-badalada-skin-refresh-water-lotion,Body Badalada™ Skin Refresh Water Lotion,400ml,discount_start,2800,2100,,2800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7958251241574,45427172048998,body-badalada-skin-refresh-water-lotion,Body Badalada™ Skin Refresh Water Lotion,100ml,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7958251241574,45427172048998,body-badalada-skin-refresh-water-lotion,Body Badalada™ Skin Refresh Water Lotion,100ml,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7958256779366,45427201310822,body-badalada-moisture-melting-lotion,Body Badalada™ Moisture Melting Lotion,400ml,price_down,2800,2100,,2800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7958256779366,45427201310822,body-badalada-moisture-melting-lotion,Body Badalada™ Moisture Melting Lotion,400ml,discount_start,2800,2100,,2800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7958260416614,45535957876838,body-badalada-daily-glow-lotion,Limited Edition Body Badalada™ Daily Glow Lotion,400ml,price_down,2800,2100,,2800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7958260416614,45535957876838,body-badalada-daily-glow-lotion,Limited Edition Body Badalada™ Daily Glow Lotion,400ml,discount_start,2800,2100,,2800,
+2026-11-22T06:17:32Z,sol-de-janeiro,7634052218982,45580140675174,body-badalada-lotion,Body Badalada™ Vitamin-Infused Lotion,100ml,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7634052218982,45580140675174,body-badalada-lotion,Body Badalada™ Vitamin-Infused Lotion,100ml,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,3935836799078,45580151455846,cheirosa-39-perfume-mist,Cheirosa 39 Perfume Mist,240ml,price_down,3900,2900,,3900,-25.6
+2026-11-22T06:17:32Z,sol-de-janeiro,3935836799078,45580151455846,cheirosa-39-perfume-mist,Cheirosa 39 Perfume Mist,240ml,discount_start,3900,2900,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,8002584379494,45617683726438,milky-leave-in-conditioner-cheirosa-68,Milky Leave-In Conditioner Cheirosa 68,210ml,price_down,3000,2300,,3000,-23.3
+2026-11-22T06:17:32Z,sol-de-janeiro,8002584379494,45617683726438,milky-leave-in-conditioner-cheirosa-68,Milky Leave-In Conditioner Cheirosa 68,210ml,discount_start,3000,2300,,3000,
+2026-11-22T06:17:32Z,sol-de-janeiro,8002584379494,45617683759206,milky-leave-in-conditioner-cheirosa-68,Milky Leave-In Conditioner Cheirosa 68,60ml,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,8002584379494,45617683759206,milky-leave-in-conditioner-cheirosa-68,Milky Leave-In Conditioner Cheirosa 68,60ml,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,8002730098790,45617944297574,milky-leave-in-conditioner-cheirosa-59,Milky Leave-In Conditioner Cheirosa 59,210ml,price_down,3000,2300,,3000,-23.3
+2026-11-22T06:17:32Z,sol-de-janeiro,8002730098790,45617944297574,milky-leave-in-conditioner-cheirosa-59,Milky Leave-In Conditioner Cheirosa 59,210ml,discount_start,3000,2300,,3000,
+2026-11-22T06:17:32Z,sol-de-janeiro,8002730098790,45617944330342,milky-leave-in-conditioner-cheirosa-59,Milky Leave-In Conditioner Cheirosa 59,60ml,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,8002730098790,45617944330342,milky-leave-in-conditioner-cheirosa-59,Milky Leave-In Conditioner Cheirosa 59,60ml,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,8068381212774,45841596547174,cheiroso-7,Cheiroso 7 Cologne Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,8068381212774,45841596547174,cheiroso-7,Cheiroso 7 Cologne Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,8068371415142,45841597333606,cheiroso-10,Cheiroso 10 Cologne Mist,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,8068371415142,45841597333606,cheiroso-10,Cheiroso 10 Cologne Mist,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,8069048369254,45844329857126,leite-cafe-perfume-mist-limited-edition,Leite Café Perfume Mist | Limited Edition,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,8069048369254,45844329857126,leite-cafe-perfume-mist-limited-edition,Leite Café Perfume Mist | Limited Edition,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,8069048238182,45844337524838,leite-nectar-perfume-mist-limited-edition,Leite Néctar Perfume Mist | Limited Edition,90ml,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,8069048238182,45844337524838,leite-nectar-perfume-mist-limited-edition,Leite Néctar Perfume Mist | Limited Edition,90ml,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,7958256779366,46344191967334,body-badalada-moisture-melting-lotion,Body Badalada™ Moisture Melting Lotion,100ml,price_down,1600,1200,,1600,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,7958256779366,46344191967334,body-badalada-moisture-melting-lotion,Body Badalada™ Moisture Melting Lotion,100ml,discount_start,1600,1200,,1600,
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,46367271747686,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 62 Yellow,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,46367271747686,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 62 Yellow,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,46367271813222,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 40 Red,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,46367271813222,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 40 Red,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,8169717989478,46645112733798,cheirosa-48-jelly-perfume-balm,Cheirosa 48 Jelly Perfume Balm,Default Title,price_down,2600,2000,,2600,-23.1
+2026-11-22T06:17:32Z,sol-de-janeiro,8169717989478,46645112733798,cheirosa-48-jelly-perfume-balm,Cheirosa 48 Jelly Perfume Balm,Default Title,discount_start,2600,2000,,2600,
+2026-11-22T06:17:32Z,sol-de-janeiro,8170939842662,46650129842278,sol-cheer,Sol & Cheer,Default Title,price_down,2800,2000,,2800,-28.6
+2026-11-22T06:17:32Z,sol-de-janeiro,8170939842662,46650129842278,sol-cheer,Sol & Cheer,Default Title,discount_start,2800,2000,,2800,
+2026-11-22T06:17:32Z,sol-de-janeiro,8171022221414,46651138506854,spritz-sol,Spritz & Sol,Default Title,price_down,3900,2700,,3900,-30.8
+2026-11-22T06:17:32Z,sol-de-janeiro,8171022221414,46651138506854,spritz-sol,Spritz & Sol,Default Title,discount_start,3900,2700,,3900,
+2026-11-22T06:17:32Z,sol-de-janeiro,8171038474342,46651219640422,cheirosa-anywhere,Cheirosa Anywhere,Default Title,price_down,4900,3400,,4900,-30.6
+2026-11-22T06:17:32Z,sol-de-janeiro,8171038474342,46651219640422,cheirosa-anywhere,Cheirosa Anywhere,Default Title,discount_start,4900,3400,,4900,
+2026-11-22T06:17:32Z,sol-de-janeiro,8171040505958,46651240022118,lifted-bum-bums-spirits,Lifted Bum Bums & Spirits,Default Title,price_down,4900,3400,,4900,-30.6
+2026-11-22T06:17:32Z,sol-de-janeiro,8171040505958,46651240022118,lifted-bum-bums-spirits,Lifted Bum Bums & Spirits,Default Title,discount_start,4900,3400,,4900,
+2026-11-22T06:17:32Z,sol-de-janeiro,8172504875110,46658504818790,smooth-bright-solidays,Smooth & Bright Solidays,Default Title,price_down,4900,3400,,4900,-30.6
+2026-11-22T06:17:32Z,sol-de-janeiro,8172504875110,46658504818790,smooth-bright-solidays,Smooth & Bright Solidays,Default Title,discount_start,4900,3400,,4900,
+2026-11-22T06:17:32Z,sol-de-janeiro,8172508250214,46658512289894,sol-many-options,Sol Many Options,Default Title,price_down,15000,10500,,15000,-30.0
+2026-11-22T06:17:32Z,sol-de-janeiro,8172508250214,46658512289894,sol-many-options,Sol Many Options,Default Title,discount_start,15000,10500,,15000,
+2026-11-22T06:17:32Z,sol-de-janeiro,8172509167718,46658517303398,sol-to-the-world,Sol to the World,Default Title,price_down,23900,16700,,23900,-30.1
+2026-11-22T06:17:32Z,sol-de-janeiro,8172509167718,46658517303398,sol-to-the-world,Sol to the World,Default Title,discount_start,23900,16700,,23900,
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,47201165738086,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 68 Pink,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,47201165738086,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 68 Pink,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,47201165770854,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 48 Hot Pink,price_down,1800,1400,,1800,-22.2
+2026-11-22T06:17:32Z,sol-de-janeiro,8104849768550,47201165770854,jelly-perfume-balm-keychain,Jelly Perfume Balm Keychain,Cheirosa 48 Hot Pink,discount_start,1800,1400,,1800,
+2026-11-22T06:17:32Z,sol-de-janeiro,15420185935974,67699076005990,wish-ribbons,Wish Ribbons,Yellow-Red,price_down,800,600,,800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,15420185935974,67699076005990,wish-ribbons,Wish Ribbons,Yellow-Red,discount_start,800,600,,800,
+2026-11-22T06:17:32Z,sol-de-janeiro,15420185935974,67699076038758,wish-ribbons,Wish Ribbons,Purple-Pink,price_down,800,600,,800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,15420185935974,67699076038758,wish-ribbons,Wish Ribbons,Purple-Pink,discount_start,800,600,,800,
+2026-11-22T06:17:32Z,sol-de-janeiro,15420185935974,67699076071526,wish-ribbons,Wish Ribbons,Magenta-Teal,price_down,800,600,,800,-25.0
+2026-11-22T06:17:32Z,sol-de-janeiro,15420185935974,67699076071526,wish-ribbons,Wish Ribbons,Magenta-Teal,discount_start,800,600,,800,
+2026-11-22T06:17:32Z,sol-de-janeiro,15468130795622,67930216136806,small-gift-wrap,Small Gift Wrap,Default Title,price_down,500,400,,500,-20.0
+2026-11-22T06:17:32Z,sol-de-janeiro,15468130795622,67930216136806,small-gift-wrap,Small Gift Wrap,Default Title,discount_start,500,400,,500,
+2026-11-22T06:17:32Z,sol-de-janeiro,15468131057766,67930217480294,medium-gift-wrap,Medium Gift Wrap,Default Title,price_down,1000,800,,1000,-20.0
+2026-11-22T06:17:32Z,sol-de-janeiro,15468131057766,67930217480294,medium-gift-wrap,Medium Gift Wrap,Default Title,discount_start,1000,800,,1000,
+2026-11-22T06:17:32Z,soundcore-us,8163235070142,44204803621054,a3040031-f0,Space Q45 (Refurbished),Blue,price_up,7999,999999999,,,12501462.7
+2026-11-22T06:17:32Z,soundcore-us,8704976552126,46379130847422,soundcore-v20i-refurbished,soundcore V20i (Refurbished),Blue,out_of_stock,4999,4999,,,
+2026-11-22T06:17:32Z,soundcore-us,8704977436862,46379135271102,soundcore-q20i-refurbished,Q20i (Refurbished),White,out_of_stock,6999,6999,,,
+2026-11-22T06:17:32Z,soundcore-us,8704980746430,46379151360190,soundcore-liberty-4-pro-refurbished,Liberty 4 Pro (Refurbished),Pearl White,back_in_stock,14999,14999,,,
+2026-11-22T06:17:32Z,soundcore-us,8704984613054,46379172266174,soundcore-sport-x20-refurbished,Sport X20 (Refurbished),Green,back_in_stock,5999,5999,,,
+2026-11-22T06:17:32Z,soundcore-us,8741161631934,46477408698558,soundcore-boom-3i-refurbished,Boom 3i (Refurbished),Adventurer Black,back_in_stock,12999,12999,,,
+2026-11-22T06:17:32Z,soundcore-us,8777712468158,46660694114494,a83b3-anker-prime-charging-docking-station-14-in-1-triple-display-140w,"Anker Prime Docking Station (14-in-1, Triple Display, DisplayLink) with DL7400",Dark Gray (Standard Edition),out_of_stock,29999,29999,,,
+2026-11-22T06:17:32Z,soundcore-us,8704985497790,47978494820542,soundcore-sleep-a30-refurbished,Sleep A30  (Refurbished),Lunar White Special,back_in_stock,19999,19999,,,
+2026-11-22T06:17:32Z,soundcore-us,9022538350782,49123665674430,v40i-refurbished,V40i (Refurbished),Pearl White,back_in_stock,7999,7999,,,
+2026-11-22T06:17:32Z,soundcore-us,9026111439038,49136845455550,aerofit-2-pro-refurbished,AeroFit 2 Pro (Refurbished),Matte Purple,out_of_stock,17999,17999,,,
+2026-11-22T06:17:32Z,state-liberty,7856706289745,42897830871121,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,40 / Heathered Forest Green,out_of_stock,48000,48000,,,
+2026-11-22T06:17:32Z,state-liberty,15769246728273,59393913389137,buttonless-sweater-polo-light-tan,Buttonless Sweater Polo - Light Tan,M / Light Tan,out_of_stock,9800,9800,,,
+2026-11-22T06:17:32Z,year-day,6936582422699,42186701799595,big-bowl,Big Bowls,Palm,out_of_stock,7000,7000,,,
