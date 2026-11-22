@@ -14,6 +14,7 @@ import pytest
 from pricemon.feed import MAX_BYTES, SCHEMA, build_feed, daily, dumps, publish, write_feed
 from pricemon.outputs import build_status, read_runs
 from pricemon.run import EXIT_HELD, EXIT_OK, RunConfig, process
+from pricemon.schedule import trigger_since
 from tests.test_outputs import DAY1, DAY2, catalog, fetched
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -224,10 +225,18 @@ def test_only_good_runs_feed_last_run(status: str) -> None:
     assert feed["totals"]["runs_total"] == 2
 
 
-def test_feed_shows_delivery_and_no_on_time_count_before_the_trigger() -> None:
+def test_feed_counts_on_time_only_from_the_trigger_in_the_committed_run_log() -> None:
+    # The committed feed agrees with the committed run log: on time is counted only
+    # from the first slot the on-time trigger dispatched (none before 22 Nov 2026).
     feed = json.loads((ROOT / "data" / "public" / "feed.json").read_text())
+    runs = [json.loads(x) for x in (ROOT / "data" / "runs.jsonl").read_text().splitlines() if x]
+    since = trigger_since(runs)
     sched = feed["schedule"]
     assert sched["delivered"] == sched["slots"]
-    assert sched["on_time_since"] is None
-    assert sched["on_time_pct"] is None
+    if since is None:
+        assert (sched["on_time_since"], sched["on_time_pct"]) == (None, None)
+    else:
+        assert sched["on_time_since"] == since.strftime("%Y-%m-%dT%H:%M:%SZ")
+        assert sched["on_time_since"] >= "2026-11-22"
+        assert sched["on_time_pct"] is not None
     assert sched["note"].endswith("(INC-009).")
