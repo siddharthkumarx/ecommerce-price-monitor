@@ -65,6 +65,7 @@ def test_dashboard_from_real_pipeline_outputs(tmp_path: Path) -> None:
         in text
     )
     assert "Built and maintained by Siddharth Kumar, founder of SteadyData" in text
+    assert 'Store owners can opt out: email <a href="mailto:hello@steadydata.co">' in text
     # The daily charts: the second run's 30 drops and 30 sale starts, numbers also in a table.
     assert "5 Nov: <b>0 price rises</b>, <b>30 price drops</b>" in text
     assert "<b>30 sales started</b>" in text

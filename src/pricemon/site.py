@@ -587,6 +587,8 @@ US dollars; a run that looks wrong is held and the last good data stays live.</p
 <a href="{REPO_URL}/tree/main/data/changes">daily change logs</a>,
 <a href="{REPO_URL}/releases">monthly history (Parquet)</a>,
 <a href="{REPO_URL}/blob/main/data/public/feed.json">public feed (JSON)</a>. Built {esc(now.strftime("%Y-%m-%d %H:%M UTC"))}.</p>
+<p class="note">Store owners can opt out: email <a href="mailto:hello@steadydata.co">hello@steadydata.co</a>
+and the store is removed within 24 hours.</p>
 <p class="author">Built and maintained by Siddharth Kumar, founder of SteadyData · {author}</p>
 </div>
 </footer>
