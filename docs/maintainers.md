@@ -107,6 +107,27 @@ dots), never for text, and always with a direct text label. Plus Jakarta Sans
 reduced motion shows the final state. Check with `node scripts/screenshots.cjs site`
 (360, 390, 768, 1280 and 1440 px).
 
+### Canvas rule (owner decision, 22 Nov 2026)
+
+Every image's outermost background is `#F3F8F7`: never pure white `#FFFFFF`, never
+dark `#0B1416`, never transparent with dark text. Cards inside stay `#FFFFFF` with
+border `#E2EAE8` and radius 14 px. A screenshot of a white page is shown framed: the
+page as a card (radius 14, border `#E2EAE8`) on about 40 px of `#F3F8F7`.
+
+- `scripts/render_media.cjs` draws the social preview on the canvas (text in a white
+  card, chart on the canvas) and frames the dashboard shot (with reduced motion, so
+  the charts show their final state). `scripts/screenshots.cjs` frames its shots
+  (`--raw` for the bare page).
+- `src/pricemon/site_assets/og.png` is the steadydata.co case-study picture, copied
+  from `assets/img/og/case-studies-ecommerce-price-monitor.png` there (rendered by
+  its `_dev/render_assets.js`, already on the canvas).
+- Exceptions: the dashboard page itself (`#FFFFFF` with `#F3F8F7` bands), the
+  favicon and app-icon tiles in `src/pricemon/site_assets/icons/`, and the Simple
+  Icons logos drawn inside the README visuals.
+- `node scripts/check_canvas.cjs` (run by `tests/test_canvas_rule.py`) checks every
+  edge pixel of every tracked PNG and the first `<rect>` fill of every SVG, and fails
+  on anything else outside the exceptions.
+
 ### README
 
 `README.md` and `data/README.md` are **generated**: edit `templates/*.md.j2`,

@@ -7,12 +7,26 @@
 // Checks per width: no horizontal page scroll, no request leaves file://, every
 // visible text node meets 4.5:1 contrast on its effective background, both font
 // families load, and reduced motion is honoured. Screenshots: site/screenshots/
-// (not committed).
+// (not committed), framed by the canvas rule: the white page as a card (radius
+// 14px, border #E2EAE8) on 40 px of #F3F8F7. Pass --raw for the bare page.
 const path = require("path");
 const fs = require("fs");
 const { chromium } = require("playwright");
 
 const WIDTHS = [360, 390, 768, 1280, 1440];
+const RAW = process.argv.includes("--raw");
+
+async function frame(browser, png, w, h) {
+  const ctx = await browser.newContext({ viewport: { width: w + 82, height: 200 }, deviceScaleFactor: 2 });
+  const page = await ctx.newPage();
+  await page.setContent(`<!doctype html><body style="margin:0;padding:40px;background:#F3F8F7;width:${w + 2}px">
+    <div style="border:1px solid #E2EAE8;border-radius:14px;overflow:hidden;background:#FFFFFF;width:${w}px;height:${h}px">
+    <img style="display:block;width:${w}px;height:${h}px" src="data:image/png;base64,${png.toString("base64")}"></div></body>`);
+  await page.waitForFunction(() => document.images[0].complete);
+  const framed = await page.screenshot({ fullPage: true });
+  await ctx.close();
+  return framed;
+}
 
 function contrastProblems() {
   const lum = (r, g, b) => {
@@ -42,7 +56,7 @@ function contrastProblems() {
 }
 
 (async () => {
-  const site = path.resolve(process.argv[2] || "site");
+  const site = path.resolve(process.argv.slice(2).find((a) => a !== "--raw") || "site");
   const url = "file://" + path.join(site, "index.html");
   const out = path.join(site, "screenshots");
   fs.mkdirSync(out, { recursive: true });
@@ -66,7 +80,9 @@ function contrastProblems() {
     for (const fam of ["Plus Jakarta Sans", "IBM Plex Mono"]) if (!families.has(fam)) problems.push(`${width}px: font ${fam} not loaded`);
     const transition = await page.evaluate(() => getComputedStyle(document.querySelector("a") || document.body).transitionDuration);
     if (transition !== "0s") problems.push(`${width}px: transitions active under reduced motion`);
-    await page.screenshot({ path: path.join(out, `dashboard-${width}.png`), fullPage: true });
+    const shot = await page.screenshot({ fullPage: true });
+    const fullH = await page.evaluate(() => document.documentElement.scrollHeight);
+    fs.writeFileSync(path.join(out, `dashboard-${width}.png`), RAW ? shot : await frame(browser, shot, width, fullH));
     console.log(`${width}px: scrollWidth=${scrollW} fonts=${[...new Set(fonts)].sort().join("; ")}`);
     await ctx.close();
   }
