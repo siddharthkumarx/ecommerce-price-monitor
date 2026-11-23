@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-11-23T12:17:59Z",
+  "first_run": "2026-11-23T12:09:26Z",
+  "days_running": 1,
+  "runs_total": 1,
+  "runs_good": 1,
+  "runs_held": 0,
+  "missed_runs": 0,
+  "missed_slots": [],
+  "schedule": {
+    "on_time_window_h": 2,
+    "delivered": 1,
+    "on_time_since": null,
+    "since": {
+      "slots": 0,
+      "on_time": 0,
+      "late": 0,
+      "held": 0,
+      "missed": 0
+    },
+    "on_time_pct": null,
+    "note": "So far GitHub's scheduler often started runs late; every day was still delivered (INC-009).",
+    "slots": 1,
+    "on_time": 0,
+    "late": 1,
+    "held": 0,
+    "missed": 0,
+    "pending": 0,
+    "late_slots": [
+      "2026-11-23T06:17:00Z"
+    ],
+    "missed_slots": []
+  },
+  "last_run": {
+    "run_id": "20261123T120926Z",
+    "started_at": "2026-11-23T12:09:26Z",
+    "status": "ok",
+    "duration_s": 512.5,
+    "stores_ok": 29,
+    "stores_total": 29,
+    "rows_live": 24349,
+    "hold_reasons": []
+  },
+  "rows_today": 24349
+}
