@@ -32,16 +32,7 @@ CONTRACT: dict[str, Any] = {
         "first_run": str,
         "stores_total": int,
         "categories": list,
-        "platforms": list,
     },
-    "delivery": {
-        "since": str,
-        "runs_due": int,
-        "runs_delivered": int,
-        "on_time_runs_due": int,
-        "on_time_runs": int,
-    },
-    "history_url": str,
     "last_run": {
         "run_id": str,
         "finished_at": str,
@@ -59,6 +50,19 @@ CONTRACT: dict[str, Any] = {
     },
     "totals": {"days_running": int, "runs_total": int, "runs_good": int, "runs_held": int},
     "daily": list,
+}
+# Fields added by D-031 (the contract only grows): every feed built from now on has
+# them; a feed committed by a run before D-031 does not.
+CONTRACT_D031: dict[str, Any] = {
+    "monitor": {"platforms": list},
+    "delivery": {
+        "since": str,
+        "runs_due": int,
+        "runs_delivered": int,
+        "on_time_runs_due": int,
+        "on_time_runs": int,
+    },
+    "history_url": str,
 }
 DAILY_KEYS = {
     "date": str,
@@ -208,6 +212,7 @@ def test_pipeline_writes_the_feed_and_a_held_run_leaves_it_alone(tmp_path: Path)
     feed_file = cfg.data / "public" / "feed.json"
     first = json.loads(feed_file.read_text())
     conforms(first, CONTRACT)
+    conforms(first, CONTRACT_D031)
     assert first["daily"] == []  # only the baseline so far
     code, _ = process(
         cfg, [fetched("a", catalog(30, "40.00", "50.00"), DAY2)], DAY2, time.monotonic()
