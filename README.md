@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,703 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,706 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -15,7 +15,7 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 22 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 23 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
@@ -25,22 +25,22 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,703 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,706 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 22 November 2026: 145 price drops, 2 price rises, 138 sales started, 1 sale ended, 49 items sold out, 11 items back in stock, 1 new product option, 27 product options removed. The biggest moves:
+In the run of 23 November 2026: 48 items sold out, 20 items back in stock, 21 new product options, 18 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Soundcore (US) | [Space Q45 (Refurbished) (Blue)](https://us.soundcore.com/products/a3040031-f0) | Price up (+12501462.7%) | $79.99 | $9,999,999.99 |
-| JLab | [Epic Party Portable Bluetooth Speaker Black](https://www.jlab.com/products/epic-party-portable-bluetooth-speaker-black) | Price up, Sale ended (+50.8%) | $126.00 | $189.99 |
-| Sol de Janeiro | [Spritz & Sol](https://soldejaneiro.com/products/spritz-sol) | Price down, Sale started (-30.8%) | $39.00 | $27.00 |
-| Sol de Janeiro | [Cheirosa Anywhere](https://soldejaneiro.com/products/cheirosa-anywhere) | Price down, Sale started (-30.6%) | $49.00 | $34.00 |
-| Sol de Janeiro | [Lifted Bum Bums & Spirits](https://soldejaneiro.com/products/lifted-bum-bums-spirits) | Price down, Sale started (-30.6%) | $49.00 | $34.00 |
-| Sol de Janeiro | [Smooth & Bright Solidays](https://soldejaneiro.com/products/smooth-bright-solidays) | Price down, Sale started (-30.6%) | $49.00 | $34.00 |
-| Sol de Janeiro | [Sol to the World](https://soldejaneiro.com/products/sol-to-the-world) | Price down, Sale started (-30.1%) | $239.00 | $167.00 |
-| Sol de Janeiro | [Sol Many Options](https://soldejaneiro.com/products/sol-many-options) | Price down, Sale started (-30.0%) | $150.00 | $105.00 |
+| Bee's Wrap | [Bread Bag (Bakery Lane)](https://www.beeswrap.com/products/bread-bag) | Sold out | $19.99 | $19.99 |
+| Big Agnes | [Big Six Camp Chair (Brown Sugar)](https://www.bigagnes.com/products/big-six-camp-chair) | Sold out | $249.95 | $249.95 |
+| Big Agnes | [Gear Lofts (Triangle)](https://www.bigagnes.com/products/gear-lofts) | Sold out | $24.95 | $24.95 |
+| Big Agnes | [M's Wirehand Parka (Brown Sugar/Vetiver / XL)](https://www.bigagnes.com/products/ms-wirehand-parka) | Sold out | $149.97 | $149.97 |
+| Big Agnes | [W's Bearsley UL Jacket (Cendre Blue / XS)](https://www.bigagnes.com/products/ws-bearsley-jacket) | Sold out | $174.97 | $174.97 |
+| Big Agnes | [W's Star Route Parka (Arctic Wolf/Eucalyptus/Granite Green / XS)](https://www.bigagnes.com/products/ws-star-route-parka) | Sold out | $299.95 | $299.95 |
+| Feat Clothing | [The Men's All Natural Tee (StormyWeather / XXL)](https://featclothing.com/products/the-mens-alpaca-t-shirt) | Sold out | $65.00 | $65.00 |
+| Greats | [The Kingston - White White (13 / White White)](https://www.greats.com/products/the-kingston-white-white-mens) | Sold out | $199.00 | $199.00 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -50,7 +50,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 270 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.4 minutes, and no store blocked us.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.6 minutes, and no store blocked us.
 
 ## How it works
 
@@ -65,7 +65,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 19."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 20."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -93,7 +93,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 19 of 19 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 1 of 1 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 20 of 20 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 2 of 2 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
@@ -112,7 +112,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 22 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 23 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -131,16 +131,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-22T06:17:32Z` |
-| `store_id` | text | Store | `jlab` |
-| `variant_id` | integer | Product option | `40342906568776` |
-| `product_title` | text | Product name | `Go Tones+ True Wireless Earbuds 7572 W` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `1899` |
-| `new_price_cents` | integer or empty | Price after, US cents | `1749` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `2699` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `2699` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-7.9` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-23T06:17:33Z` |
+| `store_id` | text | Store | `bee-s-wrap` |
+| `variant_id` | integer | Product option | `53186903736595` |
+| `product_title` | text | Product name | `Bread Bag` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
+| `old_price_cents` | integer or empty | Price before, US cents | `1999` |
+| `new_price_cents` | integer or empty | Price after, US cents | `1999` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 

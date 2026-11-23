@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-11-22T06:23:56Z",
+  "generated_at": "2026-11-23T06:24:08Z",
   "first_run": "2026-11-04T08:46:55Z",
-  "days_running": 19,
-  "runs_total": 19,
-  "runs_good": 19,
+  "days_running": 20,
+  "runs_total": 20,
+  "runs_good": 20,
   "runs_held": 0,
   "missed_runs": 0,
   "missed_slots": [],
   "schedule": {
     "on_time_window_h": 2,
-    "delivered": 19,
+    "delivered": 20,
     "on_time_since": "2026-11-22T06:17:00Z",
     "since": {
-      "slots": 1,
-      "on_time": 1,
+      "slots": 2,
+      "on_time": 2,
       "late": 0,
       "held": 0,
       "missed": 0
     },
     "on_time_pct": 100.0,
     "note": "Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).",
-    "slots": 19,
-    "on_time": 1,
+    "slots": 20,
+    "on_time": 2,
     "late": 18,
     "held": 0,
     "missed": 0,
@@ -41,14 +41,14 @@
     "missed_slots": []
   },
   "last_run": {
-    "run_id": "20261122T061732Z",
-    "started_at": "2026-11-22T06:17:32Z",
+    "run_id": "20261123T061733Z",
+    "started_at": "2026-11-23T06:17:33Z",
     "status": "ok",
-    "duration_s": 384.2,
+    "duration_s": 395.0,
     "stores_ok": 25,
     "stores_total": 25,
-    "rows_live": 11703,
+    "rows_live": 11706,
     "hold_reasons": []
   },
-  "rows_today": 11703
+  "rows_today": 11706
 }

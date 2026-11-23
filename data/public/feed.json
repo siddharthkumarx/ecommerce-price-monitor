@@ -1,6 +1,6 @@
 {
   "schema": "steadydata.feed/v1",
-  "generated_at": "2026-11-22T06:23:56Z",
+  "generated_at": "2026-11-23T06:24:08Z",
   "monitor": {
     "id": "ecommerce-price-monitor",
     "title": "Daily price monitor, 25 US online stores",
@@ -25,45 +25,45 @@
     "cadence": "daily at 06:17 UTC"
   },
   "last_run": {
-    "run_id": "20261122T061732Z",
-    "started_at": "2026-11-22T06:17:32Z",
-    "finished_at": "2026-11-22T06:23:56Z",
+    "run_id": "20261123T061733Z",
+    "started_at": "2026-11-23T06:17:33Z",
+    "finished_at": "2026-11-23T06:24:08Z",
     "status": "ok",
     "stores_ok": 25,
     "stores_total": 25,
-    "rows_live": 11703,
-    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/44993021397"
+    "rows_live": 11706,
+    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/45123059239"
   },
   "checks": {
-    "rows_validated": 11703,
+    "rows_validated": 11706,
     "rows_rejected": 0,
     "held_back": 0,
-    "second_source_checks": 49,
-    "second_source_matches": 48,
+    "second_source_checks": 48,
+    "second_source_matches": 47,
     "second_source": {
       "js_checked": 25,
       "js_matches": 25,
-      "jsonld_checked": 24,
-      "jsonld_matches": 23
+      "jsonld_checked": 23,
+      "jsonld_matches": 22
     },
-    "rows_compared_with_last_run": 11702,
-    "suspicious_price_moves": 1,
+    "rows_compared_with_last_run": 11685,
+    "suspicious_price_moves": 0,
     "guard_holds": 0
   },
   "totals": {
-    "days_running": 19,
-    "runs_total": 19,
-    "runs_good": 19,
+    "days_running": 20,
+    "runs_total": 20,
+    "runs_good": 20,
     "runs_held": 0
   },
   "schedule": {
-    "slots": 19,
-    "delivered": 19,
+    "slots": 20,
+    "delivered": 20,
     "missed": 0,
     "on_time_window_h": 2,
     "on_time_since": "2026-11-22T06:17:00Z",
-    "on_time_slots": 1,
-    "on_time": 1,
+    "on_time_slots": 2,
+    "on_time": 2,
     "on_time_pct": 100.0,
     "note": "Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009)."
   },
@@ -85,6 +85,7 @@
     {"date":"2026-11-19","runs":1,"rows_live":11796,"price_down":219,"price_up":775,"discount_start":148,"discount_end":0,"out_of_stock":59,"back_in_stock":19,"new":65,"removed":67},
     {"date":"2026-11-20","runs":1,"rows_live":11767,"price_down":99,"price_up":24,"discount_start":61,"discount_end":23,"out_of_stock":44,"back_in_stock":51,"new":30,"removed":59},
     {"date":"2026-11-21","runs":1,"rows_live":11729,"price_down":273,"price_up":0,"discount_start":272,"discount_end":0,"out_of_stock":32,"back_in_stock":31,"new":9,"removed":47},
-    {"date":"2026-11-22","runs":1,"rows_live":11703,"price_down":145,"price_up":2,"discount_start":138,"discount_end":1,"out_of_stock":49,"back_in_stock":11,"new":1,"removed":27}
+    {"date":"2026-11-22","runs":1,"rows_live":11703,"price_down":145,"price_up":2,"discount_start":138,"discount_end":1,"out_of_stock":49,"back_in_stock":11,"new":1,"removed":27},
+    {"date":"2026-11-23","runs":1,"rows_live":11706,"price_down":0,"price_up":0,"discount_start":0,"discount_end":0,"out_of_stock":48,"back_in_stock":20,"new":21,"removed":18}
   ]
 }
