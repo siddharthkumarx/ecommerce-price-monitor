@@ -1,9 +1,9 @@
 # Live check request. Pushing a change to this file runs .github/workflows/checks.yml
 # on the GitHub runner; results are committed to checks/results/<id>/.
-# pipeline-100: full dry run of the daily pipeline over the 100-store
+# pipeline-101: full dry run (after the pipeline-100 fixes: combined listings, hidden sample products) of the daily pipeline over the 100-store
 # config/stores.yml (D-032) at the daily pace, writing into
 # checks/results/pipeline-100/data only. Measures rows, requests and runtime.
-id: pipeline-100
+id: pipeline-101
 check: pipeline
 stores: config/stores.yml
 concurrency: 5
