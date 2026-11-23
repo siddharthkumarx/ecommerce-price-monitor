@@ -1,5 +1,5 @@
 ---
-pretty_name: US Shopify store prices, daily
+pretty_name: US online store prices, daily
 license: cc-by-4.0
 language:
 - en
@@ -8,6 +8,8 @@ tags:
 - prices
 - retail
 - shopify
+- woocommerce
+- bigcommerce
 - time-series
 - web-scraping
 size_categories:
@@ -22,9 +24,9 @@ configs:
   data_files: changes/*/*.csv
 ---
 
-# US Shopify store prices, daily
+# US online store prices, daily
 
-Daily prices, sale ("compare-at") prices and stock for every product option of {{ stores|length }} US direct-to-consumer brands on Shopify, with a change log and a monthly price history. Collected by [{{ pub.repo }}]({{ repo_url }}); this card is re-rendered after every run.
+Daily prices, sale ("compare-at") prices and stock for every product option of {{ stores|length }} US online stores on {{ platforms|join(', ') }}, with a change log and a monthly price history. Collected by [{{ pub.repo }}]({{ repo_url }}); this card is re-rendered after every run.
 
 ## Dataset summary
 

@@ -243,7 +243,7 @@ def hero(f: Facts, width: int = 1000, height: int = 460) -> Visual:
         f"the latest run recorded {f.snapshot_rows:,} prices."
     )
     return Visual(
-        width, height, "Shopify price monitor", desc, b1 + b2 + b3, HERO_ANIMATION, HERO_FINAL
+        width, height, "E-commerce price monitor", desc, b1 + b2 + b3, HERO_ANIMATION, HERO_FINAL
     )
 
 
@@ -303,7 +303,7 @@ def hero_square(f: Facts, size: int = 1080) -> Visual:
     )
     desc = f"{f.snapshot_rows:,} prices from {stores} US online stores, checked every day."
     return Visual(
-        size, size, "Shopify price monitor", desc, b1 + b2 + b3, HERO_ANIMATION, HERO_FINAL
+        size, size, "E-commerce price monitor", desc, b1 + b2 + b3, HERO_ANIMATION, HERO_FINAL
     )
 
 

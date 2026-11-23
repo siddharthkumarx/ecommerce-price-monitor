@@ -30,7 +30,7 @@ from pricemon.outputs import (
     snapshot_summary,
 )
 from pricemon.schedule import slot_states
-from pricemon.stores import CATEGORY_TITLES, Store, load_stores
+from pricemon.stores import CATEGORY_TITLES, PLATFORM_TITLES, Store, load_stores
 from pricemon.warmup import public_stores
 
 ASSETS = Path(__file__).parent / "site_assets"
@@ -490,16 +490,18 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
     )
 
     author = " · ".join(f'<a href="{u}">{esc(t)}</a>' for t, u in AUTHOR_LINKS)
-    description = (
-        f"Daily price, sale and stock monitor for {len(stores)} US direct-to-consumer brands "
-        "on Shopify."
-    )
+    used = {st.platform for st in stores}
+    plats = [title for key, title in PLATFORM_TITLES.items() if key in used]
+    on = ""
+    if plats:
+        on = " on " + (plats[0] if len(plats) == 1 else ", ".join(plats[:-1]) + " and " + plats[-1])
+    description = f"Daily price, sale and stock monitor for {len(stores)} US online stores{on}."
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shopify price monitor</title>
+<title>E-commerce price monitor</title>
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{PAGE_URL}">
 <meta name="theme-color" content="#FFFFFF">
@@ -507,14 +509,14 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SteadyData">
 <meta property="og:url" content="{PAGE_URL}">
-<meta property="og:title" content="Shopify price monitor">
+<meta property="og:title" content="E-commerce price monitor">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:image" content="{PAGE_URL}og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SteadyData case study: a daily price monitor for {len(stores)} US online stores">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Shopify price monitor">
+<meta name="twitter:title" content="E-commerce price monitor">
 <meta name="twitter:description" content="{esc(description)}">
 <meta name="twitter:image" content="{PAGE_URL}og.png">
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -524,7 +526,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 <body>
 <div class="wrap">
 <div class="topbar">
-<a class="brand" href="{REPO_URL}">{MARK}<span>Shopify price monitor</span></a>
+<a class="brand" href="{REPO_URL}">{MARK}<span>E-commerce price monitor</span></a>
 <span class="by">Built by SteadyData · <a href="{STEADYDATA_CONTACT}">Get a free sample</a></span>
 </div>
 <header class="hero">
