@@ -401,7 +401,11 @@ def render(
         "",
         f"- candidates: {len(records)}",
         f"- selected: {len(selected)} stores, {sum(variants.values()):,} variants",
-        *(f"  - {CATEGORY_TITLES[c]}: {counts[c]} stores, {variants[c]:,} variants" for c in shown),
+        *(
+            f"  - {CATEGORY_TITLES[c]}: {counts[c]} store{'' if counts[c] == 1 else 's'}, "
+            f"{variants[c]:,} variants"
+            for c in shown
+        ),
         f"- estimated requests a run: {requests} (budget {REQUEST_BUDGET})",
         f"- reserve: {len(groups['reserve'])}",
         f"- dropped: {len(groups['dropped'])}",

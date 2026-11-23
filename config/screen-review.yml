@@ -28,3 +28,13 @@ reviews:
     titles: ["Monza Leather in Tobacco"]
     verdict: false_positive
     reason: '"Tobacco" is a leather colour name on a sneaker. Evidence: checks/results/pipeline-001 (Koio predates the screen in recon-003).'
+  - store: Backcountry Essentials
+    category: tobacco/vape
+    titles: ["Cigar Tool Plug Kit & CO2 Head", "Women's Franca Oiled Leather"]
+    verdict: false_positive
+    reason: 'A tubeless-tyre repair kit (its plugs are called "cigars") and a leather shoe in a colour named after tobacco; no tobacco or vape product. Evidence: checks/results/recon-005.'
+  - store: Backcountry Essentials
+    category: alcohol
+    titles: ["Soft Sided Wine Carafe- 750 Ml"]
+    verdict: false_positive
+    reason: An empty collapsible carafe (container) sold as camping gear, like the reviewed Six Moon flask.
