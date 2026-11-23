@@ -1,6 +1,6 @@
 <p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,706 prices in the latest run."></picture></p>
 
-# Shopify price monitor
+# E-commerce price monitor: 25 US online stores, checked every day
 
 **Every price, sale and stock change from 25 US online stores, checked every day and delivered as a clean spreadsheet.**
 
@@ -12,6 +12,14 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/siddharthkumarx/ecommerce-price-monitor/ci.yml?branch=main&label=tests)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/ci.yml)
 
 **[Live dashboard](https://siddharthkumar.com/ecommerce-price-monitor/)** · **[Download the data](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest)**
+
+## At a glance
+
+- **Stores:** 25 public US online stores in 5 categories (Audio, Apparel, Beauty, Home & kitchen, Outdoor).
+- **Prices per run:** 11,706 product options in the latest run, each with price, "was" price and stock.
+- **Delivery record:** 19 of 19 daily runs delivered since 5 Nov 2026; 2 of 2 on time (within 2 h of the scheduled time) since the on-time trigger started.
+- **History:** a daily summary kept forever (19 days so far, [`daily-summary.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/history/daily-summary.csv)), the last 30 days of change logs, and every price version in the monthly history files.
+- **Formats:** CSV, Excel (XLSX), JSON, SQL file (PostgreSQL / MySQL), SQLite, Parquet, Google Sheets, email or webhook.
 
 ## What you get
 
@@ -48,6 +56,8 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 - **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
+- **Big moves are read twice.** A price that falls below a fifth or rises above five times its last value is read again on its own before it is published; a move the second read does not confirm, or a "not for sale" price such as $9,999,999.99, keeps its last good price. Latest run: 0 second reads, 0 confirmed, 0 held back.
+- **New stores earn their place.** A newly added store is checked every day but counts in these numbers only after 3 clean days in a row.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 270 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
 - **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.6 minutes, and no store blocked us.
@@ -69,7 +79,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
-- **Too fast for a shared host.** Each store was read slowly, but all these stores run on Shopify's servers, and together the requests were too fast. Fix: one pace for the whole run, plus an automatic stop if several stores push back at once.
+- **Too fast for a shared host.** Each store was read slowly, but the Shopify stores all run on Shopify's servers, and together the requests were too fast. Fix: one pace for the whole run, plus an automatic stop if several stores push back at once.
 - **Free gifts looked like errors.** Free samples have a price of zero, and the checks treated them as broken data and held a whole run. Fix: free items are now left out on purpose and counted separately.
 - **"Slow down" was obeyed by one store only.** When Shopify asked us to wait a minute, only that store waited while the others carried on. Fix: when Shopify asks, every store pauses together, and the pace eases back only after a run of clean answers.
 - **Testing hit Shopify's rate limit.** Fix: the run stops politely instead of retrying, the store list was trimmed, and test runs are rationed.
@@ -86,7 +96,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 
 - **Free sample first:** 20-50 real rows from your target sites before you pay anything.
 - **Fixed price:** a fixed monthly fee for a running monitor, or a one-time price for a single collection.
-- **Data on schedule:** daily or weekly, delivered as CSV, Excel, Google Sheets or a database.
+- **Data on schedule:** daily or weekly, in the format your team already uses: CSV, Excel (XLSX), JSON, SQL file (PostgreSQL / MySQL), SQLite, Parquet, Google Sheets, email or webhook. Excel and CSV by default; other formats at no extra cost.
 
 **[Get a free sample](https://steadydata.co/contact/)** · [hello@steadydata.co](mailto:hello@steadydata.co)
 
@@ -99,7 +109,10 @@ Every store is read once a day; the run is due at 06:17 UTC (early morning US ti
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
 
 **Which formats can I get?**
-CSV, Excel, Google Sheets or a database, plus a monthly history file (Parquet) if you want one. This repository delivers CSV, Parquet and a dashboard.
+Your data, in the format your team already uses: CSV, Excel (XLSX), JSON, SQL file (PostgreSQL / MySQL), SQLite, Parquet, Google Sheets, email or webhook. Excel and CSV are the default; other formats cost nothing extra. This repository delivers CSV, Parquet and a dashboard.
+
+**How far back does the history go?**
+The daily summary goes back to 5 Nov 2026 and is never pruned. The change logs in this repository keep the last 30 days, and every version of every price stays in the monthly history files in the releases.
 
 **Can you track my competitors' sites?**
 Yes, if the information is public, such as prices, sales and stock on product pages. I check each site first and tell you what can be collected and how often, before any work starts.
@@ -119,7 +132,7 @@ The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkuma
 | `store_id` | text | Store, as listed in `config/stores.yml` | `big-agnes` |
 | `product_id` | integer | The store's product id | `7870967939321` |
 | `variant_id` | integer | The store's id for this option (size, colour); unique per store | `43639575019769` |
-| `handle` | text | Product address: `https://<store>/products/<handle>` | `gold-camp-3-footprint` |
+| `handle` | text | Product address: Shopify `https://<store>/products/<handle>`; WooCommerce and BigCommerce `https://<store>/<handle>/` | `gold-camp-3-footprint` |
 | `product_title` | text | Product name as shown by the store | `Gold Camp 3 Footprint` |
 | `variant_title` | text | Option name (`Default Title` when there is only one) | `Default Title` |
 | `price_cents` | integer | Current price in US cents | `2500` |
@@ -142,7 +155,20 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 | `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
 | `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
 
-The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
+The daily summary, [`data/history/daily-summary.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/history/daily-summary.csv), one row per day since 5 Nov 2026, kept forever (also as JSON in `data/public/history.json`):
+
+| Field | Type | Meaning |
+|---|---|---|
+| `date` | date | UTC date |
+| `stores_counted` | integer | Stores in the public numbers that day |
+| `prices` | integer | Live prices after the day's last good run |
+| `price_drops / price_rises` | integer | Price changes that day |
+| `sales_started` | integer | Sales that started that day |
+| `out_of_stock / back_in_stock` | integer | Stock changes that day |
+| `delivered / on_time` | yes/no | Every due run delivered; every due run started within 2 h |
+| `rows_held` | integer | Rows read but held back by a check that day |
+
+The daily change logs keep the last 30 days in this repository. The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
 <details>
 <summary><strong>For engineers</strong></summary>
@@ -151,10 +177,10 @@ The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://g
 
 One scheduled GitHub Actions job (`.github/workflows/daily.yml`) runs `python -m pricemon.run`:
 
-1. **Fetch** (`polite.py`, `fetch.py`): robots.txt per RFC 9309 (Protego), `/products.json` pages with `country=US`, then one product per store per day cross-checked against `/products/<handle>.js` and the page's JSON-LD. Per-store delay with jitter, one run-wide pace for Shopify's shared edge (`EdgeGuard`): any 429 pauses every store for its `Retry-After` and slows the pace; a challenge page stops a store; persistent throttling halts the run; a 38-minute request budget keeps the job under 45 minutes.
+1. **Fetch** (`polite.py`, `fetch.py`, `platforms.py`): robots.txt per RFC 9309 (Protego); Shopify `/products.json` pages with `country=US`, WooCommerce Store API pages, BigCommerce product sitemap and pages; one product per store per day cross-checked against a second source (`.js`, the Store API re-read, or the page's own theme data), and every big price move read twice. Per-store delay with jitter, one run-wide pace for Shopify's shared edge (`EdgeGuard`) and a separate lane for stores on their own hosts: any 429 pauses every Shopify store for its `Retry-After` and slows the pace; a challenge page stops a store; persistent throttling halts the run; a 52-minute request budget keeps the job near 60 minutes.
 2. **Validate** (`models.py`, `normalize.py`, `guard.py`): Pydantic rows (integer cents, `compare_at >= price`, fixed availability values), then a batch guard that holds the run on row-count drops, unit-error price moves, unexplained mass changes, rejects or a non-USD currency proof.
 3. **History** (`history.py`, `changes.py`): an SCD2 merge in DuckDB; open versions are the committed snapshot, closed versions go to the monthly Parquet release asset.
-4. **Outputs** (`outputs.py`, `sheets.py`, `site.py`, `readme.py`, `visuals.py`): change log, `runs.jsonl`, `status.json` and shields.io badges, Google Sheet, static dashboard, and this README with its visuals, re-rendered after every run.
+4. **Outputs** (`outputs.py`, `summary.py`, `sheets.py`, `site.py`, `readme.py`, `visuals.py`): change log (30 days), daily summary (forever), `runs.jsonl`, `status.json` and shields.io badges, Google Sheet, static dashboard, and this README with its visuals, re-rendered after every run. New stores warm up for 3 clean days before they count (`warmup.py`).
 
 Full design: [docs/architecture.md](docs/architecture.md).
 
@@ -199,7 +225,8 @@ All in [docs/decisions.md](docs/decisions.md); the ones that shape the system:
 - [D-006](docs/decisions.md#d-006---currency-proof-holds-the-run-2026-11-03-owner-rule): a non-USD currency proof holds the whole run.
 - [D-009](docs/decisions.md#d-009---where-state-lives-2026-11-03): open versions in git, full history in monthly Parquet.
 - [D-019](docs/decisions.md#d-019---json-ld-is-a-soft-witness-for-prices-2026-11-04): JSON-LD is a soft price witness.
-- [D-020](docs/decisions.md#d-020---45-minute-run-on-one-runner-25-stores-2026-11-04-owner-decision): a 45-minute run on one runner, reached with a smaller store list, never by spreading requests over more IPs.
+- [D-020](docs/decisions.md#d-020---45-minute-run-on-one-runner-25-stores-2026-11-04-owner-decision): one runner, never spreading requests over more IPs.
+- [D-032](docs/decisions.md#d-032---100-stores-three-platforms-canary-and-long-history-2026-11-23-owner-decision): 100 stores on three platforms in about 60 minutes, a 3-day canary for new stores, a daily summary kept forever.
 
 Store register with every dropped candidate and its evidence: [docs/sources.md](docs/sources.md).
 

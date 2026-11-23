@@ -1,5 +1,5 @@
 ---
-pretty_name: US Shopify store prices, daily
+pretty_name: US online store prices, daily
 license: cc-by-4.0
 language:
 - en
@@ -8,6 +8,8 @@ tags:
 - prices
 - retail
 - shopify
+- woocommerce
+- bigcommerce
 - time-series
 - web-scraping
 size_categories:
@@ -22,9 +24,9 @@ configs:
   data_files: changes/*/*.csv
 ---
 
-# US Shopify store prices, daily
+# US online store prices, daily
 
-Daily prices, sale ("compare-at") prices and stock for every product option of 25 US direct-to-consumer brands on Shopify, with a change log and a monthly price history. Collected by [siddharthkumarx/ecommerce-price-monitor](https://github.com/siddharthkumarx/ecommerce-price-monitor); this card is re-rendered after every run.
+Daily prices, sale ("compare-at") prices and stock for every product option of 25 US online stores on Shopify, with a change log and a monthly price history. Collected by [siddharthkumarx/ecommerce-price-monitor](https://github.com/siddharthkumarx/ecommerce-price-monitor); this card is re-rendered after every run.
 
 ## Dataset summary
 
@@ -41,6 +43,8 @@ Daily prices, sale ("compare-at") prices and stock for every product option of 2
 | `changes/YYYY/YYYY-MM-DD.csv` | one per change | price up/down, sale start/end, sold out, back in stock, new, removed |
 | `runs.jsonl` | one per run | run status, stores updated, quality counts, request counts |
 | `public/feed.json` | one summary | the public feed: latest good run, its checks, totals, daily change counts |
+| `history/daily-summary.csv` | one row per day since 5 Nov 2026 | the daily summary, kept forever: stores counted, prices, price drops and rises, sales started, stock changes, delivered and on time, rows held |
+| `public/history.json` | one summary | the daily summary in compact JSON (`steadydata.history/v1`) for other sites |
 | `price_history_YYYY-MM.parquet` (release asset) | one per version | full history, SCD2 with `valid_from` / `valid_to` |
 
 Field definitions with real examples: the data dictionary in the [README](https://github.com/siddharthkumarx/ecommerce-price-monitor#data-dictionary).
@@ -55,7 +59,7 @@ Field definitions with real examples: the data dictionary in the [README](https:
 | `generated_at` | UTC time the feed was written |
 | `monitor.id`, `title`, `repo`, `dashboard` | What this monitor is and where to see it |
 | `monitor.first_run` | UTC start of the first good run |
-| `monitor.stores_total`, `categories` | Stores monitored and their categories (`category_ids`: the ids in `config/stores.yml`) |
+| `monitor.stores_total`, `categories`, `platforms` | Stores counted in the public numbers, their categories (`category_ids`: the ids in `config/stores.yml`) and store platforms; stores still warming up (3 clean days needed) are not included |
 | `last_run.run_id`, `started_at`, `finished_at` | The latest good (ok or partial) run |
 | `last_run.status` | `ok` (every store updated) or `partial` (some kept their last good prices) |
 | `last_run.stores_ok`, `stores_total` | Stores updated in that run, of all stores |
@@ -73,11 +77,14 @@ Field definitions with real examples: the data dictionary in the [README](https:
 | `schedule.on_time_since` | The first slot started by the on-time trigger (UTC), or empty before it; on-time counts start there |
 | `schedule.on_time_slots`, `on_time`, `on_time_pct` | Slots from `on_time_since` on, those whose good run started within `on_time_window_h` hours, and their share in percent (empty before the first such slot) |
 | `schedule.note` | How the earlier slots went, in one sentence (INC-009) |
+| `delivery.since`, `runs_due`, `runs_delivered` | Daily runs due since 5 Nov 2026 and those delivered (a good run on the slot's day) |
+| `delivery.on_time_since`, `on_time_runs_due`, `on_time_runs` | Runs due since the on-time trigger's first slot, and those started within `on_time_window_h` hours |
+| `history_url` | Where the full daily history (`public/history.json`) is published |
 | `daily[]` | Up to 60 UTC dates, oldest first: `runs` (good runs that started that day), `rows_live` (after the day's last good run) and the change counts `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed`, summed over the day's runs. The first run is the baseline (every row `new`) and is left out |
 
 ## Collection
 
-- Public catalog endpoints only (`/products.json`, `/products/<handle>.js`, product pages), requested with `country=US`.
+- Public catalog endpoints only, requested with `country=US`: Shopify `/products.json`, `/products/<handle>.js` and product pages; the WooCommerce Store API (`/wp-json/wc/store/v1/products`) and product pages; the BigCommerce product sitemap and product pages.
 - robots.txt respected (RFC 9309); one run-wide pace for Shopify's shared edge; any `429` pauses the whole run; a challenge page stops a store; no proxies, no anti-bot bypass.
 - Honest user agent: `ecommerce-price-monitor/0.1 (+https://siddharthkumar.com)`.
 
