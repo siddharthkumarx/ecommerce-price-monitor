@@ -1,0 +1,99 @@
+{
+  "schema": "steadydata.feed/v1",
+  "generated_at": "2026-11-23T15:33:58Z",
+  "monitor": {
+    "id": "ecommerce-price-monitor",
+    "title": "Daily price monitor, 100 US online stores",
+    "repo": "https://github.com/siddharthkumarx/ecommerce-price-monitor",
+    "dashboard": "https://siddharthkumar.com/ecommerce-price-monitor/",
+    "first_run": "2026-11-23T14:44:30Z",
+    "stores_total": 100,
+    "categories": [
+      "Apparel",
+      "Audio",
+      "Beauty",
+      "Cycling",
+      "Coffee & tea",
+      "Fitness",
+      "Home & kitchen",
+      "Outdoor",
+      "Pets",
+      "Stationery & everyday carry",
+      "Toys & baby"
+    ],
+    "category_ids": [
+      "apparel",
+      "audio",
+      "beauty",
+      "bikes",
+      "coffee_tea",
+      "fitness",
+      "home_kitchen",
+      "outdoor",
+      "pets",
+      "stationery_edc",
+      "toys_baby"
+    ],
+    "platforms": [
+      "Shopify",
+      "WooCommerce",
+      "BigCommerce"
+    ],
+    "cadence": "daily at 06:17 UTC"
+  },
+  "last_run": {
+    "run_id": "20261123T144430Z",
+    "started_at": "2026-11-23T14:44:30Z",
+    "finished_at": "2026-11-23T15:33:58Z",
+    "status": "partial",
+    "stores_ok": 90,
+    "stores_total": 100,
+    "rows_live": 41969,
+    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/45197393461"
+  },
+  "checks": {
+    "rows_validated": 41969,
+    "rows_rejected": 0,
+    "held_back": 0,
+    "second_source_checks": 169,
+    "second_source_matches": 164,
+    "second_source": {
+      "js_checked": 90,
+      "js_matches": 90,
+      "jsonld_checked": 79,
+      "jsonld_matches": 74
+    },
+    "rows_compared_with_last_run": 0,
+    "suspicious_price_moves": 0,
+    "guard_holds": 0
+  },
+  "totals": {
+    "days_running": 1,
+    "runs_total": 1,
+    "runs_good": 1,
+    "runs_held": 0
+  },
+  "schedule": {
+    "slots": 1,
+    "delivered": 1,
+    "missed": 0,
+    "on_time_window_h": 2,
+    "on_time_since": null,
+    "on_time_slots": 0,
+    "on_time": 0,
+    "on_time_pct": null,
+    "note": "So far GitHub's scheduler often started runs late; every day was still delivered (INC-009)."
+  },
+  "delivery": {
+    "since": "2026-11-05",
+    "days": 1,
+    "runs_due": 1,
+    "runs_delivered": 1,
+    "on_time_window_h": 2,
+    "on_time_since": null,
+    "on_time_runs_due": 0,
+    "on_time_runs": 0
+  },
+  "history_url": "https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/public/history.json",
+  "daily": []
+}
