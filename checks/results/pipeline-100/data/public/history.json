@@ -1,0 +1,34 @@
+{
+  "schema": "steadydata.history/v1",
+  "generated_at": "2026-11-23T14:42:06Z",
+  "fields": [
+    "date",
+    "stores_counted",
+    "stores_updated",
+    "prices",
+    "price_drops",
+    "price_rises",
+    "sales_started",
+    "out_of_stock",
+    "back_in_stock",
+    "runs_due",
+    "runs_delivered",
+    "runs_on_time",
+    "delivered",
+    "on_time",
+    "rows_held"
+  ],
+  "delivery": {
+    "since": "2026-11-05",
+    "days": 1,
+    "runs_due": 1,
+    "runs_delivered": 0,
+    "on_time_window_h": 2,
+    "on_time_since": null,
+    "on_time_runs_due": 0,
+    "on_time_runs": 0
+  },
+  "days": [
+    ["2026-11-23",null,null,null,0,0,0,0,0,1,0,0,false,false,56075]
+  ]
+}

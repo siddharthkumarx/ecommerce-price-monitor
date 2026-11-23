@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-11-23T14:42:06Z",
+  "first_run": null,
+  "days_running": 0,
+  "runs_total": 1,
+  "runs_good": 0,
+  "runs_held": 1,
+  "missed_runs": 0,
+  "missed_slots": [],
+  "schedule": {
+    "on_time_window_h": 2,
+    "delivered": 0,
+    "on_time_since": null,
+    "since": {
+      "slots": 0,
+      "on_time": 0,
+      "late": 0,
+      "held": 0,
+      "missed": 0
+    },
+    "on_time_pct": null,
+    "note": "So far GitHub's scheduler often started runs late; 0 of 1 due runs were still delivered (INC-009).",
+    "slots": 1,
+    "on_time": 0,
+    "late": 0,
+    "held": 1,
+    "missed": 0,
+    "pending": 0,
+    "late_slots": [],
+    "missed_slots": []
+  },
+  "last_run": {
+    "run_id": "20261123T141807Z",
+    "started_at": "2026-11-23T14:18:07Z",
+    "status": "held",
+    "duration_s": 1439.1,
+    "stores_ok": 99,
+    "stores_total": 100,
+    "rows_live": 0,
+    "hold_reasons": [
+      "jambys: validation rejected 336 of 797 rows",
+      "the-honest-company: validation rejected 138 of 316 rows",
+      "tuft-needle: validation rejected 93 of 437 rows"
+    ]
+  },
+  "rows_today": 0
+}
