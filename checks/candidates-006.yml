@@ -1,0 +1,211 @@
+# recon-006: expansion candidates (D-031). Public US online stores, prescreened from a
+# development machine; this GitHub run is the evidence. Platform defaults to shopify.
+categories:
+  pets:
+  - store: Bixbi
+    domain: bixbipet.com
+    platform: woocommerce
+  - store: Fussie Cat
+    domain: fussiecat.com
+    platform: woocommerce
+  - store: 2 Hounds Design
+    domain: 2houndsdesign.com
+  - store: Big Barker
+    domain: bigbarker.com
+  - store: Bocce's Bakery
+    domain: www.boccesbakery.com
+  - store: Earth Rated
+    domain: www.earthrated.com
+  - store: Fable Pets
+    domain: fablepets.com
+  - store: Found My Animal
+    domain: www.foundmyanimal.com
+  - store: FurHaven
+    domain: furhaven.com
+  - store: Grandma Lucy's
+    domain: www.grandmalucys.com
+  - store: Harry Barker
+    domain: harrybarker.com
+  - store: Herbsmith
+    domain: herbsmithinc.com
+  - store: Jinx
+    domain: www.jinx.com
+  - store: Jolly Pets
+    domain: jollypets.com
+  - store: Leash Boss
+    domain: leashboss.com
+  - store: Maxbone
+    domain: www.maxbone.com
+  coffee_tea:
+  - store: Art of Tea
+    domain: www.artoftea.com
+  - store: Atlas Coffee Club
+    domain: atlascoffeeclub.com
+  - store: Bird Rock Coffee
+    domain: www.birdrockcoffee.com
+  - store: Bones Coffee
+    domain: www.bonescoffee.com
+  - store: Chameleon Coffee
+    domain: chameleoncoffee.com
+  - store: Clevr Blends
+    domain: clevrblends.com
+  - store: Cometeer
+    domain: cometeer.com
+  - store: Counter Culture Coffee
+    domain: counterculturecoffee.com
+  - store: Death Wish Coffee
+    domain: www.deathwishcoffee.com
+  - store: Driftaway Coffee
+    domain: driftaway.coffee
+  - store: Trade Coffee
+    domain: www.drinktrade.com
+  - store: Eight Ounce Coffee
+    domain: eightouncecoffee.com
+  - store: Encha
+    domain: encha.com
+  - store: Four Sigmatic
+    domain: us.foursigmatic.com
+  - store: George Howell Coffee
+    domain: georgehowellcoffee.com
+  - store: Grounds & Hounds Coffee
+    domain: groundsandhoundscoffee.com
+  toys_baby:
+  - store: Strider Bikes
+    domain: striderbikes.com
+    platform: bigcommerce
+  - store: Babyletto
+    domain: babyletto.com
+  - store: Boba
+    domain: boba.com
+  - store: Bumkins
+    domain: www.bumkins.com
+  - store: Comotomo
+    domain: comotomo.com
+  - store: Crazy Forts
+    domain: crazyforts.com
+  - store: Doona
+    domain: www.doona.com
+  - store: Dr. Brown's
+    domain: drbrownsbaby.com
+  - store: Evenflo
+    domain: www.evenflo.com
+  - store: ezpz
+    domain: ezpzfun.com
+  - store: Frida
+    domain: frida.com
+  - store: GoldieBlox
+    domain: goldieblox.com
+  - store: Guardian Bikes
+    domain: guardianbikes.com
+  - store: Guidecraft
+    domain: guidecraft.com
+  - store: HABA USA
+    domain: www.habausa.com
+  - store: HALO Sleep
+    domain: www.halosleep.com
+  fitness:
+  - store: Amphipod
+    domain: amphipod.com
+    platform: bigcommerce
+  - store: BOCO Gear
+    domain: bocogear.com
+    platform: woocommerce
+  - store: Ultimate Direction
+    domain: ultimatedirection.com
+    platform: bigcommerce
+  - store: American Barbell
+    domain: americanbarbell.com
+  - store: Balega
+    domain: balega.com
+  - store: Bandit Running
+    domain: banditrunning.com
+  - store: Bells of Steel
+    domain: bellsofsteel.us
+  - store: BowFlex
+    domain: www.bowflex.com
+  - store: Ciele Athletics
+    domain: cieleathletics.com
+  - store: Crossrope
+    domain: www.crossrope.com
+  - store: Echelon
+    domain: echelonfit.com
+  - store: Elite Jump Ropes
+    domain: elitejumps.co
+  - store: Ergatta
+    domain: ergatta.com
+  - store: FlipBelt
+    domain: flipbelt.com
+  - store: Gaiam
+    domain: www.gaiam.com
+  - store: Gornation
+    domain: www.gornation.com
+  bikes:
+  - store: Paul Components
+    domain: www.paulcomp.com
+    platform: woocommerce
+  - store: Rene Herse Cycles
+    domain: www.renehersecycles.com
+    platform: woocommerce
+  - store: Ride1Up
+    domain: ride1up.com
+    platform: woocommerce
+  - store: Rockgeist
+    domain: rockgeist.com
+    platform: woocommerce
+  - store: Aventon
+    domain: www.aventon.com
+  - store: Brooks England
+    domain: www.brooksengland.com
+  - store: Chris King
+    domain: chrisking.com
+  - store: Crankbrothers
+    domain: www.crankbrothers.com
+  - store: Dakine
+    domain: www.dakine.com
+  - store: EVOC
+    domain: evocsports.com
+  - store: Fairdale Bikes
+    domain: fairdalebikes.com
+  - store: Finish Line
+    domain: finishlineusa.com
+  - store: Juiced Bikes
+    domain: juicedbikes.com
+  - store: Lectric eBikes
+    domain: lectricebikes.com
+  - store: Stan's NoTubes
+    domain: stans.com
+  - store: Orange Seal
+    domain: orangeseal.com
+  stationery_edc:
+  - store: Appointed
+    domain: appointed.co
+  - store: ban.do
+    domain: www.bando.com
+  - store: Baronfig
+    domain: baronfig.com
+  - store: BaubleBar
+    domain: www.baublebar.com
+  - store: Big Idea Design
+    domain: bigidesign.com
+  - store: Branch Furniture
+    domain: www.branchfurniture.com
+  - store: Craighill
+    domain: craighill.co
+  - store: Cuyana
+    domain: cuyana.com
+  - store: Dagne Dover
+    domain: www.dagnedover.com
+  - store: Everyman
+    domain: everyman.co
+  - store: Faber-Castell
+    domain: fabercastell.com
+  - store: Fenix Lighting
+    domain: www.fenixlighting.com
+  - store: Rocketbook
+    domain: getrocketbook.com
+  - store: Gorjana
+    domain: www.gorjana.com
+  - store: Goulet Pens
+    domain: www.gouletpens.com
+  - store: Ink+Volt
+    domain: inkandvolt.com

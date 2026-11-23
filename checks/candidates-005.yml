@@ -1,0 +1,209 @@
+# recon-005: expansion candidates (D-031). Public US online stores, prescreened from a
+# development machine; this GitHub run is the evidence. Platform defaults to shopify.
+categories:
+  audio:
+  - store: 64 Audio
+    domain: www.64audio.com
+  - store: Audeze
+    domain: www.audeze.com
+  - store: Bluesound
+    domain: www.bluesound.com
+  - store: Cleer Audio
+    domain: cleeraudio.com
+  - store: Emotiva
+    domain: emotiva.com
+  - store: HeadAmp
+    domain: www.headamp.com
+  - store: iFi audio
+    domain: ifi-audio.com
+  - store: KEF
+    domain: us.kef.com
+  - store: Moon Audio
+    domain: www.moon-audio.com
+  - store: Sonance
+    domain: sonance.com
+  - store: SVS
+    domain: www.svsound.com
+  - store: Thieaudio
+    domain: www.thieaudio.com
+  - store: TOZO
+    domain: www.tozostore.com
+  apparel:
+  - store: Bearbottom
+    domain: bearbottomclothing.com
+  - store: Feetures
+    domain: feetures.com
+  - store: Jambys
+    domain: www.jambys.com
+  - store: Janji
+    domain: janji.com
+  - store: Kane Footwear
+    domain: kanefootwear.com
+  - store: Knockaround
+    domain: knockaround.com
+  - store: Linksoul
+    domain: linksoul.com
+  - store: Oiselle
+    domain: www.oiselle.com
+  - store: Ornot
+    domain: www.ornotbike.com
+  - store: Pair of Thieves
+    domain: pairofthieves.com
+  - store: Sunday Afternoons
+    domain: www.sundayafternoons.com
+  - store: Sunski
+    domain: sunski.com
+  - store: Wool&
+    domain: wooland.com
+  beauty:
+  - store: 100% Pure
+    domain: www.100percentpure.com
+  - store: Acure
+    domain: acure.com
+  - store: Alaffia
+    domain: www.alaffia.com
+  - store: Bathing Culture
+    domain: bathingculture.com
+  - store: Counter
+    domain: www.counter.com
+  - store: BondiBoost
+    domain: bondiboost.com
+  - store: Corpus Naturals
+    domain: corpusnaturals.com
+  - store: Curlsmith
+    domain: curlsmith.com
+  - store: Dermaflash
+    domain: dermaflash.com
+  - store: Dr. Bronner's
+    domain: www.drbronner.com
+  - store: Each & Every
+    domain: eachandevery.com
+  - store: Farmacy
+    domain: www.farmacybeauty.com
+  - store: Fat and the Moon
+    domain: www.fatandthemoon.com
+  - store: First Aid Beauty
+    domain: www.firstaidbeauty.com
+  - store: Golde
+    domain: golde.co
+  - store: The Honest Company
+    domain: honest.com
+  - store: Innersense Organic Beauty
+    domain: innersensebeauty.com
+  - store: Jack Black
+    domain: www.getjackblack.com
+  - store: Jaxon Lane
+    domain: jaxonlane.com
+  - store: Juice Beauty
+    domain: juicebeauty.com
+  - store: Kjaer Weis
+    domain: kjaerweis.com
+  - store: Kulfi Beauty
+    domain: kulfibeauty.com
+  - store: Live Tinted
+    domain: www.livetinted.com
+  - store: Mario Badescu
+    domain: www.mariobadescu.com
+  - store: Mielle
+    domain: mielleorganics.com
+  - store: OSEA Malibu
+    domain: oseamalibu.com
+  - store: Pacifica
+    domain: www.pacificabeauty.com
+  - store: Pattern Beauty
+    domain: patternbeauty.com
+  - store: Rahua
+    domain: rahua.com
+  - store: Solawave
+    domain: www.solawave.co
+  - store: Tatcha
+    domain: tatcha.com
+  - store: Therabody
+    domain: www.therabody.com
+  - store: Ursa Major
+    domain: www.ursamajorvt.com
+  - store: Huron
+    domain: usehuron.com
+  - store: Verb
+    domain: www.verbproducts.com
+  - store: Wander Beauty
+    domain: www.wanderbeauty.com
+  home_kitchen:
+  - store: Avocado Green Mattress
+    domain: www.avocadogreenmattress.com
+  - store: Birdies
+    domain: birdiesgardenproducts.com
+  - store: Botanical Interests
+    domain: www.botanicalinterests.com
+  - store: Breeo
+    domain: breeo.com
+  - store: Casper
+    domain: casper.com
+  - store: Chemex
+    domain: chemexcoffeemaker.com
+  - store: Ettitude
+    domain: www.ettitude.com
+  - store: Field Company
+    domain: fieldcompany.com
+  - store: Fishs Eddy
+    domain: www.fishseddy.com
+  - store: Gardener's Supply
+    domain: www.gardeners.com
+  - store: GreenStalk
+    domain: greenstalkgarden.com
+  - store: Houseplant
+    domain: www.houseplant.com
+  - store: Lodge Cast Iron
+    domain: www.lodgecastiron.com
+  - store: Ooni
+    domain: ooni.com
+  - store: Schoolhouse
+    domain: schoolhouse.com
+  - store: Sijo
+    domain: sijohome.com
+  - store: Smithey Ironware
+    domain: smithey.com
+  - store: Stargazer Cast Iron
+    domain: stargazercastiron.com
+  - store: Tuft & Needle
+    domain: www.tuftandneedle.com
+  - store: Vego Garden
+    domain: www.vegogarden.com
+  outdoor:
+  - store: Mountain Laurel Designs
+    domain: mountainlaureldesigns.com
+    platform: woocommerce
+  - store: Nalgene
+    domain: nalgene.com
+    platform: woocommerce
+  - store: SOTO Outdoors
+    domain: sotooutdoors.com
+    platform: woocommerce
+  - store: Tarptent
+    domain: tarptent.com
+    platform: woocommerce
+  - store: Warbonnet Outdoors
+    domain: warbonnetoutdoors.com
+    platform: woocommerce
+  - store: Confluence Outdoor
+    domain: www.confluenceoutdoor.com
+  - store: Aerostich
+    domain: www.aerostich.com
+  - store: Black Diamond
+    domain: blackdiamondequipment.com
+  - store: Bluffworks
+    domain: shop.bluffworks.com
+  - store: BOTE
+    domain: www.boteboard.com
+  - store: Durston Gear
+    domain: durstongear.com
+  - store: Feathered Friends
+    domain: featheredfriends.com
+  - store: Fireside Outdoor
+    domain: firesideoutdoor.com
+  - store: Grand Trunk
+    domain: www.grandtrunk.com
+  - store: GSI Outdoors
+    domain: gsioutdoors.com
+  - store: HEST
+    domain: hest.com
