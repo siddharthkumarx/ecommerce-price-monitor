@@ -35,7 +35,14 @@ def load_candidates(path: Path) -> list[Candidate]:
     out: list[Candidate] = []
     for category, stores in raw["categories"].items():
         for item in stores:
-            out.append(Candidate(store=item["store"], domain=item["domain"], category=category))
+            out.append(
+                Candidate(
+                    store=item["store"],
+                    domain=item["domain"],
+                    category=category,
+                    platform=item.get("platform", "shopify"),
+                )
+            )
     return out
 
 

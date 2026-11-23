@@ -15,15 +15,9 @@ from pathlib import Path
 from typing import Any
 
 from pricemon.outputs import build_status, parse_iso, read_runs
-from pricemon.stores import Store, load_stores
+from pricemon.stores import CATEGORY_TITLES, Store, load_stores
+from pricemon.warmup import public_stores
 
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 EVENT_WORDS = {
     "price_down": "Price down",
     "price_up": "Price up",
@@ -143,7 +137,7 @@ def _pick_sample(
                     compare_at=usd(r["compare_at_cents"]) if d else "",
                     discount_pct=d or None,
                     in_stock=True,
-                    url=f"https://{s.host}/products/{r['handle']}",
+                    url=s.product_url(r["handle"]),
                     raw=r,
                 )
             )
@@ -182,7 +176,7 @@ def _changes(
                 old_price=usd(r["old_price_cents"]),
                 new_price=usd(r["new_price_cents"]),
                 pct=pct,
-                url=f"https://{s.host}/products/{r['handle']}" if s else "",
+                url=s.product_url(r["handle"]) if s else "",
             )
         )
     # Biggest price moves first, then sales and stock flips.
@@ -221,6 +215,7 @@ def _quality(run: dict[str, Any]) -> dict[str, Any]:
 def collect(data: Path, stores_path: Path, now: datetime | None = None) -> Facts:
     now = now or datetime.now(UTC)
     stores = load_stores(stores_path) if stores_path.exists() else []
+    stores = public_stores(stores, data)
     by_id = {s.id: s for s in stores}
     runs = read_runs(data)
     good = [r for r in runs if r["status"] in GOOD]

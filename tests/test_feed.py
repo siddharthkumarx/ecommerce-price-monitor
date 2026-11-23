@@ -32,7 +32,16 @@ CONTRACT: dict[str, Any] = {
         "first_run": str,
         "stores_total": int,
         "categories": list,
+        "platforms": list,
     },
+    "delivery": {
+        "since": str,
+        "runs_due": int,
+        "runs_delivered": int,
+        "on_time_runs_due": int,
+        "on_time_runs": int,
+    },
+    "history_url": str,
     "last_run": {
         "run_id": str,
         "finished_at": str,

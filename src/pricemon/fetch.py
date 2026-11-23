@@ -1,5 +1,17 @@
 """Fetch one store: the full catalog plus the daily witness sample.
 
+Shopify is described below; WooCommerce and BigCommerce read their catalog through
+:mod:`pricemon.platforms` and keep the same rules (robots, pacing, a second source
+for the daily sample, currency proof, content screen).
+
+After the catalog is read, every **big price move** against the last good data
+(new price below 0.2x or above 5x the old one) is read a second time on its own
+(``.js``, the Store API product, or the product page). A move the second read
+confirms is kept; one it does not confirm, or one beyond ``MAX_SECOND_READS``, is
+**held back**: the row keeps its last good price for this run. A placeholder price
+(``PLACEHOLDER_CENTS`` or more, such as $9,999,999.99 on an item that cannot be
+bought) is always held back.
+
 Witnesses (docs/architecture.md, "Fetch and witnesses"):
 
 1. ``/products.json`` pages: every row.
@@ -24,6 +36,7 @@ from typing import Any, Literal
 
 import httpx
 
+from pricemon import platforms
 from pricemon.normalize import slim_product
 from pricemon.polite import RobotsDisallowed, StoreSession, StoreStopped
 from pricemon.screen import screen_content
@@ -41,6 +54,12 @@ from pricemon.witness import (
 PAGE_LIMIT = 250
 MAX_PAGES = 40
 SAMPLE_PER_STORE = 1
+# Second read on big moves (same factors as the batch guard's suspicious move).
+BIG_MOVE_LOW = 0.2
+BIG_MOVE_HIGH = 5.0
+MAX_SECOND_READS = 10
+# $100,000.00: no product in scope costs this; stores use such values as "not for sale".
+PLACEHOLDER_CENTS = 10_000_000
 
 FetchStatus = Literal["ok", "failed", "mismatch", "excluded"]
 
@@ -80,6 +99,12 @@ class StoreFetch:
     witnesses: list[WitnessResult] = field(default_factory=list)
     content_flags: dict[str, list[str]] = field(default_factory=dict)
     jsonld_disagrees: list[str] = field(default_factory=list)
+    platform: str = "shopify"
+    # Currencies declared by the platform's own catalog API (WooCommerce, BigCommerce).
+    api_currencies: set[str] = field(default_factory=set)
+    # Variant id -> why its new value is held back this run (it keeps the last good one).
+    held_variants: dict[int, str] = field(default_factory=dict)
+    second_reads: list[dict[str, Any]] = field(default_factory=list)
 
     @property
     def complete(self) -> bool:
@@ -87,7 +112,7 @@ class StoreFetch:
 
     @property
     def currencies(self) -> set[str]:
-        seen: set[str] = set()
+        seen: set[str] = set(self.api_currencies)
         for w in self.witnesses:
             seen.update(w.currencies)
             if w.theme_currency:
@@ -99,6 +124,7 @@ class StoreFetch:
         return {
             "store_id": self.store_id,
             "host": self.host,
+            "platform": self.platform,
             "status": self.status,
             "reason": self.reason,
             "products": len(self.products),
@@ -114,6 +140,9 @@ class StoreFetch:
             "witnesses": [w.__dict__ for w in self.witnesses],
             "content_flags": self.content_flags,
             "jsonld_disagrees": self.jsonld_disagrees,
+            "held_back": len(self.held_variants),
+            "held_reasons": sorted({r.split(":")[0] for r in self.held_variants.values()}),
+            "second_reads": self.second_reads,
         }
 
 
@@ -178,8 +207,10 @@ async def _witness_js(session: StoreSession, product: dict[str, Any], w: Witness
         w.js = "match"
 
 
-async def _witness_page(session: StoreSession, product: dict[str, Any], w: WitnessResult) -> None:
-    resp = await session.get(f"/products/{w.handle}", expect="html")
+async def _witness_page(
+    session: StoreSession, product: dict[str, Any], w: WitnessResult, path: str | None = None
+) -> None:
+    resp = await session.get(path or f"/products/{w.handle}", expect="html")
     if resp.status_code != 200:
         w.jsonld = "missing"
         return
@@ -220,7 +251,8 @@ async def _witness_page(session: StoreSession, product: dict[str, Any], w: Witne
             w.first_diff = w.first_diff or (
                 f"offer {vid or 'without variant id'}: JSON-LD {price} cents not in catalog prices"
             )
-    if not offers:
+    if not offers or not w.jsonld_compared:
+        # A page whose offers carry no price is not a comparison.
         w.jsonld = "no_offers"
     elif w.jsonld_price_diffs:
         w.jsonld = "mismatch"
@@ -228,12 +260,81 @@ async def _witness_page(session: StoreSession, product: dict[str, Any], w: Witne
         w.jsonld = "match"
 
 
-async def fetch_store(session: StoreSession, store: Store, day: date) -> StoreFetch:
-    """Fetch one store completely or report why not. Never raises for store problems."""
+def big_move(old_cents: int, new_cents: int) -> bool:
+    ratio = new_cents / old_cents
+    return ratio < BIG_MOVE_LOW or ratio > BIG_MOVE_HIGH
+
+
+async def _reread_price(
+    session: StoreSession, store: Store, product: dict[str, Any], vid: int
+) -> int | None:
+    """One variant's price, read again on its own."""
+    if store.platform == "woocommerce":
+        return await platforms.woo_variant_price(session, vid)
+    if store.platform == "bigcommerce":
+        page = await platforms.bc_read(session, str(product["handle"]))
+        return page["ld_price"] if page else None
+    resp = await session.get(f"/products/{product['handle']}.js")
+    data = _json(resp)
+    if resp.status_code != 200 or not isinstance(data, dict):
+        return None
+    for v in data.get("variants") or []:
+        if v.get("id") == vid and isinstance(v.get("price"), int):
+            return int(v["price"])
+    return None
+
+
+async def second_reads(
+    session: StoreSession, store: Store, out: StoreFetch, prev: dict[int, int]
+) -> None:
+    """Read every big price move again; hold back what the second read does not confirm."""
+    reads = 0
+    for product in out.products:
+        for v in product["variants"]:
+            vid, new = v.get("id"), price_to_cents(v.get("price"))
+            if not isinstance(vid, int) or new is None or new <= 0:
+                continue
+            if new >= PLACEHOLDER_CENTS:
+                out.held_variants[vid] = "placeholder price"
+                continue
+            old = prev.get(vid)
+            if old is None or old <= 0 or not big_move(old, new) or vid in out.held_variants:
+                continue
+            record: dict[str, Any] = {"variant_id": vid, "old_cents": old, "new_cents": new}
+            if reads >= MAX_SECOND_READS:
+                record["verdict"] = "held: second-read budget used"
+                out.held_variants[vid] = "big move: second-read budget used"
+            else:
+                reads += 1
+                try:
+                    again = await _reread_price(session, store, product, vid)
+                except RobotsDisallowed:
+                    again = None
+                record["reread_cents"] = again
+                if again == new:
+                    record["verdict"] = "confirmed"
+                else:
+                    record["verdict"] = "held: not confirmed"
+                    out.held_variants[vid] = "big move: second read did not confirm"
+            out.second_reads.append(record)
+
+
+async def fetch_store(
+    session: StoreSession, store: Store, day: date, prev: dict[int, int] | None = None
+) -> StoreFetch:
+    """Fetch one store completely or report why not. Never raises for store problems.
+
+    ``prev``: the store's last good prices (variant id -> cents), for the second read
+    on big moves.
+    """
     started = time.monotonic()
-    out = StoreFetch(store_id=store.id, host=store.host, observed_at=datetime.now(UTC))
+    out = StoreFetch(
+        store_id=store.id, host=store.host, observed_at=datetime.now(UTC), platform=store.platform
+    )
     try:
         await _fetch(session, store, day, out)
+        if out.status == "ok":
+            await second_reads(session, store, out, prev or {})
     except StoreStopped as exc:
         out.status, out.reason = "failed", exc.reason
     except RobotsDisallowed as exc:
@@ -256,7 +357,12 @@ async def _fetch(session: StoreSession, store: Store, day: date, out: StoreFetch
     if session.stopped_reason:
         out.status, out.reason = "failed", session.stopped_reason
         return
-    if not await _catalog(session, out):
+    catalog = {
+        "shopify": _catalog,
+        "woocommerce": platforms.woo_catalog,
+        "bigcommerce": platforms.bc_catalog,
+    }[store.platform]
+    if not await catalog(session, out):
         out.status = "failed"
         return
     out.content_flags = screen_content(out.products, reviewed_titles=store.screen_reviewed)
@@ -267,8 +373,14 @@ async def _fetch(session: StoreSession, store: Store, day: date, out: StoreFetch
     for product in sample_products(out.products, store.id, day):
         w = WitnessResult(product_id=int(product["id"]), handle=str(product["handle"]))
         out.witnesses.append(w)
-        await _witness_js(session, product, w)
-        await _witness_page(session, product, w)
+        if store.platform == "woocommerce":
+            await platforms.woo_witness_api(session, product, w)
+            await _witness_page(session, product, w, path=f"/{w.handle}/")
+        elif store.platform == "bigcommerce":
+            platforms.bc_witness(product, w)
+        else:
+            await _witness_js(session, product, w)
+            await _witness_page(session, product, w)
     if not out.currencies:
         out.status, out.reason = "failed", "no currency proof on sampled product pages"
         return

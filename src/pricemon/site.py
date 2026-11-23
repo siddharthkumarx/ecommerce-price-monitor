@@ -30,16 +30,10 @@ from pricemon.outputs import (
     snapshot_summary,
 )
 from pricemon.schedule import slot_states
-from pricemon.stores import Store, load_stores
+from pricemon.stores import CATEGORY_TITLES, Store, load_stores
+from pricemon.warmup import public_stores
 
 ASSETS = Path(__file__).parent / "site_assets"
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 EVENT_LABELS = {
     "price_down": "Price down",
     "price_up": "Price up",
@@ -390,7 +384,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
     )
 
     names = {s.id: s.name for s in stores}
-    hosts = {s.id: s.host for s in stores}
+    by_id = {s.id: s for s in stores}
     # One row per variant and run: a sale is "Price down · Sale started".
     grouped: dict[tuple[str, str, str], list[dict[str, str]]] = {}
     for e in events:
@@ -409,7 +403,8 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         # A removed product's page is gone from the store, so its title is not a link.
         if all(g["event"] == "removed" for g in group):
             return esc(e["product_title"])
-        url = f"https://{esc(hosts.get(e['store_id'], ''))}/products/{esc(e['handle'])}"
+        store = by_id.get(e["store_id"])
+        url = esc(store.product_url(e["handle"])) if store else ""
         return f'<a href="{url}" rel="nofollow noopener">{esc(e["product_title"])}</a>'
 
     event_rows = []
@@ -598,7 +593,7 @@ and the store is removed within 24 hours.</p>
 
 
 def build(data: Path, stores_path: Path, out: Path, now: datetime | None = None) -> Path:
-    stores = load_stores(stores_path) if stores_path.exists() else []
+    stores = public_stores(load_stores(stores_path) if stores_path.exists() else [], data)
     out.mkdir(parents=True, exist_ok=True)
     fonts = out / "fonts"
     fonts.mkdir(exist_ok=True)

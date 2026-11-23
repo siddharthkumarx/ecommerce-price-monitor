@@ -457,3 +457,39 @@ From an independent review that rendered every SVG:
 - **Links:** "Built by SteadyData · Get a free sample" and the contact call to
   action go to https://steadydata.co/contact/.
 
+
+## D-031 - 100 stores, three platforms, canary and long history (2026-11-23, owner decision)
+
+- **Scale:** up to 100 public US online stores (the original 25 plus up to 75 new),
+  Shopify, WooCommerce and BigCommerce, 50 to 5,000 products per new store, under
+  about 60,000 prices and about 60 minutes per run on one runner (replaces the
+  45-minute limit of D-020; one runner and no spreading of requests stay). The job
+  timeout is 70 minutes and no request starts after 52 minutes. Selection rules:
+  `src/pricemon/sources.py` (expansion from `recon-005`); the original 25 are
+  selected exactly as before.
+- **Same rules for every platform:** robots.txt, the per-store pace, retry and
+  block rules, the content screen, the currency proof and a second source for the
+  daily sample. Shopify stores keep the run-wide pace for Shopify's shared edge;
+  stores on their own hosts (WooCommerce Store API, BigCommerce product pages) run
+  in a second lane with only their per-store pace, because they share no edge.
+  BigCommerce has no public catalog API: one page per product, so new BigCommerce
+  stores are limited to 150 products. Every BigCommerce row is compared with the
+  theme's own price data on the same page; a row whose two sources disagree is
+  held back.
+- **Second read on big moves:** a price below 0.2x or above 5x its last good value
+  is read again on its own (at most 10 per store per run); unconfirmed moves and
+  placeholder prices of $100,000 or more keep the last good price for the run and
+  are counted as held back. The batch guard still holds the whole run when such
+  moves are widespread.
+- **Canary:** a store without rows in the last good snapshot warms up. It is
+  fetched and checked daily but is not in any public number until 3 clean UTC days
+  in a row (`src/pricemon/warmup.py`); its first counted rows are a baseline, not
+  "new" events. Warming stores never make a run partial or held.
+- **History:** `data/history/daily-summary.csv` keeps one row per day since
+  5 Nov 2026 forever (backfilled from `runs.jsonl`), mirrored as
+  `data/public/history.json` for the steadydata.co range chart. Raw daily change
+  logs in git keep 30 days; every version of every price stays in the monthly
+  Parquet release assets, so pruning loses nothing.
+- **Delivery headline:** "X of Y daily runs delivered since 5 Nov 2026" plus the
+  on-time count (within 2 h) from the on-time trigger's first slot (INC-009); the
+  feed carries both in `delivery`.

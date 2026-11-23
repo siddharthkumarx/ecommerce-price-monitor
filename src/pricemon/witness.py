@@ -73,8 +73,23 @@ def jsonld_offers(html: str) -> list[dict[str, Any]]:
     for block in jsonld_blocks(html):
         for node in _walk(block):
             if _types(node) & {"Offer", "AggregateOffer"}:
-                offers.append(node)
+                offers.append(_lift_price_spec(node))
     return offers
+
+
+def _lift_price_spec(offer: dict[str, Any]) -> dict[str, Any]:
+    """Some themes (WooCommerce) put ``price`` and ``priceCurrency`` only in
+    ``priceSpecification``; lift them onto the offer when the offer has none."""
+    spec = offer.get("priceSpecification")
+    if isinstance(spec, list):
+        spec = next((s for s in spec if isinstance(s, dict) and "price" in s), None)
+    if not isinstance(spec, dict):
+        return offer
+    lifted = dict(offer)
+    for key in ("price", "priceCurrency"):
+        if key not in lifted and key in spec:
+            lifted[key] = spec[key]
+    return lifted
 
 
 def jsonld_currencies(html: str) -> set[str]:

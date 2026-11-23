@@ -21,14 +21,31 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from pricemon.outputs import on_time_text
 from pricemon.report import EVENT_WORDS, Facts, collect
+from pricemon.stores import CATEGORY_TITLES, PLATFORM_TITLES
+from pricemon.summary import SINCE, delivery, read_summary
 
 ROOT = Path(__file__).resolve().parents[2]
 
+SUMMARY_FIELDS = [
+    ("date", "date", "UTC date"),
+    ("stores_counted", "integer", "Stores in the public numbers that day"),
+    ("prices", "integer", "Live prices after the day's last good run"),
+    ("price_drops / price_rises", "integer", "Price changes that day"),
+    ("sales_started", "integer", "Sales that started that day"),
+    ("out_of_stock / back_in_stock", "integer", "Stock changes that day"),
+    ("delivered / on_time", "yes/no", "Every due run delivered; every due run started within 2 h"),
+    ("rows_held", "integer", "Rows read but held back by a check that day"),
+]
 SNAPSHOT_FIELDS = [
     ("store_id", "text", "Store, as listed in `config/stores.yml`"),
     ("product_id", "integer", "The store's product id"),
     ("variant_id", "integer", "The store's id for this option (size, colour); unique per store"),
-    ("handle", "text", "Product address: `https://<store>/products/<handle>`"),
+    (
+        "handle",
+        "text",
+        "Product address: Shopify `https://<store>/products/<handle>`; WooCommerce and "
+        "BigCommerce `https://<store>/<handle>/`",
+    ),
     ("product_title", "text", "Product name as shown by the store"),
     ("variant_title", "text", "Option name (`Default Title` when there is only one)"),
     ("price_cents", "integer", "Current price in US cents"),
@@ -101,7 +118,22 @@ def context(data: Path, stores: Path, public: Path, now: datetime | None = None)
     f = collect(data, stores, now or datetime.now(UTC))
     pub = yaml.safe_load(public.read_text(encoding="utf-8"))
     repo_url = f"https://github.com/{pub['repo']}"
+    summary = list(read_summary(data / "history" / "daily-summary.csv").values())
+    run = f.run or {}
+    reads = run.get("second_reads") or {}
+    used = {s.platform for s in f.stores}
     return {
+        "delivery": delivery(summary, f.status),
+        "since_text": f"{SINCE.day} {SINCE:%b %Y}",
+        "summary_days": len(summary),
+        "summary_fields": SUMMARY_FIELDS,
+        "platforms": [PLATFORM_TITLES[p] for p in PLATFORM_TITLES if p in used],
+        "category_titles": [CATEGORY_TITLES[c] for c in CATEGORY_TITLES if c in f.categories],
+        "second": {
+            "reads": int(reads.get("reads") or 0),
+            "confirmed": int(reads.get("confirmed") or 0),
+            "held": int(run.get("rows_held_back") or 0),
+        },
         "f": f,
         "q": f.quality,
         "sched": f.status["schedule"],

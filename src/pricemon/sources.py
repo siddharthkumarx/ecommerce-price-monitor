@@ -25,6 +25,16 @@ ranked US shops first (``/meta.json`` country), then fewest recon caveats, then
 larger catalogs; the list is then trimmed to ``MAX_STORES`` (owner decision D-020:
 one run in 45 minutes on a single runner), never below ``MIN_PER_CATEGORY`` per
 category. The rest are *reserve*.
+
+**Expansion to 100 stores (D-031).** The rules above pick the original 25 from
+the recon runs before ``EXPANSION_FROM``, unchanged. Candidates first checked in
+``EXPANSION_FROM`` or later must also have ``NEW_PRODUCTS_MIN`` to
+``NEW_PRODUCTS_MAX`` products (BigCommerce at most ``BC_PRODUCTS_MAX``: one page
+per product). The original reserve and these new stores then fill the list up to
+``EXPANDED_MAX_STORES``, one category at a time (the category with the fewest
+stores first, at most ``EXPANDED_PER_CATEGORY`` each), ranked non-Shopify first
+(the owner asked for a mix of platforms), then fewest caveats, then larger
+catalogs, while the planned rows (recon variants) stay within ``ROW_BUDGET``.
 """
 
 from __future__ import annotations
@@ -38,18 +48,20 @@ from typing import Any
 
 import yaml
 
+from pricemon.stores import CATEGORY_TITLES, PLATFORM_TITLES
+
 PER_CATEGORY = 8
 MIN_PER_CATEGORY = 4
 # Owner decision (D-020): one daily run must finish in 45 minutes on a single runner,
 # reached with a smaller list, never by spreading requests over several runners.
 MAX_STORES = 25
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
+EXPANSION_FROM = "recon-005"
+EXPANDED_MAX_STORES = 100
+EXPANDED_PER_CATEGORY = 10
+ROW_BUDGET = 58_000
+NEW_PRODUCTS_MIN = 50
+NEW_PRODUCTS_MAX = 5_000
+BC_PRODUCTS_MAX = 150
 USED_PATHS = (
     ("robots_products_json", "/products.json"),
     ("robots_product_js", "/products/*.js"),
@@ -104,11 +116,21 @@ class StoreRecord:
     def reviewed_titles(self) -> list[str]:
         return sorted(t for r in self.reviews if r.verdict == "false_positive" for t in r.titles)
 
+    @property
+    def platform(self) -> str:
+        return str(self.latest.get("platform") or "shopify")
+
+    @property
+    def is_new(self) -> bool:
+        """First checked in the expansion recon (D-031)."""
+        return self.history[0][0] >= EXPANSION_FROM
+
     def caveats(self) -> list[str]:
         """Recon caveats used to rank otherwise equal stores (fewer is cleaner)."""
         r = self.latest
         out: list[str] = []
-        if r.get("meta_country") != "US":
+        # /meta.json (shop country) exists on Shopify only.
+        if self.platform == "shopify" and r.get("meta_country") != "US":
             out.append("shop not registered in the US")
         if not r.get("jsonld_currency"):
             out.append("USD proven by the theme only, no JSON-LD offer")
@@ -143,13 +165,21 @@ class StoreRecord:
                     f"{rid}: {r['retries']} retr{'y' if r['retries'] == 1 else 'ies'} "
                     "(status not recorded, treated as 429)"
                 )
-            for key, path in USED_PATHS:
+            for key, path in PLATFORM_PATHS.get(str(r.get("platform") or "shopify"), USED_PATHS):
                 if r.get(key) is False:
                     reasons.append(f"{rid}: robots.txt disallows {path}")
             for cat, examples in (r.get("content_flags") or {}).items():
                 if self._reviewed(cat, examples) is None:
                     reasons.append(f"{rid}: excluded category {cat} (e.g. {'; '.join(examples)})")
         latest = self.latest
+        if self.is_new and latest["passed"]:
+            products = int(latest.get("products") or 0)
+            top = BC_PRODUCTS_MAX if self.platform == "bigcommerce" else NEW_PRODUCTS_MAX
+            if not NEW_PRODUCTS_MIN <= products <= top:
+                reasons.append(
+                    f"{self.latest_id}: {products:,} products, outside "
+                    f"{NEW_PRODUCTS_MIN}-{top:,} for a new store"
+                )
         if not latest["passed"]:
             covered = ("blocked", "robots", "needed 429", "excluded category")
             other = [f for f in latest["fail_reasons"] if not f.startswith(covered)]
@@ -177,6 +207,59 @@ def collect(
 
 
 def classify(
+    records: list[StoreRecord],
+    per_category: int = PER_CATEGORY,
+    max_stores: int = MAX_STORES,
+    min_per_category: int = MIN_PER_CATEGORY,
+) -> dict[str, list[StoreRecord]]:
+    """The original selection, then the expansion to 100 stores (module docstring)."""
+    old = [r for r in records if not r.is_new]
+    new = [r for r in records if r.is_new]
+    groups = classify_base(old, per_category, max_stores, min_per_category)
+    if not new:
+        return groups
+    groups["dropped"] += [r for r in new if r.drop_reasons()]
+    pool = groups["reserve"] + [r for r in new if not r.drop_reasons()]
+    groups["reserve"] = []
+    for rec in pool:
+        rec.reserve_reason = None
+    selected = groups["selected"]
+    count: dict[str, int] = defaultdict(int)
+    for rec in selected:
+        count[rec.category] += 1
+    rows = sum(int(r.latest["variants"]) for r in selected)
+
+    def rank(x: StoreRecord) -> tuple[bool, int, int, str]:
+        return (x.platform == "shopify", len(x.caveats()), -int(x.latest["variants"]), x.store)
+
+    by_cat: dict[str, list[StoreRecord]] = defaultdict(list)
+    for rec in sorted(pool, key=rank):
+        by_cat[rec.category].append(rec)
+    while len(selected) < EXPANDED_MAX_STORES:
+        open_cats = [c for c, recs in by_cat.items() if recs and count[c] < EXPANDED_PER_CATEGORY]
+        if not open_cats:
+            break
+        cat = min(open_cats, key=lambda c: (count[c], list(CATEGORY_TITLES).index(c)))
+        rec = by_cat[cat].pop(0)
+        if rows + int(rec.latest["variants"]) > ROW_BUDGET:
+            rec.reserve_reason = f"over the row budget ({ROW_BUDGET:,} planned rows)"
+            groups["reserve"].append(rec)
+            continue
+        selected.append(rec)
+        count[cat] += 1
+        rows += int(rec.latest["variants"])
+    for recs in by_cat.values():
+        for rec in recs:
+            rec.reserve_reason = rec.reserve_reason or (
+                f"more than {EXPANDED_PER_CATEGORY} in the category"
+                if count[rec.category] >= EXPANDED_PER_CATEGORY
+                else f"list full at {EXPANDED_MAX_STORES} stores"
+            )
+            groups["reserve"].append(rec)
+    return groups
+
+
+def classify_base(
     records: list[StoreRecord],
     per_category: int = PER_CATEGORY,
     max_stores: int = MAX_STORES,
@@ -247,14 +330,29 @@ def _order(rec: StoreRecord) -> tuple[int, str]:
     return (order.index(rec.category) if rec.category in order else 99, rec.store.lower())
 
 
+PLATFORM_PATHS = {
+    "shopify": USED_PATHS,
+    "woocommerce": (
+        ("robots_products_json", "/wp-json/wc/store/v1/products"),
+        ("robots_product_js", "/wp-json/wc/store/v1/products/<id>"),
+        ("robots_product_page", "/product/<slug>"),
+    ),
+    "bigcommerce": (
+        ("robots_products_json", "/xmlsitemap.php"),
+        ("robots_product_page", "/<product page>"),
+    ),
+}
+
+
 def _robots(r: dict[str, Any]) -> str:
     if r["robots_status"] == "unreachable":
         return "unreachable"
     if r.get("robots_products_json") is None:
         return "-"
+    paths = PLATFORM_PATHS.get(str(r.get("platform") or "shopify"), USED_PATHS)
     parts = [
         f"{path} {'allow' if r.get(key) else 'disallow'}"
-        for key, path in USED_PATHS
+        for key, path in paths
         if r.get(key) is not None
     ]
     if r.get("crawl_delay_s"):
@@ -264,12 +362,15 @@ def _robots(r: dict[str, Any]) -> str:
 
 def _currency(r: dict[str, Any]) -> str:
     jsonld: set[str] = set(r.get("jsonld_currency") or [])
+    api: set[str] = set(r.get("api_currency") or [])
     theme = r.get("shopify_currency")
-    seen = sorted(jsonld | ({theme} if isinstance(theme, str) else set()))
+    seen = sorted(jsonld | api | ({theme} if isinstance(theme, str) else set()))
     if not seen:
         return "-"
     label = ",".join(seen)
-    return label if jsonld else f"{label} (theme only, no JSON-LD offer)"
+    if jsonld:
+        return label
+    return f"{label} (store API)" if api else f"{label} (theme only, no JSON-LD offer)"
 
 
 def _base_domain(host: str) -> str:
@@ -299,15 +400,16 @@ def _notes(rec: StoreRecord) -> str:
 
 
 KEPT_HEADER = (
-    "| store | category | host | products | variants | robots (paths used) "
-    "| currency (country=US) | notes |\n|---|---|---|---:|---:|---|---|---|"
+    "| store | category | platform | host | products | variants | robots (paths used) "
+    "| currency (country=US) | notes |\n|---|---|---|---|---:|---:|---|---|---|"
 )
 
 
 def _kept_row(rec: StoreRecord) -> str:
     r = rec.latest
     return (
-        f"| {rec.store} | {CATEGORY_TITLES.get(rec.category, rec.category)} | `{_host(r)}` "
+        f"| {rec.store} | {CATEGORY_TITLES.get(rec.category, rec.category)} "
+        f"| {PLATFORM_TITLES.get(rec.platform, rec.platform)} | `{_host(r)}` "
         f"| {r['products']:,} | {r['variants']:,} | {_robots(r)} | {_currency(r)} "
         f"| {_notes(rec)} |"
     )
@@ -403,6 +505,7 @@ def render_stores_yml(
             f"    name: {json.dumps(rec.store)}",
             f"    category: {rec.category}",
             f"    host: {_host(r)}",
+            *([f"    platform: {rec.platform}"] if rec.platform != "shopify" else []),
             f"    recon_variants: {r['variants']}",
             f"    recon_products: {r['products']}",
         ]

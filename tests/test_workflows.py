@@ -44,7 +44,7 @@ def test_daily_commits_data_only_after_the_history_upload() -> None:
     names = [s.get("name") for s in daily["jobs"]["run"]["steps"]]
     assert names.index("Upload history to release") < names.index("Commit data")
     assert daily["concurrency"] == {"group": "daily", "cancel-in-progress": False}
-    assert daily["jobs"]["run"]["timeout-minutes"] <= 45  # owner limit (D-020)
+    assert daily["jobs"]["run"]["timeout-minutes"] <= 70  # owner target ~60 min (D-031)
 
 
 def test_pages_deploy_is_gated_and_least_privilege() -> None:

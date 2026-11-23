@@ -3,8 +3,11 @@
     python -m pricemon.feed [--data data] [--stores config/stores.yml]
 
 A small, stable summary of the monitor for other sites to read: what is
-monitored, the latest good run, what its checks did, totals, and up to 60 days of
-change counts. It is built only from committed run outputs (``data/runs.jsonl``,
+monitored, the latest good run, what its checks did, totals, up to 60 days of
+change counts, and the delivery record since 5 Nov 2026 (``delivery``). The full
+daily history, kept forever, is ``data/public/history.json`` (``history_url``).
+Stores still warming up (:mod:`pricemon.warmup`) are not in any number here.
+It is built only from committed run outputs (``data/runs.jsonl``,
 ``data/status.json``) and ``config/stores.yml``, and it never contains product
 names or prices.
 
@@ -28,7 +31,8 @@ from typing import Any
 import yaml
 
 from pricemon.outputs import build_status, iso, read_runs
-from pricemon.stores import load_stores
+from pricemon.stores import CATEGORY_TITLES, PLATFORM_TITLES, load_stores
+from pricemon.summary import delivery, read_summary
 
 SCHEMA = "steadydata.feed/v1"
 MONITOR_ID = "ecommerce-price-monitor"
@@ -47,13 +51,6 @@ DAILY_EVENTS = (
     "removed",
 )
 ROOT = Path(__file__).resolve().parents[2]
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 
 
 def checks(run: dict[str, Any]) -> dict[str, Any]:
@@ -154,6 +151,7 @@ def build_feed(
     now: datetime,
     stores_path: Path | None = None,
     public_path: Path | None = None,
+    summary_rows: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
     """The feed, or None when there is no good run yet."""
     good = [r for r in runs if r.get("status") in GOOD]
@@ -162,9 +160,13 @@ def build_feed(
     last = good[-1]
     stores_path = stores_path or ROOT / "config" / "stores.yml"
     stores = load_stores(stores_path) if stores_path.exists() else []
+    # Warming-up stores are internal: only counted stores are described.
+    warming = {w.get("store_id") for w in last.get("warming") or [] if not w.get("promoted")}
+    stores = [s for s in stores if s.id not in warming]
     pub = _public(public_path or ROOT / "config" / "public.yml")
     repo = pub.get("repo", f"siddharthkumarx/{MONITOR_ID}")
-    stores_total = len(stores) or int(last.get("stores_total") or 0)
+    branch = pub.get("branch", "main")
+    stores_total = int(last.get("stores_total") or 0) or len(stores)
     category_ids = sorted({s.category for s in stores})
     return {
         "schema": SCHEMA,
@@ -178,6 +180,9 @@ def build_feed(
             "stores_total": stores_total,
             "categories": [CATEGORY_TITLES.get(c, c) for c in category_ids],
             "category_ids": category_ids,
+            "platforms": [
+                PLATFORM_TITLES[p] for p in PLATFORM_TITLES if p in {s.platform for s in stores}
+            ],
             "cadence": "daily at 06:17 UTC",
         },
         "last_run": {
@@ -198,6 +203,10 @@ def build_feed(
             "runs_held": int(status.get("runs_held") or 0),
         },
         "schedule": _schedule(status.get("schedule") or {}),
+        "delivery": delivery(summary_rows or [], status),
+        "history_url": (
+            f"https://raw.githubusercontent.com/{repo}/{branch}/data/public/history.json"
+        ),
         "daily": daily(runs),
     }
 
@@ -247,7 +256,8 @@ def publish(
         if status_file.exists()
         else build_status(runs, now)
     )
-    feed = build_feed(runs, status, now, stores_path, public_path)
+    rows = list(read_summary(data / "history" / "daily-summary.csv").values())
+    feed = build_feed(runs, status, now, stores_path, public_path, rows)
     return write_feed(data, feed) if feed else None
 
 

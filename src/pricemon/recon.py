@@ -9,6 +9,12 @@ For each candidate the recon records, without keeping any product content:
 * a sample cross-check of ``/products/<handle>.js`` against ``/products.json``
 * the presentment currency with ``country=US`` (JSON-LD ``priceCurrency`` and
   ``Shopify.currency``) and the shop's own country / currency from ``/meta.json``
+
+A candidate marked ``platform: woocommerce`` or ``platform: bigcommerce`` is checked
+the same way on that platform's public catalog (:mod:`pricemon.platforms`): robots
+for the catalog, second-source and product-page paths, catalog size, a second-source
+cross-check of one product, and the currency (Store API ``currency_code`` or the
+page's JSON-LD / theme data).
 """
 
 from __future__ import annotations
@@ -21,6 +27,7 @@ from typing import Any
 
 import httpx
 
+from pricemon import platforms
 from pricemon.polite import (
     EdgeGuard,
     PoliteConfig,
@@ -38,7 +45,7 @@ from pricemon.witness import (
 )
 
 PAGE_LIMIT = 250
-VARIANT_CAP = 3000
+VARIANT_CAP = 5000
 MAX_PAGES = 20
 
 
@@ -47,6 +54,7 @@ class Candidate:
     store: str
     domain: str
     category: str
+    platform: str = "shopify"
 
 
 @dataclass
@@ -54,6 +62,7 @@ class ReconResult:
     store: str
     domain: str
     category: str
+    platform: str = "shopify"
     host: str = ""
     robots_status: str = "not-fetched"
     robots_products_json: bool | None = None
@@ -73,6 +82,7 @@ class ReconResult:
     shopify_currency: str | None = None
     meta_country: str | None = None
     meta_currency: str | None = None
+    api_currency: list[str] = field(default_factory=list)
     requests: int = 0
     retries: int = 0
     retry_causes: list[str] = field(default_factory=list)
@@ -82,7 +92,7 @@ class ReconResult:
 
     @property
     def currency_usd(self) -> bool:
-        seen = set(self.jsonld_currency)
+        seen = set(self.jsonld_currency) | set(self.api_currency)
         if self.shopify_currency:
             seen.add(self.shopify_currency)
         return seen == {"USD"}
@@ -101,7 +111,7 @@ class ReconResult:
         elif not self.reachable:
             fails.append("unreachable")
         elif not self.shopify:
-            fails.append("not shopify")
+            fails.append("not shopify" if self.platform == "shopify" else f"not {self.platform}")
         else:
             if self.stopped_reason:
                 fails.append("blocked mid-recon")
@@ -134,9 +144,16 @@ class ReconResult:
 async def recon_store(session: StoreSession, cand: Candidate) -> ReconResult:
     """Recon one store through ``session`` (already pointed at the candidate domain)."""
     started = time.monotonic()
-    res = ReconResult(store=cand.store, domain=cand.domain, category=cand.category)
+    res = ReconResult(
+        store=cand.store, domain=cand.domain, category=cand.category, platform=cand.platform
+    )
     try:
-        await _recon(session, res)
+        if cand.platform == "woocommerce":
+            await _recon_woo(session, res)
+        elif cand.platform == "bigcommerce":
+            await _recon_bc(session, res)
+        else:
+            await _recon(session, res)
     except StoreStopped as exc:
         res.stopped_reason = exc.reason
     except Exception as exc:  # recon must never crash the whole run
@@ -221,6 +238,113 @@ async def _recon(session: StoreSession, res: ReconResult) -> None:
     if variants:
         available = sum(1 for v in variants if v.get("available") is True)
         res.available_share = round(available / len(variants), 3)
+
+
+async def _robots_first(session: StoreSession, res: ReconResult) -> bool:
+    robots = await session.load_robots()
+    res.robots_status = robots.status
+    res.crawl_delay_s = robots.crawl_delay_s
+    if session.stopped_reason:
+        res.stopped_reason = session.stopped_reason
+        return False
+    return True
+
+
+async def _recon_woo(session: StoreSession, res: ReconResult) -> None:
+    """WooCommerce: the public Store API (``shopify`` here means "platform confirmed")."""
+    if not await _robots_first(session, res):
+        return
+    path = platforms.WOO_PATH
+    res.robots_products_json = session.allowed(path, {"per_page": 100, "page": 1})
+    res.robots_product_js = session.allowed(f"{path}/1")
+    if not res.robots_products_json:
+        return
+    resp = await session.get(path, {"per_page": 100, "page": 1})
+    res.reachable = True
+    page1 = _json_or_none(resp)
+    if resp.status_code != 200 or not isinstance(page1, list):
+        res.notes.append(f"store api: http {resp.status_code}")
+        return
+    res.shopify = True
+    total = resp.headers.get("x-wp-total", "")
+    n_products = int(total) if total.isdigit() else len(page1)
+    resp = await session.get(path, {"type": "variation", "per_page": 1, "page": 1})
+    vtotal = resp.headers.get("x-wp-total", "")
+    n_variations = int(vtotal) if resp.status_code == 200 and vtotal.isdigit() else 0
+    items = [p for p in page1 if isinstance(p, dict)]
+    simple_share = (
+        sum(1 for p in items if p.get("type") != "variable") / len(items) if items else 0.0
+    )
+    res.products = n_products
+    res.variants = round(n_products * simple_share) + n_variations
+    res.api_currency = sorted(platforms.woo_currencies(items))
+    slim = platforms.woo_products(items, [])
+    res.content_flags = screen_content(slim)
+    stock = [p.get("is_in_stock") is True for p in items]
+    res.available_share = round(sum(stock) / len(stock), 3) if stock else None
+    sample = next((p for p in slim if len(p["variants"]) == 1 and p["handle"]), None)
+    if sample is None:
+        res.js_crosscheck = "missing"
+        return
+    res.sample_handle = sample["handle"]
+    res.robots_product_page = session.allowed(f"/{sample['handle']}/")
+    seen = await platforms.woo_reread(session, sample)
+    v = sample["variants"][0]
+    again = seen.get(int(v["id"]))
+    if again is None:
+        res.js_crosscheck = "missing"
+    else:
+        same = again[0] == price_to_cents(v["price"]) and again[1] is v["available"]
+        res.js_crosscheck = "match" if same else "mismatch"
+    if res.robots_product_page:
+        page = await session.get(f"/{sample['handle']}/", expect="html")
+        if page.status_code == 200:
+            res.jsonld_currency = sorted(jsonld_currencies(page.text))
+    if res.variants > VARIANT_CAP:
+        res.variants_capped = True
+
+
+async def _recon_bc(session: StoreSession, res: ReconResult) -> None:
+    """BigCommerce: the product sitemap and one product page (two price sources)."""
+    if not await _robots_first(session, res):
+        return
+    res.robots_products_json = session.allowed(platforms.BC_SITEMAP, {"type": "products"})
+    if not res.robots_products_json:
+        return
+    paths: list[str] = []
+    for page in range(1, platforms.BC_MAX_SITEMAP_PAGES + 1):
+        resp = await session.get(
+            platforms.BC_SITEMAP, {"type": "products", "page": page}, expect="text"
+        )
+        res.reachable = True
+        if resp.status_code == 404 and page > 1:
+            break
+        found = platforms.bc_sitemap_paths(resp.text) if resp.status_code == 200 else []
+        if not found:
+            break
+        paths += [p for p in found if p not in paths]
+    if not paths:
+        res.notes.append("empty product sitemap")
+        return
+    res.products = res.variants = len(paths)
+    res.content_flags = screen_content(
+        [{"title": p.replace("-", " "), "variants": []} for p in paths]
+    )
+    res.sample_handle = paths[0]
+    res.robots_product_page = res.robots_product_js = session.allowed(f"/{paths[0]}/")
+    if not res.robots_product_page:
+        return
+    page_data = await platforms.bc_read(session, paths[0])
+    if page_data is None:
+        res.js_crosscheck = "missing"
+        res.notes.append("sample page is not a priced BigCommerce product page")
+        return
+    res.shopify = True
+    res.jsonld_currency = sorted(page_data["currencies"])
+    res.js_crosscheck = "match" if platforms.bc_agree(page_data) is None else "mismatch"
+    res.available_share = None
+    if res.variants > platforms.BC_MAX_PRODUCTS:
+        res.variants_capped = True
 
 
 def _count_variants(products: list[dict[str, Any]]) -> int:

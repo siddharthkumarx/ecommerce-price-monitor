@@ -25,6 +25,7 @@ from pathlib import Path
 from typing import Any
 
 from pricemon.outputs import parse_iso, read_runs
+from pricemon.stores import product_url
 
 CHUNK_ROWS = 5000
 Table = list[list[Any]]
@@ -34,8 +35,8 @@ def _usd(cents: str) -> str:
     return "" if cents == "" else f"{int(cents) / 100:.2f}"
 
 
-def latest_table(snapshot: Path, stores: dict[str, tuple[str, str]]) -> Table:
-    """``stores`` maps store id to ``(name, host)``."""
+def latest_table(snapshot: Path, stores: dict[str, tuple[str, ...]]) -> Table:
+    """``stores`` maps store id to ``(name, host)`` or ``(name, host, platform)``."""
     header = [
         "store",
         "product",
@@ -51,7 +52,8 @@ def latest_table(snapshot: Path, stores: dict[str, tuple[str, str]]) -> Table:
         return rows
     with snapshot.open(encoding="utf-8") as fh:
         for r in csv.DictReader(fh):
-            name, host = stores.get(r["store_id"], (r["store_id"], ""))
+            name, host, *rest = stores.get(r["store_id"], (r["store_id"], ""))
+            platform = rest[0] if rest else "shopify"
             rows.append(
                 [
                     name,
@@ -60,7 +62,7 @@ def latest_table(snapshot: Path, stores: dict[str, tuple[str, str]]) -> Table:
                     _usd(r["price_cents"]),
                     _usd(r["compare_at_cents"]),
                     r["available"],
-                    f"https://{host}/products/{r['handle']}" if host else r["handle"],
+                    product_url(host, r["handle"], platform) if host else r["handle"],
                     r["valid_from"],
                 ]
             )
@@ -163,11 +165,11 @@ def main(argv: list[str] | None = None) -> int:
         ]
         print(f"Google Sheet publish skipped: {', '.join(missing)} not set")
         return 0
-    stores: dict[str, tuple[str, str]] = {}
+    stores: dict[str, tuple[str, ...]] = {}
     if a.stores.exists():
         from pricemon.stores import load_stores
 
-        stores = {s.id: (s.name, s.host) for s in load_stores(a.stores)}
+        stores = {s.id: (s.name, s.host, s.platform) for s in load_stores(a.stores)}
     now = datetime.now(UTC)
     tables = {
         "latest": latest_table(a.data / "latest" / "snapshot.csv", stores),

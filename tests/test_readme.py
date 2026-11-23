@@ -15,7 +15,8 @@ from pricemon.visuals import hero, hero_square, maintenance, pipeline
 from tests.test_outputs import DAY1, DAY2, catalog, fetched
 
 SECTIONS = [
-    "# Shopify price monitor",
+    "# E-commerce price monitor",
+    "## At a glance",
     "## What you get",
     "### What changed today",
     "## Why you can trust this data",
