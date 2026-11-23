@@ -18,19 +18,23 @@ Every recon file is evidence. A store is dropped when **any** run shows one of
   titles as false positives in ``config/screen-review.yml``
 
 and when its latest recon fails for any other reason (not Shopify, catalog over
-3,000 variants, currency not proven USD, witness mismatch).
+3,000 variants, or for a multi-brand retailer under 200 products or over 5,000
+products / 25,000 variants, currency not proven USD, witness mismatch).
 
-Among the stores left, at most ``PER_CATEGORY`` per category are *selected*,
-ranked US shops first (``/meta.json`` country), then fewest recon caveats, then
-larger catalogs; the list is then trimmed to ``MAX_STORES`` (owner decision D-020:
-one run in 45 minutes on a single runner), never below ``MIN_PER_CATEGORY`` per
-category. The rest are *reserve*.
+Among the stores left, at most ``PER_CATEGORY`` per category are *selected*
+(``RETAIL_PER_CATEGORY`` for the multi-brand retailer categories), ranked US shops
+first (``/meta.json`` country), then fewest recon caveats, then larger catalogs;
+the brand stores are then trimmed to ``MAX_BRAND_STORES``, never below
+``MIN_PER_CATEGORY`` per category, and the retailers to ``MAX_STORES`` stores and
+``REQUEST_BUDGET`` estimated requests a run in all (owner decision D-020: one run in
+45 minutes on a single runner). The rest are *reserve*.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import math
 from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -38,18 +42,22 @@ from typing import Any
 
 import yaml
 
+from pricemon.categories import CATEGORY_TITLES, RETAIL_CATEGORIES
+
 PER_CATEGORY = 8
+RETAIL_PER_CATEGORY = 40
 MIN_PER_CATEGORY = 4
 # Owner decision (D-020): one daily run must finish in 45 minutes on a single runner,
 # reached with a smaller list, never by spreading requests over several runners.
-MAX_STORES = 25
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
+MAX_BRAND_STORES = 25
+MAX_STORES = 100
+# Requests per store in a daily run: robots.txt, one /products.json page per 250
+# products, the witness product .js and the witness product page. At the daily
+# run-wide pace (3 s + 0-1.5 s, about 3.75 s a request) 520 requests take about
+# 33 minutes, inside the 38-minute request budget of the 45-minute job (D-031).
+FIXED_REQUESTS_PER_STORE = 3
+PRODUCTS_PER_PAGE = 250
+REQUEST_BUDGET = 520
 USED_PATHS = (
     ("robots_products_json", "/products.json"),
     ("robots_product_js", "/products/*.js"),
@@ -176,19 +184,32 @@ def collect(
     return list(records.values())
 
 
+def estimated_requests(rec: StoreRecord) -> int:
+    """Requests one daily run makes for this store, from its latest recon catalog size."""
+    products = int(rec.latest.get("products") or 0)
+    return FIXED_REQUESTS_PER_STORE + max(1, math.ceil(products / PRODUCTS_PER_PAGE))
+
+
 def classify(
     records: list[StoreRecord],
     per_category: int = PER_CATEGORY,
-    max_stores: int = MAX_STORES,
+    max_stores: int = MAX_BRAND_STORES,
     min_per_category: int = MIN_PER_CATEGORY,
+    request_budget: int = REQUEST_BUDGET,
+    retail_per_category: int = RETAIL_PER_CATEGORY,
+    max_total: int = MAX_STORES,
 ) -> dict[str, list[StoreRecord]]:
     """Split records into selected, reserve and dropped.
 
     Ranking inside a category: US shops first, then fewest recon caveats, then
-    larger catalogs. At most ``per_category`` per category; then, while more than
+    larger catalogs. At most ``per_category`` per category (``retail_per_category``
+    for the multi-brand retailer categories). Brand stores: while more than
     ``max_stores`` are selected, the weakest store (most caveats, from the largest
     category, smallest catalog) moves to reserve, never leaving a category with
-    fewer than ``min_per_category``.
+    fewer than ``min_per_category``. Retailers: while the whole list is over
+    ``max_total`` stores or ``request_budget`` estimated requests a run, the
+    retailer that costs the most requests moves to reserve. The brand list is
+    never trimmed for retailers.
     """
     groups: dict[str, list[StoreRecord]] = {"selected": [], "reserve": [], "dropped": []}
     by_cat: dict[str, list[StoreRecord]] = defaultdict(list)
@@ -207,15 +228,20 @@ def classify(
                 x.store,
             )
         )
-        chosen[cat] = rows[:per_category]
-        for rec in rows[per_category:]:
-            rec.reserve_reason = f"more than {per_category} in the category"
+        limit = retail_per_category if cat in RETAIL_CATEGORIES else per_category
+        chosen[cat] = rows[:limit]
+        for rec in rows[limit:]:
+            rec.reserve_reason = f"more than {limit} in the category"
             groups["reserve"].append(rec)
-    while sum(len(v) for v in chosen.values()) > max_stores:
+
+    def count(retail: bool) -> int:
+        return sum(len(v) for c, v in chosen.items() if (c in RETAIL_CATEGORIES) == retail)
+
+    while count(retail=False) > max_stores:
         options = [
             (len(rec.caveats()), len(rows), -int(rec.latest["variants"]), rec.store, cat, rec)
             for cat, rows in chosen.items()
-            if len(rows) > min_per_category
+            if cat not in RETAIL_CATEGORIES and len(rows) > min_per_category
             for rec in rows
         ]
         if not options:
@@ -225,6 +251,24 @@ def classify(
         caveats = "; ".join(weakest.caveats()) or "no caveats"
         weakest.reserve_reason = f"trimmed to {max_stores} stores for the run budget ({caveats})"
         groups["reserve"].append(weakest)
+
+    def requests() -> int:
+        return sum(estimated_requests(r) for rows in chosen.values() for r in rows)
+
+    while count(retail=False) + count(retail=True) > max_total or requests() > request_budget:
+        retailers = [(c, r) for c, rows in chosen.items() if c in RETAIL_CATEGORIES for r in rows]
+        if not retailers:
+            break
+        cat, costly = max(
+            retailers,
+            key=lambda cr: (estimated_requests(cr[1]), len(cr[1].caveats()), cr[1].store),
+        )
+        chosen[cat].remove(costly)
+        costly.reserve_reason = (
+            f"trimmed to {max_total} stores and {request_budget} requests a run for the run "
+            f"budget (about {estimated_requests(costly)} requests a run)"
+        )
+        groups["reserve"].append(costly)
     for rows in chosen.values():
         groups["selected"] += rows
     return groups
@@ -335,7 +379,10 @@ def render(
     for rec in selected:
         counts[rec.category] += 1
         variants[rec.category] += int(rec.latest["variants"])
-    short = [CATEGORY_TITLES[c] for c in CATEGORY_TITLES if counts[c] < MIN_PER_CATEGORY]
+    # Retailer categories that have no store yet are not listed.
+    shown = [c for c in CATEGORY_TITLES if c not in RETAIL_CATEGORIES or counts[c]]
+    short = [CATEGORY_TITLES[c] for c in shown if counts[c] < MIN_PER_CATEGORY]
+    requests = sum(estimated_requests(rec) for rec in selected)
     lines = [
         "# Site register",
         "",
@@ -354,10 +401,8 @@ def render(
         "",
         f"- candidates: {len(records)}",
         f"- selected: {len(selected)} stores, {sum(variants.values()):,} variants",
-        *(
-            f"  - {CATEGORY_TITLES[c]}: {counts[c]} stores, {variants[c]:,} variants"
-            for c in CATEGORY_TITLES
-        ),
+        *(f"  - {CATEGORY_TITLES[c]}: {counts[c]} stores, {variants[c]:,} variants" for c in shown),
+        f"- estimated requests a run: {requests} (budget {REQUEST_BUDGET})",
         f"- reserve: {len(groups['reserve'])}",
         f"- dropped: {len(groups['dropped'])}",
         f"- categories under {MIN_PER_CATEGORY} stores: {', '.join(short) or 'none'}",

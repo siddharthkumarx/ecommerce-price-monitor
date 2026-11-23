@@ -21,6 +21,7 @@ from typing import Any
 
 import httpx
 
+from pricemon.categories import RETAIL_CATEGORIES
 from pricemon.polite import (
     EdgeGuard,
     PoliteConfig,
@@ -39,7 +40,15 @@ from pricemon.witness import (
 
 PAGE_LIMIT = 250
 VARIANT_CAP = 3000
+# Multi-brand retailers (F1): up to 5,000 products (MAX_PAGES full pages); their size
+# options push the variant count far above a single-brand store's.
+RETAIL_VARIANT_CAP = 25_000
+RETAIL_MIN_PRODUCTS = 200
 MAX_PAGES = 20
+
+
+def variant_cap(category: str) -> int:
+    return RETAIL_VARIANT_CAP if category in RETAIL_CATEGORIES else VARIANT_CAP
 
 
 @dataclass(frozen=True)
@@ -107,8 +116,10 @@ class ReconResult:
                 fails.append("blocked mid-recon")
             if not self.variants:
                 fails.append("empty catalog")
-            elif self.variants_capped or self.variants > VARIANT_CAP:
+            elif self.variants_capped or self.variants > variant_cap(self.category):
                 fails.append("catalog too large")
+            elif self.category in RETAIL_CATEGORIES and (self.products or 0) < RETAIL_MIN_PRODUCTS:
+                fails.append(f"retailer catalog under {RETAIL_MIN_PRODUCTS} products")
             if not self.currency_usd:
                 fails.append("currency not proven USD")
             if self.js_crosscheck == "mismatch":
@@ -194,7 +205,8 @@ async def _recon(session: StoreSession, res: ReconResult) -> None:
     # Remaining pages until the catalog ends or the variant cap is passed.
     page = 1
     batch = list(payload["products"])
-    while len(batch) == PAGE_LIMIT and _count_variants(products) <= VARIANT_CAP:
+    cap = variant_cap(res.category)
+    while len(batch) == PAGE_LIMIT and _count_variants(products) <= cap:
         page += 1
         if page > MAX_PAGES:
             res.variants_capped = True
@@ -216,7 +228,7 @@ async def _recon(session: StoreSession, res: ReconResult) -> None:
     variants = [v for p in products for v in p.get("variants") or []]
     res.products = len(products)
     res.variants = len(variants)
-    if res.variants > VARIANT_CAP and len(batch) == PAGE_LIMIT:
+    if res.variants > cap and len(batch) == PAGE_LIMIT:
         res.variants_capped = True
     if variants:
         available = sum(1 for v in variants if v.get("available") is True)

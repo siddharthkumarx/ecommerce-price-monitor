@@ -160,3 +160,37 @@ def test_trim_to_max_keeps_minimum_per_category_and_drops_weakest_first() -> Non
     assert sum(1 for r in groups["selected"] if r.category == "audio") >= 4
     assert sum(1 for r in groups["selected"] if r.category == "outdoor") >= 4
     assert all(reason and "trimmed to 8 stores" in reason for reason in reserve.values())
+
+
+def test_retailers_never_displace_the_brand_list() -> None:
+    brands = [_row(f"Brand{i}", variants=100 + i) for i in range(6)]
+    shops = [_row(f"Shop{i}", "outdoor_retail", products=400) for i in range(3)]
+    groups = classify(collect([_run("recon-005", *brands, *shops)]), max_stores=5)
+    selected = {r.store for r in groups["selected"]}
+    assert {f"Shop{i}" for i in range(3)} <= selected
+    assert len([s for s in selected if s.startswith("Brand")]) == 5
+
+
+def test_retailers_are_trimmed_to_the_request_budget_costliest_first() -> None:
+    from pricemon.sources import estimated_requests
+
+    shops = [
+        _row("Small", "outdoor_retail", products=250),
+        _row("Huge", "outdoor_retail", products=5000),
+        _row("Mid", "coffee_retail", products=1000),
+    ]
+    records = collect([_run("recon-005", *shops)])
+    costs = {r.store: estimated_requests(r) for r in records}
+    assert costs == {"Small": 4, "Huge": 23, "Mid": 7}
+    groups = classify(records, request_budget=12)
+    assert {r.store for r in groups["selected"]} == {"Small", "Mid"}
+    (huge,) = groups["reserve"]
+    assert huge.store == "Huge"
+    assert "about 23 requests a run" in (huge.reserve_reason or "")
+
+
+def test_register_shows_retailer_categories_and_request_estimate() -> None:
+    md = render([_run("recon-005", _row("Alpha"), _row("Gear", "outdoor_retail", products=600))])
+    assert "| Gear | Outdoor retailers |" in md
+    assert "- estimated requests a run: 10 (budget 520)" in md
+    assert "Bike shops" not in md

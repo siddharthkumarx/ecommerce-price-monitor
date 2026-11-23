@@ -20,6 +20,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from pricemon.categories import CATEGORY_TITLES
 from pricemon.feed import daily
 from pricemon.outputs import (
     build_status,
@@ -33,13 +34,6 @@ from pricemon.schedule import slot_states
 from pricemon.stores import Store, load_stores
 
 ASSETS = Path(__file__).parent / "site_assets"
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 EVENT_LABELS = {
     "price_down": "Price down",
     "price_up": "Price up",

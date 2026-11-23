@@ -27,6 +27,7 @@ from typing import Any
 
 import yaml
 
+from pricemon.categories import CATEGORY_TITLES
 from pricemon.outputs import build_status, iso, read_runs
 from pricemon.stores import load_stores
 
@@ -47,13 +48,6 @@ DAILY_EVENTS = (
     "removed",
 )
 ROOT = Path(__file__).resolve().parents[2]
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 
 
 def checks(run: dict[str, Any]) -> dict[str, Any]:

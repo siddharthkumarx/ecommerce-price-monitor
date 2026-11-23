@@ -183,3 +183,14 @@ categories:
     - {store: Goal Zero, domain: goalzero.com}
     - {store: Oveja Negra, domain: ovejanegrabikepacking.com}
     - {store: Zpacks, domain: zpacks.com}
+  # F1 expansion (2026-11-23): multi-brand US retailers. Every store below passed a
+  # Terms check first (no clause against bots, scraping, automated access or
+  # commercial use of the content); the register of that check is kept privately.
+  outdoor_retail:
+    - {store: Gearonimo Sports, domain: gearonimosports.com}
+    - {store: Black Flag Outfitters, domain: blackflagoutfitters.com}
+    - {store: Backcountry Essentials, domain: backcountryessentials.net}
+    - {store: Idaho Mountain Touring, domain: idahomountaintouring.com}
+    - {store: How NOT 2, domain: hownot2.com}
+  coffee_retail:
+    - {store: Whole Latte Love, domain: wholelattelove.com}

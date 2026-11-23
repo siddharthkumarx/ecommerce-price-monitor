@@ -14,16 +14,10 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from pricemon.categories import CATEGORY_TITLES
 from pricemon.outputs import build_status, parse_iso, read_runs
 from pricemon.stores import Store, load_stores
 
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 EVENT_WORDS = {
     "price_down": "Price down",
     "price_up": "Price up",

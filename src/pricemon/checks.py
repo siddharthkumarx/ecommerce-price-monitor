@@ -25,7 +25,7 @@ from typing import Any
 import yaml
 
 from pricemon.polite import USER_AGENT, EdgeGuard, PoliteConfig
-from pricemon.recon import VARIANT_CAP, Candidate, ReconResult, run_recon
+from pricemon.recon import RETAIL_VARIANT_CAP, VARIANT_CAP, Candidate, ReconResult, run_recon
 
 RESULTS_DIR = Path("checks/results")
 
@@ -74,7 +74,8 @@ def render_recon_md(meta: dict[str, Any], results: list[ReconResult]) -> str:
         "",
         f"- started: {meta['started_utc']}, finished: {meta['finished_utc']}",
         f"- run: {meta['run_url'] or 'local'}",
-        f"- candidates: {len(results)}, passed: {len(passed)} (variant cap {VARIANT_CAP})",
+        f"- candidates: {len(results)}, passed: {len(passed)} "
+        f"(variant cap {VARIANT_CAP}, retailers {RETAIL_VARIANT_CAP})",
         f"- run-wide request interval: {meta.get('edge_interval_s')}s + jitter; "
         f"halted: {meta.get('halted_reason') or 'no'}",
         "",

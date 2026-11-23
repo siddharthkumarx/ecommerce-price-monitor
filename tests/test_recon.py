@@ -72,11 +72,14 @@ class FakeShop:
         return httpx.Response(404)
 
 
-def recon(shop: FakeShop) -> ReconResult:
+def recon(shop: FakeShop, cand: Candidate = CAND) -> ReconResult:
     session, _, _ = session_for(
-        shop, base_url=f"https://{CAND.domain}", config=PoliteConfig(delay_s=1, jitter_s=0)
+        shop, base_url=f"https://{cand.domain}", config=PoliteConfig(delay_s=1, jitter_s=0)
     )
-    return asyncio.run(recon_store(session, CAND))
+    return asyncio.run(recon_store(session, cand))
+
+
+RETAILER = Candidate(store="Retailer", domain="shop.example", category="outdoor_retail")
 
 
 def test_healthy_store_passes() -> None:
@@ -144,3 +147,18 @@ def test_excluded_category_fails() -> None:
     res = recon(FakeShop(vape=True))
     assert res.content_flags == {"tobacco/vape": ["Mini Vape Pen"]}
     assert res.verdict() == (False, ["excluded category: tobacco/vape"])
+
+
+def test_a_retailer_may_have_a_larger_catalog() -> None:
+    # 4,000 variants fail a brand store but not a multi-brand retailer (F1).
+    assert recon(FakeShop(total_products=2000, variants_each=2), RETAILER).verdict() == (True, [])
+
+
+def test_a_retailer_over_5000_products_fails() -> None:
+    res = recon(FakeShop(total_products=5300, variants_each=1), RETAILER)
+    assert res.verdict() == (False, ["catalog too large"])
+
+
+def test_a_retailer_under_200_products_fails() -> None:
+    res = recon(FakeShop(total_products=150, variants_each=2), RETAILER)
+    assert res.verdict() == (False, ["retailer catalog under 200 products"])
