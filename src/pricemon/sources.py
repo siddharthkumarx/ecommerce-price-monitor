@@ -34,7 +34,9 @@ per product). The original reserve and these new stores then fill the list up to
 ``EXPANDED_MAX_STORES``, one category at a time (the category with the fewest
 stores first, at most ``EXPANDED_PER_CATEGORY`` each), ranked non-Shopify first
 (the owner asked for a mix of platforms), then fewest caveats, then larger
-catalogs, while the planned rows (recon variants) stay within ``ROW_BUDGET``.
+catalogs, taking the best-ranked store whose catalog fits twice the fair share of
+the rows left per open slot, while the planned rows (recon variants) stay within
+``ROW_BUDGET``.
 """
 
 from __future__ import annotations
@@ -57,7 +59,7 @@ MIN_PER_CATEGORY = 4
 MAX_STORES = 25
 EXPANSION_FROM = "recon-100"
 EXPANDED_MAX_STORES = 100
-EXPANDED_PER_CATEGORY = 10
+EXPANDED_PER_CATEGORY = 12
 ROW_BUDGET = 58_000
 NEW_PRODUCTS_MIN = 50
 NEW_PRODUCTS_MAX = 5_000
@@ -240,7 +242,12 @@ def classify(
         if not open_cats:
             break
         cat = min(open_cats, key=lambda c: (count[c], list(CATEGORY_TITLES).index(c)))
-        rec = by_cat[cat].pop(0)
+        # A fair share of the rows left: the best-ranked store that fits twice the
+        # average left per open slot, else the smallest that still fits the budget.
+        allowance = 1.5 * (ROW_BUDGET - rows) / max(1, EXPANDED_MAX_STORES - len(selected))
+        fits = [r for r in by_cat[cat] if int(r.latest["variants"]) <= allowance]
+        rec = fits[0] if fits else min(by_cat[cat], key=lambda r: int(r.latest["variants"]))
+        by_cat[cat].remove(rec)
         if rows + int(rec.latest["variants"]) > ROW_BUDGET:
             rec.reserve_reason = f"over the row budget ({ROW_BUDGET:,} planned rows)"
             groups["reserve"].append(rec)

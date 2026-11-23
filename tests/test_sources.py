@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
+import pytest
+
 from pricemon.sources import classify, collect, render, render_stores_yml
 
 
@@ -160,3 +162,30 @@ def test_trim_to_max_keeps_minimum_per_category_and_drops_weakest_first() -> Non
     assert sum(1 for r in groups["selected"] if r.category == "audio") >= 4
     assert sum(1 for r in groups["selected"] if r.category == "outdoor") >= 4
     assert all(reason and "trimmed to 8 stores" in reason for reason in reserve.values())
+
+
+def test_expansion_keeps_the_original_selection_and_fills_within_the_row_budget(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import pricemon.sources as src
+
+    monkeypatch.setattr(src, "EXPANDED_MAX_STORES", 8)
+    monkeypatch.setattr(src, "ROW_BUDGET", 2_000)
+    old = [_row(f"Old{i}", "audio", products=60, variants=100) for i in range(4)]
+    # One huge new store would eat the budget; fair share picks the smaller ones.
+    new = [
+        _row("Huge", "pets", products=900, variants=1_500),
+        *[_row(f"Pet{i}", "pets", products=80, variants=150) for i in range(3)],
+        *[_row(f"Cup{i}", "coffee_tea", products=70, variants=120) for i in range(3)],
+        _row("Tiny", "pets", products=10, variants=12),  # under 50 products: dropped
+        _row("Woo", "coffee_tea", products=60, variants=90, platform="woocommerce"),
+    ]
+    groups = classify(collect([_run("recon-004", *old), _run("recon-100", *new)]))
+    chosen = {r.store for r in groups["selected"]}
+    assert {f"Old{i}" for i in range(4)} <= chosen  # the original selection stays
+    assert len(chosen) == 8
+    assert "Huge" not in chosen  # fair share of the rows
+    assert "Woo" in chosen  # platform mix first
+    assert sum(int(r.latest["variants"]) for r in groups["selected"]) <= 2_000
+    dropped = {r.store: r.drop_reasons() for r in groups["dropped"]}
+    assert "outside 50-5,000" in dropped["Tiny"][0]
