@@ -111,3 +111,10 @@ item says how to verify it.
     `docs/maintainers.md`, "On-time trigger". Verify: `uv run pytest
     tests/test_schedule.py`; on GitHub, a `daily, slot auto` run at 06:17 UTC that
     ran, and the late `daily, schedule` run of the same day skipped.
+34. **F1: multi-brand retailers** - `done` on branch `popo/great-mendel-96i2ua`, merge
+    `blocked` until 2 Dec 2026 (BFCM freeze, D-031). Terms check first (private
+    register), `recon-005`, 29-store list, `pipeline-005` timing proof (8 min 47 s on
+    one runner). Verify: `uv run pytest tests/test_sources.py tests/test_recon.py`;
+    regenerate `docs/sources.md` and `config/stores.yml` and expect no diff. After the
+    merge: the first daily run shows 4 stores' rows as `new`; the README, feed and
+    dashboard counts follow from that run.

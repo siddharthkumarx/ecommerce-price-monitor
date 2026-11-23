@@ -5,8 +5,8 @@ Working notes for any agent continuing this build. Read this file, then
 
 ## Goal
 
-A daily price, discount and stock monitor for US direct-to-consumer brands on
-Shopify (the store list is `docs/sources.md`, machine copy `config/stores.yml`).
+A daily price, discount and stock monitor for US direct-to-consumer brands and,
+since F1 (D-031), multi-brand US retailers on Shopify (the store list is `docs/sources.md`, machine copy `config/stores.yml`).
 It will become the public portfolio repo `ecommerce-price-monitor` of Siddharth
 Kumar (web scraping freelancer, siddharthkumar.com), so it must look and work like
 production-grade expert work, and **every number shown anywhere must come from a
@@ -65,13 +65,21 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   product and variant title). **Never** images or product descriptions.
 - Stores selling adult, tobacco/vape, alcohol, cannabis/CBD or weapons products
   are excluded (content screen in `src/pricemon/screen.py`).
+- **Terms check before recon (D-031).** A new store becomes a candidate only after
+  its Terms of Service were read in full: any clause against bots, scraping,
+  automated access or commercial use of the content, or any doubt, means the store
+  is not taken. Shopify's default Terms template has such clauses, so most stores
+  fail. The per-store register (Terms URL, verdict, quotes) is private and never
+  goes into this repository.
 
 ### Run budget and schedule
 
 - One daily run must finish in under 45 minutes on a single runner (D-020). Never
   split a run over several jobs or runners: that would spread requests over more
   IPs and work around Shopify's per-IP limit. Keep it inside the budget with the
-  store list (25 stores, at least 4 per category, `MAX_STORES` in `sources.py`).
+  store list: 25 brand stores (at least 4 per category, `MAX_BRAND_STORES`) plus
+  retailers, at most 100 stores and 520 estimated requests a run in all
+  (`MAX_STORES`, `REQUEST_BUDGET` in `sources.py`, D-031).
 - The repository is public, so Actions minutes on standard runners are free; still
   request live checks only when they answer a question, because each one adds load
   on the stores (INC-005).

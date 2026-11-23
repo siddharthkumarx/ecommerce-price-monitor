@@ -457,3 +457,38 @@ From an independent review that rendered every SVG:
 - **Links:** "Built by SteadyData · Get a free sample" and the contact call to
   action go to https://steadydata.co/contact/.
 
+
+## D-031 - F1: multi-brand US retailers, Terms check first, request budget (2026-11-23, owner decisions)
+
+- **Who is added.** Multi-brand US retailers from the outbound niches (outdoor and
+  camping gear, home coffee and espresso equipment; backups pet supplies and bike
+  parts): Shopify, 200 to 5,000 products, several stores selling the same brands.
+  They get their own `*_retail` categories (`src/pricemon/categories.py`), so the 25
+  brand stores of D-020 stay exactly as selected (`MAX_BRAND_STORES`).
+- **Terms check before recon.** A store may become a recon candidate only after its
+  Terms of Service were read in full. Any clause against bots, scraping, automated
+  access or commercial use of the content means don't take; doubt (Terms not
+  readable, missing, empty) means don't take. The register (Terms URL, verdict,
+  quotes) is private and never enters this repository. Of 141 retailers checked on
+  23 Nov 2026, 6 passed: Shopify's default Terms template forbids "spider, crawl,
+  or scrape" and to "exploit any portion of the Service", and most custom Terms
+  allow "personal, non-commercial use" only. The owner kept the rule strict and
+  dropped the 75-store target: fewer stores, every one clean.
+- **Recon.** `recon-005` (branch `popo/great-mendel-96i2ua`): 3 of 6 passed outright;
+  Backcountry Essentials passed after its content-screen hits were reviewed
+  (`config/screen-review.yml`); two stores needed HTTP 429 retries and are dropped
+  under D-004. Retailers may have up to 25,000 variants (`RETAIL_VARIANT_CAP`) and
+  must have at least 200 products (`RETAIL_MIN_PRODUCTS`).
+- **Run budget.** A daily run makes robots.txt + one `/products.json` page per 250
+  products + the witness `.js` and product page per store. At the daily run-wide
+  pace (about 3.75 s a request) the store list is capped at 520 estimated requests
+  (`REQUEST_BUDGET`, about 33 minutes) and 100 stores (`MAX_STORES`); over either,
+  the costliest retailer moves to reserve. One run, one runner, as in D-020.
+- **Proof before merge.** `pipeline-005`, the whole new list with the daily settings
+  on one runner: ok, 29 of 29 stores, 24,349 rows, 135 requests, 0 retries, 0
+  throttle events, pipeline 512.5 s, whole job 8 min 47 s
+  ([Actions run 45171594416](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/45171594416)).
+  The snapshot CSV doubles (1.8 MB to 3.6 MB), far under the 50 MB file rule.
+- **Freeze.** Nothing of F1 lands on `main` before 2 Dec 2026: Black Friday week runs
+  four times a day with the 25-store list. The merge comes after the BFCM cron lines
+  are removed (build-progress item 17).
