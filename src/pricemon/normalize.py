@@ -6,6 +6,9 @@
   and counted (docs/decisions.md, D-007).
 * $0 variants (free gifts, samples, add-ons) are out of scope (price > 0) and
   counted as ``free``, not as rejects (D-018).
+* A variant listed under several products (Shopify combined listings: one variant
+  on a page per colour) is kept once when every copy is identical, and counted as
+  a duplicate listing; copies that disagree are rejected.
 * Rows that still fail validation are rejected and counted, never repaired.
 """
 
@@ -45,6 +48,7 @@ class NormalizeStats:
     free: int = 0
     rejected: int = 0
     compare_at_ignored: int = 0
+    duplicate_listings: int = 0
     examples: list[str] = field(default_factory=list)
 
     def reject(self, message: str) -> None:
@@ -65,7 +69,7 @@ def normalize_products(
 ) -> tuple[list[VariantRow], NormalizeStats]:
     stats = NormalizeStats()
     rows: list[VariantRow] = []
-    seen: set[int] = set()
+    seen: dict[int, VariantRow] = {}
     for product in products:
         for variant in product.get("variants") or []:
             price = price_to_cents(variant.get("price"))
@@ -100,10 +104,22 @@ def normalize_products(
                 where = ".".join(str(p) for p in first["loc"]) or "row"
                 stats.reject(f"variant {variant.get('id')}: {where}: {first['msg']}")
                 continue
-            if row.variant_id in seen:
-                stats.reject(f"variant {row.variant_id}: duplicate variant id")
+            kept = seen.get(row.variant_id)
+            if kept is not None:
+                same = (kept.price_cents, kept.compare_at_cents, kept.availability) == (
+                    row.price_cents,
+                    row.compare_at_cents,
+                    row.availability,
+                )
+                if same:
+                    stats.duplicate_listings += 1
+                    if row.product_id < kept.product_id:  # stable: lowest product id wins
+                        rows[rows.index(kept)] = row
+                        seen[row.variant_id] = row
+                else:
+                    stats.reject(f"variant {row.variant_id}: duplicate variant id, values differ")
                 continue
-            seen.add(row.variant_id)
+            seen[row.variant_id] = row
             rows.append(row)
     stats.rows = len(rows)
     return rows, stats

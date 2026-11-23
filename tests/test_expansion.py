@@ -16,7 +16,13 @@ import httpx
 import pytest
 
 from pricemon import platforms, warmup
-from pricemon.fetch import PLACEHOLDER_CENTS, StoreFetch, fetch_store, second_reads
+from pricemon.fetch import (
+    PLACEHOLDER_CENTS,
+    StoreFetch,
+    fetch_store,
+    sample_products,
+    second_reads,
+)
 from pricemon.normalize import normalize_products
 from pricemon.polite import PoliteConfig
 from pricemon.run import RunConfig, process
@@ -492,3 +498,75 @@ def test_prune_keeps_30_days_of_raw_change_logs(tmp_path: Path) -> None:
     assert len(kept) == 30
     assert kept[0] == (today - timedelta(days=29)).isoformat()
     assert len(removed) == 10
+
+
+def test_identical_duplicate_listings_are_kept_once_and_conflicts_rejected() -> None:
+    def prod(pid: int, price: str) -> dict[str, Any]:
+        return {
+            "id": pid,
+            "handle": f"p{pid}",
+            "title": "Tee",
+            "product_type": "",
+            "tags": [],
+            "variants": [
+                {"id": 5, "title": "S", "price": price, "compare_at_price": None, "available": True}
+            ],
+        }
+
+    rows, stats = normalize_products("s", [prod(9, "10.00"), prod(3, "10.00")], at(23))
+    assert len(rows) == 1
+    assert rows[0].product_id == 3  # lowest product id wins, whatever the page order
+    assert (stats.duplicate_listings, stats.rejected) == (1, 0)
+    rows, stats = normalize_products("s", [prod(9, "10.00"), prod(3, "12.00")], at(23))
+    assert len(rows) == 1
+    assert stats.rejected == 1
+
+
+def test_hidden_sample_product_is_skipped_for_the_next_one() -> None:
+    store = Store("s", "S", "audio", "shop.example")
+    products = [
+        {
+            "id": i,
+            "handle": f"p{i}",
+            "title": f"P{i}",
+            "product_type": "",
+            "tags": [],
+            "variants": [
+                {
+                    "id": i * 10,
+                    "title": "Default Title",
+                    "price": "5.00",
+                    "compare_at_price": None,
+                    "available": True,
+                }
+            ],
+        }
+        for i in range(1, 6)
+    ]
+    first_pick = sample_products(products, "s", DAY, n=1)[0]["handle"]
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        path = request.url.path
+        if path == "/robots.txt":
+            return httpx.Response(200, text=ROBOTS)
+        if path == "/products.json":
+            body = {"products": products if request.url.params["page"] == "1" else []}
+            return httpx.Response(200, json=body)
+        handle = path.removeprefix("/products/").removesuffix(".js")
+        if handle == first_pick:
+            return httpx.Response(404)
+        pid = int(handle[1:])
+        if path.endswith(".js"):
+            return httpx.Response(
+                200, json={"variants": [{"id": pid * 10, "price": 500, "available": True}]}
+            )
+        ld = {"@type": "Offer", "price": "5.00", "priceCurrency": "USD"}
+        return httpx.Response(
+            200, text=f'<script type="application/ld+json">{json.dumps(ld)}</script>'
+        )
+
+    f, _ = run_store(store, handler)
+    assert f.status == "ok", f.reason
+    assert f.sample_skipped == [first_pick]
+    assert len(f.witnesses) == 1
+    assert f.witnesses[0].handle != first_pick

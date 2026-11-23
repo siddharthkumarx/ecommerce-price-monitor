@@ -54,6 +54,8 @@ from pricemon.witness import (
 PAGE_LIMIT = 250
 MAX_PAGES = 40
 SAMPLE_PER_STORE = 1
+# Products tried for the daily sample when a sampled one is hidden from the storefront.
+SAMPLE_TRIES = 3
 # Second read on big moves (same factors as the batch guard's suspicious move).
 BIG_MOVE_LOW = 0.2
 BIG_MOVE_HIGH = 5.0
@@ -105,6 +107,8 @@ class StoreFetch:
     # Variant id -> why its new value is held back this run (it keeps the last good one).
     held_variants: dict[int, str] = field(default_factory=dict)
     second_reads: list[dict[str, Any]] = field(default_factory=list)
+    # Sample products skipped because their own page could not be read (hidden).
+    sample_skipped: list[str] = field(default_factory=list)
 
     @property
     def complete(self) -> bool:
@@ -143,6 +147,7 @@ class StoreFetch:
             "held_back": len(self.held_variants),
             "held_reasons": sorted({r.split(":")[0] for r in self.held_variants.values()}),
             "second_reads": self.second_reads,
+            "sample_skipped": self.sample_skipped,
         }
 
 
@@ -370,9 +375,11 @@ async def _fetch(session: StoreSession, store: Store, day: date, out: StoreFetch
         out.status = "excluded"
         out.reason = "excluded category: " + ", ".join(sorted(out.content_flags))
         return
-    for product in sample_products(out.products, store.id, day):
+    # The daily sample: the first product in the day's order whose own page can be
+    # read. A product listed in the catalog but hidden from the storefront (its .js
+    # and page are 404) is skipped, at most SAMPLE_TRIES products per store.
+    for product in sample_products(out.products, store.id, day, n=SAMPLE_TRIES):
         w = WitnessResult(product_id=int(product["id"]), handle=str(product["handle"]))
-        out.witnesses.append(w)
         if store.platform == "woocommerce":
             await platforms.woo_witness_api(session, product, w)
             await _witness_page(session, product, w, path=f"/{w.handle}/")
@@ -381,6 +388,12 @@ async def _fetch(session: StoreSession, store: Store, day: date, out: StoreFetch
         else:
             await _witness_js(session, product, w)
             await _witness_page(session, product, w)
+        if w.js == "missing" and w.jsonld == "missing" and not w.theme_currency:
+            out.sample_skipped.append(w.handle)
+            continue
+        out.witnesses.append(w)
+        if len(out.witnesses) >= SAMPLE_PER_STORE:
+            break
     if not out.currencies:
         out.status, out.reason = "failed", "no currency proof on sampled product pages"
         return

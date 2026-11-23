@@ -212,6 +212,7 @@ def process(
     compare_at_ignored = 0
     free_variants = 0
     held_back = 0
+    duplicate_listings = 0
     reject_examples: dict[str, list[str]] = {}
     for f in fetches:
         warming = f.store_id in warming_ids
@@ -223,6 +224,7 @@ def process(
             store_rows, held = _hold_back(store_rows, f.held_variants, prev.get(f.store_id, {}))
             if not warming:
                 compare_at_ignored += stats.compare_at_ignored
+                duplicate_listings += stats.duplicate_listings
                 free_variants += stats.free
                 held_back += held
                 if stats.examples:
@@ -320,6 +322,7 @@ def process(
         "compare_at_ignored": compare_at_ignored,
         "free_variants": free_variants,
         "rows_held_back": held_back,
+        "duplicate_listings": duplicate_listings,
         "second_reads": {
             "reads": sum(1 for r in reads if "reread_cents" in r),
             "confirmed": sum(1 for r in reads if r.get("verdict") == "confirmed"),
