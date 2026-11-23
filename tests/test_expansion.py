@@ -16,7 +16,7 @@ import httpx
 import pytest
 
 from pricemon import platforms, warmup
-from pricemon.fetch import PLACEHOLDER_CENTS, fetch_store, second_reads
+from pricemon.fetch import PLACEHOLDER_CENTS, StoreFetch, fetch_store, second_reads
 from pricemon.normalize import normalize_products
 from pricemon.polite import PoliteConfig
 from pricemon.run import RunConfig, process
@@ -138,7 +138,7 @@ def run_store(
     store: Store,
     handler: Callable[[httpx.Request], httpx.Response],
     prev: dict[int, int] | None = None,
-):  # type: ignore[no-untyped-def]
+) -> tuple[StoreFetch, list[httpx.Request]]:
     session, _, seen = session_for(
         handler, base_url=store.base_url, config=PoliteConfig(delay_s=1, jitter_s=0)
     )
