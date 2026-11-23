@@ -68,12 +68,12 @@ class RunConfig:
     edge_jitter_s: float = 1.5
     # Stores on their own hosts (WooCommerce, BigCommerce) do not share Shopify's
     # edge: each keeps the per-store pace above, and this lane only adds a small
-    # run-wide gap, the time budget and the circuit breaker (D-031).
+    # run-wide gap, the time budget and the circuit breaker (D-032).
     other_concurrency: int = 6
     other_interval_s: float = 0.5
     other_jitter_s: float = 0.5
     # No new request after 52 minutes: with setup, upload and commit the job stays
-    # under the owner's ~60-minute target for 100 stores (D-031, was 38 min, D-020).
+    # under the owner's ~60-minute target for 100 stores (D-032, was 38 min, D-020).
     budget_s: float = 52 * 60
     only: set[str] = field(default_factory=set)
 

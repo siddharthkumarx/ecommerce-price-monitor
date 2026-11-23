@@ -1,4 +1,4 @@
-"""The 100-store expansion (D-031): platforms, second read on big moves, canary
+"""The 100-store expansion (D-032): platforms, second read on big moves, canary
 warm-up, daily summary kept forever and the 30-day raw window."""
 
 from __future__ import annotations

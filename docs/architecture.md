@@ -27,9 +27,9 @@ config/stores.yml ──► fetch ──► validate ──► batch guard ─�
 | `recon.py`, `sources.py`, `checks.py` | Recon, the site register and `config/stores.yml`, the live-checks runner. |
 | `stores.py` | Loads `config/stores.yml` into `Store` objects. |
 | `fetch.py` | Per store: robots, the full catalog, a daily second-source sample, currency proof, and the second read on big price moves. Returns raw catalog rows plus a `StoreFetch` report. |
-| `platforms.py` | WooCommerce (public Store API) and BigCommerce (product sitemap and pages) catalog readers and their second sources, in the Shopify slim-product shape (D-031). |
-| `warmup.py` | The canary: new stores count in public numbers only after 3 clean days in a row (D-031). |
-| `summary.py` | `data/history/daily-summary.csv` (forever), `data/public/history.json`, and the 30-day window for raw change logs (D-031). |
+| `platforms.py` | WooCommerce (public Store API) and BigCommerce (product sitemap and pages) catalog readers and their second sources, in the Shopify slim-product shape (D-032). |
+| `warmup.py` | The canary: new stores count in public numbers only after 3 clean days in a row (D-032). |
+| `summary.py` | `data/history/daily-summary.csv` (forever), `data/public/history.json`, and the 30-day window for raw change logs (D-032). |
 | `models.py` | Pydantic `VariantRow` (the validation rules). `StoreFetch` lives in `fetch.py`, `ChangeEvent` in `changes.py`. |
 | `guard.py` | The batch guard (row validation itself is the Pydantic model). |
 | `normalize.py` | Raw Shopify JSON to `VariantRow` (integer cents, UTC, fixed availability values). |
@@ -156,7 +156,7 @@ One observation can raise several events (a sale is usually `price_down` +
 | output | where | size control |
 |---|---|---|
 | latest snapshot | `data/latest/snapshot.csv` (+ `snapshot.json` summary for the site) | only open versions |
-| daily change log | `data/changes/YYYY/YYYY-MM-DD.csv` (runs of a day append) | events only; the last 30 days are kept (D-031) |
+| daily change log | `data/changes/YYYY/YYYY-MM-DD.csv` (runs of a day append) | events only; the last 30 days are kept (D-032) |
 | daily summary | `data/history/daily-summary.csv`, `data/public/history.json` | one row per day, kept forever |
 | canary state | `data/warmup.json` (internal) and `warming` in `runs.jsonl` | small |
 | run log | `data/runs.jsonl`, one JSON line per run | small |
@@ -176,7 +176,7 @@ with no `runs.jsonl` entry of status `ok`/`partial` within 3 hours after the slo
 |---|---|---|
 | `ci.yml` | every push | commit-message check, ruff, mypy, pytest, gitleaks, pip-audit, file-size check |
 | `checks.yml` | branch push changing `checks/request.yml` (never a tag push, INC-008) | live checks; commits `checks/results/<id>/` |
-| `daily.yml` | `17 6 * * *`; on 26 Nov to 1 Dec 2026 also 18:17, and 00:17 and 12:17 only when `env.BFCM_RUNS_PER_DAY` is "4" (D-021); `workflow_dispatch` | job `timeout-minutes: 70` (D-031), no request after 52 minutes, a `pages` job that deploys `site/` when `vars.PAGES_ENABLED` is `true` (D-026), `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). A `slot` gate job skips a scheduled run whose slot is already filled (D-027) and runs an on-time dispatch (`slot` time, or `auto` from cron-job.org) once per slot (D-028, D-030). |
+| `daily.yml` | `17 6 * * *`; on 26 Nov to 1 Dec 2026 also 18:17, and 00:17 and 12:17 only when `env.BFCM_RUNS_PER_DAY` is "4" (D-021); `workflow_dispatch` | job `timeout-minutes: 70` (D-032), no request after 52 minutes, a `pages` job that deploys `site/` when `vars.PAGES_ENABLED` is `true` (D-026), `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). A `slot` gate job skips a scheduled run whose slot is already filled (D-027) and runs an on-time dispatch (`slot` time, or `auto` from cron-job.org) once per slot (D-028, D-030). |
 | `watchdog.yml` | `47 8 * * *`, `47 16 * * *`; `workflow_dispatch` | if no ok, partial or held run started since the latest daily slot and none is queued or running: starts `daily.yml`, opens or updates a `run-alert` issue, fails (INC-007, D-027) |
 
 Scheduled workflows run on the default branch, `main`. GitHub can start a slot

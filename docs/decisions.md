@@ -458,14 +458,14 @@ From an independent review that rendered every SVG:
   action go to https://steadydata.co/contact/.
 
 
-## D-031 - 100 stores, three platforms, canary and long history (2026-11-23, owner decision)
+## D-032 - 100 stores, three platforms, canary and long history (2026-11-23, owner decision)
 
 - **Scale:** up to 100 public US online stores (the original 25 plus up to 75 new),
   Shopify, WooCommerce and BigCommerce, 50 to 5,000 products per new store, under
   about 60,000 prices and about 60 minutes per run on one runner (replaces the
   45-minute limit of D-020; one runner and no spreading of requests stay). The job
   timeout is 70 minutes and no request starts after 52 minutes. Selection rules:
-  `src/pricemon/sources.py` (expansion from `recon-005`); the original 25 are
+  `src/pricemon/sources.py` (expansion from `recon-100`); the original 25 are
   selected exactly as before.
 - **Same rules for every platform:** robots.txt, the per-store pace, retry and
   block rules, the content screen, the currency proof and a second source for the

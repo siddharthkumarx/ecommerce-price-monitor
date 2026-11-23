@@ -91,7 +91,7 @@ jobs:
     if: ${{ !cancelled() && needs.slot.outputs.run == 'true' }}
     runs-on: ubuntu-24.04
     # Owner target: one daily run of 100 stores in about 60 minutes on a single
-    # runner (D-031; was 45 minutes for 25 stores, D-020). No request after 52 min.
+    # runner (D-032; was 45 minutes for 25 stores, D-020). No request after 52 min.
     timeout-minutes: 70
     outputs:
       pages: ${{ steps.pages_artifact.outcome }}

@@ -51,8 +51,8 @@ CONTRACT: dict[str, Any] = {
     "totals": {"days_running": int, "runs_total": int, "runs_good": int, "runs_held": int},
     "daily": list,
 }
-# Fields added by D-031 (the contract only grows): every feed built from now on has
-# them; a feed committed by a run before D-031 does not.
+# Fields added by D-032 (the contract only grows): every feed built from now on has
+# them; a feed committed by a run before D-032 does not.
 CONTRACT_D031: dict[str, Any] = {
     "monitor": {"platforms": list},
     "delivery": {

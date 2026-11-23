@@ -26,7 +26,7 @@ larger catalogs; the list is then trimmed to ``MAX_STORES`` (owner decision D-02
 one run in 45 minutes on a single runner), never below ``MIN_PER_CATEGORY`` per
 category. The rest are *reserve*.
 
-**Expansion to 100 stores (D-031).** The rules above pick the original 25 from
+**Expansion to 100 stores (D-032).** The rules above pick the original 25 from
 the recon runs before ``EXPANSION_FROM``, unchanged. Candidates first checked in
 ``EXPANSION_FROM`` or later must also have ``NEW_PRODUCTS_MIN`` to
 ``NEW_PRODUCTS_MAX`` products (BigCommerce at most ``BC_PRODUCTS_MAX``: one page
@@ -55,7 +55,7 @@ MIN_PER_CATEGORY = 4
 # Owner decision (D-020): one daily run must finish in 45 minutes on a single runner,
 # reached with a smaller list, never by spreading requests over several runners.
 MAX_STORES = 25
-EXPANSION_FROM = "recon-005"
+EXPANSION_FROM = "recon-100"
 EXPANDED_MAX_STORES = 100
 EXPANDED_PER_CATEGORY = 10
 ROW_BUDGET = 58_000
@@ -122,7 +122,7 @@ class StoreRecord:
 
     @property
     def is_new(self) -> bool:
-        """First checked in the expansion recon (D-031)."""
+        """First checked in the expansion recon (D-032)."""
         return self.history[0][0] >= EXPANSION_FROM
 
     def caveats(self) -> list[str]:
