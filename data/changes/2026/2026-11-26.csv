@@ -1,0 +1,403 @@
+observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
+2026-11-26T00:17:25Z,bee-s-wrap,10028642140435,51912035827987,warehouse-bundle-16-pack,Warehouse Bundle Wraps - 16-Pack,Default Title,out_of_stock,3600,3600,10700,10700,
+2026-11-26T00:17:25Z,branch-basics,5528818286756,42885177376932,starter-kit-oxygen-boost,Premium Starter Kit,Plastic,price_down,7500,6000,7500,7500,-20.0
+2026-11-26T00:17:25Z,branch-basics,5528818286756,42885177376932,starter-kit-oxygen-boost,Premium Starter Kit,Plastic,discount_start,7500,6000,7500,7500,
+2026-11-26T00:17:25Z,gossamer-gear,8096446513206,44507213070390,kumo-36-backpack-yellow,Kumo 36 Backpack - Yellow,Medium,price_down,13500,11700,18000,18000,-13.3
+2026-11-26T00:17:25Z,gossamer-gear,8097218363446,44507303182390,loris-yellow,Loris - Yellow,Default Title,price_down,10125,9450,13500,13500,-6.7
+2026-11-26T00:17:25Z,gossamer-gear,8097220984886,44507315142710,minimalist-19-yellow,Minimalist 19 - Yellow,Default Title,price_down,5175,4830,6900,6900,-6.7
+2026-11-26T00:17:25Z,gossamer-gear,8097222197302,44507320909878,bumster-yellow,Bumster - Yellow,Default Title,price_down,2175,2030,2900,2900,-6.7
+2026-11-26T00:17:25Z,greats,7667086426160,42006353772592,the-royale-2-0-burnished-cuoio-mens,The Royale 2.0 - Burnished Cuoio,8 / Burnished Cuoio,out_of_stock,19900,19900,19900,19900,
+2026-11-26T00:17:25Z,homesick,9969883601,251230814225,utah-candle,Utah Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883921,251230978065,west-virginia-candle,West Virginia Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969884049,251231010833,wyoming-candle,Wyoming Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10041816529,251239268369,beach-cottage-candle,Beach Cottage Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10041816465,251239301137,love-letters-candle,Love Letters Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10008884881,251239727121,chicago-candle,Chicago Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969877777,289226457105,alaska-candle,Alaska Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969877905,289226653713,arkansas-candle,Arkansas Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879377,289231372305,hawaii-candle,Hawaii Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879569,289231503377,idaho-candle,Idaho Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880081,289231667217,kansas-candle,Kansas Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880337,289231765521,los-angeles-candle,Los Angeles Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881169,289233272849,missouri-candle,Missouri Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881105,289233403921,mississippi-candle,Mississippi Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881233,289233436689,montana-candle,Montana Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882065,289233534993,north-dakota-candle,North Dakota Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881297,289233567761,nebraska-candle,Nebraska Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881489,289233600529,new-hampshire-candle,New Hampshire Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881617,289233666065,new-job-candle,New Job Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881681,289233698833,new-mexico-candle,New Mexico Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882769,289234550801,road-trip-candle,Road Trip Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882961,289234649105,south-carolina-candle,South Carolina Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883089,289235664913,south-dakota-candle,South Dakota Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969878161,289707851793,boston-candle,Boston Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883665,290142978065,vermont-candle,Vermont Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969878801,290303442961,delaware-candle,Delaware Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880529,290627780625,maine-candle,Maine Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880913,290627813393,michigan-candle,Michigan Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882449,290628075537,oregon-candle,Oregon Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969877649,290789294097,alabama-candle,Alabama Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879953,290792603665,iowa-candle,Iowa Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879889,290792996881,indiana-candle,Indiana Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882193,290793455633,ohio-candle,Ohio Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882257,290793488401,oklahoma-candle,Oklahoma Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882641,290793586705,rhode-island-candle,Rhode Island Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,4907575428,290793947153,southern-california-candle,SoCal - Southern California Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883409,290794307601,tennessee-candle,Tennessee Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969877841,290949890065,arizona-candle,Arizona Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969878097,290949922833,book-club-candle,Book Club Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6305405380,290949955601,colorado-candle,Colorado Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883857,290950021137,washington-dc-candle,Washington D.C. Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880593,290950152209,maryland-candle,Maryland Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881425,290950217745,nevada-candle,Nevada Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881873,290950250513,new-york-city-candle,New York City Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882833,290950381585,san-francisco-candle,San Francisco Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969878609,291004514321,connecticut-candle,Connecticut Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879313,291310075921,latkes-and-lights-candle,Latkes and Lights Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880401,291310108689,louisiana-candle,Louisiana Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880657,291310141457,massachusetts-candle,Massachusetts Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883793,291310403601,washington-candle,Washington Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969878929,291325116433,florida-candle,Florida Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879185,291325181969,georgia-candle,Georgia Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879505,291325214737,the-nutcracker-candle,The Nutcracker Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969879633,291325247505,illinois-candle,Illinois Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969880145,291325313041,kentucky-candle,Kentucky Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6305410820,291325345809,minnesota-candle,Minnesota Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882001,291325378577,north-carolina-candle,North Carolina Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882129,291325411345,northern-california-candle,NorCal - Northern California Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,4990870852,291326394385,new-jersey-candle,New Jersey Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969881745,291326656529,new-york-candle,New York Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969882513,291326689297,pennsylvania-candle,Pennsylvania Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883473,291326754833,texas-candle,Texas Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,9969883729,291326820369,virginia-candle,Virginia Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6296307716,291326853137,wisconsin-candle,Wisconsin Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,1404450209854,12347187527742,new-home-candle,New Home Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,1433371574334,12404535623742,pumpkin-picking-candle,Pumpkin Picking Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,1984706674750,18387140706366,birthday-party-candle,Birthday Party Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,2266330071102,20376693440574,winter-mantel-candle,Winter Mantel Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,2266332364862,20376717557822,lets-toast-candle,Let's Toast Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,4451622879294,31594167173182,thank-you-mom,"Thank You, Mom Candle",Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,4598431219774,32132366893118,thanks-candle,Thanks Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,4660222820414,32265715417150,ski-trip-candle,Ski Trip Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,4746946445374,32525915062334,home-office-candle,Home Office Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6535180845118,39245819084862,gone-hiking-candle,Gone Hiking Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6574624178238,39401399189566,just-married-candle,Just Married Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6580841742398,39419973369918,lake-living-candle,Lake Living Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6628304617534,39544898355262,autumn-hayride-candle,Autumn Hayride Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6787089072190,39653332156478,evening-unwind-candle,Evening Unwind Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6942541840446,39751099351102,team-bride-candle,Team Bride Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6981275746366,39780648779838,bonfire-nights-candle,Bonfire Nights Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,6994823839806,39789557448766,snow-day-candle,Snow Day Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7065196199998,39863433986110,harry-potter-hufflepuff-candle,Harry Potter Hufflepuff™ Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7065201344574,39863450206270,harry-potter-ravenclaw-candle,Harry Potter Ravenclaw™ Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7065207472190,39863464984638,harry-potter-slytherin-candle,Harry Potter Slytherin™ Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7070968021054,39870782832702,harry-potter-gryffindor-candle,Harry Potter Gryffindor™ Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7110734446654,39930419609662,friends-central-perk-candle,FRIENDS™ Central Perk™ Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7123218628670,39966400774206,19th-hole-candle,19th Hole Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7123220365374,39966406377534,tennis-league-candle,Tennis League Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7149525631038,40034129739838,game-day-candle,Game Day Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7149526253630,40034130460734,new-baby-candle,New Baby Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7188227326014,40127065587774,orchard-picnic-candle,Orchard Picnic Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7188231127102,40127067848766,friendsgiving-candle,Friendsgiving Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7240208580670,40163446685758,harry-potter-diagon-alley-candle,Harry Potter Diagon Alley™ Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7240209924158,40163448848446,harry-potter-platform-9-candle,Harry Potter Platform 9 ¾™ Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7240210448446,40163449438270,harry-potter-quidditch-pitch-candle,Harry Potter Quidditch Pitch™ Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7244886966334,40178521669694,log-cabin-candle,Log Cabin Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7253926412350,40223559778366,gimbels-candle,Gimbels Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7293452451902,40317169532990,jerrys-apartment-candle,Seinfeld Jerry's Apartment Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7303173341246,40368447094846,in-our-hearts-candle,In Our Hearts Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7312163078206,40398026539070,great-outdoors-candle,Great Outdoors Candle,Default Title,price_down,1397,1396,1995,1995,-0.1
+2026-11-26T00:17:25Z,homesick,7492958322750,40880948903998,new-grad-candle,New Grad Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7528124973118,40952548655166,beach-vacay-mini-candle-trio,Beach Vacay Mini Candle Trio,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7616842203198,41147351957566,pickleball-court-candle,Pickleball Court Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7642827358270,41210847756350,peak-foliage-candle,Peak Foliage Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7642827948094,41210848870462,cozy-sweater-candle,Cozy Sweater Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7676194914366,41306037944382,monicas-apartment-candle,FRIENDS™ Monica's Apartment Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7685858492478,41338588495934,forbidden-forest-candle,Harry Potter™ Forbidden Forest Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7685858852926,41338589970494,the-great-hall-candle,Harry Potter™ The Great Hall Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7701440200766,41405504749630,christmas-morning-candle,Christmas Morning Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7701440266302,41405504979006,gingerbread-house-candle,Gingerbread House Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7701441183806,41405509075006,yellow-brick-road-candle,The Wizard Of Oz - Yellow Brick Road Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7710339563582,41436607447102,harry-potter-honeydukes-candle-trio,Harry Potter Honeydukes™ Candle Trio,Default Title,price_down,2797,2796,3995,3995,-0.0
+2026-11-26T00:17:25Z,homesick,7757154811966,41627233222718,festival-beats-candle,Festival Beats Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7757157433406,41627240955966,golden-hour-candle,Golden Hour Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7762483052606,41643661951038,pilates-princess-candle,Pilates Princess Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7774390353982,41676106891326,grandma-s-cookies-candle,Grandma’s Cookies Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7774401298494,41676137660478,mom-s-day-off-candle,Mom’s Day Off Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7779308929086,41694605049918,happy-camper-candle,Happy Camper Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7785098805310,41718288908350,thank-you-dad-candle,"Thank You, Dad Candle",Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7787123408958,41724192849982,strawberry-season-candle,Strawberry Season Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7787124162622,41724196192318,poolside-candle,Poolside Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7803386003518,41776882745406,iced-coffee-candle,Iced Coffee Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7835014398014,41901208043582,beach-cottage-mini-candle,Beach Cottage Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7835017314366,41901221085246,bonfire-nights-mini-candle,Bonfire Nights Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7835017445438,41901221216318,gone-hiking-mini-candle,Gone Hiking Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7835017740350,41901221675070,hawaii-mini-candle,Hawaii Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7835017871422,41901222461502,new-home-mini-candle,New Home Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7835018035262,41901223116862,thanks-mini-candle,Thanks Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7840554876990,41922781610046,local-honey-candle,Local Honey Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7840561004606,41922813919294,hot-cider-candle,Hot Cider Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7840561659966,41922818146366,burnt-marshmallow-candle,Burnt Marshmallow Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7840565788734,41922842001470,host-with-the-most-candle,Host With The Most Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7841003831358,41925381390398,olipop-orange-cream-candle,Olipop Orange Cream Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7841023590462,41925478318142,friday-night-lights-candle,Friday Night Lights Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7849995305022,41975295311934,the-kitchen-candle,The Kitchen Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,7849995796542,41975297146942,the-bathroom-candle,The Bathroom Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,7849996124222,41975298195518,the-bar-candle,The Bar Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,7849996156990,41975298228286,the-living-room-candle,The Living Room Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,7849996255294,41975298457662,the-bedroom-candle,The Bedroom Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,7864768987198,42025643475006,flourish-and-blotts-candle,Harry Potter™ Flourish and Blotts Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7864769019966,42025643507774,the-burrow-candle,Harry Potter™ The Burrow Candle,Default Title,price_up,2557,2586,3695,3695,1.1
+2026-11-26T00:17:25Z,homesick,7864769151038,42025643638846,hagrid-s-hut-candle,Harry Potter™ Hagrid’s Hut Candle,Default Title,price_down,2587,2586,3695,3695,-0.0
+2026-11-26T00:17:25Z,homesick,7871939313726,42043057831998,derry-sewer-candle,Derry Sewer Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7871939346494,42043057864766,regan-s-room-candle,Regan’s Room Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7871939379262,42043057897534,camp-crystal-lake-candle,Camp Crystal Lake Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7884076286014,42064229957694,lukes-diner-candle,Gilmore Girls Luke’s Diner Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7884076384318,42064230023230,stars-hollow-candle,Gilmore Girls Stars Hollow Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7914221862974,42131450167358,freshly-washed-candle,Freshly Washed Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7914221895742,42131450200126,cuddle-up-fresh-candle,Cuddle Up Fresh Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7934064656446,42183308836926,o-christmas-tree-candle,"O, Christmas Tree Candle",Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7934064689214,42183308869694,peppermint-season-candle,Peppermint Season Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7934064721982,42183308902462,winter-wonderland-candle,Winter Wonderland Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7934064754750,42183308935230,challah-day-candle,Challah-Day Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7966798151742,42295182590014,hot-cocoa-candle,Hot Cocoa Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7966798315582,42295182753854,sledding-candle,Sledding Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,7967686721598,42298268057662,ruby-red-slippers-candle,The Wizard Of Oz - Ruby Red Slippers Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7970256027710,42311001276478,friends-joey-chandler-s-apartment-candle,FRIENDS™ Joey & Chandler’s Apartment Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,7995262304318,42406061539390,thank-you-mom-mini-candle,"Thank You, Mom Mini Candle",Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7995262337086,42406061572158,love-letters-mini-candle,Love Letters Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7995262369854,42406061604926,just-married-mini-candle,Just Married Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,7995262435390,42406061670462,evening-unwind-mini-candle,Evening Unwind Mini Candle,Default Title,price_down,697,696,995,995,-0.1
+2026-11-26T00:17:25Z,homesick,8001510342718,42448205021246,the-powerpuff-girls-bubbles-candle,The Powerpuff Girls Bubbles Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,8001510932542,42448205611070,the-powerpuff-girls-buttercup-candle,The Powerpuff Girls Buttercup Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,8001511161918,42448206299198,the-powerpuff-girls-blossom-candle,The Powerpuff Girls Blossom Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,8031745802302,42538367615038,lets-toast-3-wick-candle,Let's Toast 3-Wick Candle,Default Title,price_down,4995,2498,,4995,-50.0
+2026-11-26T00:17:25Z,homesick,8031745802302,42538367615038,lets-toast-3-wick-candle,Let's Toast 3-Wick Candle,Default Title,discount_start,4995,2498,,4995,
+2026-11-26T00:17:25Z,homesick,8031747211326,42538371645502,dream-candle,Dream Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8031747932222,42538372792382,aura-candle,Aura Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8031748292670,42538374430782,uplift-candle,Uplift Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8032085803070,42539989434430,beauty-rest-candle,Beauty Rest Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,8032086982718,42539997429822,matcha-latte-candle,Matcha Latte Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,8032096256062,42540059721790,open-window-candle,Open Window Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,8032098975806,42540079415358,rinse-repeat-candle,Rinse & Repeat Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,8032099467326,42540081610814,spicy-marg-candle,Spicy Marg Candle,Default Title,price_down,1498,1497,2995,2995,-0.1
+2026-11-26T00:17:25Z,homesick,8109485817918,42857977151550,main-street-cafe-candle,Main Street Café Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8109490634814,42857996582974,espresso-bean-candle,Espresso Bean Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8109497876542,42858048258110,house-blend-candle,House Blend Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8109500137534,42858067656766,just-one-more-cup-candle,Just One More Cup Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8109500530750,42858069295166,first-sip-candle,First Sip Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8109501153342,42858074472510,sunday-morning-candle,Sunday Morning Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8110593343550,42861380632638,usa-250-candle,USA 250 Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8120973164606,42889902325822,on-the-pitch-candle,On the Pitch Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8120973688894,42889907634238,winning-goal-candle,Winning Goal Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8209801871422,43182220443710,lemonade-stand-candle,Lemonade Stand Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8209822122046,43182245543998,sunkissed-candle,Sunkissed Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8209823825982,43182247739454,summer-fling-candle,Summer Fling Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8209825628222,43182249836606,stay-cation-candle,Stay-Cation Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8209827430462,43182251671614,fresh-cut-grass-candle,Fresh Cut Grass Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8209865015358,43182297186366,wild-tomato-candle,Wild Tomato Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,8209867112510,43182300397630,pickling-season-candle,Pickling Season Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10314002333758,50517655453758,sense-and-sensibility-the-norland-estate-candle,Sense and Sensibility The Norland Estate Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,10314024026174,50517681209406,sense-and-sensibility-elinors-sense-candle,Sense and Sensibility Elinor's Sense Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,10314032513086,50517693399102,sense-and-sensibility-mariannes-sensibility-candle,Sense and Sensibility Marianne's Sensibility Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,10314044375102,50517755134014,holiday-traditions-candle,Holiday Traditions Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10314058498110,50517793734718,mistletoe-and-holly-candle,Mistletoe and Holly Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10314098638910,50517928575038,roasted-chestnuts-candle,Roasted Chestnuts Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10314107027518,50517956984894,siberian-forest-candle,Siberian Forest Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10314110828606,50517973729342,witching-hour-candle,Witching Hour Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10314117873726,50517993816126,yuletide-dreams-candle,Yuletide Dreams Candle,Default Title,price_down,2097,2096,2995,2995,-0.0
+2026-11-26T00:17:25Z,homesick,10314122919998,50518007087166,parks-project-big-sur-candle,Parks Project Big Sur Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,10314128326718,50518021439550,parks-project-joshua-tree-candle,Parks Project Joshua Tree Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,10314140155966,50518056370238,parks-project-take-me-to-a-national-park-candle,Parks Project Take Me To A National Park Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,10314151166014,50518203924542,parks-project-yosemite-candle,Parks Project Yosemite Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,10314153820222,50518215098430,parks-project-zion-candle,Parks Project Zion Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,15397412929598,67593374761022,vita-coco-strawberries-creme-candle,Vita Coco Strawberries & Creme Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,homesick,15430527680574,67902552997950,vita-coco-frosted-lemonade-candle,Vita Coco Frosted Lemonade Candle,Default Title,price_down,2447,2446,3495,3495,-0.0
+2026-11-26T00:17:25Z,hydrapak,8800979747049,47938859204841,tempo-pro-400ml,Tempo Pro 400ml,Black,out_of_stock,2000,2000,,,
+2026-11-26T00:17:25Z,hyperlite-mountain-gear,6904407261229,40156403925037,essential-backpacking-umbrella,Essential Umbrella,Default Title,out_of_stock,5900,5900,,,
+2026-11-26T00:17:25Z,hyperlite-mountain-gear,7418132234285,41545062088749,thermarest-z-lite-sol-foam-sleep-pad,Therm-a-Rest ZLite SOL Foam Sleep Pad,Regular,out_of_stock,5795,5795,,,
+2026-11-26T00:17:25Z,hyperlite-mountain-gear,8232794914861,44041265971245,runabout-bundle,Runabout Bundle,White,out_of_stock,13500,13500,,,
+2026-11-26T00:17:25Z,hyperlite-mountain-gear,8232794914861,44041266004013,runabout-bundle,Runabout Bundle,Black,out_of_stock,13500,13500,,,
+2026-11-26T00:17:25Z,jlab,6893540212808,40342910304328,studio-pro-anc-over-ear-wireless-headphones-black,Studio Pro ANC Over-Ear Wireless Headphones Black,Default Title,out_of_stock,9999,9999,9999,9999,
+2026-11-26T00:17:25Z,jlab,6918917652552,40440054743112,jbuddies-pop-wireless-kids-headphones-teal,JBuddies Pop Wireless Kids Headphones Teal,Teal,back_in_stock,1799,1799,2199,2199,
+2026-11-26T00:17:25Z,jlab,6972532654152,40611301556296,pop-party-ultra-portable-bluetooth-speaker-cyan,Pop Party Ultra-Portable Bluetooth Speaker Cyan,Cyan,back_in_stock,2499,2499,2499,2499,
+2026-11-26T00:17:25Z,jlab,7136733462600,41376924762184,gaming-chair-black,Gaming Chair Black,Default Title,price_up,24999,49999,49999,49999,100.0
+2026-11-26T00:17:25Z,jlab,7136733462600,41376924762184,gaming-chair-black,Gaming Chair Black,Default Title,discount_end,24999,49999,49999,49999,
+2026-11-26T00:17:25Z,lunya,7067809579051,40683039227947,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / XS S,out_of_stock,26820,26820,29800,29800,
+2026-11-26T00:17:25Z,lunya,7067811577899,40683046240299,womens-cottonsilk-ribbed-legging-mellow-grey-heather,Cottonsilk™ Ribbed Legging,Mellow Grey Heather / L,out_of_stock,13860,13860,19800,19800,
+2026-11-26T00:17:25Z,lunya,7067812102187,40683047452715,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / XS,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7067812102187,40683047518251,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / S,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7067812102187,40683047551019,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / M,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7067812102187,40683047649323,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / L,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7067812102187,40683047747627,womens-washable-silk-high-rise-pant-set-deep-blue,Washable Silk High Rise Pant Set,Deep Blue / XL,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7105937047595,40775328137259,mens-washable-silk-button-up-short-set-meditative-grey,Men's Washable Silk Button Up Short Set,Meditative Grey / M,out_of_stock,22320,22320,24800,24800,
+2026-11-26T00:17:25Z,lunya,7166083104811,40938667573291,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / XS,removed,13160,,18800,,
+2026-11-26T00:17:25Z,lunya,7166083104811,40938667606059,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / S,removed,13160,,18800,,
+2026-11-26T00:17:25Z,lunya,7166083104811,40938667638827,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / M,removed,13160,,18800,,
+2026-11-26T00:17:25Z,lunya,7166083104811,40938667671595,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / L,removed,13160,,18800,,
+2026-11-26T00:17:25Z,lunya,7166083104811,40938667704363,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / XL,removed,13160,,18800,,
+2026-11-26T00:17:25Z,lunya,7186750832683,40989105979435,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / S,out_of_stock,19800,19800,,,
+2026-11-26T00:17:25Z,lunya,7197952704555,41010846826539,mens-slumberknit-pant-set-immersed-black,Men's Slumberknit™ Pant,Immersed Black / M,out_of_stock,8820,8820,9800,9800,
+2026-11-26T00:17:25Z,lunya,7244965150763,41109258960939,3pk-washable-silk-thin-scrunchie-deep-blue-delicate-pink-immersed-black,3pk Washable Silk Thin Scrunchie,Deep Blue/Delicate Pink/Immersed Black / OS,removed,2400,,,,
+2026-11-26T00:17:25Z,lunya,7260493643819,41142233301035,weighted-silk-sleep-mask-delicate-pink,Weighted Silk Sleep Mask,Delicate Pink / S,new,,8550,,9500,
+2026-11-26T00:17:25Z,lunya,7260493643819,41142233333803,weighted-silk-sleep-mask-delicate-pink,Weighted Silk Sleep Mask,Delicate Pink / L,new,,8550,,9500,
+2026-11-26T00:17:25Z,lunya,7260508913707,41142289432619,seamless-modal-bare-bralette-immersed-black,Seamless Modal Bare Bralette,Immersed Black / M,back_in_stock,4800,4800,,,
+2026-11-26T00:17:25Z,lunya,7260510978091,41142294642731,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / S,back_in_stock,4800,4800,,,
+2026-11-26T00:17:25Z,lunya,7271365705771,41177557631019,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XS,new,,14800,,,
+2026-11-26T00:17:25Z,lunya,7271365705771,41177557663787,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / S,new,,14800,,,
+2026-11-26T00:17:25Z,lunya,7271365705771,41177557696555,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / M,new,,14800,,,
+2026-11-26T00:17:25Z,lunya,7271365705771,41177557729323,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / L,new,,14800,,,
+2026-11-26T00:17:25Z,lunya,7271365705771,41177557762091,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XL,new,,14800,,,
+2026-11-26T00:17:25Z,lunya,7271368818731,41177565364267,womens-organic-pima-tee-short-set-deep-blue,Organic Pima Tee Short Set,Deep Blue / M,back_in_stock,12800,12800,,,
+2026-11-26T00:17:25Z,lunya,7271549632555,41178212335659,womens-washable-silk-long-sleeve-jogger-pant-set-deep-blue,Washable Silk Long Sleeve Jogger Pant Set,Deep Blue / XS,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7271549632555,41178212368427,womens-washable-silk-long-sleeve-jogger-pant-set-deep-blue,Washable Silk Long Sleeve Jogger Pant Set,Deep Blue / S,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7271549632555,41178212401195,womens-washable-silk-long-sleeve-jogger-pant-set-deep-blue,Washable Silk Long Sleeve Jogger Pant Set,Deep Blue / M,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7271549632555,41178212433963,womens-washable-silk-long-sleeve-jogger-pant-set-deep-blue,Washable Silk Long Sleeve Jogger Pant Set,Deep Blue / L,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7271549632555,41178212466731,womens-washable-silk-long-sleeve-jogger-pant-set-deep-blue,Washable Silk Long Sleeve Jogger Pant Set,Deep Blue / XL,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7296957317163,41258612719659,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / L,out_of_stock,4320,4320,4800,4800,
+2026-11-26T00:17:25Z,lunya,7366346768427,41451090837547,womens-soft-modal-rib-curved-hem-tank-sincere-white,Soft Modal Rib Curved Hem Tank,Sincere White / XS,out_of_stock,7020,7020,7800,7800,
+2026-11-26T00:17:25Z,lunya,7415234658347,41897487826987,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XS,back_in_stock,6800,6800,,,
+2026-11-26T00:17:25Z,lunya,7415234658347,41897487892523,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / M,back_in_stock,6800,6800,,,
+2026-11-26T00:17:25Z,lunya,7419230879787,41907201179691,womens-washable-silk-long-sleeve-pant-set-immersed-black-3,Washable Silk Long Sleeve Pant Set,Immersed Black / XS,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7419230879787,41907201212459,womens-washable-silk-long-sleeve-pant-set-immersed-black-3,Washable Silk Long Sleeve Pant Set,Immersed Black / S,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7419230879787,41907201245227,womens-washable-silk-long-sleeve-pant-set-immersed-black-3,Washable Silk Long Sleeve Pant Set,Immersed Black / M,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7419230879787,41907201277995,womens-washable-silk-long-sleeve-pant-set-immersed-black-3,Washable Silk Long Sleeve Pant Set,Immersed Black / L,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7419230879787,41907201310763,womens-washable-silk-long-sleeve-pant-set-immersed-black-3,Washable Silk Long Sleeve Pant Set,Immersed Black / XL,removed,29800,,,,
+2026-11-26T00:17:25Z,lunya,7428174643243,41940207435819,mens-silksweats-midweight-reversible-pocket-sweatshirt-napping-dove-heather,Men's Silksweats™ Midweight Reversible Pocket Sweatshirt,Napping Dove Heather / XL,back_in_stock,10360,10360,14800,14800,
+2026-11-26T00:17:25Z,lunya,7428175462443,41940211236907,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / XS,new,,22800,,,
+2026-11-26T00:17:25Z,lunya,7428175462443,41940211269675,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / S,new,,22800,,,
+2026-11-26T00:17:25Z,lunya,7428175462443,41940211302443,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / M,new,,22800,,,
+2026-11-26T00:17:25Z,lunya,7428175462443,41940211335211,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / L,new,,22800,,,
+2026-11-26T00:17:25Z,lunya,7428175462443,41940211367979,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / XL,new,,22800,,,
+2026-11-26T00:17:25Z,lunya,7708242116651,42382455308331,womens-slumberknit-shawl-collar-button-down-pant-set-delicate-pink-pomegranate-jewel,Slumberknit™ Shawl Collar Button Down Pant Set,Delicate Pink/Pomegranate Jewel / S,out_of_stock,11060,11060,15800,15800,
+2026-11-26T00:17:25Z,lunya,7763963412523,42592620183595,womens-silksweats-lightweight-terry-straight-leg-pant-delicate-pink,Silksweats™ Lightweight Terry Straight Leg Pant,Delicate Pink / S,back_in_stock,11060,11060,15800,15800,
+2026-11-26T00:17:25Z,lunya,7763963445291,42592620445739,womens-cottonsilk-pocket-henley-serene-violet,Cottonsilk™ Pocket Henley,Serene Violet / XL,out_of_stock,15960,15960,22800,22800,
+2026-11-26T00:17:25Z,lunya,7763963478059,42592620478507,womens-soft-modal-rib-tee-short-set-quiet-lilac,Soft Modal Rib Tee Short Set,Quiet Lilac / XS,removed,12800,,,,
+2026-11-26T00:17:25Z,lunya,7763963478059,42592620511275,womens-soft-modal-rib-tee-short-set-quiet-lilac,Soft Modal Rib Tee Short Set,Quiet Lilac / S,removed,12800,,,,
+2026-11-26T00:17:25Z,lunya,7763963478059,42592620544043,womens-soft-modal-rib-tee-short-set-quiet-lilac,Soft Modal Rib Tee Short Set,Quiet Lilac / M,removed,12800,,,,
+2026-11-26T00:17:25Z,lunya,7763963478059,42592620576811,womens-soft-modal-rib-tee-short-set-quiet-lilac,Soft Modal Rib Tee Short Set,Quiet Lilac / L,removed,12800,,,,
+2026-11-26T00:17:25Z,lunya,7763963478059,42592620609579,womens-soft-modal-rib-tee-short-set-quiet-lilac,Soft Modal Rib Tee Short Set,Quiet Lilac / XL,removed,12800,,,,
+2026-11-26T00:17:25Z,lunya,7763963510827,42592620838955,womens-washable-silk-crossover-pant-set-deep-blue,Washable Silk Crossover Pant Set,Deep Blue / S,back_in_stock,20860,20860,29800,29800,
+2026-11-26T00:17:25Z,lunya,7763963510827,42592620904491,womens-washable-silk-crossover-pant-set-deep-blue,Washable Silk Crossover Pant Set,Deep Blue / L,back_in_stock,20860,20860,29800,29800,
+2026-11-26T00:17:25Z,lunya,7763964067883,42592623493163,womens-silksweats-lightweight-terry-slim-fit-raglan-delicate-pink,Silksweats™ Lightweight Terry Slim Fit Raglan,Delicate Pink / S,back_in_stock,9660,9660,13800,13800,
+2026-11-26T00:17:25Z,lunya,7763964100651,42592623788075,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XS,new,,11280,,14800,
+2026-11-26T00:17:25Z,lunya,7763964100651,42592623820843,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / S,new,,11280,,14800,
+2026-11-26T00:17:25Z,lunya,7763964100651,42592623853611,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / M,new,,11280,,14800,
+2026-11-26T00:17:25Z,lunya,7763964100651,42592623886379,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / L,new,,11280,,14800,
+2026-11-26T00:17:25Z,lunya,7763964100651,42592623919147,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XL,new,,11280,,18800,
+2026-11-26T00:17:25Z,lunya,7763964198955,42592624181291,womens-slumberknit-shawl-collar-short-sleeve-short-set-deep-bluedelicate-pink,Slumberknit™ Shawl Collar Short Sleeve Short Set,Deep Blue/Delicate Pink / M,back_in_stock,14800,14800,,,
+2026-11-26T00:17:25Z,lunya,7763964330027,42592624705579,womens-washable-silk-tulip-back-set-morning-wisteria,Washable Silk Tulip Back Set,Morning Wisteria / S,back_in_stock,13160,13160,18800,18800,
+2026-11-26T00:17:25Z,lunya,7763964330027,42592624738347,womens-washable-silk-tulip-back-set-morning-wisteria,Washable Silk Tulip Back Set,Morning Wisteria / M,back_in_stock,13160,13160,18800,18800,
+2026-11-26T00:17:25Z,lunya,7763965149227,42592628604971,womens-cloud-cotton-sweater-tee-whisper-blue,Cloud Cotton Sweater Tee,Whisper Blue / XS,removed,8400,,16800,,
+2026-11-26T00:17:25Z,lunya,7763965149227,42592628637739,womens-cloud-cotton-sweater-tee-whisper-blue,Cloud Cotton Sweater Tee,Whisper Blue / S,removed,8400,,16800,,
+2026-11-26T00:17:25Z,lunya,7763965149227,42592628670507,womens-cloud-cotton-sweater-tee-whisper-blue,Cloud Cotton Sweater Tee,Whisper Blue / M,removed,8400,,16800,,
+2026-11-26T00:17:25Z,lunya,7763965149227,42592628703275,womens-cloud-cotton-sweater-tee-whisper-blue,Cloud Cotton Sweater Tee,Whisper Blue / L,removed,8400,,16800,,
+2026-11-26T00:17:25Z,lunya,7763965149227,42592628736043,womens-cloud-cotton-sweater-tee-whisper-blue,Cloud Cotton Sweater Tee,Whisper Blue / XL,removed,8400,,16800,,
+2026-11-26T00:17:25Z,lunya,7763965181995,42592628801579,the-quintessential-bedding-set-morning-fog,The Quintessential Bedding Set,Morning Fog / Queen,out_of_stock,29960,29960,42800,42800,
+2026-11-26T00:17:25Z,lunya,7763965607979,42592630702123,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / XS,back_in_stock,18480,18480,30800,30800,
+2026-11-26T00:17:25Z,lunya,7763965607979,42592630734891,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / S,back_in_stock,18480,18480,30800,30800,
+2026-11-26T00:17:25Z,lunya,7763965607979,42592630767659,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / M,back_in_stock,18480,18480,30800,30800,
+2026-11-26T00:17:25Z,lunya,7763965607979,42592630833195,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / XL,out_of_stock,18480,18480,30800,30800,
+2026-11-26T00:17:25Z,lunya,7763965739051,42592631259179,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / L,back_in_stock,4760,4760,6800,6800,
+2026-11-26T00:17:25Z,lunya,7849298755627,43346798575659,mens-airy-cotton-piped-sleep-shirt-still-blue-deep-blue,Men's Airy Cotton Piped Sleep Shirt,Still Blue/Deep Blue / S,out_of_stock,8960,8960,12800,12800,
+2026-11-26T00:17:25Z,lunya,7849298985003,43346799722539,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / XS,new,,8960,,12800,
+2026-11-26T00:17:25Z,lunya,7849298985003,43346799755307,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / S,new,,12800,,,
+2026-11-26T00:17:25Z,lunya,7849298985003,43346799788075,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / M,new,,12800,,,
+2026-11-26T00:17:25Z,lunya,7849298985003,43346799820843,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / L,new,,12800,,,
+2026-11-26T00:17:25Z,lunya,7849298985003,43346799853611,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / XL,new,,12800,,,
+2026-11-26T00:17:25Z,lunya,7849299050539,43346800115755,womens-organic-cotton-seersucker-wide-sleeve-fresh-herb,Organic Cotton Seersucker Wide Sleeve,Fresh Herb / M,out_of_stock,10240,10240,12800,12800,
+2026-11-26T00:17:25Z,lunya,7849299279915,43346801033259,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XS,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7849299279915,43346801066027,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / S,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7849299279915,43346801098795,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / M,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7849299279915,43346801131563,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / L,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7849299279915,43346801164331,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XL,new,,28800,,,
+2026-11-26T00:17:25Z,lunya,7849299738667,43346803490859,the-silksweats-travel-blanket-deep-blue,Silksweats™ Travel Blanket,Deep Blue / OS,new,,10360,,14800,
+2026-11-26T00:17:25Z,lunya,7849300099115,43346805358635,womens-washable-silk-bias-cami-short-set-deep-blue,Washable Silk Bias Cami Short Set,Deep Blue / S,back_in_stock,12460,12460,17800,17800,
+2026-11-26T00:17:25Z,lunya,7849300099115,43346805391403,womens-washable-silk-bias-cami-short-set-deep-blue,Washable Silk Bias Cami Short Set,Deep Blue / M,back_in_stock,12460,12460,17800,17800,
+2026-11-26T00:17:25Z,lunya,7849300262955,43346806112299,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / S,back_in_stock,17440,17440,21800,21800,
+2026-11-26T00:17:25Z,lunya,7849300459563,43346807259179,womens-silksweats-midweight-reversible-short-sleeve-blushed-lavender,Silksweats™ Midweight Reversible Short Sleeve,Blushed Lavender / S,back_in_stock,8260,8260,11800,11800,
+2026-11-26T00:17:25Z,lunya,7849300459563,43346807291947,womens-silksweats-midweight-reversible-short-sleeve-blushed-lavender,Silksweats™ Midweight Reversible Short Sleeve,Blushed Lavender / M,back_in_stock,8260,8260,11800,11800,
+2026-11-26T00:17:25Z,lunya,7849300721707,43346808373291,womens-washable-silk-tee-short-set-lilac-bloom,Washable Silk Tee Short Set,Lilac Bloom / XS,new,,13860,,19800,
+2026-11-26T00:17:25Z,lunya,7849300721707,43346808406059,womens-washable-silk-tee-short-set-lilac-bloom,Washable Silk Tee Short Set,Lilac Bloom / S,new,,13860,,19800,
+2026-11-26T00:17:25Z,lunya,7849300721707,43346808438827,womens-washable-silk-tee-short-set-lilac-bloom,Washable Silk Tee Short Set,Lilac Bloom / M,new,,13860,,19800,
+2026-11-26T00:17:25Z,lunya,7849300721707,43346808471595,womens-washable-silk-tee-short-set-lilac-bloom,Washable Silk Tee Short Set,Lilac Bloom / L,new,,13860,,19800,
+2026-11-26T00:17:25Z,lunya,7849300721707,43346808504363,womens-washable-silk-tee-short-set-lilac-bloom,Washable Silk Tee Short Set,Lilac Bloom / XL,new,,13860,,19800,
+2026-11-26T00:17:25Z,lunya,7849301213227,43346811027499,womens-silksweats-midweight-reversible-short-sleeve-napping-dove-heather,Silksweats™ Midweight Reversible Short Sleeve,Napping Dove Heather / S,back_in_stock,8260,8260,11800,11800,
+2026-11-26T00:17:25Z,lunya,7849301344299,43346811813931,womens-silksweats-midweight-reversible-short-blushed-lavender,Silksweats™ Midweight Reversible Short,Blushed Lavender / S,back_in_stock,6860,6860,9800,9800,
+2026-11-26T00:17:25Z,lunya,7849301344299,43346811846699,womens-silksweats-midweight-reversible-short-blushed-lavender,Silksweats™ Midweight Reversible Short,Blushed Lavender / M,back_in_stock,6860,6860,9800,9800,
+2026-11-26T00:17:25Z,lunya,7849301409835,43346811945003,womens-washable-silk-tie-front-short-set-delicate-pink,Washable Silk Tie Front Short Set,Delicate Pink / XS,out_of_stock,17440,17440,21800,21800,
+2026-11-26T00:17:25Z,lunya,7849301475371,43346812174379,washable-silk-sleep-mask-summer-harvest,Washable Silk Sleep Mask,Summer Harvest / L,out_of_stock,5200,5200,6500,6500,
+2026-11-26T00:17:25Z,lunya,8077944029227,45177824608299,womens-organic-pima-wide-leg-pant-soft-blush,Organic Pima Wide Leg Pant,Soft Blush / XS,back_in_stock,11840,11840,14800,14800,
+2026-11-26T00:17:25Z,lunya,8077944160299,45177825165355,womens-organic-pima-wide-leg-pant-rested-charcoal-heather,Organic Pima Wide Leg Pant,Rested Charcoal Heather / M,out_of_stock,11840,11840,14800,14800,
+2026-11-26T00:17:25Z,oveja-negra,380998025243,6142894768155,roll-top-backpack,Portero™ Roll-Top Backpack,Coyote Brown / Backpack,back_in_stock,18000,18000,,,
+2026-11-26T00:17:25Z,oveja-negra,8262681100593,44681121923377,1-2-pack-2-0-frame-bag,1/2 Pack™ 2.0 Frame Bag,XL / Black,out_of_stock,11000,11000,,,
+2026-11-26T00:17:25Z,oveja-negra,8262681100593,44681121956145,1-2-pack-2-0-frame-bag,1/2 Pack™ 2.0 Frame Bag,XL / Coyote Brown,out_of_stock,11000,11000,,,
+2026-11-26T00:17:25Z,oveja-negra,10263425909041,51276648415537,lil-smokey-handlebar-bag-wack-pack,Lil' Smokey Handlebar Bag - WACK PACK™,Wack / Handlebar Bag,out_of_stock,8500,8500,,,
+2026-11-26T00:17:25Z,shokz,7553402765512,43667048267976,refurbished-openrunpro,OpenRun Pro (Refurbished),Blue / Standard,back_in_stock,11995,11995,11995,11995,
+2026-11-26T00:17:25Z,skullcandy,8021838889017,44879375794233,jib-usb-c,Jib® USB C,Bone,out_of_stock,799,799,1499,1499,
+2026-11-26T00:17:25Z,skullcandy,7883339530297,45138862538809,crusher-540-active,Crusher® 540 Active,Forest,out_of_stock,9999,9999,20999,20999,
+2026-11-26T00:17:25Z,sol-de-janeiro,4612203053158,31996806725734,sol-cheirosa-62,SOL Cheirosa 62™,50ml,out_of_stock,6000,6000,8000,8000,
+2026-11-26T00:17:25Z,sol-de-janeiro,7643727822950,42745313001574,badalada-baseball-cap,Badalada Baseball Cap,Default Title,out_of_stock,2100,2100,2800,2800,
+2026-11-26T00:17:25Z,sol-de-janeiro,7660317769830,42814325325926,full-size-routine-builder,Full-Sized Routine Builder,Default Title,out_of_stock,2600,2600,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713086611558,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 62 (210ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (295ml),out_of_stock,7400,7400,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713086644326,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 62 (210ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (90ml),out_of_stock,6100,6100,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713086742630,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 59 (210ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (295ml),out_of_stock,7400,7400,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713086775398,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 59 (210ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (90ml),out_of_stock,6100,6100,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713086873702,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 68 (210ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (295ml),out_of_stock,7400,7400,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713086906470,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 68 (210ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (90ml),out_of_stock,6100,6100,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713087004774,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 62 (60ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (295ml),out_of_stock,6100,6100,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713087037542,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 62 (60ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (90ml),out_of_stock,4900,4900,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713087135846,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 59 (60ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (295ml),out_of_stock,6100,6100,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713087168614,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 59 (60ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (90ml),out_of_stock,4900,4900,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713087266918,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 68 (60ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (295ml),out_of_stock,6100,6100,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8043903221862,45713087299686,ultimate-smoothing-haircare-ritual,Ultimate Smoothing Haircare Ritual,Milky Leave-In Conditioner Cheirosa 68 (60ml) / Strengthening + Smoothing Shampoo (295ml) / Strengthening + Smoothing Conditioner (90ml),out_of_stock,4900,4900,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916502065254,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Leite Néctar - juicy peach, coconut milk, sweet cream",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916502098022,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Leite Café - latte accord, coconut milk, lychee sorbet",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916502556774,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916502917222,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916503638118,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916503998566,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916504359014,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916504719462,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505079910,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505440358,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505604198,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505636966,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505669734,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 62 - pistachio, salted caramel, vanilla",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505702502,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505735270,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505768038,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505800806,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505833574,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505866342,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916505899110,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 76 - midnight jasmine, black currant, amber woods",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916506161254,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916506521702,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7685779062886,45916506882150,choose-your-perfume-mist-duo-90ml,Choose Your Perfume Mist Duo | 90ml,"Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 87 - solar tuberose, leite de coco, warm sand",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7859991937126,45916518875238,choose-your-jelly-balm-perfume-mist-duo,Choose Your Jelly Balm + Perfume Mist Duo,"Jelly Perfume Balm Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 87 - solar tuberose, leite de coco, warm sand (90ml)",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7859991937126,45916519563366,choose-your-jelly-balm-perfume-mist-duo,Choose Your Jelly Balm + Perfume Mist Duo,"Jelly Perfume Balm Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 87 - solar tuberose, leite de coco, warm sand (90ml)",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7859991937126,45916520251494,choose-your-jelly-balm-perfume-mist-duo,Choose Your Jelly Balm + Perfume Mist Duo,"Jelly Perfume Balm Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 87 - solar tuberose, leite de coco, warm sand (90ml)",out_of_stock,4700,4700,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7979400822886,45916523036774,choose-your-body-badalada-lotion-mist-duo,Choose Your Body Badalada™ Lotion + Mist Duo,"Body Badalada™ Skin Refresh Water Lotion / Cheirosa 87 - solar tuberose, leite de coco, warm sand (90ml)",out_of_stock,4900,4900,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7979400822886,45916523724902,choose-your-body-badalada-lotion-mist-duo,Choose Your Body Badalada™ Lotion + Mist Duo,"Body Badalada™ Moisture Melting Lotion / Cheirosa 87 - solar tuberose, leite de coco, warm sand (90ml)",out_of_stock,4900,4900,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7979400822886,45916524413030,choose-your-body-badalada-lotion-mist-duo,Choose Your Body Badalada™ Lotion + Mist Duo,"Limited Edition Body Badalada™ Daily Glow Lotion / Cheirosa 87 - solar tuberose, leite de coco, warm sand (90ml)",out_of_stock,4900,4900,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,7979400822886,45916525101158,choose-your-body-badalada-lotion-mist-duo,Choose Your Body Badalada™ Lotion + Mist Duo,"Body Badalada™ Lotion / Cheirosa 87 - solar tuberose, leite de coco, warm sand (90ml)",out_of_stock,4900,4900,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8153733726310,47147111710822,choose-your-intense-mist-body-cream-duo,Choose Your Intense Mist + Body Cream Duo,Cheirosa 62™ Intense Perfume Mist / Beija Flor™ Elasti-Cream (240ml),out_of_stock,8200,8200,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8153733726310,47147112038502,choose-your-intense-mist-body-cream-duo,Choose Your Intense Mist + Body Cream Duo,Cheirosa 74 Intense Perfume Mist / Beija Flor™ Elasti-Cream (240ml),out_of_stock,8200,8200,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8153733726310,47147112366182,choose-your-intense-mist-body-cream-duo,Choose Your Intense Mist + Body Cream Duo,Cheirosa 59 Intense Perfume Mist / Beija Flor™ Elasti-Cream (240ml),out_of_stock,8200,8200,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,8153733726310,48967858684006,choose-your-intense-mist-body-cream-duo,Choose Your Intense Mist + Body Cream Duo,Cheirosa 91 Intense Perfume Mist / Beija Flor™ Elasti-Cream (240ml),out_of_stock,8200,8200,,,
+2026-11-26T00:17:25Z,sol-de-janeiro,15557011800166,68229492310118,badalada-cheirosa-39-duo,Badalada & Cheirosa 39 Duo,Default Title,new,,5000,,,
+2026-11-26T00:17:25Z,soundcore-us,7908933435582,43608682365118,p40i-a3955011,soundcore P40i | Smart ANC True-Wireless Earbuds,Purple,out_of_stock,7999,7999,,,
+2026-11-26T00:17:25Z,soundcore-us,7364813160638,44247924572350,space-q45-a3040011,soundcore Space Q45 | Long-Lasting Noise Cancelling Headphones,White,back_in_stock,14999,14999,,,
+2026-11-26T00:17:25Z,soundcore-us,7364813160638,44247924605118,space-q45-a3040011,soundcore Space Q45 | Long-Lasting Noise Cancelling Headphones,Blue,back_in_stock,14999,14999,,,
+2026-11-26T00:17:25Z,soundcore-us,8917568323774,48702067146942,d1402z61-98,Space 2 Ear Cushions,Black,out_of_stock,1499,1499,,,
+2026-11-26T00:17:25Z,state-liberty,7802364362833,42507017388113,the-grover-olive-pique-button-down,"""The Grover"" Olive Pique Button Down",XL / Olive,out_of_stock,10500,10500,,,
+2026-11-26T00:17:25Z,state-liberty,15573732556881,58291030786129,athletic-fit-stretch-blazer-textured-navy-with-white-windowpane,Athletic Fit Stretch Blazer - Textured Navy with White Windowpane,42 / Textured Navy with White Windowpane,out_of_stock,55000,55000,,,
+2026-11-26T00:17:25Z,state-liberty,15706956267601,59128822038609,the-robin-light-blue-mini-diamond-jacquard,''The Robin'' Light Blue Mini Diamond Jacquard,XL / Light Blue Mini Diamond Jacquard,out_of_stock,10500,10500,,,
+2026-11-26T00:17:25Z,state-liberty,15706956431441,59128822530129,the-murray-heathered-light-grey-plaid,''The Murray'' Heathered Light Grey Plaid,XL / Heathered Light Grey Plaid,out_of_stock,10500,10500,,,
+2026-11-26T00:17:25Z,state-liberty,15732048822353,59227712716881,athletic-fit-stretch-blazer-solid-tan,Athletic Fit Stretch Blazer - Solid Tan,36 / Solid Tan,out_of_stock,55000,55000,,,
+2026-11-26T00:17:25Z,state-liberty,15760766697553,59362775990353,the-winslow-navy-brown-check,"""The Winslow"" Navy & Brown Check",L / Navy & Brown Check,out_of_stock,10500,10500,,,
+2026-11-26T00:17:25Z,state-liberty,15760766697553,59362776023121,the-winslow-navy-brown-check,"""The Winslow"" Navy & Brown Check",XL / Navy & Brown Check,out_of_stock,10500,10500,,,
+2026-11-26T00:17:25Z,state-liberty,15769251872849,59393929248849,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,S / Light Grey,out_of_stock,11800,11800,,,
+2026-11-26T00:17:25Z,state-liberty,15771763540049,59406287405137,the-prescott-abstract-black-and-grey-houndstooth,"""The Prescott"" Abstract Black and Grey Houndstooth",XL / Black and Grey Houndstooth,out_of_stock,10500,10500,,,
+2026-11-26T00:17:25Z,year-day,6936590745771,41195341480107,small-fork,Small Fork,Matte Gold,back_in_stock,2300,2300,,,
+2026-11-26T00:17:25Z,year-day,15412055998835,62995964100979,classic-5-piece-setting,Classic 5 Piece Setting,Matte Gold,back_in_stock,12000,12000,,,

@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,791 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,804 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -15,32 +15,32 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 25 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 26 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
 | Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $44.00 | $88.00 | yes |
-| Homesick | [Beauty Rest Candle](https://homesick.com/products/beauty-rest-candle) | $14.98 | $29.95 | yes |
+| Homesick | [Beauty Rest Candle](https://homesick.com/products/beauty-rest-candle) | $14.97 | $29.95 | yes |
 | JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,791 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,804 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 25 November 2026: 373 price drops, 137 price rises, 127 sales started, 131 sales ended, 36 items sold out, 53 items back in stock, 96 new product options, 19 product options removed. The biggest moves:
+In the run of 26 November 2026: 209 price drops, 2 price rises, 2 sales started, 1 sale ended, 89 items sold out, 34 items back in stock, 39 new product options, 26 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Gossamer Gear | [PotPocket (Medium)](https://www.gossamergear.com/products/potpocket) | Price down (-37.5%) | $17.60 | $11.00 |
-| Gossamer Gear | [PotPocket (Large)](https://www.gossamergear.com/products/potpocket) | Price down (-37.5%) | $20.00 | $12.50 |
-| Lunya | [Airy Cotton Short (Market Check / XS)](https://lunya.co/products/womens-airy-cotton-short-market-check) | Price down (-37.5%) | $70.40 | $44.00 |
-| Lunya | [Airy Cotton Short (Market Check / S)](https://lunya.co/products/womens-airy-cotton-short-market-check) | Price down (-37.5%) | $70.40 | $44.00 |
-| Lunya | [Airy Cotton Short (Market Check / M)](https://lunya.co/products/womens-airy-cotton-short-market-check) | Price down (-37.5%) | $70.40 | $44.00 |
-| Lunya | [Airy Cotton Short (Market Check / L)](https://lunya.co/products/womens-airy-cotton-short-market-check) | Price down (-37.5%) | $70.40 | $44.00 |
-| Lunya | [Airy Cotton Short (Market Check / XL)](https://lunya.co/products/womens-airy-cotton-short-market-check) | Price down (-37.5%) | $70.40 | $44.00 |
-| Lunya | [Airy Cotton Short (Sunset Stripe / XS)](https://lunya.co/products/womens-airy-cotton-short-sunset-stripe) | Price down (-37.5%) | $70.40 | $44.00 |
+| JLab | [Gaming Chair Black](https://www.jlab.com/products/gaming-chair-black) | Price up, Sale ended (+100.0%) | $249.99 | $499.99 |
+| Homesick | [Let's Toast 3-Wick Candle](https://homesick.com/products/lets-toast-3-wick-candle) | Price down, Sale started (-50.0%) | $49.95 | $24.98 |
+| Branch Basics | [Premium Starter Kit (Plastic)](https://branchbasics.com/products/starter-kit-oxygen-boost) | Price down, Sale started (-20.0%) | $75.00 | $60.00 |
+| Gossamer Gear | [Kumo 36 Backpack - Yellow (Medium)](https://www.gossamergear.com/products/kumo-36-backpack-yellow) | Price down (-13.3%) | $135.00 | $117.00 |
+| Gossamer Gear | [Bumster - Yellow](https://www.gossamergear.com/products/bumster-yellow) | Price down (-6.7%) | $21.75 | $20.30 |
+| Gossamer Gear | [Loris - Yellow](https://www.gossamergear.com/products/loris-yellow) | Price down (-6.7%) | $101.25 | $94.50 |
+| Gossamer Gear | [Minimalist 19 - Yellow](https://www.gossamergear.com/products/minimalist-19-yellow) | Price down (-6.7%) | $51.75 | $48.30 |
+| Homesick | [Harry Potter™ The Burrow Candle](https://homesick.com/products/the-burrow-candle) | Price up (+1.1%) | $25.57 | $25.86 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -48,7 +48,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 - **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 275 free gifts and samples left out on purpose, not held.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 287 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
 - **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.7 minutes, and no store blocked us.
 
@@ -65,7 +65,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 22."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 23."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -93,7 +93,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 22 of 22 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 4 of 4 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 23 of 23 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 5 of 5 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
@@ -112,7 +112,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 25 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 26 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -131,16 +131,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-25T06:17:40Z` |
-| `store_id` | text | Store | `gossamer-gear` |
-| `variant_id` | integer | Product option | `30497157388` |
-| `product_title` | text | Product name | `The Crotch Pot` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-26T00:17:25Z` |
+| `store_id` | text | Store | `branch-basics` |
+| `variant_id` | integer | Product option | `42885177376932` |
+| `product_title` | text | Product name | `Premium Starter Kit` |
 | `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `1330` |
-| `new_price_cents` | integer or empty | Price after, US cents | `950` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `1900` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `1900` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-28.6` |
+| `old_price_cents` | integer or empty | Price before, US cents | `7500` |
+| `new_price_cents` | integer or empty | Price after, US cents | `6000` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `7500` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `7500` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-20.0` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
