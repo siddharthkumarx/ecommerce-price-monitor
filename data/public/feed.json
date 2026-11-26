@@ -1,6 +1,6 @@
 {
   "schema": "steadydata.feed/v1",
-  "generated_at": "2026-11-26T12:24:04Z",
+  "generated_at": "2026-11-26T18:23:59Z",
   "monitor": {
     "id": "ecommerce-price-monitor",
     "title": "Daily price monitor, 25 US online stores",
@@ -25,17 +25,17 @@
     "cadence": "daily at 06:17 UTC"
   },
   "last_run": {
-    "run_id": "20261126T121730Z",
-    "started_at": "2026-11-26T12:17:30Z",
-    "finished_at": "2026-11-26T12:24:04Z",
+    "run_id": "20261126T181723Z",
+    "started_at": "2026-11-26T18:17:23Z",
+    "finished_at": "2026-11-26T18:23:59Z",
     "status": "ok",
     "stores_ok": 25,
     "stores_total": 25,
-    "rows_live": 11813,
-    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/45818208801"
+    "rows_live": 11843,
+    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/45874668092"
   },
   "checks": {
-    "rows_validated": 11813,
+    "rows_validated": 11843,
     "rows_rejected": 0,
     "held_back": 0,
     "second_source_checks": 48,
@@ -46,24 +46,24 @@
       "jsonld_checked": 23,
       "jsonld_matches": 23
     },
-    "rows_compared_with_last_run": 11796,
+    "rows_compared_with_last_run": 11813,
     "suspicious_price_moves": 0,
     "guard_holds": 0
   },
   "totals": {
     "days_running": 23,
-    "runs_total": 25,
-    "runs_good": 25,
+    "runs_total": 26,
+    "runs_good": 26,
     "runs_held": 0
   },
   "schedule": {
-    "slots": 25,
-    "delivered": 25,
+    "slots": 26,
+    "delivered": 26,
     "missed": 0,
     "on_time_window_h": 2,
     "on_time_since": "2026-11-22T06:17:00Z",
-    "on_time_slots": 7,
-    "on_time": 7,
+    "on_time_slots": 8,
+    "on_time": 8,
     "on_time_pct": 100.0,
     "note": "Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009)."
   },
@@ -89,6 +89,6 @@
     {"date":"2026-11-23","runs":1,"rows_live":11706,"price_down":0,"price_up":0,"discount_start":0,"discount_end":0,"out_of_stock":48,"back_in_stock":20,"new":21,"removed":18},
     {"date":"2026-11-24","runs":1,"rows_live":11714,"price_down":7,"price_up":6,"discount_start":6,"discount_end":0,"out_of_stock":24,"back_in_stock":39,"new":27,"removed":19},
     {"date":"2026-11-25","runs":1,"rows_live":11791,"price_down":373,"price_up":137,"discount_start":127,"discount_end":131,"out_of_stock":36,"back_in_stock":53,"new":96,"removed":19},
-    {"date":"2026-11-26","runs":3,"rows_live":11813,"price_down":209,"price_up":2,"discount_start":2,"discount_end":1,"out_of_stock":95,"back_in_stock":37,"new":56,"removed":34}
+    {"date":"2026-11-26","runs":4,"rows_live":11843,"price_down":210,"price_up":2,"discount_start":2,"discount_end":1,"out_of_stock":107,"back_in_stock":45,"new":86,"removed":34}
   ]
 }
