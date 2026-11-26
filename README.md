@@ -1,8 +1,8 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,706 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 100 US online stores and records every price: 11,804 prices in the latest run."></picture></p>
 
-# E-commerce price monitor: 25 US online stores, checked every day
+# E-commerce price monitor: 100 US online stores, checked every day
 
-**Every price, sale and stock change from 25 US online stores, checked every day and delivered as a clean spreadsheet.**
+**Every price, sale and stock change from 100 US online stores on Shopify, WooCommerce and BigCommerce, checked every day and delivered as a clean spreadsheet.**
 
 [![Last run](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/last-run.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/days-running.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/runs.jsonl)
@@ -15,40 +15,40 @@
 
 ## At a glance
 
-- **Stores:** 25 public US online stores in 5 categories (Audio, Apparel, Beauty, Home & kitchen, Outdoor).
-- **Prices per run:** 11,706 product options in the latest run, each with price, "was" price and stock.
-- **Delivery record:** 19 of 19 daily runs delivered since 5 Nov 2026; 2 of 2 on time (within 2 h of the scheduled time) since the on-time trigger started.
+- **Stores:** 100 public US online stores in 11 categories (Audio, Apparel, Beauty, Home & kitchen, Outdoor, Pets, Coffee & tea, Toys & baby, Fitness, Cycling, Stationery & everyday carry), on Shopify, WooCommerce, BigCommerce.
+- **Prices per run:** 11,804 product options in the latest run, each with price, "was" price and stock.
+- **Delivery record:** 19 of 19 daily runs delivered since 5 Nov 2026; 4 of 4 on time (within 2 h of the scheduled time) since the on-time trigger started.
 - **History:** a daily summary kept forever (19 days so far, [`daily-summary.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/history/daily-summary.csv)), the last 30 days of change logs, and every price version in the monthly history files.
 - **Formats:** CSV, Excel (XLSX), JSON, SQL file (PostgreSQL / MySQL), SQLite, Parquet, Google Sheets, email or webhook.
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 23 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 26 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
 | Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $44.00 | $88.00 | yes |
-| Homesick | [Beauty Rest Candle](https://homesick.com/products/beauty-rest-candle) | $14.98 | $29.95 | yes |
+| Homesick | [Beauty Rest Candle](https://homesick.com/products/beauty-rest-candle) | $14.97 | $29.95 | yes |
 | JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,706 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,804 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 23 November 2026: 48 items sold out, 20 items back in stock, 21 new product options, 18 product options removed. The biggest moves:
+In the run of 26 November 2026: 209 price drops, 2 price rises, 2 sales started, 1 sale ended, 89 items sold out, 34 items back in stock, 39 new product options, 26 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Bee's Wrap | [Bread Bag (Bakery Lane)](https://www.beeswrap.com/products/bread-bag) | Sold out | $19.99 | $19.99 |
-| Big Agnes | [Big Six Camp Chair (Brown Sugar)](https://www.bigagnes.com/products/big-six-camp-chair) | Sold out | $249.95 | $249.95 |
-| Big Agnes | [Gear Lofts (Triangle)](https://www.bigagnes.com/products/gear-lofts) | Sold out | $24.95 | $24.95 |
-| Big Agnes | [M's Wirehand Parka (Brown Sugar/Vetiver / XL)](https://www.bigagnes.com/products/ms-wirehand-parka) | Sold out | $149.97 | $149.97 |
-| Big Agnes | [W's Bearsley UL Jacket (Cendre Blue / XS)](https://www.bigagnes.com/products/ws-bearsley-jacket) | Sold out | $174.97 | $174.97 |
-| Big Agnes | [W's Star Route Parka (Arctic Wolf/Eucalyptus/Granite Green / XS)](https://www.bigagnes.com/products/ws-star-route-parka) | Sold out | $299.95 | $299.95 |
-| Feat Clothing | [The Men's All Natural Tee (StormyWeather / XXL)](https://featclothing.com/products/the-mens-alpaca-t-shirt) | Sold out | $65.00 | $65.00 |
-| Greats | [The Kingston - White White (13 / White White)](https://www.greats.com/products/the-kingston-white-white-mens) | Sold out | $199.00 | $199.00 |
+| JLab | [Gaming Chair Black](https://www.jlab.com/products/gaming-chair-black) | Price up, Sale ended (+100.0%) | $249.99 | $499.99 |
+| Homesick | [Let's Toast 3-Wick Candle](https://homesick.com/products/lets-toast-3-wick-candle) | Price down, Sale started (-50.0%) | $49.95 | $24.98 |
+| Branch Basics | [Premium Starter Kit (Plastic)](https://branchbasics.com/products/starter-kit-oxygen-boost) | Price down, Sale started (-20.0%) | $75.00 | $60.00 |
+| Gossamer Gear | [Kumo 36 Backpack - Yellow (Medium)](https://www.gossamergear.com/products/kumo-36-backpack-yellow) | Price down (-13.3%) | $135.00 | $117.00 |
+| Gossamer Gear | [Bumster - Yellow](https://www.gossamergear.com/products/bumster-yellow) | Price down (-6.7%) | $21.75 | $20.30 |
+| Gossamer Gear | [Loris - Yellow](https://www.gossamergear.com/products/loris-yellow) | Price down (-6.7%) | $101.25 | $94.50 |
+| Gossamer Gear | [Minimalist 19 - Yellow](https://www.gossamergear.com/products/minimalist-19-yellow) | Price down (-6.7%) | $51.75 | $48.30 |
+| Homesick | [Harry Potter™ The Burrow Candle](https://homesick.com/products/the-burrow-candle) | Price up (+1.1%) | $25.57 | $25.86 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -58,15 +58,15 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
 - **Big moves are read twice.** A price that falls below a fifth or rises above five times its last value is read again on its own before it is published; a move the second read does not confirm, or a "not for sale" price such as $9,999,999.99, keeps its last good price. Latest run: 0 second reads, 0 confirmed, 0 held back.
 - **New stores earn their place.** A newly added store is checked every day but counts in these numbers only after 3 clean days in a row.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 270 free gifts and samples left out on purpose, not held.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 287 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.6 minutes, and no store blocked us.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.7 minutes, and no store blocked us.
 
 ## How it works
 
 <p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/pipeline-still.svg"><img src="assets/pipeline.svg" width="100%" alt="Five steps: read public store catalogs, collect politely once a day, check every price against a second source, keep the full history, deliver CSV, a monthly data file, a Google Sheet and a dashboard."></picture></p>
 
-1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with the stores' rules respected.
+1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store (Shopify, WooCommerce, BigCommerce), slowly and with the stores' rules respected.
 2. **Check.** Each price is checked for obvious errors (above zero, sale price below the "was" price), and one product per store is compared with a second source.
 3. **Store.** Every change is kept with the time it happened, so you can see what any product cost on any day.
 4. **Deliver.** The latest prices as CSV, a daily change log, a monthly history file, an optional Google Sheet and a [live dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
@@ -75,7 +75,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 20."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 23."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -103,7 +103,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 20 of 20 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 2 of 2 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 22 of 22 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 4 of 4 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
@@ -125,7 +125,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 23 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 26 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -144,16 +144,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-23T06:17:33Z` |
-| `store_id` | text | Store | `bee-s-wrap` |
-| `variant_id` | integer | Product option | `53186903736595` |
-| `product_title` | text | Product name | `Bread Bag` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
-| `old_price_cents` | integer or empty | Price before, US cents | `1999` |
-| `new_price_cents` | integer or empty | Price after, US cents | `1999` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-26T00:17:25Z` |
+| `store_id` | text | Store | `branch-basics` |
+| `variant_id` | integer | Product option | `42885177376932` |
+| `product_title` | text | Product name | `Premium Starter Kit` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
+| `old_price_cents` | integer or empty | Price before, US cents | `7500` |
+| `new_price_cents` | integer or empty | Price after, US cents | `6000` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `7500` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `7500` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-20.0` |
 
 The daily summary, [`data/history/daily-summary.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/history/daily-summary.csv), one row per day since 5 Nov 2026, kept forever (also as JSON in `data/public/history.json`):
 
