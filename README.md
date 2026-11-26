@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,796 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,813 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -25,22 +25,18 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,796 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,813 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 26 November 2026: 3 items sold out, 2 items back in stock, 8 product options removed. The biggest moves:
+In the run of 26 November 2026: 3 items sold out, 1 item back in stock, 17 new product options. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Lunya | [Slumberknit™ Shawl Collar Button Down Pant Set (Immersed Black/Delicate Pink / S)](https://lunya.co/products/womens-slumberknit-shawl-collar-button-down-pant-set-immersed-black-delicate-pink) | Sold out | $110.60 | $110.60 |
-| Lunya | [The Quintessential Bedding Set (Morning Fog / California king)](https://lunya.co/products/the-quintessential-bedding-set-morning-fog) | Removed | $320.60 |  |
-| Lunya | [The Quintessential Bedding Set (Morning Fog / Queen)](https://lunya.co/products/the-quintessential-bedding-set-morning-fog) | Removed | $299.60 |  |
-| Lunya | [The Quintessential Bedding Set (Morning Fog / King)](https://lunya.co/products/the-quintessential-bedding-set-morning-fog) | Removed | $320.60 |  |
-| Lunya | [Washable Silk Side Stripe Pant (Deep Blue/Soft Ivory / XS)](https://lunya.co/products/womens-washable-silk-side-stripe-pant-deep-blue-soft-ivory) | Removed | $159.60 |  |
-| Lunya | [Washable Silk Side Stripe Pant (Deep Blue/Soft Ivory / S)](https://lunya.co/products/womens-washable-silk-side-stripe-pant-deep-blue-soft-ivory) | Removed | $159.60 |  |
-| Lunya | [Washable Silk Side Stripe Pant (Deep Blue/Soft Ivory / M)](https://lunya.co/products/womens-washable-silk-side-stripe-pant-deep-blue-soft-ivory) | Removed | $159.60 |  |
-| Lunya | [Washable Silk Side Stripe Pant (Deep Blue/Soft Ivory / L)](https://lunya.co/products/womens-washable-silk-side-stripe-pant-deep-blue-soft-ivory) | Removed | $159.60 |  |
+| Hyperlite Mountain Gear | [Lawson Ironwire (Orange / 50 ft)](https://hyperlitemountaingear.com/products/lawson-ironwire) | Sold out | $15.00 | $15.00 |
+| Lunya | [Linen Embroidered Eyelet Tank (Sincere White / M)](https://lunya.co/products/womens-linen-embroidered-eyelet-tank-sincere-white) | Sold out | $89.60 | $89.60 |
+| Lunya | [Organic Pima Wide Leg Pant (Soft Blush / S)](https://lunya.co/products/womens-organic-pima-wide-leg-pant-soft-blush) | Sold out | $118.40 | $118.40 |
+| Soundcore (US) | [soundcore Motion Boom \| Outdoor Bluetooth Speaker (Black)](https://us.soundcore.com/products/motion-boom) | Back in stock | $109.99 | $109.99 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -50,7 +46,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 287 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.7 minutes, and no store blocked us.
+- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.6 minutes, and no store blocked us.
 
 ## How it works
 
@@ -65,7 +61,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 24."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 25."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -93,7 +89,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 24 of 24 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 6 of 6 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 25 of 25 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 7 of 7 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
