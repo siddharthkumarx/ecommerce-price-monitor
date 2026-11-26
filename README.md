@@ -1,8 +1,8 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 100 US online stores and records every price: 11,804 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,804 prices in the latest run."></picture></p>
 
-# E-commerce price monitor: 100 US online stores, checked every day
+# E-commerce price monitor: 25 US online stores, checked every day
 
-**Every price, sale and stock change from 100 US online stores on Shopify, WooCommerce and BigCommerce, checked every day and delivered as a clean spreadsheet.**
+**Every price, sale and stock change from 25 US online stores, checked every day and delivered as a clean spreadsheet.**
 
 [![Last run](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/last-run.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/days-running.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/runs.jsonl)
@@ -15,10 +15,10 @@
 
 ## At a glance
 
-- **Stores:** 100 public US online stores in 11 categories (Audio, Apparel, Beauty, Home & kitchen, Outdoor, Pets, Coffee & tea, Toys & baby, Fitness, Cycling, Stationery & everyday carry), on Shopify, WooCommerce, BigCommerce.
+- **Stores:** 25 public US online stores in 5 categories (Audio, Apparel, Beauty, Home & kitchen, Outdoor).
 - **Prices per run:** 11,804 product options in the latest run, each with price, "was" price and stock.
-- **Delivery record:** 19 of 19 daily runs delivered since 5 Nov 2026; 4 of 4 on time (within 2 h of the scheduled time) since the on-time trigger started.
-- **History:** a daily summary kept forever (19 days so far, [`daily-summary.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/history/daily-summary.csv)), the last 30 days of change logs, and every price version in the monthly history files.
+- **Delivery record:** 22 of 22 daily runs delivered since 5 Nov 2026; 5 of 5 on time (within 2 h of the scheduled time) since the on-time trigger started.
+- **History:** a daily summary kept forever (22 days so far, [`daily-summary.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/history/daily-summary.csv)), the last 30 days of change logs, and every price version in the monthly history files.
 - **Formats:** CSV, Excel (XLSX), JSON, SQL file (PostgreSQL / MySQL), SQLite, Parquet, Google Sheets, email or webhook.
 
 ## What you get
@@ -66,7 +66,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 <p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/pipeline-still.svg"><img src="assets/pipeline.svg" width="100%" alt="Five steps: read public store catalogs, collect politely once a day, check every price against a second source, keep the full history, deliver CSV, a monthly data file, a Google Sheet and a dashboard."></picture></p>
 
-1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store (Shopify, WooCommerce, BigCommerce), slowly and with the stores' rules respected.
+1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with the stores' rules respected.
 2. **Check.** Each price is checked for obvious errors (above zero, sale price below the "was" price), and one product per store is compared with a second source.
 3. **Store.** Every change is kept with the time it happened, so you can see what any product cost on any day.
 4. **Deliver.** The latest prices as CSV, a daily change log, a monthly history file, an optional Google Sheet and a [live dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
@@ -103,7 +103,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 22 of 22 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 4 of 4 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 23 of 23 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 5 of 5 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.

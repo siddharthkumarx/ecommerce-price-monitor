@@ -26,13 +26,13 @@ configs:
 
 # US online store prices, daily
 
-Daily prices, sale ("compare-at") prices and stock for every product option of 100 US online stores on Shopify, WooCommerce, BigCommerce, with a change log and a monthly price history. Collected by [siddharthkumarx/ecommerce-price-monitor](https://github.com/siddharthkumarx/ecommerce-price-monitor); this card is re-rendered after every run.
+Daily prices, sale ("compare-at") prices and stock for every product option of 25 US online stores on Shopify, with a change log and a monthly price history. Collected by [siddharthkumarx/ecommerce-price-monitor](https://github.com/siddharthkumarx/ecommerce-price-monitor); this card is re-rendered after every run.
 
 ## Dataset summary
 
 - **Latest run:** 26 November 2026, 00:17 UTC, status `ok`, 25 of 25 stores updated.
 - **Rows in the latest snapshot:** 11,804 product options.
-- **Stores by category:** apparel 10, audio 11, beauty 11, bikes 8, coffee_tea 5, fitness 9, home_kitchen 10, outdoor 10, pets 8, stationery_edc 8, toys_baby 10. The list and the evidence for every included and excluded store: [docs/sources.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/docs/sources.md).
+- **Stores by category:** apparel 5, audio 6, beauty 4, home_kitchen 5, outdoor 5. The list and the evidence for every included and excluded store: [docs/sources.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/docs/sources.md).
 - **Cadence:** one run a day at 06:17 UTC (4 a day from 26 Nov to 1 Dec 2026).
 
 ## Files
