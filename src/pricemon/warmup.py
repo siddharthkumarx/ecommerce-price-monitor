@@ -21,6 +21,7 @@ from then on. A failed or unclean day resets the count.
 
 from __future__ import annotations
 
+import csv
 import json
 from dataclasses import dataclass
 from datetime import date, timedelta
@@ -118,19 +119,25 @@ def write_state(data: Path, state: dict[str, Any]) -> Path:
     return out
 
 
-def warming_ids(data: Path) -> set[str]:
-    """Stores still warming up after the latest run (``data/warmup.json``)."""
-    path = data / "warmup.json"
-    if not path.exists():
+def counted_ids(data: Path) -> set[str]:
+    """Stores with rows in the last good snapshot: the ones in public numbers.
+
+    The same rule the run uses (:func:`split`); it holds before the first run with
+    this module too, when ``data/warmup.json`` does not exist yet.
+    """
+    snapshot = data / "latest" / "snapshot.csv"
+    if not snapshot.exists():
         return set()
-    try:
-        state = json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
-        return set()
-    return set((state.get("warming") or {}).keys())
+    with snapshot.open(newline="", encoding="utf-8") as fh:
+        return {row["store_id"] for row in csv.DictReader(fh)}
 
 
 def public_stores(stores: list[Any], data: Path) -> list[Any]:
-    """The stores that count in public numbers (warming-up stores left out)."""
-    hidden = warming_ids(data)
-    return [s for s in stores if s.id not in hidden]
+    """The stores that count in public numbers (warming-up stores left out).
+
+    With an empty snapshot (before the monitor's first run) every store counts.
+    """
+    counted = counted_ids(data)
+    if not counted:
+        return list(stores)
+    return [s for s in stores if s.id in counted]

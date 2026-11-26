@@ -17,8 +17,8 @@
 | ``runs_due`` | the day's schedule slots |
 | ``runs_delivered`` | slots that got a good run that day |
 | ``runs_on_time`` | slots whose good run started within 2 h |
-| ``delivered`` | yes when every due run of the day was delivered |
-| ``on_time`` | yes when every due run of the day started within 2 h of its slot |
+| ``delivered`` | yes when every due run of the day was delivered (empty until a slot is judged) |
+| ``on_time`` | yes when every due run of the day started within 2 h of its slot (empty likewise) |
 | ``rows_held`` | rows read but not published that day (see :func:`rows_held`) |
 
 The file is rebuilt from ``data/runs.jsonl`` after every run; a date that is no
@@ -122,8 +122,9 @@ def build_rows(runs: list[dict[str, Any]], now: datetime) -> dict[str, dict[str,
             "runs_due": len(due),
             "runs_delivered": delivered,
             "runs_on_time": on_time,
-            "delivered": "yes" if due and delivered == len(due) else "no",
-            "on_time": "yes" if due and on_time == len(due) else "no",
+            # A day with no judged slot yet (its slot is still pending) is not a "no".
+            "delivered": ("yes" if delivered == len(due) else "no") if due else "",
+            "on_time": ("yes" if on_time == len(due) else "no") if due else "",
             "rows_held": sum(rows_held(r) for r in day_runs),
         }
         for col, event in EVENT_COLUMNS.items():

@@ -5,6 +5,10 @@ Usage::
     python -m pricemon.sources checks/results/recon-00*/recon.json > docs/sources.md
     python -m pricemon.sources --stores-yml checks/results/recon-00*/recon.json > config/stores.yml
 
+With ``--keep <current stores.yml>`` (written to a temporary file first) the stores
+already monitored rank first, so a dropped store is replaced one for one.
+Stores dropped on pipeline-check evidence are listed in ``config/exclusions.yml``.
+
 Every recon file is evidence. A store is dropped when **any** run shows one of
 (docs/decisions.md, D-004):
 
@@ -72,6 +76,15 @@ USED_PATHS = (
 
 
 REVIEW_PATH = Path("config/screen-review.yml")
+EXCLUSIONS_PATH = Path("config/exclusions.yml")
+
+
+def load_exclusions(path: Path = EXCLUSIONS_PATH) -> dict[str, str]:
+    """Store name -> evidence, for stores dropped on pipeline-check evidence."""
+    if not path.exists():
+        return {}
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return {str(e["store"]): str(e["evidence"]) for e in raw.get("exclusions") or []}
 
 
 @dataclass(frozen=True)
@@ -104,6 +117,7 @@ class StoreRecord:
     history: list[tuple[str, dict[str, Any]]] = field(default_factory=list)
     reviews: list[ScreenReview] = field(default_factory=list)
     reserve_reason: str | None = None
+    excluded: str | None = None
 
     def _reviewed(self, category: str, examples: list[str]) -> ScreenReview | None:
         for review in self.reviews:
@@ -173,6 +187,8 @@ class StoreRecord:
             for cat, examples in (r.get("content_flags") or {}).items():
                 if self._reviewed(cat, examples) is None:
                     reasons.append(f"{rid}: excluded category {cat} (e.g. {'; '.join(examples)})")
+        if self.excluded:
+            reasons.append(self.excluded)
         latest = self.latest
         if self.is_new and latest["passed"]:
             products = int(latest.get("products") or 0)
@@ -194,8 +210,10 @@ class StoreRecord:
 def collect(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
+    exclusions: dict[str, str] | None = None,
 ) -> list[StoreRecord]:
     reviews = reviews or {}
+    exclusions = exclusions if exclusions is not None else load_exclusions()
     records: dict[str, StoreRecord] = {}
     for _, payload in sources:
         rid = payload["meta"]["id"]
@@ -205,6 +223,8 @@ def collect(
                 StoreRecord(r["store"], r["category"], reviews=reviews.get(r["store"], [])),
             )
             rec.history.append((rid, r))
+    for rec in records.values():
+        rec.excluded = exclusions.get(rec.store)
     return list(records.values())
 
 
@@ -213,8 +233,13 @@ def classify(
     per_category: int = PER_CATEGORY,
     max_stores: int = MAX_STORES,
     min_per_category: int = MIN_PER_CATEGORY,
+    keep: frozenset[str] = frozenset(),
 ) -> dict[str, list[StoreRecord]]:
-    """The original selection, then the expansion to 100 stores (module docstring)."""
+    """The original selection, then the expansion to 100 stores (module docstring).
+
+    ``keep``: store names already monitored; they rank first in the expansion, so a
+    dropped store is replaced by one new store instead of reshuffling the list.
+    """
     old = [r for r in records if not r.is_new]
     new = [r for r in records if r.is_new]
     groups = classify_base(old, per_category, max_stores, min_per_category)
@@ -231,8 +256,14 @@ def classify(
         count[rec.category] += 1
     rows = sum(int(r.latest["variants"]) for r in selected)
 
-    def rank(x: StoreRecord) -> tuple[bool, int, int, str]:
-        return (x.platform == "shopify", len(x.caveats()), -int(x.latest["variants"]), x.store)
+    def rank(x: StoreRecord) -> tuple[bool, bool, int, int, str]:
+        return (
+            x.store not in keep,
+            x.platform == "shopify",
+            len(x.caveats()),
+            -int(x.latest["variants"]),
+            x.store,
+        )
 
     by_cat: dict[str, list[StoreRecord]] = defaultdict(list)
     for rec in sorted(pool, key=rank):
@@ -245,7 +276,7 @@ def classify(
         # A fair share of the rows left: the best-ranked store that fits twice the
         # average left per open slot, else the smallest that still fits the budget.
         allowance = 1.5 * (ROW_BUDGET - rows) / max(1, EXPANDED_MAX_STORES - len(selected))
-        fits = [r for r in by_cat[cat] if int(r.latest["variants"]) <= allowance]
+        fits = [r for r in by_cat[cat] if r.store in keep or int(r.latest["variants"]) <= allowance]
         rec = fits[0] if fits else min(by_cat[cat], key=lambda r: int(r.latest["variants"]))
         by_cat[cat].remove(rec)
         if rows + int(rec.latest["variants"]) > ROW_BUDGET:
@@ -434,10 +465,11 @@ def _dropped_row(rec: StoreRecord) -> str:
 def render(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
+    keep: frozenset[str] = frozenset(),
 ) -> str:
     """Render the register from ``(path, payload)`` pairs, oldest run first."""
     records = collect(sources, reviews)
-    groups = classify(records)
+    groups = classify(records, keep=keep)
     selected = sorted(groups["selected"], key=_order)
     counts: dict[str, int] = defaultdict(int)
     variants: dict[str, int] = defaultdict(int)
@@ -493,9 +525,10 @@ def render(
 def render_stores_yml(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
+    keep: frozenset[str] = frozenset(),
 ) -> str:
     """The monitored store list consumed by the daily run (config/stores.yml)."""
-    groups = classify(collect(sources, reviews))
+    groups = classify(collect(sources, reviews), keep=keep)
     ids = ", ".join(p["meta"]["id"] for _, p in sources)
     lines = [
         "# Monitored stores. Generated by `python -m pricemon.sources --stores-yml` from",
@@ -526,11 +559,24 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("recon_json", type=Path, nargs="+")
     parser.add_argument("--stores-yml", action="store_true", help="emit config/stores.yml")
     parser.add_argument("--reviews", type=Path, default=REVIEW_PATH, help="screen-review file")
+    parser.add_argument(
+        "--keep",
+        type=Path,
+        help="current stores.yml: its stores rank first, so the list changes as little as possible",
+    )
     args = parser.parse_args(argv)
+    keep: frozenset[str] = frozenset()
+    if args.keep and args.keep.exists():
+        current = yaml.safe_load(args.keep.read_text(encoding="utf-8")) or {}
+        keep = frozenset(str(st["name"]) for st in current.get("stores") or [])
     paths = sorted(args.recon_json, key=lambda p: p.parent.name)
     sources = [(p.as_posix(), json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     reviews = load_reviews(args.reviews)
-    out = render_stores_yml(sources, reviews) if args.stores_yml else render(sources, reviews)
+    out = (
+        render_stores_yml(sources, reviews, keep)
+        if args.stores_yml
+        else render(sources, reviews, keep)
+    )
     print(out, end="")
     return 0
 

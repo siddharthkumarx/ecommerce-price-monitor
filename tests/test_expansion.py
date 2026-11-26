@@ -570,3 +570,46 @@ def test_hidden_sample_product_is_skipped_for_the_next_one() -> None:
     assert f.sample_skipped == [first_pick]
     assert len(f.witnesses) == 1
     assert f.witnesses[0].handle != first_pick
+
+
+def test_counted_stores_come_from_the_snapshot_before_warmup_json_exists(tmp_path: Path) -> None:
+    data = tmp_path / "data"
+    stores = [Store(i, i.upper(), "pets", f"{i}.example") for i in ("a", "b", "n")]
+    assert [s.id for s in warmup.public_stores(stores, data)] == ["a", "b", "n"]  # no run yet
+    (data / "latest").mkdir(parents=True)
+    (data / "latest" / "snapshot.csv").write_text(
+        "store_id,product_id,variant_id\na,1,1\nb,2,2\nb,3,3\n"
+    )
+    assert [s.id for s in warmup.public_stores(stores, data)] == ["a", "b"]
+
+
+def test_exclusion_drops_a_store_and_keep_replaces_it_one_for_one() -> None:
+    from pricemon.sources import classify, collect
+    from tests.test_sources import _row, _run
+
+    rows = [_row(f"S{i}", "pets", products=60, variants=100) for i in range(6)]
+    run = [_run("recon-100", *rows)]
+    import pricemon.sources as src
+
+    old_max = src.EXPANDED_MAX_STORES
+    src.EXPANDED_MAX_STORES = 4
+    try:
+        first = {r.store for r in classify(collect(run, exclusions={}))["selected"]}
+        gone = sorted(first)[0]
+        groups = classify(
+            collect(run, exclusions={gone: "pipeline-x: blocked"}), keep=frozenset(first)
+        )
+    finally:
+        src.EXPANDED_MAX_STORES = old_max
+    after = {r.store for r in groups["selected"]}
+    assert len(after) == 4
+    assert gone not in after
+    assert len(after - first) == 1  # one replacement, the rest stays
+    dropped = {r.store: r.drop_reasons() for r in groups["dropped"]}
+    assert dropped[gone] == ["pipeline-x: blocked"]
+
+
+def test_a_day_without_a_judged_slot_is_neither_yes_nor_no() -> None:
+    rows = build_rows([run_rec(5)], datetime(2026, 11, 6, 3, 0, tzinfo=UTC))  # 6 Nov slot pending
+    assert rows["2026-11-05"]["delivered"] == "yes"
+    assert "2026-11-06" not in rows or rows["2026-11-06"]["delivered"] == ""

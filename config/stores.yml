@@ -224,6 +224,12 @@ stores:
     host: www.ettitude.com
     recon_variants: 491
     recon_products: 191
+  - id: greenstalk
+    name: "GreenStalk"
+    category: home_kitchen
+    host: greenstalkgarden.com
+    recon_variants: 228
+    recon_products: 196
   - id: homesick
     name: "Homesick"
     category: home_kitchen
@@ -317,13 +323,6 @@ stores:
     platform: woocommerce
     recon_variants: 288
     recon_products: 133
-  - id: bixbi
-    name: "Bixbi"
-    category: pets
-    host: bixbipet.com
-    platform: woocommerce
-    recon_variants: 271
-    recon_products: 82
   - id: bocce-s-bakery
     name: "Bocce's Bakery"
     category: pets

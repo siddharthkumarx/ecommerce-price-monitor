@@ -1,0 +1,5 @@
+# Stores dropped on evidence from a full pipeline check rather than recon (D-004
+# rules: a challenge or block page drops a store). Read by `python -m pricemon.sources`.
+exclusions:
+  - store: Bixbi
+    evidence: "pipeline-101: blocked: cloudflare challenge (robots.txt)"
