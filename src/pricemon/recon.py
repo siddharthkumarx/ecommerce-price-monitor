@@ -9,6 +9,9 @@ For each candidate the recon records, without keeping any product content:
 * a sample cross-check of ``/products/<handle>.js`` against ``/products.json``
 * the presentment currency with ``country=US`` (JSON-LD ``priceCurrency`` and
   ``Shopify.currency``) and the shop's own country / currency from ``/meta.json``
+* when the request asks for it (``terms: true``, from ``recon-005`` on), the
+  Terms of Service page: ``terms`` is ``ban``, ``no_ban`` or ``none_found``, with
+  the first matching sentence as evidence (``pricemon.terms``)
 """
 
 from __future__ import annotations
@@ -30,6 +33,7 @@ from pricemon.polite import (
     make_client,
 )
 from pricemon.screen import screen_content
+from pricemon.terms import TERMS_PATH, TermsResult, classify
 from pricemon.witness import (
     is_products_payload,
     jsonld_currencies,
@@ -77,6 +81,11 @@ class ReconResult:
     retries: int = 0
     retry_causes: list[str] = field(default_factory=list)
     content_flags: dict[str, list[str]] = field(default_factory=dict)
+    # Terms of Service (recon-005 on; None when the run did not read terms).
+    terms: str | None = None
+    terms_source: str | None = None
+    terms_sentence: str | None = None
+    terms_requests: int = 0
     elapsed_s: float = 0.0
     notes: list[str] = field(default_factory=list)
 
@@ -131,12 +140,19 @@ class ReconResult:
         return data
 
 
-async def recon_store(session: StoreSession, cand: Candidate) -> ReconResult:
-    """Recon one store through ``session`` (already pointed at the candidate domain)."""
+async def recon_store(
+    session: StoreSession, cand: Candidate, *, terms: bool = False
+) -> ReconResult:
+    """Recon one store through ``session`` (already pointed at the candidate domain).
+
+    ``terms``: also read the Terms of Service page, last, after the catalog checks.
+    """
     started = time.monotonic()
     res = ReconResult(store=cand.store, domain=cand.domain, category=cand.category)
     try:
         await _recon(session, res)
+        if terms and res.shopify and not session.stopped_reason:
+            await _terms(session, res)
     except StoreStopped as exc:
         res.stopped_reason = exc.reason
     except Exception as exc:  # recon must never crash the whole run
@@ -223,6 +239,42 @@ async def _recon(session: StoreSession, res: ReconResult) -> None:
         res.available_share = round(available / len(variants), 3)
 
 
+TERMS_BUDGET = 2
+
+
+async def _terms(session: StoreSession, res: ReconResult) -> None:
+    """Read ``/policies/terms-of-service``: at most ``TERMS_BUDGET`` requests, one page.
+
+    No other page is searched. robots.txt is respected: a disallowed page is not
+    fetched and the store's terms are ``none_found``. A redirect is followed once,
+    only on the same host and only inside the request budget.
+    """
+    before = session.requests_made
+    try:
+        result = await _read_terms(session, before)
+    finally:
+        res.terms_requests = session.requests_made - before
+    res.terms, res.terms_source, res.terms_sentence = result.terms, result.source, result.sentence
+
+
+async def _read_terms(session: StoreSession, before: int) -> TermsResult:
+    path = TERMS_PATH
+    if not session.allowed(path):
+        return TermsResult("none_found", f"robots.txt disallows {path}")
+    resp = await session.get(path, expect="html", follow_redirects=False, max_attempts=TERMS_BUDGET)
+    if resp.is_redirect and session.requests_made - before < TERMS_BUDGET:
+        target = resp.url.join(resp.headers.get("location", ""))
+        if target.host != resp.url.host:
+            return TermsResult("none_found", f"redirects off the store ({target.host})")
+        path = target.path
+        if not session.allowed(path):
+            return TermsResult("none_found", f"robots.txt disallows {path}")
+        resp = await session.get(path, expect="html", follow_redirects=False, max_attempts=1)
+    if resp.status_code != 200:
+        return TermsResult("none_found", f"http {resp.status_code}")
+    return classify(resp.text)
+
+
 def _count_variants(products: list[dict[str, Any]]) -> int:
     return sum(len(p.get("variants") or []) for p in products)
 
@@ -296,6 +348,8 @@ async def run_recon(
     config: PoliteConfig,
     edge: EdgeGuard,
     concurrency: int = 4,
+    *,
+    terms: bool = False,
 ) -> list[ReconResult]:
     """Recon all candidates.
 
@@ -311,11 +365,12 @@ async def run_recon(
                 session = StoreSession(
                     client=client, base_url=f"https://{cand.domain}", config=config, edge=edge
                 )
-                result = await recon_store(session, cand)
+                result = await recon_store(session, cand, terms=terms)
                 passed, fails = result.verdict()
                 print(
                     f"{cand.store:<26} {'PASS' if passed else 'fail':<4} "
-                    f"variants={result.variants} reqs={result.requests} {', '.join(fails)}",
+                    f"variants={result.variants} reqs={result.requests} "
+                    f"terms={result.terms or '-'} {', '.join(fails)}",
                     flush=True,
                 )
                 return result

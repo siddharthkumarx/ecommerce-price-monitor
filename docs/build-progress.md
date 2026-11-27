@@ -1,5 +1,21 @@
 # Build progress
 
+## Continue here (f1-expand)
+
+Status: **RUNNING** (27 Nov 2026). Task F1-EXPAND, owner decision of 27 Nov 2026: grow the
+daily monitor from 25 stores to at least 100, starting today; the Black Friday freeze is
+lifted. Work happens on branch `f1-expand`; `main` is fast-forwarded once the gate is green
+and the first run with 100+ stores has published.
+
+1. Retire JLab from the store list; its history stays in `data/` - `in progress`.
+2. 272 new candidates in `checks/candidates.yml` (`since: recon-005`), 10 categories - `done`.
+3. `recon-005`: the new candidates plus the 29 earlier passes, with the Terms of Service
+   field (`pricemon.terms`) - `in progress` (pushed, running on Actions).
+4. Regenerate `config/stores.yml` from recon-001..005; display rule for `terms: ban`
+   stores (`config/public.yml`) - `todo`.
+5. One run a day again (06:17 UTC); first 100+ store run measured - `todo`.
+6. Feed contract kept, docs, visuals, review - `todo`.
+
 Status: `done`, `in progress`, `todo`, `blocked`. Update after every item. Each
 item says how to verify it.
 

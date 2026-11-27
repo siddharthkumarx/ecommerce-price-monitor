@@ -90,6 +90,8 @@ def request_kind(url: str) -> str:
         return "product .js"
     if path.startswith("/products/"):
         return "product page"
+    if path.startswith("/policies/"):
+        return "terms page"
     return path.split("/")[1] if "/" in path[1:] else path
 
 
@@ -282,12 +284,24 @@ class StoreSession:
         return StoreStopped(reason)
 
     # -- low level ----------------------------------------------------------
-    async def _send(self, url: str, accept: str) -> httpx.Response:
-        """Send one GET with retry rules applied. Raises StoreStopped."""
+    async def _send(
+        self,
+        url: str,
+        accept: str,
+        *,
+        follow_redirects: bool = True,
+        max_attempts: int | None = None,
+    ) -> httpx.Response:
+        """Send one GET with retry rules applied. Raises StoreStopped.
+
+        ``max_attempts`` lowers the configured attempt count for one request (the
+        recon's terms page has a budget of 2 requests per store).
+        """
         last_problem = "no attempt"
         kind = request_kind(url)
         retry_after: float | None = None
-        for attempt in range(1, self.config.max_attempts + 1):
+        attempts = min(self.config.max_attempts, max_attempts or self.config.max_attempts)
+        for attempt in range(1, attempts + 1):
             if self.edge is not None:
                 self.edge.check_deadline()
                 if self.edge.halted_reason:
@@ -298,7 +312,9 @@ class StoreSession:
             self.requests_made += 1
             t = round(self.clock() - (self.edge.t0 if self.edge is not None else 0.0), 1)
             try:
-                resp = await self.client.get(url, headers={"Accept": accept})
+                resp = await self.client.get(
+                    url, headers={"Accept": accept}, follow_redirects=follow_redirects
+                )
             except httpx.TransportError as exc:
                 last_problem = f"network error: {type(exc).__name__}"
                 self.request_log.append((t, kind, last_problem))
@@ -322,7 +338,7 @@ class StoreSession:
                 wait = max(backoff, retry_after or 0.0)
                 if resp.status_code == 429 and self.edge is not None:
                     self.edge.throttled(wait)
-            if attempt < self.config.max_attempts:
+            if attempt < attempts:
                 self.retries_made += 1
                 self.retry_causes.append(last_problem)
                 ra = "-" if retry_after is None else f"{retry_after:g}s"
@@ -380,6 +396,9 @@ class StoreSession:
         path: str,
         params: Mapping[str, str | int] | None = None,
         expect: Expect = "json",
+        *,
+        follow_redirects: bool = True,
+        max_attempts: int | None = None,
     ) -> httpx.Response:
         """GET ``path`` with ``country`` added. Raises RobotsDisallowed / StoreStopped."""
         if self.stopped_reason:
@@ -392,7 +411,9 @@ class StoreSession:
             "html": "text/html,application/xhtml+xml",
             "text": "text/plain",
         }[expect]
-        resp = await self._send(url, accept)
+        resp = await self._send(
+            url, accept, follow_redirects=follow_redirects, max_attempts=max_attempts
+        )
         reason = detect_block(resp.status_code, str(resp.url), resp.text)
         if reason:
             raise self._stop(f"blocked: {reason}")

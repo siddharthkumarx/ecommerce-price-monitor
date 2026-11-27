@@ -30,13 +30,42 @@ from pricemon.recon import VARIANT_CAP, Candidate, ReconResult, run_recon
 RESULTS_DIR = Path("checks/results")
 
 
-def load_candidates(path: Path) -> list[Candidate]:
+def load_candidates(path: Path, since: str | None = None) -> list[Candidate]:
+    """Candidates from ``checks/candidates.yml``; ``since``: only those added for that run.
+
+    An entry may carry ``since: <recon id>``, the recon run it was added for
+    (``recon-005`` on; earlier entries have none).
+    """
     raw = yaml.safe_load(path.read_text(encoding="utf-8"))
     out: list[Candidate] = []
     for category, stores in raw["categories"].items():
         for item in stores:
+            if since is not None and item.get("since") != since:
+                continue
             out.append(Candidate(store=item["store"], domain=item["domain"], category=category))
     return out
+
+
+def select_candidates(request: dict[str, Any], path: Path) -> list[Candidate]:
+    """The candidates a recon request names.
+
+    ``only``: these stores by name. ``since``: every candidate added for that run,
+    plus the stores named in ``also`` (earlier candidates checked again).
+    """
+    only = set(request.get("only") or [])
+    if only:
+        return [c for c in load_candidates(path) if c.store in only]
+    since = request.get("since")
+    if since:
+        also = set(request.get("also") or [])
+        new = load_candidates(path, since)
+        new_names = {c.store for c in new}
+        again = [c for c in load_candidates(path) if c.store in also and c.store not in new_names]
+        missing = also - {c.store for c in again} - new_names
+        if missing:
+            raise ValueError(f"'also' names stores not in the candidates: {sorted(missing)}")
+        return again + new
+    return load_candidates(path)
 
 
 def _run_meta(request: dict[str, Any], started: datetime) -> dict[str, Any]:
@@ -80,8 +109,8 @@ def render_recon_md(meta: dict[str, Any], results: list[ReconResult]) -> str:
         "",
         "| store | category | host | robots | products.json | .js | reachable | shopify "
         "| products | variants | in stock | .js check | JSON-LD cur | Shopify cur "
-        "| meta country | reqs | result |",
-        "|---|---|---|---|---|---|---|---|---:|---:|---:|---|---|---|---|---:|---|",
+        "| meta country | reqs | terms | result |",
+        "|---|---|---|---|---|---|---|---|---:|---:|---:|---|---|---|---|---:|---|---|",
     ]
     for r in sorted(results, key=lambda x: (x.category, x.store.lower())):
         ok, fails = r.verdict()
@@ -93,7 +122,7 @@ def render_recon_md(meta: dict[str, Any], results: list[ReconResult]) -> str:
             f"| {_fmt(r.reachable)} | {_fmt(r.shopify)} | {_fmt(r.products)} | {variants} "
             f"| {share} | {_fmt(r.js_crosscheck)} | {_fmt(r.jsonld_currency)} "
             f"| {_fmt(r.shopify_currency)} | {_fmt(r.meta_country)} | {r.requests} "
-            f"| {'PASS' if ok else 'fail: ' + ', '.join(fails)} |"
+            f"| {_fmt(r.terms)} | {'PASS' if ok else 'fail: ' + ', '.join(fails)} |"
         )
     notes = [r for r in results if r.notes or r.stopped_reason]
     if notes:
@@ -101,6 +130,23 @@ def render_recon_md(meta: dict[str, Any], results: list[ReconResult]) -> str:
         for r in sorted(notes, key=lambda x: x.store.lower()):
             bits = ([f"stopped: {r.stopped_reason}"] if r.stopped_reason else []) + r.notes
             lines.append(f"- **{r.store}**: " + "; ".join(bits))
+    read = [r for r in results if r.terms is not None]
+    if read:
+        counts = {v: sum(1 for r in read if r.terms == v) for v in ("ban", "no_ban", "none_found")}
+        lines += [
+            "",
+            "## Terms of Service",
+            "",
+            f"`/policies/terms-of-service`, at most 2 requests per store, read only where "
+            f"robots.txt allows it: ban {counts['ban']}, no_ban {counts['no_ban']}, "
+            f"none_found {counts['none_found']}.",
+            "",
+            "| store | terms | source | first matching sentence |",
+            "|---|---|---|---|",
+        ]
+        for r in sorted(read, key=lambda x: (x.category, x.store.lower())):
+            sentence = (r.terms_sentence or "-").replace("|", "\\|")
+            lines.append(f"| {r.store} | {r.terms} | {r.terms_source or '-'} | {sentence} |")
     return "\n".join(lines) + "\n"
 
 
@@ -112,10 +158,9 @@ def run_request(request_path: Path) -> int:
     started = datetime.now(UTC)
 
     if check == "recon":
-        candidates = load_candidates(Path(request.get("candidates", "checks/candidates.yml")))
-        only = set(request.get("only") or [])
-        if only:
-            candidates = [c for c in candidates if c.store in only]
+        candidates = select_candidates(
+            request, Path(request.get("candidates", "checks/candidates.yml"))
+        )
         config = PoliteConfig(
             delay_s=float(request.get("delay_s", 3.0)),
             jitter_s=float(request.get("jitter_s", 2.0)),
@@ -125,11 +170,21 @@ def run_request(request_path: Path) -> int:
             jitter_s=float(request.get("edge_jitter_s", 1.0)),
         )
         results = asyncio.run(
-            run_recon(candidates, config, edge, concurrency=int(request.get("concurrency", 4)))
+            run_recon(
+                candidates,
+                config,
+                edge,
+                concurrency=int(request.get("concurrency", 4)),
+                terms=bool(request.get("terms", False)),
+            )
         )
         meta = _run_meta(request, started)
         meta["edge_interval_s"] = edge.interval_s
         meta["halted_reason"] = edge.halted_reason
+        meta["throttle_events"] = edge.throttle_events
+        meta["cooldown_s"] = round(edge.cooldown_s, 1)
+        meta["requests"] = sum(r.requests for r in results)
+        meta["terms_read"] = bool(request.get("terms", False))
         payload = {"meta": meta, "results": [r.to_dict() for r in results]}
         (out_dir / "recon.json").write_text(
             json.dumps(payload, indent=2, sort_keys=False) + "\n", encoding="utf-8"
