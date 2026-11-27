@@ -70,8 +70,16 @@ def normalize_products(
     stats = NormalizeStats()
     rows: list[VariantRow] = []
     seen: set[int] = set()
+    listed: set[object] = set()
     for product in products:
         for variant in product.get("variants") or []:
+            # A variant listed again keeps its first copy, whatever that copy was (D-037).
+            raw_id = variant.get("id")
+            if raw_id is not None and raw_id in listed:
+                stats.duplicates += 1
+                continue
+            if raw_id is not None:
+                listed.add(raw_id)
             price = price_to_cents(variant.get("price"))
             if price == 0:
                 # Free gifts, samples and add-ons: out of scope (price > 0), not an error.

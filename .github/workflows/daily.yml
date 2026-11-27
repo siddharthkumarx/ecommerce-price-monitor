@@ -49,6 +49,7 @@ jobs:
       slot: ${{ steps.decide.outputs.slot }}
       run_at: ${{ steps.decide.outputs.run_at }}
       shards: ${{ steps.plan.outputs.shards }}
+      sha: ${{ steps.plan.outputs.sha }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -62,6 +63,9 @@ jobs:
       - name: Plan the shards
         id: plan
         run: |
+          # Every shard reads the store list of this commit, even if the branch moves
+          # while the run is going (D-033).
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           # One shard per 60 stores (D-033, D-036); four if the plan itself fails.
           if PYTHONPATH=src python3 -m pricemon.schedule shards --stores config/stores.yml > plan.txt; then
             cat plan.txt
@@ -113,7 +117,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ needs.slot.outputs.sha || github.ref_name }}
 
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
@@ -123,6 +127,15 @@ jobs:
       - name: Install
         run: uv sync --locked --no-dev
 
+      - name: Earlier shards of this run
+        # Their run-wide pace and a halt carry over to this shard (D-033).
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work/prev
+          gh run download "$GITHUB_RUN_ID" --pattern 'fetch-*' --dir work/prev || true
+          find work/prev -name 'fetch-*.json' -printf '%p %s bytes\n'
+
       - name: Read this shard's stores
         timeout-minutes: 41
         env:
@@ -130,8 +143,10 @@ jobs:
           SHARD: ${{ matrix.shard }}
           TOTAL: ${{ strategy.job-total }}
         run: |
+          mapfile -t prev < <(find work/prev -name 'fetch-*.json' | sort)
           uv run --no-dev python -m pricemon.run --stores config/stores.yml \
-            --shard "$SHARD/$TOTAL" --run-at "$RUN_AT" --fetch-out "work/fetch-$SHARD.json"
+            --shard "$SHARD/$TOTAL" --run-at "$RUN_AT" --fetch-out "work/fetch-$SHARD.json" \
+            --edge-from "${prev[@]}" work/prev/none.json
 
       - name: Keep the shard for the process job
         if: always()
@@ -220,6 +235,32 @@ jobs:
           gh release upload "$TAG" "work/price_history_$MONTH.parquet" work/latest-prices.csv --clobber
           # "Download the data" in the README links to the latest release.
           gh release edit "$TAG" --latest
+
+      - name: Withdraw from earlier months
+        # The run rewrites this month only; earlier monthly assets get the same keys,
+        # so a store that left (D-036) or is shown by number (D-034) leaves them too.
+        if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
+        continue-on-error: true
+        run: |
+          gh release list --limit 100 --json tagName --jq '.[].tagName' | grep '^data-' | while read -r tag; do
+            [ "$tag" = "$TAG" ] && continue
+            month="${tag#data-}"
+            dir="work/earlier/$month"
+            mkdir -p "$dir"
+            gh release download "$tag" -p "price_history_$month.parquet" -p latest-prices.csv -D "$dir" || continue
+            set +e
+            uv run --no-dev python -m pricemon.publicdata --stores config/stores.yml \
+              --parquet "$dir/price_history_$month.parquet" --csv "$dir/latest-prices.csv"
+            code=$?
+            set -e
+            if [ "$code" = 3 ]; then
+              files=()
+              for f in "$dir/price_history_$month.parquet" "$dir/latest-prices.csv"; do
+                [ -f "$f" ] && files+=("$f")
+              done
+              gh release upload "$tag" "${files[@]}" --clobber
+            fi
+          done
 
       - name: Publish Google Sheet
         if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'

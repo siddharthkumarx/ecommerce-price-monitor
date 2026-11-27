@@ -88,6 +88,9 @@ class RunConfig:
     shard: tuple[int, int] | None = None
     fetch_out: Path | None = None
     fetch_in: list[Path] = field(default_factory=list)
+    # Shard files of earlier shards of the same run: the run-wide pace and a halt
+    # carry over to this shard (D-033).
+    edge_from: list[Path] = field(default_factory=list)
     run_at: datetime | None = None
     display: Display | None = None
     public: Path | None = None
@@ -128,15 +131,24 @@ async def fetch_all(
                 # Actions logs are public: a store shown without its name is logged by
                 # its alias id (D-034).
                 label = cfg.display.data_id(store.id) if cfg.display else store.id
+                why = cfg.display.reason(store.id, result.reason) if cfg.display else result.reason
                 print(
                     f"{label:<24} {result.status:<8} products={len(result.products):<5} "
-                    f"reqs={result.requests:<3} {result.reason or ''}",
+                    f"reqs={result.requests:<3} {why or ''}",
                     flush=True,
                 )
                 return result
 
-        order = daily_order(stores, day)
+        # A store whose terms ban robots is never read (D-036), even if it reached the
+        # list by mistake; the display rule still shows it by number only.
+        banned = {s.id for s in stores if s.terms == "ban"}
+        order = [s for s in daily_order(stores, day) if s.id not in banned]
         results = {r.store_id: r for r in await asyncio.gather(*(one(s) for s in order))}
+        for s in stores:
+            if s.id in banned:
+                skipped = StoreFetch(store_id=s.id, host=s.host, observed_at=datetime.now(UTC))
+                skipped.reason = "not read: its terms ban automated access (D-036)"
+                results[s.id] = skipped
         return [results[s.id] for s in stores]
 
 
@@ -317,6 +329,27 @@ def _edge_json(edge: EdgeGuard) -> dict[str, Any]:
     }
 
 
+def carried_edge(paths: list[Path], run_at: datetime) -> tuple[float, str | None]:
+    """The slowest run-wide interval and the first halt of earlier shards of this run.
+
+    A halt for the time budget is the shard's own; any other halt (the edge refusing
+    this IP, the circuit breaker) holds for the rest of the run (INC-005, D-033).
+    """
+    interval, halt = 0.0, None
+    for path in paths:
+        if not path.exists():
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if payload.get("run_at") != iso(run_at):
+            continue
+        e = payload.get("edge") or {}
+        interval = max(interval, float(e.get("final_interval_s") or 0.0))
+        reason = e.get("halted_reason")
+        if reason and "time budget" not in reason and halt is None:
+            halt = f"shard {payload['shard'][0]}: {reason}"
+    return interval, halt
+
+
 def write_shard(cfg: RunConfig, run_at: datetime) -> int:
     """Fetch this shard's stores and write them for the process step; no other output."""
     assert cfg.shard is not None
@@ -324,16 +357,27 @@ def write_shard(cfg: RunConfig, run_at: datetime) -> int:
     k, n = cfg.shard
     started = time.monotonic()
     stores = shard_stores(load_stores(cfg.stores), run_at.date(), k, n)
+    prev_interval, prev_halt = carried_edge(cfg.edge_from, run_at)
     edge = EdgeGuard(
         interval_s=cfg.edge_interval_s,
         jitter_s=cfg.edge_jitter_s,
         deadline=time.monotonic() + cfg.budget_s,
+        current_interval_s=max(cfg.edge_interval_s, prev_interval),
     )
     display = cfg.display or load_display(cfg.stores, cfg.public)
     cfg.display = display
-    fetches = [
-        public_fetch(display, f) for f in asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
-    ]
+    if prev_halt:
+        # An earlier shard was refused by the edge: this one sends no request.
+        edge.halted_reason = f"halted in an earlier shard ({prev_halt})"
+        raw = []
+        for s in stores:
+            f = StoreFetch(store_id=s.id, host=s.host, observed_at=run_at)
+            f.reason = "not read: the run halted in an earlier shard"
+            raw.append(f)
+        print(f"shard {k}/{n}: not read, {edge.halted_reason}", flush=True)
+    else:
+        raw = asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
+    fetches = [public_fetch(display, f) for f in raw]
     payload = {
         "run_at": iso(run_at),
         "shard": [k, n],
@@ -471,6 +515,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--shard", help="k/n: fetch shard k of n and write --fetch-out only")
     p.add_argument("--fetch-out", type=Path, help="this shard's fetch file")
     p.add_argument("--fetch-in", type=Path, nargs="*", default=[], help="shard files to process")
+    p.add_argument(
+        "--edge-from",
+        type=Path,
+        nargs="*",
+        default=[],
+        help="earlier shard files of this run: their run-wide pace and halt carry over",
+    )
     p.add_argument("--run-at", help="the run's start (UTC ISO), shared by its shards")
     a = p.parse_args(argv)
     shard = None
@@ -492,6 +543,7 @@ def main(argv: list[str] | None = None) -> int:
         shard=shard,
         fetch_out=a.fetch_out,
         fetch_in=list(a.fetch_in),
+        edge_from=list(a.edge_from),
         run_at=parse_iso(a.run_at) if a.run_at else None,
     )
     return run(cfg)
