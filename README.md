@@ -1,8 +1,8 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,793 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 72 US online stores and records every price: 2,893 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
-**Every price, sale and stock change from 25 US online stores, checked every day and delivered as a clean spreadsheet.**
+**Every price, sale and stock change from 72 US online stores, checked every day and delivered as a clean spreadsheet.**
 
 [![Last run](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/last-run.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/days-running.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/runs.jsonl)
@@ -10,6 +10,8 @@
 [![Missed runs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/missed-runs.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/status.json)
 [![Rows today](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/rows-today.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv)
 [![Tests](https://img.shields.io/github/actions/workflow/status/siddharthkumarx/ecommerce-price-monitor/ci.yml?branch=main&label=tests)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/ci.yml)
+[![Code license](https://img.shields.io/badge/code-PolyForm%20Noncommercial%201.0.0-0B7468)](LICENSE)
+[![Data license](https://img.shields.io/badge/data-CC%20BY--NC%204.0-0B7468)](data/LICENSE)
 
 **[Live dashboard](https://siddharthkumar.com/ecommerce-price-monitor/)** · **[Download the data](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest)**
 
@@ -20,43 +22,62 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
-| Feat Clothing | [The Men's Standard Joggers - Limited (Pacific / S)](https://featclothing.com/products/mens-roam-joggers-limited-edition-fall-colors) | $44.00 | $88.00 | yes |
-| Homesick | [Beauty Rest Candle](https://homesick.com/products/beauty-rest-candle) | $14.97 | $29.95 | yes |
-| JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
-| Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
+| Soundcore (US) | [AeroFit 2 (Point of Sale) (Midnight Black)](https://us.soundcore.com/products/aerofit-2-point-of-sale) | $73.99 | $129.99 | yes |
+| Sheets & Giggles | [100% Tencel® Lyocell Sheet Set (White / Queen)](https://sheetsgiggles.com/products/arctic-aire-max-100-tencel-lyocell-sheet-set) | $161.85 | $249.00 | yes |
+| Richer Poorer | [Women's Recycled Fleece Wide Leg Pant (Black / XS)](https://www.richer-poorer.com/products/womens-recycled-fleece-wide-leg-pant) | $78.00 | - | yes |
+| Grado Labs | [Aeon4 (Stereo - Special Order / No Returns)](https://gradolabs.com/products/aeon4) | $4,995.00 | - | yes |
 
-The full table has 11,793 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 2,893 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 27 November 2026: 4 price drops, 37 items sold out, 30 items back in stock, 19 new product options, 28 product options removed. The biggest moves:
+In the run of 27 November 2026: 4 price drops, 7 items sold out, 2 items back in stock. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| JLab | [JBuds Lux ANC Jelle Headphones Fir Sure](https://www.jlab.com/products/jbuds-lux-anc-jelle-headphones-fir-sure) | Price down (-8.0%) | $49.99 | $45.99 |
-| JLab | [JBuds Lux ANC Jelle Headphones Gold Digger](https://www.jlab.com/products/jbuds-lux-anc-jelle-headphones-gold-digger) | Price down (-8.0%) | $49.99 | $45.99 |
-| JLab | [JBuds Lux ANC Jelle Headphones Pearl Next Door](https://www.jlab.com/products/jbuds-lux-anc-jelle-headphones-pearl-next-door) | Price down (-8.0%) | $49.99 | $45.99 |
-| JLab | [JBuds Lux ANC Jelle Headphones Royal Caviar](https://www.jlab.com/products/jbuds-lux-anc-jelle-headphones-royal-caviar) | Price down (-8.0%) | $49.99 | $45.99 |
-| Bee's Wrap | [Warehouse Bundle Wraps - 13-Pack](https://www.beeswrap.com/products/warehouse-bundle-wraps-13-pack) | Sold out | $35.00 | $35.00 |
+| JLab | JBuds Lux ANC Jelle Headphones Fir Sure | Price down (-8.0%) | $49.99 | $45.99 |
+| JLab | JBuds Lux ANC Jelle Headphones Gold Digger | Price down (-8.0%) | $49.99 | $45.99 |
+| JLab | JBuds Lux ANC Jelle Headphones Pearl Next Door | Price down (-8.0%) | $49.99 | $45.99 |
+| JLab | JBuds Lux ANC Jelle Headphones Royal Caviar | Price down (-8.0%) | $49.99 | $45.99 |
 | Big Agnes | [Wolverine 20°](https://www.bigagnes.com/products/wolverine-020) | Sold out | $129.95 | $129.95 |
-| Feat Clothing | [The Men's Standard Joggers (Black / L)](https://featclothing.com/products/the-mens-standard-joggers) | Sold out | $44.00 | $44.00 |
-| Greats | [The Kingston - Taupe (11.5 / Taupe)](https://www.greats.com/products/the-kingston-taupe-mens) | Sold out | $199.00 | $199.00 |
+| Hyperlite Mountain Gear | [Rock Bag Kit (Samson Zing-It!)](https://hyperlitemountaingear.com/products/rock-bag-kit) | Sold out | $32.00 | $32.00 |
+| Hyperlite Mountain Gear | [Roll-Top Food Bag Kit (10L / Samson Zing-It!)](https://hyperlitemountaingear.com/products/roll-top-food-bag-kit) | Sold out | $75.00 | $75.00 |
+| Hyperlite Mountain Gear | [Roll-Top Food Bag Kit (15L / Samson Zing-It!)](https://hyperlitemountaingear.com/products/roll-top-food-bag-kit) | Sold out | $85.00 | $85.00 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
+## Stores in the monitor
+
+72 US online stores in 10 categories, all read every day.
+
+| Category | Stores | |
+|---|---:|---|
+| Audio | 10 | 64 Audio, Altec Lansing, Audeze, Cleer Audio, Crosley, Grado Labs, HyperX, Soundcore (US), Sundown Audio, Tivoli Audio |
+| Apparel | 4 | Dagne Dover, Pair of Thieves, Richer Poorer, Sunski |
+| Beauty | 8 | Beauty Bakerie, Beautyblender, Innersense Organic Beauty, Juvia's Place, Milani Cosmetics, Scotch Porter, Sigma Beauty, Tula Skincare |
+| Home & kitchen | 8 | Bearaby, Field Company, GIR, Gravity Blanket, Keap, Onsen, Schoolhouse, Sheets & Giggles |
+| Outdoor | 8 | Aer, Barebones Living, Big Agnes, Cabeau, Hyperlite Mountain Gear, Paravel, Timbuk2, Tortuga |
+| Coffee & tea | 10 | AeroPress, Dogwood Coffee, Equator Coffees, Four Barrel Coffee, Heine Brothers' Coffee, Kettl, Madcap Coffee, Numi Organic Tea, Pique, Verve Coffee Roasters |
+| Fitness | 8 | Bala, Feedback Sports, Fringe Sport, Nathan Sports, OOFOS, Peak Pilates, SPIbelt, Yoga Design Lab |
+| Pet | 8 | Exotic Nutrition, Mighty Paw, Modkat, P.L.A.Y. Pet Lifestyle and You, PETLIBRO, Pupford, The Honest Kitchen, Travel Cat |
+| Tech accessories | 5 | Bandolier, PolarPro, Sabrent, VIVO, Workrite Ergonomics |
+| Toys & kids | 3 | Newton Baby, Nugget, WildBird |
+
+JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
+
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 25 of 25 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 25 of 25 stores proved US dollars.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 7 of 7 checked products matched exactly.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 7 of 7 stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 289 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 25 of 25 stores updated.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: 106 page requests in 6.6 minutes, and no store blocked us.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 7 of 7 stores updated.
+- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 32 page requests in 6.6 minutes, and no store blocked us.
 
 ## How it works
 
 <p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/pipeline-still.svg"><img src="assets/pipeline.svg" width="100%" alt="Five steps: read public store catalogs, collect politely once a day, check every price against a second source, keep the full history, deliver CSV, a monthly data file, a Google Sheet and a dashboard."></picture></p>
 
-1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with the stores' rules respected.
+1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with each store's robots.txt respected.
 2. **Check.** Each price is checked for obvious errors (above zero, sale price below the "was" price), and one product per store is compared with a second source.
 3. **Store.** Every change is kept with the time it happened, so you can see what any product cost on any day.
 4. **Deliver.** The latest prices as CSV, a daily change log, a monthly history file, an optional Google Sheet and a [live dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
@@ -93,7 +114,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 30 of 30 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 12 of 12 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time). Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 30 of 30 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 12 of 12 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
@@ -105,7 +126,7 @@ CSV, Excel, Google Sheets or a database, plus a monthly history file (Parquet) i
 Yes, if the information is public, such as prices, sales and stock on product pages. I check each site first and tell you what can be collected and how often, before any work starts.
 
 **Is it legal and polite?**
-It reads only public pages, follows each site's published rules (robots.txt), goes slowly, stops when a site asks, and collects no personal data. Site owners can ask for removal at any time (see [Data use and compliance](#data-use-and-compliance)).
+It reads only public pages, follows each site's robots.txt, goes slowly, stops when a site asks, and collects no personal data. Site owners can ask for removal at any time (see [Data use and compliance](#data-use-and-compliance)).
 
 **How does pricing work?**
 After the free sample, you get a quote: a fixed monthly price for a running monitor, or a one-time price for a single collection. No hourly billing.
@@ -215,6 +236,6 @@ Store register with every dropped candidate and its evidence: [docs/sources.md](
 
 ## License
 
-The code is under the [MIT License](LICENSE). The data is a compilation of public facts (prices and stock) shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); store and product names belong to their owners. See the [dataset card](data/README.md).
+The code is under the [PolyForm Noncommercial License 1.0.0](LICENSE). Everything under `data/` is a compilation of public facts (prices and stock) shared under [CC BY-NC 4.0](data/LICENSE): free to use with attribution, not for commercial use; store and product names belong to their owners. Earlier commits were MIT (code) and CC BY 4.0 (data): see [LICENSE-HISTORY.md](LICENSE-HISTORY.md) and the [dataset card](data/README.md). For commercial use, contact [hello@steadydata.co](mailto:hello@steadydata.co).
 
 Built and maintained by Siddharth Kumar, founder of SteadyData · [steadydata.co](https://steadydata.co) · [siddharthkumar.com](https://siddharthkumar.com)

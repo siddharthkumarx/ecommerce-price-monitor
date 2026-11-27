@@ -1,6 +1,6 @@
 ---
 pretty_name: US Shopify store prices, daily
-license: cc-by-4.0
+license: cc-by-nc-4.0
 language:
 - en
 tags:
@@ -11,7 +11,7 @@ tags:
 - time-series
 - web-scraping
 size_categories:
-- 10K<n<100K
+- 1K<n<10K
 task_categories:
 - tabular-classification
 - time-series-forecasting
@@ -24,14 +24,14 @@ configs:
 
 # US Shopify store prices, daily
 
-Daily prices, sale ("compare-at") prices and stock for every product option of 25 US direct-to-consumer brands on Shopify, with a change log and a monthly price history. Collected by [siddharthkumarx/ecommerce-price-monitor](https://github.com/siddharthkumarx/ecommerce-price-monitor); this card is re-rendered after every run.
+Daily prices, sale ("compare-at") prices and stock for every product option of 72 US direct-to-consumer brands on Shopify, with a change log and a monthly price history. Collected by [siddharthkumarx/ecommerce-price-monitor](https://github.com/siddharthkumarx/ecommerce-price-monitor); this card is re-rendered after every run.
 
 ## Dataset summary
 
-- **Latest run:** 27 November 2026, 18:17 UTC, status `ok`, 25 of 25 stores updated.
-- **Rows in the latest snapshot:** 11,793 product options.
-- **Stores by category:** apparel 5, audio 6, beauty 4, home_kitchen 5, outdoor 5. The list and the evidence for every included and excluded store: [docs/sources.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/docs/sources.md).
-- **Cadence:** one run a day at 06:17 UTC (4 a day from 26 Nov to 1 Dec 2026).
+- **Latest run:** 27 November 2026, 18:17 UTC, status `ok`, 7 of 7 stores updated.
+- **Rows in the latest snapshot:** 2,893 product options.
+- **Stores by category:** apparel 4, audio 10, beauty 8, coffee_tea 10, fitness 8, home_kitchen 8, outdoor 8, pet 8, tech_accessories 5, toys_kids 3. The list and the evidence for every included and excluded store: [docs/sources.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/docs/sources.md).
+- **Cadence:** one run a day at 06:17 UTC (plus 6 extra runs for Black Friday on 26 and 27 Nov 2026).
 
 ## Files
 
@@ -83,8 +83,8 @@ Field definitions with real examples: the data dictionary in the [README](https:
 
 ## Quality checks (latest run)
 
-- Second-source check: 25 of 25 sampled products matched the product `.js` feed exactly.
-- Currency proof: 25 stores proved USD on a product page.
+- Second-source check: 7 of 7 sampled products matched the product `.js` feed exactly.
+- Currency proof: 7 stores proved USD on a product page.
 - Rows rejected by validation: 0; $0 variants (free gifts, samples) left out: 289; stale compare-at prices below the price ignored: 551.
 - A run that fails the batch guard is held and not published; the previous good data stays live.
 
@@ -100,4 +100,4 @@ No personal data. No images or product descriptions. Store owners can request re
 
 ## License and citation
 
-Compilation of public facts shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); store and product names belong to their owners. Code under MIT. Cite with [CITATION.cff](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/CITATION.cff).
+Compilation of public facts shared under [CC BY-NC 4.0](LICENSE) (attribution, no commercial use); store and product names belong to their owners. Code under the [PolyForm Noncommercial License 1.0.0](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/LICENSE). Data and code in commits before 27 Nov 2026 were CC BY 4.0 and MIT: [LICENSE-HISTORY.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/LICENSE-HISTORY.md). Cite with [CITATION.cff](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/CITATION.cff).

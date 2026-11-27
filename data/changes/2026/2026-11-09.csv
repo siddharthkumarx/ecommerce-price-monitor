@@ -1,13 +1,4 @@
 observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
-2026-11-09T16:27:42Z,bee-s-wrap,7042405335087,51780513202451,the-lunch-pack,The Lunch Pack,Ocean,out_of_stock,1999,1999,,,
-2026-11-09T16:27:42Z,bee-s-wrap,10278575702291,53186903736595,bread-bag,Bread Bag,Bakery Lane,back_in_stock,1999,1999,,,
-2026-11-09T16:27:42Z,bee-s-wrap,7042405400623,54645622538515,single-wrap,Single Wrap,Medium,back_in_stock,699,699,,,
-2026-11-09T16:27:42Z,greats,7260200337456,40896891912240,the-royale-2-0-nero-mens,The Royale 2.0 - Nero,7 / Nero,out_of_stock,19900,19900,19900,19900,
-2026-11-09T16:27:42Z,hydrapak,8800983384297,47938876637417,gear-cleaning-kit,Gear Cleaning Kit,Default Title,out_of_stock,1500,1500,,,
-2026-11-09T16:27:42Z,hydrapak,8956297445609,48477338468585,gear-cleaning-kit-bundle-1,Gear Cleaning Kit Bundle,Default Title,out_of_stock,3330,3330,3700,3700,
-2026-11-09T16:27:42Z,hydrapak,9407683199209,51790397505769,modern-adventure-pro-breakaway-surge-20oz,Modern Adventure Pro Breakaway Surge 20oz,White,out_of_stock,1000,1000,,,
-2026-11-09T16:27:42Z,hydrapak,9408981827817,51793858232553,modern-adventure-pro-breakaway-surge-20oz-2-pack,Modern Adventure Pro Breakaway Surge 20oz 2-Pack,Default Title,out_of_stock,2000,2000,,,
-2026-11-09T16:27:42Z,hydrapak,9418905944297,51856932602089,tcs-new-york-city-marathon-tempo-pro-400ml,TCS New York City Marathon Tempo Pro 400ml,White,out_of_stock,2400,2400,,,
 2026-11-09T16:27:42Z,jlab,6822508036168,40133841420360,epic-keyboard-mouse-bundle,JLab Epic Keyboard Mouse Bundle,Default Title,price_down,9998,9198,12998,12998,-8.0
 2026-11-09T16:27:42Z,jlab,6823845494856,40135943323720,jbuds-keyboard-mouse-bundle,JLab JBuds Keyboard Mouse Bundle,Default Title,price_down,5998,4638,6998,6899,-22.7
 2026-11-09T16:27:42Z,jlab,6823898120264,40136127184968,jbuds-mini-color-bundle,JBuds Mini Color Bundle,Default Title,price_down,19995,13999,19995,19995,-30.0
@@ -181,47 +172,6 @@ observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,ev
 2026-11-09T16:27:42Z,jlab,15783812857928,57613644955720,nightfall-gaming-keyboard-mouse-bundle-pink,Nightfall Gaming Keyboard & Mouse Bundle Pink,Default Title,new,,5438,,7998,
 2026-11-09T16:27:42Z,jlab,15784215674952,57615292956744,epic-party-portable-bluetooth-speaker-black-2-pack,Epic Party Portable Bluetooth Speaker Black 2 Pack,Default Title,price_down,37998,27198,37998,37998,-28.4
 2026-11-09T16:27:42Z,jlab,15784215674952,57615292956744,epic-party-portable-bluetooth-speaker-black-2-pack,Epic Party Portable Bluetooth Speaker Black 2 Pack,Default Title,discount_start,37998,27198,37998,37998,
-2026-11-09T16:27:42Z,lunya,7067802370091,40683013799979,womens-washable-silk-tee-pant-set-deep-blue,Washable Silk Tee Pant Set,Deep Blue / S,back_in_stock,28800,28800,,,
-2026-11-09T16:27:42Z,lunya,7255024893995,41131082154027,womens-soft-modal-rib-v-neck-henley-immersed-black,Soft Modal Rib V-Neck Henley,Immersed Black / M,back_in_stock,11800,11800,,,
-2026-11-09T16:27:42Z,lunya,7271365705771,41177557631019,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XS,removed,14800,,,,
-2026-11-09T16:27:42Z,lunya,7271365705771,41177557663787,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / S,removed,14800,,,,
-2026-11-09T16:27:42Z,lunya,7271365705771,41177557696555,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / M,removed,14800,,,,
-2026-11-09T16:27:42Z,lunya,7271365705771,41177557729323,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / L,removed,14800,,,,
-2026-11-09T16:27:42Z,lunya,7271365705771,41177557762091,womens-organic-pima-wide-leg-pant-deep-blue,Organic Pima Wide Leg Pant,Deep Blue / XL,removed,14800,,,,
-2026-11-09T16:27:42Z,lunya,7296955318315,41258601513003,womens-seamless-modal-scoop-bralette-immersed-black,Seamless Modal Scoop Bralette,Immersed Black / S,out_of_stock,4800,4800,,,
-2026-11-09T16:27:42Z,lunya,7415234658347,41897487826987,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XS,out_of_stock,6800,6800,,,
-2026-11-09T16:27:42Z,lunya,7419116159019,41906940379179,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / XS,removed,25800,,,,
-2026-11-09T16:27:42Z,lunya,7419116159019,41906940411947,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / S,removed,25800,,,,
-2026-11-09T16:27:42Z,lunya,7419116159019,41906940444715,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / M,removed,25800,,,,
-2026-11-09T16:27:42Z,lunya,7419116159019,41906940477483,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / L,removed,25800,,,,
-2026-11-09T16:27:42Z,lunya,7419116159019,41906940510251,womens-washable-silk-button-up-long-sleeve-short-set-tranquil-white,Washable Silk Button Up Long Sleeve Short Set,Tranquil White / XL,removed,25800,,,,
-2026-11-09T16:27:42Z,lunya,7428176183339,41940215037995,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / XS,removed,11800,,,,
-2026-11-09T16:27:42Z,lunya,7428176183339,41940215070763,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / S,removed,11800,,,,
-2026-11-09T16:27:42Z,lunya,7428176183339,41940215103531,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / M,removed,11800,,,,
-2026-11-09T16:27:42Z,lunya,7428176183339,41940215136299,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / L,removed,11800,,,,
-2026-11-09T16:27:42Z,lunya,7428176183339,41940215169067,womens-soft-modal-rib-v-neck-henley-calliope-wine,Soft Modal Rib V-Neck Henley,Calliope Wine / XL,removed,11800,,,,
-2026-11-09T16:27:42Z,lunya,7763964395563,42592625262635,womens-soft-modal-rib-foldover-short-quiet-lilac,Soft Modal Rib Foldover Short,Quiet Lilac / L,out_of_stock,7800,7800,,,
-2026-11-09T16:27:42Z,lunya,7849299148843,43346800607275,womens-organic-cotton-seersucker-short-fresh-herb,Organic Cotton Seersucker Short,Fresh Herb / M,out_of_stock,8800,8800,,,
-2026-11-09T16:27:42Z,lunya,7849300262955,43346806079531,womens-washable-silk-tee-short-set-riviera-dot-iced-coffee,Washable Silk Tee Short Set,Riviera Dot/Iced Coffee / XS,out_of_stock,21800,21800,,,
-2026-11-09T16:27:42Z,oveja-negra,9570616207,32633642447,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Black,back_in_stock,6500,6500,,,
-2026-11-09T16:27:42Z,oveja-negra,9570616207,39568375021670,chuckbucket-handlebar-bag,Chuckbucket™ Handlebar Snack Bag,Chuckbucket / Serape,back_in_stock,6500,6500,,,
-2026-11-09T16:27:42Z,oveja-negra,1650778144870,48334164656433,copy-of-snack-pack-bolt-on,BOLT-ON Snack Pack™ - WACK PACK,WACK DONUTS / Bolt On,back_in_stock,7000,7000,,,
-2026-11-09T16:27:42Z,oveja-negra,9250760196401,52109745357105,swag-bag-mini-1,Swag Bag w/ Patch - WACK PACK,Swag Bag Mini w/ Patch Wack Donuts,back_in_stock,2800,2800,,,
-2026-11-09T16:27:42Z,oveja-negra,10847016714545,56440851530033,adorn-biodegradable-glitter-gel,Adorn- Biodegradable Glitter Gel,Lavender,out_of_stock,1600,1600,,,
-2026-11-09T16:27:42Z,oveja-negra,4998968967270,56558655865137,stupendously-sexy-seconds,STUPENDOUSLY SEXY SECONDS,Snack Pack Top Tube Bag- BOLT ON - Wack Donuts,price_up,4500,5250,6000,7000,16.7
-2026-11-09T16:27:42Z,shokz,8255454413000,44849173299400,refurbished-openswimpro,OpenSwim Pro (Refurbished),Red,out_of_stock,16995,16995,22995,22995,
-2026-11-09T16:27:42Z,shokz,8319189024968,45097187311816,opendots-2-copy,OpenDots 2 (ShokzSquad),Grey,out_of_stock,19995,19995,,,
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46049432731705,crusher-720-headphones,Crusher® 720,True Black,price_down,20999,13999,,20999,-33.3
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46049432731705,crusher-720-headphones,Crusher® 720,True Black,discount_start,20999,13999,,20999,
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077587750969,crusher-720-headphones,Crusher® 720,Plasma,price_down,20999,13999,,20999,-33.3
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077587750969,crusher-720-headphones,Crusher® 720,Plasma,discount_start,20999,13999,,20999,
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077605969977,crusher-720-headphones,Crusher® 720,Future,price_down,20999,13999,,20999,-33.3
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077605969977,crusher-720-headphones,Crusher® 720,Future,discount_start,20999,13999,,20999,
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077618749497,crusher-720-headphones,Crusher® 720,Cement,price_down,20999,13999,,20999,-33.3
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077618749497,crusher-720-headphones,Crusher® 720,Cement,discount_start,20999,13999,,20999,
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077629366329,crusher-720-headphones,Crusher® 720,Primer,price_down,20999,13999,,20999,-33.3
-2026-11-09T16:27:42Z,skullcandy,8311500865593,46077629366329,crusher-720-headphones,Crusher® 720,Primer,discount_start,20999,13999,,20999,
-2026-11-09T16:27:42Z,sol-de-janeiro,8091912896614,45908262453350,cheiroso-cologne-mist-duo,Cheiroso Cologne Mist Duo,Default Title,back_in_stock,4700,4700,,,
 2026-11-09T16:27:42Z,soundcore-us,8486374965438,45088206094526,liberty-5-left-and-right-replacement-earbuds,Liberty 5 Left and Right Replacement Earbuds,Black,out_of_stock,6899,6899,,,
 2026-11-09T16:27:42Z,soundcore-us,8519442923710,45188528603326,soundcore-p41i-left-and-right-replacement-earbuds,soundcore P41i Left and Right Replacement Earbuds,Midnight Black,out_of_stock,2999,2999,,,
 2026-11-09T16:27:42Z,soundcore-us,8613565169854,45579514020030,space-one-seckill,Space One Active Noise Cancelling Headphones,Jet Black,new,,9999,,,
@@ -288,8 +238,3 @@ observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,ev
 2026-11-09T16:27:42Z,soundcore-us,9125519982782,49576871035070,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Seafoam Green,new,,12999,,,
 2026-11-09T16:27:42Z,soundcore-us,9125519982782,49576871067838,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Linen White,new,,12999,,,
 2026-11-09T16:27:42Z,soundcore-us,9125519982782,49576871100606,soundcore-space-2-seckill,soundcore Space 2 Comfortable Noise Cancelling Headphones for All-Day Wear,Jet Black,new,,12999,,,
-2026-11-09T16:27:42Z,state-liberty,6844270674001,39845290737745,athletic-fit-stretch-pants-heathered-forest-green,Athletic Fit Stretch Suit Pants - Heathered Forest Green,32W | 33-35L,back_in_stock,15000,15000,,,
-2026-11-09T16:27:42Z,state-liberty,15652313006161,58579109806161,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",S / White with Lilac Stripe,out_of_stock,10500,10500,,,
-2026-11-09T16:27:42Z,state-liberty,15662688763985,58920131035217,the-johnny-mini-grey-dot-print,"""The Johnny"" Mini Grey Dot Print",M / Mini Grey Dot Print,out_of_stock,10500,10500,,,
-2026-11-09T16:27:42Z,state-liberty,15706956103761,59128820727889,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,2XL / Black Diamond Geo,out_of_stock,10500,10500,,,
-2026-11-09T16:27:42Z,year-day,15140935008627,52803570073971,the-splatter-core-set,The Splatter Core Set,Plum,out_of_stock,25200,25200,28000,28000,
