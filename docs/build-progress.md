@@ -8,10 +8,10 @@ happens on branch `f1-expand`; `main` is fast-forwarded when the gate is green a
 has published.
 
 1. JLab retired (`config/retired.yml`), history kept, shown "retired on 27 Nov 2026" - `done`.
-2. Candidates: 1,046 in `checks/candidates.yml` (recon-005: 272, recon-006: 282,
-   recon-007: 320) - `done`.
+2. Candidates: 1,218 in `checks/candidates.yml` (recon-005: 272, recon-006: 282,
+   recon-007: 320, recon-008: 172 in the thin categories) - `done`.
 3. Recon with the Terms field: recon-005 and recon-006 committed; recon-007 - `in progress`
-   (running on Actions). Verify: `checks/results/recon-00N/recon.md`.
+   (running on Actions), recon-008 queued after it. Verify: `checks/results/recon-00N/recon.md`.
 4. Store list: 71 stores (56 `no_ban`, 15 `none_found`) from recon-001..006, regenerated
    with `python -m pricemon.sources --stores-yml` - `done`. Next batch from recon-007 -
    `todo`: regenerate, gate, push.
@@ -23,7 +23,7 @@ has published.
 7. Feed contract (additive fields), README, dataset card, media, docs - `done`.
 8. `main` fast-forwarded on 27 Nov 19:14 UTC - `done`. The dashboard on Pages deploys
    only from `main`: one run dispatched on `main` after recon-007 publishes it - `todo`.
-9. Fresh review, High and Medium fixed - `in progress`.
+9. Fresh review, High and Medium fixed (D-038) - `done`.
 10. Grow toward about 150 stores (about 15 per category), never a `ban`: recon-008 on for
     the thin categories (apparel, toys & kids, tech accessories) - `todo`.
 
