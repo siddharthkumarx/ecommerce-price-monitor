@@ -490,7 +490,7 @@ From an independent review that rendered every SVG:
   shown on the README, dashboard, feed and media as "Store #<n> (<category>)", with
   no name, host or product links (`pricemon.display`); public data files follow D-034.
 - **Schedule.** One run a day at 06:17 UTC again. The extra slots due before the lift
-  (26 Nov 00:17, 12:17, 18:17; 27 Nov 00:17, 12:17) stay in the slot accounting
+  (26 Nov 00:17, 12:17, 18:17; 27 Nov 00:17, 12:17, 18:17) stay in the slot accounting
   (`BFCM_2026_END`); no cron line names them, so nothing fires in 2027. The on-time
   trigger keeps `slot: auto` and needs only its 06:17 UTC line (D-035).
 - **Capacity.** Sequential shards (D-033).

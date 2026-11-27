@@ -44,7 +44,7 @@ CRONS: tuple[str, ...] = ("17 6 * * *",)
 # "delivered" and "missed" counts do not change; no cron line names them any more, so
 # they never fire again (build-progress item 17).
 BFCM_2026_START = datetime(2026, 11, 26, tzinfo=UTC)
-BFCM_2026_END = datetime(2026, 11, 27, 12, 30, tzinfo=UTC)
+BFCM_2026_END = datetime(2026, 11, 27, 18, 30, tzinfo=UTC)
 BFCM_2026_CRONS: tuple[str, ...] = ("17 0,12,18 26-30 11 *",)
 
 

@@ -154,8 +154,15 @@ def test_late_events_of_the_removed_black_friday_crons_skip() -> None:
 
 def test_black_friday_extra_slots_end_at_the_lift() -> None:
     got = past_extra_slots(at(25, 0), at(3, 0, month=12))
-    # The lift reached main after the 12:17 slot of 27 Nov had run (BFCM_2026_END).
-    assert got == [at(26, 0, 17), at(26, 12, 17), at(26, 18, 17), at(27, 0, 17), at(27, 12, 17)]
+    # The lift reached main after the 18:17 slot of 27 Nov had run (BFCM_2026_END).
+    assert got == [
+        at(26, 0, 17),
+        at(26, 12, 17),
+        at(26, 18, 17),
+        at(27, 0, 17),
+        at(27, 12, 17),
+        at(27, 18, 17),
+    ]
 
 
 def test_dispatch_slot_rules() -> None:
@@ -242,11 +249,12 @@ def test_slot_states_on_time_late_held_missed_pending() -> None:
 
 
 def test_past_black_friday_slots_stay_in_the_accounting() -> None:
-    # 26 Nov had four due slots and 27 Nov three (00:17, 06:17, 12:17) before the
-    # lift; from then on one a day. A run at 19:00 on 27 Nov belongs to 12:17.
+    # 26 Nov and 27 Nov had four due slots each before the lift; from then on one a
+    # day. A run at 19:00 on 27 Nov belongs to 18:17.
     runs = [run(f"2026-11-26T{h:02d}:18:00Z", run_id=f"a{h}") for h in (0, 6, 12, 18)]
     runs += [run("2026-11-27T00:18:00Z", run_id="b0"), run("2026-11-27T06:18:00Z", run_id="b6")]
     runs += [run("2026-11-27T12:18:00Z", run_id="b12"), run("2026-11-27T19:00:00Z", run_id="x")]
+    runs += [run("2026-11-27T21:00:00Z", run_id="y")]
     runs += [run("2026-11-28T06:18:00Z")]
     states = [(s.slot, s.state, s.run_id) for s in slot_states(runs, at(28, 9), active_crons())]
     assert [(t.day, t.hour) for t, _, _ in states] == [
@@ -257,6 +265,7 @@ def test_past_black_friday_slots_stay_in_the_accounting() -> None:
         (27, 0),
         (27, 6),
         (27, 12),
+        (27, 18),
         (28, 6),
     ]
     assert {state for _, state, _ in states} == {"on_time"}
