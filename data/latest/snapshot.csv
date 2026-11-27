@@ -83,7 +83,7 @@ bee-s-wrap,15436669649171,67855093596435,bees-wrap-value-pack-reusable-wraps-4pk
 bee-s-wrap,15436670042387,67855091695891,bees-wrap-reusable-food-wraps-2ct,Bee's Wrap Reusable Beeswax Compostable Food Wraps - 2ct,Default Title,999,1499,true,2026-11-20T15:30:59Z
 bee-s-wrap,15443004490003,67897304711443,warehouse-bundle-wraps-8-pack,Warehouse Bundle Wraps - 8-Pack,Default Title,2500,5792,true,2026-11-20T15:30:59Z
 bee-s-wrap,15443006554387,67897307431187,warehouse-bundle-wraps-10-pack,Warehouse Bundle Wraps - 10-Pack,Default Title,3000,7090,true,2026-11-20T15:30:59Z
-bee-s-wrap,15443009929491,67897312248083,warehouse-bundle-wraps-13-pack,Warehouse Bundle Wraps - 13-Pack,Default Title,3500,9187,true,2026-11-20T15:30:59Z
+bee-s-wrap,15443009929491,67897312248083,warehouse-bundle-wraps-13-pack,Warehouse Bundle Wraps - 13-Pack,Default Title,3500,9187,false,2026-11-27T18:17:30Z
 big-agnes,7641301221625,46151838662905,big-six-camp-chair,Big Six Camp Chair,Brown Sugar,24995,24995,false,2026-11-23T06:17:33Z
 big-agnes,7641301221625,46369839907065,big-six-camp-chair,Big Six Camp Chair,Black,24995,24995,true,2026-11-04T08:46:55Z
 big-agnes,7670109405433,46174023057657,big-six-armchair,Big Six Armchair,Black,31995,31995,true,2026-11-04T08:46:55Z
@@ -529,7 +529,7 @@ big-agnes,8635831222521,45785178308857,echo-park-35,Echo Park 35°,Default Title
 big-agnes,8635831320825,45785178407161,echo-park-twenty,Echo Park 20°,Default Title,21995,21995,true,2026-11-04T08:46:55Z
 big-agnes,8635831451897,45785178505465,echo-park-zero,Echo Park 0°,Default Title,24995,24995,true,2026-11-04T08:46:55Z
 big-agnes,8636625944825,45786435223801,little-red-020,Little Red 20°,Default Title,9995,9995,true,2026-11-04T08:46:55Z
-big-agnes,8636636004601,45786483818745,wolverine-020,Wolverine 20°,Default Title,12995,12995,true,2026-11-04T08:46:55Z
+big-agnes,8636636004601,45786483818745,wolverine-020,Wolverine 20°,Default Title,12995,12995,false,2026-11-27T18:17:30Z
 big-agnes,8636636037369,45786483851513,lost-ranger-3n1-00,Lost Ranger 3N1 0°,Small,46995,46995,true,2026-11-04T08:46:55Z
 big-agnes,8636636037369,45786483884281,lost-ranger-3n1-00,Lost Ranger 3N1 0°,Regular,46995,46995,true,2026-11-04T08:46:55Z
 big-agnes,8636636037369,45786483917049,lost-ranger-3n1-00,Lost Ranger 3N1 0°,Long,48995,48995,true,2026-11-04T08:46:55Z
@@ -1016,7 +1016,7 @@ feat-clothing,7384533139521,41614384496705,mens-standard-short,The Men's Standar
 feat-clothing,7450707722305,41767237648449,the-mens-standard-joggers,The Men's Standard Joggers,Black / XS,4400,5900,false,2026-11-14T13:36:42Z
 feat-clothing,7450707722305,41767237681217,the-mens-standard-joggers,The Men's Standard Joggers,Black / S,4400,5900,true,2026-11-14T13:36:42Z
 feat-clothing,7450707722305,41767237713985,the-mens-standard-joggers,The Men's Standard Joggers,Black / M,4400,5900,true,2026-11-14T13:36:42Z
-feat-clothing,7450707722305,41767237746753,the-mens-standard-joggers,The Men's Standard Joggers,Black / L,4400,5900,true,2026-11-14T13:36:42Z
+feat-clothing,7450707722305,41767237746753,the-mens-standard-joggers,The Men's Standard Joggers,Black / L,4400,5900,false,2026-11-27T18:17:30Z
 feat-clothing,7450707722305,41767237779521,the-mens-standard-joggers,The Men's Standard Joggers,Black / XL,4400,5900,true,2026-11-14T13:36:42Z
 feat-clothing,7450707722305,41767237812289,the-mens-standard-joggers,The Men's Standard Joggers,Black / XXL,4400,5900,true,2026-11-14T13:36:42Z
 feat-clothing,7450707722305,41769374122049,the-mens-standard-joggers,The Men's Standard Joggers,Black / XXXL,4400,5900,true,2026-11-14T13:36:42Z
@@ -2332,7 +2332,7 @@ greats,7866064896048,42708503232560,the-kingston-taupe-mens,The Kingston - Taupe
 greats,7866064896048,42708503265328,the-kingston-taupe-mens,The Kingston - Taupe,10 / Taupe,19900,19900,false,2026-11-04T08:46:55Z
 greats,7866064896048,42708503298096,the-kingston-taupe-mens,The Kingston - Taupe,10.5 / Taupe,19900,19900,false,2026-11-04T08:46:55Z
 greats,7866064896048,42708503330864,the-kingston-taupe-mens,The Kingston - Taupe,11 / Taupe,19900,19900,false,2026-11-04T08:46:55Z
-greats,7866064896048,42708503363632,the-kingston-taupe-mens,The Kingston - Taupe,11.5 / Taupe,19900,19900,true,2026-11-04T08:46:55Z
+greats,7866064896048,42708503363632,the-kingston-taupe-mens,The Kingston - Taupe,11.5 / Taupe,19900,19900,false,2026-11-27T18:17:30Z
 greats,7866064896048,42708503396400,the-kingston-taupe-mens,The Kingston - Taupe,12 / Taupe,19900,19900,false,2026-11-04T08:46:55Z
 greats,7866064896048,42708503429168,the-kingston-taupe-mens,The Kingston - Taupe,13 / Taupe,19900,19900,false,2026-11-04T08:46:55Z
 greats,7866064896048,42708503461936,the-kingston-taupe-mens,The Kingston - Taupe,14 / Taupe,19900,19900,false,2026-11-04T08:46:55Z
@@ -3337,7 +3337,7 @@ hyperlite-mountain-gear,7745070694445,42184245870637,halka-55,Halka 55,Large,450
 hyperlite-mountain-gear,7745070694445,42184245903405,halka-55,Halka 55,Tall,45000,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,7842584199213,42515236290605,mid-1-tarp-insert,UltaMid 1 Insert,Default Title,27500,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,7869703782445,66841115295789,rock-bag-kit,Rock Bag Kit,Lawson Ultraglide Bear Line,3200,,true,2026-11-04T08:46:55Z
-hyperlite-mountain-gear,7869703782445,66841115328557,rock-bag-kit,Rock Bag Kit,Samson Zing-It!,3200,,true,2026-11-21T14:43:23Z
+hyperlite-mountain-gear,7869703782445,66841115328557,rock-bag-kit,Rock Bag Kit,Samson Zing-It!,3200,,false,2026-11-27T18:17:30Z
 hyperlite-mountain-gear,7869703815213,42566061097005,roll-top-food-bag,Roll-Top Food Bag,10L,5800,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,7869703815213,42566061129773,roll-top-food-bag,Roll-Top Food Bag,15L,6800,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,7881714270253,42594913419309,contour-removable-hip-belt,Contour Removable Hip Belt,Default Title,2900,,true,2026-11-04T08:46:55Z
@@ -3422,8 +3422,8 @@ hyperlite-mountain-gear,8163775447085,43459204907053,accessory-bundle,Accessory 
 hyperlite-mountain-gear,8163775447085,43459204939821,accessory-bundle,Accessory Bundle,Black / Black,13500,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8191077154861,43783503380525,roll-top-food-bag-kit,Roll-Top Food Bag Kit,10L / Lawson Ultraglide Bear Line,7500,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8191077154861,43783503413293,roll-top-food-bag-kit,Roll-Top Food Bag Kit,15L / Lawson Ultraglide Bear Line,8500,,true,2026-11-04T08:46:55Z
-hyperlite-mountain-gear,8191077154861,66841129779245,roll-top-food-bag-kit,Roll-Top Food Bag Kit,10L / Samson Zing-It!,7500,,true,2026-11-21T14:43:23Z
-hyperlite-mountain-gear,8191077154861,66841129812013,roll-top-food-bag-kit,Roll-Top Food Bag Kit,15L / Samson Zing-It!,8500,,true,2026-11-21T14:43:23Z
+hyperlite-mountain-gear,8191077154861,66841129779245,roll-top-food-bag-kit,Roll-Top Food Bag Kit,10L / Samson Zing-It!,7500,,false,2026-11-27T18:17:30Z
+hyperlite-mountain-gear,8191077154861,66841129812013,roll-top-food-bag-kit,Roll-Top Food Bag Kit,15L / Samson Zing-It!,8500,,false,2026-11-27T18:17:30Z
 hyperlite-mountain-gear,8199464681517,43946890199085,southwest,Southwest,40L / Extra Sm / White,39500,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8199464681517,43946890231853,southwest,Southwest,40L / Extra Sm / Black,39500,,true,2026-11-04T08:46:55Z
 hyperlite-mountain-gear,8199464681517,43946890264621,southwest,Southwest,40L / Small / White,39500,,true,2026-11-04T08:46:55Z
@@ -3623,7 +3623,7 @@ jlab,6893536149576,40342906241096,jbuds-sport-anc-4-true-wireless-earbuds-graphi
 jlab,6893536182344,40342906273864,jbuddies-studio-2-wireless-kids-headphones-pink-gray,JBuddies Studio 2 Wireless Kids Headphones Pink/Gray,Pink,2999,2999,true,2026-11-04T08:46:55Z
 jlab,6893536215112,40342906306632,neon-wireless-on-ear-headphones-green,Neon Wireless On-Ear Headphones Green,Default Title,2999,2999,false,2026-11-04T08:46:55Z
 jlab,6893536247880,40342906339400,epic-lab-edition-earbuds-black,Epic Lab Edition True Wireless Earbuds Black,Default Title,20999,20999,true,2026-11-04T08:46:55Z
-jlab,6893536313416,40342906404936,jbuds-j6ms-in-ear-single-earbud-black,JBuds J6MS In-Ear Single Earbud,Default Title,1999,1999,false,2026-11-22T06:17:32Z
+jlab,6893536313416,40342906404936,jbuds-j6ms-in-ear-single-earbud-black,JBuds J6MS In-Ear Single Earbud,Default Title,1999,1999,true,2026-11-27T18:17:30Z
 jlab,6893536346184,40342906437704,jbuddies-protect-kids-hearing-protection-earmuffs-lilac,JBuddies Protect Kids Hearing Protection Earmuffs Lilac,Lilac,2199,2199,true,2026-11-04T08:46:55Z
 jlab,6893536378952,40342906470472,jbuds-pro-wireless-signature-earbuds-teal,JBuds Pro Wireless Signature Earbuds Teal,Teal,1999,1999,false,2026-11-04T08:46:55Z
 jlab,6893536444488,40342906536008,jbuddies-studio-wireless-kids-headphones-graphite-blue,JBuddies Studio Wireless Kids Headphones Graphite/Blue,Blue,2999,2999,true,2026-11-04T08:46:55Z
@@ -3960,10 +3960,10 @@ jlab,7070601248840,41163786125384,go-sport-anc-true-wireless-earbuds-ocean-blue,
 jlab,7070604099656,41163824103496,go-sport-anc-true-wireless-earbuds-dark-grey,GO Sport ANC True Wireless Earbuds Dark Grey,Default Title,2699,4299,true,2026-11-19T15:49:25Z
 jlab,7070604197960,41163824496712,go-sport-anc-true-wireless-earbuds-hibiscus-pink,GO Sport ANC True Wireless Earbuds Hibiscus Pink,Default Title,2699,4299,true,2026-11-19T15:49:25Z
 jlab,7070604296264,41163824660552,go-sport-anc-true-wireless-earbuds-pastel-purple,GO Sport ANC True Wireless Earbuds Pastel Purple,Default Title,4299,4299,true,2026-11-17T16:05:36Z
-jlab,7070622482504,41163856248904,jbuds-lux-anc-jelle-headphones-royal-caviar,JBuds Lux ANC Jelle Headphones Royal Caviar,Default Title,4999,9999,true,2026-11-19T15:49:25Z
-jlab,7070622941256,41163856969800,jbuds-lux-anc-jelle-headphones-gold-digger,JBuds Lux ANC Jelle Headphones Gold Digger,Default Title,4999,9999,true,2026-11-19T15:49:25Z
-jlab,7070623039560,41163857461320,jbuds-lux-anc-jelle-headphones-fir-sure,JBuds Lux ANC Jelle Headphones Fir Sure,Default Title,4999,9999,true,2026-11-19T15:49:25Z
-jlab,7070623203400,41163857723464,jbuds-lux-anc-jelle-headphones-pearl-next-door,JBuds Lux ANC Jelle Headphones Pearl Next Door,Default Title,4999,9999,true,2026-11-19T15:49:25Z
+jlab,7070622482504,41163856248904,jbuds-lux-anc-jelle-headphones-royal-caviar,JBuds Lux ANC Jelle Headphones Royal Caviar,Default Title,4599,9999,true,2026-11-27T18:17:30Z
+jlab,7070622941256,41163856969800,jbuds-lux-anc-jelle-headphones-gold-digger,JBuds Lux ANC Jelle Headphones Gold Digger,Default Title,4599,9999,true,2026-11-27T18:17:30Z
+jlab,7070623039560,41163857461320,jbuds-lux-anc-jelle-headphones-fir-sure,JBuds Lux ANC Jelle Headphones Fir Sure,Default Title,4599,9999,true,2026-11-27T18:17:30Z
+jlab,7070623203400,41163857723464,jbuds-lux-anc-jelle-headphones-pearl-next-door,JBuds Lux ANC Jelle Headphones Pearl Next Door,Default Title,4599,9999,true,2026-11-27T18:17:30Z
 jlab,7070625267784,41163864113224,jbuds-mini-anc-true-wireless-earbuds-blue,JBuds Mini ANC True Wireless Earbuds Blue,Default Title,3099,4299,true,2026-11-19T15:49:25Z
 jlab,7070626742344,41163867750472,jbuds-mini-anc-jelle-true-wireless-earbuds-pearl-next-door,JBuds Mini ANC Jelle True Wireless Earbuds Pearl Next Door,Default Title,3999,4999,false,2026-11-19T15:49:25Z
 jlab,7076281876552,41182405328968,jbuds-mini-anc-true-wireless-earbuds-graphite,JBuds Mini ANC True Wireless Earbuds Graphite,Default Title,3099,4299,true,2026-11-19T15:49:25Z
@@ -4124,7 +4124,7 @@ jones-road,7307639193750,43577226559638,what-the-foundation,What The Foundation,
 jones-road,7307639718038,41678361362582,the-spatula,The Spatula,The Spatula,800,,true,2026-11-04T08:46:55Z
 jones-road,7536730112150,41994080288918,the-best-blush,The Best Blush,POP,3000,,true,2026-11-04T08:46:55Z
 jones-road,7536730112150,41994080321686,the-best-blush,The Best Blush,Rosy,3000,,true,2026-11-04T08:46:55Z
-jones-road,7536730112150,41994080354454,the-best-blush,The Best Blush,Sandy,3000,,true,2026-11-04T08:46:55Z
+jones-road,7536730112150,41994080354454,the-best-blush,The Best Blush,Sandy,3000,,false,2026-11-27T18:17:30Z
 jones-road,7536730112150,41994080387222,the-best-blush,The Best Blush,Peachy,3000,,false,2026-11-04T08:46:55Z
 jones-road,7536730112150,41994080419990,the-best-blush,The Best Blush,Berry,3000,,true,2026-11-04T08:46:55Z
 jones-road,7581278634134,42113842872470,the-cleansing-stick,The Cleansing Stick,The Cleansing Stick,3600,,true,2026-11-04T08:46:55Z
@@ -4566,7 +4566,7 @@ lunya,7067808563243,40683035951147,womens-washable-silk-cami-pant-set-immersed-b
 lunya,7067808563243,40683035983915,womens-washable-silk-cami-pant-set-immersed-black-otium-tan,Washable Silk Cami Pant Set,Immersed Black/Otium Tan / XL,24800,,true,2026-11-04T08:46:55Z
 lunya,7067809415211,40683038703659,womens-washable-silk-long-robe-immersed-black,Washable Silk Long Robe,Immersed Black / XS S,26820,29800,true,2026-11-25T06:17:40Z
 lunya,7067809415211,40683038769195,womens-washable-silk-long-robe-immersed-black,Washable Silk Long Robe,Immersed Black / M,26820,29800,true,2026-11-25T06:17:40Z
-lunya,7067809415211,40683038801963,womens-washable-silk-long-robe-immersed-black,Washable Silk Long Robe,Immersed Black / L XL,26820,29800,true,2026-11-25T06:17:40Z
+lunya,7067809415211,40683038801963,womens-washable-silk-long-robe-immersed-black,Washable Silk Long Robe,Immersed Black / L XL,26820,29800,false,2026-11-27T18:17:30Z
 lunya,7067809579051,40683039227947,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / XS S,26820,29800,false,2026-11-26T00:17:25Z
 lunya,7067809579051,40683039260715,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / M,26820,29800,true,2026-11-25T06:17:40Z
 lunya,7067809579051,40683039293483,womens-washable-silk-long-robe-deep-blue,Washable Silk Long Robe,Deep Blue / L XL,26820,29800,true,2026-11-25T06:17:40Z
@@ -4599,7 +4599,7 @@ lunya,7067812298795,40683048501291,womens-washable-silk-high-rise-pant-set-immer
 lunya,7067812298795,40683048534059,womens-washable-silk-high-rise-pant-set-immersed-black,Washable Silk High Rise Pant Set,Immersed Black / S,28800,,false,2026-11-18T15:44:26Z
 lunya,7067812298795,40683048566827,womens-washable-silk-high-rise-pant-set-immersed-black,Washable Silk High Rise Pant Set,Immersed Black / M,28800,,true,2026-11-04T08:46:55Z
 lunya,7067812298795,40683048599595,womens-washable-silk-high-rise-pant-set-immersed-black,Washable Silk High Rise Pant Set,Immersed Black / L,28800,,false,2026-11-06T09:46:16Z
-lunya,7067812298795,40683048632363,womens-washable-silk-high-rise-pant-set-immersed-black,Washable Silk High Rise Pant Set,Immersed Black / XL,28800,,true,2026-11-04T08:46:55Z
+lunya,7067812298795,40683048632363,womens-washable-silk-high-rise-pant-set-immersed-black,Washable Silk High Rise Pant Set,Immersed Black / XL,28800,,false,2026-11-27T18:17:30Z
 lunya,7067812331563,40683048665131,womens-washable-silk-high-rise-pant-set-delicate-pink,Washable Silk High Rise Pant Set,Delicate Pink / XS,28800,,true,2026-11-04T08:46:55Z
 lunya,7067812331563,40683048697899,womens-washable-silk-high-rise-pant-set-delicate-pink,Washable Silk High Rise Pant Set,Delicate Pink / S,28800,,true,2026-11-04T08:46:55Z
 lunya,7067812331563,40683048730667,womens-washable-silk-high-rise-pant-set-delicate-pink,Washable Silk High Rise Pant Set,Delicate Pink / M,28800,,true,2026-11-04T08:46:55Z
@@ -4683,7 +4683,7 @@ lunya,7111448199211,40788708098091,mens-washable-silk-boxer-meditative-grey,Men'
 lunya,7111448199211,40788708130859,mens-washable-silk-boxer-meditative-grey,Men's Washable Silk Boxer,Meditative Grey / XXL,8800,,true,2026-11-04T08:46:55Z
 lunya,7111448494123,40788708753451,mens-washable-silk-boxer-deep-blue,Men's Washable Silk Boxer,Deep Blue / S,8800,,true,2026-11-04T08:46:55Z
 lunya,7111448494123,40788708786219,mens-washable-silk-boxer-deep-blue,Men's Washable Silk Boxer,Deep Blue / M,8800,,true,2026-11-04T08:46:55Z
-lunya,7111448494123,40788708818987,mens-washable-silk-boxer-deep-blue,Men's Washable Silk Boxer,Deep Blue / L,8800,,true,2026-11-24T06:17:30Z
+lunya,7111448494123,40788708818987,mens-washable-silk-boxer-deep-blue,Men's Washable Silk Boxer,Deep Blue / L,8800,,true,2026-11-27T18:17:30Z
 lunya,7111448494123,40788708851755,mens-washable-silk-boxer-deep-blue,Men's Washable Silk Boxer,Deep Blue / XL,8800,,false,2026-11-05T09:41:31Z
 lunya,7111448494123,40788708884523,mens-washable-silk-boxer-deep-blue,Men's Washable Silk Boxer,Deep Blue / XXL,8800,,true,2026-11-04T08:46:55Z
 lunya,7111448756267,40788709474347,mens-washable-silk-boxer-immersed-black,Men's Washable Silk Boxer,Immersed Black / S,8800,,true,2026-11-24T06:17:30Z
@@ -4695,6 +4695,11 @@ lunya,7152940220459,40903506001963,unisex-washable-silk-sleep-mask-deep-blue,Was
 lunya,7152940220459,40903506034731,unisex-washable-silk-sleep-mask-deep-blue,Washable Silk Sleep Mask,Deep Blue / L,6500,,true,2026-11-04T08:46:55Z
 lunya,7152962666539,40903610007595,unisex-washable-silk-sleep-mask-meditative-grey,Washable Silk Sleep Mask,Meditative Grey / S,6500,,true,2026-11-04T08:46:55Z
 lunya,7152962666539,40903610040363,unisex-washable-silk-sleep-mask-meditative-grey,Washable Silk Sleep Mask,Meditative Grey / L,6500,,true,2026-11-20T15:30:59Z
+lunya,7166083104811,40938667573291,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / XS,13160,18800,false,2026-11-27T18:17:30Z
+lunya,7166083104811,40938667606059,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / S,13160,18800,false,2026-11-27T18:17:30Z
+lunya,7166083104811,40938667638827,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / M,13160,18800,false,2026-11-27T18:17:30Z
+lunya,7166083104811,40938667671595,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / L,13160,18800,false,2026-11-27T18:17:30Z
+lunya,7166083104811,40938667704363,womens-washable-silk-tulip-back-set-hum-forest,Washable Silk Tulip Back Set,Hum Forest / XL,13160,18800,false,2026-11-27T18:17:30Z
 lunya,7166321655851,40939597987883,mens-washable-silk-robe,Men's Washable Silk Robe,Immersed Black / S M,29800,,true,2026-11-04T08:46:55Z
 lunya,7166321655851,40939598053419,mens-washable-silk-robe,Men's Washable Silk Robe,Immersed Black / L,29800,,true,2026-11-04T08:46:55Z
 lunya,7166321655851,40939598086187,mens-washable-silk-robe,Men's Washable Silk Robe,Immersed Black / XL XXL,29800,,true,2026-11-04T08:46:55Z
@@ -4723,7 +4728,7 @@ lunya,7182122942507,40977542152235,womens-washable-silk-tulip-back-set-delicate-
 lunya,7182122942507,40977542185003,womens-washable-silk-tulip-back-set-delicate-pink,Washable Silk Tulip Back Set,Delicate Pink / XL,18800,,true,2026-11-04T08:46:55Z
 lunya,7186750832683,40989105946667,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / XS,19800,,false,2026-11-04T08:46:55Z
 lunya,7186750832683,40989105979435,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / S,19800,,false,2026-11-26T00:17:25Z
-lunya,7186750832683,40989106012203,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / M,19800,,false,2026-11-19T15:49:25Z
+lunya,7186750832683,40989106012203,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / M,19800,,true,2026-11-27T18:17:30Z
 lunya,7186750832683,40989106044971,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / L,19800,,true,2026-11-24T06:17:30Z
 lunya,7186750832683,40989106077739,womens-washable-silk-bias-slip-dress-delicate-pink,Washable Silk Bias Slip Dress,Delicate Pink / XL,19800,,true,2026-11-04T08:46:55Z
 lunya,7186752503851,40989109354539,womens-washable-silk-robe-delicate-pink,Washable Silk Robe,Delicate Pink / XS S,27800,,true,2026-11-04T08:46:55Z
@@ -4783,14 +4788,14 @@ lunya,7244984844331,41109330001963,womens-washable-silk-tee-short-set-immersed-b
 lunya,7244984844331,41109330034731,womens-washable-silk-tee-short-set-immersed-black,Washable Silk Tee Short Set,Immersed Black / XL,19800,,true,2026-11-04T08:46:55Z
 lunya,7244985172011,41109330952235,womens-washable-silk-tee-short-set-delicate-pink,Washable Silk Tee Short Set,Delicate Pink / XS,19800,,true,2026-11-18T15:44:26Z
 lunya,7244985172011,41109330985003,womens-washable-silk-tee-short-set-delicate-pink,Washable Silk Tee Short Set,Delicate Pink / S,19800,,true,2026-11-04T08:46:55Z
-lunya,7244985172011,41109331017771,womens-washable-silk-tee-short-set-delicate-pink,Washable Silk Tee Short Set,Delicate Pink / M,19800,,false,2026-11-26T18:17:23Z
+lunya,7244985172011,41109331017771,womens-washable-silk-tee-short-set-delicate-pink,Washable Silk Tee Short Set,Delicate Pink / M,19800,,true,2026-11-27T18:17:30Z
 lunya,7244985172011,41109331050539,womens-washable-silk-tee-short-set-delicate-pink,Washable Silk Tee Short Set,Delicate Pink / L,19800,,false,2026-11-04T08:46:55Z
 lunya,7244985172011,41109331083307,womens-washable-silk-tee-short-set-delicate-pink,Washable Silk Tee Short Set,Delicate Pink / XL,19800,,false,2026-11-04T08:46:55Z
 lunya,7245797916715,41110973087787,womens-washable-silk-tee-short-set-deep-blue,Washable Silk Tee Short Set,Deep Blue / XS,19800,,true,2026-11-04T08:46:55Z
 lunya,7245797916715,41110973153323,womens-washable-silk-tee-short-set-deep-blue,Washable Silk Tee Short Set,Deep Blue / S,19800,,true,2026-11-04T08:46:55Z
 lunya,7245797916715,41110973186091,womens-washable-silk-tee-short-set-deep-blue,Washable Silk Tee Short Set,Deep Blue / M,19800,,true,2026-11-04T08:46:55Z
 lunya,7245797916715,41110973218859,womens-washable-silk-tee-short-set-deep-blue,Washable Silk Tee Short Set,Deep Blue / L,19800,,true,2026-11-04T08:46:55Z
-lunya,7245797916715,41110973251627,womens-washable-silk-tee-short-set-deep-blue,Washable Silk Tee Short Set,Deep Blue / XL,19800,,true,2026-11-23T06:17:33Z
+lunya,7245797916715,41110973251627,womens-washable-silk-tee-short-set-deep-blue,Washable Silk Tee Short Set,Deep Blue / XL,19800,,false,2026-11-27T18:17:30Z
 lunya,7254647603243,41129938780203,womens-seamless-modal-hipster-hushed-tan-1,Seamless Modal Hipster,Hushed Tan / XS,3800,,true,2026-11-04T08:46:55Z
 lunya,7254647603243,41129938812971,womens-seamless-modal-hipster-hushed-tan-1,Seamless Modal Hipster,Hushed Tan / S,3800,,false,2026-11-04T08:46:55Z
 lunya,7254647603243,41129938845739,womens-seamless-modal-hipster-hushed-tan-1,Seamless Modal Hipster,Hushed Tan / M,3800,,false,2026-11-04T08:46:55Z
@@ -4818,14 +4823,12 @@ lunya,7259356921899,41139648069675,mens-silksweats-midweight-reversible-pocket-s
 lunya,7259356921899,41139648102443,mens-silksweats-midweight-reversible-pocket-sweatshirt-immersed-black,Men’s Silksweats™ Midweight Reversible Pocket Sweatshirt,Immersed Black / XXL,14800,,true,2026-11-04T08:46:55Z
 lunya,7259359838251,41139676151851,organic-cotton-crew-sock-sincere-white-hushed-tan,Organic Cotton Crew Sock,Sincere White/Hushed Tan / OS,1980,2200,true,2026-11-19T15:49:25Z
 lunya,7259857420331,41140491092011,womens-washable-silk-long-sleeve-jogger-pant-set-immersed-black-1,Washable Silk Long Sleeve Jogger Pant Set,Immersed Black / XS,29800,,false,2026-11-24T06:17:30Z
-lunya,7259857420331,41140491124779,womens-washable-silk-long-sleeve-jogger-pant-set-immersed-black-1,Washable Silk Long Sleeve Jogger Pant Set,Immersed Black / S,29800,,true,2026-11-24T06:17:30Z
+lunya,7259857420331,41140491124779,womens-washable-silk-long-sleeve-jogger-pant-set-immersed-black-1,Washable Silk Long Sleeve Jogger Pant Set,Immersed Black / S,29800,,false,2026-11-27T18:17:30Z
 lunya,7259857420331,41140491157547,womens-washable-silk-long-sleeve-jogger-pant-set-immersed-black-1,Washable Silk Long Sleeve Jogger Pant Set,Immersed Black / M,29800,,false,2026-11-24T06:17:30Z
 lunya,7259857420331,41140491190315,womens-washable-silk-long-sleeve-jogger-pant-set-immersed-black-1,Washable Silk Long Sleeve Jogger Pant Set,Immersed Black / L,29800,,false,2026-11-24T06:17:30Z
 lunya,7259857420331,41140491223083,womens-washable-silk-long-sleeve-jogger-pant-set-immersed-black-1,Washable Silk Long Sleeve Jogger Pant Set,Immersed Black / XL,29800,,false,2026-11-24T06:17:30Z
 lunya,7260491907115,41142229073963,washable-silk-sleep-mask-delicate-pink,Washable Silk Sleep Mask,Delicate Pink / S,6500,,true,2026-11-04T08:46:55Z
 lunya,7260491907115,41142229106731,washable-silk-sleep-mask-delicate-pink,Washable Silk Sleep Mask,Delicate Pink / L,6500,,false,2026-11-04T08:46:55Z
-lunya,7260493643819,41142233301035,weighted-silk-sleep-mask-delicate-pink,Weighted Silk Sleep Mask,Delicate Pink / S,8550,9500,true,2026-11-26T00:17:25Z
-lunya,7260493643819,41142233333803,weighted-silk-sleep-mask-delicate-pink,Weighted Silk Sleep Mask,Delicate Pink / L,8550,9500,false,2026-11-26T00:17:25Z
 lunya,7260508913707,41142289367083,seamless-modal-bare-bralette-immersed-black,Seamless Modal Bare Bralette,Immersed Black / XS,4800,,true,2026-11-04T08:46:55Z
 lunya,7260508913707,41142289399851,seamless-modal-bare-bralette-immersed-black,Seamless Modal Bare Bralette,Immersed Black / S,4800,,false,2026-11-12T15:20:05Z
 lunya,7260508913707,41142289432619,seamless-modal-bare-bralette-immersed-black,Seamless Modal Bare Bralette,Immersed Black / M,4800,,true,2026-11-26T00:17:25Z
@@ -4833,7 +4836,7 @@ lunya,7260508913707,41142289465387,seamless-modal-bare-bralette-immersed-black,S
 lunya,7260508913707,41142289498155,seamless-modal-bare-bralette-immersed-black,Seamless Modal Bare Bralette,Immersed Black / XL,4800,,false,2026-11-12T15:20:05Z
 lunya,7260510978091,41142294609963,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / XS,4800,,true,2026-11-24T06:17:30Z
 lunya,7260510978091,41142294642731,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / S,4800,,true,2026-11-26T00:17:25Z
-lunya,7260510978091,41142294675499,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / M,4800,,true,2026-11-23T06:17:33Z
+lunya,7260510978091,41142294675499,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / M,4800,,false,2026-11-27T18:17:30Z
 lunya,7260510978091,41142294708267,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / L,4800,,false,2026-11-23T06:17:33Z
 lunya,7260510978091,41142294741035,womens-seamless-modal-bare-bralette-sincere-white-1,Seamless Modal Bare Bralette,Sincere White / XL,4800,,false,2026-11-23T06:17:33Z
 lunya,7260642148395,41142592405547,womens-seamless-modal-boyshort-immersed-black-1,Seamless Modal Boyshort,Immersed Black / XS,4320,4800,true,2026-11-25T06:17:40Z
@@ -4894,7 +4897,7 @@ lunya,7296955318315,41258601611307,womens-seamless-modal-scoop-bralette-immersed
 lunya,7296957317163,41258612621355,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / XS,4320,4800,true,2026-11-25T06:17:40Z
 lunya,7296957317163,41258612654123,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / S,4320,4800,false,2026-11-25T06:17:40Z
 lunya,7296957317163,41258612686891,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / M,4320,4800,false,2026-11-25T06:17:40Z
-lunya,7296957317163,41258612719659,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / L,4320,4800,false,2026-11-26T00:17:25Z
+lunya,7296957317163,41258612719659,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / L,4320,4800,true,2026-11-27T18:17:30Z
 lunya,7296957317163,41258612752427,womens-seamless-modal-scoop-bralette-hushed-tan,Seamless Modal Scoop Bralette,Hushed Tan / XL,4320,4800,false,2026-11-25T06:17:40Z
 lunya,7296957612075,41258613768235,womens-seamless-modal-scoop-bralette-sincere-white,Seamless Modal Scoop Bralette,Sincere White / XS,4320,4800,false,2026-11-25T06:17:40Z
 lunya,7296957612075,41258613801003,womens-seamless-modal-scoop-bralette-sincere-white,Seamless Modal Scoop Bralette,Sincere White / S,4320,4800,false,2026-11-25T06:17:40Z
@@ -4940,7 +4943,7 @@ lunya,7366344179755,41451079598123,womens-soft-modal-rib-curved-hem-tank-immerse
 lunya,7366344179755,41451079630891,womens-soft-modal-rib-curved-hem-tank-immersed-black,Soft Modal Rib Curved Hem Tank,Immersed Black / M,7800,,true,2026-11-04T08:46:55Z
 lunya,7366344179755,41451079663659,womens-soft-modal-rib-curved-hem-tank-immersed-black,Soft Modal Rib Curved Hem Tank,Immersed Black / L,7800,,true,2026-11-04T08:46:55Z
 lunya,7366344179755,41451079696427,womens-soft-modal-rib-curved-hem-tank-immersed-black,Soft Modal Rib Curved Hem Tank,Immersed Black / XL,7800,,true,2026-11-04T08:46:55Z
-lunya,7366346768427,41451090837547,womens-soft-modal-rib-curved-hem-tank-sincere-white,Soft Modal Rib Curved Hem Tank,Sincere White / XS,7020,7800,false,2026-11-26T00:17:25Z
+lunya,7366346768427,41451090837547,womens-soft-modal-rib-curved-hem-tank-sincere-white,Soft Modal Rib Curved Hem Tank,Sincere White / XS,7020,7800,true,2026-11-27T18:17:30Z
 lunya,7366346768427,41451090870315,womens-soft-modal-rib-curved-hem-tank-sincere-white,Soft Modal Rib Curved Hem Tank,Sincere White / S,7020,7800,true,2026-11-25T06:17:40Z
 lunya,7366346768427,41451090903083,womens-soft-modal-rib-curved-hem-tank-sincere-white,Soft Modal Rib Curved Hem Tank,Sincere White / M,7020,7800,true,2026-11-25T06:17:40Z
 lunya,7366346768427,41451090935851,womens-soft-modal-rib-curved-hem-tank-sincere-white,Soft Modal Rib Curved Hem Tank,Sincere White / L,7020,7800,true,2026-11-25T06:17:40Z
@@ -4973,7 +4976,7 @@ lunya,7394814591019,41779017515051,womens-organic-pima-tee-short-set-storm-grey-
 lunya,7415234658347,41897487826987,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XS,6800,,true,2026-11-26T00:17:25Z
 lunya,7415234658347,41897487859755,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / S,6800,,true,2026-11-04T08:46:55Z
 lunya,7415234658347,41897487892523,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / M,6800,,true,2026-11-26T00:17:25Z
-lunya,7415234658347,41897487925291,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / L,6800,,true,2026-11-25T06:17:40Z
+lunya,7415234658347,41897487925291,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / L,6800,,true,2026-11-27T18:17:30Z
 lunya,7415234658347,41897487958059,womens-seamless-modal-tank-immersed-black-1,Seamless Modal Tank,Immersed Black / XL,6800,,true,2026-11-04T08:46:55Z
 lunya,7415237083179,41897496412203,womens-seamless-modal-tank-sincere-white-1,Seamless Modal Tank,Sincere White / XS,6800,,true,2026-11-04T08:46:55Z
 lunya,7415237083179,41897496444971,womens-seamless-modal-tank-sincere-white-1,Seamless Modal Tank,Sincere White / S,6800,,true,2026-11-23T06:17:33Z
@@ -4985,9 +4988,9 @@ lunya,7419232026667,41907202687019,womens-washable-silk-long-sleeve-pant-set-del
 lunya,7419232026667,41907202719787,womens-washable-silk-long-sleeve-pant-set-delicate-pink-1,Washable Silk Long Sleeve Pant Set,Delicate Pink / M,29800,,true,2026-11-04T08:46:55Z
 lunya,7419232026667,41907202752555,womens-washable-silk-long-sleeve-pant-set-delicate-pink-1,Washable Silk Long Sleeve Pant Set,Delicate Pink / L,29800,,true,2026-11-04T08:46:55Z
 lunya,7419232026667,41907202785323,womens-washable-silk-long-sleeve-pant-set-delicate-pink-1,Washable Silk Long Sleeve Pant Set,Delicate Pink / XL,29800,,true,2026-11-04T08:46:55Z
-lunya,7419232354347,41907204128811,womens-washable-silk-long-sleeve-pant-set-deep-blue-3,Washable Silk Long Sleeve Pant Set,Deep Blue / XS,29800,,false,2026-11-27T00:17:27Z
+lunya,7419232354347,41907204128811,womens-washable-silk-long-sleeve-pant-set-deep-blue-3,Washable Silk Long Sleeve Pant Set,Deep Blue / XS,29800,,true,2026-11-27T18:17:30Z
 lunya,7419232354347,41907204161579,womens-washable-silk-long-sleeve-pant-set-deep-blue-3,Washable Silk Long Sleeve Pant Set,Deep Blue / S,29800,,false,2026-11-26T18:17:23Z
-lunya,7419232354347,41907204194347,womens-washable-silk-long-sleeve-pant-set-deep-blue-3,Washable Silk Long Sleeve Pant Set,Deep Blue / M,29800,,true,2026-11-26T18:17:23Z
+lunya,7419232354347,41907204194347,womens-washable-silk-long-sleeve-pant-set-deep-blue-3,Washable Silk Long Sleeve Pant Set,Deep Blue / M,29800,,false,2026-11-27T12:17:22Z
 lunya,7419232354347,41907204227115,womens-washable-silk-long-sleeve-pant-set-deep-blue-3,Washable Silk Long Sleeve Pant Set,Deep Blue / L,29800,,true,2026-11-26T18:17:23Z
 lunya,7419232354347,41907204259883,womens-washable-silk-long-sleeve-pant-set-deep-blue-3,Washable Silk Long Sleeve Pant Set,Deep Blue / XL,29800,,false,2026-11-26T18:17:23Z
 lunya,7428174643243,41940207337515,mens-silksweats-midweight-reversible-pocket-sweatshirt-napping-dove-heather,Men's Silksweats™ Midweight Reversible Pocket Sweatshirt,Napping Dove Heather / S,10360,14800,true,2026-11-24T06:17:30Z
@@ -5003,18 +5006,13 @@ lunya,7428174774315,41940207796267,mens-slumberknit-pant-shaded-olive,Men's Slum
 lunya,7428175429675,41940210909227,womens-slumberknit-shawl-collar-button-down-pant-set-calliope-wine-royal-lagoon,Slumberknit™ Shawl Collar Button Down Pant Set,Calliope Wine/Royal Lagoon / XS,11060,15800,true,2026-11-19T15:49:25Z
 lunya,7428175429675,41940210941995,womens-slumberknit-shawl-collar-button-down-pant-set-calliope-wine-royal-lagoon,Slumberknit™ Shawl Collar Button Down Pant Set,Calliope Wine/Royal Lagoon / S,11060,15800,true,2026-11-19T15:49:25Z
 lunya,7428175429675,41940210974763,womens-slumberknit-shawl-collar-button-down-pant-set-calliope-wine-royal-lagoon,Slumberknit™ Shawl Collar Button Down Pant Set,Calliope Wine/Royal Lagoon / M,11060,15800,true,2026-11-19T15:49:25Z
-lunya,7428175429675,41940211007531,womens-slumberknit-shawl-collar-button-down-pant-set-calliope-wine-royal-lagoon,Slumberknit™ Shawl Collar Button Down Pant Set,Calliope Wine/Royal Lagoon / L,11060,15800,true,2026-11-25T06:17:40Z
+lunya,7428175429675,41940211007531,womens-slumberknit-shawl-collar-button-down-pant-set-calliope-wine-royal-lagoon,Slumberknit™ Shawl Collar Button Down Pant Set,Calliope Wine/Royal Lagoon / L,11060,15800,false,2026-11-27T18:17:30Z
 lunya,7428175429675,41940211040299,womens-slumberknit-shawl-collar-button-down-pant-set-calliope-wine-royal-lagoon,Slumberknit™ Shawl Collar Button Down Pant Set,Calliope Wine/Royal Lagoon / XL,11060,15800,true,2026-11-19T15:49:25Z
 lunya,7428175462443,41940211236907,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / XS,22800,,false,2026-11-26T00:17:25Z
 lunya,7428175462443,41940211269675,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / S,22800,,false,2026-11-26T00:17:25Z
 lunya,7428175462443,41940211302443,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / M,22800,,true,2026-11-26T00:17:25Z
 lunya,7428175462443,41940211335211,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / L,22800,,false,2026-11-26T00:17:25Z
 lunya,7428175462443,41940211367979,womens-cottonsilk-pocket-henley-imperial-garnet-marl,Cottonsilk™ Pocket Henley,Imperial Garnet Marl / XL,22800,,false,2026-11-26T00:17:25Z
-lunya,7428175855659,41940213006379,womens-slumberknit-shawl-collar-button-down-pant-set-immersed-black-delicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Immersed Black/Delicate Pink / XS,11060,15800,true,2026-11-19T15:49:25Z
-lunya,7428175855659,41940213039147,womens-slumberknit-shawl-collar-button-down-pant-set-immersed-black-delicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Immersed Black/Delicate Pink / S,11060,15800,false,2026-11-26T06:17:27Z
-lunya,7428175855659,41940213071915,womens-slumberknit-shawl-collar-button-down-pant-set-immersed-black-delicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Immersed Black/Delicate Pink / M,11060,15800,true,2026-11-19T15:49:25Z
-lunya,7428175855659,41940213104683,womens-slumberknit-shawl-collar-button-down-pant-set-immersed-black-delicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Immersed Black/Delicate Pink / L,11060,15800,false,2026-11-19T15:49:25Z
-lunya,7428175855659,41940213137451,womens-slumberknit-shawl-collar-button-down-pant-set-immersed-black-delicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Immersed Black/Delicate Pink / XL,11060,15800,false,2026-11-19T15:49:25Z
 lunya,7526449020971,42164554104875,mens-slumberknit-henley-tee-immersed-black-1,Men's Slumberknit™ Henley Tee,Immersed Black / S,6120,6800,true,2026-11-25T06:17:40Z
 lunya,7526449020971,42164554137643,mens-slumberknit-henley-tee-immersed-black-1,Men's Slumberknit™ Henley Tee,Immersed Black / M,6120,6800,true,2026-11-25T06:17:40Z
 lunya,7526449020971,42164554170411,mens-slumberknit-henley-tee-immersed-black-1,Men's Slumberknit™ Henley Tee,Immersed Black / L,6120,6800,false,2026-11-25T06:17:40Z
@@ -5099,7 +5097,7 @@ lunya,7763963379755,42592620019755,womens-silksweats-lightweight-terry-straight-
 lunya,7763963379755,42592620052523,womens-silksweats-lightweight-terry-straight-leg-pant-welkin-blue,Silksweats™ Lightweight Terry Straight Leg Pant,Welkin Blue / L,15800,,false,2026-11-04T08:46:55Z
 lunya,7763963379755,42592620085291,womens-silksweats-lightweight-terry-straight-leg-pant-welkin-blue,Silksweats™ Lightweight Terry Straight Leg Pant,Welkin Blue / XL,15800,,false,2026-11-04T08:46:55Z
 lunya,7763963412523,42592620118059,womens-silksweats-lightweight-terry-straight-leg-pant-delicate-pink,Silksweats™ Lightweight Terry Straight Leg Pant,Delicate Pink / XXS,11060,15800,false,2026-11-19T15:49:25Z
-lunya,7763963412523,42592620150827,womens-silksweats-lightweight-terry-straight-leg-pant-delicate-pink,Silksweats™ Lightweight Terry Straight Leg Pant,Delicate Pink / XS,11060,15800,false,2026-11-27T06:17:32Z
+lunya,7763963412523,42592620150827,womens-silksweats-lightweight-terry-straight-leg-pant-delicate-pink,Silksweats™ Lightweight Terry Straight Leg Pant,Delicate Pink / XS,11060,15800,true,2026-11-27T18:17:30Z
 lunya,7763963412523,42592620183595,womens-silksweats-lightweight-terry-straight-leg-pant-delicate-pink,Silksweats™ Lightweight Terry Straight Leg Pant,Delicate Pink / S,11060,15800,true,2026-11-26T00:17:25Z
 lunya,7763963412523,42592620216363,womens-silksweats-lightweight-terry-straight-leg-pant-delicate-pink,Silksweats™ Lightweight Terry Straight Leg Pant,Delicate Pink / M,11060,15800,false,2026-11-19T15:49:25Z
 lunya,7763963412523,42592620249131,womens-silksweats-lightweight-terry-straight-leg-pant-delicate-pink,Silksweats™ Lightweight Terry Straight Leg Pant,Delicate Pink / L,11060,15800,true,2026-11-19T15:49:25Z
@@ -5126,7 +5124,7 @@ lunya,7763963674667,42592621559851,womens-cottonsilk-ribbed-legging-serene-viole
 lunya,7763963674667,42592621592619,womens-cottonsilk-ribbed-legging-serene-violet,Cottonsilk™ Ribbed Legging,Serene Violet / XL,9900,19800,true,2026-11-17T16:05:36Z
 lunya,7763963740203,42592621789227,womens-washable-silk-bias-pant-half-light-periwinkle,Washable Silk Bias Pant,Half-light Periwinkle / XS,12900,25800,true,2026-11-25T06:17:40Z
 lunya,7763963740203,42592621821995,womens-washable-silk-bias-pant-half-light-periwinkle,Washable Silk Bias Pant,Half-light Periwinkle / S,12900,25800,true,2026-11-25T06:17:40Z
-lunya,7763963740203,42592621854763,womens-washable-silk-bias-pant-half-light-periwinkle,Washable Silk Bias Pant,Half-light Periwinkle / M,12900,25800,false,2026-11-25T06:17:40Z
+lunya,7763963740203,42592621854763,womens-washable-silk-bias-pant-half-light-periwinkle,Washable Silk Bias Pant,Half-light Periwinkle / M,12900,25800,true,2026-11-27T18:17:30Z
 lunya,7763963740203,42592621887531,womens-washable-silk-bias-pant-half-light-periwinkle,Washable Silk Bias Pant,Half-light Periwinkle / L,12900,25800,false,2026-11-25T06:17:40Z
 lunya,7763963740203,42592621920299,womens-washable-silk-bias-pant-half-light-periwinkle,Washable Silk Bias Pant,Half-light Periwinkle / XL,12900,25800,false,2026-11-25T06:17:40Z
 lunya,7763963805739,42592622116907,womens-slumberknit-shawl-collar-button-down-pant-set-deep-bluedelicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Deep Blue/Delicate Pink / XS,15800,,true,2026-11-04T08:46:55Z
@@ -5135,8 +5133,8 @@ lunya,7763963805739,42592622182443,womens-slumberknit-shawl-collar-button-down-p
 lunya,7763963805739,42592622215211,womens-slumberknit-shawl-collar-button-down-pant-set-deep-bluedelicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Deep Blue/Delicate Pink / L,15800,,true,2026-11-04T08:46:55Z
 lunya,7763963805739,42592622247979,womens-slumberknit-shawl-collar-button-down-pant-set-deep-bluedelicate-pink,Slumberknit™ Shawl Collar Button Down Pant Set,Deep Blue/Delicate Pink / XL,15800,,true,2026-11-04T08:46:55Z
 lunya,7763963838507,42592622280747,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / XS,10360,14800,false,2026-11-22T06:17:32Z
-lunya,7763963838507,42592622313515,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / S,10360,14800,true,2026-11-19T15:49:25Z
-lunya,7763963838507,42592622346283,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / M,10360,14800,true,2026-11-19T15:49:25Z
+lunya,7763963838507,42592622313515,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / S,10360,14800,false,2026-11-27T18:17:30Z
+lunya,7763963838507,42592622346283,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / M,10360,14800,true,2026-11-27T18:17:30Z
 lunya,7763963838507,42592622379051,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / L,10360,14800,true,2026-11-19T15:49:25Z
 lunya,7763963838507,42592622411819,womens-slumberknit-shawl-collar-short-sleeve-short-set-lunar-whitequiet-lilac,Slumberknit™ Shawl Collar Short Sleeve Short Set,Lunar White/Quiet Lilac / XL,10360,14800,true,2026-11-19T15:49:25Z
 lunya,7763963904043,42592622608427,womens-pointelle-crew-neck-cardigan-camellia-red,Pointelle Crew Neck Cardigan,Camellia Red / XS,8260,11800,true,2026-11-19T15:49:25Z
@@ -5147,7 +5145,7 @@ lunya,7763963904043,42592622739499,womens-pointelle-crew-neck-cardigan-camellia-
 lunya,7763963936811,42592622772267,womens-cloud-cotton-basket-stitch-cardigan-spring-clover,Cloud Cotton Basket Stitch Cardigan,Spring Clover / XS,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763963936811,42592622805035,womens-cloud-cotton-basket-stitch-cardigan-spring-clover,Cloud Cotton Basket Stitch Cardigan,Spring Clover / S,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763963936811,42592622837803,womens-cloud-cotton-basket-stitch-cardigan-spring-clover,Cloud Cotton Basket Stitch Cardigan,Spring Clover / M,20860,29800,true,2026-11-19T15:49:25Z
-lunya,7763963936811,42592622870571,womens-cloud-cotton-basket-stitch-cardigan-spring-clover,Cloud Cotton Basket Stitch Cardigan,Spring Clover / L,20860,29800,true,2026-11-19T15:49:25Z
+lunya,7763963936811,42592622870571,womens-cloud-cotton-basket-stitch-cardigan-spring-clover,Cloud Cotton Basket Stitch Cardigan,Spring Clover / L,20860,29800,false,2026-11-27T12:17:22Z
 lunya,7763963936811,42592622903339,womens-cloud-cotton-basket-stitch-cardigan-spring-clover,Cloud Cotton Basket Stitch Cardigan,Spring Clover / XL,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763963969579,42592622936107,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / XS,10360,14800,false,2026-11-25T06:17:40Z
 lunya,7763963969579,42592622968875,womens-slumberknit-shawl-collar-short-sleeve-short-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Short Sleeve Short Set,Bluebell Bloom/Spring Clover / S,10360,14800,false,2026-11-25T06:17:40Z
@@ -5165,12 +5163,7 @@ lunya,7763964067883,42592623493163,womens-silksweats-lightweight-terry-slim-fit-
 lunya,7763964067883,42592623525931,womens-silksweats-lightweight-terry-slim-fit-raglan-delicate-pink,Silksweats™ Lightweight Terry Slim Fit Raglan,Delicate Pink / M,9660,13800,true,2026-11-20T15:30:59Z
 lunya,7763964067883,42592623558699,womens-silksweats-lightweight-terry-slim-fit-raglan-delicate-pink,Silksweats™ Lightweight Terry Slim Fit Raglan,Delicate Pink / L,9660,13800,false,2026-11-19T15:49:25Z
 lunya,7763964067883,42592623591467,womens-silksweats-lightweight-terry-slim-fit-raglan-delicate-pink,Silksweats™ Lightweight Terry Slim Fit Raglan,Delicate Pink / XL,9660,13800,false,2026-11-19T15:49:25Z
-lunya,7763964100651,42592623788075,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XS,11280,14800,false,2026-11-26T00:17:25Z
-lunya,7763964100651,42592623820843,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / S,11280,14800,false,2026-11-26T00:17:25Z
-lunya,7763964100651,42592623853611,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / M,11280,14800,true,2026-11-26T00:17:25Z
-lunya,7763964100651,42592623886379,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / L,11280,14800,false,2026-11-26T00:17:25Z
-lunya,7763964100651,42592623919147,womens-washable-silk-piped-sleep-shirt-dress-morning-wisteriatranquil-white,Washable Silk Sleep Shirt Dress,Morning Wisteria/Tranquil White / XL,11280,18800,false,2026-11-26T00:17:25Z
-lunya,7763964166187,42592623624235,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / XS,4680,7800,true,2026-11-25T06:17:40Z
+lunya,7763964166187,42592623624235,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / XS,4680,7800,false,2026-11-27T18:17:30Z
 lunya,7763964166187,42592623657003,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / S,4680,7800,false,2026-11-25T06:17:40Z
 lunya,7763964166187,42592623689771,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / M,4680,7800,false,2026-11-25T06:17:40Z
 lunya,7763964166187,42592623722539,womens-organic-pima-curved-hem-tank-cloud-blue-heather,Organic Pima Curved Hem Tank,Cloud Blue Heather / L,4680,7800,false,2026-11-25T06:17:40Z
@@ -5235,14 +5228,19 @@ lunya,7763964788779,42592626901035,mens-mens-slumberknit-pant-deep-blue,Men's Sl
 lunya,7763964788779,42592626933803,mens-mens-slumberknit-pant-deep-blue,Men's Slumberknit™ Pant,Deep Blue / L,6860,9800,true,2026-11-19T15:49:25Z
 lunya,7763964788779,42592626966571,mens-mens-slumberknit-pant-deep-blue,Men's Slumberknit™ Pant,Deep Blue / XL,6860,9800,false,2026-11-19T15:49:25Z
 lunya,7763964788779,42592626999339,mens-mens-slumberknit-pant-deep-blue,Men's Slumberknit™ Pant,Deep Blue / XXL,6860,9800,true,2026-11-19T15:49:25Z
-lunya,7763964887083,42592627195947,womens-cloud-cotton-basket-stitch-cardigan-whisper-blue,Cloud Cotton Basket Stitch Cardigan,Whisper Blue / XS,20860,29800,true,2026-11-19T15:49:25Z
+lunya,7763964821547,42592627032107,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / XS,8260,11800,false,2026-11-27T18:17:30Z
+lunya,7763964821547,42592627064875,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / S,8260,11800,false,2026-11-27T18:17:30Z
+lunya,7763964821547,42592627097643,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / M,8260,11800,true,2026-11-27T18:17:30Z
+lunya,7763964821547,42592627130411,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / L,8260,11800,false,2026-11-27T18:17:30Z
+lunya,7763964821547,42592627163179,womens-pointelle-wide-leg-pant-camellia-red,Pointelle Wide Leg Pant,Camellia Red / XL,8260,11800,false,2026-11-27T18:17:30Z
+lunya,7763964887083,42592627195947,womens-cloud-cotton-basket-stitch-cardigan-whisper-blue,Cloud Cotton Basket Stitch Cardigan,Whisper Blue / XS,20860,29800,true,2026-11-27T18:17:30Z
 lunya,7763964887083,42592627228715,womens-cloud-cotton-basket-stitch-cardigan-whisper-blue,Cloud Cotton Basket Stitch Cardigan,Whisper Blue / S,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763964887083,42592627261483,womens-cloud-cotton-basket-stitch-cardigan-whisper-blue,Cloud Cotton Basket Stitch Cardigan,Whisper Blue / M,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763964887083,42592627294251,womens-cloud-cotton-basket-stitch-cardigan-whisper-blue,Cloud Cotton Basket Stitch Cardigan,Whisper Blue / L,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763964887083,42592627327019,womens-cloud-cotton-basket-stitch-cardigan-whisper-blue,Cloud Cotton Basket Stitch Cardigan,Whisper Blue / XL,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763964919851,42592627687467,womens-washable-silk-bias-cami-pant-set-french-butter,Washable Silk Bias Cami Pant Set,French Butter / XS,15480,25800,false,2026-11-27T06:17:32Z
-lunya,7763964919851,42592627720235,womens-washable-silk-bias-cami-pant-set-french-butter,Washable Silk Bias Cami Pant Set,French Butter / S,15480,25800,true,2026-11-26T18:17:23Z
-lunya,7763964919851,42592627753003,womens-washable-silk-bias-cami-pant-set-french-butter,Washable Silk Bias Cami Pant Set,French Butter / M,15480,25800,true,2026-11-26T18:17:23Z
+lunya,7763964919851,42592627720235,womens-washable-silk-bias-cami-pant-set-french-butter,Washable Silk Bias Cami Pant Set,French Butter / S,15480,25800,false,2026-11-27T18:17:30Z
+lunya,7763964919851,42592627753003,womens-washable-silk-bias-cami-pant-set-french-butter,Washable Silk Bias Cami Pant Set,French Butter / M,15480,25800,false,2026-11-27T18:17:30Z
 lunya,7763964919851,42592627785771,womens-washable-silk-bias-cami-pant-set-french-butter,Washable Silk Bias Cami Pant Set,French Butter / L,15480,25800,false,2026-11-25T06:17:40Z
 lunya,7763964919851,42592627818539,womens-washable-silk-bias-cami-pant-set-french-butter,Washable Silk Bias Cami Pant Set,French Butter / XL,15480,25800,true,2026-11-25T06:17:40Z
 lunya,7763964952619,42592627523627,womens-washable-silk-tulip-back-set-french-butter,Washable Silk Tulip Back Set,French Butter / XS,13160,18800,false,2026-11-19T15:49:25Z
@@ -5266,6 +5264,11 @@ lunya,7763965083691,42592628408363,womens-slumberknit-shawl-collar-button-down-p
 lunya,7763965083691,42592628441131,womens-slumberknit-shawl-collar-button-down-pant-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Button Down Pant Set,Bluebell Bloom/spring Clover / M,11060,15800,true,2026-11-19T15:49:25Z
 lunya,7763965083691,42592628473899,womens-slumberknit-shawl-collar-button-down-pant-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Button Down Pant Set,Bluebell Bloom/spring Clover / L,11060,15800,true,2026-11-24T06:17:30Z
 lunya,7763965083691,42592628506667,womens-slumberknit-shawl-collar-button-down-pant-set-bluebell-bloomspring-clover,Slumberknit™ Shawl Collar Button Down Pant Set,Bluebell Bloom/spring Clover / XL,11060,15800,true,2026-11-19T15:49:25Z
+lunya,7763965214763,42592629030955,womens-airy-cotton-piped-button-down-stillwater-stripespring-clover,Airy Cotton Piped Button Down,Stillwater Stripe/Spring Clover / XS,8960,12800,false,2026-11-27T18:17:30Z
+lunya,7763965214763,42592629063723,womens-airy-cotton-piped-button-down-stillwater-stripespring-clover,Airy Cotton Piped Button Down,Stillwater Stripe/Spring Clover / S,8960,12800,true,2026-11-27T18:17:30Z
+lunya,7763965214763,42592629096491,womens-airy-cotton-piped-button-down-stillwater-stripespring-clover,Airy Cotton Piped Button Down,Stillwater Stripe/Spring Clover / M,8960,12800,false,2026-11-27T18:17:30Z
+lunya,7763965214763,42592629129259,womens-airy-cotton-piped-button-down-stillwater-stripespring-clover,Airy Cotton Piped Button Down,Stillwater Stripe/Spring Clover / L,8960,12800,false,2026-11-27T18:17:30Z
+lunya,7763965214763,42592629162027,womens-airy-cotton-piped-button-down-stillwater-stripespring-clover,Airy Cotton Piped Button Down,Stillwater Stripe/Spring Clover / XL,8960,12800,true,2026-11-27T18:17:30Z
 lunya,7763965247531,42592628867115,womens-pointelle-crew-neck-cardigan-buttercream,Pointelle Crew Neck Cardigan,Buttercream / XS,8260,11800,true,2026-11-19T15:49:25Z
 lunya,7763965247531,42592628899883,womens-pointelle-crew-neck-cardigan-buttercream,Pointelle Crew Neck Cardigan,Buttercream / S,8260,11800,true,2026-11-19T15:49:25Z
 lunya,7763965247531,42592628932651,womens-pointelle-crew-neck-cardigan-buttercream,Pointelle Crew Neck Cardigan,Buttercream / M,8260,11800,true,2026-11-19T15:49:25Z
@@ -5282,11 +5285,11 @@ lunya,7763965575211,42592630571051,womens-washable-silk-button-up-long-sleeve-sh
 lunya,7763965575211,42592630603819,womens-washable-silk-button-up-long-sleeve-short-set-wisteria-stripe,Washable Silk Button Up Long Sleeve Short Set,Wisteria Stripe / M,19460,27800,true,2026-11-19T15:49:25Z
 lunya,7763965575211,42592630636587,womens-washable-silk-button-up-long-sleeve-short-set-wisteria-stripe,Washable Silk Button Up Long Sleeve Short Set,Wisteria Stripe / L,19460,27800,true,2026-11-19T15:49:25Z
 lunya,7763965575211,42592630669355,womens-washable-silk-button-up-long-sleeve-short-set-wisteria-stripe,Washable Silk Button Up Long Sleeve Short Set,Wisteria Stripe / XL,19460,27800,true,2026-11-19T15:49:25Z
-lunya,7763965607979,42592630702123,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / XS,18480,30800,false,2026-11-27T06:17:32Z
+lunya,7763965607979,42592630702123,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / XS,18480,30800,true,2026-11-27T18:17:30Z
 lunya,7763965607979,42592630734891,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / S,18480,30800,true,2026-11-26T00:17:25Z
 lunya,7763965607979,42592630767659,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / M,18480,30800,true,2026-11-26T00:17:25Z
 lunya,7763965607979,42592630800427,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / L,18480,30800,false,2026-11-22T06:17:32Z
-lunya,7763965607979,42592630833195,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / XL,18480,30800,false,2026-11-26T00:17:25Z
+lunya,7763965607979,42592630833195,womens-washable-silk-high-rise-pant-set-wisteria-stripe,Washable Silk High Rise Pant Set,Wisteria Stripe / XL,18480,30800,true,2026-11-27T18:17:30Z
 lunya,7763965673515,42592630865963,womens-pointelle-high-rise-short-bluebell-bloom,Pointelle High Rise Short,Bluebell Bloom / XS,8800,,true,2026-11-04T08:46:55Z
 lunya,7763965673515,42592630898731,womens-pointelle-high-rise-short-bluebell-bloom,Pointelle High Rise Short,Bluebell Bloom / S,8800,,true,2026-11-04T08:46:55Z
 lunya,7763965673515,42592630931499,womens-pointelle-high-rise-short-bluebell-bloom,Pointelle High Rise Short,Bluebell Bloom / M,8800,,true,2026-11-04T08:46:55Z
@@ -5297,13 +5300,8 @@ lunya,7763965706283,42592631390251,womens-washable-silk-crossover-pant-set-morni
 lunya,7763965706283,42592631423019,womens-washable-silk-crossover-pant-set-morning-wisteria,Washable Silk Crossover Pant Set,Morning Wisteria / M,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763965706283,42592631455787,womens-washable-silk-crossover-pant-set-morning-wisteria,Washable Silk Crossover Pant Set,Morning Wisteria / L,20860,29800,true,2026-11-19T15:49:25Z
 lunya,7763965706283,42592631488555,womens-washable-silk-crossover-pant-set-morning-wisteria,Washable Silk Crossover Pant Set,Morning Wisteria / XL,20860,29800,true,2026-11-19T15:49:25Z
-lunya,7763965739051,42592631193643,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / S,4760,6800,false,2026-11-22T06:17:32Z
-lunya,7763965739051,42592631226411,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / M,4760,6800,true,2026-11-19T15:49:25Z
-lunya,7763965739051,42592631259179,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / L,4760,6800,false,2026-11-26T18:17:23Z
-lunya,7763965739051,42592631291947,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / XL,4760,6800,true,2026-11-19T15:49:25Z
-lunya,7763965739051,42592631324715,mens-mens-slumberknit-henley-tee-deep-blue,Men's Slumberknit™ Henley Tee,Deep Blue / XXL,4760,6800,true,2026-11-19T15:49:25Z
 lunya,7763965771819,42592631521323,womens-pointelle-scoop-neck-tank-camellia-red,Pointelle Scoop Neck Tank,Camellia Red / XS,5460,7800,true,2026-11-19T15:49:25Z
-lunya,7763965771819,42592631554091,womens-pointelle-scoop-neck-tank-camellia-red,Pointelle Scoop Neck Tank,Camellia Red / S,5460,7800,false,2026-11-26T18:17:23Z
+lunya,7763965771819,42592631554091,womens-pointelle-scoop-neck-tank-camellia-red,Pointelle Scoop Neck Tank,Camellia Red / S,5460,7800,true,2026-11-27T18:17:30Z
 lunya,7763965771819,42592631586859,womens-pointelle-scoop-neck-tank-camellia-red,Pointelle Scoop Neck Tank,Camellia Red / M,5460,7800,true,2026-11-19T15:49:25Z
 lunya,7763965771819,42592631619627,womens-pointelle-scoop-neck-tank-camellia-red,Pointelle Scoop Neck Tank,Camellia Red / L,5460,7800,false,2026-11-19T15:49:25Z
 lunya,7763965771819,42592631652395,womens-pointelle-scoop-neck-tank-camellia-red,Pointelle Scoop Neck Tank,Camellia Red / XL,5460,7800,true,2026-11-19T15:49:25Z
@@ -5334,11 +5332,11 @@ lunya,7763965968427,42592632602667,womens-silksweats-midweight-graphic-sweatshir
 lunya,7763965968427,42592632635435,womens-silksweats-midweight-graphic-sweatshirt-off-duty-leisure-h-greymeadow,Silksweats™ Midweight Graphic Sweatshirt,Off Duty Leisure h Grey/Meadow / XL,11060,15800,false,2026-11-19T15:49:25Z
 lunya,7763966001195,42592632668203,womens-organic-pima-wide-sleeve-tee-storm-grey-heather,Organic Pima Wide Sleeve Tee,Storm Grey Heather / XS,6860,9800,true,2026-11-19T15:49:25Z
 lunya,7763966001195,42592632700971,womens-organic-pima-wide-sleeve-tee-storm-grey-heather,Organic Pima Wide Sleeve Tee,Storm Grey Heather / S,6860,9800,true,2026-11-19T15:49:25Z
-lunya,7763966001195,42592632733739,womens-organic-pima-wide-sleeve-tee-storm-grey-heather,Organic Pima Wide Sleeve Tee,Storm Grey Heather / M,6860,9800,false,2026-11-26T18:17:23Z
+lunya,7763966001195,42592632733739,womens-organic-pima-wide-sleeve-tee-storm-grey-heather,Organic Pima Wide Sleeve Tee,Storm Grey Heather / M,6860,9800,true,2026-11-27T18:17:30Z
 lunya,7763966001195,42592632766507,womens-organic-pima-wide-sleeve-tee-storm-grey-heather,Organic Pima Wide Sleeve Tee,Storm Grey Heather / L,6860,9800,true,2026-11-19T15:49:25Z
 lunya,7763966001195,42592632799275,womens-organic-pima-wide-sleeve-tee-storm-grey-heather,Organic Pima Wide Sleeve Tee,Storm Grey Heather / XL,6860,9800,true,2026-11-19T15:49:25Z
 lunya,7763966033963,42592632832043,womens-cloud-cotton-sweater-short-whisper-blue,Cloud Cotton Sweater Short,Whisper Blue / XS,8260,11800,false,2026-11-19T15:49:25Z
-lunya,7763966033963,42592632864811,womens-cloud-cotton-sweater-short-whisper-blue,Cloud Cotton Sweater Short,Whisper Blue / S,8260,11800,true,2026-11-19T15:49:25Z
+lunya,7763966033963,42592632864811,womens-cloud-cotton-sweater-short-whisper-blue,Cloud Cotton Sweater Short,Whisper Blue / S,8260,11800,false,2026-11-27T12:17:22Z
 lunya,7763966033963,42592632897579,womens-cloud-cotton-sweater-short-whisper-blue,Cloud Cotton Sweater Short,Whisper Blue / M,8260,11800,true,2026-11-19T15:49:25Z
 lunya,7763966033963,42592632930347,womens-cloud-cotton-sweater-short-whisper-blue,Cloud Cotton Sweater Short,Whisper Blue / L,8260,11800,true,2026-11-19T15:49:25Z
 lunya,7763966033963,42592632963115,womens-cloud-cotton-sweater-short-whisper-blue,Cloud Cotton Sweater Short,Whisper Blue / XL,8260,11800,false,2026-11-19T15:49:25Z
@@ -5387,13 +5385,13 @@ lunya,7849298722859,43346798444587,womens-linen-embroidered-eyelet-pant-sincere-
 lunya,7849298722859,43346798477355,womens-linen-embroidered-eyelet-pant-sincere-white,Linen Embroidered Eyelet Pant,Sincere White / Short / L,9900,19800,true,2026-11-25T06:17:40Z
 lunya,7849298722859,43346798510123,womens-linen-embroidered-eyelet-pant-sincere-white,Linen Embroidered Eyelet Pant,Sincere White / Regular / XL,13860,19800,false,2026-11-19T15:49:25Z
 lunya,7849298722859,43346798542891,womens-linen-embroidered-eyelet-pant-sincere-white,Linen Embroidered Eyelet Pant,Sincere White / Short / XL,9900,19800,false,2026-11-25T06:17:40Z
-lunya,7849298755627,43346798575659,mens-airy-cotton-piped-sleep-shirt-still-blue-deep-blue,Men's Airy Cotton Piped Sleep Shirt,Still Blue/Deep Blue / S,8960,12800,false,2026-11-26T00:17:25Z
+lunya,7849298755627,43346798575659,mens-airy-cotton-piped-sleep-shirt-still-blue-deep-blue,Men's Airy Cotton Piped Sleep Shirt,Still Blue/Deep Blue / S,8960,12800,true,2026-11-27T18:17:30Z
 lunya,7849298755627,43346798608427,mens-airy-cotton-piped-sleep-shirt-still-blue-deep-blue,Men's Airy Cotton Piped Sleep Shirt,Still Blue/Deep Blue / M,8960,12800,true,2026-11-19T15:49:25Z
 lunya,7849298755627,43346798641195,mens-airy-cotton-piped-sleep-shirt-still-blue-deep-blue,Men's Airy Cotton Piped Sleep Shirt,Still Blue/Deep Blue / L,8960,12800,true,2026-11-19T15:49:25Z
 lunya,7849298755627,43346798673963,mens-airy-cotton-piped-sleep-shirt-still-blue-deep-blue,Men's Airy Cotton Piped Sleep Shirt,Still Blue/Deep Blue / XL,8960,12800,true,2026-11-19T15:49:25Z
 lunya,7849298755627,43346798706731,mens-airy-cotton-piped-sleep-shirt-still-blue-deep-blue,Men's Airy Cotton Piped Sleep Shirt,Still Blue/Deep Blue / XXL,8960,12800,true,2026-11-20T15:30:59Z
 lunya,7849298788395,43346798739499,womens-washable-silk-sleep-shirt-dress-riviera-dot-iced-coffee,Washable Silk Sleep Shirt Dress,Riviera Dot/Iced Coffee / XS,15840,19800,true,2026-11-19T15:49:25Z
-lunya,7849298788395,43346798772267,womens-washable-silk-sleep-shirt-dress-riviera-dot-iced-coffee,Washable Silk Sleep Shirt Dress,Riviera Dot/Iced Coffee / S,15840,19800,false,2026-11-27T00:17:27Z
+lunya,7849298788395,43346798772267,womens-washable-silk-sleep-shirt-dress-riviera-dot-iced-coffee,Washable Silk Sleep Shirt Dress,Riviera Dot/Iced Coffee / S,15840,19800,true,2026-11-27T18:17:30Z
 lunya,7849298788395,43346798805035,womens-washable-silk-sleep-shirt-dress-riviera-dot-iced-coffee,Washable Silk Sleep Shirt Dress,Riviera Dot/Iced Coffee / M,15840,19800,true,2026-11-19T15:49:25Z
 lunya,7849298788395,43346798837803,womens-washable-silk-sleep-shirt-dress-riviera-dot-iced-coffee,Washable Silk Sleep Shirt Dress,Riviera Dot/Iced Coffee / L,15840,19800,true,2026-11-19T15:49:25Z
 lunya,7849298788395,43346798870571,womens-washable-silk-sleep-shirt-dress-riviera-dot-iced-coffee,Washable Silk Sleep Shirt Dress,Riviera Dot/Iced Coffee / XL,15840,19800,true,2026-11-19T15:49:25Z
@@ -5422,7 +5420,7 @@ lunya,7849298952235,43346799591467,womens-airy-cotton-short-market-check,Airy Co
 lunya,7849298952235,43346799624235,womens-airy-cotton-short-market-check,Airy Cotton Short,Market Check / M,4400,8800,true,2026-11-25T06:17:40Z
 lunya,7849298952235,43346799657003,womens-airy-cotton-short-market-check,Airy Cotton Short,Market Check / L,4400,8800,true,2026-11-25T06:17:40Z
 lunya,7849298952235,43346799689771,womens-airy-cotton-short-market-check,Airy Cotton Short,Market Check / XL,4400,8800,true,2026-11-25T06:17:40Z
-lunya,7849298985003,43346799722539,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / XS,8960,12800,true,2026-11-26T00:17:25Z
+lunya,7849298985003,43346799722539,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / XS,8960,12800,false,2026-11-27T18:17:30Z
 lunya,7849298985003,43346799755307,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / S,12800,,false,2026-11-26T00:17:25Z
 lunya,7849298985003,43346799788075,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / M,12800,,false,2026-11-26T00:17:25Z
 lunya,7849298985003,43346799820843,womens-washable-silk-side-stripe-short-lilac-bloom-deep-currant,Washable Silk Side Stripe Short,Lilac Bloom/Deep Currant / L,12800,,false,2026-11-26T00:17:25Z
@@ -5452,15 +5450,10 @@ lunya,7849299181611,43346800738347,womens-soft-modal-rib-curved-hem-tee-napping-
 lunya,7849299181611,43346800771115,womens-soft-modal-rib-curved-hem-tee-napping-dove-heather,Soft Modal Rib Curved Hem Tee,Napping Dove Heather / M,6160,8800,true,2026-11-25T06:17:40Z
 lunya,7849299181611,43346800803883,womens-soft-modal-rib-curved-hem-tee-napping-dove-heather,Soft Modal Rib Curved Hem Tee,Napping Dove Heather / L,6160,8800,true,2026-11-25T06:17:40Z
 lunya,7849299181611,43346800836651,womens-soft-modal-rib-curved-hem-tee-napping-dove-heather,Soft Modal Rib Curved Hem Tee,Napping Dove Heather / XL,6160,8800,true,2026-11-25T06:17:40Z
-lunya,7849299214379,43346801197099,womens-washable-silk-side-stripe-short-chili-pepper-soft-ivory,Washable Silk Side Stripe Short,Chili Pepper/Soft Ivory / XS,12800,,true,2026-11-26T18:17:23Z
-lunya,7849299214379,43346801229867,womens-washable-silk-side-stripe-short-chili-pepper-soft-ivory,Washable Silk Side Stripe Short,Chili Pepper/Soft Ivory / S,12800,,false,2026-11-26T18:17:23Z
-lunya,7849299214379,43346801262635,womens-washable-silk-side-stripe-short-chili-pepper-soft-ivory,Washable Silk Side Stripe Short,Chili Pepper/Soft Ivory / M,12800,,false,2026-11-26T18:17:23Z
-lunya,7849299214379,43346801295403,womens-washable-silk-side-stripe-short-chili-pepper-soft-ivory,Washable Silk Side Stripe Short,Chili Pepper/Soft Ivory / L,12800,,false,2026-11-26T18:17:23Z
-lunya,7849299214379,43346801328171,womens-washable-silk-side-stripe-short-chili-pepper-soft-ivory,Washable Silk Side Stripe Short,Chili Pepper/Soft Ivory / XL,12800,,false,2026-11-26T18:17:23Z
 lunya,7849299247147,43346800869419,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / XS,17440,21800,true,2026-11-19T15:49:25Z
 lunya,7849299247147,43346800902187,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / S,17440,21800,true,2026-11-19T15:49:25Z
-lunya,7849299247147,43346800934955,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / M,17440,21800,false,2026-11-27T00:17:27Z
-lunya,7849299247147,43346800967723,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / L,17440,21800,true,2026-11-19T15:49:25Z
+lunya,7849299247147,43346800934955,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / M,17440,21800,true,2026-11-27T18:17:30Z
+lunya,7849299247147,43346800967723,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / L,17440,21800,false,2026-11-27T18:17:30Z
 lunya,7849299247147,43346801000491,womens-washable-silk-tie-front-short-set-current-blue,Washable Silk Tie Front Short Set,Current Blue / XL,17440,21800,true,2026-11-19T15:49:25Z
 lunya,7849299279915,43346801033259,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / XS,28800,,false,2026-11-26T00:17:25Z
 lunya,7849299279915,43346801066027,womens-washable-silk-high-rise-pant-set-tranquil-white-frosted-lagoon,Washable Silk High Rise Pant Set,Tranquil White/Frosted Lagoon / S,28800,,false,2026-11-26T00:17:25Z
@@ -5495,11 +5488,11 @@ lunya,7849299476523,43346802311211,mens-washable-silk-button-up-short-set-garden
 lunya,7849299509291,43346802507819,womens-organic-cotton-seersucker-tank-deep-blue,Organic Cotton Seersucker Tank,Deep Blue / XS,6160,8800,true,2026-11-25T06:17:40Z
 lunya,7849299509291,43346802540587,womens-organic-cotton-seersucker-tank-deep-blue,Organic Cotton Seersucker Tank,Deep Blue / S,6160,8800,true,2026-11-25T06:17:40Z
 lunya,7849299509291,43346802573355,womens-organic-cotton-seersucker-tank-deep-blue,Organic Cotton Seersucker Tank,Deep Blue / M,6160,8800,true,2026-11-25T06:17:40Z
-lunya,7849299509291,43346802606123,womens-organic-cotton-seersucker-tank-deep-blue,Organic Cotton Seersucker Tank,Deep Blue / L,6160,8800,true,2026-11-25T06:17:40Z
+lunya,7849299509291,43346802606123,womens-organic-cotton-seersucker-tank-deep-blue,Organic Cotton Seersucker Tank,Deep Blue / L,6160,8800,false,2026-11-27T18:17:30Z
 lunya,7849299509291,43346802638891,womens-organic-cotton-seersucker-tank-deep-blue,Organic Cotton Seersucker Tank,Deep Blue / XL,6160,8800,true,2026-11-25T06:17:40Z
 lunya,7849299542059,43346802671659,womens-linen-embroidered-eyelet-tank-sincere-white,Linen Embroidered Eyelet Tank,Sincere White / XS,8960,12800,false,2026-11-19T15:49:25Z
 lunya,7849299542059,43346802704427,womens-linen-embroidered-eyelet-tank-sincere-white,Linen Embroidered Eyelet Tank,Sincere White / S,8960,12800,false,2026-11-25T06:17:40Z
-lunya,7849299542059,43346802737195,womens-linen-embroidered-eyelet-tank-sincere-white,Linen Embroidered Eyelet Tank,Sincere White / M,8960,12800,false,2026-11-26T12:17:30Z
+lunya,7849299542059,43346802737195,womens-linen-embroidered-eyelet-tank-sincere-white,Linen Embroidered Eyelet Tank,Sincere White / M,8960,12800,true,2026-11-27T18:17:30Z
 lunya,7849299542059,43346802769963,womens-linen-embroidered-eyelet-tank-sincere-white,Linen Embroidered Eyelet Tank,Sincere White / L,8960,12800,true,2026-11-19T15:49:25Z
 lunya,7849299542059,43346802802731,womens-linen-embroidered-eyelet-tank-sincere-white,Linen Embroidered Eyelet Tank,Sincere White / XL,8960,12800,false,2026-11-19T15:49:25Z
 lunya,7849299574827,43346802343979,womens-organic-pima-curved-hem-tank-dreamy-lilac-heather,Organic Pima Curved Hem Tank,Dreamy Lilac Heather / XS,5460,7800,true,2026-11-25T06:17:40Z
@@ -5535,7 +5528,7 @@ lunya,7849299804203,43346803621931,womens-organic-pima-tee-short-set-dreamy-lila
 lunya,7849299804203,43346803654699,womens-organic-pima-tee-short-set-dreamy-lilac-heather,Organic Pima Tee Short Set,Dreamy Lilac Heather / XL,10240,12800,true,2026-11-19T15:49:25Z
 lunya,7849299836971,43346804178987,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / S,8800,,true,2026-11-04T08:46:55Z
 lunya,7849299836971,43346804211755,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / M,8800,,true,2026-11-04T08:46:55Z
-lunya,7849299836971,43346804244523,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / L,8800,,true,2026-11-04T08:46:55Z
+lunya,7849299836971,43346804244523,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / L,8800,,true,2026-11-27T18:17:30Z
 lunya,7849299836971,43346804277291,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / XL,8800,,true,2026-11-24T06:17:30Z
 lunya,7849299836971,43346804310059,mens-washable-silk-boxer-garden-moss,Men's Washable Silk Boxer,Garden Moss / XXL,8800,,false,2026-11-14T13:36:42Z
 lunya,7849299869739,43346804015147,womens-washable-silk-bias-cami-pant-set-riviera-dot,Washable Silk Bias Cami Pant Set,Riviera Dot / XS,22240,27800,true,2026-11-19T15:49:25Z
@@ -5619,7 +5612,7 @@ lunya,7849300361259,43346806374443,womens-washable-silk-bias-midi-slip-dress-sum
 lunya,7849300394027,43346806734891,womens-washable-silk-tie-front-pant-set-current-blue,Washable Silk Tie Front Pant Set,Current Blue / XS,23840,29800,true,2026-11-19T15:49:25Z
 lunya,7849300394027,43346806767659,womens-washable-silk-tie-front-pant-set-current-blue,Washable Silk Tie Front Pant Set,Current Blue / S,23840,29800,true,2026-11-19T15:49:25Z
 lunya,7849300394027,43346806800427,womens-washable-silk-tie-front-pant-set-current-blue,Washable Silk Tie Front Pant Set,Current Blue / M,23840,29800,true,2026-11-19T15:49:25Z
-lunya,7849300394027,43346806833195,womens-washable-silk-tie-front-pant-set-current-blue,Washable Silk Tie Front Pant Set,Current Blue / L,23840,29800,true,2026-11-19T15:49:25Z
+lunya,7849300394027,43346806833195,womens-washable-silk-tie-front-pant-set-current-blue,Washable Silk Tie Front Pant Set,Current Blue / L,23840,29800,false,2026-11-27T12:17:22Z
 lunya,7849300394027,43346806865963,womens-washable-silk-tie-front-pant-set-current-blue,Washable Silk Tie Front Pant Set,Current Blue / XL,23840,29800,false,2026-11-19T15:49:25Z
 lunya,7849300426795,43346806898731,womens-the-graphic-tee-lunya-leisure-bone-lilac,The Graphic Tee,Lunya Leisure Bone/Lilac / S,4900,9800,true,2026-11-25T06:17:40Z
 lunya,7849300426795,43346806931499,womens-the-graphic-tee-lunya-leisure-bone-lilac,The Graphic Tee,Lunya Leisure Bone/Lilac / M,4900,9800,true,2026-11-25T06:17:40Z
@@ -5637,7 +5630,7 @@ lunya,7849300492331,43346807095339,womens-organic-pima-button-down-short-set-swe
 lunya,7849300492331,43346807128107,womens-organic-pima-button-down-short-set-sweet-sage,Organic Pima Button Down Short Set,Sweet Sage / L,11840,14800,true,2026-11-19T15:49:25Z
 lunya,7849300492331,43346807160875,womens-organic-pima-button-down-short-set-sweet-sage,Organic Pima Button Down Short Set,Sweet Sage / XL,11840,14800,true,2026-11-19T15:49:25Z
 lunya,7849300525099,43346807390251,womens-organic-cotton-seersucker-pant-deep-blue,Organic Cotton Seersucker Pant,Deep Blue / XS,14800,,true,2026-11-04T08:46:55Z
-lunya,7849300525099,43346807423019,womens-organic-cotton-seersucker-pant-deep-blue,Organic Cotton Seersucker Pant,Deep Blue / S,14800,,false,2026-11-26T18:17:23Z
+lunya,7849300525099,43346807423019,womens-organic-cotton-seersucker-pant-deep-blue,Organic Cotton Seersucker Pant,Deep Blue / S,14800,,true,2026-11-27T18:17:30Z
 lunya,7849300525099,43346807455787,womens-organic-cotton-seersucker-pant-deep-blue,Organic Cotton Seersucker Pant,Deep Blue / M,14800,,true,2026-11-04T08:46:55Z
 lunya,7849300525099,43346807488555,womens-organic-cotton-seersucker-pant-deep-blue,Organic Cotton Seersucker Pant,Deep Blue / L,14800,,true,2026-11-21T14:43:23Z
 lunya,7849300525099,43346807521323,womens-organic-cotton-seersucker-pant-deep-blue,Organic Cotton Seersucker Pant,Deep Blue / XL,14800,,true,2026-11-04T08:46:55Z
@@ -5653,7 +5646,7 @@ lunya,7849300590635,43346807816235,womens-organic-pima-curved-hem-tank-deep-blue
 lunya,7849300590635,43346807849003,womens-organic-pima-curved-hem-tank-deep-blue,Organic Pima Curved Hem Tank,Deep Blue / XL,7800,,true,2026-11-04T08:46:55Z
 lunya,7849300623403,43346808045611,womens-linen-embroidered-eyelet-short-whisper-blue,Linen Embroidered Eyelet Short,Whisper Blue / XS,10360,14800,true,2026-11-19T15:49:25Z
 lunya,7849300623403,43346808078379,womens-linen-embroidered-eyelet-short-whisper-blue,Linen Embroidered Eyelet Short,Whisper Blue / S,10360,14800,true,2026-11-19T15:49:25Z
-lunya,7849300623403,43346808111147,womens-linen-embroidered-eyelet-short-whisper-blue,Linen Embroidered Eyelet Short,Whisper Blue / M,10360,14800,true,2026-11-19T15:49:25Z
+lunya,7849300623403,43346808111147,womens-linen-embroidered-eyelet-short-whisper-blue,Linen Embroidered Eyelet Short,Whisper Blue / M,10360,14800,true,2026-11-27T18:17:30Z
 lunya,7849300623403,43346808143915,womens-linen-embroidered-eyelet-short-whisper-blue,Linen Embroidered Eyelet Short,Whisper Blue / L,10360,14800,true,2026-11-19T15:49:25Z
 lunya,7849300623403,43346808176683,womens-linen-embroidered-eyelet-short-whisper-blue,Linen Embroidered Eyelet Short,Whisper Blue / XL,10360,14800,true,2026-11-23T06:17:33Z
 lunya,7849300688939,43346808209451,womens-soft-modal-rib-curved-hem-tee-current-blue,Soft Modal Rib Curved Hem Tee,Current Blue / XS,6600,8800,true,2026-11-25T06:17:40Z
@@ -5672,7 +5665,7 @@ lunya,7849300754475,43346808766507,womens-organic-pima-wide-leg-pant-dreamy-lila
 lunya,7849300754475,43346808799275,womens-organic-pima-wide-leg-pant-dreamy-lilac-heather,Organic Pima Wide Leg Pant,Dreamy Lilac Heather / L,11840,14800,true,2026-11-19T15:49:25Z
 lunya,7849300754475,43346808832043,womens-organic-pima-wide-leg-pant-dreamy-lilac-heather,Organic Pima Wide Leg Pant,Dreamy Lilac Heather / XL,11840,14800,true,2026-11-19T15:49:25Z
 lunya,7849300787243,43346808537131,womens-washable-silk-tie-front-pant-set-delicate-pink,Washable Silk Tie Front Pant Set,Delicate Pink / XS,23840,29800,true,2026-11-19T15:49:25Z
-lunya,7849300787243,43346808569899,womens-washable-silk-tie-front-pant-set-delicate-pink,Washable Silk Tie Front Pant Set,Delicate Pink / S,23840,29800,false,2026-11-27T00:17:27Z
+lunya,7849300787243,43346808569899,womens-washable-silk-tie-front-pant-set-delicate-pink,Washable Silk Tie Front Pant Set,Delicate Pink / S,23840,29800,true,2026-11-27T18:17:30Z
 lunya,7849300787243,43346808602667,womens-washable-silk-tie-front-pant-set-delicate-pink,Washable Silk Tie Front Pant Set,Delicate Pink / M,23840,29800,false,2026-11-27T06:17:32Z
 lunya,7849300787243,43346808635435,womens-washable-silk-tie-front-pant-set-delicate-pink,Washable Silk Tie Front Pant Set,Delicate Pink / L,23840,29800,false,2026-11-19T15:49:25Z
 lunya,7849300787243,43346808668203,womens-washable-silk-tie-front-pant-set-delicate-pink,Washable Silk Tie Front Pant Set,Delicate Pink / XL,23840,29800,true,2026-11-19T15:49:25Z
@@ -5805,7 +5798,7 @@ lunya,8034572533803,44585904996395,womens-organic-pima-barrel-leg-desert-rose,Or
 lunya,8034572533803,44585905029163,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Short / S,11840,14800,true,2026-11-19T15:49:25Z
 lunya,8034572533803,44585905061931,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Regular / M,11840,14800,true,2026-11-19T15:49:25Z
 lunya,8034572533803,44585905094699,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Short / M,11840,14800,true,2026-11-19T15:49:25Z
-lunya,8034572533803,44585905127467,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Regular / L,11840,14800,false,2026-11-27T00:17:27Z
+lunya,8034572533803,44585905127467,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Regular / L,11840,14800,true,2026-11-27T18:17:30Z
 lunya,8034572533803,44585905160235,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Short / L,11840,14800,true,2026-11-19T15:49:25Z
 lunya,8034572533803,44585905193003,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Regular / XL,11840,14800,true,2026-11-24T06:17:30Z
 lunya,8034572533803,44585905225771,womens-organic-pima-barrel-leg-desert-rose,Organic Pima Barrel Leg Pant,Desert Rose / Short / XL,11840,14800,true,2026-11-19T15:49:25Z
@@ -5825,7 +5818,7 @@ lunya,8077943832619,45177823526955,womens-organic-pima-tee-short-set-soft-blush,
 lunya,8077943832619,45177823559723,womens-organic-pima-tee-short-set-soft-blush,Organic Pima Tee Short Set,Soft Blush / L,10240,12800,true,2026-11-19T15:49:25Z
 lunya,8077943832619,45177823592491,womens-organic-pima-tee-short-set-soft-blush,Organic Pima Tee Short Set,Soft Blush / XL,10240,12800,true,2026-11-19T15:49:25Z
 lunya,8077944029227,45177824608299,womens-organic-pima-wide-leg-pant-soft-blush,Organic Pima Wide Leg Pant,Soft Blush / XS,11840,14800,true,2026-11-26T00:17:25Z
-lunya,8077944029227,45177824641067,womens-organic-pima-wide-leg-pant-soft-blush,Organic Pima Wide Leg Pant,Soft Blush / S,11840,14800,false,2026-11-26T12:17:30Z
+lunya,8077944029227,45177824641067,womens-organic-pima-wide-leg-pant-soft-blush,Organic Pima Wide Leg Pant,Soft Blush / S,11840,14800,true,2026-11-27T18:17:30Z
 lunya,8077944029227,45177824673835,womens-organic-pima-wide-leg-pant-soft-blush,Organic Pima Wide Leg Pant,Soft Blush / M,11840,14800,true,2026-11-19T15:49:25Z
 lunya,8077944029227,45177824706603,womens-organic-pima-wide-leg-pant-soft-blush,Organic Pima Wide Leg Pant,Soft Blush / L,11840,14800,true,2026-11-19T15:49:25Z
 lunya,8077944029227,45177824739371,womens-organic-pima-wide-leg-pant-soft-blush,Organic Pima Wide Leg Pant,Soft Blush / XL,11840,14800,true,2026-11-19T15:49:25Z
@@ -5834,11 +5827,6 @@ lunya,8077944061995,45177824477227,womens-organic-pima-tee-short-set-rested-char
 lunya,8077944061995,45177824509995,womens-organic-pima-tee-short-set-rested-charcoal-heather,Organic Pima Tee Short Set,Rested Charcoal Heather / M,10240,12800,true,2026-11-19T15:49:25Z
 lunya,8077944061995,45177824542763,womens-organic-pima-tee-short-set-rested-charcoal-heather,Organic Pima Tee Short Set,Rested Charcoal Heather / L,10240,12800,true,2026-11-19T15:49:25Z
 lunya,8077944061995,45177824575531,womens-organic-pima-tee-short-set-rested-charcoal-heather,Organic Pima Tee Short Set,Rested Charcoal Heather / XL,10240,12800,true,2026-11-19T15:49:25Z
-lunya,8077944160299,45177825099819,womens-organic-pima-wide-leg-pant-rested-charcoal-heather,Organic Pima Wide Leg Pant,Rested Charcoal Heather / XS,11840,14800,false,2026-11-19T15:49:25Z
-lunya,8077944160299,45177825132587,womens-organic-pima-wide-leg-pant-rested-charcoal-heather,Organic Pima Wide Leg Pant,Rested Charcoal Heather / S,11840,14800,false,2026-11-24T06:17:30Z
-lunya,8077944160299,45177825165355,womens-organic-pima-wide-leg-pant-rested-charcoal-heather,Organic Pima Wide Leg Pant,Rested Charcoal Heather / M,11840,14800,false,2026-11-26T00:17:25Z
-lunya,8077944160299,45177825198123,womens-organic-pima-wide-leg-pant-rested-charcoal-heather,Organic Pima Wide Leg Pant,Rested Charcoal Heather / L,11840,14800,false,2026-11-23T06:17:33Z
-lunya,8077944160299,45177825230891,womens-organic-pima-wide-leg-pant-rested-charcoal-heather,Organic Pima Wide Leg Pant,Rested Charcoal Heather / XL,11840,14800,true,2026-11-19T15:49:25Z
 lunya,8077944324139,45177825919019,womens-organic-pima-button-down-ankle-pant-winter-berry-stripe,Organic Pima Button Down Ankle Pant Set,Winter Berry Stripe / XS,16800,,true,2026-11-11T14:28:24Z
 lunya,8077944324139,45177825951787,womens-organic-pima-button-down-ankle-pant-winter-berry-stripe,Organic Pima Button Down Ankle Pant Set,Winter Berry Stripe / S,16800,,true,2026-11-11T14:28:24Z
 lunya,8077944324139,45177825984555,womens-organic-pima-button-down-ankle-pant-winter-berry-stripe,Organic Pima Button Down Ankle Pant Set,Winter Berry Stripe / M,16800,,true,2026-11-11T14:28:24Z
@@ -6076,8 +6064,8 @@ nécessaire,6886420054129,40262282575985,copy-of-the-scalp-tool,The Scalp Tool,S
 nécessaire,6905542344817,40337130356849,the-hand-cream,The Hand Cream | Multi-Butter,Fragrance-Free / 65 ml,2800,,true,2026-11-04T08:46:55Z
 nécessaire,6905715884145,40337329684593,the-hand-retinol,The Hand Retinol | 0.25% Retinol,Fragrance-Free / 65 ml,4000,,true,2026-11-04T08:46:55Z
 nécessaire,6905745768561,40337389420657,the-hand-duo,The Hand Duo,Fragrance-Free,6800,,true,2026-11-20T15:30:59Z
-nécessaire,6935571136625,40414140170353,the-body-bar,The Body Cleanse Bar | Avena Sativa,Moss / 1 Bar,1500,,true,2026-11-04T08:46:55Z
-nécessaire,6935587881073,40414216323185,the-body-bar-trio,The Body Cleanse Bar Trio | Avena Sativa,Moss / 3 Bars,4500,,true,2026-11-20T15:30:59Z
+nécessaire,6935571136625,40414140170353,the-body-bar,The Body Cleanse Bar | Avena Sativa,Moss / 1 Bar,1500,,false,2026-11-27T18:17:30Z
+nécessaire,6935587881073,40414216323185,the-body-bar-trio,The Body Cleanse Bar Trio | Avena Sativa,Moss / 3 Bars,4500,,false,2026-11-27T18:17:30Z
 nécessaire,6965618999409,40542617403505,the-scalp-serum-trio-90-day-supply-5-capixyl,The Scalp Serum Trio | 90-Day Supply | 1% Hyaluronic Acid,3x 30 ml,14400,,true,2026-11-20T15:30:59Z
 nécessaire,6965629616241,40542662066289,the-hair-health-set-hyaluronic-acid-5-capixyl,The Scalp Essentials | Hyaluronic Acid | 5% Capixyl™,Fragrance-Free,11200,,true,2026-11-20T15:30:59Z
 nécessaire,6989194330225,40614357532785,rosemary-shampoo,Rosemary Shampoo | Multi-Protein,Rosemary / 250 ml,3200,,true,2026-11-04T08:46:55Z
@@ -6121,7 +6109,7 @@ nécessaire,7322579271793,41636547788913,the-body-duo,The Body Duo,Olibanum,9400
 nécessaire,7322579271793,41636547821681,the-body-duo,The Body Duo,Santal,9400,9400,true,2026-11-04T08:46:55Z
 nécessaire,7322579271793,41636547854449,the-body-duo,The Body Duo,Hinoki,9400,9400,false,2026-11-04T08:46:55Z
 nécessaire,7322579271793,41636547887217,the-body-duo,The Body Duo,Fragrance-Free,9400,9400,true,2026-11-24T06:17:30Z
-nécessaire,7322579271793,42445387956337,the-body-duo,The Body Duo,Cyprès-Citronné,9400,9400,true,2026-11-04T08:46:55Z
+nécessaire,7322579271793,42445387956337,the-body-duo,The Body Duo,Cyprès-Citronné,9400,9400,false,2026-11-27T12:17:22Z
 nécessaire,7327420776561,41652765458545,the-lip-balm-duo,The Lip Balm Duo,Mint / 2x 15 ml,5600,,true,2026-11-20T15:30:59Z
 nécessaire,7356946350193,41765824528497,rosemary-pump-shampoo-multi-protein,Rosemary Shampoo | Multi-Protein,Rosemary / 500 ml,5000,,true,2026-11-04T08:46:55Z
 nécessaire,7356963684465,41765857362033,rosemary-pump-conditioner-multi-protein,Rosemary Conditioner | Multi-Protein,Rosemary / 500 ml,5000,,true,2026-11-04T08:46:55Z
@@ -6129,8 +6117,8 @@ nécessaire,7356974792817,41765882986609,rosemary-pump-hair-duo-multi-protein,Ro
 nécessaire,7384141103217,42044664938609,the-soap-tray,The Soap Tray,Aluminum,6000,,true,2026-11-04T08:46:55Z
 nécessaire,7384141922417,42044696658033,the-tube-key,The Tube Key,Stainless Steel,2000,,true,2026-11-04T08:46:55Z
 nécessaire,7384147099761,42044901589105,new-tendency,The New Tendency Duo,Aluminum | Stainless Steel,8000,,true,2026-11-20T15:30:59Z
-nécessaire,7384150573169,42044975513713,bars-hand-key-tray,The New Tendency Complete Set,Aluminum | Stainless Steel,13800,,true,2026-11-24T06:17:30Z
-nécessaire,7384155291761,42045155737713,bars-tray,The Soap Bar Duo + The Soap Tray,Aluminum | Moss | Fragrance-Free,9000,,true,2026-11-24T06:17:30Z
+nécessaire,7384150573169,42044975513713,bars-hand-key-tray,The New Tendency Complete Set,Aluminum | Stainless Steel,13800,,false,2026-11-27T18:17:30Z
+nécessaire,7384155291761,42045155737713,bars-tray,The Soap Bar Duo + The Soap Tray,Aluminum | Moss | Fragrance-Free,9000,,false,2026-11-27T18:17:30Z
 nécessaire,7384158077041,42045284352113,hand-duo-keys,The Hand Duo + The Tube Keys,Stainless Steel | Fragrance-Free,10600,,true,2026-11-20T15:30:59Z
 nécessaire,7384166203505,42045414113393,hand-retinol-keys,The Hand Retinol + The Tube Key,Stainless Steel | Fragrance-Free,6000,,true,2026-11-20T15:30:59Z
 nécessaire,7384172429425,42045484466289,hand-cream-key,The Hand Cream + The Tube Key,Stainless Steel | Fragrance-Free,4800,,true,2026-11-20T15:30:59Z
@@ -6146,7 +6134,7 @@ nécessaire,7447667900529,42258994790513,the-body-wash-100-ml-multi-oil-olibanum
 nécessaire,7451422949489,42268752052337,dev-printed-gift-message-and-gift-wrap,Gift Box + Gift Note,Default Title,1200,,true,2026-11-04T08:46:55Z
 nécessaire,7470343159921,42333308813425,rosemary-shampoo-multi-protein-travel,Rosemary Shampoo | Multi-Protein | Travel,Rosemary / 100 ml,1500,,true,2026-11-04T08:46:55Z
 nécessaire,7470344470641,42333318742129,rosemary-conditioner-multi-protein-travel,Rosemary Conditioner | Multi-Protein | Travel,Rosemary / 100 ml,1500,,true,2026-11-04T08:46:55Z
-nécessaire,7479228596337,42372617470065,the-body-wash-pump-cypres-citronne,The Body Wash | Multi-Oil,Cyprès-Citronné / 500 ml,4200,,true,2026-11-04T08:46:55Z
+nécessaire,7479228596337,42372617470065,the-body-wash-pump-cypres-citronne,The Body Wash | Multi-Oil,Cyprès-Citronné / 500 ml,4200,,false,2026-11-27T12:17:22Z
 nécessaire,7479236427889,42372631036017,the-body-lotion-450-ml-cypres-citronne,The Body Lotion 450 ml | Multi-Peptide,Cyprès-Citronné / 450 ml,5200,,true,2026-11-04T08:46:55Z
 nécessaire,7481376571505,42380664275057,the-body-wash-discovery-collection-1,The Body Wash Discovery Collection,Eucalyptus | Santal | Hinoki | Olibanum,6000,,true,2026-11-04T08:46:55Z
 nécessaire,7509067366513,42676238581873,olibanum-eau-de-parfum,Eau de Parfum | Olibanum Gift Edition,Olibanum,6000,,true,2026-11-04T08:46:55Z
@@ -7369,7 +7357,7 @@ shokz,4606165549143,32327111671895,openmove,OpenMove,White,5495,7995,true,2026-1
 shokz,4606165549143,32327111704663,openmove,OpenMove,Grey,5495,7995,true,2026-11-19T15:49:25Z
 shokz,4606165549143,39847262585032,openmove,OpenMove,Blue,5495,7995,true,2026-11-19T15:49:25Z
 shokz,4606165549143,39847267991752,openmove,OpenMove,Pink,5495,7995,false,2026-11-19T15:49:25Z
-shokz,4635162378327,32379695202391,gift-bag,Gift Bag,Default Title,495,495,true,2026-11-25T06:17:40Z
+shokz,4635162378327,32379695202391,gift-bag,Gift Bag,Default Title,495,495,false,2026-11-27T12:17:22Z
 shokz,7187094700232,41378978267336,openrun,OpenRun,Black / Standard / Magnetic Induction,8995,12995,true,2026-11-19T15:49:25Z
 shokz,7187094700232,41378978332872,openrun,OpenRun,Blue / Standard / Magnetic Induction,8995,12995,true,2026-11-19T15:49:25Z
 shokz,7187094700232,41378978365640,openrun,OpenRun,Red / Standard / Magnetic Induction,8995,12995,false,2026-11-19T15:49:25Z
@@ -7767,7 +7755,7 @@ shokz,8333574439112,45152877510856,openfit-air-2,OpenFit Air 2,Ice Blue,8995,129
 shokz,8333979353288,45152908280008,openrun-air-2,OpenRun Air 2,Black / Standard,9995,12995,true,2026-11-19T15:49:25Z
 shokz,8333979353288,45152908312776,openrun-air-2,OpenRun Air 2,Ice Blue / Standard,9995,12995,true,2026-11-19T15:49:25Z
 shokz,8333979353288,45152908574920,openrun-air-2,OpenRun Air 2,Black / Mini,9995,12995,true,2026-11-19T15:49:25Z
-shokz,8333979353288,45152908607688,openrun-air-2,OpenRun Air 2,Ice Blue / Mini,9995,12995,true,2026-11-19T15:49:25Z
+shokz,8333979353288,45152908607688,openrun-air-2,OpenRun Air 2,Ice Blue / Mini,9995,12995,false,2026-11-27T18:17:30Z
 shokz,8335997993160,45168983998664,shokz-gift-box-copy,Shokz Stainless Steel Tumbler,Default Title,3995,3995,true,2026-11-04T08:46:55Z
 shokz,8343286808776,45215412289736,shokz-visor-cap,Shokz Visor Cap,Default Title,1995,1995,false,2026-11-04T08:46:55Z
 shokz,8343476109512,45216332513480,shokzsquad-foldable-water-bottle-copy,Foldable Water Bottle,Default Title,2995,2995,true,2026-11-04T08:46:55Z
@@ -7889,7 +7877,7 @@ skullcandy,7986575966265,44773521391673,mulberry-protection-1,Mulberry Protectio
 skullcandy,7986575966265,44773521424441,mulberry-protection-1,Mulberry Protection,"3 Year Protection Plan #486117",6499,,true,2026-11-04T08:46:55Z
 skullcandy,7988121665593,44796678864953,icon-180-wireless-headphones,Icon® 180,True Black,2999,4999,true,2026-11-16T15:53:26Z
 skullcandy,7988121665593,44796678897721,icon-180-wireless-headphones,Icon® 180,Bone,2999,4999,false,2026-11-16T15:53:26Z
-skullcandy,7988121665593,45585565286457,icon-180-wireless-headphones,Icon® 180,Future,2999,4999,true,2026-11-16T15:53:26Z
+skullcandy,7988121665593,45585565286457,icon-180-wireless-headphones,Icon® 180,Future,2999,4999,false,2026-11-27T18:17:30Z
 skullcandy,7988121665593,45585566629945,icon-180-wireless-headphones,Icon® 180,Cement,2999,4999,true,2026-11-16T15:53:26Z
 skullcandy,7988121665593,45585568071737,icon-180-wireless-headphones,Icon® 180,Crazy Pink,2999,4999,false,2026-11-20T15:30:59Z
 skullcandy,8021838889017,44879375761465,jib-usb-c,Jib® USB C,True Black,799,1499,true,2026-11-16T15:53:26Z
@@ -7934,6 +7922,7 @@ skullcandy,8311500865593,46077587750969,crusher-720-headphones,Crusher® 720,Pla
 skullcandy,8311500865593,46077605969977,crusher-720-headphones,Crusher® 720,Future,20999,,true,2026-11-16T15:53:26Z
 skullcandy,8311500865593,46077618749497,crusher-720-headphones,Crusher® 720,Cement,20999,,true,2026-11-16T15:53:26Z
 skullcandy,8311500865593,46077629366329,crusher-720-headphones,Crusher® 720,Primer,20999,,true,2026-11-16T15:53:26Z
+skullcandy,8311500865593,51003068383289,crusher-720-headphones,Crusher® 720,Leopard,22999,,true,2026-11-27T18:17:30Z
 skullcandy,8317667606585,46134514122809,icon-180-wired,Icon® 180 Wired,True Black,1899,,true,2026-11-04T08:46:55Z
 skullcandy,8317667606585,46134514155577,icon-180-wired,Icon® 180 Wired,Cement,1899,,true,2026-11-04T08:46:55Z
 skullcandy,8317667606585,46134514188345,icon-180-wired,Icon® 180 Wired,Crazy Pink,1899,,true,2026-11-04T08:46:55Z
@@ -9295,7 +9284,7 @@ soundcore-us,8623674556606,45620085489854,sleep-a30-foam-ear-tips-3-pair-set-sin
 soundcore-us,8623674556606,45620085522622,sleep-a30-foam-ear-tips-3-pair-set-single-size,Sleep A30 Foam Ear Tips 3-Pair Set (Single Size),Large,2499,,true,2026-11-04T08:46:55Z
 soundcore-us,8625955176638,45633475477694,space-a40-earbuds,Space A40,Navy Blue,9999,,true,2026-11-04T08:46:55Z
 soundcore-us,8633247629502,45655767646398,d1200-liberty-buds-wireless-semi-in-ear,Liberty Buds | Wireless Semi-in-Ear Earbuds with ANC,Light Blue,9999,,false,2026-11-16T15:53:26Z
-soundcore-us,8633912131774,45658493223102,a3388z11-89,Stylish Snowflake Accessory | Exclusive Design for soundcore AeroClip,Default Title,1999,,true,2026-11-04T08:46:55Z
+soundcore-us,8633912131774,45658493223102,a3388z11-89,Stylish Snowflake Accessory | Exclusive Design for soundcore AeroClip,Default Title,1999,,false,2026-11-27T18:17:30Z
 soundcore-us,8633912656062,45658494271678,a3388z11-87,Stylish Butterfly Accessory | Exclusive Design for soundcore AeroClip,Default Title,1999,,true,2026-11-05T09:41:31Z
 soundcore-us,8634295877822,45809871290558,d2151-nebula-x1-pro-4k-projector,soundcore Nebula X1 Pro 4K Projector | World's First Mobile Theater Station,Nebula X1 Pro,499900,,true,2026-11-04T08:46:55Z
 soundcore-us,8634295877822,46510481342654,d2151-nebula-x1-pro-4k-projector,soundcore Nebula X1 Pro 4K Projector | World's First Mobile Theater Station,"Outdoor Cinema Bundle (200"" Inflatable)",699800,,true,2026-11-04T08:46:55Z
@@ -9887,7 +9876,7 @@ soundcore-us,8777712369854,46660693852350,a1695-anker-power-bank-25000mah-165w,"
 soundcore-us,8777712369854,46660693885118,a1695-anker-power-bank-25000mah-165w,"Anker Laptop Power Bank (25K, 165W, Built-In and Retractable Cables)",Silver,11999,,true,2026-11-20T15:30:59Z
 soundcore-us,8777712468158,46660694114494,a83b3-anker-prime-charging-docking-station-14-in-1-triple-display-140w,"Anker Prime Docking Station (14-in-1, Triple Display, DisplayLink) with DL7400",Dark Gray (Standard Edition),29999,,false,2026-11-22T06:17:32Z
 soundcore-us,8777712500926,46660694180030,a110a-anker-prime-26k-300w-power-bank,"Anker Prime Power Bank (26K, 300W)",Default Title,22999,,true,2026-11-04T08:46:55Z
-soundcore-us,8777712566462,46660694245566,a2687-anker-prime-charger-160w-3-ports-gan,"Anker Prime Charger (160W, 3 Ports, Smart Display)",Default Title,14999,,true,2026-11-04T08:46:55Z
+soundcore-us,8777712566462,46660694245566,a2687-anker-prime-charger-160w-3-ports-gan,"Anker Prime Charger (160W, 3 Ports, Smart Display)",Default Title,14999,,false,2026-11-27T12:17:22Z
 soundcore-us,8777712599230,46660694278334,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Aurora White | 1-Pack,3999,,false,2026-11-11T14:28:24Z
 soundcore-us,8777712599230,46660694311102,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Black Stone | 1-Pack,3999,,true,2026-11-04T08:46:55Z
 soundcore-us,8777712599230,46660694343870,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Misty Blue | 1-Pack,3999,,true,2026-11-07T09:31:31Z
@@ -9900,7 +9889,7 @@ soundcore-us,8778826940606,46663609254078,b2933h11,"Anker Prime Wireless Car Cha
 soundcore-us,8778866360510,46663689601214,a88e2012,"Anker Prime USB-C to USB-C Cable (240W, Upcycled-Braided, 6 ft)",Default Title,3499,,true,2026-11-04T08:46:55Z
 soundcore-us,8779063558334,46664502608062,bundle-e8e00121-1-t8e00121-4,eufy PoE NVR Security System S4 Max + 4 PoE Cam S4 Add-Ons,Default Title,281999,,true,2026-11-04T08:46:55Z
 soundcore-us,8783644131518,46682889945278,eufy-familock-s3-max,eufy FamiLock S3 Max,Default Title,39999,,false,2026-11-04T08:46:55Z
-soundcore-us,8784162128062,46690468266174,anker-nano-power-strip-10-in-1-70w-clamp,"Anker Nano Power Strip (10-in-1, 70W, Clamp)",Black,6999,,true,2026-11-04T08:46:55Z
+soundcore-us,8784162128062,46690468266174,anker-nano-power-strip-10-in-1-70w-clamp,"Anker Nano Power Strip (10-in-1, 70W, Clamp)",Black,6999,,false,2026-11-27T18:17:30Z
 soundcore-us,8785443422398,46701277348030,d2070111,Nebula Projector Stand for P-Series & Universal Compatibility for More Projectors,Default Title,9999,,true,2026-11-04T08:46:55Z
 soundcore-us,8788705640638,46723491233982,d1203-liberty-5-pro-anc-earbuds-clear-calls,Liberty 5 Pro | Noise Cancelling Earbuds for Clear Calls,Midnight Black / soundcore Liberty 5 Pro,16999,,true,2026-11-04T08:46:55Z
 soundcore-us,8788705640638,46723491266750,d1203-liberty-5-pro-anc-earbuds-clear-calls,Liberty 5 Pro | Noise Cancelling Earbuds for Clear Calls,Pearl White / soundcore Liberty 5 Pro,16999,,true,2026-11-04T08:46:55Z
@@ -10128,11 +10117,11 @@ soundcore-us,9026111439038,49136845390014,aerofit-2-pro-refurbished,AeroFit 2 Pr
 soundcore-us,9026111439038,49136845422782,aerofit-2-pro-refurbished,AeroFit 2 Pro (Refurbished),Gloss White,17999,,false,2026-11-05T09:41:31Z
 soundcore-us,9026111439038,49136845455550,aerofit-2-pro-refurbished,AeroFit 2 Pro (Refurbished),Matte Purple,17999,,false,2026-11-22T06:17:32Z
 soundcore-us,9026111439038,49136845488318,aerofit-2-pro-refurbished,AeroFit 2 Pro (Refurbished),Gloss Blue,17999,,false,2026-11-05T09:41:31Z
-soundcore-us,9026606104766,49138045812926,d3200-soundcore-work-necklace,soundcore Work Necklace for soundcore Work AI Voice Recorder,Default Title,2999,,true,2026-11-20T15:30:59Z
+soundcore-us,9026606104766,49138045812926,d3200-soundcore-work-necklace,soundcore Work Necklace for soundcore Work AI Voice Recorder,Default Title,2999,,false,2026-11-27T18:17:30Z
 soundcore-us,9038301069502,49171531104446,x1s-speakers-screen,X1S+Speakers+Screen,Default Title,409900,,true,2026-11-04T08:46:55Z
 soundcore-us,9067022287038,49256284815550,d1406z11-98,Space 2 Pro Ear Cushions,Jet Black,1499,,true,2026-11-04T08:46:55Z
 soundcore-us,9067022287038,49256287895742,d1406z11-98,Space 2 Pro Ear Cushions,Midnight Grey,1499,,true,2026-11-04T08:46:55Z
-soundcore-us,9071704735934,49272675303614,d3200-soundcore-work-bracelet,soundcore Work Adjustable Wearable Bracelet for soundcore Work AI Voice Recorder,Default Title,2999,,false,2026-11-26T06:17:27Z
+soundcore-us,9071704735934,49272675303614,d3200-soundcore-work-bracelet,soundcore Work Adjustable Wearable Bracelet for soundcore Work AI Voice Recorder,Default Title,2999,,true,2026-11-27T18:17:30Z
 soundcore-us,9096593572030,49442038513854,d1301z21-81,Anker soundcore Eye Mask,Default Title,1999,,true,2026-11-04T08:46:55Z
 soundcore-us,9116210626750,49529573277886,soundcore-500-gift-card,soundcore $500 Gift Card,$500.00,50000,,true,2026-11-09T16:27:42Z
 soundcore-us,9116256272574,49529672007870,soundcore-800-gift-card,soundcore $800 Gift Card,$800.00,80000,,true,2026-11-09T16:27:42Z
@@ -10198,6 +10187,9 @@ state-liberty,6968797397073,40079623782481,solid-black-mock-turtleneck,Mock Turt
 state-liberty,6968797397073,40079623815249,solid-black-mock-turtleneck,Mock Turtleneck - Black,XL / Black,9200,,true,2026-11-04T08:46:55Z
 state-liberty,6968797397073,40079623848017,solid-black-mock-turtleneck,Mock Turtleneck - Black,2XL / Black,9200,,true,2026-11-04T08:46:55Z
 state-liberty,6968797397073,40079623880785,solid-black-mock-turtleneck,Mock Turtleneck - Black,3XL / Black,9200,,true,2026-11-04T08:46:55Z
+state-liberty,7078962757713,40334270890065,the-chaney-forest-green-gingham-made-to-order,"""The Chaney"" Forest Green Gingham","""The Chaney"" Forest Green Gingham / Standard / 1023",15000,,true,2026-11-27T18:17:30Z
+state-liberty,7084949995601,40348751331409,the-callahan-blue-and-white-mini-plaid-made-to-order,"""The Callahan"" Blue and White Mini Plaid","""The Callahan"" Blue and White Mini Plaid / Standard / 1019",15000,,true,2026-11-27T18:17:30Z
+state-liberty,7084950093905,40348751560785,the-charley-mint-green-gingham-made-to-order,"""The Charley"" Mint Green Gingham","""The Charley"" Mint Green Gingham / Standard / 1025",15000,,true,2026-11-27T18:17:30Z
 state-liberty,7084950192209,40348751659089,the-cullinan-purple-diamond-print-made-to-order,"""The Cullinan"" Purple Diamond Print","""The Cullinan"" Purple Diamond Print / Standard / 1030",15000,,true,2026-11-20T15:30:59Z
 state-liberty,7084950257745,40348751724625,the-dallas-green-gingham-made-to-order,"""The Dallas"" Green Gingham","""The Dallas"" Green Gingham / Standard / 1032",15000,,true,2026-11-04T08:46:55Z
 state-liberty,7084950683729,40348754411601,the-gunnar-grey-and-black-plaid-made-to-order,"""The Gunnar"" Grey and Black Plaid","""The Gunnar"" Grey and Black Plaid / Standard / 1049",15000,,true,2026-11-04T08:46:55Z
@@ -10222,12 +10214,12 @@ state-liberty,7357893967953,41143241474129,the-eisenhower-sport-shirt-navy-with-
 state-liberty,7560453324881,41628656926801,silk-tie-sage-green,Silk Tie - Sage Green,Default Title,5200,,true,2026-11-04T08:46:55Z
 state-liberty,7703350083665,42097331568721,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",XS / Navy Pinstripe,10500,,true,2026-11-04T08:46:55Z
 state-liberty,7703350083665,42097331601489,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",S / Navy Pinstripe,10500,,true,2026-11-04T08:46:55Z
-state-liberty,7703350083665,42097331634257,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",M / Navy Pinstripe,10500,,true,2026-11-04T08:46:55Z
+state-liberty,7703350083665,42097331634257,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",M / Navy Pinstripe,10500,,false,2026-11-27T18:17:30Z
 state-liberty,7703350083665,42097331667025,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",L / Navy Pinstripe,10500,,false,2026-11-16T15:53:26Z
-state-liberty,7703350083665,42097331699793,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",XL / Navy Pinstripe,10500,,true,2026-11-25T06:17:40Z
+state-liberty,7703350083665,42097331699793,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",XL / Navy Pinstripe,10500,,false,2026-11-27T18:17:30Z
 state-liberty,7703350083665,42097331732561,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",2XL / Navy Pinstripe,10500,,true,2026-11-04T08:46:55Z
 state-liberty,7703350083665,42097331765329,the-hugo-navy-pinstripe,"""The Hugo"" Navy Pinstripe",3XL / Navy Pinstripe,10500,,true,2026-11-04T08:46:55Z
-state-liberty,7741319675985,42265741066321,silk-pre-tied-bow-tie-black,Silk Pre-Tied Bow Tie - Black,Default Title,4200,,true,2026-11-18T15:44:26Z
+state-liberty,7741319675985,42265741066321,silk-pre-tied-bow-tie-black,Silk Pre - Tied Bowtie - Black,Default Title,4200,,true,2026-11-18T15:44:26Z
 state-liberty,7773632823377,42394792525905,quarter-zip-solid-dark-green,Quarter Zip - Solid Dark Green,S / Solid Dark Green,11800,,true,2026-11-04T08:46:55Z
 state-liberty,7773632823377,42394792558673,quarter-zip-solid-dark-green,Quarter Zip - Solid Dark Green,M / Solid Dark Green,11800,,true,2026-11-04T08:46:55Z
 state-liberty,7773632823377,42394792591441,quarter-zip-solid-dark-green,Quarter Zip - Solid Dark Green,L / Solid Dark Green,11800,,true,2026-11-04T08:46:55Z
@@ -10271,7 +10263,7 @@ state-liberty,7856706289745,42897830936657,athletic-fit-stretch-blazer-heathered
 state-liberty,7856706289745,42897830969425,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,42 Short / Heathered Forest Green,48000,,false,2026-11-20T15:30:59Z
 state-liberty,7856706289745,42897831002193,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,44 / Heathered Forest Green,48000,,false,2026-11-08T13:29:52Z
 state-liberty,7856706289745,42897831034961,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,44 Short / Heathered Forest Green,48000,,false,2026-11-15T13:59:11Z
-state-liberty,7856706289745,42897831067729,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,46 / Heathered Forest Green,48000,,false,2026-11-16T15:53:26Z
+state-liberty,7856706289745,42897831067729,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,46 / Heathered Forest Green,48000,,true,2026-11-27T18:17:30Z
 state-liberty,7856706289745,42897831100497,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,46 Short / Heathered Forest Green,48000,,false,2026-11-04T08:46:55Z
 state-liberty,7856706289745,42897831133265,athletic-fit-stretch-blazer-heathered-forest-green-1,Athletic Fit Stretch Blazer - Heathered Forest Green,48 / Heathered Forest Green,48000,,true,2026-11-04T08:46:55Z
 state-liberty,7856715268177,42897904009297,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,28W | 28-30L / Deep Olive,18000,,true,2026-11-04T08:46:55Z
@@ -10281,7 +10273,7 @@ state-liberty,7856715268177,42897904107601,athletic-fit-stretch-suit-pants-deep-
 state-liberty,7856715268177,42897904140369,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,32W | 33-35L / Deep Olive,18000,,true,2026-11-04T08:46:55Z
 state-liberty,7856715268177,42897904173137,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,33W | 34-36L / Deep Olive,18000,,true,2026-11-04T08:46:55Z
 state-liberty,7856715268177,42897904205905,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,34W | 34-36L / Deep Olive,18000,,false,2026-11-18T15:44:26Z
-state-liberty,7856715268177,42897904238673,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,36W | 34-36L / Deep Olive,18000,,false,2026-11-26T18:17:23Z
+state-liberty,7856715268177,42897904238673,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,36W | 34-36L / Deep Olive,18000,,true,2026-11-27T18:17:30Z
 state-liberty,7856715268177,42897904271441,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,38W | 34-36L / Deep Olive,18000,,true,2026-11-04T08:46:55Z
 state-liberty,7856715268177,42897904304209,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,40W | 34-36L / Deep Olive,18000,,true,2026-11-04T08:46:55Z
 state-liberty,7856715268177,42897904336977,athletic-fit-stretch-suit-pants-deep-olive,Athletic Fit Stretch Suit Pants - Deep Olive,42W | 34-36L / Deep Olive,18000,,false,2026-11-08T13:29:52Z
@@ -10392,12 +10384,6 @@ state-liberty,15652056334417,58578669568081,corduroy-knit-zip-jacket-navy,Cordur
 state-liberty,15652056334417,58578669600849,corduroy-knit-zip-jacket-navy,Corduroy Knit Zip Jacket - Navy,XL / Navy,28500,,true,2026-11-04T08:46:55Z
 state-liberty,15652056334417,58578669633617,corduroy-knit-zip-jacket-navy,Corduroy Knit Zip Jacket - Navy,XXL / Navy,28500,,true,2026-11-04T08:46:55Z
 state-liberty,15652056334417,58578669666385,corduroy-knit-zip-jacket-navy,Corduroy Knit Zip Jacket - Navy,3XL / Navy,28500,,true,2026-11-04T08:46:55Z
-state-liberty,15652313006161,58579109806161,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",S / White with Lilac Stripe,10500,,true,2026-11-17T16:05:36Z
-state-liberty,15652313006161,58579109838929,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",M / White with Lilac Stripe,10500,,false,2026-11-04T08:46:55Z
-state-liberty,15652313006161,58579109871697,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",L / White with Lilac Stripe,10500,,true,2026-11-04T08:46:55Z
-state-liberty,15652313006161,58579109904465,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",XL / White with Lilac Stripe,10500,,true,2026-11-04T08:46:55Z
-state-liberty,15652313006161,58579109937233,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",2XL / White with Lilac Stripe,10500,,true,2026-11-04T08:46:55Z
-state-liberty,15652313006161,58579109970001,the-arlington-sport-shirt-white-with-lilac-stripe,"""The Arlington"" Sport Shirt - White with Lilac Stripe",3XL / White with Lilac Stripe,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15652313825361,58579121143889,the-lawrence-sport-shirt-light-blue-with-navy-windowpane,"""The Lawrence"" Sport Shirt - Light Blue with Navy Windowpane",S / Light Blue with Navy Windowpane,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15652313825361,58579121176657,the-lawrence-sport-shirt-light-blue-with-navy-windowpane,"""The Lawrence"" Sport Shirt - Light Blue with Navy Windowpane",M / Light Blue with Navy Windowpane,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15652313825361,58579121209425,the-lawrence-sport-shirt-light-blue-with-navy-windowpane,"""The Lawrence"" Sport Shirt - Light Blue with Navy Windowpane",L / Light Blue with Navy Windowpane,10500,,true,2026-11-04T08:46:55Z
@@ -10500,7 +10486,7 @@ state-liberty,15706955415633,59128817418321,athletic-fit-stretch-suit-pants-soli
 state-liberty,15706956103761,59128820596817,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,S / Black Diamond Geo,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15706956103761,59128820629585,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,M / Black Diamond Geo,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15706956103761,59128820662353,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,L / Black Diamond Geo,10500,,true,2026-11-04T08:46:55Z
-state-liberty,15706956103761,59128820695121,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,XL / Black Diamond Geo,10500,,true,2026-11-04T08:46:55Z
+state-liberty,15706956103761,59128820695121,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,XL / Black Diamond Geo,10500,,false,2026-11-27T18:17:30Z
 state-liberty,15706956103761,59128820727889,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,2XL / Black Diamond Geo,10500,,true,2026-11-25T06:17:40Z
 state-liberty,15706956103761,59128820760657,the-andy-black-diamond-geo,''The Andy'' Black Diamond Geo,3XL / Black Diamond Geo,10500,,false,2026-11-04T08:46:55Z
 state-liberty,15706956267601,59128821940305,the-robin-light-blue-mini-diamond-jacquard,''The Robin'' Light Blue Mini Diamond Jacquard,S / Light Blue Mini Diamond Jacquard,10500,,true,2026-11-04T08:46:55Z
@@ -10512,7 +10498,7 @@ state-liberty,15706956267601,59128822104145,the-robin-light-blue-mini-diamond-ja
 state-liberty,15706956333137,59128822169681,the-thorpe-light-blue-brown-faded-cross-stripe,''The Thorpe'' Light Blue & Brown Faded Cross Stripe,S / Light Blue & Brown Faded Cross Stripe,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15706956333137,59128822202449,the-thorpe-light-blue-brown-faded-cross-stripe,''The Thorpe'' Light Blue & Brown Faded Cross Stripe,M / Light Blue & Brown Faded Cross Stripe,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15706956333137,59128822235217,the-thorpe-light-blue-brown-faded-cross-stripe,''The Thorpe'' Light Blue & Brown Faded Cross Stripe,L / Light Blue & Brown Faded Cross Stripe,10500,,true,2026-11-04T08:46:55Z
-state-liberty,15706956333137,59128822267985,the-thorpe-light-blue-brown-faded-cross-stripe,''The Thorpe'' Light Blue & Brown Faded Cross Stripe,XL / Light Blue & Brown Faded Cross Stripe,10500,,true,2026-11-04T08:46:55Z
+state-liberty,15706956333137,59128822267985,the-thorpe-light-blue-brown-faded-cross-stripe,''The Thorpe'' Light Blue & Brown Faded Cross Stripe,XL / Light Blue & Brown Faded Cross Stripe,10500,,false,2026-11-27T18:17:30Z
 state-liberty,15706956333137,59128822300753,the-thorpe-light-blue-brown-faded-cross-stripe,''The Thorpe'' Light Blue & Brown Faded Cross Stripe,2XL / Light Blue & Brown Faded Cross Stripe,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15706956333137,59128822333521,the-thorpe-light-blue-brown-faded-cross-stripe,''The Thorpe'' Light Blue & Brown Faded Cross Stripe,3XL / Light Blue & Brown Faded Cross Stripe,10500,,true,2026-11-18T15:44:26Z
 state-liberty,15706956431441,59128822431825,the-murray-heathered-light-grey-plaid,''The Murray'' Heathered Light Grey Plaid,S / Heathered Light Grey Plaid,10500,,true,2026-11-04T08:46:55Z
@@ -10682,7 +10668,7 @@ state-liberty,15769251577937,59393927708753,athletic-fit-stretch-suit-vest-heath
 state-liberty,15769251577937,59393927741521,athletic-fit-stretch-suit-vest-heathered-blue,Athletic Fit Stretch Suit Vest - Heathered Blue,48 / Heathered Blue,12500,,true,2026-11-04T08:46:55Z
 state-liberty,15769251872849,59393929248849,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,S / Light Grey,11800,,false,2026-11-26T00:17:25Z
 state-liberty,15769251872849,59393929281617,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,M / Light Grey,11800,,true,2026-11-04T08:46:55Z
-state-liberty,15769251872849,59393929314385,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,L / Light Grey,11800,,true,2026-11-04T08:46:55Z
+state-liberty,15769251872849,59393929314385,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,L / Light Grey,11800,,false,2026-11-27T18:17:30Z
 state-liberty,15769251872849,59393929347153,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,XL / Light Grey,11800,,true,2026-11-04T08:46:55Z
 state-liberty,15769251872849,59393929379921,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,2XL / Light Grey,11800,,true,2026-11-04T08:46:55Z
 state-liberty,15769251872849,59393929412689,mid-weight-ribbed-quarter-zip-grey,Mid-Weight Ribbed Quarter Zip - Light Grey,3XL / Light Grey,11800,,true,2026-11-04T08:46:55Z
@@ -10799,7 +10785,7 @@ state-liberty,15770067206225,59396971397201,athletic-fit-stretch-blazer-brown-ta
 state-liberty,15770067206225,59396971429969,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,48 / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770067206225,59396971462737,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,38 Short / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
 state-liberty,15770067206225,59396971495505,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,40 Short / Brown & Tan Windowpane,55000,,true,2026-11-04T08:46:55Z
-state-liberty,15770067206225,59396971528273,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,42 Short / Brown & Tan Windowpane,55000,,true,2026-11-18T15:44:26Z
+state-liberty,15770067206225,59396971528273,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,42 Short / Brown & Tan Windowpane,55000,,false,2026-11-27T18:17:30Z
 state-liberty,15770067206225,59396971561041,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,44 Short / Brown & Tan Windowpane,55000,,false,2026-11-23T06:17:33Z
 state-liberty,15770067206225,59396971593809,athletic-fit-stretch-blazer-brown-tan-windowpane,Athletic Fit Stretch Blazer - Brown & Tan Windowpane,46 Short / Brown & Tan Windowpane,55000,,false,2026-11-07T09:31:31Z
 state-liberty,15770067664977,59396973330513,athletic-fit-stretch-blazer-cream-plaid,Athletic Fit Stretch Blazer - Cream Plaid,36 / Cream Plaid,55000,,true,2026-11-04T08:46:55Z
@@ -10891,7 +10877,7 @@ state-liberty,15771763540049,59406287339601,the-prescott-abstract-black-and-grey
 state-liberty,15771763540049,59406287372369,the-prescott-abstract-black-and-grey-houndstooth,"""The Prescott"" Abstract Black and Grey Houndstooth",L / Black and Grey Houndstooth,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15771763540049,59406287405137,the-prescott-abstract-black-and-grey-houndstooth,"""The Prescott"" Abstract Black and Grey Houndstooth",XL / Black and Grey Houndstooth,10500,,false,2026-11-26T00:17:25Z
 state-liberty,15771763540049,59406287437905,the-prescott-abstract-black-and-grey-houndstooth,"""The Prescott"" Abstract Black and Grey Houndstooth",2XL / Black and Grey Houndstooth,10500,,true,2026-11-25T06:17:40Z
-state-liberty,15771763540049,59406287470673,the-prescott-abstract-black-and-grey-houndstooth,"""The Prescott"" Abstract Black and Grey Houndstooth",3XL / Black and Grey Houndstooth,10500,,false,2026-11-24T06:17:30Z
+state-liberty,15771763540049,59406287470673,the-prescott-abstract-black-and-grey-houndstooth,"""The Prescott"" Abstract Black and Grey Houndstooth",3XL / Black and Grey Houndstooth,10500,,true,2026-11-27T18:17:30Z
 state-liberty,15771763540049,63628918882385,the-prescott-abstract-black-and-grey-houndstooth,"""The Prescott"" Abstract Black and Grey Houndstooth",XS / Black and Grey Houndstooth,10500,,false,2026-11-21T14:43:23Z
 state-liberty,15771763867729,59406288781393,the-longshore-green-grey-crosshatch-windowpane,"""The Longshore"" Sport Shirt - Green and Grey Cross Hatch Windowpane",S / Green and Grey Cross Hatch Windowpane,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15771763867729,59406288814161,the-longshore-green-grey-crosshatch-windowpane,"""The Longshore"" Sport Shirt - Green and Grey Cross Hatch Windowpane",M / Green and Grey Cross Hatch Windowpane,10500,,true,2026-11-04T08:46:55Z
@@ -10941,18 +10927,6 @@ state-liberty,15826146656337,59566011940945,cotton-denim-dress-shirt-navy,Cotton
 state-liberty,15826146656337,59566011973713,cotton-denim-dress-shirt-navy,Cotton Denim Dress Shirt - Navy,XL / Navy,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15826146656337,59566012006481,cotton-denim-dress-shirt-navy,Cotton Denim Dress Shirt - Navy,2XL / Navy,10500,,true,2026-11-04T08:46:55Z
 state-liberty,15826146656337,59566012039249,cotton-denim-dress-shirt-navy,Cotton Denim Dress Shirt - Navy,3XL / Navy,10500,,true,2026-11-04T08:46:55Z
-state-liberty,15826147475537,59566020952145,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,S / Solid Dark Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826147475537,59566020984913,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,M / Solid Dark Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826147475537,59566021017681,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,L / Solid Dark Green,9200,,false,2026-11-14T13:36:42Z
-state-liberty,15826147475537,59566021050449,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,XL / Solid Dark Green,9200,,false,2026-11-04T08:46:55Z
-state-liberty,15826147475537,59566021083217,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,2XL / Solid Dark Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826147475537,59566021115985,the-gino-solid-dark-olive-green,''The Gino'' - Solid Dark Olive Green,3XL / Solid Dark Green,9200,,false,2026-11-04T08:46:55Z
-state-liberty,15826150260817,59566047264849,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,S / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826150260817,59566047297617,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,M / Solid Sage Green,9200,,true,2026-11-04T08:46:55Z
-state-liberty,15826150260817,59566047330385,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,L / Solid Sage Green,9200,,false,2026-11-25T06:17:40Z
-state-liberty,15826150260817,59566047363153,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,XL / Solid Sage Green,9200,,false,2026-11-07T09:31:31Z
-state-liberty,15826150260817,59566047395921,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,2XL / Solid Sage Green,9200,,false,2026-11-27T06:17:32Z
-state-liberty,15826150260817,59566047428689,the-kirkway-solid-sage-green,''The Kirkway'' - Solid Sage Green,3XL / Solid Sage Green,9200,,false,2026-11-10T14:57:00Z
 state-liberty,15826150654033,59566050607185,the-robert-pale-blue,''The Robert'' - Pale Blue,S / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050639953,the-robert-pale-blue,''The Robert'' - Pale Blue,M / Pale Blue,9200,,true,2026-11-04T08:46:55Z
 state-liberty,15826150654033,59566050672721,the-robert-pale-blue,''The Robert'' - Pale Blue,L / Pale Blue,9200,,true,2026-11-17T16:05:36Z
@@ -11680,7 +11654,7 @@ year-day,15206488801651,64643805086067,pitcher-1,Pitcher,Canyon,3280,8200,true,2
 year-day,15206488801651,64643813867891,pitcher-1,Pitcher,Daybreak,3280,8200,true,2026-11-04T08:46:55Z
 year-day,15206488801651,64643813900659,pitcher-1,Pitcher,Fog,3280,8200,true,2026-11-04T08:46:55Z
 year-day,15206488801651,64643813933427,pitcher-1,Pitcher,Midnight,3280,8200,true,2026-11-04T08:46:55Z
-year-day,15206490833267,62213739086195,rectangular-baker-1,Rectangular Baker,Fog,5360,13400,true,2026-11-04T08:46:55Z
+year-day,15206490833267,62213739086195,rectangular-baker-1,Rectangular Baker,Fog,5360,13400,false,2026-11-27T18:17:30Z
 year-day,15206490833267,62213739118963,rectangular-baker-1,Rectangular Baker,Midnight,5360,13400,false,2026-11-04T08:46:55Z
 year-day,15206492209523,62213744689523,small-plates,Small Plates,Lagoon,2480,6200,true,2026-11-04T08:46:55Z
 year-day,15206495781235,62213749735795,treat-plates-1,Treat Plates,Lagoon,2080,5200,true,2026-11-04T08:46:55Z
