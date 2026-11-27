@@ -178,7 +178,8 @@ Whole-word keyword screen over product title, type and tags (no descriptions are
 read). One match flags the store; up to three matching titles are kept as
 evidence. A short allow-list removes known harmless phrases ("wine glass"). The
 screen runs in recon and in every daily run (a flagged store is stopped and an
-alert raised).
+alert raised). Superseded in part by D-039: since screen v2, tags are not read and a
+match counts only when the product is the excluded thing.
 
 ## D-012 - Alerts (2026-11-03)
 
@@ -651,3 +652,57 @@ Medium finding is fixed, with tests in `tests/test_review_fixes.py`.
   returns gets a new number (numbers are never reused, D-036); retired stores are
   matched by config id, which is enough while no store is shown by number.
 
+
+## D-039 - Content screen v2: a store is excluded only for a product it really sells (2026-11-27, owner request)
+
+Evidence from `recon-005` and `recon-006` (`content_flags` in `recon.json`): safe-Terms
+stores were excluded because a word matched inside a title that is not an excluded
+product, a colour ("Pouch - Wine/Gold", "Hiapo - Rum / Dark Wood"), a scent
+("Sandalwood & Tobacco Musk"), merch ("Black Seal Rum T-Shirt", "Rifle Patch ...
+Snapback Hat", "THC Black Tee"), a homeware or tech object ("Wine Coaster", "Cigarette
+Lighter Socket Splitter"), a dog toy ("Barking Beer"); and Derma E and Scotch Porter
+were flagged on titles with no excluded word at all ("Ultra Hydrating Day Cream", "Leave-In
+Beard Conditioner"). Those matches came from product **tags**, which v1 read and did not
+record: Shopify tags carry colour filters ("Tobacco" for brown suede, the same cause
+as Nisolo's "Huarache Slip On Brown") and marketing terms such as "CBD-free".
+
+The rule (`src/pricemon/screen.py`, `SCREEN_VERSION = 2`), simplest that fits every
+case above:
+
+- **Fields:** title and `product_type` only; tags are not read.
+- **Negations never count:** "CBD-free", "non-alcoholic", "Non-CBD".
+- **Colourway:** a word only in the short variant tail of a title (after " - ", " | ",
+  "{" or " in ", at most four words, no quantity such as "750 ml" or "40%") does not
+  count.
+- **Merch:** a tee, shirt, hat, cap, sticker, patch, poster, toy and the like carrying
+  the word does not count.
+- **Objects:** for alcohol, tobacco and weapons words, a coaster, glass, flask,
+  stopper, candle, scent, lotion, coffee, charger, socket, cable, case, strap, boot,
+  leather and the like does not count. The noun must sit outside the matched phrase,
+  so "Pepper Spray" is not excused by "spray".
+- **Always counts:** adult phrases (no exemption at all); CBD and cannabis words and
+  the strict words nicotine, e-liquid, vape and vaping on any object ("CBD Body
+  Lotion", "Nicotine Pouches"), excused only by merch and negations.
+- **Plurals match** ("Premium Cigars", "Rifles"): v1 missed them.
+- One real product is still enough to exclude a store; there is no catalog-share
+  threshold.
+
+Real titles from the evidence are regression tests in both directions
+(`tests/test_screen.py`): 22 false positives pass, 20 real alcohol, tobacco/vape,
+CBD, weapons and adult products are still flagged, and one real product among false
+positives still flags its store.
+
+Recon rows now record `screen_version` and `content_evidence` (the field and word
+that fired), and a later row screened by a newer version supersedes the content flags
+of earlier rows (`sources.StoreRecord.drop_reasons`); flags from runs of the same
+version still drop a store if any run has them. Reviews in `config/screen-review.yml`
+(D-016) stay valid and are still honoured.
+
+Scope, by the owner: only `no_ban` and `none_found` stores whose sole drop reason was
+"excluded category" are re-checked, by a recon run with the same politeness and the
+Terms field. A store that also failed on something else stays out: "catalog too
+large" (Kiel James Patrick, OluKai, Kassatex, Bear KompleX; the variant cap is not
+changed, F1-SCALE) or a 429 retry (D-004). A store whose terms are `ban` is never
+added (D-036). On the stores monitored today, v2 over their current titles finds only
+one hit, which is already reviewed, so the daily run excludes no store it did not
+exclude before.

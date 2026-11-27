@@ -67,7 +67,9 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
 - Store prices, compare-at prices, availability and identifiers (ids, handle,
   product and variant title). **Never** images or product descriptions.
 - Stores selling adult, tobacco/vape, alcohol, cannabis/CBD or weapons products
-  are excluded (content screen in `src/pricemon/screen.py`).
+  are excluded (content screen v2 in `src/pricemon/screen.py`, D-039: title and
+  product type, a match counts only when the product is the excluded thing; one real
+  product excludes the store).
 - Terms of Service (D-031): recon reads `/policies/terms-of-service` once per store
   (at most 2 requests, only where robots.txt allows it) and records `terms`: `ban`,
   `no_ban` or `none_found`. Only `no_ban` and `none_found` stores are monitored

@@ -24,8 +24,12 @@ has published.
 8. `main` fast-forwarded on 27 Nov 19:14 UTC - `done`. The dashboard on Pages deploys
    only from `main`: one run dispatched on `main` after recon-007 publishes it - `todo`.
 9. Fresh review, High and Medium fixed (D-038) - `done`.
-10. Grow toward about 150 stores (about 15 per category), never a `ban`: recon-008 on for
-    the thin categories (apparel, toys & kids, tech accessories) - `todo`.
+10. Grow toward about 150 stores (about 15 per category), never a `ban`: recon-008 (queued) for
+    the thin categories (apparel, toys & kids, tech accessories, fitness) - `in progress`.
+11. Content screen v2 (D-039): colours, scents, merch, objects, tags and negations
+    no longer exclude a store; real products still do - `done` (tests in
+    `tests/test_screen.py`). Re-check of the safe-Terms stores that failed only on
+    "excluded category" - `todo`: one recon after recon-008 has started.
 
 Status: `done`, `in progress`, `todo`, `blocked`. Update after every item. Each
 item says how to verify it.
