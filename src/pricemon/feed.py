@@ -27,8 +27,9 @@ from typing import Any
 
 import yaml
 
+from pricemon.display import load_display
 from pricemon.outputs import build_status, iso, read_runs
-from pricemon.stores import load_stores
+from pricemon.stores import category_title, load_stores
 
 SCHEMA = "steadydata.feed/v1"
 MONITOR_ID = "ecommerce-price-monitor"
@@ -47,13 +48,6 @@ DAILY_EVENTS = (
     "removed",
 )
 ROOT = Path(__file__).resolve().parents[2]
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 
 
 def checks(run: dict[str, Any]) -> dict[str, Any]:
@@ -104,20 +98,30 @@ def daily(runs: list[dict[str, Any]], days: int = DAILY_DAYS) -> list[dict[str, 
 
     The baseline is the first good run: it records every row as ``new``, which is a
     starting point, not a change. Several good runs on one date are summed;
-    ``rows_live`` is that of the date's last good run.
+    ``rows_live`` is that of the date's last good run. ``baseline_rows`` (added with
+    F1-EXPAND) counts the ``new`` rows of stores read for the first time that day: a
+    starting point for those stores, included in ``new``.
     """
     good = [r for r in runs if r.get("status") in GOOD]
     by_date: dict[str, dict[str, Any]] = {}
     for r in good[1:]:
         date = str(r["started_at"])[:10]
         row = by_date.setdefault(
-            date, {"date": date, "runs": 0, "rows_live": 0, **dict.fromkeys(DAILY_EVENTS, 0)}
+            date,
+            {
+                "date": date,
+                "runs": 0,
+                "rows_live": 0,
+                **dict.fromkeys(DAILY_EVENTS, 0),
+                "baseline_rows": 0,
+            },
         )
         row["runs"] += 1
         row["rows_live"] = int(r.get("rows_live") or 0)
         events = r.get("events") or {}
         for key in DAILY_EVENTS:
             row[key] += int(events.get(key) or 0)
+        row["baseline_rows"] += int(r.get("baseline_rows") or 0)
     return [by_date[d] for d in sorted(by_date)][-days:]
 
 
@@ -162,7 +166,9 @@ def build_feed(
     last = good[-1]
     stores_path = stores_path or ROOT / "config" / "stores.yml"
     stores = load_stores(stores_path) if stores_path.exists() else []
-    pub = _public(public_path or ROOT / "config" / "public.yml")
+    public_path = public_path or ROOT / "config" / "public.yml"
+    pub = _public(public_path)
+    display = load_display(stores_path, public_path)
     repo = pub.get("repo", f"siddharthkumarx/{MONITOR_ID}")
     stores_total = len(stores) or int(last.get("stores_total") or 0)
     category_ids = sorted({s.category for s in stores})
@@ -176,9 +182,24 @@ def build_feed(
             "dashboard": pub.get("dashboard", ""),
             "first_run": status.get("first_run") or good[0]["started_at"],
             "stores_total": stores_total,
-            "categories": [CATEGORY_TITLES.get(c, c) for c in category_ids],
+            "categories": [category_title(c) for c in category_ids],
             "category_ids": category_ids,
             "cadence": "daily at 06:17 UTC",
+            # Added with F1-EXPAND (27 Nov 2026); the feed never names a monitored store.
+            "stores_by_category": {
+                c: sum(1 for s in stores if s.category == c) for c in category_ids
+            },
+            "stores_shown_without_name": len(display.anonymised_ids),
+            "stores_retired": [
+                {
+                    "name": r.name,
+                    "category": category_title(r.category),
+                    "category_id": r.category,
+                    "retired_on": r.retired_on.isoformat(),
+                    "label": r.label,
+                }
+                for r in display.retired
+            ],
         },
         "last_run": {
             "run_id": last["run_id"],
@@ -189,6 +210,10 @@ def build_feed(
             "stores_total": int(last.get("stores_total") or 0),
             "rows_live": int(last.get("rows_live") or 0),
             "run_url": last.get("run_url") or "",
+            "requests": int(last.get("requests") or 0),
+            "duration_s": float(last.get("duration_s") or 0),
+            "stores_added": len(last.get("stores_added") or []),
+            "baseline_rows": int(last.get("baseline_rows") or 0),
         },
         "checks": checks(last),
         "totals": {

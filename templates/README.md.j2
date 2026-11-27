@@ -22,7 +22,7 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
 {% for r in f.sample -%}
-| {{ r.store|md }} | [{{ r.product|md }}{% if r.variant %} ({{ r.variant|md }}){% endif %}]({{ r.url }}) | {{ r.price }} | {{ r.compare_at or "-" }} | {{ "yes" if r.in_stock else "no" }} |
+| {{ r.store|md }} | {% if r.url %}[{{ r.product|md }}{% if r.variant %} ({{ r.variant|md }}){% endif %}]({{ r.url }}){% else %}{{ r.product|md }}{% if r.variant %} ({{ r.variant|md }}){% endif %}{% endif %} | {{ r.price }} | {{ r.compare_at or "-" }} | {{ "yes" if r.in_stock else "no" }} |
 {% endfor %}
 The full table has {{ "{:,}".format(f.snapshot_rows) }} rows: [CSV]({{ repo_url }}/blob/{{ pub.branch }}/data/latest/snapshot.csv) · [monthly history]({{ repo_url }}/releases/latest) · [dashboard]({{ pub.dashboard }}).
 
@@ -31,31 +31,46 @@ The full table has {{ "{:,}".format(f.snapshot_rows) }} rows: [CSV]({{ repo_url 
 {% if f.first_run -%}
 The run of {{ f.run_date }} was the first one: it recorded {{ "{:,}".format(f.change_counts.get("new", 0)) }} prices as the starting point. From the next run on, this list shows every price drop, price rise, new sale, sale ending, sold-out item and restock.
 {%- elif f.changes -%}
-In the run of {{ f.run_date }}: {{ change_summary }}. The biggest moves:
+In the run of {{ f.run_date }}: {{ change_summary }}.{% if q.baseline_rows %} {{ q.stores_added }} stores were read for the first time; their {{ "{:,}".format(q.baseline_rows) }} product options are a starting point, not changes.{% endif %} The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
 {% for c in f.changes[:8] -%}
-| {{ c.store|md }} | [{{ c.product|md }}{% if c.variant %} ({{ c.variant|md }}){% endif %}]({{ c.url }}) | {{ c.events|join(", ") }}{% if c.pct is not none %} ({{ "%+.1f"|format(c.pct) }}%){% endif %} | {{ c.old_price }} | {{ c.new_price }} |
+| {{ c.store|md }} | {% if c.url %}[{{ c.product|md }}{% if c.variant %} ({{ c.variant|md }}){% endif %}]({{ c.url }}){% else %}{{ c.product|md }}{% if c.variant %} ({{ c.variant|md }}){% endif %}{% endif %} | {{ c.events|join(", ") }}{% if c.pct is not none %} ({{ "%+.1f"|format(c.pct) }}%){% endif %} | {{ c.old_price }} | {{ c.new_price }} |
 {% endfor %}
 Every change is in the [daily change log]({{ repo_url }}/tree/{{ pub.branch }}/data/changes).
+{%- elif q.baseline_rows -%}
+In the run of {{ f.run_date }}: {{ change_summary }}. {{ q.stores_added }} stores were read for the first time; their {{ "{:,}".format(q.baseline_rows) }} product options are a starting point, not changes.
 {%- else -%}
 No prices, sales or stock changed in the run of {{ f.run_date }}.
 {%- endif %}
 
+## Stores in the monitor
+
+{{ stores|length }} US online stores in {{ f.store_table|length }} categories, all read every day.{% if f.anonymised %} {{ f.anonymised }} of them are shown by number, not by name, because their terms of use ask that their sites not be read by automated tools; their prices count in every total.{% endif %}
+
+| Category | Stores | |
+|---|---:|---|
+{% for c in f.store_table -%}
+| {{ c.title|md }} | {{ c.count }} | {{ c.names|join(", ")|md }} |
+{% endfor %}
+{% if f.retired -%}
+{% for r in f.retired %}{{ r.name|md }} ({{ r.label }}) is no longer read; its history stays in the data.{% if not loop.last %} {% endif %}{% endfor %}
+
+{% endif -%}
 ## Why you can trust this data
 
 - **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: {{ q.js_match }} of {{ q.js_checked }} checked products matched exactly.
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: {{ q.usd_stores }} of {{ q.stores_total }} stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: {{ q.rows_rejected }} rows set aside, {{ "{:,}".format(q.free_variants) }} free gifts and samples left out on purpose, {{ "held" if q.held else "not held" }}.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: {{ q.stores_ok }} of {{ q.stores_total }} stores updated{% if q.not_updated %}; {{ q.not_updated|length }} kept their previous prices{% endif %}.
-- **Collected politely.** One store page every few seconds, the stores' own rules respected, and the run slows down or stops as soon as a store asks. Latest run: {{ "{:,}".format(q.requests) }} page requests in {{ q.duration_min }} minutes, and {% if q.blocked %}{{ q.blocked }} store{{ "s" if q.blocked != 1 else "" }} blocked us (their last good prices stayed live){% else %}no store blocked us{% endif %}.
+- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: {{ "{:,}".format(q.requests) }} page requests in {{ q.duration_min }} minutes, and {% if q.blocked %}{{ q.blocked }} store{{ "s" if q.blocked != 1 else "" }} blocked us (their last good prices stayed live){% else %}no store blocked us{% endif %}.
 
 ## How it works
 
 <p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/pipeline-still.svg"><img src="assets/pipeline.svg" width="100%" alt="Five steps: read public store catalogs, collect politely once a day, check every price against a second source, keep the full history, deliver CSV, a monthly data file, a Google Sheet and a dashboard."></picture></p>
 
-1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with the stores' rules respected.
+1. **Collect.** Once a day, a scheduled job reads the public product catalog of each store, slowly and with each store's robots.txt respected.
 2. **Check.** Each price is checked for obvious errors (above zero, sale price below the "was" price), and one product per store is compared with a second source.
 3. **Store.** Every change is kept with the time it happened, so you can see what any product cost on any day.
 4. **Deliver.** The latest prices as CSV, a daily change log, a monthly history file, an optional Google Sheet and a [live dashboard]({{ pub.dashboard }}).
@@ -104,7 +119,7 @@ CSV, Excel, Google Sheets or a database, plus a monthly history file (Parquet) i
 Yes, if the information is public, such as prices, sales and stock on product pages. I check each site first and tell you what can be collected and how often, before any work starts.
 
 **Is it legal and polite?**
-It reads only public pages, follows each site's published rules (robots.txt), goes slowly, stops when a site asks, and collects no personal data. Site owners can ask for removal at any time (see [Data use and compliance](#data-use-and-compliance)).
+It reads only public pages, follows each site's robots.txt, goes slowly, stops when a site asks, and collects no personal data. Site owners can ask for removal at any time (see [Data use and compliance](#data-use-and-compliance)).
 
 **How does pricing work?**
 After the free sample, you get a quote: a fixed monthly price for a running monitor, or a one-time price for a single collection. No hourly billing.

@@ -70,19 +70,24 @@ def change_summary(counts: dict[str, int]) -> str:
     return ", ".join(parts) if parts else "no changes"
 
 
-def _latest_change_row(data: Path) -> dict[str, str]:
+def _latest_change_row(
+    data: Path, hidden: set[str] | frozenset[str] = frozenset()
+) -> dict[str, str]:
+    """An example change row, never from a store shown without its name (D-031)."""
     files = sorted((data / "changes").glob("*/*.csv"))
     if not files:
         return {}
     with files[-1].open(encoding="utf-8") as fh:
-        rows = list(csv.DictReader(fh))
+        rows = [r for r in csv.DictReader(fh) if r["store_id"] not in hidden]
     preferred = [r for r in rows if r["event"] in ("price_down", "discount_start")]
     return (preferred or rows or [{}])[0]
 
 
 def dictionary(f: Facts, data: Path) -> dict[str, list[dict[str, str]]]:
-    snap = f.sample[0].raw if f.sample else {}
-    change = _latest_change_row(data)
+    hidden = f.display.anonymised_ids
+    named = [r for r in f.sample if r.raw["store_id"] not in hidden]
+    snap = named[0].raw if named else {}
+    change = _latest_change_row(data, hidden)
 
     def table(fields: list[tuple[str, str, str]], example: dict[str, str]) -> list[dict[str, str]]:
         return [
@@ -111,7 +116,14 @@ def context(data: Path, stores: Path, public: Path, now: datetime | None = None)
         "pub": pub,
         "repo_url": repo_url,
         "raw": f"https://raw.githubusercontent.com/{pub['repo']}/{pub['branch']}",
-        "change_summary": change_summary(f.change_counts),
+        # A store read for the first time records every option as "new": a starting
+        # point, told apart in the README (D-031).
+        "change_summary": change_summary(
+            {
+                **f.change_counts,
+                "new": f.change_counts.get("new", 0) - int(f.quality.get("baseline_rows") or 0),
+            }
+        ),
         "dictionary": dictionary(f, data),
         "categories": f.categories,
         "bfcm_extra": len(past_extra_slots(BFCM_2026_START, BFCM_2026_END)),

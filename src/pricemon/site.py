@@ -20,6 +20,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from pricemon.display import Display, load_display
 from pricemon.feed import daily
 from pricemon.outputs import (
     build_status,
@@ -30,16 +31,9 @@ from pricemon.outputs import (
     snapshot_summary,
 )
 from pricemon.schedule import slot_states
-from pricemon.stores import Store, load_stores
+from pricemon.stores import CATEGORY_TITLES, Store, category_title
 
 ASSETS = Path(__file__).parent / "site_assets"
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
 EVENT_LABELS = {
     "price_down": "Price down",
     "price_up": "Price up",
@@ -248,11 +242,18 @@ def chart(
     )
 
 
-def render(data: Path, stores: list[Store], now: datetime) -> str:
+def render(data: Path, stores: list[Store], now: datetime, display: Display | None = None) -> str:
+    display = display or Display(stores)
     runs = read_runs(data)
     status = build_status(runs, now)
     schedule = status.get("schedule") or {}
-    summary = {s["store_id"]: s for s in snapshot_summary(data / "latest" / "snapshot.csv")}
+    ids = {s.id for s in stores}
+    # Monitored stores only: a retired store's rows are not live prices.
+    summary = {
+        s["store_id"]: s
+        for s in snapshot_summary(data / "latest" / "snapshot.csv")
+        if s["store_id"] in ids
+    }
     events = recent_events(data)
     last = status["last_run"]
     good_runs = [r for r in runs if r["status"] in ("ok", "partial")]
@@ -345,15 +346,25 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         by_cat[s.category].append(s)
     not_updated = {s["store_id"]: s for s in (last or {}).get("stores_not_updated") or []}
     store_rows: list[list[str]] = []
-    for cat in CATEGORY_TITLES:
-        for s in sorted(by_cat.get(cat, []), key=lambda x: x.name.lower()):
+    cats = [c for c in CATEGORY_TITLES if c in by_cat] + sorted(set(by_cat) - set(CATEGORY_TITLES))
+    for cat in cats:
+        # Named stores by name, then the stores shown by number (D-031).
+        members = sorted(
+            by_cat.get(cat, []),
+            key=lambda x: (display.is_anonymised(x.id), display.name(x.id).lower()),
+        )
+        for s in members:
             agg = summary.get(s.id, {})
             v = int(agg.get("variants", 0))
             state = not_updated.get(s.id)
+            url = display.store_url(s.id)
+            name = esc(display.name(s.id))
             store_rows.append(
                 [
-                    f'<td><a href="https://{esc(s.host)}" rel="nofollow noopener">{esc(s.name)}</a></td>',
-                    td(CATEGORY_TITLES[cat], cls="hide-sm"),
+                    f'<td><a href="{esc(url)}" rel="nofollow noopener">{name}</a></td>'
+                    if url
+                    else f"<td>{name}</td>",
+                    td(category_title(cat), cls="hide-sm"),
                     td(f"{v:,}", num=True),
                     td(pct(int(agg.get("in_stock", 0)), v), num=True),
                     td(pct(int(agg.get("discounted", 0)), v), num=True),
@@ -373,8 +384,23 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
                     + "</td>",
                 ]
             )
+    for r in display.retired:
+        store_rows.append(
+            [
+                td(r.name),
+                td(category_title(r.category), cls="hide-sm"),
+                *(td("-", num=True) for _ in range(5)),
+                "<td>" + tag(r.label, "") + "</td>",
+            ]
+        )
     store_table = _table(
-        "Live snapshot per store. On sale: a “was” (compare-at) price above the price.",
+        "Live snapshot per store. On sale: a “was” (compare-at) price above the price."
+        + (
+            f" {len(display.anonymised_ids)} stores are shown by number: their terms of use "
+            "ask that their sites not be read by automated tools; they count in every total."
+            if display.anonymised_ids
+            else ""
+        ),
         [
             ("Store", False),
             ("Category", False),
@@ -389,8 +415,6 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         "Stores table",
     )
 
-    names = {s.id: s.name for s in stores}
-    hosts = {s.id: s.host for s in stores}
     # One row per variant and run: a sale is "Price down · Sale started".
     grouped: dict[tuple[str, str, str], list[dict[str, str]]] = {}
     for e in events:
@@ -407,10 +431,11 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
 
     def product_cell(e: dict[str, str], group: list[dict[str, str]]) -> str:
         # A removed product's page is gone from the store, so its title is not a link.
-        if all(g["event"] == "removed" for g in group):
-            return esc(e["product_title"])
-        url = f"https://{esc(hosts.get(e['store_id'], ''))}/products/{esc(e['handle'])}"
-        return f'<a href="{url}" rel="nofollow noopener">{esc(e["product_title"])}</a>'
+        title = esc(display.title(e["store_id"], e["product_title"]))
+        url = display.product_url(e["store_id"], e["handle"])
+        if not url or all(g["event"] == "removed" for g in group):
+            return title
+        return f'<a href="{esc(url)}" rel="nofollow noopener">{title}</a>'
 
     event_rows = []
     for group in latest_groups:
@@ -419,7 +444,7 @@ def render(data: Path, stores: list[Store], now: datetime) -> str:
         event_rows.append(
             [
                 td(e["observed_at"][:16].replace("T", " ")),
-                td(names.get(e["store_id"], e["store_id"])),
+                td(display.name(e["store_id"])),
                 f'<td class="wrap-cell">{product_cell(e, group)}'
                 + (
                     f' <span class="muted">{esc(e["variant_title"])}</span>'
@@ -598,7 +623,8 @@ and the store is removed within 24 hours.</p>
 
 
 def build(data: Path, stores_path: Path, out: Path, now: datetime | None = None) -> Path:
-    stores = load_stores(stores_path) if stores_path.exists() else []
+    display = load_display(stores_path)
+    stores = display.stores
     out.mkdir(parents=True, exist_ok=True)
     fonts = out / "fonts"
     fonts.mkdir(exist_ok=True)
@@ -609,7 +635,7 @@ def build(data: Path, stores_path: Path, out: Path, now: datetime | None = None)
         shutil.copy2(f, out / f.name)
     shutil.copy2(ASSETS / "og.png", out / "og.png")
     page = out / "index.html"
-    page.write_text(render(data, stores, now or datetime.now(UTC)), encoding="utf-8")
+    page.write_text(render(data, stores, now or datetime.now(UTC), display), encoding="utf-8")
     return page
 
 

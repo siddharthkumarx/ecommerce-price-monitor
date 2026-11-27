@@ -160,3 +160,30 @@ def test_trim_to_max_keeps_minimum_per_category_and_drops_weakest_first() -> Non
     assert sum(1 for r in groups["selected"] if r.category == "audio") >= 4
     assert sum(1 for r in groups["selected"] if r.category == "outdoor") >= 4
     assert all(reason and "trimmed to 8 stores" in reason for reason in reserve.values())
+
+
+def test_terms_come_from_the_latest_run_that_read_them_and_retired_stores_stay_out() -> None:
+    from datetime import date
+
+    from pricemon.stores import RetiredStore
+
+    sources = [
+        _run("recon-004", _row("Alpha"), _row("Beta"), _row("Gone")),
+        _run(
+            "recon-005",
+            _row("Alpha", terms="ban", terms_source="read", terms_sentence="No robots."),
+            _row("Gamma", category="pet", terms="no_ban", terms_source="read"),
+        ),
+    ]
+    retired = [RetiredStore("gone", "Gone", "audio", date(2026, 11, 27))]
+    records = {r.store: r for r in collect(sources)}
+    assert records["Alpha"].terms == "ban"
+    assert records["Beta"].terms == "none_found"  # never read
+    assert records["Gamma"].terms == "no_ban"
+    groups = classify(list(records.values()), retired={"Gone"}, min_per_category=0)
+    assert [r.store for r in groups["retired"]] == ["Gone"]
+    assert "Gone" not in {r.store for r in groups["selected"]}
+    yml = render_stores_yml(sources, retired=retired)
+    assert "    terms: ban\n" in yml
+    assert "retired:\n  - id: gone\n" in yml
+    assert "## Retired" in render(sources, retired=retired)

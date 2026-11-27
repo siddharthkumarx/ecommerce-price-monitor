@@ -14,16 +14,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from pricemon.display import Display, load_display
 from pricemon.outputs import build_status, parse_iso, read_runs
-from pricemon.stores import Store, load_stores
+from pricemon.stores import CATEGORY_TITLES, RetiredStore, Store, category_title
 
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
+ROOT = Path(__file__).resolve().parents[2]
 EVENT_WORDS = {
     "price_down": "Price down",
     "price_up": "Price up",
@@ -70,11 +65,19 @@ class Change:
 
 
 @dataclass
+class CategoryRow:
+    title: str
+    count: int
+    names: list[str]
+
+
+@dataclass
 class Facts:
     now: datetime
     stores: list[Store]
     status: dict[str, Any]
     run: dict[str, Any] | None
+    display: Display = field(default_factory=lambda: Display([]))
     snapshot_rows: int = 0
     categories: dict[str, int] = field(default_factory=dict)
     in_stock_share: float | None = None
@@ -84,6 +87,30 @@ class Facts:
     change_counts: dict[str, int] = field(default_factory=dict)
     first_run: bool = False
     quality: dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def retired(self) -> list[RetiredStore]:
+        return self.display.retired
+
+    @property
+    def store_table(self) -> list[CategoryRow]:
+        """One row per category: the stores as every public surface names them."""
+        order = {c: i for i, c in enumerate(CATEGORY_TITLES)}
+        cats = sorted({s.category for s in self.stores}, key=lambda c: (order.get(c, 99), c))
+        rows = []
+        for c in cats:
+            members = [s for s in self.stores if s.category == c]
+            named = sorted(
+                (self.display.name(s.id) for s in members if not self.display.is_anonymised(s.id)),
+                key=str.lower,
+            )
+            hidden = [self.display.name(s.id) for s in members if self.display.is_anonymised(s.id)]
+            rows.append(CategoryRow(category_title(c), len(members), named + hidden))
+        return rows
+
+    @property
+    def anonymised(self) -> int:
+        return len(self.display.anonymised_ids)
 
     @property
     def run_date(self) -> str:
@@ -102,7 +129,7 @@ def _snapshot(path: Path) -> list[dict[str, str]]:
 
 
 def _pick_sample(
-    rows: list[dict[str, str]], stores: dict[str, Store], n: int = 5
+    rows: list[dict[str, str]], stores: dict[str, Store], display: Display, n: int = 5
 ) -> list[SampleRow]:
     """Real rows that show what the data looks like: in stock, one per store and
     category, discounted ones first, deterministic."""
@@ -113,9 +140,11 @@ def _pick_sample(
         return 0
 
     # Ordinary sale prices first (10-50 % off, $10 or more): typical, not outliers.
+    # Named stores first: the sample shows what the data looks like, with links.
     candidates = sorted(
         (r for r in rows if r["available"] == "true" and r["store_id"] in stores),
         key=lambda r: (
+            display.is_anonymised(r["store_id"]),
             not (10 <= disc(r) <= 50 and int(r["price_cents"]) >= 1000),
             -disc(r),
             r["store_id"],
@@ -135,15 +164,15 @@ def _pick_sample(
             variant = "" if r["variant_title"] in ("", "Default Title") else r["variant_title"]
             out.append(
                 SampleRow(
-                    store=s.name,
-                    category=CATEGORY_TITLES.get(s.category, s.category),
-                    product=r["product_title"],
+                    store=display.name(s.id),
+                    category=category_title(s.category),
+                    product=display.title(s.id, r["product_title"]),
                     variant=variant,
                     price=usd(r["price_cents"]),
                     compare_at=usd(r["compare_at_cents"]) if d else "",
                     discount_pct=d or None,
                     in_stock=True,
-                    url=f"https://{s.host}/products/{r['handle']}",
+                    url=display.product_url(s.id, r["handle"]),
                     raw=r,
                 )
             )
@@ -155,7 +184,7 @@ def _pick_sample(
 
 
 def _changes(
-    data: Path, run: dict[str, Any], stores: dict[str, Store]
+    data: Path, run: dict[str, Any], display: Display
 ) -> tuple[list[Change], dict[str, int]]:
     started = run["started_at"]
     path = data / "changes" / started[:4] / f"{started[:10]}.csv"
@@ -171,18 +200,20 @@ def _changes(
     changes: list[Change] = []
     for group in grouped.values():
         r = group[0]
-        s = stores.get(r["store_id"])
+        sid = r["store_id"]
         pct = next((float(g["price_change_pct"]) for g in group if g["price_change_pct"]), None)
+        removed = all(g["event"] == "removed" for g in group)
         changes.append(
             Change(
-                store=s.name if s else r["store_id"],
-                product=r["product_title"],
+                store=display.name(sid),
+                product=display.title(sid, r["product_title"]),
                 variant="" if r["variant_title"] in ("", "Default Title") else r["variant_title"],
                 events=[EVENT_WORDS.get(g["event"], g["event"]) for g in group],
                 old_price=usd(r["old_price_cents"]),
                 new_price=usd(r["new_price_cents"]),
                 pct=pct,
-                url=f"https://{s.host}/products/{r['handle']}" if s else "",
+                # A removed product's page is gone from the store: no link.
+                url="" if removed else display.product_url(sid, r["handle"]),
             )
         )
     # Biggest price moves first, then sales and stock flips.
@@ -212,21 +243,28 @@ def _quality(run: dict[str, Any]) -> dict[str, Any]:
         "held": run.get("status") == "held",
         "hold_reasons": [h["message"] for h in run.get("guard", {}).get("holds", [])],
         "requests": run.get("requests", 0),
+        "stores_added": len(run.get("stores_added") or []),
+        "baseline_rows": run.get("baseline_rows", 0),
         "throttle_events": (run.get("edge") or {}).get("throttle_events", 0),
         "duration_min": round((run.get("duration_s") or 0) / 60, 1),
         "status": run.get("status"),
     }
 
 
-def collect(data: Path, stores_path: Path, now: datetime | None = None) -> Facts:
+def collect(
+    data: Path, stores_path: Path, now: datetime | None = None, public_path: Path | None = None
+) -> Facts:
     now = now or datetime.now(UTC)
-    stores = load_stores(stores_path) if stores_path.exists() else []
+    display = load_display(stores_path, public_path or ROOT / "config" / "public.yml")
+    stores = display.stores
     by_id = {s.id: s for s in stores}
     runs = read_runs(data)
     good = [r for r in runs if r["status"] in GOOD]
     run = good[-1] if good else None
-    facts = Facts(now=now, stores=stores, status=build_status(runs, now), run=run)
-    rows = _snapshot(data / "latest" / "snapshot.csv")
+    facts = Facts(now=now, stores=stores, status=build_status(runs, now), run=run, display=display)
+    # Rows of monitored stores only: a retired store's rows leave the snapshot in its
+    # first run after the retirement (history.merge), and are not live prices before.
+    rows = [r for r in _snapshot(data / "latest" / "snapshot.csv") if r["store_id"] in by_id]
     facts.snapshot_rows = len(rows)
     facts.categories = dict(Counter(s.category for s in stores))
     if rows:
@@ -235,9 +273,9 @@ def collect(data: Path, stores_path: Path, now: datetime | None = None) -> Facts
             bool(r["compare_at_cents"]) and int(r["compare_at_cents"]) > int(r["price_cents"])
             for r in rows
         ) / len(rows)
-    facts.sample = _pick_sample(rows, by_id)
+    facts.sample = _pick_sample(rows, by_id, display)
     if run:
-        facts.changes, facts.change_counts = _changes(data, run, by_id)
+        facts.changes, facts.change_counts = _changes(data, run, display)
         events = run.get("events") or {}
         facts.first_run = bool(events) and {k for k, v in events.items() if v} <= {"new"}
         facts.quality = _quality(run)
