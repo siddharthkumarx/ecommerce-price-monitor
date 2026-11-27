@@ -589,6 +589,18 @@ of 27 Nov (never published on `main`).
   still be shown by number only.
 - **Shards.** The slot job plans one shard per 60 listed stores (D-033): 2 shards
   for 71 stores.
+- **Measured (first run, `20261127T184909Z`).** 71 of 71 stores in 2 shards of
+  9.5 and 9.2 minutes, 19.5 minutes of reading and 20 minutes wall time, 303
+  requests, 0 retries, no 429 and no run-wide cooldown; 38,317 rows. Actions minutes
+  are free on the public repository (about 20 runner-minutes per run).
+- **Repository growth.** The first run added 1.05 MB packed, once: 35,424 baseline
+  rows in the change log and the snapshot. A normal run at 25 stores added 6 to 14 KB
+  packed; at 71 stores (3.2 times the rows) about 20 to 50 KB a day is expected, and
+  about 40 to 100 KB at 150 stores, plus about 1 MB once for each batch of 70 or so
+  new stores. `.git` is 12 MB today, so about 20 to 25 MB is projected at 90 days;
+  `snapshot.csv` is 5.9 MB (about 12 MB at 150 stores), far under the 50 MB file
+  limit. Storage stays in git (owner); the 06:17 run of 28 Nov gives the first
+  steady-state figure.
 - **Growth.** Toward about 150 stores (about 15 per category, at most 25), never a
   `ban`: new candidate lists from recon-007 on, US Shopify stores not contacted
   before, weighted to the thin categories (apparel, toys & kids, tech accessories,

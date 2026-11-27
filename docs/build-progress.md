@@ -2,19 +2,30 @@
 
 ## Continue here (f1-expand)
 
-Status: **RUNNING** (27 Nov 2026). Task F1-EXPAND, owner decision of 27 Nov 2026: grow the
-daily monitor from 25 stores to at least 100, starting today; the Black Friday freeze is
-lifted. Work happens on branch `f1-expand`; `main` is fast-forwarded once the gate is green
-and the first run with 100+ stores has published.
+Status: **RUNNING** (27 Nov 2026). Task F1-EXPAND (owner decisions D-031 to D-037): grow the
+daily monitor, freeze lifted, only stores whose terms do not ban robots (D-036). Work
+happens on branch `f1-expand`; `main` is fast-forwarded when the gate is green and a run
+has published.
 
-1. Retire JLab from the store list; its history stays in `data/` - `in progress`.
-2. 272 new candidates in `checks/candidates.yml` (`since: recon-005`), 10 categories - `done`.
-3. `recon-005`: the new candidates plus the 29 earlier passes, with the Terms of Service
-   field (`pricemon.terms`) - `in progress` (pushed, running on Actions).
-4. Regenerate `config/stores.yml` from recon-001..005; display rule for `terms: ban`
-   stores (`config/public.yml`) - `todo`.
-5. One run a day again (06:17 UTC); first 100+ store run measured - `todo`.
-6. Feed contract kept, docs, visuals, review - `todo`.
+1. JLab retired (`config/retired.yml`), history kept, shown "retired on 27 Nov 2026" - `done`.
+2. Candidates: 1,046 in `checks/candidates.yml` (recon-005: 272, recon-006: 282,
+   recon-007: 320) - `done`.
+3. Recon with the Terms field: recon-005 and recon-006 committed; recon-007 - `in progress`
+   (running on Actions). Verify: `checks/results/recon-00N/recon.md`.
+4. Store list: 71 stores (56 `no_ban`, 15 `none_found`) from recon-001..006, regenerated
+   with `python -m pricemon.sources --stores-yml` - `done`. Next batch from recon-007 -
+   `todo`: regenerate, gate, push.
+5. Public data holds only listed and retired stores (`pricemon.publicdata`, D-036) - `done`;
+   the first 71-store run withdrew 18 earlier stores from data and the release asset.
+6. One run a day at 06:17 UTC, sequential shards planned per 60 stores (D-033) - `done`.
+   First sharded run `20261127T184909Z`: 71 of 71 stores, 303 requests, 0 retries, no
+   429, 19.5 min.
+7. Feed contract (additive fields), README, dataset card, media, docs - `done`.
+8. `main` fast-forwarded on 27 Nov 19:14 UTC - `done`. The dashboard on Pages deploys
+   only from `main`: one run dispatched on `main` after recon-007 publishes it - `todo`.
+9. Fresh review, High and Medium fixed - `in progress`.
+10. Grow toward about 150 stores (about 15 per category), never a `ban`: recon-008 on for
+    the thin categories (apparel, toys & kids, tech accessories) - `todo`.
 
 Status: `done`, `in progress`, `todo`, `blocked`. Update after every item. Each
 item says how to verify it.
