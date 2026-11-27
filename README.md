@@ -1,8 +1,8 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 72 US online stores and records every price: 2,893 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 71 US online stores and records every price: 38,317 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
-**Every price, sale and stock change from 72 US online stores, checked every day and delivered as a clean spreadsheet.**
+**Every price, sale and stock change from 71 US online stores, checked every day and delivered as a clean spreadsheet.**
 
 [![Last run](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/last-run.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/days-running.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/runs.jsonl)
@@ -21,40 +21,33 @@ One row per product option (size, colour) per store, with today's price, the "wa
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
+| Altec Lansing | [Altec Lansing BoomJacket Wireless Speaker (Black)](https://www.alteclansing.com/products/boomjacket-wireless-speaker) | $49.99 | $99.99 | yes |
+| Bandolier | [Add-On Magnet Wallet - Black/Rose Gold (_ / iPhone Pro / Regular)](https://www.bandolierstyle.com/products/add-on-magnet-wallet-black-rose-gold) | $35.00 | $70.00 | yes |
+| Beautyblender | [Eclipse Blend & Store 2-Piece Set](https://beautyblender.com/products/eclipse-blend-store-2-piece-set) | $11.00 | $22.00 | yes |
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
-| Soundcore (US) | [AeroFit 2 (Point of Sale) (Midnight Black)](https://us.soundcore.com/products/aerofit-2-point-of-sale) | $73.99 | $129.99 | yes |
-| Sheets & Giggles | [100% Tencel® Lyocell Sheet Set (White / Queen)](https://sheetsgiggles.com/products/arctic-aire-max-100-tencel-lyocell-sheet-set) | $161.85 | $249.00 | yes |
-| Richer Poorer | [Women's Recycled Fleece Wide Leg Pant (Black / XS)](https://www.richer-poorer.com/products/womens-recycled-fleece-wide-leg-pant) | $78.00 | - | yes |
-| Grado Labs | [Aeon4 (Stereo - Special Order / No Returns)](https://gradolabs.com/products/aeon4) | $4,995.00 | - | yes |
+| Feedback Sports | [Rotor Truing Fork](https://feedbacksports.com/products/rotor-truing-fork) | $11.00 | $22.00 | yes |
 
-The full table has 2,893 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 38,317 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 27 November 2026: 4 price drops, 7 items sold out, 2 items back in stock. The biggest moves:
+In the run of 27 November 2026: 1 price drop. 65 stores were read for the first time; their 35,424 product options are a starting point, not changes. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| JLab | JBuds Lux ANC Jelle Headphones Fir Sure | Price down (-8.0%) | $49.99 | $45.99 |
-| JLab | JBuds Lux ANC Jelle Headphones Gold Digger | Price down (-8.0%) | $49.99 | $45.99 |
-| JLab | JBuds Lux ANC Jelle Headphones Pearl Next Door | Price down (-8.0%) | $49.99 | $45.99 |
-| JLab | JBuds Lux ANC Jelle Headphones Royal Caviar | Price down (-8.0%) | $49.99 | $45.99 |
-| Big Agnes | [Wolverine 20°](https://www.bigagnes.com/products/wolverine-020) | Sold out | $129.95 | $129.95 |
-| Hyperlite Mountain Gear | [Rock Bag Kit (Samson Zing-It!)](https://hyperlitemountaingear.com/products/rock-bag-kit) | Sold out | $32.00 | $32.00 |
-| Hyperlite Mountain Gear | [Roll-Top Food Bag Kit (10L / Samson Zing-It!)](https://hyperlitemountaingear.com/products/roll-top-food-bag-kit) | Sold out | $75.00 | $75.00 |
-| Hyperlite Mountain Gear | [Roll-Top Food Bag Kit (15L / Samson Zing-It!)](https://hyperlitemountaingear.com/products/roll-top-food-bag-kit) | Sold out | $85.00 | $85.00 |
+| Soundcore (US) | [Life A2 NC \| Bluetooth Noise Cancelling Earbuds (Black)](https://us.soundcore.com/products/life-a2-nc) | Price down (-14.3%) | $69.99 | $59.99 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
 ## Stores in the monitor
 
-72 US online stores in 10 categories, all read every day.
+71 US online stores in 10 categories, all read every day.
 
 | Category | Stores | |
 |---|---:|---|
 | Audio | 10 | 64 Audio, Altec Lansing, Audeze, Cleer Audio, Crosley, Grado Labs, HyperX, Soundcore (US), Sundown Audio, Tivoli Audio |
 | Apparel | 4 | Dagne Dover, Pair of Thieves, Richer Poorer, Sunski |
-| Beauty | 8 | Beauty Bakerie, Beautyblender, Innersense Organic Beauty, Juvia's Place, Milani Cosmetics, Scotch Porter, Sigma Beauty, Tula Skincare |
+| Beauty | 7 | Beauty Bakerie, Beautyblender, Innersense Organic Beauty, Juvia's Place, Milani Cosmetics, Sigma Beauty, Tula Skincare |
 | Home & kitchen | 8 | Bearaby, Field Company, GIR, Gravity Blanket, Keap, Onsen, Schoolhouse, Sheets & Giggles |
 | Outdoor | 8 | Aer, Barebones Living, Big Agnes, Cabeau, Hyperlite Mountain Gear, Paravel, Timbuk2, Tortuga |
 | Coffee & tea | 10 | AeroPress, Dogwood Coffee, Equator Coffees, Four Barrel Coffee, Heine Brothers' Coffee, Kettl, Madcap Coffee, Numi Organic Tea, Pique, Verve Coffee Roasters |
@@ -67,11 +60,11 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
 
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 7 of 7 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 7 of 7 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 289 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 7 of 7 stores updated.
-- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 32 page requests in 6.6 minutes, and no store blocked us.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 71 of 71 checked products matched exactly.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 71 of 71 stores proved US dollars.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 590 free gifts and samples left out on purpose, not held.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 71 of 71 stores updated.
+- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 303 page requests in 19.5 minutes, and no store blocked us.
 
 ## How it works
 
@@ -86,7 +79,7 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 30."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 31."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -137,16 +130,16 @@ The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkuma
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `store_id` | text | Store, as listed in `config/stores.yml` | `big-agnes` |
-| `product_id` | integer | The store's product id | `7870967939321` |
-| `variant_id` | integer | The store's id for this option (size, colour); unique per store | `43639575019769` |
-| `handle` | text | Product address: `https://<store>/products/<handle>` | `gold-camp-3-footprint` |
-| `product_title` | text | Product name as shown by the store | `Gold Camp 3 Footprint` |
-| `variant_title` | text | Option name (`Default Title` when there is only one) | `Default Title` |
-| `price_cents` | integer | Current price in US cents | `2500` |
-| `compare_at_cents` | integer or empty | "Was" price in US cents when on sale, else empty | `5000` |
+| `store_id` | text | Store, as listed in `config/stores.yml` | `altec-lansing` |
+| `product_id` | integer | The store's product id | `9962946986266` |
+| `variant_id` | integer | The store's id for this option (size, colour); unique per store | `50930649039130` |
+| `handle` | text | Product address: `https://<store>/products/<handle>` | `boomjacket-wireless-speaker` |
+| `product_title` | text | Product name as shown by the store | `Altec Lansing BoomJacket Wireless Speaker` |
+| `variant_title` | text | Option name (`Default Title` when there is only one) | `Black` |
+| `price_cents` | integer | Current price in US cents | `4999` |
+| `compare_at_cents` | integer or empty | "Was" price in US cents when on sale, else empty | `9999` |
 | `available` | true/false | In stock | `true` |
-| `valid_from` | UTC time | When this price and stock state was first seen | `2026-11-20T15:30:59Z` |
+| `valid_from` | UTC time | When this price and stock state was first seen | `2026-11-27T18:49:09Z` |
 
 The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes), one row per change:
 
