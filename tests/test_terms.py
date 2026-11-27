@@ -201,7 +201,7 @@ def test_a_429_on_the_terms_page_fails_the_store() -> None:
     assert res.terms_requests == 2
 
 
-def test_recon_005_request_selects_new_candidates_and_earlier_passes(tmp_path: Any) -> None:
+def test_the_committed_request_selects_new_candidates_and_earlier_passes(tmp_path: Any) -> None:
     from pathlib import Path
 
     import yaml
@@ -213,7 +213,13 @@ def test_recon_005_request_selects_new_candidates_and_earlier_passes(tmp_path: A
     names = [c.store for c in chosen]
     assert len(names) == len(set(names))
     assert "JLab" not in names
-    assert set(request["also"]) <= set(names)
+    assert request["terms"] is True
+    assert set(request.get("also") or []) <= set(names)
+    new = {
+        c.store
+        for c in select_candidates({"since": request["since"]}, Path("checks/candidates.yml"))
+    }
+    assert set(names) == new | set(request.get("also") or [])
     bad = tmp_path / "c.yml"
     bad.write_text("categories:\n  audio:\n    - {store: A, domain: a.example}\n")
     with pytest.raises(ValueError, match="not in the candidates"):
