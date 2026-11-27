@@ -41,6 +41,9 @@ sandbox. Every live check runs on GitHub Actions:
 2. Commit and push to `main`. `.github/workflows/checks.yml` runs on
    any push that changes that file (`permissions: contents: write`).
 3. The workflow commits results to `checks/results/<id>/` on the same branch.
+   A request runs once: a push that carries a request whose results are already
+   committed, or that an earlier `checks` run is already reading (for example
+   fast-forwarding `main` to a branch), skips it (INC-010).
 4. `git pull` and read them. Results are evidence: keep them committed.
 
 Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`

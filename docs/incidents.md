@@ -246,3 +246,24 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
     started the scheduled run 7-10 h late; every day was still delivered (INC-009)."
 - **Regression tests:** `tests/test_schedule.py` (gate and accounting, including
   the committed run log) and `tests/test_outputs.py`.
+
+## INC-010 - Fast-forwarding main ran recon-007 a second time (2026-11-27)
+
+- **Runs:** `checks` on `f1-expand`,
+  [Actions run 46054716147](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/46054716147)
+  (19:09 UTC), and `checks` on `main`,
+  [Actions run 46055231440](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/46055231440)
+  (19:14 UTC).
+- **What happened:** the recon-007 request was pushed to `f1-expand`, and `main` was
+  fast-forwarded to the same history five minutes later. The push to `main` also
+  changed `checks/request.yml`, so `checks.yml` started recon-007 again on `main`
+  (the concurrency group is per branch). For two hours both runs read the same 320
+  candidates about five minutes apart, at the recon pace: each store saw its few
+  recon requests twice. The `main` run was cancelled at 21:20 UTC. It had not
+  written results (they are written only at the end), so nothing was committed.
+- **Fix:** the checks job first skips a request whose `checks/results/<id>/` is
+  already committed, or whose exact `checks/request.yml` an earlier queued or
+  running `checks` run is already reading. Every later step runs only when the
+  guard says `skip=false`, so a failing guard runs nothing.
+- **Regression test:** `tests/test_workflows.py`
+  (`test_a_live_check_runs_once_even_when_main_is_fast_forwarded`).

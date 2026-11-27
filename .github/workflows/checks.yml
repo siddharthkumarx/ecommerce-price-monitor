@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: checks-${{ github.ref }}
@@ -29,19 +30,51 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
 
+      # Fast-forwarding main carries a request already checked on a branch: run each
+      # request once, never twice at the same stores (INC-010).
+      - name: Skip a request that already ran or is running
+        id: dup
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          id="$(sed -n 's/^id:[[:space:]]*//p' checks/request.yml)"
+          if [ -n "$(ls -A "checks/results/$id" 2>/dev/null)" ]; then
+            echo "results for $id are already committed; not running it again"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          mine="$(git hash-object checks/request.yml)"
+          for status in queued in_progress; do
+            for sha in $(gh api "repos/$REPO/actions/workflows/checks.yml/runs?status=$status&per_page=50" \
+                --jq ".workflow_runs[] | select(.id < $RUN_ID) | .head_sha"); do
+              theirs="$(gh api "repos/$REPO/contents/checks/request.yml?ref=$sha" --jq .sha)"
+              if [ "$theirs" = "$mine" ]; then
+                echo "an earlier checks run is already reading $id (commit $sha); not running it twice"
+                echo "skip=true" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+            done
+          done
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        if: steps.dup.outputs.skip == 'false'
         with:
           python-version: "3.12"
           enable-cache: true
 
       - name: Install
+        if: steps.dup.outputs.skip == 'false'
         run: uv sync --locked --no-dev
 
       - name: Run check
+        if: steps.dup.outputs.skip == 'false'
         run: uv run --no-dev python -m pricemon.checks checks/request.yml
 
       - name: Commit results
-        if: always()
+        if: always() && steps.dup.outputs.skip == 'false'
         env:
           BRANCH: ${{ github.ref_name }}
         run: |

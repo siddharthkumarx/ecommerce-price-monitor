@@ -64,3 +64,18 @@ def test_live_checks_never_run_on_a_tag_push() -> None:
     assert push["branches"] == ["**"]  # INC-008
     assert "tags" not in push
     assert push["paths"] == ["checks/request.yml"]
+
+
+def test_a_live_check_runs_once_even_when_main_is_fast_forwarded() -> None:
+    checks = _load(WORKFLOWS[[p.name for p in WORKFLOWS].index("checks.yml")])
+    assert checks["permissions"]["actions"] == "read"
+    steps = checks["jobs"]["run"]["steps"]
+    names = [s.get("id") or s.get("name") or s.get("uses") for s in steps]
+    dup = steps[names.index("dup")]
+    assert names.index("dup") == 1  # right after checkout, before anything that reads a store
+    assert "checks/results/$id" in dup["run"]  # results already committed (INC-010)
+    assert "status=$status" in dup["run"]
+    assert "select(.id < $RUN_ID)" in dup["run"]
+    for step in steps[2:]:
+        # Fail closed: an error in the guard leaves `skip` empty and nothing runs.
+        assert "steps.dup.outputs.skip == 'false'" in step["if"]
