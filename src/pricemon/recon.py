@@ -32,7 +32,7 @@ from pricemon.polite import (
     StoreStopped,
     make_client,
 )
-from pricemon.screen import screen_content
+from pricemon.screen import SCREEN_VERSION, screen_content, screen_evidence
 from pricemon.terms import TERMS_PATH, TermsResult, classify
 from pricemon.witness import (
     is_products_payload,
@@ -81,6 +81,10 @@ class ReconResult:
     retries: int = 0
     retry_causes: list[str] = field(default_factory=list)
     content_flags: dict[str, list[str]] = field(default_factory=dict)
+    # Field and word that fired for each content_flags example; the screen version
+    # that read the catalog (None when it was not read). D-039.
+    content_evidence: dict[str, list[str]] = field(default_factory=dict)
+    screen_version: int | None = None
     # Terms of Service (recon-005 on; None when the run did not read terms).
     terms: str | None = None
     terms_source: str | None = None
@@ -229,6 +233,8 @@ async def _recon(session: StoreSession, res: ReconResult) -> None:
         products.extend(batch)
 
     res.content_flags = screen_content(products)
+    res.content_evidence = screen_evidence(products)
+    res.screen_version = SCREEN_VERSION
     variants = [v for p in products for v in p.get("variants") or []]
     res.products = len(products)
     res.variants = len(variants)

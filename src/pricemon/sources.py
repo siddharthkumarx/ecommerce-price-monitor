@@ -178,7 +178,11 @@ class StoreRecord:
 
     def drop_reasons(self) -> list[str]:
         reasons: list[str] = []
-        for rid, r in self.history:
+        # A later row screened with a newer content screen supersedes the content
+        # flags of earlier rows (D-039); rows before screen versions were recorded are v1.
+        screens = [r.get("screen_version") or 1 for _, r in self.history]
+        for i, (rid, r) in enumerate(self.history):
+            superseded = any(v > screens[i] for v in screens[i + 1 :])
             stopped = r.get("stopped_reason") or ""
             markers = ("blocked", "challenge", "http 429", "robots.txt unreachable")
             if any(m in stopped for m in markers):
@@ -196,7 +200,7 @@ class StoreRecord:
                 if r.get(key) is False:
                     reasons.append(f"{rid}: robots.txt disallows {path}")
             for cat, examples in (r.get("content_flags") or {}).items():
-                if self._reviewed(cat, examples) is None:
+                if not superseded and self._reviewed(cat, examples) is None:
                     reasons.append(f"{rid}: excluded category {cat} (e.g. {'; '.join(examples)})")
         terms = self.terms_record()
         if terms is not None and terms["terms"] == "ban":

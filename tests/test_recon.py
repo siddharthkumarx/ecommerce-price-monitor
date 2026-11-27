@@ -144,3 +144,13 @@ def test_excluded_category_fails() -> None:
     res = recon(FakeShop(vape=True))
     assert res.content_flags == {"tobacco/vape": ["Mini Vape Pen"]}
     assert res.verdict() == (False, ["excluded category: tobacco/vape"])
+
+
+def test_recon_rows_record_the_screen_version_and_evidence() -> None:
+    from pricemon.recon import ReconResult
+    from pricemon.screen import SCREEN_VERSION
+
+    row = ReconResult(store="X", domain="x.example", category="audio").to_dict()
+    assert row["screen_version"] is None  # catalog not read
+    assert row["content_evidence"] == {}
+    assert SCREEN_VERSION == 2

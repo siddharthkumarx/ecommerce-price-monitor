@@ -225,3 +225,20 @@ def test_a_monitored_store_keeps_its_place_over_a_new_one_with_the_same_terms() 
         collect([_run("recon-005", *rows)]), per_category=1, keep={"incumbent", "newcomer"}
     )
     assert [r.store for r in full["selected"]] == ["Clean"]
+
+
+def test_a_newer_content_screen_supersedes_earlier_flags_but_not_its_own() -> None:
+    flagged = {"alcohol": ["Juliska Graham Wine Coaster"]}
+    old = _row("Kassa", content_flags=flagged)  # recon-006, screen v1 (no version field)
+    clean = _row("Kassa", screen_version=2)
+    (rec,) = collect([_run("recon-006", old), _run("recon-009", clean)])
+    assert rec.drop_reasons() == []  # D-039: the v2 re-check read the catalog again
+    real = _row("Kassa", screen_version=2, content_flags={"alcohol": ["Reserve Pinot Noir"]})
+    (rec,) = collect([_run("recon-006", old), _run("recon-009", real)])
+    assert rec.drop_reasons() == ["recon-009: excluded category alcohol (e.g. Reserve Pinot Noir)"]
+    # A v2 flag stands even when a later v2 run is clean: any run with the same screen drops.
+    (rec,) = collect([_run("recon-009", real), _run("recon-010", clean)])
+    assert rec.drop_reasons() == ["recon-009: excluded category alcohol (e.g. Reserve Pinot Noir)"]
+    # A row that did not read the catalog (no version) supersedes nothing.
+    (rec,) = collect([_run("recon-006", old), _run("recon-009", _row("Kassa"))])
+    assert rec.drop_reasons()
