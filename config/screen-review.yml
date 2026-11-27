@@ -28,3 +28,119 @@ reviews:
     titles: ["Monza Leather in Tobacco"]
     verdict: false_positive
     reason: '"Tobacco" is a leather colour name on a sneaker. Evidence: checks/results/pipeline-001 (Koio predates the screen in recon-003).'
+  # Reviewed from checks/results/recon-005/recon.json (field content_flags).
+  - store: "Wet Sounds"
+    category: alcohol
+    titles: ["SHIVR 55 FULL KIT BLK OVER WHSKY | SHIVR-55 SeaDek Foam Traction Kit Black Over ", "SHIVR 55 GS TOP KIT BLK OVER WHSKY | SHIVR-55 SeaDek Top Foam Traction Kit Black", "SHIVR 55 GS TOP KIT WHSKY OVR BLK | SHIVR-55 SeaDek Top Foam Traction Kit Whiske"]
+    verdict: false_positive
+    reason: "\"WHSKY\" is a colour code on marine speaker foam kits; the store sells audio gear."
+  - store: "Pistola Denim"
+    category: alcohol
+    titles: ["Nadya Polo Sweater - Cherry Wine", "Nadya Polo Sweater - Roche"]
+    verdict: false_positive
+    reason: "\"Cherry Wine\" and \"Roche\" are sweater colour names; apparel only."
+  - store: "Scout Bags"
+    category: alcohol
+    titles: ["Spirit Liftah Plus Gift Bag"]
+    verdict: false_positive
+    reason: "\"Spirit Liftah\" is a gift-bag model name; bags only."
+  - store: "Defy Bags"
+    category: alcohol
+    titles: ["Insidious Sling / Horween Whiskey Cavalier Leather x TexWax™ Buffalo Plaid", "Project Horween Whiskey Cavalier Leather x TexWax™ Autumn Plaid Wax Canvas 3 Pou", "Venue / Horween Cavalier Whiskey Leather MIL-SPEC Webbing Edition"]
+    verdict: false_positive
+    reason: "\"Whiskey\" is a Horween leather colour; bags only."
+  - store: "Julbo USA"
+    category: alcohol
+    titles: ["Julbo Né dans les Alpes Beer Stein (16oz)"]
+    verdict: false_positive
+    reason: "An empty beer stein (drinkware) sold as merchandise; eyewear store."
+  - store: "Fenty Beauty"
+    category: alcohol
+    titles: ["Blushin' In Diamonds Liquid Blush + Highlighter Duo", "Gloss Bomb Stix High-Shine Gloss Stick — $weet Whiskey", "Glossy Posse IX 4-Piece Lip Set"]
+    verdict: false_positive
+    reason: "Lip and cheek shade names (e.g. \"$weet Whiskey\"); cosmetics only."
+  - store: "Soko Glam"
+    category: alcohol
+    titles: ["Bio-Peel Gauze Peeling Wine"]
+    verdict: false_positive
+    reason: "\"Peeling Wine\" is a skincare product name; cosmetics only."
+  - store: "Candle-lite"
+    category: alcohol
+    titles: ["Bourbon Cherry 10oz Jar Candle", "Vineyard Retreat 9.7oz Jar Candle", "Whiskey Honey 9oz Black Tin Candle"]
+    verdict: false_positive
+    reason: "Candle scent names; candles only."
+  - store: "P.F. Candle Co."
+    category: tobacco/vape
+    titles: ["Teakwood & Tobacco – Air Freshener 2-Pack", "Teakwood & Tobacco – Large Concentrated Candle", "Teakwood & Tobacco – Room & Linen Spray"]
+    verdict: false_positive
+    reason: "\"Teakwood & Tobacco\" is a fragrance name on candles and sprays."
+  - store: "Areaware"
+    category: alcohol
+    titles: ["Hobknob Bottle Stopper in Amber", "Hobknob Bottle Stopper in Blue", "Hobknob Bottle Stopper in Green"]
+    verdict: false_positive
+    reason: "Bottle stoppers (barware); a design-objects store with no alcoholic product."
+  - store: "GSI Outdoors"
+    category: alcohol
+    titles: ["Soft Sided Wine Carafe- 750 ml"]
+    verdict: false_positive
+    reason: "An empty wine carafe (camp drinkware); outdoor cookware only."
+  - store: "Darn Tough"
+    category: alcohol
+    titles: ["Men's Beer Badge Over-the-Calf Midweight Ski & Snowboard Socks"]
+    verdict: false_positive
+    reason: "A sock with a beer badge pattern; socks only."
+  - store: "Counter Culture Coffee"
+    category: alcohol
+    titles: ["Cueva de los Llanos – Pink Bourbon Variety", "Finca La Hermosa - Orange Bourbon Variety", "Finca La Hermosa - Pink Bourbon Variety"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety (Pink/Orange Bourbon); coffee only."
+  - store: "Onyx Coffee Lab"
+    category: alcohol
+    titles: ["Colombia Benjamin Tunubala Pink Bourbon", "Colombia Juan Jimenez Pink Bourbon", "SNSC Colombia Gerson Mora Ortega Pink Bourbon Natural"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "Sightglass Coffee"
+    category: alcohol
+    titles: ["Colombia, Finca Alcatraz, Wilfredo Ule Vargas, Pink Bourbon", "Colombia, Finca Alcatraz, Wilfredo Ule Vargas, Pink Bourbon Natural"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "Intelligentsia"
+    category: alcohol
+    titles: ["Colombia Juan Martín Bourbon Sidra", "Colombia Pink Bourbon", "Guatemala Yellow Bourbon Vandaluz"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "Stumptown Coffee"
+    category: alcohol
+    titles: ["Bourbon Bundle", "Colombia La Montaña Pink Bourbon", "Guatemala Bella Vista"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety (the bundle groups those coffees); coffee only."
+  - store: "Death Wish Coffee"
+    category: alcohol
+    titles: ["Dark Spirits Chocolate Rum Ball Coffee"]
+    verdict: false_positive
+    reason: "A flavoured coffee named after a rum-ball dessert; coffee only."
+  - store: "Dark Matter Coffee"
+    category: alcohol
+    titles: ["Bourbon County Stout Barrel Aged Coffee Cold 8-Pack", "Chronikkah Coffee Cold 8-Pack", "Cold Dank Nic Coffee Cold 8-Pack"]
+    verdict: false_positive
+    reason: "Coffee aged in emptied stout barrels, sold as cold brew; no alcoholic product."
+  - store: "Smith Teamaker"
+    category: alcohol
+    titles: ["Digits Bourbon Barrel Aged Black Tea"]
+    verdict: false_positive
+    reason: "Tea aged in emptied bourbon barrels; tea only."
+  - store: "Sabrent"
+    category: tobacco/vape
+    titles: ["2 USB Plug And 2 Cigarette Lighter Socket Splitter"]
+    verdict: false_positive
+    reason: "A 12 V car-socket (\"cigarette lighter\") splitter."
+  - store: "Case-Mate"
+    category: weapons
+    titles: ["Pelican Voyager Black with Holster and Magnet - Pixel 11", "Pelican Voyager Black with Holster and Magnet - Pixel 11 Pro", "Pelican Voyager Black with Holster and Magnet - Pixel 11 Pro XL"]
+    verdict: false_positive
+    reason: "A phone case sold with a belt holster."
+  - store: "Bandolier"
+    category: alcohol
+    titles: ["Avery AirPods Clip-On Pouch - Wine/Gold", "Donna Crossbody Phone Case - Wine/Gold", "Smooth Leather Expanded Zip Pouch - Wine/Gold"]
+    verdict: false_positive
+    reason: "\"Wine/Gold\" is a leather colour; phone cases and pouches only."
