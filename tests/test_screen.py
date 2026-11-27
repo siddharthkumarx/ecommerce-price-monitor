@@ -15,14 +15,15 @@ def test_flags_excluded_categories_with_examples() -> None:
     products = [
         _p("CBD Body Balm", "Skincare", ["calm"]),
         _p("Mini Vape Pen", "Device"),
-        _p("Cooling Gel", "Skincare", "hemp extract, calm"),  # tags are not read (D-039)
+        _p("Cooling Gel", "Skincare", "hemp extract, calm"),  # tags count for CBD (D-039)
+        _p("Suede Chelsea Boot", "Boots", ["Tobacco", "Wine"]),  # colour tags do not
     ]
     assert screen_content(products) == {
-        "cannabis/cbd": ["CBD Body Balm"],
+        "cannabis/cbd": ["CBD Body Balm", "Cooling Gel"],
         "tobacco/vape": ["Mini Vape Pen"],
     }
     assert screen_evidence(products) == {
-        "cannabis/cbd": ["title: cbd"],
+        "cannabis/cbd": ["title: cbd", "tags: hemp extract"],
         "tobacco/vape": ["title: vape"],
     }
 
@@ -49,7 +50,7 @@ def test_reviewed_titles_are_skipped_exactly() -> None:
 
 
 # Real titles that excluded safe-Terms stores under screen v1 (recon-005, recon-006).
-# The tags these stores use (colour filters, "CBD-free") would have flagged them too.
+# Titles are real; the tags shown are examples of the colour filters and negations v1 read.
 FALSE_POSITIVES = [
     ("Bandolier", _p("Avery AirPods Clip-On Pouch - Wine/Gold", "", ["Wine", "Gold"])),
     ("Bandolier", _p("Donna Crossbody Phone Case - Wine/Gold")),
@@ -57,8 +58,8 @@ FALSE_POSITIVES = [
     ("Kassatex", _p("Juliska Graham Wine Coaster")),
     ("P.L.A.Y.", _p("Clive & Bacon x Play Barking Beer", "Dog Toys")),
     ("Sabrent", _p("2 USB Plug And 2 Cigarette Lighter Socket Splitter")),
-    ("Derma E", _p("Ultra Hydrating Day Cream (2oz)", "Moisturizer", ["CBD-free", "THC"])),
-    ("Derma E", _p("Ultra Lift Firming DMAE Moisturizer", "Moisturizer", ["cbd"])),
+    ("Derma E", _p("Ultra Hydrating Day Cream (2oz)", "Moisturizer", ["CBD-free", "THC-Free"])),
+    ("Derma E", _p("Ultra Lift Firming DMAE Moisturizer", "Moisturizer", ["Non-CBD"])),
     ("Scotch Porter", _p("Leave-In Beard Conditioner 6-Pack", "Beard", ["Bay Rum"])),
     ("Scotch Porter", _p("Intense Anti-Dry Body Lotion | Sandalwood & Tobacco Musk")),
     ("Kiel James Patrick", _p("Goslings x KJP Black Seal Rum T-Shirt in Grey")),
@@ -73,6 +74,13 @@ FALSE_POSITIVES = [
     ("Onyx Coffee Lab", _p("Colombia Juan Jimenez Pink Bourbon", "Coffee")),
     ("Paddywax", _p("Tobacco Vanilla - Lustre Candle 10 oz")),
     ("KINTO USA", _p("CAST double wall beer glass 340ml")),
+    # recon-007
+    ("NEST New York", _p("Vanilla Bourbon Eau de Parfum", "Fragrance")),
+    ("Klean Kanteen", _p("16oz Rise Tumbler", "Drinkware", ["Wine", "Cocktail"])),
+    ("Roark", _p("Diablo Long Sleeve Flannel - Tobacco")),
+    ("Senita Athletics", _p("Sedona Shorts - Rifle")),
+    ("EcoFlow", _p("EcoFlow Cigarette Lighter port to DC5521/DC5525 Adapter Cable")),
+    ("Plum Deluxe", _p("Mulled Wine Herbal Tea (Grape / Orange / Cinnamon)")),
 ]
 
 
@@ -104,6 +112,10 @@ TRUE_POSITIVES = [
     ("weapons", _p("12 Gauge Pump Shotgun")),
     ("adult", _p("Personal Massager Vibrator")),
     ("adult", _p("Couples Sex Toy Kit", "Toy")),  # merch never excuses adult phrases
+    # recon-007 (stores whose terms ban robots; real products all the same)
+    ("alcohol", _p("Woodford Reserve Bourbon Barrel Aged Bitters 5-Pack")),
+    ("cannabis/cbd", _p("CBD - Lip Balm")),
+    ("cannabis/cbd", _p("Hemp Calming Fresh Sticks for Dogs", "Supplements", ["CBD"])),
 ]
 
 

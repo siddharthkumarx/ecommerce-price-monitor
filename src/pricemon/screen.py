@@ -6,9 +6,10 @@ enough to flag a store. Screen v2 (D-039) counts a match only when the product
 *is* the excluded thing, not when the word names a colour, a scent, a slogan or an
 object around it:
 
-* Fields: the product ``title`` and ``product_type`` only. Tags are not read: they
-  hold colour filters ("Tobacco" for brown suede) and marketing terms
-  ("CBD-free"), and flagged stores that sell none of it.
+* Fields: the product ``title`` and ``product_type``. Tags are read for
+  cannabis/CBD only: elsewhere they hold colour filters ("Tobacco" for brown suede)
+  and flagged stores that sell none of it, while a CBD seller may name CBD only in
+  a tag ("Hemp Calming Chews" tagged "CBD").
 * Negations never count: "CBD-free", "non-alcoholic", "Non-CBD".
 * Colourway: a word only in the short variant part of a title ("Pouch -
   Wine/Gold", "Dunes | Tobacco", "Leather in Tobacco") does not count, unless that
@@ -149,6 +150,7 @@ OBJECTS = (
     "fragrance",
     "cologne",
     "perfume",
+    "parfum",
     "soap",
     "lotion",
     "balm",
@@ -269,8 +271,13 @@ def screen_matches(
             "product_type": _clean(str(product.get("product_type") or "")),
         }
         around = " | ".join(fields.values())
+        tags = product.get("tags")
+        tag_text = _clean(" | ".join(tags) if isinstance(tags, list) else str(tags or ""))
         for cat, pattern in _PATTERNS.items():
-            for field, text in fields.items():
+            # Tags count for cannabis/CBD only: a CBD seller may say "Hemp" in the
+            # title and "CBD" in a tag; colour filters never name cannabis.
+            read = {**fields, "tags": tag_text} if cat == "cannabis/cbd" else fields
+            for field, text in read.items():
                 hit = next(
                     (
                         m.group(1)
