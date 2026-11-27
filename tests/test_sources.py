@@ -187,3 +187,17 @@ def test_terms_come_from_the_latest_run_that_read_them_and_retired_stores_stay_o
     assert "    terms: ban\n" in yml
     assert "retired:\n  - id: gone\n" in yml
     assert "## Retired" in render(sources, retired=retired)
+
+
+def test_terms_rank_first_and_a_ban_only_fills_a_category() -> None:
+    rows = [
+        _row("Banned", terms="ban", variants=900),
+        _row("Unknown", terms="none_found", variants=500),
+        _row("Clean", terms="no_ban", variants=100),
+    ]
+    records = collect([_run("recon-005", *rows)])
+    groups = classify(records, per_category=2, min_per_category=0)
+    assert [r.store for r in groups["selected"]] == ["Clean", "Unknown"]
+    assert [r.store for r in groups["reserve"]] == ["Banned"]
+    # With room, the ban fills the category.
+    assert len(classify(collect([_run("recon-005", *rows)]), per_category=3)["selected"]) == 3

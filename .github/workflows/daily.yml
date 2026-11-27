@@ -9,7 +9,7 @@ on:
     # the owner lifted the freeze on 27 Nov 2026 (D-031).
     - cron: "17 6 * * *"
   # GitHub starts the schedule above hours late (INC-009), so an external trigger
-  # (cron-job.org, fixed body `slot: auto`, D-030) dispatches each slot on time; the
+  # (the owner's own cron, fixed body `slot: auto`, D-030, D-035) dispatches each slot on time; the
   # late schedule event then finds the slot filled and skips. Without `slot`, a
   # manual run always runs.
   workflow_dispatch:

@@ -69,7 +69,7 @@ EARLY = timedelta(minutes=10)
 # The slot value of a dispatch that only proves the trigger works: never runs.
 CHECK_SLOT = "check"
 # The slot value of a scheduler that cannot put the time in its request body
-# (cron-job.org, D-030): the active slot within AUTO_WINDOW of now, before or after.
+# (the owner's own cron, D-030, D-035): the active slot within AUTO_WINDOW of now, before or after.
 AUTO_SLOT = "auto"
 AUTO_WINDOW = timedelta(minutes=10)
 

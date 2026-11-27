@@ -108,7 +108,7 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
 
 ### On-time trigger
 
-cron-job.org (no VPS, no other server, D-030) calls the `workflow_dispatch` API
+The owner's own cron (D-030, corrected by D-035) calls the `workflow_dispatch` API
 with a **fixed** body; `slot: auto` makes the gate pick the active slot
 (`active_crons()`, 06:17 UTC only since D-031) within 10 minutes of now, before or after.
 With no such slot the run skips with a one-line reason. Otherwise it is an explicit
@@ -119,12 +119,13 @@ run per slot, and the run records `dispatch.by` "trigger" (on-time accounting).
 - Method: `POST`
 - Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`.
   The token is fine-grained, this repository only, Actions read and write, 90-day
-  expiry; it lives only in cron-job.org, never in the repository. Renew it before
+  expiry; it lives only on the machine that runs the cron, never in the repository.
+  Renew it before
   it expires.
 - Body: `{"ref":"main","inputs":{"slot":"auto"}}`
-- Schedule, time zone UTC: `17 6 * * *` (every day). The Black Friday jobs
-  (`17 0,12,18 26-30 11 *` and `17 0,12,18 1 12 *`) are no longer needed since D-031:
-  their calls now skip with a one-line reason, so delete them in cron-job.org.
+- Schedule, time zone UTC: one line, `17 6 * * *` (every day). The Black Friday slots
+  are gone since D-031: a call at 00:17, 12:17 or 18:17 now skips with a one-line
+  reason, so replace any multi-slot line with the single 06:17 line.
 - Success is HTTP 204. Test the token with the body
   `{"ref":"main","inputs":{"slot":"check"}}` (runs nothing). A call at any other
   time skips, so an extra or mistimed call is harmless.

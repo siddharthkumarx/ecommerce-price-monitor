@@ -55,12 +55,17 @@ from pricemon.stores import (
     load_retired,
 )
 
-PER_CATEGORY = 16
+# Owner decision (F1-EXPAND addendum): 10-12 categories of 20-25 stores, each a demo
+# competitor set; at most PER_CATEGORY per category, MAX_STORES in all.
+PER_CATEGORY = 25
 MIN_PER_CATEGORY = 4
 # Owner decisions: D-020 (one daily run on a single runner, inside the job budget,
 # never by spreading requests over several runners at once) and D-031 (at least 100
 # stores from 27 Nov 2026).
-MAX_STORES = 125
+MAX_STORES = 300
+# Selection order inside a category (HQ review A4): stores whose terms do not ban
+# automated access first, unknown terms next, a ban only to fill a category.
+TERMS_RANK = {"no_ban": 0, "none_found": 1, "ban": 2}
 RETIRED_PATH = Path("config/retired.yml")
 USED_PATHS = (
     ("robots_products_json", "/products.json"),
@@ -213,11 +218,12 @@ def classify(
 ) -> dict[str, list[StoreRecord]]:
     """Split records into selected, reserve and dropped.
 
-    Ranking inside a category: US shops first, then fewest recon caveats, then
-    larger catalogs. At most ``per_category`` per category; then, while more than
-    ``max_stores`` are selected, the weakest store (most caveats, from the largest
-    category, smallest catalog) moves to reserve, never leaving a category with
-    fewer than ``min_per_category``.
+    Ranking inside a category: terms ``no_ban``, then ``none_found``, then ``ban``;
+    then US shops first, fewest recon caveats, larger catalogs. At most
+    ``per_category`` per category; then, while more than ``max_stores`` are selected,
+    a store moves to reserve from the largest category (a ban first, then most
+    caveats, smallest catalog), never leaving a category with fewer than
+    ``min_per_category``.
     """
     groups: dict[str, list[StoreRecord]] = {
         "selected": [],
@@ -237,6 +243,7 @@ def classify(
     for cat, rows in by_cat.items():
         rows.sort(
             key=lambda x: (
+                TERMS_RANK.get(x.terms, 1),
                 x.latest.get("meta_country") != "US",
                 len(x.caveats()),
                 -x.latest["variants"],
@@ -248,15 +255,24 @@ def classify(
             rec.reserve_reason = f"more than {per_category} in the category"
             groups["reserve"].append(rec)
     while sum(len(v) for v in chosen.values()) > max_stores:
+        # Fair shares: trim the largest category first, a ban first, then caveats.
         options = [
-            (len(rec.caveats()), len(rows), -int(rec.latest["variants"]), rec.store, cat, rec)
+            (
+                len(rows),
+                TERMS_RANK.get(rec.terms, 1),
+                len(rec.caveats()),
+                -int(rec.latest["variants"]),
+                rec.store,
+                cat,
+                rec,
+            )
             for cat, rows in chosen.items()
             if len(rows) > min_per_category
             for rec in rows
         ]
         if not options:
             break
-        *_, cat, weakest = max(options, key=lambda o: o[:4])
+        *_, cat, weakest = max(options, key=lambda o: o[:5])
         chosen[cat].remove(weakest)
         caveats = "; ".join(weakest.caveats()) or "no caveats"
         weakest.reserve_reason = f"trimmed to {max_stores} stores for the run budget ({caveats})"

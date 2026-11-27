@@ -426,14 +426,15 @@ From an independent review that rendered every SVG:
   not GitHub's late scheduler. Earlier slots stay in `status.json` and the run
   history, with a one-sentence note computed from the run log.
 
-## D-030 - On-time trigger: cron-job.org with `slot: auto` (2026-11-22, owner decision)
+## D-030 - On-time trigger with `slot: auto` (2026-11-22, owner decision; trigger corrected by D-035)
 
-- **Trigger:** cron-job.org calls `POST
+- **Trigger:** an external scheduler (recorded here as cron-job.org; it is the owner's
+  own cron, D-035) calls `POST
   https://api.github.com/repos/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml/dispatches`
   with headers `Authorization: Bearer <token>` and `Accept:
   application/vnd.github+json` and the fixed body
   `{"ref":"main","inputs":{"slot":"auto"}}`, in UTC at `17 6 * * *`, plus
-  `17 0,12,18` on 26-30 Nov and 1 Dec. No VPS and no other server. The token is as
+  `17 0,12,18` on 26-30 Nov and 1 Dec. The token is as
   in D-028 (fine-grained, this repository only, Actions read and write, 90 days).
 - **Why `auto`:** a simple cron service cannot put the slot time in the body, and
   the explicit form (`2026-11-26T06:17Z`) needs it. `auto` means the active slot
@@ -458,6 +459,42 @@ From an independent review that rendered every SVG:
   action go to https://steadydata.co/contact/.
 
 
+## D-031 - F1-EXPAND: 250-300 stores, freeze lifted, JLab retired, terms field, display rule, one run a day (2026-11-27, owner decision)
+
+- **Freeze lifted.** The Black Friday freeze (25 Nov 18:00 UTC to 2 Dec) ends on
+  27 Nov 2026: Black Friday data is not needed for outreach (cold email starts after
+  15 Dec), and the bigger store set needs its first days of history before then.
+- **Store set.** From 25 stores to 250-300 in 10 categories of 20-25 stores, each a
+  demo competitor set (audio, apparel, beauty, home & kitchen, outdoor, coffee & tea,
+  fitness, pet, tech accessories, toys & kids). 554 new candidates in
+  `checks/candidates.yml` (`since: recon-005` and `since: recon-006`); the drop rules
+  of D-004 apply unchanged. Stores on other platforms are listed for later in
+  `docs/other-platforms.md`; no other platform is collected.
+- **JLab retired.** `jlab` leaves the list (`config/retired.yml`, owner decision):
+  its history stays in `data/` as written, the next run closes its open rows without
+  change events, and every surface shows it as "retired on 27 Nov 2026".
+- **Terms field.** Recon reads `/policies/terms-of-service` once per store (at most 2
+  requests, one retry or one same-host redirect, and only where robots.txt allows it)
+  and records `terms`: `ban` (a sentence forbids robots, spiders, scrapers, crawlers,
+  automated access, data mining or commercial reuse of the content), `no_ban` (read,
+  no such sentence) or `none_found` (not read: disallowed by robots.txt, missing, or
+  no policy text), with the first matching sentence (at most 300 characters) in the
+  recon results. Liability, warranty, purchase-for-personal-use and privacy lines are
+  not bans. Shopify's default robots.txt disallows `/policies/`, so most stores are
+  `none_found`; Shopify's default terms template forbids "spider, crawl, or scrape",
+  so most readable pages are `ban`.
+- **Selection.** Inside a category `no_ban` first, then `none_found`, then `ban` only
+  to fill it (HQ review A4); at most 25 per category, 300 in all.
+- **Display rule.** Every kept store is monitored and counts in every total. A store
+  whose `terms` value is in `anonymise_terms` (`config/public.yml`, now `[ban]`) is
+  shown on the README, dashboard, feed and media as "Store #<n> (<category>)", with
+  no name, host or product links (`pricemon.display`); public data files follow D-034.
+- **Schedule.** One run a day at 06:17 UTC again. The extra slots due before the lift
+  (26 Nov 00:17, 12:17, 18:17; 27 Nov 00:17, 12:17) stay in the slot accounting
+  (`BFCM_2026_END`); no cron line names them, so nothing fires in 2027. The on-time
+  trigger keeps `slot: auto` and needs only its 06:17 UTC line (D-035).
+- **Capacity.** Sequential shards (D-033).
+
 ## D-032 - Code under PolyForm Noncommercial 1.0.0, data under CC BY-NC 4.0 (2026-11-27, owner decision)
 
 From the commit that adds `LICENSE-HISTORY.md` on, the code is licensed under the
@@ -467,3 +504,43 @@ legal code). Commits before that were MIT (code) and CC BY 4.0 (data); copies ta
 from them keep those licenses (`LICENSE-HISTORY.md`). The README license section and
 badges, the dataset card and `CITATION.cff` say the same. Supersedes the license part
 of D-001, D-023 and D-024. Commercial use: ask the owner.
+
+## D-033 - Sequential shards inside the daily workflow (2026-11-27, owner decision)
+
+With 250-300 stores one run needs more requests than one job's 38-minute request
+budget allows at the unchanged pace. The daily workflow therefore reads the stores
+in shard jobs that run **one after another** (`max-parallel: 1`), then one process
+job merges the shard files and writes every output once. The per-shop spacing, the
+run-wide pace and the run-wide 429 cooldown are unchanged; at any moment only one
+runner sends requests, so the run-wide rate is that of a single runner. Parallel
+shards stay ruled out (D-020): they would spread requests over several IPs at once.
+Each shard is a job under 45 minutes with its own 38-minute budget; a shard that
+fails leaves its stores "not updated" (partial run); no shard file at all is a crash.
+The stores of a shard are every n-th store of the day's rotating order. Supersedes
+the "single runner" part of D-020; the 45-minute limit now holds per job.
+
+## D-034 - Public data never names a store shown without its name (2026-11-27, HQ review)
+
+- **Fixed numbers:** every listed store gets a public number once, in
+  `config/aliases.yml` (written by `python -m pricemon.sources --stores-yml`, never
+  changed, removed or reused), and `public_no` in `config/stores.yml`. "Store #n"
+  and the alias id `store-<nnn>` follow from it, so they stay with the same store
+  when the list is regenerated or stores leave.
+- **Public data files:** a store whose `terms` value is in `anonymise_terms` is keyed
+  by its alias id in the snapshot, the change logs, the run log (and so
+  `status.json`), the monthly Parquet history and its CSV copy, and the shard
+  artifacts, with an empty handle and its name taken out of product and variant
+  titles, tags and evidence strings (`pricemon.publicdata`). Every run first rekeys
+  files written under an earlier config (idempotent). Run logs on Actions print
+  alias ids too.
+- **Not covered, by design:** `config/stores.yml`, `config/aliases.yml`, the recon
+  evidence in `checks/results/` and `docs/sources.md` must name stores and hosts for
+  the collector and the drop rules to work, and git history keeps earlier commits.
+  A reader of the repository can therefore still match an alias to a store; only a
+  private store list would close that.
+
+## D-035 - On-time trigger is the owner's own cron (2026-11-27, owner correction)
+
+The external on-time trigger of D-028 and D-030 is the owner's own cron, not
+cron-job.org; the request (URL, headers, fixed body `{"ref":"main","inputs":{"slot":"auto"}}`)
+and the token rules are unchanged. Since D-031 it needs one line, `17 6 * * *` (UTC).
