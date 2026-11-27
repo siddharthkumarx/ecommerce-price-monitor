@@ -517,7 +517,10 @@ shards stay ruled out (D-020): they would spread requests over several IPs at on
 Each shard is a job under 45 minutes with its own 38-minute budget; a shard that
 fails leaves its stores "not updated" (partial run); no shard file at all is a crash.
 The stores of a shard are every n-th store of the day's rotating order. Supersedes
-the "single runner" part of D-020; the 45-minute limit now holds per job.
+the "single runner" part of D-020; the 45-minute limit now holds per job. Four
+shards for 250 stores (about 63 each): recon-005 and recon-006 spent about a third
+of their time in run-wide 429 cooldowns, and four shards leave room for that inside
+each 38-minute budget.
 
 ## D-034 - Public data never names a store shown without its name (2026-11-27, HQ review)
 
