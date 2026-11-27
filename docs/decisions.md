@@ -616,3 +616,38 @@ copy of such a variant is kept and nothing is missing, so a repeated variant id 
 now counted apart (`duplicate_variants` in the run log, a new field), as $0 variants
 are since D-018, and the reject share does not see it. A variant that is really lost
 because pages shifted shows up as falling rows, which the rows-drop guard still holds.
+
+## D-038 - Fresh review of F1-EXPAND: fixes (2026-11-27)
+
+One fresh-reviewer pass over the whole change (c3acc62 to the review); every High and
+Medium finding is fixed, with tests in `tests/test_review_fixes.py`.
+
+- **Withdrawal needs a real store list (High).** Retired stores alone no longer allow
+  a withdrawal, and a run never withdraws more stores than are listed: a wrong or
+  truncated `config/stores.yml` leaves public data alone and says so in the log.
+- **A withdrawn store counts once (High).** A failed store is in both `stores` and
+  `stores_not_updated`; it was subtracted twice from `stores_total`. Fixed, and the
+  two affected run records (`20261108T132952Z`, `20261127T182554Z`) were repaired
+  from their originals in git history.
+- **Failure reasons of a store shown by number (High).** A reason can hold a store
+  URL or product handles; for such a store it is scrubbed in shard files, the run
+  log and the Actions log (`Display.reason`).
+- **A failed read does not lift a ban (High).** A proven `ban` stands until a later
+  run reads the Terms page and finds no ban.
+- **The run-wide pace carries across shards (Medium).** Each shard downloads the
+  earlier shards' files of its run and starts at their slowest run-wide interval; if
+  an earlier shard halted for anything but its own time budget (the edge refusing
+  this IP), the later shards send no request.
+- **Earlier months (Medium).** After uploading this month's history, the run brings
+  every earlier `data-YYYY-MM` release asset (Parquet and `latest-prices.csv`) to the
+  current keys with `python -m pricemon.publicdata`, so a store that left also leaves
+  them.
+- **One store list per run (Medium).** The slot job records the commit it planned
+  the shards from; every shard checks out that commit.
+- **Low findings fixed:** a store whose terms ban robots is never read at run time,
+  even if it reached the list (`fetch_all`); a repeated variant id is a duplicate
+  before validation, whatever its first copy was; guard holds naming a store with a
+  non-ASCII id are matched. Not changed: a store that leaves the list and later
+  returns gets a new number (numbers are never reused, D-036); retired stores are
+  matched by config id, which is enough while no store is shown by number.
+
