@@ -232,3 +232,85 @@ def test_committed_stores_have_registered_fixed_numbers() -> None:
     for s in load_stores(ROOT / "config" / "stores.yml"):
         assert s.public_no is not None
         assert registry[s.id] == s.public_no
+
+
+def test_a_store_that_leaves_without_being_retired_is_withdrawn_everywhere(
+    published: tuple[Path, Path], tmp_path: Path
+) -> None:
+    """D-036: public data holds only monitored and retired stores. Alphacorp (a ban)
+    leaves the list; its rows, run-log entries and history go, and the run totals
+    shrink by what it contributed."""
+    stores, data = published
+    runs_before = [json.loads(x) for x in (data / "runs.jsonl").read_text().splitlines()]
+    stores.write_text(
+        "stores:\n"
+        "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban, "
+        "public_no: 2}\n"
+        "retired:\n  - {id: gamma, name: Gamma, category: audio, retired_on: 2026-11-05}\n"
+    )
+    parquet = tmp_path / "release" / "month.parquet"
+    cfg = RunConfig(stores=stores, data=data, history_in=parquet, history_out=parquet)
+    day3 = datetime(2026, 11, 6, 6, 17, tzinfo=UTC)
+    code, rec = process(cfg, [fetched("beta", catalog(4), day3)], day3, time.monotonic())
+    assert code == 0
+    assert rec["stores_total"] == 1
+    assert rec["events"]["removed"] == 0  # leaving is not a removal
+    import duckdb
+
+    ids = {
+        r[0]
+        for r in duckdb.connect()
+        .execute("SELECT DISTINCT store_id FROM read_parquet(?)", [str(parquet)])
+        .fetchall()
+    }
+    assert ids == {"beta", "gamma"}
+    for p in data.rglob("*"):
+        if p.is_file():
+            text = p.read_text().lower()
+            for secret in (*SECRETS, "store-017"):
+                assert secret not in text, (p, secret)
+    runs_after = [json.loads(x) for x in (data / "runs.jsonl").read_text().splitlines()]
+    day1_before, day1_after = runs_before[0], runs_after[0]
+    assert day1_before["stores_total"] == 3
+    assert day1_after["stores_total"] == 2  # beta, and gamma (retired, kept)
+    assert day1_after["withdrawn_stores"] == 1
+    assert day1_after["rows_observed"] == day1_before["rows_observed"] - 6
+    assert day1_after["events"]["new"] == day1_before["events"]["new"] - 6
+    # A second run changes nothing more (idempotent).
+    from pricemon.display import load_display
+    from pricemon.publicdata import rekey_files
+
+    assert rekey_files(data, load_display(stores, ROOT / "config" / "public.yml")) == []
+
+
+def test_without_a_store_list_nothing_is_withdrawn(tmp_path: Path) -> None:
+    from pricemon.publicdata import rekey_files
+
+    data = tmp_path / "data"
+    (data / "latest").mkdir(parents=True)
+    snap = data / "latest" / "snapshot.csv"
+    snap.write_text("store_id,handle,product_title,variant_title\nx,h,T,V\n")
+    assert rekey_files(data, Display([], [])) == []
+    assert "x,h,T,V" in snap.read_text()
+
+
+def test_the_registry_holds_listed_stores_and_never_gives_a_number_twice(tmp_path: Path) -> None:
+    from pricemon.stores import assign_aliases, dump_aliases, load_alias_next, load_aliases
+
+    path = tmp_path / "aliases.yml"
+    # Store c (number 3) left the list: it leaves the file, its number stays used.
+    path.write_text(dump_aliases({"a": 1, "b": 2}, next_no=4))
+    assert load_aliases(path) == {"a": 1, "b": 2}
+    assert load_alias_next(path) == 4
+    assert assign_aliases(load_aliases(path), ["a", "d"], load_alias_next(path))["d"] == 4
+    committed = ROOT / "config" / "aliases.yml"
+    listed = {s.id for s in load_stores(ROOT / "config" / "stores.yml")}
+    assert set(load_aliases(committed)) == listed
+    assert load_alias_next(committed) > max(load_aliases(committed).values())
+
+
+def test_the_committed_list_has_no_store_whose_terms_ban_robots() -> None:
+    assert {s.terms for s in load_stores(ROOT / "config" / "stores.yml")} <= {
+        "no_ban",
+        "none_found",
+    }

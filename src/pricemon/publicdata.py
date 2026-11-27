@@ -12,6 +12,11 @@ Parquet history and the ``latest-prices.csv`` release asset (a copy of the snaps
 * :func:`rekey_files` and :func:`rekey_month` move files written before a store was
   anonymised (or after it stopped being) to the right key. Both are idempotent: on
   an unchanged config they change nothing.
+* Both also withdraw every store that is neither monitored nor retired (D-036): its
+  rows leave the snapshot, the change logs and the Parquet history, and its entries
+  leave the run log, whose totals are reduced by what that store contributed (store
+  counts, requests and change events exactly; observed rows by its variant count).
+  A store that leaves the list keeps its history only if it is retired.
 """
 
 from __future__ import annotations
@@ -19,6 +24,8 @@ from __future__ import annotations
 import csv
 import io
 import json
+import re
+from collections import Counter, defaultdict
 from dataclasses import replace
 from pathlib import Path
 from typing import Any
@@ -95,12 +102,18 @@ def _rekey_row(display: Display, mapping: dict[str, str], row: dict[str, str]) -
     return out
 
 
-def _rewrite_csv(path: Path, display: Display, mapping: dict[str, str]) -> bool:
-    text = path.read_text(encoding="utf-8")
-    reader = csv.DictReader(io.StringIO(text))
-    fields = list(reader.fieldnames or [])
-    rows = list(reader)
+def _read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
+    reader = csv.DictReader(io.StringIO(path.read_text(encoding="utf-8")))
+    return list(reader.fieldnames or []), list(reader)
+
+
+def _rewrite_csv(
+    path: Path, display: Display, mapping: dict[str, str], known: set[str] | None
+) -> bool:
+    fields, rows = _read_csv(path)
     new_rows = [_rekey_row(display, mapping, r) for r in rows]
+    if known:
+        new_rows = [r for r in new_rows if r.get("store_id", "") in known]
     if new_rows == rows:
         return False
     buf = io.StringIO()
@@ -141,15 +154,75 @@ def _rekey_run(display: Display, mapping: dict[str, str], record: dict[str, Any]
         record["reject_examples"] = examples
 
 
+def _mentions(value: Any, ids: set[str]) -> bool:
+    text = json.dumps(value)
+    return any(re.search(rf"(?<![\w-]){re.escape(i)}(?![\w-])", text) for i in ids)
+
+
+def _withdraw_run(record: dict[str, Any], known: set[str], events: dict[Any, Counter[str]]) -> None:
+    """Take the entries of stores that left (neither monitored nor retired) out of one
+    run record and reduce its totals by what they contributed (D-036)."""
+    stores = record.get("stores") or []
+    not_updated = record.get("stores_not_updated") or []
+    gone = [s for s in stores if str(s.get("store_id") or "") not in known]
+    gone_nu = [s for s in not_updated if str(s.get("store_id") or "") not in known]
+    gone_ids = {str(s.get("store_id") or "") for s in gone + gone_nu}
+    gone_ids |= {x for x in record.get("stores_added") or [] if x not in known}
+    gone_ids |= {x for x in record.get("reject_examples") or {} if x not in known}
+    if not gone_ids:
+        return
+    record["stores"] = [s for s in stores if s not in gone]
+    record["stores_not_updated"] = [s for s in not_updated if s not in gone_nu]
+    if "stores_total" in record:
+        record["stores_total"] = max(0, int(record["stores_total"]) - len(gone) - len(gone_nu))
+    if "stores_ok" in record:
+        ok = sum(1 for s in gone if s.get("status") == "ok")
+        record["stores_ok"] = max(0, int(record["stores_ok"]) - ok)
+    if "requests" in record:
+        req = sum(int(s.get("requests") or 0) for s in gone)
+        record["requests"] = max(0, int(record["requests"]) - req)
+    rows = sum(int(s.get("variants") or 0) for s in gone if s.get("status") == "ok")
+    for key in ("rows_observed", "rows_live"):
+        if key in record:
+            record[key] = max(0, int(record[key]) - rows)
+    counts: Counter[str] = Counter()
+    for sid in gone_ids:
+        counts += events.get((record.get("started_at"), sid), Counter())
+    for event, n in counts.items():
+        if event in (record.get("events") or {}):
+            record["events"][event] = max(0, int(record["events"][event]) - n)
+    if record.get("stores_added"):
+        record["stores_added"] = [x for x in record["stores_added"] if x in known]
+    if record.get("reject_examples"):
+        record["reject_examples"] = {
+            k: v for k, v in record["reject_examples"].items() if k in known
+        }
+    guard = record.get("guard") or {}
+    for key in ("holds", "keys"):
+        if guard.get(key):
+            guard[key] = [h for h in guard[key] if not _mentions(h, gone_ids)]
+    record["withdrawn_stores"] = int(record.get("withdrawn_stores") or 0) + len(gone_ids)
+
+
 def rekey_files(data: Path, display: Display) -> list[Path]:
-    """Bring the snapshot, the change logs and the run log to the current keys."""
+    """Bring the snapshot, the change logs and the run log to the current keys, and
+    withdraw every store that is neither monitored nor retired (D-036)."""
     mapping = display.rekey()
+    # No store list at all (an empty or missing config): nothing is withdrawn, since
+    # withdrawing is the direction that deletes data.
+    known = display.public_ids or None
     changed: list[Path] = []
     csvs = [data / "latest" / "snapshot.csv", *sorted((data / "changes").glob("*/*.csv"))]
-    for path in csvs:
-        if path.exists() and _rewrite_csv(path, display, mapping):
-            changed.append(path)
+    # Change events of stores that left, by run time, to reduce the run totals once.
+    events: dict[Any, Counter[str]] = defaultdict(Counter)
+    for path in csvs[1:]:
+        if known and path.exists():
+            for r in _read_csv(path)[1]:
+                sid = mapping.get(r.get("store_id", ""), r.get("store_id", ""))
+                if sid not in known:
+                    events[(r.get("observed_at"), sid)][r.get("event", "")] += 1
     runs = data / "runs.jsonl"
+    # The run log first: it needs the change events that the CSV pass takes out.
     if runs.exists():
         lines = [line for line in runs.read_text(encoding="utf-8").splitlines() if line.strip()]
         out = []
@@ -158,6 +231,8 @@ def rekey_files(data: Path, display: Display) -> list[Path]:
             record = json.loads(line)
             before = json.dumps(record, sort_keys=True)
             _rekey_run(display, mapping, record)
+            if known:
+                _withdraw_run(record, known, events)
             if json.dumps(record, sort_keys=True) != before:
                 dirty = True
                 line = json.dumps(record, sort_keys=True, separators=(",", ":"))
@@ -166,6 +241,9 @@ def rekey_files(data: Path, display: Display) -> list[Path]:
         if dirty:
             runs.write_text("\n".join(out) + "\n", encoding="utf-8")
             changed.append(runs)
+    for path in csvs:
+        if path.exists() and _rewrite_csv(path, display, mapping, known):
+            changed.append(path)
     return changed
 
 
@@ -174,6 +252,15 @@ def rekey_month(con: duckdb.DuckDBPyConnection, display: Display) -> int:
     changed = 0
     for old, new in display.rekey().items():
         res = con.execute("UPDATE month_prev SET store_id = ? WHERE store_id = ?", [new, old])
+        changed += int((res.fetchone() or [0])[0])
+    known = sorted(display.public_ids)
+    if known:
+        # Stores that are neither monitored nor retired leave the history (D-036).
+        con.execute("CREATE OR REPLACE TEMP TABLE known_ids (store_id VARCHAR)")
+        con.executemany("INSERT INTO known_ids VALUES (?)", [[k] for k in known])
+        res = con.execute(
+            "DELETE FROM month_prev WHERE store_id NOT IN (SELECT store_id FROM known_ids)"
+        )
         changed += int((res.fetchone() or [0])[0])
     hidden = sorted({display.data_id(s) for s in display.anonymised_ids})
     if not hidden:

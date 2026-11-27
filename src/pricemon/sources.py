@@ -25,7 +25,8 @@ the list is copied into ``config/stores.yml`` (D-031).
 
 Each store's ``terms`` field (``ban``, ``no_ban`` or ``none_found``) is that of its
 latest recon run that read the Terms of Service page (``recon-005`` on); a store no
-such run read is ``none_found``.
+such run read is ``none_found``. A store whose terms are ``ban`` is dropped and never
+monitored (owner decision D-036).
 
 Among the stores left, at most ``PER_CATEGORY`` per category are *selected*,
 ranked US shops first (``/meta.json`` country), then fewest recon caveats, then
@@ -51,6 +52,7 @@ from pricemon.stores import (
     RetiredStore,
     assign_aliases,
     dump_aliases,
+    load_alias_next,
     load_aliases,
     load_retired,
 )
@@ -64,7 +66,8 @@ MIN_PER_CATEGORY = 4
 # stores from 27 Nov 2026).
 MAX_STORES = 300
 # Selection order inside a category (HQ review A4): stores whose terms do not ban
-# automated access first, unknown terms next, a ban only to fill a category.
+# automated access first, unknown terms next. A store whose terms ban robots is
+# dropped since D-036 (owner, 27 Nov 2026); its rank stays for the trimming key.
 TERMS_RANK = {"no_ban": 0, "none_found": 1, "ban": 2}
 RETIRED_PATH = Path("config/retired.yml")
 USED_PATHS = (
@@ -182,6 +185,11 @@ class StoreRecord:
             for cat, examples in (r.get("content_flags") or {}).items():
                 if self._reviewed(cat, examples) is None:
                     reasons.append(f"{rid}: excluded category {cat} (e.g. {'; '.join(examples)})")
+        terms = self.terms_record()
+        if terms is not None and terms["terms"] == "ban":
+            # Owner decision D-036: a store whose terms ban robots is not monitored.
+            rid = next(i for i, r in self.history if r is terms)
+            reasons.append(f"{rid}: terms ban, not monitored (D-036)")
         latest = self.latest
         if not latest["passed"]:
             covered = ("blocked", "robots", "needed 429", "excluded category")
@@ -219,7 +227,8 @@ def classify(
 ) -> dict[str, list[StoreRecord]]:
     """Split records into selected, reserve and dropped.
 
-    Ranking inside a category: terms ``no_ban``, then ``none_found``, then ``ban``;
+    Ranking inside a category: terms ``no_ban``, then ``none_found`` (a ``ban`` is
+    dropped, D-036);
     then a store selected before (its id in ``keep``, the fixed-number registry) over
     a new one, so a list that grows does not push monitored stores out; then US shops
     first, fewest recon caveats, larger catalogs. At most
@@ -477,16 +486,21 @@ def selected_aliases(
     retired: list[RetiredStore] | None,
     max_stores: int,
     aliases: dict[str, int],
-) -> dict[str, int]:
-    """The registry after numbering every selected store (existing numbers kept)."""
+    next_no: int = 1,
+) -> tuple[dict[str, int], int]:
+    """The registry of the selected stores (existing numbers kept, new ones from
+    ``next_no``) and the next number never given. Stores that left are not in it
+    (D-036); their numbers are not given again."""
     groups = classify(
         collect(sources, reviews),
         max_stores=max_stores,
         retired={r.name for r in retired or []},
         keep=set(aliases),
     )
-    chosen = sorted(groups["selected"], key=_order)
-    return assign_aliases(aliases, [store_slug(rec.store) for rec in chosen])
+    chosen = [store_slug(rec.store) for rec in sorted(groups["selected"], key=_order)]
+    full = assign_aliases(aliases, chosen, next_no)
+    nxt = max(next_no, max(full.values(), default=0) + 1)
+    return {sid: full[sid] for sid in chosen}, nxt
 
 
 def render_stores_yml(
@@ -565,9 +579,11 @@ def main(argv: list[str] | None = None) -> int:
     # Stores selected before (they have a fixed number) keep their place (D-031).
     before = load_aliases(args.aliases)
     if args.stores_yml:
-        # The registry only grows: numbers of stores that left stay reserved (D-034).
-        aliases = selected_aliases(sources, reviews, retired, args.max_stores, before)
-        args.aliases.write_text(dump_aliases(aliases), encoding="utf-8")
+        # Numbers never change and are never given twice (D-034, D-036).
+        aliases, nxt = selected_aliases(
+            sources, reviews, retired, args.max_stores, before, load_alias_next(args.aliases)
+        )
+        args.aliases.write_text(dump_aliases(aliases, nxt), encoding="utf-8")
         out = render_stores_yml(
             sources, reviews, retired, args.max_stores, aliases, keep=set(before)
         )

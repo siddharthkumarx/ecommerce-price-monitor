@@ -78,6 +78,11 @@ class Display:
         return self._from_data.get(store_id, store_id)
 
     @property
+    def public_ids(self) -> set[str]:
+        """The keys public data may hold: monitored stores and retired stores (D-036)."""
+        return set(self._data_id.values()) | set(self._retired)
+
+    @property
     def anonymised_ids(self) -> set[str]:
         return set(self._alias)
 

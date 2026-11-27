@@ -122,7 +122,8 @@ ALIASES_HEADER = (
     '# Fixed public numbers of the stores (D-034), used for "Store #<n>" and the alias\n'
     "# id store-<nnn> of a store shown without its name. Written by\n"
     "# `python -m pricemon.sources --stores-yml`: a store gets a number the first time it\n"
-    "# is listed; a number is never changed, removed or reused, also after a store leaves.\n"
+    "# is listed and keeps it; a store that leaves the list leaves this file (D-036), and\n"
+    "# `next` is the lowest number never given, so no number is ever reused.\n"
 )
 
 
@@ -136,10 +137,24 @@ def load_aliases(path: Path = ALIASES_PATH) -> dict[str, int]:
     return out
 
 
-def assign_aliases(registry: dict[str, int], store_ids: list[str]) -> dict[str, int]:
-    """The registry with a new number for every id that has none; existing ones kept."""
+def load_alias_next(path: Path = ALIASES_PATH) -> int:
+    """The lowest number never given (``next`` in the file, else one above the highest)."""
+    if not path.exists():
+        return 1
+    raw = _raw(path)
+    numbers = [int(v) for v in (raw.get("numbers") or {}).values()]
+    return max(int(raw.get("next") or 1), max(numbers, default=0) + 1)
+
+
+def assign_aliases(
+    registry: dict[str, int], store_ids: list[str], next_no: int = 1
+) -> dict[str, int]:
+    """The registry with a new number for every id that has none; existing ones kept.
+
+    New numbers start at ``next_no`` or above the highest in use, whichever is larger.
+    """
     out = dict(registry)
-    nxt = max(out.values(), default=0) + 1
+    nxt = max(max(out.values(), default=0) + 1, next_no)
     for sid in store_ids:
         if sid not in out:
             out[sid] = nxt
@@ -147,7 +162,8 @@ def assign_aliases(registry: dict[str, int], store_ids: list[str]) -> dict[str, 
     return out
 
 
-def dump_aliases(registry: dict[str, int]) -> str:
-    lines = [ALIASES_HEADER.rstrip("\n"), "numbers:"]
+def dump_aliases(registry: dict[str, int], next_no: int = 1) -> str:
+    nxt = max(next_no, max(registry.values(), default=0) + 1)
+    lines = [ALIASES_HEADER.rstrip("\n"), f"next: {nxt}", "numbers:"]
     lines += [f"  {sid}: {n}" for sid, n in sorted(registry.items(), key=lambda kv: kv[1])]
     return "\n".join(lines) + "\n"

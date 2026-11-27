@@ -184,36 +184,41 @@ def test_terms_come_from_the_latest_run_that_read_them_and_retired_stores_stay_o
     assert [r.store for r in groups["retired"]] == ["Gone"]
     assert "Gone" not in {r.store for r in groups["selected"]}
     yml = render_stores_yml(sources, retired=retired)
-    assert "    terms: ban\n" in yml
+    assert "    terms: no_ban\n" in yml
+    assert "id: alpha" not in yml  # a ban is never listed (D-036)
     assert "retired:\n  - id: gone\n" in yml
     assert "## Retired" in render(sources, retired=retired)
 
 
-def test_terms_rank_first_and_a_ban_only_fills_a_category() -> None:
+def test_terms_rank_first_and_a_ban_is_never_selected() -> None:
     rows = [
         _row("Banned", terms="ban", variants=900),
         _row("Unknown", terms="none_found", variants=500),
         _row("Clean", terms="no_ban", variants=100),
+        _row("Later", terms="none_found", variants=900),
     ]
     records = collect([_run("recon-005", *rows)])
     groups = classify(records, per_category=2, min_per_category=0)
-    assert [r.store for r in groups["selected"]] == ["Clean", "Unknown"]
-    assert [r.store for r in groups["reserve"]] == ["Banned"]
-    # With room, the ban fills the category.
-    assert len(classify(collect([_run("recon-005", *rows)]), per_category=3)["selected"]) == 3
+    assert [r.store for r in groups["selected"]] == ["Clean", "Later"]
+    assert [r.store for r in groups["reserve"]] == ["Unknown"]
+    # Even with room, a store whose terms ban robots is dropped (D-036).
+    wide = classify(collect([_run("recon-005", *rows)]), per_category=10)
+    assert "Banned" not in {r.store for r in wide["selected"]}
+    (banned,) = wide["dropped"]
+    assert banned.drop_reasons() == ["recon-005: terms ban, not monitored (D-036)"]
 
 
 def test_a_monitored_store_keeps_its_place_over_a_new_one_with_the_same_terms() -> None:
     rows = [
-        _row("Incumbent", terms="ban", variants=100),
-        _row("Newcomer", terms="ban", variants=900),
+        _row("Incumbent", terms="none_found", variants=100),
+        _row("Newcomer", terms="none_found", variants=900),
         _row("Clean", terms="no_ban", variants=50),
     ]
     records = collect([_run("recon-005", *rows)])
     plain = classify(records, per_category=2)
     assert [r.store for r in plain["selected"]] == ["Clean", "Newcomer"]
     kept = classify(collect([_run("recon-005", *rows)]), per_category=2, keep={"incumbent"})
-    # Terms still rank first: the incumbent beats only the new store with a ban.
+    # Terms still rank first: the incumbent beats only a new store with the same terms.
     assert [r.store for r in kept["selected"]] == ["Clean", "Incumbent"]
     assert [r.store for r in kept["reserve"]] == ["Newcomer"]
     full = classify(
