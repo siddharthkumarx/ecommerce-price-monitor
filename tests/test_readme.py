@@ -83,7 +83,7 @@ def test_dataset_card_renders(two_runs: tuple[Path, Path]) -> None:
     ctx = context(data, stores, ROOT / "config" / "public.yml")
     text = render(ROOT / "templates" / "DATASET_CARD.md.j2", ctx)
     assert text.startswith("---\npretty_name:")
-    assert "license: cc-by-4.0" in text
+    assert "license: cc-by-nc-4.0" in text
     assert "{{" not in text
 
 

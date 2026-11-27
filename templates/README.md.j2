@@ -12,6 +12,8 @@
 [![Missed runs](https://img.shields.io/endpoint?url={{ raw }}/data/badges/missed-runs.json)]({{ repo_url }}/blob/{{ pub.branch }}/data/status.json)
 [![Rows today](https://img.shields.io/endpoint?url={{ raw }}/data/badges/rows-today.json)]({{ repo_url }}/blob/{{ pub.branch }}/data/latest/snapshot.csv)
 [![Tests](https://img.shields.io/github/actions/workflow/status/{{ pub.repo }}/ci.yml?branch={{ pub.branch }}&label=tests)]({{ repo_url }}/actions/workflows/ci.yml)
+[![Code license](https://img.shields.io/badge/code-PolyForm%20Noncommercial%201.0.0-0B7468)](LICENSE)
+[![Data license](https://img.shields.io/badge/data-CC%20BY--NC%204.0-0B7468)](data/LICENSE)
 
 **[Live dashboard]({{ pub.dashboard }})** · **[Download the data]({{ repo_url }}/releases/latest)**{% if pub.sheet %} · **[Google Sheet]({{ pub.sheet }})**{% endif %}
 
@@ -213,6 +215,6 @@ Store register with every dropped candidate and its evidence: [docs/sources.md](
 
 ## License
 
-The code is under the [MIT License](LICENSE). The data is a compilation of public facts (prices and stock) shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); store and product names belong to their owners. See the [dataset card](data/README.md).
+The code is under the [PolyForm Noncommercial License 1.0.0](LICENSE). Everything under `data/` is a compilation of public facts (prices and stock) shared under [CC BY-NC 4.0](data/LICENSE): free to use with attribution, not for commercial use; store and product names belong to their owners. Earlier commits were MIT (code) and CC BY 4.0 (data): see [LICENSE-HISTORY.md](LICENSE-HISTORY.md) and the [dataset card](data/README.md). For commercial use, contact [{{ pub.email }}](mailto:{{ pub.email }}).
 
 Built and maintained by {{ pub.owner }}, founder of {{ pub.company }} · [steadydata.co]({{ pub.company_site }}) · [siddharthkumar.com]({{ pub.site }})

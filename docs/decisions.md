@@ -457,3 +457,13 @@ From an independent review that rendered every SVG:
 - **Links:** "Built by SteadyData · Get a free sample" and the contact call to
   action go to https://steadydata.co/contact/.
 
+
+## D-032 - Code under PolyForm Noncommercial 1.0.0, data under CC BY-NC 4.0 (2026-11-27, owner decision)
+
+From the commit that adds `LICENSE-HISTORY.md` on, the code is licensed under the
+PolyForm Noncommercial License 1.0.0 (`LICENSE`, with the owner's `Required Notice`
+line) and everything under `data/` under CC BY-NC 4.0 (`data/LICENSE`, the official
+legal code). Commits before that were MIT (code) and CC BY 4.0 (data); copies taken
+from them keep those licenses (`LICENSE-HISTORY.md`). The README license section and
+badges, the dataset card and `CITATION.cff` say the same. Supersedes the license part
+of D-001, D-023 and D-024. Commercial use: ask the owner.
