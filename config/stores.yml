@@ -7,90 +7,98 @@ stores:
     host: gradolabs.com
     recon_variants: 115
     recon_products: 64
-  - id: jlab
-    name: "JLab"
-    category: audio
-    host: www.jlab.com
-    recon_variants: 438
-    recon_products: 434
+    terms: none_found
   - id: master-dynamic
     name: "Master & Dynamic"
     category: audio
     host: www.masterdynamic.com
     recon_variants: 195
     recon_products: 60
+    terms: none_found
   - id: shokz
     name: "Shokz"
     category: audio
     host: shokz.com
     recon_variants: 426
     recon_products: 66
+    terms: none_found
   - id: skullcandy
     name: "Skullcandy"
     category: audio
     host: www.skullcandy.com
     recon_variants: 177
     recon_products: 50
+    terms: none_found
   - id: soundcore-us
     name: "Soundcore (US)"
     category: audio
     host: us.soundcore.com
     recon_variants: 1436
     recon_products: 521
+    terms: none_found
   - id: feat-clothing
     name: "Feat Clothing"
     category: apparel
     host: featclothing.com
     recon_variants: 308
     recon_products: 20
+    terms: none_found
   - id: greats
     name: "Greats"
     category: apparel
     host: www.greats.com
     recon_variants: 901
     recon_products: 97
+    terms: none_found
   - id: lunya
     name: "Lunya"
     category: apparel
     host: lunya.co
     recon_variants: 1379
     recon_products: 289
+    terms: none_found
   - id: richer-poorer
     name: "Richer Poorer"
     category: apparel
     host: www.richer-poorer.com
     recon_variants: 44
     recon_products: 2
+    terms: none_found
   - id: state-liberty
     name: "State & Liberty"
     category: apparel
     host: stateandliberty.com
     recon_variants: 1223
     recon_products: 249
+    terms: none_found
   - id: crown-affair
     name: "Crown Affair"
     category: beauty
     host: www.crownaffair.com
     recon_variants: 116
     recon_products: 73
+    terms: none_found
   - id: jones-road
     name: "Jones Road"
     category: beauty
     host: www.jonesroadbeauty.com
     recon_variants: 446
     recon_products: 96
+    terms: none_found
   - id: nécessaire
     name: "N\u00e9cessaire"
     category: beauty
     host: necessaire.com
     recon_variants: 138
     recon_products: 125
+    terms: none_found
   - id: sol-de-janeiro
     name: "Sol de Janeiro"
     category: beauty
     host: soldejaneiro.com
     recon_variants: 714
     recon_products: 150
+    terms: none_found
     screen_reviewed: ["Lifted Bum Bums & Spirits"]
   - id: bee-s-wrap
     name: "Bee's Wrap"
@@ -98,57 +106,73 @@ stores:
     host: www.beeswrap.com
     recon_variants: 80
     recon_products: 29
+    terms: none_found
   - id: branch-basics
     name: "Branch Basics"
     category: home_kitchen
     host: branchbasics.com
     recon_variants: 143
     recon_products: 103
+    terms: none_found
   - id: homesick
     name: "Homesick"
     category: home_kitchen
     host: homesick.com
     recon_variants: 255
     recon_products: 252
+    terms: none_found
   - id: sheets-giggles
     name: "Sheets & Giggles"
     category: home_kitchen
     host: sheetsgiggles.com
     recon_variants: 25
     recon_products: 2
+    terms: none_found
   - id: year-day
     name: "Year & Day"
     category: home_kitchen
     host: yearandday.com
     recon_variants: 511
     recon_products: 116
+    terms: none_found
   - id: big-agnes
     name: "Big Agnes"
     category: outdoor
     host: www.bigagnes.com
     recon_variants: 724
     recon_products: 282
+    terms: none_found
   - id: gossamer-gear
     name: "Gossamer Gear"
     category: outdoor
     host: www.gossamergear.com
     recon_variants: 233
     recon_products: 125
+    terms: none_found
   - id: hydrapak
     name: "HydraPak"
     category: outdoor
     host: www.hydrapak.com
     recon_variants: 494
     recon_products: 176
+    terms: none_found
   - id: hyperlite-mountain-gear
     name: "Hyperlite Mountain Gear"
     category: outdoor
     host: hyperlitemountaingear.com
     recon_variants: 437
     recon_products: 118
+    terms: none_found
   - id: oveja-negra
     name: "Oveja Negra"
     category: outdoor
     host: www.ovejanegrabikepacking.com
     recon_variants: 1079
     recon_products: 214
+    terms: none_found
+# Left the monitor on purpose (config/retired.yml); not read by any run.
+retired:
+  - id: jlab
+    name: "JLab"
+    category: audio
+    retired_on: 2026-11-27
