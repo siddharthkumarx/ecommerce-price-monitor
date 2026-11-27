@@ -81,3 +81,12 @@ def test_a_live_check_runs_once_even_when_main_is_fast_forwarded() -> None:
     for step in steps[2:]:
         # Fail closed: an error in the guard leaves `skip` empty and nothing runs.
         assert "steps.dup.outputs.skip == 'false'" in step["if"]
+
+
+def test_pages_deploy_runs_on_main_only() -> None:
+    daily = _load(WORKFLOWS[[p.name for p in WORKFLOWS].index("daily.yml")])
+    cond = daily["jobs"]["pages"]["if"]
+    # A branch run skips Pages instead of failing on the environment rule (INC-011).
+    assert "github.ref == 'refs/heads/main'" in cond
+    assert "!cancelled()" in cond
+    assert "needs.run.outputs.pages == 'success'" in cond

@@ -268,3 +268,12 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   failing guard runs nothing.
 - **Regression test:** `tests/test_workflows.py`
   (`test_a_live_check_runs_once_even_when_main_is_fast_forwarded`).
+
+## INC-011 - A daily run on a branch ended red at the Pages step (2026-11-27)
+
+- **Run:** `daily` dispatched on `f1-expand` at 19:09 UTC (b9cb627): slot, both fetch
+  shards and run succeeded; only `pages` failed in 2 s, because the `github-pages`
+  environment deploys from `main` only. The run showed as failed and sent an email.
+- **Fix:** the `pages` job also needs `github.ref == 'refs/heads/main'`, so a branch
+  run skips it. Regression test: `tests/test_workflows.py`
+  (`test_pages_deploy_runs_on_main_only`).
