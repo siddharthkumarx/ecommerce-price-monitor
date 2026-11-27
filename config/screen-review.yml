@@ -144,3 +144,124 @@ reviews:
     titles: ["Avery AirPods Clip-On Pouch - Wine/Gold", "Donna Crossbody Phone Case - Wine/Gold", "Smooth Leather Expanded Zip Pouch - Wine/Gold"]
     verdict: false_positive
     reason: "\"Wine/Gold\" is a leather colour; phone cases and pouches only."
+  # Reviewed from checks/results/recon-006/recon.json (field content_flags).
+  - store: "goodr"
+    category: alcohol
+    titles: ["Beelzebub's Bourbon Burpees", "Whiskey Shots With Satan"]
+    verdict: false_positive
+    reason: "Sunglasses model names; the store sells sunglasses only."
+  - store: "Nisolo"
+    category: alcohol
+    titles: ["Go-To Lug Chelsea Boot 2.0 Wine", "Go-To Lug Mid Chelsea Boot Wine", "Men's Go-To Chelsea Boot 2.0 Whiskey"]
+    verdict: false_positive
+    reason: "\"Wine\", \"Whiskey\" and \"Brandy\" are leather colours; shoes only."
+  - store: "Nisolo"
+    category: tobacco/vape
+    titles: ["Men's Huarache Slip On Brandy", "Men's Huarache Slip On Brown", "Men's Huarache Slip On Terracotta Suede"]
+    verdict: false_positive
+    reason: "\"Wine\", \"Whiskey\" and \"Brandy\" are leather colours; shoes only."
+  - store: "Pit Viper"
+    category: alcohol
+    titles: ["Beer Half Hat", "The Sport Beer Flip Off Goggle", "The Sport Beer Ski Poles"]
+    verdict: false_positive
+    reason: "\"The Sport Beer\" is a sunglasses collection name used on goggles, poles and hats; no alcoholic product."
+  - store: "Anson Belt & Buckle"
+    category: alcohol
+    titles: ["1.25\" Whiskey Micro-Patina Strap", "1.5\"  Whiskey Micro-Patina Strap", "XL 1.5\" Whiskey Micro-Patina Strap"]
+    verdict: false_positive
+    reason: "\"Whiskey\" is a leather colour; belts only."
+  - store: "Hari Mari"
+    category: alcohol
+    titles: ["Men's Fields | Bourbon"]
+    verdict: false_positive
+    reason: "\"Tobacco\" and \"Bourbon\" are sandal colours; footwear only."
+  - store: "Hari Mari"
+    category: tobacco/vape
+    titles: ["Men's Dunes | Tobacco", "Women's Meadows | Tobacco"]
+    verdict: false_positive
+    reason: "\"Tobacco\" and \"Bourbon\" are sandal colours; footwear only."
+  - store: "Cirque Colors"
+    category: alcohol
+    titles: ["Tequila Sunrise", "Wine Jelly"]
+    verdict: false_positive
+    reason: "Nail polish shade names; cosmetics only."
+  - store: "Duke Cannon"
+    category: alcohol
+    titles: ["Bourbon Beard Box", "Dad's Liquor Cabinet", "Solid Cologne - Bay Rum"]
+    verdict: false_positive
+    reason: "Soap and grooming sets with bourbon and bay rum scents; no alcoholic product."
+  - store: "Scotch Porter"
+    category: alcohol
+    titles: ["Conditioning Beard Balm 6-Pack", "Leave-In Beard Conditioner 3-Pack", "Leave-In Beard Conditioner 6-Pack"]
+    verdict: false_positive
+    reason: "\"Scotch\" is in the brand name and \"Tobacco Musk\" a scent; grooming products only."
+  - store: "Scotch Porter"
+    category: tobacco/vape
+    titles: ["Intense Anti-Dry Body Lotion | Sandalwood & Tobacco Musk"]
+    verdict: false_positive
+    reason: "\"Scotch\" is in the brand name and \"Tobacco Musk\" a scent; grooming products only."
+  - store: "KINTO USA"
+    category: alcohol
+    titles: ["CAST double wall beer glass 340ml", "CAST double wall cocktail glass 290ml", "CAST double wall rock glass 250ml"]
+    verdict: false_positive
+    reason: "Empty cocktail, rock and beer glasses (drinkware)."
+  - store: "Voluspa"
+    category: alcohol
+    titles: ["Bourbon Vanille - Corta Maison Candle", "Bourbon Vanille - Tiny Tin", "Bourbon Vanille Wrapped - Reed Diffuser"]
+    verdict: false_positive
+    reason: "\"Bourbon Vanille\" is a candle fragrance name."
+  - store: "Paddywax"
+    category: tobacco/vape
+    titles: ["Tobacco Patchouli - Beam 3 oz Candle", "Tobacco Patchouli - Lucky Dice 10 oz Candle", "Tobacco Vanilla - Lustre Candle 10 oz"]
+    verdict: false_positive
+    reason: "\"Tobacco Patchouli\" and \"Tobacco Vanilla\" are candle fragrance names."
+  - store: "Silca"
+    category: alcohol
+    titles: ["Bourbon Titanium Cage"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a colour of a titanium bottle cage; cycling gear only."
+  - store: "Black & White Coffee Roasters"
+    category: alcohol
+    titles: ["Luis Anibal - Pink Bourbon Washed", "Marlon Bolaños - Pink Bourbon"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "Methodical Coffee"
+    category: alcohol
+    titles: ["Hario Cold Brew Coffee Wine Bottle"]
+    verdict: false_positive
+    reason: "An empty cold-brew bottle (brewing equipment); coffee only."
+  - store: "Bird Rock Coffee Roasters"
+    category: alcohol
+    titles: ["Miraflores | Pink Bourbon"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "Corvus Coffee"
+    category: alcohol
+    titles: ["San Joaquin", "San Pedro Farmer Pin • Funding Ciro's Pink Bourbon Project"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "PERC Coffee"
+    category: alcohol
+    titles: ["Archive: Colombia Linarco Rodriguez Pink Bourbon", "Archive: Colombia Los Nogales Yellow Bourbon", "Archive: Colombia Sebastian Ramirez Pink Bourbon"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "Big Shoulders Coffee"
+    category: alcohol
+    titles: ["Panama Natural Red Bourbon", "Wilder Lazo-Pink Bourbon-60 Hour Anaerobic Honey", "Wilton Benitez - Thermal Shock Red Bourbon"]
+    verdict: false_positive
+    reason: "\"Bourbon\" is a coffee plant variety; coffee only."
+  - store: "P.L.A.Y. Pet Lifestyle and You"
+    category: alcohol
+    titles: ["Clive & Bacon x Play Barking Beer"]
+    verdict: false_positive
+    reason: "A plush dog toy shaped like a beer can."
+  - store: "NovelKeys"
+    category: cannabis/cbd
+    titles: ["CYL Zooted"]
+    verdict: false_positive
+    reason: "\"Zooted\" is a keycap set name; keyboard parts only."
+  - store: "Smartish"
+    category: alcohol
+    titles: ["Wine About It", "Wine Mom"]
+    verdict: false_positive
+    reason: "Phone case design names; phone cases only."
