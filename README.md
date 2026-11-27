@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,843 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 25 US online stores and records every price: 11,828 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -15,7 +15,7 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 26 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 27 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
@@ -25,22 +25,22 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | JLab | [Epic Open Sport Air Conduction Wireless Earbuds Black](https://www.jlab.com/products/epic-open-sport-air-conduction-wireless-earbuds-black) | $52.44 | $104.99 | yes |
 | Jones Road | [The Makeup Travel Kit 2.0 (Dark)](https://www.jonesroadbeauty.com/products/the-makeup-travel-kit-2-0) | $98.00 | $172.00 | yes |
 
-The full table has 11,843 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 11,828 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 26 November 2026: 1 price drop, 12 items sold out, 8 items back in stock, 30 new product options. The biggest moves:
+In the run of 27 November 2026: 1 price rise, 7 items sold out, 1 item back in stock, 15 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Soundcore (US) | [Life A2 NC \| Bluetooth Noise Cancelling Earbuds (Black)](https://us.soundcore.com/products/life-a2-nc) | Price down (-14.3%) | $69.99 | $59.99 |
-| Bee's Wrap | [Bread Bag (Meadow Magic)](https://www.beeswrap.com/products/bread-bag) | Back in stock | $19.99 | $19.99 |
-| Bee's Wrap | [Bread Wrap (Herb Garden)](https://www.beeswrap.com/products/bread-wrap) | Back in stock | $14.99 | $14.99 |
-| Bee's Wrap | [The Queen Bee Pack (20 Large Wraps)](https://www.beeswrap.com/products/big-box) | Back in stock | $99.99 | $99.99 |
-| Greats | [The Royale 2.0 Slip On - Blanco (7 / Blanco)](https://www.greats.com/products/the-royale-slip-on-2-0-blanco-mens) | Sold out | $199.00 | $199.00 |
-| Lunya | [Men's Slumberknit™ Henley Tee (Deep Blue / L)](https://lunya.co/products/mens-mens-slumberknit-henley-tee-deep-blue) | Sold out | $47.60 | $47.60 |
-| Lunya | [Organic Cotton Seersucker Pant (Deep Blue / S)](https://lunya.co/products/womens-organic-cotton-seersucker-pant-deep-blue) | Sold out | $148.00 | $148.00 |
-| Lunya | [Organic Pima Straight Leg Pant (Storm Grey Heather / L)](https://lunya.co/products/womens-organic-pima-straight-leg-pant-storm-grey-heather) | Sold out | $89.60 | $89.60 |
+| Soundcore (US) | [Life A2 NC \| Bluetooth Noise Cancelling Earbuds (Black)](https://us.soundcore.com/products/life-a2-nc) | Price up (+16.7%) | $59.99 | $69.99 |
+| Greats | [The Reign Slip On - Tan (13 / Tan)](https://www.greats.com/products/the-reign-slip-on-tan-mens) | Sold out | $189.00 | $189.00 |
+| JLab | [GO Talk USB Microphone Black](https://www.jlab.com/products/go-talk-usb-microphone-black) | Back in stock | $49.99 | $49.99 |
+| Lunya | [Airy Cotton Piped Button Down (Stillwater Stripe/Spring Clover / XS)](https://lunya.co/products/womens-airy-cotton-piped-button-down-stillwater-stripespring-clover) | Removed | $89.60 |  |
+| Lunya | [Airy Cotton Piped Button Down (Stillwater Stripe/Spring Clover / S)](https://lunya.co/products/womens-airy-cotton-piped-button-down-stillwater-stripespring-clover) | Removed | $89.60 |  |
+| Lunya | [Airy Cotton Piped Button Down (Stillwater Stripe/Spring Clover / M)](https://lunya.co/products/womens-airy-cotton-piped-button-down-stillwater-stripespring-clover) | Removed | $89.60 |  |
+| Lunya | [Airy Cotton Piped Button Down (Stillwater Stripe/Spring Clover / L)](https://lunya.co/products/womens-airy-cotton-piped-button-down-stillwater-stripespring-clover) | Removed | $89.60 |  |
+| Lunya | [Airy Cotton Piped Button Down (Stillwater Stripe/Spring Clover / XL)](https://lunya.co/products/womens-airy-cotton-piped-button-down-stillwater-stripespring-clover) | Removed | $89.60 |  |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -65,7 +65,7 @@ Every change is in the [daily change log](https://github.com/siddharthkumarx/eco
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 26."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 27."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -93,7 +93,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 26 of 26 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 8 of 8 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time), and four times a day (00:17, 06:17, 12:17 and 18:17 UTC) from 26 November to 1 December. Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 27 of 27 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 9 of 9 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
@@ -112,7 +112,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 26 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 27 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -131,16 +131,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-26T00:17:25Z` |
-| `store_id` | text | Store | `branch-basics` |
-| `variant_id` | integer | Product option | `42885177376932` |
-| `product_title` | text | Product name | `Premium Starter Kit` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `7500` |
-| `new_price_cents` | integer or empty | Price after, US cents | `6000` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `7500` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `7500` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-20.0` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-27T00:17:27Z` |
+| `store_id` | text | Store | `greats` |
+| `variant_id` | integer | Product option | `42006352134192` |
+| `product_title` | text | Product name | `The Reign Slip On - Tan` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
+| `old_price_cents` | integer or empty | Price before, US cents | `18900` |
+| `new_price_cents` | integer or empty | Price after, US cents | `18900` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `18900` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `18900` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
