@@ -215,12 +215,16 @@ def test_the_committed_request_selects_new_candidates_and_earlier_passes(tmp_pat
     assert len(names) == len(set(names))
     assert "JLab" not in names
     assert request["terms"] is True
-    assert set(request.get("also") or []) <= set(names)
-    new = {
-        c.store
-        for c in select_candidates({"since": request["since"]}, Path("checks/candidates.yml"))
-    }
-    assert set(names) == new | set(request.get("also") or [])
+    if request.get("only"):
+        # A re-check names its stores; every name must be a candidate.
+        assert sorted(names) == sorted(request["only"])
+    else:
+        assert set(request.get("also") or []) <= set(names)
+        new = {
+            c.store
+            for c in select_candidates({"since": request["since"]}, Path("checks/candidates.yml"))
+        }
+        assert set(names) == new | set(request.get("also") or [])
     bad = tmp_path / "c.yml"
     bad.write_text("categories:\n  audio:\n    - {store: A, domain: a.example}\n")
     with pytest.raises(ValueError, match="not in the candidates"):
