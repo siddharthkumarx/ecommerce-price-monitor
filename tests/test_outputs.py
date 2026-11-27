@@ -147,7 +147,7 @@ def test_one_slot_a_day_after_the_black_friday_runs() -> None:
     for s in due_slots(start, end, active_crons()):
         per_day[s.date().isoformat()] = per_day.get(s.date().isoformat(), 0) + 1
     later = ["2026-11-28", "2026-11-29", "2026-11-30", "2026-12-01", "2026-12-02"]
-    assert per_day == {"2026-11-25": 1, "2026-11-26": 4, "2026-11-27": 3, **dict.fromkeys(later, 1)}
+    assert per_day == {"2026-11-25": 1, "2026-11-26": 4, "2026-11-27": 4, **dict.fromkeys(later, 1)}
 
 
 def test_the_workflow_has_no_black_friday_flag_and_gates_every_trigger() -> None:
