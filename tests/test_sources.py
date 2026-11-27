@@ -201,3 +201,22 @@ def test_terms_rank_first_and_a_ban_only_fills_a_category() -> None:
     assert [r.store for r in groups["reserve"]] == ["Banned"]
     # With room, the ban fills the category.
     assert len(classify(collect([_run("recon-005", *rows)]), per_category=3)["selected"]) == 3
+
+
+def test_a_monitored_store_keeps_its_place_over_a_new_one_with_the_same_terms() -> None:
+    rows = [
+        _row("Incumbent", terms="ban", variants=100),
+        _row("Newcomer", terms="ban", variants=900),
+        _row("Clean", terms="no_ban", variants=50),
+    ]
+    records = collect([_run("recon-005", *rows)])
+    plain = classify(records, per_category=2)
+    assert [r.store for r in plain["selected"]] == ["Clean", "Newcomer"]
+    kept = classify(collect([_run("recon-005", *rows)]), per_category=2, keep={"incumbent"})
+    # Terms still rank first: the incumbent beats only the new store with a ban.
+    assert [r.store for r in kept["selected"]] == ["Clean", "Incumbent"]
+    assert [r.store for r in kept["reserve"]] == ["Newcomer"]
+    full = classify(
+        collect([_run("recon-005", *rows)]), per_category=1, keep={"incumbent", "newcomer"}
+    )
+    assert [r.store for r in full["selected"]] == ["Clean"]

@@ -215,11 +215,14 @@ def classify(
     max_stores: int = MAX_STORES,
     min_per_category: int = MIN_PER_CATEGORY,
     retired: set[str] | None = None,
+    keep: set[str] | None = None,
 ) -> dict[str, list[StoreRecord]]:
     """Split records into selected, reserve and dropped.
 
     Ranking inside a category: terms ``no_ban``, then ``none_found``, then ``ban``;
-    then US shops first, fewest recon caveats, larger catalogs. At most
+    then a store selected before (its id in ``keep``, the fixed-number registry) over
+    a new one, so a list that grows does not push monitored stores out; then US shops
+    first, fewest recon caveats, larger catalogs. At most
     ``per_category`` per category; then, while more than ``max_stores`` are selected,
     a store moves to reserve from the largest category (a ban first, then most
     caveats, smallest catalog), never leaving a category with fewer than
@@ -231,6 +234,7 @@ def classify(
         "dropped": [],
         "retired": [],
     }
+    keep = keep or set()
     by_cat: dict[str, list[StoreRecord]] = defaultdict(list)
     for rec in records:
         if rec.store in (retired or set()):
@@ -244,6 +248,7 @@ def classify(
         rows.sort(
             key=lambda x: (
                 TERMS_RANK.get(x.terms, 1),
+                store_slug(x.store) not in keep,
                 x.latest.get("meta_country") != "US",
                 len(x.caveats()),
                 -x.latest["variants"],
@@ -260,6 +265,7 @@ def classify(
             (
                 len(rows),
                 TERMS_RANK.get(rec.terms, 1),
+                store_slug(rec.store) not in keep,
                 len(rec.caveats()),
                 -int(rec.latest["variants"]),
                 rec.store,
@@ -272,7 +278,7 @@ def classify(
         ]
         if not options:
             break
-        *_, cat, weakest = max(options, key=lambda o: o[:5])
+        *_, cat, weakest = max(options, key=lambda o: o[:6])
         chosen[cat].remove(weakest)
         caveats = "; ".join(weakest.caveats()) or "no caveats"
         weakest.reserve_reason = f"trimmed to {max_stores} stores for the run budget ({caveats})"
@@ -380,11 +386,12 @@ def render(
     reviews: dict[str, list[ScreenReview]] | None = None,
     retired: list[RetiredStore] | None = None,
     max_stores: int = MAX_STORES,
+    keep: set[str] | None = None,
 ) -> str:
     """Render the register from ``(path, payload)`` pairs, oldest run first."""
     records = collect(sources, reviews)
     retired = retired or []
-    groups = classify(records, max_stores=max_stores, retired={r.name for r in retired})
+    groups = classify(records, max_stores=max_stores, retired={r.name for r in retired}, keep=keep)
     selected = sorted(groups["selected"], key=_order)
     counts: dict[str, int] = defaultdict(int)
     variants: dict[str, int] = defaultdict(int)
@@ -476,6 +483,7 @@ def selected_aliases(
         collect(sources, reviews),
         max_stores=max_stores,
         retired={r.name for r in retired or []},
+        keep=set(aliases),
     )
     chosen = sorted(groups["selected"], key=_order)
     return assign_aliases(aliases, [store_slug(rec.store) for rec in chosen])
@@ -487,6 +495,7 @@ def render_stores_yml(
     retired: list[RetiredStore] | None = None,
     max_stores: int = MAX_STORES,
     aliases: dict[str, int] | None = None,
+    keep: set[str] | None = None,
 ) -> str:
     """The monitored store list consumed by the daily run (config/stores.yml).
 
@@ -495,7 +504,10 @@ def render_stores_yml(
     """
     retired = retired or []
     groups = classify(
-        collect(sources, reviews), max_stores=max_stores, retired={r.name for r in retired}
+        collect(sources, reviews),
+        max_stores=max_stores,
+        retired={r.name for r in retired},
+        keep=set(keep if keep is not None else aliases or {}),
     )
     ids = ", ".join(p["meta"]["id"] for _, p in sources)
     lines = [
@@ -550,15 +562,17 @@ def main(argv: list[str] | None = None) -> int:
     sources = [(p.as_posix(), json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     reviews = load_reviews(args.reviews)
     retired = load_retired(args.retired)
+    # Stores selected before (they have a fixed number) keep their place (D-031).
+    before = load_aliases(args.aliases)
     if args.stores_yml:
         # The registry only grows: numbers of stores that left stay reserved (D-034).
-        aliases = selected_aliases(
-            sources, reviews, retired, args.max_stores, load_aliases(args.aliases)
-        )
+        aliases = selected_aliases(sources, reviews, retired, args.max_stores, before)
         args.aliases.write_text(dump_aliases(aliases), encoding="utf-8")
-        out = render_stores_yml(sources, reviews, retired, args.max_stores, aliases)
+        out = render_stores_yml(
+            sources, reviews, retired, args.max_stores, aliases, keep=set(before)
+        )
     else:
-        out = render(sources, reviews, retired, args.max_stores)
+        out = render(sources, reviews, retired, args.max_stores, keep=set(before))
     print(out, end="")
     return 0
 
