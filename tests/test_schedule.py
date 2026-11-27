@@ -110,8 +110,11 @@ def test_cli_prints_github_output_lines(tmp_path: Path, capsys: pytest.CaptureFi
 def test_daily_gate_decides_every_trigger_and_watchdog_is_least_privilege() -> None:
     daily = yaml.safe_load((WF / "daily.yml").read_text())
     assert "if" not in daily["jobs"]["slot"]  # the gate sees every trigger
-    assert daily["jobs"]["run"]["needs"] == "slot"
-    assert "needs.slot.outputs.run == 'true'" in daily["jobs"]["run"]["if"]
+    # Every job that reads stores or writes outputs waits for the gate.
+    assert daily["jobs"]["fetch"]["needs"] == "slot"
+    assert daily["jobs"]["run"]["needs"] == ["slot", "fetch"]
+    for job in ("fetch", "run"):
+        assert "needs.slot.outputs.run == 'true'" in daily["jobs"][job]["if"]
     watchdog = yaml.safe_load((WF / "watchdog.yml").read_text())
     assert watchdog["permissions"] == {"contents": "read", "actions": "write", "issues": "write"}
     steps = watchdog["jobs"]["check"]["steps"]
@@ -362,6 +365,7 @@ def test_workflows_pass_the_dispatch_to_the_run_record() -> None:
     assert step["env"] == {
         "DISPATCH_SLOT": "${{ inputs.slot && (needs.slot.outputs.slot || inputs.slot) || '' }}",
         "DISPATCH_BY": "${{ inputs.by }}",
+        "RUN_AT": "${{ needs.slot.outputs.run_at }}",
     }
     assert daily["jobs"]["slot"]["outputs"]["slot"] == "${{ steps.decide.outputs.slot }}"
     watchdog = yaml.safe_load((WF / "watchdog.yml").read_text())
