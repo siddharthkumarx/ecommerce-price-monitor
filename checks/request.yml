@@ -1,11 +1,13 @@
 # Live check request. Pushing a change to this file runs .github/workflows/checks.yml
 # on the GitHub runner; results are committed to checks/results/<id>/.
-# recon-006 (F1-EXPAND addendum, 27 Nov 2026): the 282 candidates added for the
-# 250-300 store target. Same politeness as recon-005: per shop 5 s + 0-3 s, run-wide
-# 4 s + 0-2 s, and the run-wide 429 cooldown of INC-004.
-id: recon-006
+# recon-007 (D-036 growth, 27 Nov 2026): 320 US Shopify candidates never contacted
+# before, weighted to the thin categories (apparel, toys & kids, tech accessories,
+# fitness). Same politeness as recon-005: per shop 5 s + 0-3 s, run-wide 4 s + 0-2 s,
+# and the run-wide 429 cooldown of INC-004. Only no_ban and none_found stores that
+# pass join the list.
+id: recon-007
 check: recon
-since: recon-006
+since: recon-007
 terms: true
 concurrency: 4
 delay_s: 5.0
