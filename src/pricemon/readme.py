@@ -21,6 +21,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from pricemon.outputs import on_time_text
 from pricemon.report import EVENT_WORDS, Facts, collect
+from pricemon.schedule import BFCM_2026_END, BFCM_2026_START, past_extra_slots
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -113,14 +114,8 @@ def context(data: Path, stores: Path, public: Path, now: datetime | None = None)
         "change_summary": change_summary(f.change_counts),
         "dictionary": dictionary(f, data),
         "categories": f.categories,
-        "bfcm_runs": _bfcm_runs(),
+        "bfcm_extra": len(past_extra_slots(BFCM_2026_START, BFCM_2026_END)),
     }
-
-
-def _bfcm_runs() -> int:
-    """The BFCM_RUNS_PER_DAY flag of the daily workflow (D-021)."""
-    wf = yaml.safe_load((ROOT / ".github" / "workflows" / "daily.yml").read_text(encoding="utf-8"))
-    return int(wf["env"]["BFCM_RUNS_PER_DAY"])
 
 
 def render(template: Path, ctx: dict[str, Any]) -> str:

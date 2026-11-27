@@ -6,13 +6,12 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-import pytest
 import yaml
 
 from pricemon.fetch import StoreFetch, WitnessResult
 from pricemon.outputs import build_status, read_runs, snapshot_summary, write_status
 from pricemon.run import EXIT_HELD, EXIT_OK, EXIT_PARTIAL, RunConfig, process
-from pricemon.schedule import BFCM_EXTRA_CRONS, CRONS, active_crons, gate, slots
+from pricemon.schedule import CRONS, active_crons, due_slots, gate
 
 ROOT = Path(__file__).resolve().parents[1]
 DAY1 = datetime(2026, 11, 4, 6, 17, tzinfo=UTC)
@@ -141,26 +140,23 @@ def test_crons_match_daily_workflow() -> None:
     assert tuple(s["cron"] for s in triggers["schedule"]) == CRONS
 
 
-@pytest.mark.parametrize("runs_per_day", [2, 4])
-def test_black_friday_window_follows_the_flag(runs_per_day: int) -> None:
+def test_one_slot_a_day_after_the_black_friday_runs() -> None:
     start = datetime(2026, 11, 25, tzinfo=UTC)
     end = datetime(2026, 12, 3, tzinfo=UTC)
     per_day: dict[str, int] = {}
-    for s in slots(start, end, active_crons(runs_per_day)):
+    for s in due_slots(start, end, active_crons()):
         per_day[s.date().isoformat()] = per_day.get(s.date().isoformat(), 0) + 1
-    bfcm = ["2026-11-26", "2026-11-27", "2026-11-28", "2026-11-29", "2026-11-30", "2026-12-01"]
-    assert per_day == {"2026-11-25": 1, **dict.fromkeys(bfcm, runs_per_day), "2026-12-02": 1}
+    later = ["2026-11-28", "2026-11-29", "2026-11-30", "2026-12-01", "2026-12-02"]
+    assert per_day == {"2026-11-25": 1, "2026-11-26": 4, "2026-11-27": 3, **dict.fromkeys(later, 1)}
 
 
-def test_workflow_flag_is_valid_and_gates_the_extra_slots() -> None:
+def test_the_workflow_has_no_black_friday_flag_and_gates_every_trigger() -> None:
     wf = yaml.safe_load((ROOT / ".github" / "workflows" / "daily.yml").read_text())
-    assert wf["env"]["BFCM_RUNS_PER_DAY"] in ("2", "4")
+    assert "BFCM_RUNS_PER_DAY" not in (wf.get("env") or {})
     decide = next(st["run"] for st in wf["jobs"]["slot"]["steps"] if st.get("id") == "decide")
     assert "pricemon.schedule gate" in decide
     now = datetime(2026, 11, 27, 13, 0, tzinfo=UTC)
-    for cron in BFCM_EXTRA_CRONS:
-        assert gate("schedule", [], now, cron=cron, crons=active_crons(2))["run"] == "false"
-        assert gate("schedule", [], now, cron=cron, crons=active_crons(4))["run"] == "true"
+    assert gate("schedule", [], now, cron="17 0,12 26-30 11 *")["slot"] == "2026-11-27T06:17:00Z"
 
 
 def test_status_counts_on_time_late_and_missed_slots(tmp_path: Path) -> None:
@@ -171,7 +167,7 @@ def test_status_counts_on_time_late_and_missed_slots(tmp_path: Path) -> None:
         {"run_id": "y", "started_at": "2026-11-06T13:40:00Z", "status": "ok", "rows_observed": 12},
         {"run_id": "z", "started_at": "2026-11-07T06:19:00Z", "status": "ok", "rows_observed": 13},
     ]
-    status = build_status(records, now, active_crons(2))
+    status = build_status(records, now, active_crons())
     assert status["days_running"] == 4
     assert status["missed_runs"] == 1
     assert status["missed_slots"] == ["2026-11-05T06:17:00Z"]
@@ -242,7 +238,7 @@ def test_on_time_badge_and_text_start_with_the_trigger(tmp_path: Path) -> None:
     for r in records:
         r["rows_observed"] = 1
     write_status(
-        tmp_path, build_status(records, datetime(2026, 11, 22, 9, tzinfo=UTC), active_crons(2))
+        tmp_path, build_status(records, datetime(2026, 11, 22, 9, tzinfo=UTC), active_crons())
     )
     badge = json.loads((tmp_path / "badges" / "on-time-runs.json").read_text())
     assert (badge["label"], badge["message"], badge["color"]) == (

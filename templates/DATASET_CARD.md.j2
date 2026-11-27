@@ -31,7 +31,7 @@ Daily prices, sale ("compare-at") prices and stock for every product option of {
 - **Latest run:** {{ f.run_date }}, {{ f.run_time }}, status `{{ q.status }}`, {{ q.stores_ok }} of {{ q.stores_total }} stores updated.
 - **Rows in the latest snapshot:** {{ "{:,}".format(f.snapshot_rows) }} product options.
 - **Stores by category:** {% for cat, n in categories|dictsort %}{{ cat }} {{ n }}{% if not loop.last %}, {% endif %}{% endfor %}. The list and the evidence for every included and excluded store: [docs/sources.md]({{ repo_url }}/blob/{{ pub.branch }}/docs/sources.md).
-- **Cadence:** one run a day at 06:17 UTC ({{ bfcm_runs }} a day from 26 Nov to 1 Dec 2026).
+- **Cadence:** one run a day at 06:17 UTC (plus {{ bfcm_extra }} extra runs for Black Friday on 26 and 27 Nov 2026).
 
 ## Files
 

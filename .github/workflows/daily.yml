@@ -5,11 +5,9 @@ run-name: ${{ inputs.slot && format('daily, slot {0}', inputs.slot) || format('d
 
 on:
   schedule:
-    - cron: "17 6 * * *"          # every day
-    - cron: "17 18 26-30 11 *"    # BFCM second run, 26-30 Nov
-    - cron: "17 18 1 12 *"        # BFCM second run, 1 Dec
-    - cron: "17 0,12 26-30 11 *"  # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
-    - cron: "17 0,12 1 12 *"      # BFCM extra runs, only with BFCM_RUNS_PER_DAY "4"
+    # One run a day (D-013). The Black Friday extra runs of 26-27 Nov 2026 ended when
+    # the owner lifted the freeze on 27 Nov 2026 (D-031).
+    - cron: "17 6 * * *"
   # GitHub starts the schedule above hours late (INC-009), so an external trigger
   # (cron-job.org, fixed body `slot: auto`, D-030) dispatches each slot on time; the
   # late schedule event then finds the slot filled and skips. Without `slot`, a
@@ -27,12 +25,6 @@ on:
         type: string
         default: ""
 
-env:
-  # Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): "4" runs a day only if the
-  # repository is public by 26 Nov, otherwise "2" (06:17 and 18:17 UTC). D-021.
-  # Public since 5 Nov 2026, so "4".
-  BFCM_RUNS_PER_DAY: "4"
-
 permissions:
   contents: write
   issues: write
@@ -46,8 +38,7 @@ jobs:
   # run always does. A dispatch that names its slot (the external on-time trigger or
   # the watchdog) and a scheduled run both run only if the slot is not filled yet:
   # GitHub starts scheduled slots hours late (INC-006, INC-007, INC-009), after the
-  # on-time dispatch filled them. The two extra BFCM slots run only with
-  # BFCM_RUNS_PER_DAY "4" (D-021).
+  # on-time dispatch filled them.
   slot:
     runs-on: ubuntu-24.04
     timeout-minutes: 15

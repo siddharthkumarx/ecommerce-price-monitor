@@ -49,7 +49,7 @@ from pricemon.outputs import (
 )
 from pricemon.polite import EdgeGuard, PoliteConfig, StoreSession, make_client
 from pricemon.schedule import dispatch_slot
-from pricemon.stores import Store, load_stores
+from pricemon.stores import Store, load_retired, load_stores
 
 EXIT_OK, EXIT_CRASHED, EXIT_PARTIAL, EXIT_HELD = 0, 1, 2, 3
 
@@ -168,12 +168,23 @@ def process(
 
     events_by_type: dict[str, int] = {}
     rows_live = sum(len(v) for v in prev.values())
+    retired_closed = 0
+    stores_added: list[str] = []
+    baseline_rows = 0
     parquet_rows = None
     if not held:
-        result = merge(con, rows, set(per_store), run_at)
+        retired = {r.id for r in load_retired(cfg.stores)}
+        result = merge(con, rows, set(per_store), run_at, retired)
+        retired_closed = result.retired_closed
         write_snapshot(con, result.open_versions, snapshot)
         append_changes(data, result.events, run_at)
         events_by_type = event_counts(result.events)
+        # Stores read for the first time (added to the list): every option is "new",
+        # a starting point, not a change (D-031).
+        stores_added = sorted(set(per_store) - set(prev))
+        baseline_rows = sum(
+            1 for e in result.events if e.event == "new" and e.store_id in stores_added
+        )
         rows_live = len(result.open_versions)
         if cfg.history_out is not None:
             month_start = run_at.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
@@ -210,6 +221,9 @@ def process(
         "reject_examples": reject_examples,
         "compare_at_ignored": compare_at_ignored,
         "free_variants": free_variants,
+        "retired_rows_closed": retired_closed,
+        "stores_added": stores_added,
+        "baseline_rows": baseline_rows,
         "events": events_by_type,
         "parquet_rows": parquet_rows,
         "requests": sum(f.requests for f in fetches),

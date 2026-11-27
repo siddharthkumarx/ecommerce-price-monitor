@@ -179,3 +179,28 @@ def test_a_run_whose_commit_failed_is_reverted_in_the_month_file(tmp_path: Path)
         ("a", 2, us(RUN1), us(RUN3)),
         ("a", 2, us(RUN3), None),
     ]
+
+
+def test_a_retired_store_is_closed_without_events_and_leaves_the_snapshot(
+    tmp_path: Path,
+) -> None:
+    con = connect()
+    load_snapshot(con, None)
+    first = merge(con, [row("a", 1, 1000, RUN1), row("gone", 2, 500, RUN1)], {"a", "gone"}, RUN1)
+    snap = tmp_path / "snapshot.csv"
+    write_snapshot(con, first.open_versions, snap)
+
+    con = connect()
+    load_snapshot(con, snap)
+    second = merge(con, [row("a", 1, 1000, RUN2)], {"a"}, RUN2, retired={"gone"})
+    assert [v.store_id for v in second.open_versions] == ["a"]
+    assert [(v.store_id, v.valid_to) for v in second.closed_versions] == [("gone", RUN2)]
+    assert second.retired_closed == 1
+    assert second.events == []
+
+    # Without the retirement the store is carried over unchanged, as before.
+    con = connect()
+    load_snapshot(con, snap)
+    kept = merge(con, [row("a", 1, 1000, RUN2)], {"a"}, RUN2)
+    assert sorted(v.store_id for v in kept.open_versions) == ["a", "gone"]
+    assert kept.closed_versions == []

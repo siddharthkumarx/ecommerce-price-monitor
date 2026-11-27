@@ -12,3 +12,10 @@ company: SteadyData
 company_site: https://steadydata.co
 contact: https://steadydata.co/contact/
 email: hello@steadydata.co
+# Display rule for stores whose Terms of Service forbid robots, scrapers or reuse of
+# their content (recon field `terms`, D-031). Every store is still monitored and
+# counts in every total; a store whose `terms` value is listed here is shown on the
+# README, dashboard, feed and media as "Store #<n> (<category>)", without its name,
+# host or product links. [] shows every store by name; [ban, none_found] also hides
+# the stores whose terms page could not be read.
+anonymise_terms: [ban]

@@ -20,6 +20,13 @@ Every recon file is evidence. A store is dropped when **any** run shows one of
 and when its latest recon fails for any other reason (not Shopify, catalog over
 3,000 variants, currency not proven USD, witness mismatch).
 
+Stores listed in ``config/retired.yml`` are never selected, whatever their evidence;
+the list is copied into ``config/stores.yml`` (D-031).
+
+Each store's ``terms`` field (``ban``, ``no_ban`` or ``none_found``) is that of its
+latest recon run that read the Terms of Service page (``recon-005`` on); a store no
+such run read is ``none_found``.
+
 Among the stores left, at most ``PER_CATEGORY`` per category are *selected*,
 ranked US shops first (``/meta.json`` country), then fewest recon caveats, then
 larger catalogs; the list is then trimmed to ``MAX_STORES`` (owner decision D-020:
@@ -38,18 +45,15 @@ from typing import Any
 
 import yaml
 
-PER_CATEGORY = 8
+from pricemon.stores import CATEGORY_TITLES, RetiredStore, load_retired
+
+PER_CATEGORY = 16
 MIN_PER_CATEGORY = 4
-# Owner decision (D-020): one daily run must finish in 45 minutes on a single runner,
-# reached with a smaller list, never by spreading requests over several runners.
-MAX_STORES = 25
-CATEGORY_TITLES = {
-    "audio": "Audio",
-    "apparel": "Apparel",
-    "beauty": "Beauty",
-    "home_kitchen": "Home & kitchen",
-    "outdoor": "Outdoor",
-}
+# Owner decisions: D-020 (one daily run on a single runner, inside the job budget,
+# never by spreading requests over several runners at once) and D-031 (at least 100
+# stores from 27 Nov 2026).
+MAX_STORES = 125
+RETIRED_PATH = Path("config/retired.yml")
 USED_PATHS = (
     ("robots_products_json", "/products.json"),
     ("robots_product_js", "/products/*.js"),
@@ -116,6 +120,22 @@ class StoreRecord:
             out.append("needed a reviewed content-screen hit")
         return out
 
+    def terms_record(self) -> dict[str, Any] | None:
+        """The latest recon result that read the Terms of Service page."""
+        read = [r for _, r in self.history if r.get("terms") is not None]
+        return read[-1] if read else None
+
+    @property
+    def terms(self) -> str:
+        rec = self.terms_record()
+        return str(rec["terms"]) if rec else "none_found"
+
+    def terms_note(self) -> str:
+        rec = self.terms_record()
+        if rec is None:
+            return "terms none_found (not checked)"
+        return f"terms {rec['terms']} ({rec.get('terms_source') or '-'})"
+
     def review_notes(self) -> list[str]:
         return [f"screen hit reviewed ({r.category}): {r.reason}" for r in self.reviews]
 
@@ -181,6 +201,7 @@ def classify(
     per_category: int = PER_CATEGORY,
     max_stores: int = MAX_STORES,
     min_per_category: int = MIN_PER_CATEGORY,
+    retired: set[str] | None = None,
 ) -> dict[str, list[StoreRecord]]:
     """Split records into selected, reserve and dropped.
 
@@ -190,10 +211,17 @@ def classify(
     category, smallest catalog) moves to reserve, never leaving a category with
     fewer than ``min_per_category``.
     """
-    groups: dict[str, list[StoreRecord]] = {"selected": [], "reserve": [], "dropped": []}
+    groups: dict[str, list[StoreRecord]] = {
+        "selected": [],
+        "reserve": [],
+        "dropped": [],
+        "retired": [],
+    }
     by_cat: dict[str, list[StoreRecord]] = defaultdict(list)
     for rec in records:
-        if rec.drop_reasons():
+        if rec.store in (retired or set()):
+            groups["retired"].append(rec)
+        elif rec.drop_reasons():
             groups["dropped"].append(rec)
         else:
             by_cat[rec.category].append(rec)
@@ -292,6 +320,7 @@ def _notes(rec: StoreRecord) -> str:
     if r.get("js_crosscheck") == "match":
         bits.append(".js prices match")
     bits += rec.review_notes()
+    bits.append(rec.terms_note())
     if rec.reserve_reason:
         bits.append(f"reserve: {rec.reserve_reason}")
     bits.append("runs: " + ", ".join(rid for rid, _ in rec.history))
@@ -325,10 +354,12 @@ def _dropped_row(rec: StoreRecord) -> str:
 def render(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
+    retired: list[RetiredStore] | None = None,
 ) -> str:
     """Render the register from ``(path, payload)`` pairs, oldest run first."""
     records = collect(sources, reviews)
-    groups = classify(records)
+    retired = retired or []
+    groups = classify(records, retired={r.name for r in retired})
     selected = sorted(groups["selected"], key=_order)
     counts: dict[str, int] = defaultdict(int)
     variants: dict[str, int] = defaultdict(int)
@@ -358,8 +389,14 @@ def render(
             f"  - {CATEGORY_TITLES[c]}: {counts[c]} stores, {variants[c]:,} variants"
             for c in CATEGORY_TITLES
         ),
+        "- terms of the selected stores: "
+        + ", ".join(
+            f"{v} {sum(1 for rec in selected if rec.terms == v)}"
+            for v in ("ban", "no_ban", "none_found")
+        ),
         f"- reserve: {len(groups['reserve'])}",
         f"- dropped: {len(groups['dropped'])}",
+        f"- retired: {len(retired)}",
         f"- categories under {MIN_PER_CATEGORY} stores: {', '.join(short) or 'none'}",
         "",
         "## Selected",
@@ -370,6 +407,19 @@ def render(
     if groups["reserve"]:
         lines += ["", "## Reserve (pass every rule, not monitored yet)", "", KEPT_HEADER]
         lines += [_kept_row(rec) for rec in sorted(groups["reserve"], key=_order)]
+    if retired:
+        lines += [
+            "",
+            "## Retired (left the monitor on purpose, `config/retired.yml`)",
+            "",
+            "| store | category | retired on |",
+            "|---|---|---|",
+            *(
+                f"| {r.name} | {CATEGORY_TITLES.get(r.category, r.category)} "
+                f"| {r.retired_on.isoformat()} |"
+                for r in retired
+            ),
+        ]
     lines += [
         "",
         "## Dropped",
@@ -384,9 +434,11 @@ def render(
 def render_stores_yml(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
+    retired: list[RetiredStore] | None = None,
 ) -> str:
     """The monitored store list consumed by the daily run (config/stores.yml)."""
-    groups = classify(collect(sources, reviews))
+    retired = retired or []
+    groups = classify(collect(sources, reviews), retired={r.name for r in retired})
     ids = ", ".join(p["meta"]["id"] for _, p in sources)
     lines = [
         "# Monitored stores. Generated by `python -m pricemon.sources --stores-yml` from",
@@ -405,9 +457,20 @@ def render_stores_yml(
             f"    host: {_host(r)}",
             f"    recon_variants: {r['variants']}",
             f"    recon_products: {r['products']}",
+            f"    terms: {rec.terms}",
         ]
         if rec.reviewed_titles():
             lines.append(f"    screen_reviewed: {json.dumps(rec.reviewed_titles())}")
+    if retired:
+        lines.append("# Left the monitor on purpose (config/retired.yml); not read by any run.")
+        lines.append("retired:")
+        for ret in retired:
+            lines += [
+                f"  - id: {ret.id}",
+                f"    name: {json.dumps(ret.name)}",
+                f"    category: {ret.category}",
+                f"    retired_on: {ret.retired_on.isoformat()}",
+            ]
     return "\n".join(lines) + "\n"
 
 
@@ -416,11 +479,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("recon_json", type=Path, nargs="+")
     parser.add_argument("--stores-yml", action="store_true", help="emit config/stores.yml")
     parser.add_argument("--reviews", type=Path, default=REVIEW_PATH, help="screen-review file")
+    parser.add_argument("--retired", type=Path, default=RETIRED_PATH, help="retired stores")
     args = parser.parse_args(argv)
     paths = sorted(args.recon_json, key=lambda p: p.parent.name)
     sources = [(p.as_posix(), json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     reviews = load_reviews(args.reviews)
-    out = render_stores_yml(sources, reviews) if args.stores_yml else render(sources, reviews)
+    retired = load_retired(args.retired)
+    out = (
+        render_stores_yml(sources, reviews, retired)
+        if args.stores_yml
+        else render(sources, reviews, retired)
+    )
     print(out, end="")
     return 0
 

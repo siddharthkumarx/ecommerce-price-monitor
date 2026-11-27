@@ -8,7 +8,7 @@ name: watchdog
 on:
   schedule:
     - cron: "47 8 * * *"   # 2.5 h after the 06:17 slot
-    - cron: "47 16 * * *"  # second look, after the 12:17 BFCM slot
+    - cron: "47 16 * * *"  # second look
   workflow_dispatch:
 
 permissions:
@@ -33,14 +33,13 @@ jobs:
           sparse-checkout: |
             data/runs.jsonl
             src/pricemon
-            .github/workflows/daily.yml
           sparse-checkout-cone-mode: false
 
       - name: Was the latest daily slot run?
         id: check
         run: |
           PYTHONPATH=src python3 -m pricemon.schedule check --runs data/runs.jsonl \
-            --workflow .github/workflows/daily.yml | tee -a "$GITHUB_OUTPUT"
+            | tee -a "$GITHUB_OUTPUT"
 
       # A slot that GitHub started late and that is still queued or running is not
       # missed; starting another run would only queue behind it.

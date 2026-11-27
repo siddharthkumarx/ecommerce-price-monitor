@@ -7,7 +7,10 @@ committed as ``data/latest/snapshot.csv``. Each run:
 2. full-outer-joins them for the stores fetched completely in this run;
 3. keeps unchanged versions (titles refreshed in place), closes changed and
    removed versions at the run time, opens versions for changed and new variants;
-4. carries over the open versions of every store not fetched completely;
+4. carries over the open versions of every store not fetched completely, except
+   retired stores (``config/retired.yml``): their open versions are closed at the
+   run time without change events, so a retired store never shows as sold out or
+   removed (D-031);
 5. writes the new snapshot and the month's Parquet file (every version valid at
    any time in the month).
 
@@ -67,6 +70,13 @@ _CARRIED = """
 SELECT store_id, product_id, variant_id, handle, product_title, variant_title,
        price_cents, compare_at_cents, available, epoch_us(valid_from)
 FROM prev WHERE store_id NOT IN (SELECT store_id FROM complete)
+  AND store_id NOT IN (SELECT store_id FROM retired)
+"""
+_RETIRED = """
+SELECT store_id, product_id, variant_id, handle, product_title, variant_title,
+       price_cents, compare_at_cents, available, epoch_us(valid_from)
+FROM prev WHERE store_id IN (SELECT store_id FROM retired)
+  AND store_id NOT IN (SELECT store_id FROM complete)
 """
 _CARRIED_COLUMNS = [c for c in SNAPSHOT_COLUMNS if c != "valid_from"]
 _SNAPSHOT_SELECT = """
@@ -136,6 +146,8 @@ class MergeResult:
     open_versions: list[Version]
     closed_versions: list[Version]
     events: list[ChangeEvent] = field(default_factory=list)
+    # Open versions of retired stores closed in this run (no events).
+    retired_closed: int = 0
 
 
 def connect() -> duckdb.DuckDBPyConnection:
@@ -215,6 +227,7 @@ def merge(
     rows: Iterable[VariantRow],
     complete_stores: set[str],
     run_at: datetime,
+    retired: set[str] | frozenset[str] = frozenset(),
 ) -> MergeResult:
     """SCD2 merge of the run's observations into ``prev``. See module docstring."""
     obs = _obs_table(rows)
@@ -224,6 +237,9 @@ def merge(
     con.execute("CREATE OR REPLACE TABLE complete (store_id VARCHAR)")
     if complete_stores:
         con.executemany("INSERT INTO complete VALUES (?)", [[s] for s in sorted(complete_stores)])
+    con.execute("CREATE OR REPLACE TABLE retired (store_id VARCHAR)")
+    if retired:
+        con.executemany("INSERT INTO retired VALUES (?)", [[s] for s in sorted(retired)])
 
     cur = con.execute(
         """
@@ -279,8 +295,18 @@ def merge(
     for values in con.execute(_CARRIED).fetchall():
         r = dict(zip(_CARRIED_COLUMNS, values[:-1], strict=True))
         open_versions.append(Version(**r, valid_from=from_epoch_us(values[-1])))
+    retired_closed = 0
+    for values in con.execute(_RETIRED).fetchall():
+        r = dict(zip(_CARRIED_COLUMNS, values[:-1], strict=True))
+        closed.append(Version(**r, valid_from=from_epoch_us(values[-1]), valid_to=run_at))
+        retired_closed += 1
     open_versions.sort(key=lambda v: (v.store_id, v.product_id, v.variant_id))
-    return MergeResult(open_versions=open_versions, closed_versions=closed, events=events)
+    return MergeResult(
+        open_versions=open_versions,
+        closed_versions=closed,
+        events=events,
+        retired_closed=retired_closed,
+    )
 
 
 def write_snapshot(con: duckdb.DuckDBPyConnection, versions: list[Version], path: Path) -> None:

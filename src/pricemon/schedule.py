@@ -30,40 +30,31 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
-import re
 import sys
 from collections.abc import Iterator
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
-CRONS: tuple[str, ...] = (
-    "17 6 * * *",
-    "17 18 26-30 11 *",
-    "17 18 1 12 *",
-    "17 0,12 26-30 11 *",
-    "17 0,12 1 12 *",
-)
-# The two extra Black Friday / Cyber Monday slots run only when the workflow flag
-# BFCM_RUNS_PER_DAY is "4" (owner decision D-021: 4 a day only if the repo is
-# public by 26 Nov 2026, otherwise 2).
-BFCM_EXTRA_CRONS: frozenset[str] = frozenset({"17 0,12 26-30 11 *", "17 0,12 1 12 *"})
+CRONS: tuple[str, ...] = ("17 6 * * *",)
+
+# Black Friday 2026: from 26 Nov the workflow also ran at 00:17, 12:17 and 18:17 UTC
+# (D-021, D-026). The owner lifted that on 27 Nov 2026 (D-031): one run a day again.
+# The extra slots that were due before the lift stay in the slot accounting, so past
+# "delivered" and "missed" counts do not change; no cron line names them any more, so
+# they never fire again (build-progress item 17).
+BFCM_2026_START = datetime(2026, 11, 26, tzinfo=UTC)
+BFCM_2026_END = datetime(2026, 11, 27, 12, 30, tzinfo=UTC)
+BFCM_2026_CRONS: tuple[str, ...] = ("17 0,12,18 26-30 11 *",)
 
 
-def active_crons(bfcm_runs_per_day: int | None = None) -> tuple[str, ...]:
-    """The cron slots that are meant to run, given the BFCM flag (env by default)."""
-    if bfcm_runs_per_day is None:
-        bfcm_runs_per_day = int(os.environ.get("BFCM_RUNS_PER_DAY", "2"))
-    if bfcm_runs_per_day not in (2, 4):
-        raise ValueError("BFCM_RUNS_PER_DAY must be 2 or 4")
-    if bfcm_runs_per_day == 4:
-        return CRONS
-    return tuple(c for c in CRONS if c not in BFCM_EXTRA_CRONS)
+def active_crons() -> tuple[str, ...]:
+    """The cron slots that are meant to run from now on."""
+    return CRONS
 
 
-# Same-day guard (INC-007): 2.5 h after the 06:17 slot, and again after the 12:17
-# BFCM slot. Off the hour and the half hour, like every cron here.
+# Same-day guard (INC-007): 2.5 h after the 06:17 slot, and a second look at 16:47.
+# Off the hour and the half hour, like every cron here.
 WATCHDOG_CRONS: tuple[str, ...] = ("47 8 * * *", "47 16 * * *")
 
 # Honest accounting (INC-009): a slot is on time when a good run started within
@@ -120,6 +111,17 @@ def slots(start: datetime, end: datetime, crons: tuple[str, ...] = CRONS) -> Ite
                             times.add(t)
             day += timedelta(days=1)
     yield from sorted(times)
+
+
+def past_extra_slots(start: datetime, end: datetime) -> list[datetime]:
+    """The Black Friday 2026 extra slots in ``[start, end)`` that were due (before the lift)."""
+    lo, hi = max(start, BFCM_2026_START), min(end, BFCM_2026_END)
+    return list(slots(lo, hi, BFCM_2026_CRONS)) if lo < hi else []
+
+
+def due_slots(start: datetime, end: datetime, crons: tuple[str, ...]) -> list[datetime]:
+    """Every slot that was or is due in ``[start, end)``: the crons plus past extra slots."""
+    return sorted(set(slots(start, end, crons)) | set(past_extra_slots(start, end)))
 
 
 def latest_slot(now: datetime, crons: tuple[str, ...] | None = None) -> datetime | None:
@@ -186,8 +188,8 @@ def slot_states(
         return []
     first = min(x[0] for x in good + held)
     day0 = first.replace(hour=0, minute=0, second=0, microsecond=0)
-    times = list(slots(day0, now + timedelta(seconds=1), crons))
-    later = list(slots(now + timedelta(seconds=1), now + timedelta(days=3), crons))
+    times = due_slots(day0, now + timedelta(seconds=1), crons)
+    later = due_slots(now + timedelta(seconds=1), now + timedelta(days=3), crons)
     out: list[SlotState] = []
     for i, slot in enumerate(times):
         nxt = times[i + 1] if i + 1 < len(times) else (later[0] if later else None)
@@ -351,8 +353,9 @@ def gate(
       proves that the trigger and its token work. ``slot=auto`` names the active slot
       within ``AUTO_WINDOW`` of now and then follows the same rule; with no such slot
       it skips.
-    - A ``schedule`` event runs only if the latest slot is not filled yet; the two
-      extra BFCM slots only with BFCM_RUNS_PER_DAY "4".
+    - A ``schedule`` event runs only if the latest slot is not filled yet (a late
+      event of a cron that was removed, such as a Black Friday slot, finds the
+      latest daily slot filled and skips).
     """
     crons = crons or active_crons()
 
@@ -365,8 +368,6 @@ def gate(
         }
 
     if event == "schedule":
-        if cron in BFCM_EXTRA_CRONS and cron not in crons:
-            return out(False, f"extra BFCM slot '{cron}' is off (BFCM_RUNS_PER_DAY): skipped")
         c = check_slot(runs, now, crons)
         if c["covered"] == "true":
             return out(
@@ -409,14 +410,6 @@ def gate(
     return out(True, f"dispatch for slot {at}: runs", at, wait)
 
 
-def workflow_flag(text: str) -> int:
-    """BFCM_RUNS_PER_DAY as set in the daily workflow's text."""
-    m = re.search(r'^\s*BFCM_RUNS_PER_DAY:\s*"?([0-9]+)"?\s*$', text, re.MULTILINE)
-    if not m:
-        raise ValueError("BFCM_RUNS_PER_DAY not found in the workflow")
-    return int(m.group(1))
-
-
 def _read_runs(path: str) -> list[dict[str, object]]:
     try:
         text = Path(path).read_text(encoding="utf-8")
@@ -432,26 +425,21 @@ def main(argv: list[str] | None = None) -> int:
     sub = p.add_subparsers(dest="cmd", required=True)
     c = sub.add_parser("check")
     c.add_argument("--runs", default="data/runs.jsonl")
-    c.add_argument("--workflow", help="read BFCM_RUNS_PER_DAY from this workflow file")
     c.add_argument("--now", help="ISO time, default now (UTC)")
     g = sub.add_parser("gate")
     g.add_argument("--event", required=True)
     g.add_argument("--cron", default="")
     g.add_argument("--slot", default="")
     g.add_argument("--runs", default="data/runs.jsonl")
-    g.add_argument("--workflow", help="read BFCM_RUNS_PER_DAY from this workflow file")
     g.add_argument("--now", help="ISO time, default now (UTC)")
     a = p.parse_args(argv)
-    flag = None
-    if a.workflow:
-        flag = workflow_flag(Path(a.workflow).read_text(encoding="utf-8"))
     now = _parse(a.now) if a.now else datetime.now(UTC).replace(microsecond=0)
     if a.cmd == "gate":
         result = gate(
-            a.event, _read_runs(a.runs), now, cron=a.cron, slot=a.slot, crons=active_crons(flag)
+            a.event, _read_runs(a.runs), now, cron=a.cron, slot=a.slot, crons=active_crons()
         )
     else:
-        result = check_slot(_read_runs(a.runs), now, active_crons(flag))
+        result = check_slot(_read_runs(a.runs), now, active_crons())
     for key, value in result.items():
         print(f"{key}={value}")
     return 0

@@ -1,0 +1,10 @@
+# Stores that left the monitor on purpose. `python -m pricemon.sources --stores-yml`
+# keeps them out of config/stores.yml whatever their recon evidence, and copies this
+# list into it. No run reads them; their history stays in data/ as written, and the
+# README, dashboard and feed show them as "retired on <date>".
+retired:
+  # Owner decision, 27 Nov 2026 (D-031): no longer collected by this monitor.
+  - id: jlab
+    name: "JLab"
+    category: audio
+    retired_on: 2026-11-27
