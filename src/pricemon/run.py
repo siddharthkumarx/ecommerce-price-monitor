@@ -178,6 +178,7 @@ def process(
     per_store: dict[str, list[VariantRow]] = {}
     rejected: dict[str, int] = {}
     compare_at_ignored = 0
+    duplicate_variants = 0
     free_variants = 0
     reject_examples: dict[str, list[str]] = {}
     for f in fetches:
@@ -188,6 +189,7 @@ def process(
         per_store[f.store_id] = store_rows
         rows += store_rows
         rejected[f.store_id] = stats.rejected
+        duplicate_variants += stats.duplicates
         compare_at_ignored += stats.compare_at_ignored
         free_variants += stats.free
         if stats.examples:
@@ -266,6 +268,7 @@ def process(
         "rows_observed": len(rows),
         "rows_live": rows_live,
         "rows_rejected": sum(rejected.values()),
+        "duplicate_variants": duplicate_variants,
         "reject_examples": reject_examples,
         "compare_at_ignored": compare_at_ignored,
         "free_variants": free_variants,

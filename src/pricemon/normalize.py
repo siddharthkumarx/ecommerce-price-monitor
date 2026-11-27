@@ -45,6 +45,10 @@ class NormalizeStats:
     free: int = 0
     rejected: int = 0
     compare_at_ignored: int = 0
+    # A variant listed again (under a second product, or on a later page): its first
+    # copy is kept, so it is counted apart from rejects and the guard's reject share
+    # does not see it (D-037).
+    duplicates: int = 0
     examples: list[str] = field(default_factory=list)
 
     def reject(self, message: str) -> None:
@@ -101,7 +105,7 @@ def normalize_products(
                 stats.reject(f"variant {variant.get('id')}: {where}: {first['msg']}")
                 continue
             if row.variant_id in seen:
-                stats.reject(f"variant {row.variant_id}: duplicate variant id")
+                stats.duplicates += 1
                 continue
             seen.add(row.variant_id)
             rows.append(row)
