@@ -4,7 +4,7 @@
 
 **Description** (under 350 characters):
 
-> Daily price, sale and stock monitor for 25 US Shopify stores: polite web scraping, prices checked against a second source, full history in Parquet, CSV, Google Sheets and a live dashboard. Python, DuckDB, GitHub Actions. By Siddharth Kumar, web scraping and data freelancer.
+> Daily price, sale and stock monitor for 72 US Shopify stores: polite web scraping, prices checked against a second source, full history in Parquet, CSV, Google Sheets and a live dashboard. Python, DuckDB, GitHub Actions. By Siddharth Kumar, web scraping and data freelancer.
 
 **Website:** https://siddharthkumar.com/ecommerce-price-monitor/
 

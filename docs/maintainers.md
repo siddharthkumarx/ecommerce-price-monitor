@@ -67,8 +67,10 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   are excluded (content screen in `src/pricemon/screen.py`).
 - Terms of Service (D-031): recon reads `/policies/terms-of-service` once per store
   (at most 2 requests, only where robots.txt allows it) and records `terms`: `ban`,
-  `no_ban` or `none_found`. Every kept store is monitored. On public surfaces a
-  store whose value is in `anonymise_terms` (`config/public.yml`, now `[ban]`) is
+  `no_ban` or `none_found`. Only `no_ban` and `none_found` stores are monitored
+  (D-036): a `ban` store never enters `config/stores.yml`, and every run withdraws
+  from public data any store that is neither listed nor retired. As a safety net, a
+  store whose value is in `anonymise_terms` (`config/public.yml`, `[ban]`) would be
   shown as "Store #<n> (<category>)" through `pricemon.display`; never format a
   store name or host for a public file any other way.
 - Retired stores: `config/retired.yml` (id, name, category, date). `sources.py`

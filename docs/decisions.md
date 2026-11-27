@@ -484,8 +484,10 @@ From an independent review that rendered every SVG:
   `none_found`; Shopify's default terms template forbids "spider, crawl, or scrape",
   so most readable pages are `ban`.
 - **Selection.** Inside a category `no_ban` first, then `none_found`, then `ban` only
-  to fill it (HQ review A4); at most 25 per category, 300 in all.
-- **Display rule.** Every kept store is monitored and counts in every total. A store
+  to fill it (HQ review A4); at most 25 per category, 300 in all. *Superseded by
+  D-036: a `ban` store is never selected.*
+- **Display rule.** *The "every kept store is monitored" part is superseded by D-036;
+  the display rule stays as a safety net.* Every kept store is monitored and counts in every total. A store
   whose `terms` value is in `anonymise_terms` (`config/public.yml`, now `[ban]`) is
   shown on the README, dashboard, feed and media as "Store #<n> (<category>)", with
   no name, host or product links (`pricemon.display`); public data files follow D-034.
@@ -517,10 +519,11 @@ shards stay ruled out (D-020): they would spread requests over several IPs at on
 Each shard is a job under 45 minutes with its own 38-minute budget; a shard that
 fails leaves its stores "not updated" (partial run); no shard file at all is a crash.
 The stores of a shard are every n-th store of the day's rotating order. Supersedes
-the "single runner" part of D-020; the 45-minute limit now holds per job. Four
-shards for 250 stores (about 63 each): recon-005 and recon-006 spent about a third
-of their time in run-wide 429 cooldowns, and four shards leave room for that inside
-each 38-minute budget.
+the "single runner" part of D-020; the 45-minute limit now holds per job. The shard
+count follows the store list: one shard per 60 stores (`STORES_PER_SHARD` in
+`schedule.py`), planned by the slot job (D-036). recon-005 and recon-006 spent about
+a third of their time in run-wide 429 cooldowns; 60 stores take about 20 minutes at
+the unchanged pace, which leaves room for that inside each 38-minute budget.
 
 ## D-034 - Public data never names a store shown without its name (2026-11-27, HQ review)
 
@@ -547,3 +550,44 @@ each 38-minute budget.
 The external on-time trigger of D-028 and D-030 is the owner's own cron, not
 cron-job.org; the request (URL, headers, fixed body `{"ref":"main","inputs":{"slot":"auto"}}`)
 and the token rules are unchanged. Since D-031 it needs one line, `17 6 * * *` (UTC).
+
+## D-036 - Only stores whose terms do not ban robots are monitored (2026-11-27, owner decision)
+
+Supersedes the "every kept store is monitored" part of D-031 and the 250-store list
+of 27 Nov (never published on `main`).
+
+- **Rule.** The public monitor carries only stores whose recon `terms` value is
+  `no_ban` or `none_found`. A store whose Terms of Service ban robots, scrapers or
+  automated access (`ban`) is dropped by `pricemon.sources` ("terms ban, not
+  monitored") and is never fetched by the daily run. It is not in
+  `config/stores.yml`, not in `config/aliases.yml`, and not in any data file, the
+  feed, the README, the media or the release assets.
+- **Start.** 72 stores from recon-001..006: 56 `no_ban`, 16 `none_found`. Inside a
+  category a store already monitored keeps its place over a new one with the same
+  terms value; at most 25 per category.
+- **Public data holds only monitored and retired stores.** Every run withdraws any
+  other store from the snapshot, the change logs, the monthly Parquet history (and
+  so `latest-prices.csv`) and the run log (`pricemon.publicdata`). Run-log totals
+  of earlier runs are reduced by what a withdrawn store contributed: store counts,
+  requests and change events exactly, observed and live rows by its variant count
+  (an approximation within that run's `free_variants`); other totals
+  (`free_variants`, `compare_at_ignored`, `parquet_rows`, guard counts) stay as
+  measured. A record names how many stores it lost in `withdrawn_stores`. The first
+  run under this rule withdrew 18 of the 24 stores monitored before. A store that
+  should keep its history when it leaves must be retired (`config/retired.yml`);
+  with no store list at all nothing is withdrawn.
+- **What stays.** Git history before this decision still holds the earlier data and
+  lists; the recon evidence (`checks/results/`) and the site register
+  (`docs/sources.md`) keep naming every candidate checked, with its drop reason.
+- **Numbers.** `config/aliases.yml` lists only monitored stores; its `next` value is
+  the lowest number never given, so a number is never reused.
+- **Safety net.** `anonymise_terms: [ban]` in `config/public.yml` and
+  `pricemon.display` stay: a `ban` store that reached the list by mistake would
+  still be shown by number only.
+- **Shards.** The slot job plans one shard per 60 listed stores (D-033): 2 shards
+  for 72 stores.
+- **Growth.** Toward about 150 stores (about 15 per category, at most 25), never a
+  `ban`: new candidate lists from recon-007 on, US Shopify stores not contacted
+  before, weighted to the thin categories (apparel, toys & kids, tech accessories,
+  fitness first), same recon pace and terms field as recon-005. Passing `no_ban` and
+  `none_found` stores join in batches after each recon.
