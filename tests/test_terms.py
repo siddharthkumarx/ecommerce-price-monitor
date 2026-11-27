@@ -126,7 +126,7 @@ def test_recon_reads_the_terms_page() -> None:
     assert res.terms_requests == 1
     assert res.verdict() == (True, [])
     assert res.to_dict()["terms"] == "ban"
-    assert res.screen_version == 2  # the catalog was read and screened (D-039)
+    assert res.screen_version == 3  # the catalog was read and screened (D-039)
 
 
 def test_recon_without_terms_leaves_the_field_empty() -> None:

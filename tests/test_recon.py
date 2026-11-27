@@ -153,4 +153,4 @@ def test_recon_rows_record_the_screen_version_and_evidence() -> None:
     row = ReconResult(store="X", domain="x.example", category="audio").to_dict()
     assert row["screen_version"] is None  # catalog not read
     assert row["content_evidence"] == {}
-    assert SCREEN_VERSION == 2
+    assert SCREEN_VERSION == 3

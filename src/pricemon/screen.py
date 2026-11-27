@@ -32,8 +32,10 @@ from dataclasses import dataclass
 from typing import Any
 
 # Bump when the rule changes: a later recon row with a newer screen supersedes the
-# content flags of earlier rows (sources.StoreRecord.drop_reasons).
-SCREEN_VERSION = 2
+# content flags of earlier rows (sources.StoreRecord.drop_reasons). Versions: 1 up
+# to recon-007; 2 in recon-008 (tags not read); 3 from recon-009 (tags read again for
+# cannabis/CBD). The daily run always screens with the current version.
+SCREEN_VERSION = 3
 
 EXCLUDED: dict[str, tuple[str, ...]] = {
     "adult": ("sex toy", "vibrator", "dildo", "adult toy", "erotic"),

@@ -666,10 +666,11 @@ Beard Conditioner"). Those matches came from product **tags**, which v1 read and
 record: Shopify tags carry colour filters ("Tobacco" for brown suede, the same cause
 as Nisolo's "Huarache Slip On Brown") and marketing terms such as "CBD-free".
 
-The rule (`src/pricemon/screen.py`, `SCREEN_VERSION = 2`), simplest that fits every
-case above:
+The rule (`src/pricemon/screen.py`), simplest that fits every case above:
 
-- **Fields:** title and `product_type` only; tags are not read.
+- **Fields:** title and `product_type`. Tags are read for cannabis/CBD words only
+  (negations stripped): `recon-007` showed a store titling its chews "Hemp Calming"
+  and naming CBD only in a tag, while colour filters never name cannabis.
 - **Negations never count:** "CBD-free", "non-alcoholic", "Non-CBD".
 - **Colourway:** a word only in the short variant tail of a title (after " - ", " | ",
   "{" or " in ", at most four words, no quantity such as "750 ml" or "40%") does not
@@ -688,9 +689,14 @@ case above:
   threshold.
 
 Real titles from the evidence are regression tests in both directions
-(`tests/test_screen.py`): 22 false positives pass, 20 real alcohol, tobacco/vape,
+(`tests/test_screen.py`): 28 false positives pass, 23 real alcohol, tobacco/vape,
 CBD, weapons and adult products are still flagged, and one real product among false
 positives still flags its store.
+
+Screen versions: 1 up to `recon-007`; 2 in `recon-008`, which started before the
+cannabis-tag rule (tags not read at all); 3 from `recon-009`. Every daily run
+screens each store's whole catalog with the current version and stops a flagged
+store, so a store added from a v2 row is screened with tags on its first run.
 
 Recon rows now record `screen_version` and `content_evidence` (the field and word
 that fired), and a later row screened by a newer version supersedes the content flags
