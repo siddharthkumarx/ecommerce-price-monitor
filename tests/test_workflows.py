@@ -75,6 +75,8 @@ def test_a_live_check_runs_once_even_when_main_is_fast_forwarded() -> None:
     assert names.index("dup") == 1  # right after checkout, before anything that reads a store
     assert "checks/results/$id" in dup["run"]  # results already committed (INC-010)
     assert "status=$status" in dup["run"]
+    # A run held by its branch's concurrency group is "pending", not "queued".
+    assert "requested queued pending waiting in_progress" in dup["run"]
     assert "select(.id < $RUN_ID)" in dup["run"]
     for step in steps[2:]:
         # Fail closed: an error in the guard leaves `skip` empty and nothing runs.

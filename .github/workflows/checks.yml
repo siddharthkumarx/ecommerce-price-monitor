@@ -46,7 +46,7 @@ jobs:
             exit 0
           fi
           mine="$(git hash-object checks/request.yml)"
-          for status in queued in_progress; do
+          for status in requested queued pending waiting in_progress; do
             for sha in $(gh api "repos/$REPO/actions/workflows/checks.yml/runs?status=$status&per_page=50" \
                 --jq ".workflow_runs[] | select(.id < $RUN_ID) | .head_sha"); do
               theirs="$(gh api "repos/$REPO/contents/checks/request.yml?ref=$sha" --jq .sha)"

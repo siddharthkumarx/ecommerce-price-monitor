@@ -262,8 +262,9 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   recon requests twice. The `main` run was cancelled at 21:20 UTC. It had not
   written results (they are written only at the end), so nothing was committed.
 - **Fix:** the checks job first skips a request whose `checks/results/<id>/` is
-  already committed, or whose exact `checks/request.yml` an earlier queued or
-  running `checks` run is already reading. Every later step runs only when the
-  guard says `skip=false`, so a failing guard runs nothing.
+  already committed, or whose exact `checks/request.yml` an earlier `checks` run is
+  already reading or waiting to read (requested, queued, pending, waiting or in
+  progress). Every later step runs only when the guard says `skip=false`, so a
+  failing guard runs nothing.
 - **Regression test:** `tests/test_workflows.py`
   (`test_a_live_check_runs_once_even_when_main_is_fast_forwarded`).
