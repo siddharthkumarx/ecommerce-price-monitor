@@ -562,9 +562,12 @@ of 27 Nov (never published on `main`).
   monitored") and is never fetched by the daily run. It is not in
   `config/stores.yml`, not in `config/aliases.yml`, and not in any data file, the
   feed, the README, the media or the release assets.
-- **Start.** 72 stores from recon-001..006: 56 `no_ban`, 16 `none_found`. Inside a
+- **Start.** 71 stores from recon-001..006: 56 `no_ban`, 15 `none_found`. Inside a
   category a store already monitored keeps its place over a new one with the same
-  terms value; at most 25 per category.
+  terms value; at most 25 per category. Scotch Porter (beauty) was listed first
+  and then left again: the content screen matches "Scotch" in its brand name on
+  every product, which a review of exact titles cannot cover, so its review was
+  taken out and the store is dropped (excluded category).
 - **Public data holds only monitored and retired stores.** Every run withdraws any
   other store from the snapshot, the change logs, the monthly Parquet history (and
   so `latest-prices.csv`) and the run log (`pricemon.publicdata`). Run-log totals
@@ -585,9 +588,20 @@ of 27 Nov (never published on `main`).
   `pricemon.display` stay: a `ban` store that reached the list by mistake would
   still be shown by number only.
 - **Shards.** The slot job plans one shard per 60 listed stores (D-033): 2 shards
-  for 72 stores.
+  for 71 stores.
 - **Growth.** Toward about 150 stores (about 15 per category, at most 25), never a
   `ban`: new candidate lists from recon-007 on, US Shopify stores not contacted
   before, weighted to the thin categories (apparel, toys & kids, tech accessories,
   fitness first), same recon pace and terms field as recon-005. Passing `no_ban` and
   `none_found` stores join in batches after each recon.
+
+## D-037 - A duplicated variant is not a validation reject (2026-11-27)
+
+The first 72-store run was held: Barebones Living lists some variants under two
+products in a single `/products.json` page (17 of 454 rows), which the validation
+counted as rejects, above the 2 % share that holds a run (D-008 guard). The first
+copy of such a variant is kept and nothing is missing, so a repeated variant id is
+now counted apart (`duplicate_variants` in the run log, a new field; as $0 variants
+in D-018) and the reject
+share does not see it. A variant that is really lost because pages shifted shows up
+as falling rows, which the rows-drop guard still holds.

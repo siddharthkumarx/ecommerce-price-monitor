@@ -153,15 +153,6 @@ stores:
     recon_products: 164
     terms: no_ban
     public_no: 74
-  - id: scotch-porter
-    name: "Scotch Porter"
-    category: beauty
-    host: www.scotchporter.com
-    recon_variants: 57
-    recon_products: 45
-    terms: none_found
-    public_no: 80
-    screen_reviewed: ["Conditioning Beard Balm 6-Pack", "Intense Anti-Dry Body Lotion | Sandalwood & Tobacco Musk", "Leave-In Beard Conditioner 3-Pack", "Leave-In Beard Conditioner 6-Pack"]
   - id: sigma-beauty
     name: "Sigma Beauty"
     category: beauty

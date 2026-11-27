@@ -190,16 +190,6 @@ reviews:
     titles: ["Bourbon Beard Box", "Dad's Liquor Cabinet", "Solid Cologne - Bay Rum"]
     verdict: false_positive
     reason: "Soap and grooming sets with bourbon and bay rum scents; no alcoholic product."
-  - store: "Scotch Porter"
-    category: alcohol
-    titles: ["Conditioning Beard Balm 6-Pack", "Leave-In Beard Conditioner 3-Pack", "Leave-In Beard Conditioner 6-Pack"]
-    verdict: false_positive
-    reason: "\"Scotch\" is in the brand name and \"Tobacco Musk\" a scent; grooming products only."
-  - store: "Scotch Porter"
-    category: tobacco/vape
-    titles: ["Intense Anti-Dry Body Lotion | Sandalwood & Tobacco Musk"]
-    verdict: false_positive
-    reason: "\"Scotch\" is in the brand name and \"Tobacco Musk\" a scent; grooming products only."
   - store: "KINTO USA"
     category: alcohol
     titles: ["CAST double wall beer glass 340ml", "CAST double wall cocktail glass 290ml", "CAST double wall rock glass 250ml"]
