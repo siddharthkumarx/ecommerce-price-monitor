@@ -601,7 +601,6 @@ The first 72-store run was held: Barebones Living lists some variants under two
 products in a single `/products.json` page (17 of 454 rows), which the validation
 counted as rejects, above the 2 % share that holds a run (D-008 guard). The first
 copy of such a variant is kept and nothing is missing, so a repeated variant id is
-now counted apart (`duplicate_variants` in the run log, a new field; as $0 variants
-in D-018) and the reject
-share does not see it. A variant that is really lost because pages shifted shows up
-as falling rows, which the rows-drop guard still holds.
+now counted apart (`duplicate_variants` in the run log, a new field), as $0 variants
+are since D-018, and the reject share does not see it. A variant that is really lost
+because pages shifted shows up as falling rows, which the rows-drop guard still holds.
