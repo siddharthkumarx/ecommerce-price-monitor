@@ -12,53 +12,98 @@ not serve the endpoint. Which one is not checked: recon stops at the first answe
 
 | Category | Store | Domain | Recon | Answer to `/products.json` |
 |---|---|---|---|---|
+| Apparel | Ana Luisa | analuisa.com | recon-006 | http 404, text/html |
 | Apparel | BAGGU | baggu.com | recon-005 | http 404, text/html |
 | Apparel | Birddogs | birddogs.com | recon-003 | http 200, text/html |
+| Apparel | BYLT Basics | byltbasics.com | recon-006 | http 404, text/html |
 | Apparel | Chubbies | chubbiesshorts.com | recon-002 | http 404, text/html |
 | Apparel | Cuts Clothing | cutsclothing.com | recon-002 | http 404, text/html |
 | Apparel | Public Rec | publicrec.com | recon-002 | http 200, application/json |
+| Apparel | Rhoback | rhoback.com | recon-006 | http 404, text/html |
 | Apparel | SuitShop | suitshop.com | recon-005 | http 404, text/html |
+| Apparel | Summersalt | summersalt.com | recon-006 | http 200, text/html |
 | Apparel | Tracksmith | tracksmith.com | recon-003 | http 404, text/html |
 | Apparel | Vuori | vuoriclothing.com | recon-002 | http 404, text/html |
+| Audio | AIAIAI | aiaiai.audio | recon-006 | http 200, text/html |
 | Audio | Audioengine | audioengine.com | recon-002 | http 404, text/html |
+| Audio | beyerdynamic North America | north-america.beyerdynamic.com | recon-006 | http 404, text/html |
+| Audio | Como Audio | comoaudio.com | recon-006 | http 404, ? |
+| Audio | Dan Clark Audio | danclarkaudio.com | recon-006 | http 404, text/html |
+| Audio | DJ TechTools | djtechtools.com | recon-006 | http 404, text/html |
 | Audio | EarFun | myearfun.com | recon-002 | http 404, application/json |
+| Audio | ELAC | elac.com | recon-006 | http 404, text/html |
+| Audio | Klipsch | klipsch.com | recon-006 | http 404, text/html |
 | Audio | Nothing (US) | us.nothing.tech | recon-002 | http 404, text/html |
+| Audio | Periodic Audio | periodicaudio.com | recon-006 | http 404, text/html |
 | Audio | Rockford Fosgate | rockfordfosgate.com | recon-005 | http 404, text/html |
+| Audio | Skar Audio | skaraudio.com | recon-006 | http 404, text/html |
 | Audio | Turtle Beach | turtlebeach.com | recon-005 | http 404, text/html |
+| Beauty | Amika | loveamika.com | recon-006 | http 404, text/html |
 | Beauty | Arctic Fox | arcticfoxhaircolor.com | recon-005 | http 404, text/html |
 | Beauty | Briogeo | briogeohair.com | recon-002 | http 404, text/html |
 | Beauty | Dr. Dennis Gross Skincare | drdennisgross.com | recon-005 | http 410, text/html |
 | Beauty | Dr. Squatch | drsquatch.com | recon-002 | http 404, text/html |
+| Beauty | Kopari | kopari.com | recon-006 | http 404, ? |
 | Beauty | Lume Deodorant | lumedeodorant.com | recon-005 | http 200, text/html |
 | Beauty | Topicals | mytopicals.com | recon-004 | http 404, text/html |
 | Coffee & tea | Canyon Coffee | canyoncoffee.co | recon-005 | http 404, text/html |
 | Coffee & tea | Chamberlain Coffee | chamberlaincoffee.com | recon-005 | http 200, text/html |
+| Coffee & tea | Coava Coffee | coavacoffee.com | recon-006 | http 404, application/json |
+| Coffee & tea | Huckleberry Roasters | huckleberryroasters.com | recon-006 | http 404, text/html |
+| Coffee & tea | Passenger Coffee | passengercoffee.com | recon-006 | http 404, text/html |
+| Fitness | Bodylastics | bodylastics.com | recon-006 | http 404, text/plain |
+| Fitness | Kinetic | kurtkinetic.com | recon-006 | http 200, text/html |
+| Fitness | MERACH | merach.com | recon-006 | http 404, text/html |
+| Fitness | Rukket Sports | rukketsports.com | recon-006 | http 200, text/html |
+| Fitness | WODFitters | wodfitters.com | recon-006 | http 404, ? |
 | Home & kitchen | Blueland | blueland.com | recon-002 | http 404, text/html |
 | Home & kitchen | Boll & Branch | bollandbranch.com | recon-002 | http 404, text/html |
 | Home & kitchen | Burrow | burrow.com | recon-002 | http 404, text/plain |
 | Home & kitchen | Caraway | carawayhome.com | recon-002 | http 404, text/html |
+| Home & kitchen | Cleancult | cleancult.com | recon-006 | http 404, text/html |
 | Home & kitchen | Equal Parts | equalparts.com | recon-004 | http 404, text/html |
+| Home & kitchen | Force of Nature | forceofnatureclean.com | recon-006 | http 404, text/html |
 | Home & kitchen | Hedley & Bennett | hedleyandbennett.com | recon-004 | http 200, text/html |
 | Home & kitchen | Jungalow | jungalow.com | recon-005 | http 404, text/html |
+| Home & kitchen | LAFCO | lafco.com | recon-006 | http 404, text/html |
+| Home & kitchen | Open Spaces | getopenspaces.com | recon-006 | http 404, text/html |
 | Home & kitchen | Revival Rugs | revivalrugs.com | recon-005 | http 404, text/html |
 | Home & kitchen | W&P | wpdesign.com | recon-004 | http 404, text/html |
+| Outdoor | Airblaster | airblaster.com | recon-006 | http 404, text/html |
 | Outdoor | Enlightened Equipment | enlightenedequipment.com | recon-004 | http 404, text/html |
 | Outdoor | ENO | eaglesnestoutfitters.com | recon-004 | http 200, text/html |
+| Outdoor | Give'r | giver.com | recon-006 | http 404, text/html |
+| Outdoor | Granite Gear | granitegear.com | recon-006 | http 200, text/html |
+| Outdoor | Injinji | injinji.com | recon-006 | http 404, text/html |
 | Outdoor | iROCKER | irockersup.com | recon-005 | http 404, text/html |
+| Outdoor | ISLE Surf & SUP | islesurfandsup.com | recon-006 | http 404, text/html |
+| Outdoor | KUHL | kuhl.com | recon-006 | http 404, text/html |
 | Outdoor | Mystery Ranch | mysteryranch.com | recon-004 | http 404, text/html |
 | Outdoor | Oru Kayak | orukayak.com | recon-002 | http 404, text/html |
 | Outdoor | Peak Design | peakdesign.com | recon-002 | http 404, text/html |
 | Outdoor | Poler | polerstuff.com | recon-004 | http 404, text/html |
 | Outdoor | Sawyer | sawyer.com | recon-004 | http 404, text/html |
 | Outdoor | ULA Equipment | ula-equipment.com | recon-004 | http 404, text/html |
+| Pet | Glass Aqua | glassaqua.com | recon-006 | http 404, text/html |
+| Pet | Goughnuts | goughnuts.com | recon-006 | http 404, ? |
+| Pet | Lambwolf Collective | lambwolf.com | recon-006 | http 404, text/html |
 | Pet | Lucy & Co. | lucyandco.com | recon-005 | http 404, text/html |
 | Pet | Nulo | nulo.com | recon-005 | http 404, text/html |
 | Pet | PetLab Co. | thepetlabco.com | recon-005 | http 404, text/html |
 | Pet | Small Pet Select | smallpetselect.com | recon-005 | http 404, text/html |
+| Tech accessories | Courant | courant.com | recon-006 | http 404, text/html |
+| Tech accessories | Das Keyboard | daskeyboard.com | recon-006 | http 404, text/html |
+| Tech accessories | Kinetic Labs | kineticlabs.com | recon-006 | http 200, text/html |
+| Tech accessories | KONO | kono.store | recon-006 | http 200, text/html |
 | Tech accessories | Nomad | nomadgoods.com | recon-005 | http 404, text/html |
+| Tech accessories | Shimoda Designs | shimodadesigns.com | recon-006 | http 404, text/html |
+| Tech accessories | Sonix | sonix.com | recon-006 | http 404, text/html |
+| Tech accessories | Statik | getstatik.com | recon-006 | http 404, text/html |
 | Tech accessories | Totallee | totallee.com | recon-005 | http 404, text/html |
 | Toys & kids | Happiest Baby | happiestbaby.com | recon-005 | http 200, text/html |
+| Toys & kids | Kate Quinn | katequinnorganics.com | recon-006 | http 404, ? |
 | Toys & kids | Lovevery | lovevery.com | recon-005 | http 404, text/html |
+| Toys & kids | Monica + Andy | monicaandandy.com | recon-006 | http 404, text/html |
 
 ## Leads from desk research, not checked
 
