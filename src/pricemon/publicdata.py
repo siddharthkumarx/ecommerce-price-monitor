@@ -66,6 +66,7 @@ def public_fetch(display: Display, fetch: StoreFetch) -> StoreFetch:
         fetch,
         store_id=display.data_id(sid),
         host="",
+        reason=display.reason(sid, fetch.reason),
         products=products,
         witnesses=[replace(w, handle="") for w in fetch.witnesses],
         content_flags={k: [HIDDEN] * len(v) for k, v in fetch.content_flags.items()},
@@ -130,6 +131,8 @@ def _rekey_store_entry(display: Display, mapping: dict[str, str], s: dict[str, A
     if display.is_anonymised(s["store_id"]):
         if "host" in s:
             s["host"] = ""
+        if s.get("reason"):
+            s["reason"] = display.reason(s["store_id"], str(s["reason"]))
         for w in s.get("witnesses") or []:
             w["handle"] = ""
         if s.get("content_flags"):
@@ -144,6 +147,8 @@ def _rekey_run(display: Display, mapping: dict[str, str], record: dict[str, Any]
     for s in record.get("stores_not_updated") or []:
         sid = str(s.get("store_id") or "")
         s["store_id"] = mapping.get(sid, sid)
+        if s.get("reason") and display.is_anonymised(s["store_id"]):
+            s["reason"] = display.reason(s["store_id"], str(s["reason"]))
     if record.get("stores_added"):
         record["stores_added"] = [mapping.get(x, x) for x in record["stores_added"]]
     if record.get("reject_examples"):
@@ -155,7 +160,7 @@ def _rekey_run(display: Display, mapping: dict[str, str], record: dict[str, Any]
 
 
 def _mentions(value: Any, ids: set[str]) -> bool:
-    text = json.dumps(value)
+    text = json.dumps(value, ensure_ascii=False)
     return any(re.search(rf"(?<![\w-]){re.escape(i)}(?![\w-])", text) for i in ids)
 
 
@@ -174,7 +179,9 @@ def _withdraw_run(record: dict[str, Any], known: set[str], events: dict[Any, Cou
     record["stores"] = [s for s in stores if s not in gone]
     record["stores_not_updated"] = [s for s in not_updated if s not in gone_nu]
     if "stores_total" in record:
-        record["stores_total"] = max(0, int(record["stores_total"]) - len(gone) - len(gone_nu))
+        # A failed store is in both lists: count each store once.
+        listed = {str(s.get("store_id") or "") for s in gone + gone_nu}
+        record["stores_total"] = max(0, int(record["stores_total"]) - len(listed))
     if "stores_ok" in record:
         ok = sum(1 for s in gone if s.get("status") == "ok")
         record["stores_ok"] = max(0, int(record["stores_ok"]) - ok)
@@ -204,15 +211,39 @@ def _withdraw_run(record: dict[str, Any], known: set[str], events: dict[Any, Cou
     record["withdrawn_stores"] = int(record.get("withdrawn_stores") or 0) + len(gone_ids)
 
 
+def withdraw_ids(display: Display, present: set[str]) -> set[str] | None:
+    """The store keys public data keeps, or None when nothing may be withdrawn (D-036).
+
+    Withdrawing deletes data, so it happens only with a store list (at least one
+    monitored store; retired stores alone do not count) and never for more stores
+    than are listed: a wrong or truncated store list then leaves the data alone.
+    """
+    if not display.stores:
+        return None
+    known = display.public_ids
+    leaving = present - known
+    if len(leaving) > len(display.stores):
+        print(
+            f"public data: {len(leaving)} stores would be withdrawn with only "
+            f"{len(display.stores)} listed; nothing withdrawn (check config/stores.yml)",
+            flush=True,
+        )
+        return None
+    return known
+
+
 def rekey_files(data: Path, display: Display) -> list[Path]:
     """Bring the snapshot, the change logs and the run log to the current keys, and
     withdraw every store that is neither monitored nor retired (D-036)."""
     mapping = display.rekey()
-    # No store list at all (an empty or missing config): nothing is withdrawn, since
-    # withdrawing is the direction that deletes data.
-    known = display.public_ids or None
     changed: list[Path] = []
     csvs = [data / "latest" / "snapshot.csv", *sorted((data / "changes").glob("*/*.csv"))]
+    snapshot_ids: set[str] = set()
+    if csvs[0].exists():
+        snapshot_ids = {
+            mapping.get(r.get("store_id", ""), r.get("store_id", "")) for r in _read_csv(csvs[0])[1]
+        }
+    known = withdraw_ids(display, snapshot_ids)
     # Change events of stores that left, by run time, to reduce the run totals once.
     events: dict[Any, Counter[str]] = defaultdict(Counter)
     for path in csvs[1:]:
@@ -253,7 +284,11 @@ def rekey_month(con: duckdb.DuckDBPyConnection, display: Display) -> int:
     for old, new in display.rekey().items():
         res = con.execute("UPDATE month_prev SET store_id = ? WHERE store_id = ?", [new, old])
         changed += int((res.fetchone() or [0])[0])
-    known = sorted(display.public_ids)
+    present = {
+        str(r[0]) for r in con.execute("SELECT DISTINCT store_id FROM month_prev").fetchall()
+    }
+    allowed = withdraw_ids(display, present)
+    known = sorted(allowed or ())
     if known:
         # Stores that are neither monitored nor retired leave the history (D-036).
         con.execute("CREATE OR REPLACE TEMP TABLE known_ids (store_id VARCHAR)")
@@ -286,3 +321,64 @@ def rekey_month(con: duckdb.DuckDBPyConnection, display: Display) -> int:
             )
             changed += int((res.fetchone() or [0])[0])
     return changed
+
+
+# -- earlier months ---------------------------------------------------------------
+def rekey_month_file(parquet: Path, display: Display) -> int:
+    """Rekey and withdraw an earlier month's Parquet file in place; rows changed.
+
+    The daily run rewrites only the current month (``rekey_month``); earlier release
+    assets are brought to the same keys by this step of the workflow (D-036).
+    """
+    con = duckdb.connect()
+    con.execute(
+        "CREATE TABLE month_prev AS SELECT * FROM read_parquet(?) "
+        "ORDER BY store_id, product_id, variant_id, valid_from",
+        [str(parquet)],
+    )
+    changed = rekey_month(con, display)
+    if changed:
+        tmp = parquet.with_name(parquet.name + ".tmp")
+        con.table("month_prev").order("store_id, product_id, variant_id, valid_from").write_parquet(
+            str(tmp), compression="zstd"
+        )
+        tmp.replace(parquet)
+    return changed
+
+
+def rekey_csv_file(path: Path, display: Display) -> bool:
+    """Rekey and withdraw an earlier month's ``latest-prices.csv`` in place."""
+    mapping = display.rekey()
+    ids = {mapping.get(r.get("store_id", ""), r.get("store_id", "")) for r in _read_csv(path)[1]}
+    return _rewrite_csv(path, display, mapping, withdraw_ids(display, ids))
+
+
+def main(argv: list[str] | None = None) -> int:
+    import argparse
+
+    from pricemon.display import load_display
+
+    p = argparse.ArgumentParser(
+        description="Bring an earlier month's release files to the keys of the current store list."
+    )
+    p.add_argument("--stores", type=Path, default=Path("config/stores.yml"))
+    p.add_argument("--public", type=Path, default=Path("config/public.yml"))
+    p.add_argument("--parquet", type=Path)
+    p.add_argument("--csv", type=Path)
+    a = p.parse_args(argv)
+    display = load_display(a.stores, a.public)
+    changed = 0
+    if a.parquet and a.parquet.exists():
+        rows = rekey_month_file(a.parquet, display)
+        print(f"{a.parquet.name}: {rows} rows changed")
+        changed += rows
+    if a.csv and a.csv.exists():
+        dirty = rekey_csv_file(a.csv, display)
+        print(f"{a.csv.name}: {'changed' if dirty else 'unchanged'}")
+        changed += int(dirty)
+    # Exit 3 tells the workflow there is something to upload.
+    return 3 if changed else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

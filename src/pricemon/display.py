@@ -143,6 +143,15 @@ class Display:
         cleaned = re.sub(r"\s{2,}", " ", pattern.sub("", title)).strip(" -\u2013|:")
         return cleaned or "Product"
 
+    def reason(self, store_id: str, reason: str | None) -> str | None:
+        """A failure reason as public files and logs may hold it: for an anonymised
+        store without URLs, product handles or the store's name."""
+        if not reason or self._raw(store_id) not in self._alias:
+            return reason
+        text = re.sub(r"https?://\S+", "a store URL", reason)
+        text = re.sub(r"(^|; )[a-z0-9][a-z0-9-]*: ", r"\1a product: ", text)
+        return self.title(store_id, text)
+
 
 def load_display(stores_path: Path, public_path: Path | None = None) -> Display:
     stores = load_stores(stores_path) if stores_path.exists() else []

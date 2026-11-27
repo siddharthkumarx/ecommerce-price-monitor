@@ -137,9 +137,22 @@ class StoreRecord:
         return out
 
     def terms_record(self) -> dict[str, Any] | None:
-        """The latest recon result that read the Terms of Service page."""
-        read = [r for _, r in self.history if r.get("terms") is not None]
-        return read[-1] if read else None
+        """The recon result that decides the store's terms value.
+
+        The latest run that looked at the Terms page, except that a proven ``ban``
+        stands until a later run read the page and found no ban: a later run that
+        could not read it (robots.txt, http error, no policy text) is ``none_found``
+        and does not lift a ban (D-036).
+        """
+        current: dict[str, Any] | None = None
+        for _, r in self.history:
+            if r.get("terms") is None:
+                continue
+            lifted = r.get("terms_source") == "read" and r.get("terms") == "no_ban"
+            if current is not None and current.get("terms") == "ban" and not lifted:
+                continue
+            current = r
+        return current
 
     @property
     def terms(self) -> str:
