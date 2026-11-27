@@ -168,3 +168,24 @@ def test_the_workflow_runs_shards_one_after_another() -> None:
     assert wf["jobs"]["run"]["needs"] == ["slot", "fetch"]
     step = next(s for s in wf["jobs"]["run"]["steps"] if s.get("id") == "run")
     assert "--fetch-in" in step["run"]
+
+
+def test_the_shard_count_follows_the_store_list() -> None:
+    from pricemon.schedule import STORES_PER_SHARD, monitored_count, shard_plan
+
+    text = (
+        "# header\nstores:\n  - id: a\n    name: A\n  - id: b\n    name: B\n"
+        "retired:\n  - id: c\n    name: C\n"
+    )
+    assert monitored_count(text) == 2
+    assert shard_plan(0) == [1]
+    assert shard_plan(STORES_PER_SHARD) == [1]
+    assert shard_plan(STORES_PER_SHARD + 1) == [1, 2]
+    assert shard_plan(150) == [1, 2, 3]
+    committed = (ROOT / "config" / "stores.yml").read_text()
+    assert monitored_count(committed) == len(load_stores(ROOT / "config" / "stores.yml"))
+    wf = yaml.safe_load((ROOT / ".github" / "workflows" / "daily.yml").read_text())
+    assert wf["jobs"]["fetch"]["strategy"]["matrix"]["shard"] == (
+        "${{ fromJSON(needs.slot.outputs.shards) }}"
+    )
+    assert "shards" in wf["jobs"]["slot"]["outputs"]

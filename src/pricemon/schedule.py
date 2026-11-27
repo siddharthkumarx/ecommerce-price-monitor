@@ -418,6 +418,31 @@ def _read_runs(path: str) -> list[dict[str, object]]:
     return [json.loads(line) for line in text.splitlines() if line.strip()]
 
 
+# Sequential shards of the daily run (D-033): one shard per this many stores, so the
+# shard count follows the store list as it grows (D-036). At the unchanged pace 60
+# stores take about 20 minutes, well inside a shard's 38-minute budget even with the
+# run-wide 429 cooldowns that recon-005 and recon-006 met.
+STORES_PER_SHARD = 60
+MAX_SHARDS = 8
+
+
+def monitored_count(stores_yml: str) -> int:
+    """Stores listed under ``stores:`` in config/stores.yml (standard library only)."""
+    n, inside = 0, False
+    for line in stores_yml.splitlines():
+        if line and not line.startswith((" ", "#")):
+            inside = line.rstrip() == "stores:"
+        elif inside and line.startswith("  - id:"):
+            n += 1
+    return n
+
+
+def shard_plan(n_stores: int) -> list[int]:
+    """The shard numbers for ``n_stores`` stores: 1..k, k = ceil(n / STORES_PER_SHARD)."""
+    k = max(1, -(-n_stores // STORES_PER_SHARD))
+    return list(range(1, min(k, MAX_SHARDS) + 1))
+
+
 def main(argv: list[str] | None = None) -> int:
     # Standard library only, so the workflows run it with the runner's python3
     # without installing the project.
@@ -432,7 +457,14 @@ def main(argv: list[str] | None = None) -> int:
     g.add_argument("--slot", default="")
     g.add_argument("--runs", default="data/runs.jsonl")
     g.add_argument("--now", help="ISO time, default now (UTC)")
+    s = sub.add_parser("shards", help="the shard list for the daily workflow's matrix")
+    s.add_argument("--stores", default="config/stores.yml")
     a = p.parse_args(argv)
+    if a.cmd == "shards":
+        n = monitored_count(Path(a.stores).read_text(encoding="utf-8"))
+        print(f"stores={n}")
+        print(f"shards={json.dumps(shard_plan(n), separators=(',', ':'))}")
+        return 0
     now = _parse(a.now) if a.now else datetime.now(UTC).replace(microsecond=0)
     if a.cmd == "gate":
         result = gate(

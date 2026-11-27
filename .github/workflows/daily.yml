@@ -48,14 +48,27 @@ jobs:
       run: ${{ steps.decide.outputs.run }}
       slot: ${{ steps.decide.outputs.slot }}
       run_at: ${{ steps.decide.outputs.run_at }}
+      shards: ${{ steps.plan.outputs.shards }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.ref_name }}
           sparse-checkout: |
+            config/stores.yml
             data/runs.jsonl
             src/pricemon
           sparse-checkout-cone-mode: false
+
+      - name: Plan the shards
+        id: plan
+        run: |
+          # One shard per 60 stores (D-033, D-036); four if the plan itself fails.
+          if PYTHONPATH=src python3 -m pricemon.schedule shards --stores config/stores.yml > plan.txt; then
+            cat plan.txt
+            grep '^shards=' plan.txt >> "$GITHUB_OUTPUT"
+          else
+            echo "shards=[1,2,3,4]" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Decide
         id: decide
@@ -86,7 +99,7 @@ jobs:
   # request rate stays that of a single runner and requests are never spread over
   # several IPs at once (D-020, D-033). Each shard is one job under 45 minutes with a
   # 38-minute request budget; a shard that fails leaves its stores "not updated".
-  # The number of shards is the length of the list below.
+  # The slot job plans the shards: one per 60 listed stores (D-036).
   fetch:
     needs: slot
     if: ${{ !cancelled() && needs.slot.outputs.run == 'true' }}
@@ -96,7 +109,7 @@ jobs:
       max-parallel: 1
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
+        shard: ${{ fromJSON(needs.slot.outputs.shards) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
