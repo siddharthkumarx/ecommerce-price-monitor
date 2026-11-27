@@ -6,6 +6,19 @@
 
 Exit codes: 0 ok, 2 partial (some stores not updated), 3 held (nothing published,
 last good data stays live), 1 crashed. Outputs are written for every code.
+
+Sharded run (D-031): the daily workflow reads the stores in ``n`` shards, **one
+after another** (never in parallel, so the run-wide request rate stays that of one
+runner, D-020), then processes them once:
+
+    python -m pricemon.run --shard 1/3 --run-at 2026-11-28T06:17:30Z --fetch-out work/fetch-1.json
+    ...
+    python -m pricemon.run --run-at 2026-11-28T06:17:30Z --fetch-in work/fetch-1.json ... \
+        --history-in ... --history-out ...
+
+A shard writes only its fetch file; the process step writes every output. A store
+whose shard file is missing (the shard job failed or timed out) is "not updated"
+and keeps its last good rows, as for any failed store.
 """
 
 from __future__ import annotations
@@ -13,6 +26,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import hashlib
+import json
 import os
 import sys
 import time
@@ -68,6 +82,26 @@ class RunConfig:
     # under the owner's 45-minute limit (D-020).
     budget_s: float = 38 * 60
     only: set[str] = field(default_factory=set)
+    # Sharded runs (D-031): this shard of n, its output file, or the shard files to process.
+    shard: tuple[int, int] | None = None
+    fetch_out: Path | None = None
+    fetch_in: list[Path] = field(default_factory=list)
+    run_at: datetime | None = None
+
+
+def daily_order(stores: list[Store], day: Any) -> list[Store]:
+    """A daily rotating order: a budget cut never hits the same stores every day."""
+    return sorted(stores, key=lambda s: hashlib.sha256(f"{day}|{s.id}".encode()).hexdigest())
+
+
+def shard_stores(stores: list[Store], day: Any, k: int, n: int) -> list[Store]:
+    """Shard ``k`` of ``n`` (1-based): every n-th store of the day's order, so each
+    shard gets a mix of stores and the shards are about equally long."""
+    if not 1 <= k <= n:
+        raise ValueError(f"shard {k}/{n} out of range")
+    order = daily_order(stores, day)
+    chosen = {s.id for s in order[k - 1 :: n]}
+    return [s for s in stores if s.id in chosen]
 
 
 async def fetch_all(
@@ -94,8 +128,7 @@ async def fetch_all(
                 )
                 return result
 
-        # A daily rotating start order: a budget cut never hits the same stores daily.
-        order = sorted(stores, key=lambda s: hashlib.sha256(f"{day}|{s.id}".encode()).hexdigest())
+        order = daily_order(stores, day)
         results = {r.store_id: r for r in await asyncio.gather(*(one(s) for s in order))}
         return [results[s.id] for s in stores]
 
@@ -125,6 +158,7 @@ def process(
     run_at: datetime,
     started: float,
     edge: EdgeGuard | None = None,
+    shards: list[dict[str, Any]] | None = None,
 ) -> tuple[int, dict[str, Any]]:
     """Validate, guard, merge and write outputs. Returns (exit code, run record)."""
     data = cfg.data
@@ -229,16 +263,9 @@ def process(
         "requests": sum(f.requests for f in fetches),
         "retries": sum(f.retries for f in fetches),
         "retry_causes": dict(Counter(c for f in fetches for c in f.retry_causes)),
-        "edge": (
-            {
-                "throttle_events": edge.throttle_events,
-                "cooldown_s": round(edge.cooldown_s, 1),
-                "final_interval_s": round(edge.current_interval_s, 2),
-                "halted_reason": edge.halted_reason,
-            }
-            if edge is not None
-            else None
-        ),
+        "edge": _edge_json(edge) if edge is not None else None,
+        # Sequential shards of a sharded run (D-031); [] for a single-job run.
+        "shards": shards or [],
         "guard": {
             "keys": guard.keys,
             "holds": [{"key": h.key, "message": h.message} for h in guard.holds],
@@ -264,9 +291,106 @@ def process(
     return code, record
 
 
+def _edge_json(edge: EdgeGuard) -> dict[str, Any]:
+    return {
+        "throttle_events": edge.throttle_events,
+        "cooldown_s": round(edge.cooldown_s, 1),
+        "final_interval_s": round(edge.current_interval_s, 2),
+        "halted_reason": edge.halted_reason,
+    }
+
+
+def write_shard(cfg: RunConfig, run_at: datetime) -> int:
+    """Fetch this shard's stores and write them for the process step; no other output."""
+    assert cfg.shard is not None
+    assert cfg.fetch_out is not None
+    k, n = cfg.shard
+    started = time.monotonic()
+    stores = shard_stores(load_stores(cfg.stores), run_at.date(), k, n)
+    edge = EdgeGuard(
+        interval_s=cfg.edge_interval_s,
+        jitter_s=cfg.edge_jitter_s,
+        deadline=time.monotonic() + cfg.budget_s,
+    )
+    fetches = asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
+    payload = {
+        "run_at": iso(run_at),
+        "shard": [k, n],
+        "stores": [s.id for s in stores],
+        "duration_s": round(time.monotonic() - started, 1),
+        "edge": _edge_json(edge),
+        "fetches": [f.to_json() for f in fetches],
+    }
+    cfg.fetch_out.parent.mkdir(parents=True, exist_ok=True)
+    tmp = cfg.fetch_out.with_name(cfg.fetch_out.name + ".tmp")
+    tmp.write_text(json.dumps(payload), encoding="utf-8")
+    tmp.replace(cfg.fetch_out)
+    ok = sum(1 for f in fetches if f.complete)
+    print(
+        f"shard {k}/{n}: {ok}/{len(fetches)} stores complete, "
+        f"{sum(f.requests for f in fetches)} requests, {payload['duration_s']}s",
+        flush=True,
+    )
+    return EXIT_OK
+
+
+def read_shards(
+    cfg: RunConfig, stores: list[Store], run_at: datetime
+) -> tuple[list[StoreFetch], EdgeGuard, list[dict[str, Any]]]:
+    """The fetches of every shard file, in store-list order; stores of a missing shard
+    are failed fetches. Returns the fetches, the combined edge counters and the shards."""
+    by_id: dict[str, StoreFetch] = {}
+    edge = EdgeGuard(interval_s=cfg.edge_interval_s, jitter_s=cfg.edge_jitter_s)
+    edge.current_interval_s = 0.0
+    shards: list[dict[str, Any]] = []
+    halted: list[str] = []
+    for path in cfg.fetch_in:
+        if not path.exists():
+            continue
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if payload.get("run_at") != iso(run_at):
+            raise ValueError(f"{path} belongs to run {payload.get('run_at')}, not {iso(run_at)}")
+        for f in payload["fetches"]:
+            fetch = StoreFetch.from_json(f)
+            by_id[fetch.store_id] = fetch
+        e = payload["edge"]
+        edge.throttle_events += int(e["throttle_events"])
+        edge.cooldown_s += float(e["cooldown_s"])
+        edge.current_interval_s = max(edge.current_interval_s, float(e["final_interval_s"]))
+        if e.get("halted_reason"):
+            halted.append(f"shard {payload['shard'][0]}: {e['halted_reason']}")
+        shards.append(
+            {
+                "shard": payload["shard"],
+                "stores": len(payload["stores"]),
+                "duration_s": payload["duration_s"],
+                "requests": sum(int(f.get("requests") or 0) for f in payload["fetches"]),
+            }
+        )
+    if not shards:
+        # Every shard failed (or none was downloaded): a crash, not a quiet run in
+        # which every store keeps its old prices.
+        raise RuntimeError("no shard file to process")
+    edge.current_interval_s = edge.current_interval_s or cfg.edge_interval_s
+    edge.halted_reason = "; ".join(halted) or None
+    fetches = []
+    for s in stores:
+        found = by_id.get(s.id)
+        if found is None:
+            found = StoreFetch(store_id=s.id, host=s.host, observed_at=run_at)
+            found.reason = "not read: its shard did not finish"
+        fetches.append(found)
+    return fetches, edge, sorted(shards, key=lambda x: int(x["shard"][0]))
+
+
 def run(cfg: RunConfig, now: datetime | None = None) -> int:
     started = time.monotonic()
-    run_at = (now or datetime.now(UTC)).replace(microsecond=0)
+    run_at = (cfg.run_at or now or datetime.now(UTC)).replace(microsecond=0)
+    if cfg.shard is not None:
+        return write_shard(cfg, run_at)
+    if cfg.fetch_in:
+        # The run started with its first shard: duration and record time from there.
+        started -= max(0.0, (datetime.now(UTC) - run_at).total_seconds())
     stores = load_stores(cfg.stores)
     if cfg.only:
         stores = [s for s in stores if s.id in cfg.only]
@@ -276,8 +400,12 @@ def run(cfg: RunConfig, now: datetime | None = None) -> int:
             jitter_s=cfg.edge_jitter_s,
             deadline=time.monotonic() + cfg.budget_s,
         )
-        fetches = asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
-        code, record = process(cfg, fetches, run_at, started, edge)
+        shards: list[dict[str, Any]] = []
+        if cfg.fetch_in:
+            fetches, edge, shards = read_shards(cfg, stores, run_at)
+        else:
+            fetches = asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
+        code, record = process(cfg, fetches, run_at, started, edge, shards)
     except Exception as exc:
         append_run(
             cfg.data,
@@ -316,7 +444,17 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--edge-interval", type=float, default=3.0, help="run-wide interval, seconds")
     p.add_argument("--edge-jitter", type=float, default=1.5, help="run-wide jitter, seconds")
     p.add_argument("--only", action="append", default=[], help="store id (repeatable)")
+    p.add_argument("--shard", help="k/n: fetch shard k of n and write --fetch-out only")
+    p.add_argument("--fetch-out", type=Path, help="this shard's fetch file")
+    p.add_argument("--fetch-in", type=Path, nargs="*", default=[], help="shard files to process")
+    p.add_argument("--run-at", help="the run's start (UTC ISO), shared by its shards")
     a = p.parse_args(argv)
+    shard = None
+    if a.shard:
+        k, n = (int(x) for x in a.shard.split("/"))
+        shard = (k, n)
+        if a.fetch_out is None:
+            p.error("--shard needs --fetch-out")
     cfg = RunConfig(
         stores=a.stores,
         data=a.data,
@@ -327,6 +465,10 @@ def main(argv: list[str] | None = None) -> int:
         edge_interval_s=a.edge_interval,
         edge_jitter_s=a.edge_jitter,
         only=set(a.only),
+        shard=shard,
+        fetch_out=a.fetch_out,
+        fetch_in=list(a.fetch_in),
+        run_at=parse_iso(a.run_at) if a.run_at else None,
     )
     return run(cfg)
 

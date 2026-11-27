@@ -28,6 +28,8 @@ on:
 permissions:
   contents: write
   issues: write
+  # The process job downloads the shard files of its own run (gh run download).
+  actions: read
 
 concurrency:
   group: daily
@@ -45,6 +47,7 @@ jobs:
     outputs:
       run: ${{ steps.decide.outputs.run }}
       slot: ${{ steps.decide.outputs.slot }}
+      run_at: ${{ steps.decide.outputs.run_at }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -75,13 +78,62 @@ jobs:
             sleep "$wait_s"
           fi
           grep -E '^(run|slot|reason)=' gate.txt >> "$GITHUB_OUTPUT"
+          # The run's start time, shared by its shards and the process job (D-033).
+          echo "run_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
           echo "### $(sed -n 's/^reason=//p' gate.txt)" >> "$GITHUB_STEP_SUMMARY"
 
-  run:
+  # Reads the stores in shards, ONE AFTER ANOTHER (max-parallel: 1): the run-wide
+  # request rate stays that of a single runner and requests are never spread over
+  # several IPs at once (D-020, D-033). Each shard is one job under 45 minutes with a
+  # 38-minute request budget; a shard that fails leaves its stores "not updated".
+  # The number of shards is the length of the list below.
+  fetch:
     needs: slot
     if: ${{ !cancelled() && needs.slot.outputs.run == 'true' }}
     runs-on: ubuntu-24.04
-    # Owner limit: one daily run under 45 minutes on a single runner (D-020).
+    timeout-minutes: 45
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked --no-dev
+
+      - name: Read this shard's stores
+        timeout-minutes: 41
+        env:
+          RUN_AT: ${{ needs.slot.outputs.run_at }}
+          SHARD: ${{ matrix.shard }}
+          TOTAL: ${{ strategy.job-total }}
+        run: |
+          uv run --no-dev python -m pricemon.run --stores config/stores.yml \
+            --shard "$SHARD/$TOTAL" --run-at "$RUN_AT" --fetch-out "work/fetch-$SHARD.json"
+
+      - name: Keep the shard for the process job
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fetch-${{ matrix.shard }}
+          path: work/fetch-${{ matrix.shard }}.json
+          if-no-files-found: ignore
+          retention-days: 1
+
+  run:
+    needs: [slot, fetch]
+    if: ${{ !cancelled() && needs.slot.outputs.run == 'true' }}
+    runs-on: ubuntu-24.04
+    # Owner limit: every job under 45 minutes (D-020); this one reads no store.
     timeout-minutes: 45
     outputs:
       pages: ${{ steps.pages_artifact.outcome }}
@@ -116,6 +168,12 @@ jobs:
           fi
           ls -la work
 
+      - name: Download the shards
+        run: |
+          mkdir -p work/shards
+          gh run download "$GITHUB_RUN_ID" --pattern 'fetch-*' --dir work/shards || true
+          find work/shards -name 'fetch-*.json' -printf '%p %s bytes\n'
+
       - name: Run pipeline
         id: run
         timeout-minutes: 41
@@ -123,9 +181,12 @@ jobs:
           # The slot the gate resolved (so `auto` is recorded as the slot it filled).
           DISPATCH_SLOT: ${{ inputs.slot && (needs.slot.outputs.slot || inputs.slot) || '' }}
           DISPATCH_BY: ${{ inputs.by }}
+          RUN_AT: ${{ needs.slot.outputs.run_at }}
         run: |
           set +e
+          mapfile -t shards < <(find work/shards -name 'fetch-*.json' | sort)
           args=(--stores config/stores.yml --data data --history-out "work/price_history_$MONTH.parquet")
+          args+=(--run-at "$RUN_AT" --fetch-in "${shards[@]}" work/shards/none.json)
           if [ -f "work/price_history_$MONTH.parquet" ]; then
             args+=(--history-in "work/price_history_$MONTH.parquet")
           fi

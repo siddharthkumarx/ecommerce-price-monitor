@@ -94,6 +94,22 @@ class StoreFetch:
                 seen.add(w.theme_currency)
         return seen
 
+    def to_json(self) -> dict[str, Any]:
+        """Everything a later process step needs (a shard's output, D-031)."""
+        data = {k: v for k, v in self.__dict__.items() if k != "witnesses"}
+        data["observed_at"] = self.observed_at.astimezone(UTC).isoformat()
+        data["request_log"] = [list(e) for e in self.request_log]
+        data["witnesses"] = [w.__dict__ for w in self.witnesses]
+        return data
+
+    @classmethod
+    def from_json(cls, data: dict[str, Any]) -> StoreFetch:
+        raw = dict(data)
+        raw["observed_at"] = datetime.fromisoformat(raw["observed_at"])
+        raw["request_log"] = [tuple(e) for e in raw.get("request_log") or []]
+        raw["witnesses"] = [WitnessResult(**w) for w in raw.get("witnesses") or []]
+        return cls(**raw)
+
     def report(self) -> dict[str, Any]:
         """Summary for runs.jsonl (no catalog content)."""
         return {
