@@ -75,6 +75,27 @@ categories:
     - {store: "Como Audio", domain: comoaudio.com, since: recon-006}
     - {store: "Thinksound", domain: thinksound.com, since: recon-006}
     - {store: "Klipsch", domain: klipsch.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Music Hall", domain: musichallaudio.com, since: recon-007}
+    - {store: "Abyss Headphones", domain: abyss-headphones.com, since: recon-007}
+    - {store: "MusicTeck", domain: musicteck.com, since: recon-007}
+    - {store: "Needle Doctor", domain: needledoctor.com, since: recon-007}
+    - {store: "ECOXGEAR", domain: ecoxgear.com, since: recon-007}
+    - {store: "Outdoor Tech", domain: outdoortech.com, since: recon-007}
+    - {store: "DS18", domain: ds18.com, since: recon-007}
+    - {store: "Memphis Car Audio", domain: memphiscaraudio.com, since: recon-007}
+    - {store: "Earthworks Audio", domain: earthworksaudio.com, since: recon-007}
+    - {store: "Eargasm", domain: eargasm.com, since: recon-007}
+    - {store: "Vibes", domain: discovervibes.com, since: recon-007}
+    - {store: "Comply Foam", domain: complyfoam.com, since: recon-007}
+    - {store: "Puro Sound Labs", domain: purosound.com, since: recon-007}
+    - {store: "Woo Audio", domain: wooaudio.com, since: recon-007}
+    - {store: "C. Crane", domain: ccrane.com, since: recon-007}
+    - {store: "HeadAmp", domain: headamp.com, since: recon-007}
+    - {store: "Schiit Audio", domain: schiit.com, since: recon-007}
+    - {store: "JDS Labs", domain: jdslabs.com, since: recon-007}
+    - {store: "Gemini Sound", domain: geminisound.com, since: recon-007}
+    - {store: "Massive Audio", domain: massiveaudio.com, since: recon-007}
   apparel:
     - {store: Allbirds, domain: allbirds.com}
     - {store: Bombas, domain: bombas.com}
@@ -179,6 +200,62 @@ categories:
     - {store: "Ana Luisa", domain: analuisa.com, since: recon-006}
     - {store: "BYLT Basics", domain: byltbasics.com, since: recon-006}
     - {store: "Greyson Clothiers", domain: greysonclothiers.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Pact", domain: wearpact.com, since: recon-007}
+    - {store: "Negative Underwear", domain: negativeunderwear.com, since: recon-007}
+    - {store: "Tommy John", domain: tommyjohn.com, since: recon-007}
+    - {store: "Aviator Nation", domain: aviatornation.com, since: recon-007}
+    - {store: "Spiritual Gangster", domain: spiritualgangster.com, since: recon-007}
+    - {store: "Rails", domain: railsclothing.com, since: recon-007}
+    - {store: "MOTHER Denim", domain: motherdenim.com, since: recon-007}
+    - {store: "AGOLDE", domain: agolde.com, since: recon-007}
+    - {store: "DL1961", domain: dl1961.com, since: recon-007}
+    - {store: "FRAME", domain: frame-store.com, since: recon-007}
+    - {store: "Naked Cashmere", domain: nakedcashmere.com, since: recon-007}
+    - {store: "Jenni Kayne", domain: jennikayne.com, since: recon-007}
+    - {store: "Velvet by Graham & Spencer", domain: velvet-tees.com, since: recon-007}
+    - {store: "LoveShackFancy", domain: loveshackfancy.com, since: recon-007}
+    - {store: "Hill House Home", domain: hillhousehome.com, since: recon-007}
+    - {store: "Mara Hoffman", domain: marahoffman.com, since: recon-007}
+    - {store: "johnnie-O", domain: johnnie-o.com, since: recon-007}
+    - {store: "Southern Tide", domain: southerntide.com, since: recon-007}
+    - {store: "Linksoul", domain: linksoul.com, since: recon-007}
+    - {store: "Alex Mill", domain: alexmill.com, since: recon-007}
+    - {store: "Corridor", domain: corridornyc.com, since: recon-007}
+    - {store: "Jungmaven", domain: jungmaven.com, since: recon-007}
+    - {store: "Saturdays NYC", domain: saturdaysnyc.com, since: recon-007}
+    - {store: "Noah", domain: noahny.com, since: recon-007}
+    - {store: "Brixton", domain: brixton.com, since: recon-007}
+    - {store: "OBEY Clothing", domain: obeyclothing.com, since: recon-007}
+    - {store: "Roark", domain: roark.com, since: recon-007}
+    - {store: "Katin", domain: katinusa.com, since: recon-007}
+    - {store: "Vissla", domain: vissla.com, since: recon-007}
+    - {store: "Seea", domain: seea.co, since: recon-007}
+    - {store: "Mate the Label", domain: matethelabel.com, since: recon-007}
+    - {store: "Splits59", domain: splits59.com, since: recon-007}
+    - {store: "Year of Ours", domain: yearofours.com, since: recon-007}
+    - {store: "Joah Brown", domain: joahbrown.com, since: recon-007}
+    - {store: "Dudley Stephens", domain: dudleystephens.com, since: recon-007}
+    - {store: "Leset", domain: leset.com, since: recon-007}
+    - {store: "Lisa Says Gah", domain: lisasaysgah.com, since: recon-007}
+    - {store: "Tradlands", domain: tradlands.com, since: recon-007}
+    - {store: "Hackwith Design House", domain: hackwithdesignhouse.com, since: recon-007}
+    - {store: "Big Bud Press", domain: bigbudpress.com, since: recon-007}
+    - {store: "Wildfang", domain: wildfang.com, since: recon-007}
+    - {store: "TomboyX", domain: tomboyx.com, since: recon-007}
+    - {store: "Cuup", domain: shopcuup.com, since: recon-007}
+    - {store: "Harper Wilde", domain: harperwilde.com, since: recon-007}
+    - {store: "Lively", domain: wearlively.com, since: recon-007}
+    - {store: "Universal Standard", domain: universalstandard.com, since: recon-007}
+    - {store: "Lady White Co.", domain: ladywhiteco.com, since: recon-007}
+    - {store: "Freenote Cloth", domain: freenotecloth.com, since: recon-007}
+    - {store: "Iron & Resin", domain: ironandresin.com, since: recon-007}
+    - {store: "Rogue Territory", domain: rogueterritory.com, since: recon-007}
+    - {store: "Todd Shelton", domain: toddshelton.com, since: recon-007}
+    - {store: "Madhappy", domain: madhappy.com, since: recon-007}
+    - {store: "Psycho Bunny", domain: psychobunny.com, since: recon-007}
+    - {store: "Freda Salvador", domain: fredasalvador.com, since: recon-007}
+    - {store: "Margaux", domain: thisismargaux.com, since: recon-007}
   beauty:
     - {store: ColourPop, domain: colourpop.com}
     - {store: Kylie Cosmetics, domain: kyliecosmetics.com}
@@ -284,6 +361,27 @@ categories:
     - {store: "Every Man Jack", domain: everymanjack.com, since: recon-006}
     - {store: "Duke Cannon", domain: dukecannon.com, since: recon-006}
     - {store: "Scotch Porter", domain: scotchporter.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Olaplex", domain: olaplex.com, since: recon-007}
+    - {store: "Kristin Ess", domain: kristiness.com, since: recon-007}
+    - {store: "R+Co", domain: randco.com, since: recon-007}
+    - {store: "Vegamour", domain: vegamour.com, since: recon-007}
+    - {store: "Hairstory", domain: hairstory.com, since: recon-007}
+    - {store: "Bounce Curl", domain: bouncecurl.com, since: recon-007}
+    - {store: "Camille Rose", domain: camillerose.com, since: recon-007}
+    - {store: "Rizos Curls", domain: rizoscurls.com, since: recon-007}
+    - {store: "Danessa Myricks Beauty", domain: danessamyricksbeauty.com, since: recon-007}
+    - {store: "Haus Labs", domain: hauslabs.com, since: recon-007}
+    - {store: "Half Magic", domain: halfmagicbeauty.com, since: recon-007}
+    - {store: "Kulfi", domain: kulfibeauty.com, since: recon-007}
+    - {store: "Live Tinted", domain: livetinted.com, since: recon-007}
+    - {store: "Ami Colé", domain: amicole.com, since: recon-007}
+    - {store: "RMS Beauty", domain: rmsbeauty.com, since: recon-007}
+    - {store: "Freck Beauty", domain: freck.com, since: recon-007}
+    - {store: "ONE/SIZE", domain: onesizebeauty.com, since: recon-007}
+    - {store: "Thrive Causemetics", domain: thrivecausemetics.com, since: recon-007}
+    - {store: "Mooncat", domain: mooncat.com, since: recon-007}
+    - {store: "ILNP", domain: ilnp.com, since: recon-007}
   home_kitchen:
     - {store: Brooklinen, domain: brooklinen.com}
     - {store: Our Place, domain: fromourplace.com}
@@ -384,6 +482,27 @@ categories:
     - {store: "Capri Blue", domain: capri-blue.com, since: recon-006}
     - {store: "LAFCO", domain: lafco.com, since: recon-006}
     - {store: "Matouk", domain: matouk.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Butter Pat Industries", domain: butterpatindustries.com, since: recon-007}
+    - {store: "FINEX", domain: finexusa.com, since: recon-007}
+    - {store: "Stargazer Cast Iron", domain: stargazercastiron.com, since: recon-007}
+    - {store: "Marquette Castings", domain: marquettecastings.com, since: recon-007}
+    - {store: "Hygge & West", domain: hyggeandwest.com, since: recon-007}
+    - {store: "Sunday Citizen", domain: sundaycitizen.co, since: recon-007}
+    - {store: "Bentgo", domain: bentgo.com, since: recon-007}
+    - {store: "PlanetBox", domain: planetbox.com, since: recon-007}
+    - {store: "Klean Kanteen", domain: kleankanteen.com, since: recon-007}
+    - {store: "Simple Modern", domain: simplemodern.com, since: recon-007}
+    - {store: "LARQ", domain: livelarq.com, since: recon-007}
+    - {store: "Takeya", domain: takeyausa.com, since: recon-007}
+    - {store: "Better Life", domain: cleanhappy.com, since: recon-007}
+    - {store: "Puracy", domain: puracy.com, since: recon-007}
+    - {store: "Earth Breeze", domain: earthbreeze.com, since: recon-007}
+    - {store: "Lulu and Georgia", domain: luluandgeorgia.com, since: recon-007}
+    - {store: "Sabai", domain: sabai.design, since: recon-007}
+    - {store: "Albany Park", domain: albanypark.com, since: recon-007}
+    - {store: "Sixpenny", domain: sixpenny.com, since: recon-007}
+    - {store: "NEST New York", domain: nestnewyork.com, since: recon-007}
   outdoor:
     - {store: Cotopaxi, domain: cotopaxi.com}
     - {store: BioLite, domain: bioliteenergy.com}
@@ -478,7 +597,27 @@ categories:
     - {store: "Cabeau", domain: cabeau.com, since: recon-006}
     - {store: "Nomad Lane", domain: nomadlane.com, since: recon-006}
     - {store: "Orange Mud", domain: orangemud.com, since: recon-006}
-
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Durston Gear", domain: durstongear.com, since: recon-007}
+    - {store: "Tarptent", domain: tarptent.com, since: recon-007}
+    - {store: "Pa'lante Packs", domain: palantepacks.com, since: recon-007}
+    - {store: "Outdoor Vitals", domain: outdoorvitals.com, since: recon-007}
+    - {store: "Fishpond", domain: fishpondusa.com, since: recon-007}
+    - {store: "RovR Products", domain: rovrproducts.com, since: recon-007}
+    - {store: "ICEMULE", domain: icemulecoolers.com, since: recon-007}
+    - {store: "Warbonnet Outdoors", domain: warbonnetoutdoors.com, since: recon-007}
+    - {store: "Hammock Gear", domain: hammockgear.com, since: recon-007}
+    - {store: "Arbor Collective", domain: arborcollective.com, since: recon-007}
+    - {store: "Moment Skis", domain: momentskis.com, since: recon-007}
+    - {store: "Icelantic", domain: icelanticskis.com, since: recon-007}
+    - {store: "Catch Surf", domain: catchsurf.com, since: recon-007}
+    - {store: "Tower Paddle Boards", domain: towerpaddleboards.com, since: recon-007}
+    - {store: "BOTE", domain: boteboard.com, since: recon-007}
+    - {store: "Bedrock Bags", domain: bedrockbags.com, since: recon-007}
+    - {store: "Evolv", domain: evolvsports.com, since: recon-007}
+    - {store: "Kahtoola", domain: kahtoola.com, since: recon-007}
+    - {store: "Sunday Afternoons", domain: sundayafternoons.com, since: recon-007}
+    - {store: "Crazy Creek", domain: crazycreek.com, since: recon-007}
   coffee_tea:
     # Added for recon-005 (27 Nov 2026, F1-EXPAND): a new category; never contacted before.
     - {store: "Counter Culture Coffee", domain: counterculturecoffee.com, since: recon-005}
@@ -540,6 +679,22 @@ categories:
     - {store: "Encha", domain: encha.com, since: recon-006}
     - {store: "Ratio Coffee", domain: ratiocoffee.com, since: recon-006}
     - {store: "AeroPress", domain: aeropress.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Driftaway Coffee", domain: driftaway.coffee, since: recon-007}
+    - {store: "Ceremony Coffee", domain: ceremonycoffee.com, since: recon-007}
+    - {store: "Tandem Coffee", domain: tandemcoffee.com, since: recon-007}
+    - {store: "Sweet Bloom Coffee", domain: sweetbloomcoffee.com, since: recon-007}
+    - {store: "Elixr Coffee", domain: elixrcoffee.com, since: recon-007}
+    - {store: "Brandywine Coffee Roasters", domain: brandywinecoffeeroasters.com, since: recon-007}
+    - {store: "Prodigal", domain: getprodigal.com, since: recon-007}
+    - {store: "Black Oak Coffee", domain: blackoakcoffee.com, since: recon-007}
+    - {store: "Mostra Coffee", domain: mostracoffee.com, since: recon-007}
+    - {store: "Dayglow", domain: dayglow.coffee, since: recon-007}
+    - {store: "Messenger Coffee", domain: messengercoffee.com, since: recon-007}
+    - {store: "Stereoscope Coffee", domain: stereoscope.coffee, since: recon-007}
+    - {store: "Cafe Grumpy", domain: cafegrumpy.com, since: recon-007}
+    - {store: "Art of Tea", domain: artoftea.com, since: recon-007}
+    - {store: "Plum Deluxe", domain: plumdeluxe.com, since: recon-007}
   fitness:
     # Added for recon-005 (27 Nov 2026, F1-EXPAND): a new category; never contacted before.
     - {store: "Crossrope", domain: crossrope.com, since: recon-005}
@@ -593,6 +748,52 @@ categories:
     - {store: "GoSports", domain: gosports.com, since: recon-006}
     - {store: "Rukket Sports", domain: rukketsports.com, since: recon-006}
     - {store: "Yoga Design Lab", domain: yogadesignlab.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Titan Fitness", domain: titan.fitness, since: recon-007}
+    - {store: "Assault Fitness", domain: assaultfitness.com, since: recon-007}
+    - {store: "Get RX'd", domain: getrxd.com, since: recon-007}
+    - {store: "American Barbell", domain: americanbarbell.com, since: recon-007}
+    - {store: "Vulcan Strength", domain: vulcanstrength.com, since: recon-007}
+    - {store: "Synergee", domain: synergeefitness.com, since: recon-007}
+    - {store: "Mark Bell Slingshot", domain: markbellslingshot.com, since: recon-007}
+    - {store: "Harbinger", domain: harbingerfitness.com, since: recon-007}
+    - {store: "Schiek Sports", domain: schiek.com, since: recon-007}
+    - {store: "Element 26", domain: element26.co, since: recon-007}
+    - {store: "Dark Iron Fitness", domain: darkironfitness.com, since: recon-007}
+    - {store: "Stamina Products", domain: staminaproducts.com, since: recon-007}
+    - {store: "JadeYoga", domain: jadeyoga.com, since: recon-007}
+    - {store: "Barefoot Yoga Co.", domain: barefootyoga.com, since: recon-007}
+    - {store: "RumbleRoller", domain: rumbleroller.com, since: recon-007}
+    - {store: "Roll Recovery", domain: rollrecovery.com, since: recon-007}
+    - {store: "LifePro", domain: lifeprofitness.com, since: recon-007}
+    - {store: "Swiftwick", domain: swiftwick.com, since: recon-007}
+    - {store: "Path Projects", domain: pathprojects.com, since: recon-007}
+    - {store: "Oiselle", domain: oiselle.com, since: recon-007}
+    - {store: "Jolyn", domain: jolyn.com, since: recon-007}
+    - {store: "TYR", domain: tyr.com, since: recon-007}
+    - {store: "RX Smart Gear", domain: rxsmartgear.com, since: recon-007}
+    - {store: "JOOLA", domain: joola.com, since: recon-007}
+    - {store: "Paddletek", domain: paddletek.com, since: recon-007}
+    - {store: "Engage Pickleball", domain: engagepickleball.com, since: recon-007}
+    - {store: "Vatic Pro", domain: vaticpro.com, since: recon-007}
+    - {store: "SKLZ", domain: sklz.com, since: recon-007}
+    - {store: "Buffbunny", domain: buffbunny.com, since: recon-007}
+    - {store: "Alphalete", domain: alphaleteathletics.com, since: recon-007}
+    - {store: "Born Primitive", domain: bornprimitive.com, since: recon-007}
+    - {store: "Senita Athletics", domain: senitaathletics.com, since: recon-007}
+    - {store: "Darc Sport", domain: darcsport.com, since: recon-007}
+    - {store: "YoungLA", domain: youngla.com, since: recon-007}
+    - {store: "Raskol Apparel", domain: raskolapparel.com, since: recon-007}
+    - {store: "NVGTN", domain: nvgtn.com, since: recon-007}
+    - {store: "Vooray", domain: vooray.com, since: recon-007}
+    - {store: "tasc Performance", domain: tascperformance.com, since: recon-007}
+    - {store: "Revolution Balance Boards", domain: revbalance.com, since: recon-007}
+    - {store: "Indo Board", domain: indoboard.com, since: recon-007}
+    - {store: "Hyperwear", domain: hyperwear.com, since: recon-007}
+    - {store: "Victory Grips", domain: victorygrips.com, since: recon-007}
+    - {store: "Horizon Fitness", domain: horizonfitness.com, since: recon-007}
+    - {store: "Amphipod", domain: amphipod.com, since: recon-007}
+    - {store: "Rip Toned", domain: riptoned.com, since: recon-007}
   pet:
     # Added for recon-005 (27 Nov 2026, F1-EXPAND): a new category; never contacted before.
     - {store: "Wild One", domain: wildone.com, since: recon-005}
@@ -652,6 +853,27 @@ categories:
     - {store: "Pet Krewe", domain: petkrewe.com, since: recon-006}
     - {store: "Max and Neo", domain: maxandneo.com, since: recon-006}
     - {store: "Rabbit Hole Hay", domain: rabbitholehay.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Kurgo", domain: kurgo.com, since: recon-007}
+    - {store: "Tuft + Paw", domain: tuftandpaw.com, since: recon-007}
+    - {store: "PetHonesty", domain: pethonesty.com, since: recon-007}
+    - {store: "Pawstruck", domain: pawstruck.com, since: recon-007}
+    - {store: "Jones Natural Chews", domain: jonesnaturalchews.com, since: recon-007}
+    - {store: "Earth Animal", domain: earthanimal.com, since: recon-007}
+    - {store: "Snoozer", domain: snoozerpetproducts.com, since: recon-007}
+    - {store: "Furhaven", domain: furhaven.com, since: recon-007}
+    - {store: "Up Country", domain: upcountryinc.com, since: recon-007}
+    - {store: "Cycle Dog", domain: cycledog.com, since: recon-007}
+    - {store: "Lupine Pet", domain: lupinepet.com, since: recon-007}
+    - {store: "Ollydog", domain: ollydog.com, since: recon-007}
+    - {store: "Boxiecat", domain: boxiecat.com, since: recon-007}
+    - {store: "Warren London", domain: warrenlondon.com, since: recon-007}
+    - {store: "Earthbath", domain: earthbath.com, since: recon-007}
+    - {store: "Finn", domain: petfinn.com, since: recon-007}
+    - {store: "Vetnique Labs", domain: vetnique.com, since: recon-007}
+    - {store: "Jinx", domain: jinx.com, since: recon-007}
+    - {store: "Sundays for Dogs", domain: sundaysfordogs.com, since: recon-007}
+    - {store: "Wild Earth", domain: wildearth.com, since: recon-007}
   tech_accessories:
     # Added for recon-005 (27 Nov 2026, F1-EXPAND): a new category; never contacted before.
     - {store: "Rokform", domain: rokform.com, since: recon-005}
@@ -704,6 +926,57 @@ categories:
     - {store: "Freewell", domain: freewellgear.com, since: recon-006}
     - {store: "SANDMARC", domain: sandmarc.com, since: recon-006}
     - {store: "Shimoda Designs", domain: shimodadesigns.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "Spigen", domain: spigen.com, since: recon-007}
+    - {store: "Pad & Quill", domain: padandquill.com, since: recon-007}
+    - {store: "Cable Matters", domain: cablematters.com, since: recon-007}
+    - {store: "Roost", domain: therooststand.com, since: recon-007}
+    - {store: "LapGear", domain: lapgear.com, since: recon-007}
+    - {store: "Zugu Case", domain: zugucase.com, since: recon-007}
+    - {store: "Keebio", domain: keeb.io, since: recon-007}
+    - {store: "Boardsource", domain: boardsource.xyz, since: recon-007}
+    - {store: "Dang Keebs", domain: dangkeebs.com, since: recon-007}
+    - {store: "Upgrade Keyboards", domain: upgradekeyboards.com, since: recon-007}
+    - {store: "ThocStock", domain: thocstock.com, since: recon-007}
+    - {store: "KeebsForAll", domain: keebsforall.com, since: recon-007}
+    - {store: "Omnitype", domain: omnitype.com, since: recon-007}
+    - {store: "Breakthrough Photography", domain: breakthrough.photography, since: recon-007}
+    - {store: "Holdfast Gear", domain: holdfastgear.com, since: recon-007}
+    - {store: "Langly", domain: langly.co, since: recon-007}
+    - {store: "Brevite", domain: brevite.co, since: recon-007}
+    - {store: "Juuk Design", domain: juukdesign.com, since: recon-007}
+    - {store: "Barton Watch Bands", domain: bartonwatchbands.com, since: recon-007}
+    - {store: "Wyze", domain: wyze.com, since: recon-007}
+    - {store: "Govee (US)", domain: us.govee.com, since: recon-007}
+    - {store: "Jackery", domain: jackery.com, since: recon-007}
+    - {store: "EcoFlow (US)", domain: us.ecoflow.com, since: recon-007}
+    - {store: "Pebblebee", domain: pebblebee.com, since: recon-007}
+    - {store: "Azio", domain: aziocorp.com, since: recon-007}
+    - {store: "Mobile Pixels", domain: mobilepixels.us, since: recon-007}
+    - {store: "iOttie", domain: iottie.com, since: recon-007}
+    - {store: "Kenu", domain: kenu.com, since: recon-007}
+    - {store: "Encased", domain: encased.com, since: recon-007}
+    - {store: "SUPCASE", domain: supcase.com, since: recon-007}
+    - {store: "Poetic", domain: poeticcases.com, since: recon-007}
+    - {store: "DODOcase", domain: dodocase.com, since: recon-007}
+    - {store: "Speck", domain: speckproducts.com, since: recon-007}
+    - {store: "Quad Lock (US)", domain: quadlockcase.com, since: recon-007}
+    - {store: "Hyperkin", domain: hyperkin.com, since: recon-007}
+    - {store: "Rain Design", domain: raindesigninc.com, since: recon-007}
+    - {store: "Branch Furniture", domain: branchfurniture.com, since: recon-007}
+    - {store: "BLUETTI", domain: bluettipower.com, since: recon-007}
+    - {store: "Clockwork Synergy", domain: clockworksynergy.com, since: recon-007}
+    - {store: "Mechcables", domain: mechcables.com, since: recon-007}
+    - {store: "Zack Cables", domain: zackcables.com, since: recon-007}
+    - {store: "Fuse Chicken", domain: fusechicken.com, since: recon-007}
+    - {store: "Higround", domain: higround.co, since: recon-007}
+    - {store: "Milktooth", domain: milktooth.com, since: recon-007}
+    - {store: "Cerakey", domain: cerakey.com, since: recon-007}
+    - {store: "Beastgrip", domain: beastgrip.com, since: recon-007}
+    - {store: "Archer Watch Straps", domain: archerwatchstraps.com, since: recon-007}
+    - {store: "Monowear", domain: monowear.com, since: recon-007}
+    - {store: "Gordy's Camera Straps", domain: gordyscamerastraps.com, since: recon-007}
+    - {store: "BodyGuardz", domain: bodyguardz.com, since: recon-007}
   toys_kids:
     # Added for recon-005 (27 Nov 2026, F1-EXPAND): a new category; never contacted before.
     - {store: "Tegu", domain: tegu.com, since: recon-005}
@@ -763,3 +1036,59 @@ categories:
     - {store: "Magnetic Me", domain: magneticme.com, since: recon-006}
     - {store: "The Beaufort Bonnet Company", domain: thebeaufortbonnetcompany.com, since: recon-006}
     - {store: "Freshly Picked", domain: freshlypicked.com, since: recon-006}
+    # Added for recon-007 (27 Nov 2026, D-036 growth): never contacted before; Shopify per desk research, recon checks the platform.
+    - {store: "The Woobles", domain: thewoobles.com, since: recon-007}
+    - {store: "Art of Play", domain: artofplay.com, since: recon-007}
+    - {store: "California Baby", domain: californiababy.com, since: recon-007}
+    - {store: "Bowfish Kids", domain: bowfishkids.com, since: recon-007}
+    - {store: "Spearmint Love", domain: spearmintlove.com, since: recon-007}
+    - {store: "Zipadee-Zip (Sleeping Baby)", domain: sleepingbaby.com, since: recon-007}
+    - {store: "Begin Again Toys", domain: beginagaintoys.com, since: recon-007}
+    - {store: "Green Toys", domain: greentoys.com, since: recon-007}
+    - {store: "Micro Kickboard", domain: microkickboard.com, since: recon-007}
+    - {store: "Prevelo Bikes", domain: prevelobikes.com, since: recon-007}
+    - {store: "Strider Bikes", domain: striderbikes.com, since: recon-007}
+    - {store: "Wonderfold", domain: wonderfold.com, since: recon-007}
+    - {store: "Mockingbird", domain: hellomockingbird.com, since: recon-007}
+    - {store: "Snuggle Me Organic", domain: snugglemeorganic.com, since: recon-007}
+    - {store: "Burt's Bees Baby", domain: burtsbeesbaby.com, since: recon-007}
+    - {store: "Tea Collection", domain: teacollection.com, since: recon-007}
+    - {store: "Goumi Kids", domain: goumikids.com, since: recon-007}
+    - {store: "Little Unicorn", domain: littleunicorn.com, since: recon-007}
+    - {store: "aden + anais", domain: adenandanais.com, since: recon-007}
+    - {store: "Dreamland Baby", domain: dreamlandbabyco.com, since: recon-007}
+    - {store: "Woolino", domain: woolino.com, since: recon-007}
+    - {store: "Hart + Land", domain: hartandland.com, since: recon-007}
+    - {store: "Lou Lou & Company", domain: louloucompany.com, since: recon-007}
+    - {store: "Tushbaby", domain: tushbaby.com, since: recon-007}
+    - {store: "Olababy", domain: olababy.com, since: recon-007}
+    - {store: "WeeSprout", domain: weesprout.com, since: recon-007}
+    - {store: "Bella Tunno", domain: bellatunno.com, since: recon-007}
+    - {store: "Mushie", domain: mushie.com, since: recon-007}
+    - {store: "Tiny Twinkle", domain: tinytwinkle.com, since: recon-007}
+    - {store: "Strictly Briks", domain: strictlybriks.com, since: recon-007}
+    - {store: "Clixo", domain: clixo.com, since: recon-007}
+    - {store: "Healthy Roots Dolls", domain: healthyrootsdolls.com, since: recon-007}
+    - {store: "Gamewright", domain: gamewright.com, since: recon-007}
+    - {store: "Oeuf", domain: oeufnyc.com, since: recon-007}
+    - {store: "Lily & River", domain: lilyandriver.com, since: recon-007}
+    - {store: "Sprout Kids", domain: sproutkids.com, since: recon-007}
+    - {store: "Little Partners", domain: littlepartners.com, since: recon-007}
+    - {store: "Foamnasium", domain: foamnasium.com, since: recon-007}
+    - {store: "See Kai Run", domain: seekairun.com, since: recon-007}
+    - {store: "pediped", domain: pediped.com, since: recon-007}
+    - {store: "Emerson and Friends", domain: emersonandfriends.com, since: recon-007}
+    - {store: "Free Birdees", domain: freebirdees.com, since: recon-007}
+    - {store: "Kozi & Co", domain: kozikidsco.com, since: recon-007}
+    - {store: "Barefoot Books", domain: barefootbooks.com, since: recon-007}
+    - {store: "Sphero", domain: sphero.com, since: recon-007}
+    - {store: "Speks", domain: speks.com, since: recon-007}
+    - {store: "Bananagrams", domain: bananagrams.com, since: recon-007}
+    - {store: "Bunnies By The Bay", domain: bunniesbythebay.com, since: recon-007}
+    - {store: "The Pencil Grip", domain: thepencilgrip.com, since: recon-007}
+    - {store: "Cabbage Patch Kids", domain: cabbagepatchkids.com, since: recon-007}
+    - {store: "Milk Snob", domain: milksnob.com, since: recon-007}
+    - {store: "Bowy Made", domain: bowymade.com, since: recon-007}
+    - {store: "Wonder Crew", domain: wondercrew.com, since: recon-007}
+    - {store: "Zoe Organics", domain: zoeorganics.com, since: recon-007}
+    - {store: "Magformers", domain: magformers.com, since: recon-007}
