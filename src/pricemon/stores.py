@@ -45,6 +45,8 @@ class Store:
     host: str
     screen_reviewed: frozenset[str] = frozenset()
     terms: str = "none_found"
+    # Fixed public number (config/aliases.yml, D-034): assigned once, never reused.
+    public_no: int | None = None
 
     @property
     def base_url(self) -> str:
@@ -78,9 +80,13 @@ def load_stores(path: Path) -> list[Store]:
             host=str(s["host"]),
             screen_reviewed=frozenset(str(t) for t in s.get("screen_reviewed") or []),
             terms=str(s.get("terms") or "none_found"),
+            public_no=int(s["public_no"]) if s.get("public_no") is not None else None,
         )
         for s in raw["stores"]
     ]
+    numbers = [s.public_no for s in stores if s.public_no is not None]
+    if len(numbers) != len(set(numbers)):
+        raise ValueError("duplicate public_no in stores.yml")
     ids = [s.id for s in stores]
     if len(ids) != len(set(ids)):
         raise ValueError("duplicate store ids in stores.yml")
@@ -109,3 +115,39 @@ def load_retired(path: Path) -> list[RetiredStore]:
             )
         )
     return out
+
+
+ALIASES_PATH = Path("config/aliases.yml")
+ALIASES_HEADER = (
+    '# Fixed public numbers of the stores (D-034), used for "Store #<n>" and the alias\n'
+    "# id store-<nnn> of a store shown without its name. Written by\n"
+    "# `python -m pricemon.sources --stores-yml`: a store gets a number the first time it\n"
+    "# is listed; a number is never changed, removed or reused, also after a store leaves.\n"
+)
+
+
+def load_aliases(path: Path = ALIASES_PATH) -> dict[str, int]:
+    if not path.exists():
+        return {}
+    raw = _raw(path).get("numbers") or {}
+    out = {str(k): int(v) for k, v in raw.items()}
+    if len(set(out.values())) != len(out):
+        raise ValueError(f"duplicate numbers in {path}")
+    return out
+
+
+def assign_aliases(registry: dict[str, int], store_ids: list[str]) -> dict[str, int]:
+    """The registry with a new number for every id that has none; existing ones kept."""
+    out = dict(registry)
+    nxt = max(out.values(), default=0) + 1
+    for sid in store_ids:
+        if sid not in out:
+            out[sid] = nxt
+            nxt += 1
+    return out
+
+
+def dump_aliases(registry: dict[str, int]) -> str:
+    lines = [ALIASES_HEADER.rstrip("\n"), "numbers:"]
+    lines += [f"  {sid}: {n}" for sid, n in sorted(registry.items(), key=lambda kv: kv[1])]
+    return "\n".join(lines) + "\n"

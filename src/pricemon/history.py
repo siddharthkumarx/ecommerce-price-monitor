@@ -19,7 +19,7 @@ Tracked attributes: ``price_cents``, ``compare_at_cents``, ``available``.
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -351,6 +351,7 @@ def update_month_parquet(
     exported_at: datetime,
     out: Path,
     committed_runs: Iterable[datetime] | None = None,
+    rekey: Callable[[duckdb.DuckDBPyConnection], int] | None = None,
 ) -> int:
     """Rewrite the month file: every version valid at any time in the month.
 
@@ -370,6 +371,9 @@ def update_month_parquet(
     try:
         if existing is not None and existing.exists():
             con.execute(_MONTH_PREV_LOAD, [str(existing)])
+            if rekey is not None:
+                # Public keys and texts of stores shown without their name (D-034).
+                rekey(con)
             if committed_runs is not None:
                 _revert_uncommitted(con, [*committed_runs, exported_at])
         else:

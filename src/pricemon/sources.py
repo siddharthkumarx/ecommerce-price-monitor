@@ -45,7 +45,15 @@ from typing import Any
 
 import yaml
 
-from pricemon.stores import CATEGORY_TITLES, RetiredStore, load_retired
+from pricemon.stores import (
+    ALIASES_PATH,
+    CATEGORY_TITLES,
+    RetiredStore,
+    assign_aliases,
+    dump_aliases,
+    load_aliases,
+    load_retired,
+)
 
 PER_CATEGORY = 16
 MIN_PER_CATEGORY = 4
@@ -432,13 +440,43 @@ def render(
     return "\n".join(lines) + "\n"
 
 
+def store_slug(name: str) -> str:
+    """The store id in config/stores.yml, from the store's name."""
+    slug = "".join(ch if ch.isalnum() else "-" for ch in name.lower()).strip("-")
+    while "--" in slug:
+        slug = slug.replace("--", "-")
+    return slug
+
+
+def selected_aliases(
+    sources: list[tuple[str, dict[str, Any]]],
+    reviews: dict[str, list[ScreenReview]] | None,
+    retired: list[RetiredStore] | None,
+    max_stores: int,
+    aliases: dict[str, int],
+) -> dict[str, int]:
+    """The registry after numbering every selected store (existing numbers kept)."""
+    groups = classify(
+        collect(sources, reviews),
+        max_stores=max_stores,
+        retired={r.name for r in retired or []},
+    )
+    chosen = sorted(groups["selected"], key=_order)
+    return assign_aliases(aliases, [store_slug(rec.store) for rec in chosen])
+
+
 def render_stores_yml(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
     retired: list[RetiredStore] | None = None,
     max_stores: int = MAX_STORES,
+    aliases: dict[str, int] | None = None,
 ) -> str:
-    """The monitored store list consumed by the daily run (config/stores.yml)."""
+    """The monitored store list consumed by the daily run (config/stores.yml).
+
+    ``aliases`` is the fixed-number registry (config/aliases.yml); stores without a
+    number get the next one (see :func:`selected_aliases` to update the registry).
+    """
     retired = retired or []
     groups = classify(
         collect(sources, reviews), max_stores=max_stores, retired={r.name for r in retired}
@@ -449,11 +487,11 @@ def render_stores_yml(
         f"# recon runs {ids}. Do not edit by hand: change the recon evidence instead.",
         "stores:",
     ]
-    for rec in sorted(groups["selected"], key=_order):
+    chosen = sorted(groups["selected"], key=_order)
+    numbers = assign_aliases(aliases or {}, [store_slug(rec.store) for rec in chosen])
+    for rec in chosen:
         r = rec.latest
-        slug = "".join(ch if ch.isalnum() else "-" for ch in rec.store.lower()).strip("-")
-        while "--" in slug:
-            slug = slug.replace("--", "-")
+        slug = store_slug(rec.store)
         lines += [
             f"  - id: {slug}",
             f"    name: {json.dumps(rec.store)}",
@@ -462,6 +500,7 @@ def render_stores_yml(
             f"    recon_variants: {r['variants']}",
             f"    recon_products: {r['products']}",
             f"    terms: {rec.terms}",
+            f"    public_no: {numbers[slug]}",
         ]
         if rec.reviewed_titles():
             lines.append(f"    screen_reviewed: {json.dumps(rec.reviewed_titles())}")
@@ -487,16 +526,23 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--max-stores", type=int, default=MAX_STORES, help="store-list size (default MAX_STORES)"
     )
+    parser.add_argument(
+        "--aliases", type=Path, default=ALIASES_PATH, help="fixed public numbers (updated)"
+    )
     args = parser.parse_args(argv)
     paths = sorted(args.recon_json, key=lambda p: p.parent.name)
     sources = [(p.as_posix(), json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     reviews = load_reviews(args.reviews)
     retired = load_retired(args.retired)
-    out = (
-        render_stores_yml(sources, reviews, retired, args.max_stores)
-        if args.stores_yml
-        else render(sources, reviews, retired, args.max_stores)
-    )
+    if args.stores_yml:
+        # The registry only grows: numbers of stores that left stay reserved (D-034).
+        aliases = selected_aliases(
+            sources, reviews, retired, args.max_stores, load_aliases(args.aliases)
+        )
+        args.aliases.write_text(dump_aliases(aliases), encoding="utf-8")
+        out = render_stores_yml(sources, reviews, retired, args.max_stores, aliases)
+    else:
+        out = render(sources, reviews, retired, args.max_stores)
     print(out, end="")
     return 0
 

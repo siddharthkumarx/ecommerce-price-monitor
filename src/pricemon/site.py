@@ -247,7 +247,8 @@ def render(data: Path, stores: list[Store], now: datetime, display: Display | No
     runs = read_runs(data)
     status = build_status(runs, now)
     schedule = status.get("schedule") or {}
-    ids = {s.id for s in stores}
+    # Public data keys an anonymised store by its alias id (D-034).
+    ids = {display.data_id(s.id) for s in stores}
     # Monitored stores only: a retired store's rows are not live prices.
     summary = {
         s["store_id"]: s
@@ -354,9 +355,9 @@ def render(data: Path, stores: list[Store], now: datetime, display: Display | No
             key=lambda x: (display.is_anonymised(x.id), display.name(x.id).lower()),
         )
         for s in members:
-            agg = summary.get(s.id, {})
+            agg = summary.get(display.data_id(s.id), {})
             v = int(agg.get("variants", 0))
-            state = not_updated.get(s.id)
+            state = not_updated.get(display.data_id(s.id))
             url = display.store_url(s.id)
             name = esc(display.name(s.id))
             store_rows.append(

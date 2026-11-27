@@ -23,27 +23,33 @@ from tests.test_outputs import DAY1, DAY2, catalog, fetched
 ROOT = Path(__file__).resolve().parents[1]
 NOW = datetime(2026, 11, 5, 7, 0, tzinfo=UTC)
 
+# Day 1: Alphacorp's terms were not read yet (shown by name); day 2: recon found a
+# ban, so from then on every public file keys it as store-017 (D-034).
 BEFORE = (
     "stores:\n"
-    '  - {id: alpha, name: "Alphacorp", category: outdoor, host: www.alphacorp.example, '
-    "terms: ban}\n"
-    "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban}\n"
-    "  - {id: gamma, name: Gamma, category: audio, host: gamma.example, terms: none_found}\n"
+    '  - {id: alphacorp, name: "Alphacorp", category: outdoor, host: www.alphacorp.example, '
+    "terms: none_found, public_no: 17}\n"
+    "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban, public_no: 2}\n"
+    "  - {id: gamma, name: Gamma, category: audio, host: gamma.example, terms: none_found, "
+    "public_no: 3}\n"
 )
 AFTER = (
     "stores:\n"
-    '  - {id: alpha, name: "Alphacorp", category: outdoor, host: www.alphacorp.example, '
-    "terms: ban}\n"
-    "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban}\n"
+    '  - {id: alphacorp, name: "Alphacorp", category: outdoor, host: www.alphacorp.example, '
+    "terms: ban, public_no: 17}\n"
+    "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban, public_no: 2}\n"
     "retired:\n"
     "  - {id: gamma, name: Gamma, category: audio, retired_on: 2026-11-05}\n"
 )
+SECRETS = ("alphacorp", "alpha-tent")  # name and slug, host, and the product handle
 
 
 def _alpha_catalog(price: str) -> list[dict[str, object]]:
     items = catalog(6, price)
     for p in items:
         p["title"] = f"Alphacorp {p['title']}"
+        p["handle"] = f"alpha-tent-{p['id']}"
+        p["tags"] = ["Alphacorp"]
     return items
 
 
@@ -51,11 +57,13 @@ def _alpha_catalog(price: str) -> list[dict[str, object]]:
 def published(tmp_path: Path) -> tuple[Path, Path]:
     stores = tmp_path / "stores.yml"
     stores.write_text(BEFORE)
-    cfg = RunConfig(stores=stores, data=tmp_path / "data")
+    cfg = RunConfig(
+        stores=stores, data=tmp_path / "data", history_out=tmp_path / "release" / "month.parquet"
+    )
     process(
         cfg,
         [
-            fetched("alpha", _alpha_catalog("50.00"), DAY1),
+            fetched("alphacorp", _alpha_catalog("50.00"), DAY1),
             fetched("beta", catalog(4), DAY1),
             fetched("gamma", catalog(3), DAY1),
         ],
@@ -63,9 +71,15 @@ def published(tmp_path: Path) -> tuple[Path, Path]:
         time.monotonic(),
     )
     stores.write_text(AFTER)
+    cfg = RunConfig(
+        stores=stores,
+        data=tmp_path / "data",
+        history_in=tmp_path / "release" / "month.parquet",
+        history_out=tmp_path / "release" / "month.parquet",
+    )
     process(
         cfg,
-        [fetched("alpha", _alpha_catalog("40.00"), DAY2), fetched("beta", catalog(4), DAY2)],
+        [fetched("alphacorp", _alpha_catalog("40.00"), DAY2), fetched("beta", catalog(4), DAY2)],
         DAY2,
         time.monotonic(),
     )
@@ -74,14 +88,17 @@ def published(tmp_path: Path) -> tuple[Path, Path]:
 
 def test_names_hosts_and_titles(tmp_path: Path) -> None:
     stores = [
-        Store("a", "Alphacorp", "outdoor", "www.alphacorp.example", terms="ban"),
-        Store("b", "Beta", "audio", "beta.example", terms="none_found"),
-        Store("c", "Gear Co", "pet", "gear.example", terms="ban"),
+        Store("a", "Alphacorp", "outdoor", "www.alphacorp.example", terms="ban", public_no=7),
+        Store("b", "Beta", "audio", "beta.example", terms="none_found", public_no=8),
+        Store("c", "Gear Co", "pet", "gear.example", terms="ban", public_no=21),
     ]
     retired = [RetiredStore("old", "Oldie", "audio", date(2026, 11, 27))]
     d = Display(stores, retired, ("ban",))
-    assert d.name("a") == "Store #1 (Outdoor)"
-    assert d.name("c") == "Store #2 (Pet)"
+    assert d.name("a") == "Store #7 (Outdoor)"
+    assert d.name("store-007") == "Store #7 (Outdoor)"
+    assert d.data_id("a") == "store-007"
+    assert d.data_id("b") == "b"
+    assert d.name("c") == "Store #21 (Pet)"
     assert d.name("b") == "Beta"
     assert d.name("old") == "Oldie"
     assert retired[0].label == "retired on 27 Nov 2026"
@@ -92,7 +109,27 @@ def test_names_hosts_and_titles(tmp_path: Path) -> None:
     assert d.title("b", "Beta Buds") == "Beta Buds"
     # The setting can name nothing (everyone by name) or more values.
     assert Display(stores, [], ()).name("a") == "Alphacorp"
-    assert Display(stores, [], ("ban", "none_found")).name("b") == "Store #2 (Audio)"
+    assert Display(stores, [], ("ban", "none_found")).name("b") == "Store #8 (Audio)"
+    # A store that must be hidden but has no fixed number is a config error.
+    with pytest.raises(ValueError, match="public_no"):
+        Display([Store("x", "X", "pet", "x.example", terms="ban")], [], ("ban",))
+
+
+def test_aliases_survive_reordering_and_removal() -> None:
+    from pricemon.stores import assign_aliases
+
+    registry = assign_aliases({}, ["a", "b", "c"])
+    assert registry == {"a": 1, "b": 2, "c": 3}
+    # Reordered, one store gone and one new: existing numbers stay, none is reused.
+    again = assign_aliases(registry, ["c", "d", "a"])
+    assert again == {"a": 1, "b": 2, "c": 3, "d": 4}
+    stores = [
+        Store(sid, sid.upper(), "pet", f"{sid}.example", terms="ban", public_no=n)
+        for sid, n in again.items()
+    ]
+    names = {s.id: Display(stores).name(s.id) for s in stores}
+    names_reordered = {s.id: Display(list(reversed(stores[1:]))).name(s.id) for s in stores[1:]}
+    assert all(names[k] == v for k, v in names_reordered.items())
 
 
 def test_the_setting_is_one_line_in_public_yml(tmp_path: Path) -> None:
@@ -105,7 +142,7 @@ def test_the_setting_is_one_line_in_public_yml(tmp_path: Path) -> None:
 def test_retired_store_leaves_the_snapshot_without_events(published: tuple[Path, Path]) -> None:
     _, data = published
     with (data / "latest" / "snapshot.csv").open() as fh:
-        assert {r["store_id"] for r in csv.DictReader(fh)} == {"alpha", "beta"}
+        assert {r["store_id"] for r in csv.DictReader(fh)} == {"store-017", "beta"}
     changes = (data / "changes" / "2026" / "2026-11-05.csv").read_text()
     assert "gamma" not in changes
     last = json.loads((data / "runs.jsonl").read_text().splitlines()[-1])
@@ -126,16 +163,28 @@ def test_every_public_surface_hides_a_banned_store(
     assert feed_path is not None
     feed = feed_path.read_text()
     svgs = " ".join(p.read_text() for p in write_all(data, stores, tmp_path / "assets", NOW))
-    for name, text in {
+    texts = {
         "site": site,
         "readme": readme,
         "card": card,
         "feed": feed,
         "visuals": svgs,
-    }.items():
-        assert "alphacorp" not in text.lower(), name
-    assert "Store #1 (Outdoor)" in site
-    assert "Store #1 (Outdoor)" in readme
+        **{str(p): p.read_text() for p in data.rglob("*") if p.is_file()},
+    }
+    import duckdb
+
+    parquet = tmp_path / "release" / "month.parquet"
+    rows = duckdb.connect().execute(
+        "SELECT store_id, handle, product_title, variant_title FROM read_parquet(?)",
+        [str(parquet)],
+    )
+    texts["parquet"] = str(rows.fetchall())
+    for name, text in texts.items():
+        for secret in SECRETS:
+            assert secret not in text.lower(), (name, secret)
+    assert "store-017" in texts["parquet"]
+    assert "Store #17 (Outdoor)" in site
+    assert "Store #17 (Outdoor)" in readme
     assert "beta.example" in site  # a store without a ban keeps its name and link
     # The retired store is labelled, never shown as sold out or removed.
     assert "retired on 5 Nov 2026" in site
@@ -149,6 +198,7 @@ def test_every_public_surface_hides_a_banned_store(
 def test_stores_yml_loads_terms_and_retired(published: tuple[Path, Path]) -> None:
     stores, _ = published
     assert [s.terms for s in load_stores(stores)] == ["ban", "no_ban"]
+    assert [s.public_no for s in load_stores(stores)] == [17, 2]
     assert [r.id for r in load_retired(stores)] == ["gamma"]
 
 
@@ -173,3 +223,12 @@ def test_committed_config_retires_jlab() -> None:
     retired = load_retired(ROOT / "config" / "retired.yml")
     assert [(r.id, r.retired_on) for r in retired] == [("jlab", date(2026, 11, 27))]
     assert "jlab" not in {s.id for s in load_stores(ROOT / "config" / "stores.yml")}
+
+
+def test_committed_stores_have_registered_fixed_numbers() -> None:
+    from pricemon.stores import load_aliases
+
+    registry = load_aliases(ROOT / "config" / "aliases.yml")
+    for s in load_stores(ROOT / "config" / "stores.yml"):
+        assert s.public_no is not None
+        assert registry[s.id] == s.public_no

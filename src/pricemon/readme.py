@@ -84,7 +84,7 @@ def _latest_change_row(
 
 
 def dictionary(f: Facts, data: Path) -> dict[str, list[dict[str, str]]]:
-    hidden = f.display.anonymised_ids
+    hidden = {f.display.data_id(s) for s in f.display.anonymised_ids}
     named = [r for r in f.sample if r.raw["store_id"] not in hidden]
     snap = named[0].raw if named else {}
     change = _latest_change_row(data, hidden)

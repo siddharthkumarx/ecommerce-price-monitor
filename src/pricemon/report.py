@@ -142,7 +142,7 @@ def _pick_sample(
     # Ordinary sale prices first (10-50 % off, $10 or more): typical, not outliers.
     # Named stores first: the sample shows what the data looks like, with links.
     candidates = sorted(
-        (r for r in rows if r["available"] == "true" and r["store_id"] in stores),
+        (r for r in rows if r["available"] == "true" and display.store(r["store_id"])),
         key=lambda r: (
             display.is_anonymised(r["store_id"]),
             not (10 <= disc(r) <= 50 and int(r["price_cents"]) >= 1000),
@@ -157,7 +157,8 @@ def _pick_sample(
     seen_cat: set[str] = set()
     for strict in (True, False):
         for r in candidates:
-            s = stores[r["store_id"]]
+            s = display.store(r["store_id"])
+            assert s is not None
             if s.id in seen_store or (strict and s.category in seen_cat):
                 continue
             d = disc(r)
@@ -264,7 +265,11 @@ def collect(
     facts = Facts(now=now, stores=stores, status=build_status(runs, now), run=run, display=display)
     # Rows of monitored stores only: a retired store's rows leave the snapshot in its
     # first run after the retirement (history.merge), and are not live prices before.
-    rows = [r for r in _snapshot(data / "latest" / "snapshot.csv") if r["store_id"] in by_id]
+    rows = [
+        r
+        for r in _snapshot(data / "latest" / "snapshot.csv")
+        if display.store(r["store_id"]) is not None
+    ]
     facts.snapshot_rows = len(rows)
     facts.categories = dict(Counter(s.category for s in stores))
     if rows:

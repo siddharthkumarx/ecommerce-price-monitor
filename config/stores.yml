@@ -8,6 +8,7 @@ stores:
     recon_variants: 115
     recon_products: 64
     terms: none_found
+    public_no: 1
   - id: master-dynamic
     name: "Master & Dynamic"
     category: audio
@@ -15,6 +16,7 @@ stores:
     recon_variants: 195
     recon_products: 60
     terms: none_found
+    public_no: 2
   - id: shokz
     name: "Shokz"
     category: audio
@@ -22,6 +24,7 @@ stores:
     recon_variants: 426
     recon_products: 66
     terms: none_found
+    public_no: 3
   - id: skullcandy
     name: "Skullcandy"
     category: audio
@@ -29,6 +32,7 @@ stores:
     recon_variants: 177
     recon_products: 50
     terms: none_found
+    public_no: 4
   - id: soundcore-us
     name: "Soundcore (US)"
     category: audio
@@ -36,6 +40,7 @@ stores:
     recon_variants: 1436
     recon_products: 521
     terms: none_found
+    public_no: 5
   - id: feat-clothing
     name: "Feat Clothing"
     category: apparel
@@ -43,6 +48,7 @@ stores:
     recon_variants: 308
     recon_products: 20
     terms: none_found
+    public_no: 6
   - id: greats
     name: "Greats"
     category: apparel
@@ -50,6 +56,7 @@ stores:
     recon_variants: 901
     recon_products: 97
     terms: none_found
+    public_no: 7
   - id: lunya
     name: "Lunya"
     category: apparel
@@ -57,6 +64,7 @@ stores:
     recon_variants: 1379
     recon_products: 289
     terms: none_found
+    public_no: 8
   - id: richer-poorer
     name: "Richer Poorer"
     category: apparel
@@ -64,6 +72,7 @@ stores:
     recon_variants: 44
     recon_products: 2
     terms: none_found
+    public_no: 9
   - id: state-liberty
     name: "State & Liberty"
     category: apparel
@@ -71,6 +80,7 @@ stores:
     recon_variants: 1223
     recon_products: 249
     terms: none_found
+    public_no: 10
   - id: crown-affair
     name: "Crown Affair"
     category: beauty
@@ -78,6 +88,7 @@ stores:
     recon_variants: 116
     recon_products: 73
     terms: none_found
+    public_no: 11
   - id: jones-road
     name: "Jones Road"
     category: beauty
@@ -85,6 +96,7 @@ stores:
     recon_variants: 446
     recon_products: 96
     terms: none_found
+    public_no: 12
   - id: nécessaire
     name: "N\u00e9cessaire"
     category: beauty
@@ -92,6 +104,7 @@ stores:
     recon_variants: 138
     recon_products: 125
     terms: none_found
+    public_no: 13
   - id: sol-de-janeiro
     name: "Sol de Janeiro"
     category: beauty
@@ -99,6 +112,7 @@ stores:
     recon_variants: 714
     recon_products: 150
     terms: none_found
+    public_no: 14
     screen_reviewed: ["Lifted Bum Bums & Spirits"]
   - id: bee-s-wrap
     name: "Bee's Wrap"
@@ -107,6 +121,7 @@ stores:
     recon_variants: 80
     recon_products: 29
     terms: none_found
+    public_no: 15
   - id: branch-basics
     name: "Branch Basics"
     category: home_kitchen
@@ -114,6 +129,7 @@ stores:
     recon_variants: 143
     recon_products: 103
     terms: none_found
+    public_no: 16
   - id: homesick
     name: "Homesick"
     category: home_kitchen
@@ -121,6 +137,7 @@ stores:
     recon_variants: 255
     recon_products: 252
     terms: none_found
+    public_no: 17
   - id: sheets-giggles
     name: "Sheets & Giggles"
     category: home_kitchen
@@ -128,6 +145,7 @@ stores:
     recon_variants: 25
     recon_products: 2
     terms: none_found
+    public_no: 18
   - id: year-day
     name: "Year & Day"
     category: home_kitchen
@@ -135,6 +153,7 @@ stores:
     recon_variants: 511
     recon_products: 116
     terms: none_found
+    public_no: 19
   - id: big-agnes
     name: "Big Agnes"
     category: outdoor
@@ -142,6 +161,7 @@ stores:
     recon_variants: 724
     recon_products: 282
     terms: none_found
+    public_no: 20
   - id: gossamer-gear
     name: "Gossamer Gear"
     category: outdoor
@@ -149,6 +169,7 @@ stores:
     recon_variants: 233
     recon_products: 125
     terms: none_found
+    public_no: 21
   - id: hydrapak
     name: "HydraPak"
     category: outdoor
@@ -156,6 +177,7 @@ stores:
     recon_variants: 494
     recon_products: 176
     terms: none_found
+    public_no: 22
   - id: hyperlite-mountain-gear
     name: "Hyperlite Mountain Gear"
     category: outdoor
@@ -163,6 +185,7 @@ stores:
     recon_variants: 437
     recon_products: 118
     terms: none_found
+    public_no: 23
   - id: oveja-negra
     name: "Oveja Negra"
     category: outdoor
@@ -170,6 +193,7 @@ stores:
     recon_variants: 1079
     recon_products: 214
     terms: none_found
+    public_no: 24
 # Left the monitor on purpose (config/retired.yml); not read by any run.
 retired:
   - id: jlab

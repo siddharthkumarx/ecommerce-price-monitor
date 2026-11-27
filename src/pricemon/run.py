@@ -38,6 +38,7 @@ from pathlib import Path
 from typing import Any
 
 from pricemon import __version__
+from pricemon.display import Display, load_display
 from pricemon.feed import publish as publish_feed
 from pricemon.fetch import StoreFetch, fetch_store
 from pricemon.guard import PrevVersion, accept_repeat, check_batch
@@ -62,6 +63,7 @@ from pricemon.outputs import (
     write_status,
 )
 from pricemon.polite import EdgeGuard, PoliteConfig, StoreSession, make_client
+from pricemon.publicdata import public_examples, public_fetch, public_rows, rekey_files, rekey_month
 from pricemon.schedule import dispatch_slot
 from pricemon.stores import Store, load_retired, load_stores
 
@@ -87,6 +89,8 @@ class RunConfig:
     fetch_out: Path | None = None
     fetch_in: list[Path] = field(default_factory=list)
     run_at: datetime | None = None
+    display: Display | None = None
+    public: Path | None = None
 
 
 def daily_order(stores: list[Store], day: Any) -> list[Store]:
@@ -121,8 +125,11 @@ async def fetch_all(
                     client=client, base_url=store.base_url, config=cfg.polite, edge=edge
                 )
                 result = await fetch_store(session, store, day)
+                # Actions logs are public: a store shown without its name is logged by
+                # its alias id (D-034).
+                label = cfg.display.data_id(store.id) if cfg.display else store.id
                 print(
-                    f"{store.id:<24} {result.status:<8} products={len(result.products):<5} "
+                    f"{label:<24} {result.status:<8} products={len(result.products):<5} "
                     f"reqs={result.requests:<3} {result.reason or ''}",
                     flush=True,
                 )
@@ -162,6 +169,11 @@ def process(
 ) -> tuple[int, dict[str, Any]]:
     """Validate, guard, merge and write outputs. Returns (exit code, run record)."""
     data = cfg.data
+    display = cfg.display or load_display(cfg.stores, cfg.public)
+    # Files written before the current config: bring anonymised stores to their
+    # public keys first (D-034); a no-op on an unchanged config.
+    rekey_files(data, display)
+    fetches = [public_fetch(display, f) for f in fetches]
     rows: list[VariantRow] = []
     per_store: dict[str, list[VariantRow]] = {}
     rejected: dict[str, int] = {}
@@ -172,13 +184,14 @@ def process(
         if not f.complete:
             continue
         store_rows, stats = normalize_products(f.store_id, f.products, f.observed_at)
+        store_rows = public_rows(display, store_rows)
         per_store[f.store_id] = store_rows
         rows += store_rows
         rejected[f.store_id] = stats.rejected
         compare_at_ignored += stats.compare_at_ignored
         free_variants += stats.free
         if stats.examples:
-            reject_examples[f.store_id] = stats.examples
+            reject_examples[f.store_id] = public_examples(display, f.store_id, stats.examples)
 
     snapshot = data / "latest" / "snapshot.csv"
     con = connect()
@@ -233,6 +246,7 @@ def process(
                 committed_runs=[
                     parse_iso(r["started_at"]) for r in history if r["status"] in ("ok", "partial")
                 ],
+                rekey=lambda c: rekey_month(c, display),
             )
 
     failed = [f for f in fetches if not f.complete]
@@ -312,11 +326,15 @@ def write_shard(cfg: RunConfig, run_at: datetime) -> int:
         jitter_s=cfg.edge_jitter_s,
         deadline=time.monotonic() + cfg.budget_s,
     )
-    fetches = asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
+    display = cfg.display or load_display(cfg.stores, cfg.public)
+    cfg.display = display
+    fetches = [
+        public_fetch(display, f) for f in asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
+    ]
     payload = {
         "run_at": iso(run_at),
         "shard": [k, n],
-        "stores": [s.id for s in stores],
+        "stores": [display.data_id(s.id) for s in stores],
         "duration_s": round(time.monotonic() - started, 1),
         "edge": _edge_json(edge),
         "fetches": [f.to_json() for f in fetches],
@@ -374,10 +392,12 @@ def read_shards(
     edge.current_interval_s = edge.current_interval_s or cfg.edge_interval_s
     edge.halted_reason = "; ".join(halted) or None
     fetches = []
+    display = cfg.display or load_display(cfg.stores, cfg.public)
     for s in stores:
-        found = by_id.get(s.id)
+        key = display.data_id(s.id)
+        found = by_id.get(key)
         if found is None:
-            found = StoreFetch(store_id=s.id, host=s.host, observed_at=run_at)
+            found = StoreFetch(store_id=key, host=display.host(s.id), observed_at=run_at)
             found.reason = "not read: its shard did not finish"
         fetches.append(found)
     return fetches, edge, sorted(shards, key=lambda x: int(x["shard"][0]))
@@ -394,6 +414,7 @@ def run(cfg: RunConfig, now: datetime | None = None) -> int:
     stores = load_stores(cfg.stores)
     if cfg.only:
         stores = [s for s in stores if s.id in cfg.only]
+    cfg.display = cfg.display or load_display(cfg.stores, cfg.public)
     try:
         edge = EdgeGuard(
             interval_s=cfg.edge_interval_s,

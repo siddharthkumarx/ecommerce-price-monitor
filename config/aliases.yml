@@ -1,0 +1,29 @@
+# Fixed public numbers of the stores (D-034), used for "Store #<n>" and the alias
+# id store-<nnn> of a store shown without its name. Written by
+# `python -m pricemon.sources --stores-yml`: a store gets a number the first time it
+# is listed; a number is never changed, removed or reused, also after a store leaves.
+numbers:
+  grado-labs: 1
+  master-dynamic: 2
+  shokz: 3
+  skullcandy: 4
+  soundcore-us: 5
+  feat-clothing: 6
+  greats: 7
+  lunya: 8
+  richer-poorer: 9
+  state-liberty: 10
+  crown-affair: 11
+  jones-road: 12
+  nécessaire: 13
+  sol-de-janeiro: 14
+  bee-s-wrap: 15
+  branch-basics: 16
+  homesick: 17
+  sheets-giggles: 18
+  year-day: 19
+  big-agnes: 20
+  gossamer-gear: 21
+  hydrapak: 22
+  hyperlite-mountain-gear: 23
+  oveja-negra: 24
