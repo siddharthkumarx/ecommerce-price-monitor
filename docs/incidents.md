@@ -268,6 +268,20 @@ Each entry: what happened, evidence, cause, fix, and how a repeat is detected.
   failing guard runs nothing.
 - **Regression test:** `tests/test_workflows.py`
   (`test_a_live_check_runs_once_even_when_main_is_fast_forwarded`).
+- **Effect on recon-007's results:** 19 stores ran out of 429 retries. Eleven of them
+  are in the first fifth of the list, read in the first 40 minutes, when both runs
+  started on the same stores five minutes apart. Over the whole run the share of
+  stores with a 429 (7 %) is between recon-005 (5 %) and recon-006 (9 %), single runs
+  at the same pace, and during the second hour of the overlap it was lower. So the double run
+  probably caused the early cluster but not most of the 429s; it cannot be proven
+  from the results. The 33 blocks at the start (Cloudflare, HTTP 401/403, captchas, and
+  connection errors on robots.txt) do not depend on the rate. Re-check later at the normal pace, once
+  the owner waives their recon-007 429 evidence (D-004 drops a store for a 429 in any
+  run): HeadAmp, Aviator Nation, MOTHER Denim, Naked Cashmere, LoveShackFancy, Hill
+  House Home, Alex Mill, Saturdays NYC, Brixton, Splits59, Madhappy, Psycho Bunny,
+  Icelantic, Tandem Coffee, Spigen, Barton Watch Bands, BodyGuardz, Art of Play,
+  Bowfish Kids. None of them got as far as the Terms page, so their terms are not
+  known.
 
 ## INC-011 - A daily run on a branch ended red at the Pages step (2026-11-27)
 
