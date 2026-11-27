@@ -65,20 +65,31 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   product and variant title). **Never** images or product descriptions.
 - Stores selling adult, tobacco/vape, alcohol, cannabis/CBD or weapons products
   are excluded (content screen in `src/pricemon/screen.py`).
+- Terms of Service (D-031): recon reads `/policies/terms-of-service` once per store
+  (at most 2 requests, only where robots.txt allows it) and records `terms`: `ban`,
+  `no_ban` or `none_found`. Every kept store is monitored. On public surfaces a
+  store whose value is in `anonymise_terms` (`config/public.yml`, now `[ban]`) is
+  shown as "Store #<n> (<category>)" through `pricemon.display`; never format a
+  store name or host for a public file any other way.
+- Retired stores: `config/retired.yml` (id, name, category, date). `sources.py`
+  keeps them out of `config/stores.yml` and copies the list into it; the next run
+  closes their open rows without change events; every surface says "retired on
+  <date>".
 
 ### Run budget and schedule
 
 - One daily run must finish in under 45 minutes on a single runner (D-020). Never
-  split a run over several jobs or runners: that would spread requests over more
-  IPs and work around Shopify's per-IP limit. Keep it inside the budget with the
-  store list (25 stores, at least 4 per category, `MAX_STORES` in `sources.py`).
+  split a run over several jobs or runners at the same time: that would spread
+  requests over more IPs and work around Shopify's per-IP limit. Keep it inside the
+  budget with the store list (`MAX_STORES` and `MIN_PER_CATEGORY` in `sources.py`;
+  at least 100 stores since D-031). Never raise the request rate per shop or the
+  run-wide pace to make a bigger list fit.
 - The repository is public, so Actions minutes on standard runners are free; still
   request live checks only when they answer a question, because each one adds load
   on the stores (INC-005).
-- Black Friday / Cyber Monday (26 Nov to 1 Dec 2026): **one flag**,
-  `env.BFCM_RUNS_PER_DAY` in `.github/workflows/daily.yml`, now `"4"` (00:17, 06:17,
-  12:17 and 18:17 UTC) because the repository is public (D-021, D-026). `"2"` would
-  run 06:17 and 18:17 only.
+- One run a day at 06:17 UTC. The Black Friday extra runs (D-021, D-026) ended when
+  the owner lifted the freeze on 27 Nov 2026 (D-031); the slots that were due before
+  the lift stay in the accounting (`BFCM_2026_END` in `schedule.py`).
 - On-time slots: GitHub starts scheduled runs 7 to 10 hours late (INC-009), so an
   external trigger dispatches `daily.yml` at each slot with the input `slot`
   (D-028, D-030; set-up in "On-time trigger" below). The `slot` gate
@@ -99,7 +110,7 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
 
 cron-job.org (no VPS, no other server, D-030) calls the `workflow_dispatch` API
 with a **fixed** body; `slot: auto` makes the gate pick the active slot
-(`active_crons()`, BFCM slots included) within 10 minutes of now, before or after.
+(`active_crons()`, 06:17 UTC only since D-031) within 10 minutes of now, before or after.
 With no such slot the run skips with a one-line reason. Otherwise it is an explicit
 slot: a dispatch up to 10 minutes early waits for the slot, at most one pipeline
 run per slot, and the run records `dispatch.by` "trigger" (on-time accounting).
@@ -111,8 +122,9 @@ run per slot, and the run records `dispatch.by` "trigger" (on-time accounting).
   expiry; it lives only in cron-job.org, never in the repository. Renew it before
   it expires.
 - Body: `{"ref":"main","inputs":{"slot":"auto"}}`
-- Schedule, time zone UTC: `17 6 * * *` (every day), plus `17 0,12,18 26-30 11 *`
-  and `17 0,12,18 1 12 *` (BFCM, 26 Nov to 1 Dec). One cron-job.org job per line.
+- Schedule, time zone UTC: `17 6 * * *` (every day). The Black Friday jobs
+  (`17 0,12,18 26-30 11 *` and `17 0,12,18 1 12 *`) are no longer needed since D-031:
+  their calls now skip with a one-line reason, so delete them in cron-job.org.
 - Success is HTTP 204. Test the token with the body
   `{"ref":"main","inputs":{"slot":"check"}}` (runs nothing). A call at any other
   time skips, so an extra or mistimed call is harmless.

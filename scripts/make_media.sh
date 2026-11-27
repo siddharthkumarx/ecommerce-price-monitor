@@ -14,7 +14,11 @@ uv run python -m pricemon.visuals --data data --stores config/stores.yml --out a
 uv run python -m pricemon.readme
 uv run python -m pricemon.site --data data --stores config/stores.yml --out "$work/site"
 node scripts/render_media.cjs dashboard "$work/site" assets/dashboard.png
-stores="$(grep -c '^  - id:' config/stores.yml)"
+stores="$(uv run python -c "
+from pathlib import Path
+from pricemon.stores import load_stores
+print(len(load_stores(Path('config/stores.yml'))))
+")"
 drops="$(uv run python -c "
 import json
 rows = json.load(open('data/public/feed.json'))['daily'][-8:]

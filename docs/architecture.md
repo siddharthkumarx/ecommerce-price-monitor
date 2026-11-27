@@ -24,8 +24,9 @@ config/stores.yml ──► fetch ──► validate ──► batch guard ─�
 | `polite.py` | `StoreSession` (robots, per-store pacing, retry rules, block detection) and `EdgeGuard` (run-wide pacing, circuit breaker). Every request to a shop goes through it. |
 | `witness.py` | Parsers for the three witnesses: `/products.json`, `/products/<handle>.js`, JSON-LD offers; `price_to_cents`. |
 | `screen.py` | Excluded-category content screen. |
-| `recon.py`, `sources.py`, `checks.py` | Recon, the site register and `config/stores.yml`, the live-checks runner. |
-| `stores.py` | Loads `config/stores.yml` into `Store` objects. |
+| `recon.py`, `terms.py`, `sources.py`, `checks.py` | Recon (with the Terms of Service field), the site register and `config/stores.yml`, the live-checks runner. |
+| `stores.py` | Loads `config/stores.yml` into `Store` objects (with `terms`) and its `retired` list; category titles. |
+| `display.py` | How a store is named on public surfaces: `Store #<n> (<category>)` for the `terms` values in `config/public.yml` `anonymise_terms`, "retired on <date>" for retired stores (D-031). |
 | `fetch.py` | Per store: robots, all `/products.json` pages, a daily sample of `.js` and product pages, currency proof. Returns raw catalog rows plus a `StoreFetch` report. |
 | `models.py` | Pydantic `VariantRow` (the validation rules). `StoreFetch` lives in `fetch.py`, `ChangeEvent` in `changes.py`. |
 | `guard.py` | The batch guard (row validation itself is the Pydantic model). |
@@ -171,7 +172,7 @@ with no `runs.jsonl` entry of status `ok`/`partial` within 3 hours after the slo
 |---|---|---|
 | `ci.yml` | every push | commit-message check, ruff, mypy, pytest, gitleaks, pip-audit, file-size check |
 | `checks.yml` | branch push changing `checks/request.yml` (never a tag push, INC-008) | live checks; commits `checks/results/<id>/` |
-| `daily.yml` | `17 6 * * *`; on 26 Nov to 1 Dec 2026 also 18:17, and 00:17 and 12:17 only when `env.BFCM_RUNS_PER_DAY` is "4" (D-021); `workflow_dispatch` | job `timeout-minutes: 45` (D-020), no request after 38 minutes, a `pages` job that deploys `site/` when `vars.PAGES_ENABLED` is `true` (D-026), `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). A `slot` gate job skips a scheduled run whose slot is already filled (D-027) and runs an on-time dispatch (`slot` time, or `auto` from cron-job.org) once per slot (D-028, D-030). |
+| `daily.yml` | `17 6 * * *` (the Black Friday extra runs ended on 27 Nov 2026, D-031); `workflow_dispatch` | job `timeout-minutes: 45` (D-020), no request after 38 minutes, a `pages` job that deploys `site/` when `vars.PAGES_ENABLED` is `true` (D-026), `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). A `slot` gate job skips a scheduled run whose slot is already filled (D-027) and runs an on-time dispatch (`slot` time, or `auto` from cron-job.org) once per slot (D-028, D-030). |
 | `watchdog.yml` | `47 8 * * *`, `47 16 * * *`; `workflow_dispatch` | if no ok, partial or held run started since the latest daily slot and none is queued or running: starts `daily.yml`, opens or updates a `run-alert` issue, fails (INC-007, D-027) |
 
 Scheduled workflows run on the default branch, `main`. GitHub can start a slot

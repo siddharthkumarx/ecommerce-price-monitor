@@ -64,8 +64,9 @@ item says how to verify it.
     `schedule.CRONS`.
 16. **CI hardening** - `done`. gitleaks 8.30.1 (pinned sha256), pip-audit on the
     lockfile, 50 MB file test (`tests/test_repo_hygiene.py`).
-17. **Remove the 2026 Black Friday cron lines after 1 Dec 2026** - `todo` (D-013,
-    D-021): the BFCM lines name days, not a year, and would fire again in 2027.
+17. **Remove the 2026 Black Friday cron lines after 1 Dec 2026** - `done` early, on
+    27 Nov 2026 (D-031): `daily.yml` has one cron line; the extra slots that were due
+    are kept in `schedule.past_extra_slots` for the accounting, so nothing fires in 2027.
 18. **README, visuals and repo polish** - `done` (D-022 to D-024).
     `templates/README.md.j2`, `pricemon.readme`, `pricemon.visuals`,
     `scripts/make_media.sh`; dataset card, CITATION.cff, LICENSE, SECURITY.md,
