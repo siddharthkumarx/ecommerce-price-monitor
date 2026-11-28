@@ -1,7 +1,8 @@
 # Decisions
 
 Numbered, newest last. Each: decision, why, consequences. Change a decision by
-adding a new entry that supersedes it, not by editing history.
+adding a new entry that supersedes it, not by editing history. The rules in force
+today are on one page, [`rules.md`](rules.md) (D-054); this log is their history.
 
 ## D-001 - Stack, versions and licenses (2026-11-03)
 
@@ -844,3 +845,95 @@ Terms page (`none_found` after the full search) stays public by name.
   question.
 - **List:** 114 stores, 97 `no_ban` and 17 `none_found`. Numbers of retired stores
   are never given again (`config/aliases.yml` `next`).
+
+## D-046 - No anonymisation layer: every listed store is shown by name (2026-11-28, owner, F1 deep review)
+
+Supersedes D-034 and the display rule of D-031. No store whose terms ban robots is
+ever listed (D-036), and `load_stores` refuses one (D-042), so there is nothing to
+hide at run time. Deleted: the display aliases and title scrubbing
+(`pricemon.display` keeps names and links only), `pricemon.publicdata` (the per-run
+rekey of public files), `config/aliases.yml`, `public_no` in `config/stores.yml`, the
+`anonymise_terms` setting in `config/public.yml`, and the "shown by number" wording
+on the README and the dashboard. The feed keeps `stores_shown_without_name` at 0
+(fields are never removed). A store retired because its Terms ban robots keeps the
+number it was retired under (D-044); new ones get a number above 308, the highest
+the old registry gave, so no number is given twice.
+
+## D-047 - The history mirror on GitHub Releases: immutable per-day files from main (2026-11-28, owner)
+
+Owner answer, amended: history goes to GitHub Releases of this repository only, as
+immutable files, and only from `main`; no Hugging Face and no extra token (revisited
+only if the dashboard needs per-product history in the browser).
+
+- **Deleted:** the monthly release Parquet (`price_history_YYYY-MM.parquet`, rewritten
+  by every run with `--clobber`), its CSV copy `latest-prices.csv`, the repair of runs
+  whose commit failed (`history._revert_uncommitted`, INC-006) and the daily
+  "Withdraw from earlier months" step. The old `data-2026-11` release stays as it was
+  last written, frozen.
+- **Layout:** one release per month, tag `history-YYYY-MM`:
+  `events-YYYY-MM-DD.parquet` (every change event of that UTC day, the typed rows of
+  `data/changes/YYYY/YYYY-MM-DD.csv`) and `snapshot-YYYY-MM.parquet` (the committed
+  snapshot at the end of the month, read from git history). A day's file is written
+  by the first run after the day is over, so it holds every run of that day; a
+  month's snapshot by the first run of the next month.
+- **Immutable:** a file is uploaded only when no asset of that name exists; nothing
+  is replaced or deleted. Every file is built from data already committed on `main`,
+  after the data commit, so a failed run cannot leave the mirror ahead of git, and a
+  failed upload is repaired by the next run (`pricemon.releases`, the "Mirror the
+  history to Releases" step, `github.ref == 'refs/heads/main'`). A branch run uploads
+  nothing.
+- **Retention:** every file is kept. Sizes today: 744 KB for 25 days at up to 129
+  stores (the first day of a store, all `new` events, is the largest).
+- **Reading:** DuckDB reads a month as its snapshot plus its day files; one store or
+  one product is a filter on those. The dashboard does not read Parquet in the
+  browser (release downloads have no CORS headers); its history is small JSON built
+  in the run (D-050).
+
+## D-048 - The Google Sheet has no `latest` tab (2026-11-28, owner, F1 deep review)
+
+The `latest` tab copied the whole snapshot on every run. Deleted; the live snapshot
+is `data/latest/snapshot.csv` in the repository. The Sheet keeps `changes_30d` and
+`runs`.
+
+## D-049 - Past run totals are never rewritten; a store leaves by being retired (2026-11-28, owner, F1 deep review)
+
+Supersedes the "public data holds only monitored and retired stores" part of D-036:
+runs no longer withdraw stores or reduce earlier run totals. A store leaves the list
+only by being retired with a reason (`python -m pricemon.retire`, D-044); a run whose
+snapshot holds a store that is neither listed nor retired stops with an error that
+says so. Withdrawal is a manual one-off (`python -m pricemon.retire --withdraw`): the
+store's rows leave the snapshot and the change logs and its entries leave the run
+log; run totals stay as measured, and a record it left says `withdrawn_stores`. The
+Releases mirror is not changed by a withdrawal (D-047).
+
+## D-050 - Price history for dashboard v2 (2026-11-28, owner answer, to build)
+
+P0: price history per category and per store as small JSON files built in the run
+from the change log (cheap, served by Pages). Per-product history comes later, from
+the Releases Parquet (D-047), read in Actions, never in the browser. Not built yet.
+
+## D-051 - Live checks start by hand only (2026-11-28, owner, F1 deep review)
+
+`.github/workflows/checks.yml` runs on `workflow_dispatch` only: pushing
+`checks/request.yml` (or a tag, INC-008) starts nothing, so fast-forwarding `main`
+can never start a second run of a request (INC-010). The duplicate guard stays: a
+dispatched request whose results are committed, or that an earlier run is reading,
+is skipped. One checks run at a time.
+
+## D-052 - One retry for a store dropped for 429s (2026-11-28, owner answer)
+
+Amends D-004: a store dropped because a recon run saw a 429 may be checked again
+once, at least 24 hours after that run, at the normal recon pace. If the retry sees
+no 429 (and passes everything else), the earlier 429 no longer drops it; if it sees
+a 429 again, it stays out for good and is not retried again.
+
+## D-053 - Quarantine for 14 days means retirement (2026-11-28, owner answer, to build)
+
+A store quarantined 14 days in a row is retired with the reason. A replacement is
+proposed in a GitHub issue and goes live only with the owner's approval. There is no
+quarantine in the monitor yet; it is built with F1-SCALE, with this rule.
+
+## D-054 - One page for the current rules (2026-11-28, owner)
+
+`docs/rules.md` states the rules in force, merging the overlapping parts of D-020,
+D-031, D-033, D-034 and D-036 with the decisions since. This log stays the history.

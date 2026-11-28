@@ -29,26 +29,29 @@ number by hand into docs, README, dashboard or SVGs.
   own commits retry their push with `git pull --rebase` (up to 4 times).
 - Small, meaningful commits (`area: what and why`). Update
   `docs/build-progress.md` after every item.
-- Every file in git stays under 50 MB. Full price history lives only in the
-  monthly Parquet release assets, not in git.
+- Every file in git stays under 50 MB. The history is the change log in git
+  (`data/changes/`); GitHub Releases mirror it as immutable per-day Parquet files
+  (`pricemon.releases`, D-047), uploaded from `main` only.
 
 ### Live checks
 
 The development sandbox cannot reach shops. Never request a shop from the
 sandbox. Every live check runs on GitHub Actions:
 
-1. Edit `checks/request.yml` (new `id`, a `check` type, arguments).
-2. Commit and push to `main`. `.github/workflows/checks.yml` runs on
-   any push that changes that file (`permissions: contents: write`).
-3. The workflow commits results to `checks/results/<id>/` on the same branch.
-   A request runs once: a push that carries a request whose results are already
-   committed, or that an earlier `checks` run is already reading (for example
-   fast-forwarding `main` to a branch), skips it (INC-010).
+1. Edit `checks/request.yml` (new `id`, a `check` type, arguments), commit and push.
+   Pushing starts nothing (D-051).
+2. Start it by hand: `Run workflow` on `.github/workflows/checks.yml`, on the
+   branch that holds the request (`gh workflow run checks.yml --ref <branch>`).
+   Only one checks run at a time: do not start another while one is queued or
+   running (one pending run per concurrency group, INC-010).
+3. The workflow commits results to `checks/results/<id>/` on the same branch. A
+   request whose results are already committed, or that an earlier run is
+   reading, is skipped (INC-010).
 4. `git pull` and read them. Results are evidence: keep them committed.
 
-Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
-(full dry run of the daily pipeline into `checks/results/<id>/`, never into
-`data/`).
+Check types: `recon` (store recon, see `src/pricemon/recon.py`), `terms` (robots.txt
+and the Terms search of listed stores, nothing else, D-043), `pipeline` (full dry
+run of the daily pipeline into `checks/results/<id>/`, never into `data/`).
 
 ### Scraping
 
@@ -70,18 +73,22 @@ Check types: `recon` (store recon, see `src/pricemon/recon.py`), `pipeline`
   are excluded (content screen v2 in `src/pricemon/screen.py`, D-039: title and
   product type, a match counts only when the product is the excluded thing; one real
   product excludes the store).
-- Terms of Service (D-031): recon reads `/policies/terms-of-service` once per store
-  (at most 2 requests, only where robots.txt allows it) and records `terms`: `ban`,
-  `no_ban` or `none_found`. Only `no_ban` and `none_found` stores are monitored
-  (D-036): a `ban` store never enters `config/stores.yml`, and every run withdraws
-  from public data any store that is neither listed nor retired. As a safety net, a
-  store whose value is in `anonymise_terms` (`config/public.yml`, `[ban]`) would be
-  shown as "Store #<n> (<category>)" through `pricemon.display`; never format a
-  store name or host for a public file any other way.
-- Retired stores: `config/retired.yml` (id, name, category, date). `sources.py`
-  keeps them out of `config/stores.yml` and copies the list into it; the next run
-  closes their open rows without change events; every surface says "retired on
-  <date>".
+- Terms of Service (D-040, D-043): recon and the Terms check search
+  `/policies/terms-of-service` and the usual `/pages/` handles (at most 2 requests
+  each, only where robots.txt allows it) and record `terms`: `ban`, `no_ban` or
+  `none_found`. The classifier fails closed: an automation word anywhere is a ban.
+  Only `no_ban` and `none_found` stores are listed (D-036); `load_stores` refuses a
+  `ban` store or a missing value and the run fails (D-042).
+- A store leaves only by being retired (D-049): `python -m pricemon.retire --id <id>
+  --reason "<why>"`, then regenerate `config/stores.yml`. A store whose Terms turn
+  out to ban robots is retired with `--hide-name` (D-044): it gets a number and the
+  committed data is rewritten once without its name. A run whose snapshot holds a
+  store that is neither listed nor retired stops with an error. `--withdraw` takes a
+  store out of the committed data by hand; past run totals are never rewritten.
+- Retired stores: `config/retired.yml` (id, name, category, date, reason).
+  `sources.py` keeps them out of `config/stores.yml` and copies the list into it;
+  the next run closes their open rows without change events; every surface says
+  "retired on <date>".
 
 ### Run budget and schedule
 
@@ -184,8 +191,9 @@ uv sync                                   # install (Python 3.12, uv.lock)
 uv run ruff check . && uv run ruff format --check .
 uv run mypy
 uv run pytest
-uv run python -m pricemon.sources checks/results/recon-00*/recon.json > docs/sources.md
-uv run python -m pricemon.sources --stores-yml checks/results/recon-00*/recon.json > config/stores.yml
+uv run python -m pricemon.sources --out docs/sources.md checks/results/recon-0*/recon.json checks/results/terms-0*/terms.json
+uv run python -m pricemon.sources --stores-yml --out config/stores.yml checks/results/recon-0*/recon.json checks/results/terms-0*/terms.json
+uv run python -m pricemon.retire --id <id> --reason "<why>" [--hide-name | --withdraw]
 uv run python -m pricemon.checks checks/request.yml   # what the checks workflow runs (runner only)
 uv run python -m pricemon.run --out data             # the daily pipeline (runner only)
 uv run python -m pricemon.site --data data --out site # build the dashboard (offline)

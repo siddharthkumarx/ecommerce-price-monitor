@@ -26,12 +26,14 @@ config/stores.yml ──► fetch ──► validate ──► batch guard ─�
 | `screen.py` | Excluded-category content screen. |
 | `recon.py`, `terms.py`, `sources.py`, `checks.py` | Recon (with the Terms of Service field), the site register and `config/stores.yml`, the live-checks runner. |
 | `stores.py` | Loads `config/stores.yml` into `Store` objects (with `terms`) and its `retired` list; category titles. |
-| `display.py` | How a store is named on public surfaces: `Store #<n> (<category>)` for the `terms` values in `config/public.yml` `anonymise_terms`, "retired on <date>" for retired stores (D-031). |
+| `display.py` | How a store is named and linked on public surfaces: listed stores by name, retired stores labelled (D-046). |
 | `fetch.py` | Per store: robots, all `/products.json` pages, a daily sample of `.js` and product pages, currency proof. Returns raw catalog rows plus a `StoreFetch` report. |
 | `models.py` | Pydantic `VariantRow` (the validation rules). `StoreFetch` lives in `fetch.py`, `ChangeEvent` in `changes.py`. |
 | `guard.py` | The batch guard (row validation itself is the Pydantic model). |
 | `normalize.py` | Raw Shopify JSON to `VariantRow` (integer cents, UTC, fixed availability values). |
-| `history.py` | DuckDB SCD2 merge, snapshot CSV, monthly Parquet. |
+| `history.py` | DuckDB SCD2 merge, snapshot CSV. |
+| `releases.py` | The history mirror on GitHub Releases: immutable per-day event files and month-end snapshots (D-047). |
+| `retire.py` | Retire a store (with `--hide-name` for a Terms ban), or withdraw one by hand (D-044, D-049). |
 | `changes.py` | Change events between the previous and new open versions. |
 | `outputs.py` | Change log, `runs.jsonl`, `status.json`, shields.io badge files, snapshot aggregates (DuckDB). |
 | `schedule.py` | The cron slots of `daily.yml` and `watchdog.yml` as data (tests keep them equal), the gate that decides every daily trigger (on-time dispatch with `slot`, late schedule events, the watchdog; INC-007, INC-009), and the on-time / late / missed slot accounting. |
@@ -100,11 +102,12 @@ does not touch the snapshot, change log, history or Sheet: the last good data
 stays live. If the same hold reason for the same stores repeats in the next run
 the condition is treated as real and accepted (recorded as
 `accepted_after_repeat` in `runs.jsonl`), so a genuine catalog cut does not hold
-the monitor forever.
+the monitor forever. Only rows-drop holds are accepted this way (D-041): a currency,
+suspicious-price, reject or mass-change hold repeats until its cause is fixed.
 
 ## History (SCD2 in DuckDB)
 
-Table `price_history`, one row per version of a variant's observable state:
+One row per version of a variant's observable state:
 
 | column | type | note |
 |---|---|---|
@@ -126,13 +129,16 @@ real changes). Each run loads it into DuckDB, merges the new observations
 (stores that failed or mismatched keep their open versions unchanged), and
 writes:
 
-- the new snapshot CSV;
-- `price_history_YYYY-MM.parquet`: every version valid at any time in month
-  `YYYY-MM` (closed in the month, or still open), with an `exported_at` column.
-  The run downloads the current month's asset from release `data-YYYY-MM`,
-  rewrites it, and uploads it with `gh release upload --clobber`. Closed versions
-  are final; the full history is the union of all months, de-duplicated on the
-  key preferring a non-null `valid_to`.
+- the new snapshot CSV and the run's change events (`data/changes/YYYY/YYYY-MM-DD.csv`).
+
+The change log is the full history: every version starts with an event (`new`,
+a price, compare-at or stock change) and ends with the next one. After the data
+commit, a run on `main` mirrors it to GitHub Releases (`pricemon.releases`, D-047):
+release `history-YYYY-MM` gets `events-YYYY-MM-DD.parquet` for every day that is over
+and `snapshot-YYYY-MM.parquet` (the committed snapshot at the end of the month, read
+from git history) for every month that is over. A file is uploaded once and never
+replaced or deleted, so a run that failed after its upload cannot leave the mirror
+ahead of git, and a failed upload is repaired by the next run.
 
 ## Changes
 
@@ -157,8 +163,8 @@ One observation can raise several events (a sale is usually `price_down` +
 | daily change log | `data/changes/YYYY/YYYY-MM-DD.csv` (runs of a day append) | events only |
 | run log | `data/runs.jsonl`, one JSON line per run | small |
 | status | `data/status.json` and `data/badges/*.json` (shields.io endpoint schema: days running, last run, on time, missed runs, rows today) | small |
-| full history | release `data-YYYY-MM`, asset `price_history_YYYY-MM.parquet` | not in git |
-| Google Sheet | tabs `latest`, `changes_30d`, `runs` | only if `GOOGLE_SA_JSON` and `GOOGLE_SHEET_ID` are set |
+| full history | the change log in git; release `history-YYYY-MM`: `events-YYYY-MM-DD.parquet`, `snapshot-YYYY-MM.parquet` | written once, from `main` only (D-047) |
+| Google Sheet | tabs `changes_30d`, `runs` (no `latest` tab, D-048) | only if `GOOGLE_SA_JSON` and `GOOGLE_SHEET_ID` are set |
 | dashboard | `site/` (static, Pages after publish) | built from `data/` |
 
 A CI test fails if any tracked file is 50 MB or larger.
@@ -171,7 +177,7 @@ with no `runs.jsonl` entry of status `ok`/`partial` within 3 hours after the slo
 | workflow | trigger | notes |
 |---|---|---|
 | `ci.yml` | every push | commit-message check, ruff, mypy, pytest, gitleaks, pip-audit, file-size check |
-| `checks.yml` | branch push changing `checks/request.yml` (never a tag push, INC-008) | live checks; commits `checks/results/<id>/` |
+| `checks.yml` | `workflow_dispatch` only (D-051) | live checks; commits `checks/results/<id>/` |
 | `daily.yml` | `17 6 * * *` (the Black Friday extra runs ended on 27 Nov 2026, D-031); `workflow_dispatch` | job `timeout-minutes: 45` (D-020), no request after 38 minutes, a `pages` job that deploys `site/` when `vars.PAGES_ENABLED` is `true` (D-026), `concurrency: daily` (no cancel), commits `data/`, uploads Parquet, publishes Sheet, builds `site/`. A failed or held run opens or updates a GitHub issue labelled `run-alert` and fails the job (GitHub's failure email). A `slot` gate job skips a scheduled run whose slot is already filled (D-027) and runs an on-time dispatch (`slot` time, or `auto` from the owner's own cron) once per slot (D-028, D-030). |
 | `watchdog.yml` | `47 8 * * *`, `47 16 * * *`; `workflow_dispatch` | if no ok, partial or held run started since the latest daily slot and none is queued or running: starts `daily.yml`, opens or updates a `run-alert` issue, fails (INC-007, D-027) |
 
