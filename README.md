@@ -1,8 +1,8 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 129 US online stores and records every price: 68,311 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 114 US online stores and records every price: 57,912 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
-**Every price, sale and stock change from 129 US online stores, checked every day and delivered as a clean spreadsheet.**
+**Every price, sale and stock change from 114 US online stores, checked every day and delivered as a clean spreadsheet.**
 
 [![Last run](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/last-run.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/days-running.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/runs.jsonl)
@@ -25,45 +25,45 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Bandolier | [Add-On Magnet Wallet - Black/Rose Gold (_ / iPhone Pro / Regular)](https://www.bandolierstyle.com/products/add-on-magnet-wallet-black-rose-gold) | $35.00 | $70.00 | yes |
 | Beautyblender | [Eclipse Blend & Store 2-Piece Set](https://beautyblender.com/products/eclipse-blend-store-2-piece-set) | $11.00 | $22.00 | yes |
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
-| Feedback Sports | [Rotor Truing Fork](https://feedbacksports.com/products/rotor-truing-fork) | $11.00 | $22.00 | yes |
+| Foamnasium | [Blocksy Mini Clearance (Timeless Classic / Enhanced Marigold)](https://foamnasium.com/products/blocksy-mini-clearance) | $74.50 | $149.00 | yes |
 
-The full table has 68,311 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 57,912 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 28 November 2026: 4 price rises, 106 items sold out, 55 items back in stock, 18 new product options, 10 product options removed. 58 stores were read for the first time; their 29,986 product options are a starting point, not changes. The biggest moves:
+In the run of 28 November 2026: 23 price drops, 2 price rises, 19 sales started, 143 items sold out, 12 items back in stock, 11 new product options, 11 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| HyperX | [OMEN by HP 23.8 inch FHD 165Hz Gaming Monitor - OMEN 24 (Black)](https://hyperx.com/products/omen-by-hp-23-8-inch-fhd-165hz-gaming-monitor-omen-24) | Price up (+44.4%) | $89.99 | $129.99 |
-| VIVO | [Flip Open Clamp-on Cable Management Box (19")](https://vivo-us.com/products/desk-acmb20-c) | Price up (+25.0%) | $39.99 | $49.99 |
-| VIVO | [Pneumatic Clamp-on Keyboard Tray (30")](https://vivo-us.com/products/mount-kb35cp) | Price up (+7.1%) | $139.99 | $149.99 |
-| Equator Coffees | [Baratza Encore ESP Pro Coffee Grinder](https://www.equatorcoffees.com/products/baratza-encore-esp-pro-coffee-grinder) | Price up (+0.0%) | $239.95 | $239.96 |
-| Aer | [Cable Kit 3 (Black)](https://aersf.com/products/cable-kit-3) | Sold out | $59.00 | $59.00 |
-| Aer | [Travel Kit 3 Small (Olive)](https://aersf.com/products/travel-kit-3-small) | Sold out | $55.00 | $55.00 |
-| Aer | [Travel Kit 3 Small X-Pac (X-Pac [Preorder Ships by Dec 11])](https://aersf.com/products/travel-kit-3-small-x-pac) | Back in stock | $75.00 | $75.00 |
-| Audeze | [Black Friday Sale 2026 (Maxwell - PlayStation B-Stock)](https://www.audeze.com/products/black-friday-sale-2026) | Sold out | $199.00 | $199.00 |
+| JOOLA | [JOOLA Hyperion CFS 16mm Pickleball Paddle](https://joola.com/products/ben-johns-hyperion-cfs-16mm-pickleball-paddle) | Price down, Sale started (-48.1%) | $159.95 | $83.00 |
+| JOOLA | [iPONG V300 Table Tennis Training Robot](https://joola.com/products/ipong-v300-table-tennis-training-robot) | Price down, Sale started (-47.5%) | $199.95 | $104.97 |
+| JOOLA | [JOOLA Hyperion CFS 16mm Pickleball Paddle - New Blue (16mm (DTC) / Crisp Blue)](https://joola.com/products/joola-hyperion-cfs) | Price down, Sale started (-47.4%) | $159.95 | $84.18 |
+| JOOLA | [JOOLA Hyperion CFS 16mm Pickleball Paddle - New Blue (16mm (DTC) / Crash Teal)](https://joola.com/products/joola-hyperion-cfs) | Price down, Sale started (-42.4%) | $159.95 | $92.16 |
+| JOOLA | [JOOLA Hugo Calderano Duo Pro Table Tennis Racket Set (Flared)](https://joola.com/products/joola-hugo-calderano-duo-pro-table-tennis-blade) | Price down, Sale started (-38.7%) | $39.95 | $24.47 |
+| JOOLA | [JOOLA Hugo Calderano Carbon Speed Table Tennis Set (Flared)](https://joola.com/products/joola-hugo-calderano-carbon-speed-table-tennis-set) | Price down, Sale started (-36.9%) | $34.95 | $22.05 |
+| JOOLA | [JOOLA Replacement Net for Quattro, Inside, Tour, Triumph and Conversion Top Net and Post Sets](https://joola.com/products/joola-replacement-net-for-quattro-inside-tour-triumph-and-conversion-top-net-and-post-sets) | Price down, Sale started (-35.1%) | $29.95 | $19.45 |
+| JOOLA | [JOOLA Hugo Calderano Infinity Carbon Table Tennis Racket (Flared)](https://joola.com/products/joola-hugo-calderano-infinity-carbon-table-tennis-blade) | Price down, Sale started (-34.7%) | $99.95 | $65.29 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
 ## Stores in the monitor
 
-129 US online stores in 10 categories, all read every day.
+114 US online stores in 10 categories, all read every day.
 
 | Category | Stores | |
 |---|---:|---|
-| Audio | 11 | 64 Audio, Altec Lansing, Audeze, Cleer Audio, Crosley, Grado Labs, HyperX, Puro Sound Labs, Soundcore (US), Sundown Audio, Tivoli Audio |
+| Audio | 10 | 64 Audio, Altec Lansing, Audeze, Cleer Audio, Crosley, Grado Labs, HyperX, Puro Sound Labs, Sundown Audio, Tivoli Audio |
 | Apparel | 8 | Dagne Dover, Jambys, Lady White Co., Linksoul, Pair of Thieves, Richer Poorer, Sunski, Thinx |
 | Beauty | 12 | Beauty Bakerie, Beautyblender, Camille Rose, Danessa Myricks Beauty, Half Magic, Innersense Organic Beauty, Jeffree Star Cosmetics, Juvia's Place, Milani Cosmetics, Scotch Porter, Sigma Beauty, Tula Skincare |
-| Home & kitchen | 13 | Albany Park, Bearaby, Field Company, GIR, Gravity Blanket, Keap, Klean Kanteen, NEST New York, Onsen, Puracy, Schoolhouse, Sheets & Giggles, Takeya |
+| Home & kitchen | 11 | Albany Park, Field Company, GIR, Gravity Blanket, Keap, Klean Kanteen, NEST New York, Onsen, Schoolhouse, Sheets & Giggles, Takeya |
 | Outdoor | 10 | Aer, Barebones Living, Big Agnes, Cabeau, Hyperlite Mountain Gear, Pa'lante Packs, Paravel, Timbuk2, Tortuga, Tower Paddle Boards |
-| Coffee & tea | 13 | AeroPress, Dogwood Coffee, Elixr Coffee, Equator Coffees, Four Barrel Coffee, Heine Brothers' Coffee, Kettl, Madcap Coffee, Numi Organic Tea, Pique, Prodigal, Sweet Bloom Coffee, Verve Coffee Roasters |
-| Fitness | 20 | American Barbell, Assault Fitness, Bala, Darc Sport, Elevate Jump Ropes, Feedback Sports, Fringe Sport, Gamma Sports, Get RX'd, Hyperwear, JOOLA, Nathan Sports, OOFOS, Paddletek, Peak Pilates, Saris, SPIbelt, Stamina Products, Vatic Pro, Yoga Design Lab |
-| Pet | 12 | Boxiecat, Earthbath, Exotic Nutrition, Jones Natural Chews, Mighty Paw, Modkat, P.L.A.Y. Pet Lifestyle and You, Pawstruck, PETLIBRO, Pupford, The Honest Kitchen, Travel Cat |
-| Tech accessories | 13 | Azio, Bandolier, Bluelounge, Incipio, Juuk Design, Pebblebee, PolarPro, Rain Design, Sabrent, Scosche, Tom Bihn, VIVO, Workrite Ergonomics |
-| Toys & kids | 17 | Angel Dear, Baby Brezza, Clixo, Foamnasium, GroVia, HABA USA, Little Partners, Maple Landmark, Mockingbird, Nanit, Newton Baby, Nugget, Owlet, Snuggle Me Organic, Sphero, Ubbi, WildBird |
+| Coffee & tea | 12 | AeroPress, Dogwood Coffee, Elixr Coffee, Four Barrel Coffee, Heine Brothers' Coffee, Kettl, Madcap Coffee, Numi Organic Tea, Pique, Prodigal, Sweet Bloom Coffee, Verve Coffee Roasters |
+| Fitness | 14 | American Barbell, Assault Fitness, Darc Sport, Elevate Jump Ropes, Gamma Sports, Get RX'd, Hyperwear, JOOLA, OOFOS, Peak Pilates, Saris, SPIbelt, Stamina Products, Vatic Pro |
+| Pet | 9 | Boxiecat, Earthbath, Exotic Nutrition, Jones Natural Chews, Mighty Paw, Modkat, P.L.A.Y. Pet Lifestyle and You, Pawstruck, The Honest Kitchen |
+| Tech accessories | 12 | Azio, Bandolier, Incipio, Juuk Design, Pebblebee, PolarPro, Rain Design, Sabrent, Scosche, Tom Bihn, VIVO, Workrite Ergonomics |
+| Toys & kids | 16 | Angel Dear, Baby Brezza, Clixo, Foamnasium, GroVia, HABA USA, Little Partners, Maple Landmark, Mockingbird, Nanit, Newton Baby, Nugget, Snuggle Me Organic, Sphero, Ubbi, WildBird |
 
-JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
+JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data. Store #5 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #88 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #264 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #130 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #151 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #155 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #158 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #163 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #279 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #175 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #192 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #193 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #197 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #288 (retired on 28 Nov 2026) is no longer read; its history stays in the data. Store #305 (retired on 28 Nov 2026) is no longer read; its history stays in the data.
 
 ## Why you can trust this data
 
@@ -71,7 +71,7 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
 - **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 128 of 129 stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 1,283 free gifts and samples left out on purpose, not held.
 - **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 128 of 129 stores updated; 1 kept their previous prices.
-- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 555 page requests in 36.1 minutes, and no store blocked us.
+- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 555 page requests in 36.0 minutes, and no store blocked us.
 
 ## How it works
 
@@ -86,7 +86,7 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 32."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 33."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -114,7 +114,7 @@ SteadyData builds and runs monitors like this one for any set of online stores o
 ## FAQ
 
 **How fresh is the data?**
-Every store is read once a day; the run is due at 06:17 UTC (early morning US time). Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 30 of 30 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 12 of 12 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
+Every store is read once a day; the run is due at 06:17 UTC (early morning US time). Each row shows when its current price was first seen, and the [last run badge](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml) shows the time of the latest run. 31 of 31 due runs so far were delivered. Since the on-time trigger took over from GitHub's scheduler, 13 of 13 started on time (within 2 hours). Before 22 Nov 2026, GitHub started the scheduled run 7-10 h late; every day was still delivered (INC-009).
 
 **What happens when a site changes?**
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
@@ -152,16 +152,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-28T00:40:03Z` |
-| `store_id` | text | Store | `aer` |
-| `variant_id` | integer | Product option | `40296957247584` |
-| `product_title` | text | Product name | `Cable Kit 3` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
-| `old_price_cents` | integer or empty | Price before, US cents | `5900` |
-| `new_price_cents` | integer or empty | Price after, US cents | `5900` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-28T06:17:09Z` |
+| `store_id` | text | Store | `joola` |
+| `variant_id` | integer | Product option | `44994480505046` |
+| `product_title` | text | Product name | `iPONG V300 Table Tennis Training Robot` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
+| `old_price_cents` | integer or empty | Price before, US cents | `19995` |
+| `new_price_cents` | integer or empty | Price after, US cents | `10497` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `19995` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `19995` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `-47.5` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
