@@ -59,6 +59,7 @@ class RetiredStore:
     name: str
     category: str
     retired_on: date
+    reason: str = ""
 
     @property
     def label(self) -> str:
@@ -119,6 +120,7 @@ def load_retired(path: Path) -> list[RetiredStore]:
                 name=str(r["name"]),
                 category=str(r["category"]),
                 retired_on=on if isinstance(on, date) else date.fromisoformat(str(on)),
+                reason=str(r.get("reason") or ""),
             )
         )
     return out

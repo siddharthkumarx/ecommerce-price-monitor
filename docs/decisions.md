@@ -792,3 +792,21 @@ with such a list fails before any request.
   value recon gave it. `pricemon.sources` takes a Terms check row as the newest terms
   reading of a store already in the recon evidence; the drop rules (D-004) read recon
   rows only. Sources are ordered by the time their run started, not by their name.
+
+## D-044 - Retiring a store, and a store whose Terms turn out to ban robots (2026-11-28, owner)
+
+A store leaves the monitor on purpose by `python -m pricemon.retire --id <id>
+--reason "<why>"`: an entry in `config/retired.yml` with the date and the reason
+(new field `reason`), then `config/stores.yml` is regenerated. No run reads it again;
+its rows leave the live snapshot in the next run (`retired_rows_closed`) and its
+history stays in `data/`.
+
+A store whose Terms now ban robots (D-040) is retired with `--hide-name`: it is
+retired under its fixed number (`store-017`, the `public_no` it had while listed,
+shown as "Store #17") and the command rewrites the committed public data once: the
+snapshot, the change logs and the run log are keyed by the number, product handles
+and the host are emptied, and the store's name is taken out of product titles and
+failure reasons. It then searches `data/` for the name and lists any file that still
+holds it. The next published run regenerates the feed, the status, the README, the
+dashboard and the visuals from that data. The recon evidence (`checks/results/`) and
+the site register (`docs/sources.md`) keep naming every store checked, as before.

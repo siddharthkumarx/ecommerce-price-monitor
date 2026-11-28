@@ -584,6 +584,8 @@ def render_stores_yml(
                 f"    category: {ret.category}",
                 f"    retired_on: {ret.retired_on.isoformat()}",
             ]
+            if ret.reason:
+                lines.append(f"    reason: {json.dumps(ret.reason)}")
     return "\n".join(lines) + "\n"
 
 
