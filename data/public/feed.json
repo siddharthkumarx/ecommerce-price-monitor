@@ -1,13 +1,13 @@
 {
   "schema": "steadydata.feed/v1",
-  "generated_at": "2026-11-27T19:08:37Z",
+  "generated_at": "2026-11-28T01:16:10Z",
   "monitor": {
     "id": "ecommerce-price-monitor",
-    "title": "Daily price monitor, 71 US online stores",
+    "title": "Daily price monitor, 129 US online stores",
     "repo": "https://github.com/siddharthkumarx/ecommerce-price-monitor",
     "dashboard": "https://siddharthkumar.com/ecommerce-price-monitor/",
     "first_run": "2026-11-04T08:46:55Z",
-    "stores_total": 71,
+    "stores_total": 129,
     "categories": [
       "Apparel",
       "Audio",
@@ -34,16 +34,16 @@
     ],
     "cadence": "daily at 06:17 UTC",
     "stores_by_category": {
-      "apparel": 4,
-      "audio": 10,
-      "beauty": 7,
-      "coffee_tea": 10,
-      "fitness": 8,
-      "home_kitchen": 8,
-      "outdoor": 8,
-      "pet": 8,
-      "tech_accessories": 5,
-      "toys_kids": 3
+      "apparel": 8,
+      "audio": 11,
+      "beauty": 12,
+      "coffee_tea": 13,
+      "fitness": 20,
+      "home_kitchen": 13,
+      "outdoor": 10,
+      "pet": 12,
+      "tech_accessories": 13,
+      "toys_kids": 17
     },
     "stores_shown_without_name": 0,
     "stores_retired": [
@@ -57,39 +57,39 @@
     ]
   },
   "last_run": {
-    "run_id": "20261127T184909Z",
-    "started_at": "2026-11-27T18:49:09Z",
-    "finished_at": "2026-11-27T19:08:37Z",
-    "status": "ok",
-    "stores_ok": 71,
-    "stores_total": 71,
-    "rows_live": 38317,
-    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/46052229980",
-    "requests": 303,
-    "duration_s": 1168.1,
-    "stores_added": 65,
-    "baseline_rows": 35424
+    "run_id": "20261128T004003Z",
+    "started_at": "2026-11-28T00:40:03Z",
+    "finished_at": "2026-11-28T01:16:10Z",
+    "status": "partial",
+    "stores_ok": 128,
+    "stores_total": 129,
+    "rows_live": 68311,
+    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/46089093650",
+    "requests": 555,
+    "duration_s": 2167.2,
+    "stores_added": 58,
+    "baseline_rows": 29986
   },
   "checks": {
-    "rows_validated": 38317,
+    "rows_validated": 67859,
     "rows_rejected": 0,
     "held_back": 0,
-    "second_source_checks": 137,
-    "second_source_matches": 136,
+    "second_source_checks": 242,
+    "second_source_matches": 241,
     "second_source": {
-      "js_checked": 71,
-      "js_matches": 71,
-      "jsonld_checked": 66,
-      "jsonld_matches": 65
+      "js_checked": 128,
+      "js_matches": 128,
+      "jsonld_checked": 114,
+      "jsonld_matches": 113
     },
-    "rows_compared_with_last_run": 2893,
+    "rows_compared_with_last_run": 37855,
     "suspicious_price_moves": 0,
     "guard_holds": 0
   },
   "totals": {
-    "days_running": 24,
-    "runs_total": 32,
-    "runs_good": 31,
+    "days_running": 25,
+    "runs_total": 33,
+    "runs_good": 32,
     "runs_held": 1
   },
   "schedule": {
@@ -126,6 +126,7 @@
     {"date":"2026-11-24","runs":1,"rows_live":3065,"price_down":1,"price_up":3,"discount_start":1,"discount_end":0,"out_of_stock":4,"back_in_stock":7,"new":0,"removed":0,"baseline_rows":0},
     {"date":"2026-11-25","runs":1,"rows_live":3061,"price_down":11,"price_up":7,"discount_start":1,"discount_end":0,"out_of_stock":5,"back_in_stock":7,"new":2,"removed":5,"baseline_rows":0},
     {"date":"2026-11-26","runs":4,"rows_live":3078,"price_down":1,"price_up":1,"discount_start":0,"discount_end":1,"out_of_stock":10,"back_in_stock":7,"new":17,"removed":0,"baseline_rows":0},
-    {"date":"2026-11-27","runs":5,"rows_live":38317,"price_down":10,"price_up":1,"discount_start":0,"discount_end":0,"out_of_stock":9,"back_in_stock":3,"new":35424,"removed":0,"baseline_rows":35424}
+    {"date":"2026-11-27","runs":5,"rows_live":38317,"price_down":10,"price_up":1,"discount_start":0,"discount_end":0,"out_of_stock":9,"back_in_stock":3,"new":35424,"removed":0,"baseline_rows":35424},
+    {"date":"2026-11-28","runs":1,"rows_live":68311,"price_down":0,"price_up":4,"discount_start":0,"discount_end":0,"out_of_stock":106,"back_in_stock":55,"new":30004,"removed":10,"baseline_rows":29986}
   ]
 }

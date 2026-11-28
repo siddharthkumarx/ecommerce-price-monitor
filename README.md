@@ -1,8 +1,8 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 71 US online stores and records every price: 38,317 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 129 US online stores and records every price: 68,311 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
-**Every price, sale and stock change from 71 US online stores, checked every day and delivered as a clean spreadsheet.**
+**Every price, sale and stock change from 129 US online stores, checked every day and delivered as a clean spreadsheet.**
 
 [![Last run](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/last-run.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/workflows/daily.yml)
 [![Days running](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/siddharthkumarx/ecommerce-price-monitor/main/data/badges/days-running.json)](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/runs.jsonl)
@@ -17,7 +17,7 @@
 
 ## What you get
 
-One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 27 November 2026:
+One row per product option (size, colour) per store, with today's price, the "was" price when it is on sale, and whether it is in stock. A sample from the run of 28 November 2026:
 
 | Store | Product | Price | Was | In stock |
 |---|---|---:|---:|:---:|
@@ -27,44 +27,51 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
 | Feedback Sports | [Rotor Truing Fork](https://feedbacksports.com/products/rotor-truing-fork) | $11.00 | $22.00 | yes |
 
-The full table has 38,317 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 68,311 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 27 November 2026: 1 price drop. 65 stores were read for the first time; their 35,424 product options are a starting point, not changes. The biggest moves:
+In the run of 28 November 2026: 4 price rises, 106 items sold out, 55 items back in stock, 18 new product options, 10 product options removed. 58 stores were read for the first time; their 29,986 product options are a starting point, not changes. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| Soundcore (US) | [Life A2 NC \| Bluetooth Noise Cancelling Earbuds (Black)](https://us.soundcore.com/products/life-a2-nc) | Price down (-14.3%) | $69.99 | $59.99 |
+| HyperX | [OMEN by HP 23.8 inch FHD 165Hz Gaming Monitor - OMEN 24 (Black)](https://hyperx.com/products/omen-by-hp-23-8-inch-fhd-165hz-gaming-monitor-omen-24) | Price up (+44.4%) | $89.99 | $129.99 |
+| VIVO | [Flip Open Clamp-on Cable Management Box (19")](https://vivo-us.com/products/desk-acmb20-c) | Price up (+25.0%) | $39.99 | $49.99 |
+| VIVO | [Pneumatic Clamp-on Keyboard Tray (30")](https://vivo-us.com/products/mount-kb35cp) | Price up (+7.1%) | $139.99 | $149.99 |
+| Equator Coffees | [Baratza Encore ESP Pro Coffee Grinder](https://www.equatorcoffees.com/products/baratza-encore-esp-pro-coffee-grinder) | Price up (+0.0%) | $239.95 | $239.96 |
+| Aer | [Cable Kit 3 (Black)](https://aersf.com/products/cable-kit-3) | Sold out | $59.00 | $59.00 |
+| Aer | [Travel Kit 3 Small (Olive)](https://aersf.com/products/travel-kit-3-small) | Sold out | $55.00 | $55.00 |
+| Aer | [Travel Kit 3 Small X-Pac (X-Pac [Preorder Ships by Dec 11])](https://aersf.com/products/travel-kit-3-small-x-pac) | Back in stock | $75.00 | $75.00 |
+| Audeze | [Black Friday Sale 2026 (Maxwell - PlayStation B-Stock)](https://www.audeze.com/products/black-friday-sale-2026) | Sold out | $199.00 | $199.00 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
 ## Stores in the monitor
 
-71 US online stores in 10 categories, all read every day.
+129 US online stores in 10 categories, all read every day.
 
 | Category | Stores | |
 |---|---:|---|
-| Audio | 10 | 64 Audio, Altec Lansing, Audeze, Cleer Audio, Crosley, Grado Labs, HyperX, Soundcore (US), Sundown Audio, Tivoli Audio |
-| Apparel | 4 | Dagne Dover, Pair of Thieves, Richer Poorer, Sunski |
-| Beauty | 7 | Beauty Bakerie, Beautyblender, Innersense Organic Beauty, Juvia's Place, Milani Cosmetics, Sigma Beauty, Tula Skincare |
-| Home & kitchen | 8 | Bearaby, Field Company, GIR, Gravity Blanket, Keap, Onsen, Schoolhouse, Sheets & Giggles |
-| Outdoor | 8 | Aer, Barebones Living, Big Agnes, Cabeau, Hyperlite Mountain Gear, Paravel, Timbuk2, Tortuga |
-| Coffee & tea | 10 | AeroPress, Dogwood Coffee, Equator Coffees, Four Barrel Coffee, Heine Brothers' Coffee, Kettl, Madcap Coffee, Numi Organic Tea, Pique, Verve Coffee Roasters |
-| Fitness | 8 | Bala, Feedback Sports, Fringe Sport, Nathan Sports, OOFOS, Peak Pilates, SPIbelt, Yoga Design Lab |
-| Pet | 8 | Exotic Nutrition, Mighty Paw, Modkat, P.L.A.Y. Pet Lifestyle and You, PETLIBRO, Pupford, The Honest Kitchen, Travel Cat |
-| Tech accessories | 5 | Bandolier, PolarPro, Sabrent, VIVO, Workrite Ergonomics |
-| Toys & kids | 3 | Newton Baby, Nugget, WildBird |
+| Audio | 11 | 64 Audio, Altec Lansing, Audeze, Cleer Audio, Crosley, Grado Labs, HyperX, Puro Sound Labs, Soundcore (US), Sundown Audio, Tivoli Audio |
+| Apparel | 8 | Dagne Dover, Jambys, Lady White Co., Linksoul, Pair of Thieves, Richer Poorer, Sunski, Thinx |
+| Beauty | 12 | Beauty Bakerie, Beautyblender, Camille Rose, Danessa Myricks Beauty, Half Magic, Innersense Organic Beauty, Jeffree Star Cosmetics, Juvia's Place, Milani Cosmetics, Scotch Porter, Sigma Beauty, Tula Skincare |
+| Home & kitchen | 13 | Albany Park, Bearaby, Field Company, GIR, Gravity Blanket, Keap, Klean Kanteen, NEST New York, Onsen, Puracy, Schoolhouse, Sheets & Giggles, Takeya |
+| Outdoor | 10 | Aer, Barebones Living, Big Agnes, Cabeau, Hyperlite Mountain Gear, Pa'lante Packs, Paravel, Timbuk2, Tortuga, Tower Paddle Boards |
+| Coffee & tea | 13 | AeroPress, Dogwood Coffee, Elixr Coffee, Equator Coffees, Four Barrel Coffee, Heine Brothers' Coffee, Kettl, Madcap Coffee, Numi Organic Tea, Pique, Prodigal, Sweet Bloom Coffee, Verve Coffee Roasters |
+| Fitness | 20 | American Barbell, Assault Fitness, Bala, Darc Sport, Elevate Jump Ropes, Feedback Sports, Fringe Sport, Gamma Sports, Get RX'd, Hyperwear, JOOLA, Nathan Sports, OOFOS, Paddletek, Peak Pilates, Saris, SPIbelt, Stamina Products, Vatic Pro, Yoga Design Lab |
+| Pet | 12 | Boxiecat, Earthbath, Exotic Nutrition, Jones Natural Chews, Mighty Paw, Modkat, P.L.A.Y. Pet Lifestyle and You, Pawstruck, PETLIBRO, Pupford, The Honest Kitchen, Travel Cat |
+| Tech accessories | 13 | Azio, Bandolier, Bluelounge, Incipio, Juuk Design, Pebblebee, PolarPro, Rain Design, Sabrent, Scosche, Tom Bihn, VIVO, Workrite Ergonomics |
+| Toys & kids | 17 | Angel Dear, Baby Brezza, Clixo, Foamnasium, GroVia, HABA USA, Little Partners, Maple Landmark, Mockingbird, Nanit, Newton Baby, Nugget, Owlet, Snuggle Me Organic, Sphero, Ubbi, WildBird |
 
 JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
 
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 71 of 71 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 71 of 71 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 590 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 71 of 71 stores updated.
-- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 303 page requests in 19.5 minutes, and no store blocked us.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 128 of 128 checked products matched exactly.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 128 of 129 stores proved US dollars.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 1,283 free gifts and samples left out on purpose, not held.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 128 of 129 stores updated; 1 kept their previous prices.
+- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 555 page requests in 36.1 minutes, and no store blocked us.
 
 ## How it works
 
@@ -79,7 +86,7 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data.
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 31."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 32."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -126,7 +133,7 @@ After the free sample, you get a quote: a fixed monthly price for a running moni
 
 ## Data dictionary
 
-The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 27 November 2026.
+The latest prices, [`data/latest/snapshot.csv`](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv), one row per product option. Examples are from the run of 28 November 2026.
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
@@ -145,16 +152,16 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 
 | Field | Type | Meaning | Example |
 |---|---|---|---|
-| `observed_at` | UTC time | Run that saw the change | `2026-11-27T06:17:32Z` |
-| `store_id` | text | Store | `jlab` |
-| `variant_id` | integer | Product option | `40342907191368` |
-| `product_title` | text | Product name | `JBuds Lux ANC Headphones Graphite` |
-| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `price_down` |
-| `old_price_cents` | integer or empty | Price before, US cents | `4999` |
-| `new_price_cents` | integer or empty | Price after, US cents | `4099` |
-| `old_compare_at_cents` | integer or empty | "Was" price before | `8499` |
-| `new_compare_at_cents` | integer or empty | "Was" price after | `8499` |
-| `price_change_pct` | number or empty | Price change in percent, for price events | `-18.0` |
+| `observed_at` | UTC time | Run that saw the change | `2026-11-28T00:40:03Z` |
+| `store_id` | text | Store | `aer` |
+| `variant_id` | integer | Product option | `40296957247584` |
+| `product_title` | text | Product name | `Cable Kit 3` |
+| `event` | text | One of: `price_down`, `price_up`, `discount_start`, `discount_end`, `out_of_stock`, `back_in_stock`, `new`, `removed` | `out_of_stock` |
+| `old_price_cents` | integer or empty | Price before, US cents | `5900` |
+| `new_price_cents` | integer or empty | Price after, US cents | `5900` |
+| `old_compare_at_cents` | integer or empty | "Was" price before | `(empty)` |
+| `new_compare_at_cents` | integer or empty | "Was" price after | `(empty)` |
+| `price_change_pct` | number or empty | Price change in percent, for price events | `(empty)` |
 
 The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
 
