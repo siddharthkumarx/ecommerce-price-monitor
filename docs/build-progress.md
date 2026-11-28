@@ -17,8 +17,10 @@ simplify, then the owner's answers and re-checks. Current rules: `docs/rules.md`
    is in `sources.py`; D-050 (dashboard history JSON) and D-053 (quarantine) are for a
    later part.
 4. recon-010, the one 429 retry of 24 stores (D-052) - `todo`: request committed;
-   start by hand after 22:36 UTC on 28 Nov (24 hours after recon-007), then regenerate
-   the list, gate, one published run on `main`.
+   start by hand after 22:36 UTC on 28 Nov (24 hours after recon-007). Then, in one go:
+   restore Pupford (`store-193`) and Paddletek (`store-279`) with `pricemon.retire
+   --restore` (D-055), regenerate the list (116 plus what recon-010 adds), gate, one
+   published run on `main`.
 
 ## F1-EXPAND (done)
 
