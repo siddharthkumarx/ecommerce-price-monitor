@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "id": "terms-002",
+    "check": "terms",
+    "started_utc": "2026-11-28T10:06:16+00:00",
+    "finished_utc": "2026-11-28T10:06:38+00:00",
+    "git_sha": "5de9da1ced40af55737b1885963ff8ba3c159134",
+    "run_url": "https://github.com/siddharthkumarx/ecommerce-price-monitor/actions/runs/46133551825",
+    "runner": "Linux x86_64 / Python 3.12.3",
+    "user_agent": "ecommerce-price-monitor/0.1 (+https://siddharthkumar.com)",
+    "edge_interval_s": 4.0,
+    "halted_reason": null,
+    "throttle_events": 0,
+    "cooldown_s": 0.0,
+    "requests": 4
+  },
+  "results": [
+    {
+      "check": "terms",
+      "store": "JOOLA",
+      "category": "fitness",
+      "host": "joola.com",
+      "robots_status": "ok",
+      "terms": "no_ban",
+      "terms_source": "read",
+      "terms_sentence": null,
+      "terms_page": "/pages/terms-conditions",
+      "requests": 4,
+      "retries": 0,
+      "retry_causes": [],
+      "stopped_reason": null,
+      "notes": [],
+      "elapsed_s": 21.4
+    }
+  ]
+}
