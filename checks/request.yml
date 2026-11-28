@@ -1,13 +1,38 @@
-# Live check request. Pushing a change to this file runs .github/workflows/checks.yml
-# on the GitHub runner; results are committed to checks/results/<id>/.
-# terms-002: JOOLA again. In terms-001 its /pages/terms redirected to the home page,
-# which was read as its terms; a redirect is now followed only to a terms-like path
-# (D-043). Same pace as terms-001.
-id: terms-002
-check: terms
-stores: config/stores.yml
+# Live check request. Started by hand only (D-051): Run workflow on
+# .github/workflows/checks.yml for the branch; results are committed to
+# checks/results/<id>/.
+# recon-010 (D-052): the one retry of the stores dropped for 429s, at least 24 hours
+# after the run that dropped them, at the normal recon pace, with the Terms field
+# (fail-closed classifier and full search, D-040, D-043): the 19 stores of recon-007
+# (INC-010) and the 5 of recon-004. A 429 in this retry keeps a store out for good.
+id: recon-010
+check: recon
 only:
-  - JOOLA
+  - HeadAmp
+  - Aviator Nation
+  - MOTHER Denim
+  - Naked Cashmere
+  - LoveShackFancy
+  - Hill House Home
+  - Alex Mill
+  - Saturdays NYC
+  - Brixton
+  - Splits59
+  - Madhappy
+  - Psycho Bunny
+  - Icelantic
+  - Tandem Coffee
+  - Spigen
+  - Barton Watch Bands
+  - BodyGuardz
+  - Art of Play
+  - Bowfish Kids
+  - Peach & Lily
+  - Coyuchi
+  - East Fork
+  - Estelle Colored Glass
+  - Miir
+terms: true
 concurrency: 4
 delay_s: 5.0
 jitter_s: 3.0
