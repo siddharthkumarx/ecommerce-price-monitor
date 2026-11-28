@@ -70,24 +70,20 @@ def change_summary(counts: dict[str, int]) -> str:
     return ", ".join(parts) if parts else "no changes"
 
 
-def _latest_change_row(
-    data: Path, hidden: set[str] | frozenset[str] = frozenset()
-) -> dict[str, str]:
-    """An example change row, never from a store shown without its name (D-031)."""
+def _latest_change_row(data: Path, listed: set[str]) -> dict[str, str]:
+    """An example change row of a listed store (never of a retired one)."""
     files = sorted((data / "changes").glob("*/*.csv"))
     if not files:
         return {}
     with files[-1].open(encoding="utf-8") as fh:
-        rows = [r for r in csv.DictReader(fh) if r["store_id"] not in hidden]
+        rows = [r for r in csv.DictReader(fh) if r["store_id"] in listed]
     preferred = [r for r in rows if r["event"] in ("price_down", "discount_start")]
     return (preferred or rows or [{}])[0]
 
 
 def dictionary(f: Facts, data: Path) -> dict[str, list[dict[str, str]]]:
-    hidden = {f.display.data_id(s) for s in f.display.anonymised_ids}
-    named = [r for r in f.sample if r.raw["store_id"] not in hidden]
-    snap = named[0].raw if named else {}
-    change = _latest_change_row(data, hidden)
+    snap = f.sample[0].raw if f.sample else {}
+    change = _latest_change_row(data, {s.id for s in f.stores})
 
     def table(fields: list[tuple[str, str, str]], example: dict[str, str]) -> list[dict[str, str]]:
         return [

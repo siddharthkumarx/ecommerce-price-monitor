@@ -7,8 +7,6 @@ import pytest
 
 from pricemon import sheets
 
-GOLDEN = Path(__file__).parent / "fixtures" / "golden"
-
 
 def test_skips_cleanly_without_secret(
     monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str], tmp_path: Path
@@ -29,26 +27,13 @@ def test_failure_does_not_print_the_credential(
         raise RuntimeError("SECRET-VALUE leaked?")
 
     monkeypatch.setattr(sheets, "publish", boom)
-    assert sheets.main(["--data", str(tmp_path), "--stores", str(tmp_path / "none.yml")]) == 1
+    assert sheets.main(["--data", str(tmp_path)]) == 1
     assert "SECRET-VALUE" not in capsys.readouterr().out
 
 
-def test_latest_table_from_golden_snapshot() -> None:
-    table = sheets.latest_table(
-        GOLDEN / "snapshot_after_run2.csv", {"a": ("Alpha", "alpha.example")}
-    )
-    assert table[0][:4] == ["store", "product", "variant", "price_usd"]
-    assert table[1] == [
-        "Alpha",
-        "Tee (organic)",
-        "V1",
-        "22.40",
-        "28.00",
-        "true",
-        "https://alpha.example/products/tee",
-        "2026-11-05T06:17:00Z",
-    ]
-    assert table[4][0] == "b"  # unknown store falls back to its id
+def test_there_is_no_latest_tab() -> None:
+    # The live snapshot is data/latest/snapshot.csv in the repository (D-048).
+    assert not hasattr(sheets, "latest_table")
 
 
 def test_changes_table_window(tmp_path: Path) -> None:

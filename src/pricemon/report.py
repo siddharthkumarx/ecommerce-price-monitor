@@ -100,17 +100,9 @@ class Facts:
         rows = []
         for c in cats:
             members = [s for s in self.stores if s.category == c]
-            named = sorted(
-                (self.display.name(s.id) for s in members if not self.display.is_anonymised(s.id)),
-                key=str.lower,
-            )
-            hidden = [self.display.name(s.id) for s in members if self.display.is_anonymised(s.id)]
-            rows.append(CategoryRow(category_title(c), len(members), named + hidden))
+            named = sorted((self.display.name(s.id) for s in members), key=str.lower)
+            rows.append(CategoryRow(category_title(c), len(members), named))
         return rows
-
-    @property
-    def anonymised(self) -> int:
-        return len(self.display.anonymised_ids)
 
     @property
     def run_date(self) -> str:
@@ -140,11 +132,9 @@ def _pick_sample(
         return 0
 
     # Ordinary sale prices first (10-50 % off, $10 or more): typical, not outliers.
-    # Named stores first: the sample shows what the data looks like, with links.
     candidates = sorted(
         (r for r in rows if r["available"] == "true" and display.store(r["store_id"])),
         key=lambda r: (
-            display.is_anonymised(r["store_id"]),
             not (10 <= disc(r) <= 50 and int(r["price_cents"]) >= 1000),
             -disc(r),
             r["store_id"],
@@ -167,7 +157,7 @@ def _pick_sample(
                 SampleRow(
                     store=display.name(s.id),
                     category=category_title(s.category),
-                    product=display.title(s.id, r["product_title"]),
+                    product=r["product_title"],
                     variant=variant,
                     price=usd(r["price_cents"]),
                     compare_at=usd(r["compare_at_cents"]) if d else "",
@@ -207,7 +197,7 @@ def _changes(
         changes.append(
             Change(
                 store=display.name(sid),
-                product=display.title(sid, r["product_title"]),
+                product=r["product_title"],
                 variant="" if r["variant_title"] in ("", "Default Title") else r["variant_title"],
                 events=[EVENT_WORDS.get(g["event"], g["event"]) for g in group],
                 old_price=usd(r["old_price_cents"]),
@@ -256,7 +246,7 @@ def collect(
     data: Path, stores_path: Path, now: datetime | None = None, public_path: Path | None = None
 ) -> Facts:
     now = now or datetime.now(UTC)
-    display = load_display(stores_path, public_path or ROOT / "config" / "public.yml")
+    display = load_display(stores_path)
     stores = display.stores
     by_id = {s.id: s for s in stores}
     runs = read_runs(data)

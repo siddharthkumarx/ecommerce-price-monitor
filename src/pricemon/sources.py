@@ -41,21 +41,13 @@ import argparse
 import json
 from collections import defaultdict
 from dataclasses import dataclass, field
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 import yaml
 
-from pricemon.stores import (
-    ALIASES_PATH,
-    CATEGORY_TITLES,
-    RetiredStore,
-    assign_aliases,
-    dump_aliases,
-    load_alias_next,
-    load_aliases,
-    load_retired,
-)
+from pricemon.stores import CATEGORY_TITLES, RetiredStore, load_retired
 
 # Owner decision (F1-EXPAND addendum): 10-12 categories of 20-25 stores, each a demo
 # competitor set; at most PER_CATEGORY per category, MAX_STORES in all.
@@ -110,6 +102,8 @@ class StoreRecord:
     history: list[tuple[str, dict[str, Any]]] = field(default_factory=list)
     reviews: list[ScreenReview] = field(default_factory=list)
     reserve_reason: str | None = None
+    # Start time (UTC ISO) of each run id, for the one 429 retry of D-052.
+    started: dict[str, str] = field(default_factory=dict)
 
     def _reviewed(self, category: str, examples: list[str]) -> ScreenReview | None:
         for review in self.reviews:
@@ -181,27 +175,58 @@ class StoreRecord:
     def latest_id(self) -> str:
         return self.recon[-1][0]
 
+    def _retried_429(
+        self, recon: list[tuple[str, dict[str, Any]]]
+    ) -> tuple[set[int], dict[int, str]]:
+        """D-052: the recon rows whose 429 drop a clean retry lifted, and the rows whose
+        one retry saw a 429 again (index -> the retry's run id).
+
+        The retry of a row is the first later recon row that started at least 24 hours
+        after it. A retry without any 429 lifts the earlier 429 (only the 429 part: a
+        block or a challenge is not lifted). A retry with a 429 keeps the store out for
+        good; that retry is not lifted by any later row.
+        """
+        lifted: set[int] = set()
+        for_good: dict[int, str] = {}
+        stuck: set[int] = set()
+        times = [self.started.get(rid, "") for rid, _ in recon]
+        for i, (_, r) in enumerate(recon):
+            if i in stuck or not _is_429_drop(r) or not times[i]:
+                continue
+            retry = next(
+                (
+                    j
+                    for j in range(i + 1, len(recon))
+                    if times[j] and _hours(times[i], times[j]) >= 24
+                ),
+                None,
+            )
+            if retry is None:
+                continue
+            if _is_429_drop(recon[retry][1]):
+                for_good[i] = recon[retry][0]
+                stuck.add(retry)
+            else:
+                lifted.add(i)
+        return lifted, for_good
+
     def drop_reasons(self) -> list[str]:
         reasons: list[str] = []
         # A later row screened with a newer content screen supersedes the content
         # flags of earlier rows (D-039); rows before screen versions were recorded are v1.
         recon = self.recon
         screens = [r.get("screen_version") or 1 for _, r in recon]
+        lifted, for_good = self._retried_429(recon)
         for i, (rid, r) in enumerate(recon):
             superseded = any(v > screens[i] for v in screens[i + 1 :])
             stopped = r.get("stopped_reason") or ""
             markers = ("blocked", "challenge", "http 429", "robots.txt unreachable")
-            if any(m in stopped for m in markers):
+            if any(m in stopped for m in markers) and not (i in lifted and _only_429_stop(stopped)):
                 reasons.append(f"{rid}: {stopped}")
-            if "retry_causes" in r:
-                n429 = sum(1 for c in r["retry_causes"] if c.startswith("http 429"))
-                if n429:
-                    reasons.append(f"{rid}: {n429} retr{'y' if n429 == 1 else 'ies'} on 429")
-            elif r.get("retries"):
-                reasons.append(
-                    f"{rid}: {r['retries']} retr{'y' if r['retries'] == 1 else 'ies'} "
-                    "(status not recorded, treated as 429)"
-                )
+            if i not in lifted:
+                reasons += [f"{rid}: {x}" for x in _retry_429(r)]
+            if i in for_good:
+                reasons.append(f"{for_good[i]}: 429 again in the one retry, out for good (D-052)")
             for key, path in USED_PATHS:
                 if r.get(key) is False:
                     reasons.append(f"{rid}: robots.txt disallows {path}")
@@ -223,6 +248,31 @@ class StoreRecord:
         return list(dict.fromkeys(reasons))
 
 
+def _retry_429(r: dict[str, Any]) -> list[str]:
+    """The 429 retries a recon row records, as drop reasons (D-004)."""
+    if "retry_causes" in r:
+        n429 = sum(1 for c in r["retry_causes"] if c.startswith("http 429"))
+        return [f"{n429} retr{'y' if n429 == 1 else 'ies'} on 429"] if n429 else []
+    if r.get("retries"):
+        n = r["retries"]
+        return [f"{n} retr{'y' if n == 1 else 'ies'} (status not recorded, treated as 429)"]
+    return []
+
+
+def _only_429_stop(stopped: str) -> bool:
+    """A stop that is a 429 past its retries, not a block or a challenge."""
+    return stopped.startswith("retries exhausted: http 429")
+
+
+def _is_429_drop(r: dict[str, Any]) -> bool:
+    stopped = r.get("stopped_reason") or ""
+    return bool(_retry_429(r)) or _only_429_stop(stopped)
+
+
+def _hours(a: str, b: str) -> float:
+    return (datetime.fromisoformat(b) - datetime.fromisoformat(a)).total_seconds() / 3600
+
+
 def collect(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
@@ -234,6 +284,7 @@ def collect(
     ordered = sorted(sources, key=lambda s: str(s[1]["meta"].get("started_utc") or ""))
     for _, payload in ordered:
         rid = payload["meta"]["id"]
+        started = str(payload["meta"].get("started_utc") or "")
         for r in payload["results"]:
             if r.get("check") == "terms" and r["store"] not in records:
                 continue
@@ -242,6 +293,7 @@ def collect(
                 StoreRecord(r["store"], r["category"], reviews=reviews.get(r["store"], [])),
             )
             rec.history.append((rid, r))
+            rec.started[rid] = started
     return list(records.values())
 
 
@@ -257,7 +309,7 @@ def classify(
 
     Ranking inside a category: terms ``no_ban``, then ``none_found`` (a ``ban`` is
     dropped, D-036);
-    then a store selected before (its id in ``keep``, the fixed-number registry) over
+    then a store selected before (its id in ``keep``, the list now) over
     a new one, so a list that grows does not push monitored stores out; then US shops
     first, fewest recon caveats, larger catalogs. At most
     ``per_category`` per category; then, while more than ``max_stores`` are selected,
@@ -508,48 +560,23 @@ def store_slug(name: str) -> str:
     return slug
 
 
-def selected_aliases(
-    sources: list[tuple[str, dict[str, Any]]],
-    reviews: dict[str, list[ScreenReview]] | None,
-    retired: list[RetiredStore] | None,
-    max_stores: int,
-    aliases: dict[str, int],
-    next_no: int = 1,
-) -> tuple[dict[str, int], int]:
-    """The registry of the selected stores (existing numbers kept, new ones from
-    ``next_no``) and the next number never given. Stores that left are not in it
-    (D-036); their numbers are not given again."""
-    groups = classify(
-        collect(sources, reviews),
-        max_stores=max_stores,
-        retired={r.name for r in retired or []},
-        keep=set(aliases),
-    )
-    chosen = [store_slug(rec.store) for rec in sorted(groups["selected"], key=_order)]
-    full = assign_aliases(aliases, chosen, next_no)
-    nxt = max(next_no, max(full.values(), default=0) + 1)
-    return {sid: full[sid] for sid in chosen}, nxt
-
-
 def render_stores_yml(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
     retired: list[RetiredStore] | None = None,
     max_stores: int = MAX_STORES,
-    aliases: dict[str, int] | None = None,
     keep: set[str] | None = None,
 ) -> str:
     """The monitored store list consumed by the daily run (config/stores.yml).
 
-    ``aliases`` is the fixed-number registry (config/aliases.yml); stores without a
-    number get the next one (see :func:`selected_aliases` to update the registry).
+    ``keep``: ids of the stores listed now; they keep their place (D-031).
     """
     retired = retired or []
     groups = classify(
         collect(sources, reviews),
         max_stores=max_stores,
         retired={r.name for r in retired},
-        keep=set(keep if keep is not None else aliases or {}),
+        keep=set(keep or ()),
     )
     ids = ", ".join(p["meta"]["id"] for _, p in sources)
     lines = [
@@ -558,7 +585,6 @@ def render_stores_yml(
         "stores:",
     ]
     chosen = sorted(groups["selected"], key=_order)
-    numbers = assign_aliases(aliases or {}, [store_slug(rec.store) for rec in chosen])
     for rec in chosen:
         r = rec.latest
         slug = store_slug(rec.store)
@@ -570,7 +596,6 @@ def render_stores_yml(
             f"    recon_variants: {r['variants']}",
             f"    recon_products: {r['products']}",
             f"    terms: {rec.terms}",
-            f"    public_no: {numbers[slug]}",
         ]
         if rec.reviewed_titles():
             lines.append(f"    screen_reviewed: {json.dumps(rec.reviewed_titles())}")
@@ -599,27 +624,29 @@ def main(argv: list[str] | None = None) -> int:
         "--max-stores", type=int, default=MAX_STORES, help="store-list size (default MAX_STORES)"
     )
     parser.add_argument(
-        "--aliases", type=Path, default=ALIASES_PATH, help="fixed public numbers (updated)"
+        "--current", type=Path, default=Path("config/stores.yml"), help="the list now (kept)"
+    )
+    parser.add_argument(
+        "--out", type=Path, help="write here (after --current was read) instead of stdout"
     )
     args = parser.parse_args(argv)
     paths = sorted(args.recon_json, key=lambda p: p.parent.name)
     sources = [(p.as_posix(), json.loads(p.read_text(encoding="utf-8"))) for p in paths]
     reviews = load_reviews(args.reviews)
     retired = load_retired(args.retired)
-    # Stores selected before (they have a fixed number) keep their place (D-031).
-    before = load_aliases(args.aliases)
+    # Stores listed now keep their place (D-031).
+    before: set[str] = set()
+    if args.current.exists():
+        raw = yaml.safe_load(args.current.read_text(encoding="utf-8")) or {}
+        before = {str(s["id"]) for s in raw.get("stores") or []}
     if args.stores_yml:
-        # Numbers never change and are never given twice (D-034, D-036).
-        aliases, nxt = selected_aliases(
-            sources, reviews, retired, args.max_stores, before, load_alias_next(args.aliases)
-        )
-        args.aliases.write_text(dump_aliases(aliases, nxt), encoding="utf-8")
-        out = render_stores_yml(
-            sources, reviews, retired, args.max_stores, aliases, keep=set(before)
-        )
+        out = render_stores_yml(sources, reviews, retired, args.max_stores, keep=before)
     else:
-        out = render(sources, reviews, retired, args.max_stores, keep=set(before))
-    print(out, end="")
+        out = render(sources, reviews, retired, args.max_stores, keep=before)
+    if args.out:
+        args.out.write_text(out, encoding="utf-8")
+    else:
+        print(out, end="")
     return 0
 
 

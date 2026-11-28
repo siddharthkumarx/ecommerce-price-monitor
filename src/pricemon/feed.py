@@ -168,7 +168,7 @@ def build_feed(
     stores = load_stores(stores_path) if stores_path.exists() else []
     public_path = public_path or ROOT / "config" / "public.yml"
     pub = _public(public_path)
-    display = load_display(stores_path, public_path)
+    display = load_display(stores_path)
     repo = pub.get("repo", f"siddharthkumarx/{MONITOR_ID}")
     stores_total = len(stores) or int(last.get("stores_total") or 0)
     category_ids = sorted({s.category for s in stores})
@@ -189,7 +189,8 @@ def build_feed(
             "stores_by_category": {
                 c: sum(1 for s in stores if s.category == c) for c in category_ids
             },
-            "stores_shown_without_name": len(display.anonymised_ids),
+            # Every listed store is shown by name (D-046); kept at 0 for feed readers.
+            "stores_shown_without_name": 0,
             "stores_retired": [
                 {
                     "name": r.name,

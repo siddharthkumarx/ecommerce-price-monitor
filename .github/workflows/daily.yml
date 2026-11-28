@@ -172,6 +172,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.ref_name }}
+          # The month-end snapshot of the Releases mirror is read from git history.
+          fetch-depth: 0
 
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
@@ -180,21 +182,6 @@ jobs:
 
       - name: Install
         run: uv sync --locked --no-dev
-
-      - name: Download this month's history
-        run: |
-          month="$(date -u +%Y-%m)"
-          echo "MONTH=$month" >> "$GITHUB_ENV"
-          echo "TAG=data-$month" >> "$GITHUB_ENV"
-          mkdir -p work
-          # A month file that exists must be downloaded: merging without it would drop
-          # the month's earlier closed versions. A missing file (new month, or a first
-          # upload that failed) is fine: the run starts the month file from the snapshot.
-          assets="$(gh release view "data-$month" --json assets --jq '.assets[].name' 2> /dev/null || true)"
-          if printf '%s\n' "$assets" | grep -qx "price_history_$month.parquet"; then
-            gh release download "data-$month" -p "price_history_$month.parquet" -D work
-          fi
-          ls -la work
 
       - name: Download the shards
         run: |
@@ -213,54 +200,12 @@ jobs:
         run: |
           set +e
           mapfile -t shards < <(find work/shards -name 'fetch-*.json' | sort)
-          args=(--stores config/stores.yml --data data --history-out "work/price_history_$MONTH.parquet")
+          args=(--stores config/stores.yml --data data)
           args+=(--run-at "$RUN_AT" --fetch-in "${shards[@]}" work/shards/none.json)
-          if [ -f "work/price_history_$MONTH.parquet" ]; then
-            args+=(--history-in "work/price_history_$MONTH.parquet")
-          fi
           uv run --no-dev python -m pricemon.run "${args[@]}"
           code=$?
           echo "code=$code" >> "$GITHUB_OUTPUT"
           echo "pipeline exit code $code"
-
-      - name: Upload history to release
-        id: upload
-        if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
-        run: |
-          if ! gh release view "$TAG" > /dev/null 2>&1; then
-            gh release create "$TAG" --title "Price data $MONTH" \
-              --notes "latest-prices.csv: the newest prices of every product option. price_history_$MONTH.parquet: every price version this month. Both are replaced by every good run; the data dictionary is in the README."
-          fi
-          cp data/latest/snapshot.csv work/latest-prices.csv
-          gh release upload "$TAG" "work/price_history_$MONTH.parquet" work/latest-prices.csv --clobber
-          # "Download the data" in the README links to the latest release.
-          gh release edit "$TAG" --latest
-
-      - name: Withdraw from earlier months
-        # The run rewrites this month only; earlier monthly assets get the same keys,
-        # so a store that left (D-036) or is shown by number (D-034) leaves them too.
-        if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
-        continue-on-error: true
-        run: |
-          gh release list --limit 100 --json tagName --jq '.[].tagName' | grep '^data-' | while read -r tag; do
-            [ "$tag" = "$TAG" ] && continue
-            month="${tag#data-}"
-            dir="work/earlier/$month"
-            mkdir -p "$dir"
-            gh release download "$tag" -p "price_history_$month.parquet" -p latest-prices.csv -D "$dir" || continue
-            set +e
-            uv run --no-dev python -m pricemon.publicdata --stores config/stores.yml \
-              --parquet "$dir/price_history_$month.parquet" --csv "$dir/latest-prices.csv"
-            code=$?
-            set -e
-            if [ "$code" = 3 ]; then
-              files=()
-              for f in "$dir/price_history_$month.parquet" "$dir/latest-prices.csv"; do
-                [ -f "$f" ] && files+=("$f")
-              done
-              gh release upload "$tag" "${files[@]}" --clobber
-            fi
-          done
 
       - name: Publish Google Sheet
         if: steps.run.outputs.code == '0' || steps.run.outputs.code == '2'
@@ -296,14 +241,9 @@ jobs:
         with:
           path: site
 
-      # Data is committed only when the history upload succeeded (or was not needed,
-      # as for a held run): a snapshot ahead of the Parquet history would lose the
-      # versions closed in this run.
       - name: Commit data
         id: commit
-        if: >-
-          always() && steps.run.outputs.code != '' &&
-          (steps.upload.outcome == 'success' || steps.upload.outcome == 'skipped')
+        if: always() && steps.run.outputs.code != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -328,6 +268,32 @@ jobs:
           done
           exit 1
 
+
+      # The history mirror (D-047): immutable files built from data committed on main,
+      # uploaded from main only. A file is uploaded once and never replaced or
+      # deleted; a failed upload is repaired by the next run.
+      - name: Mirror the history to Releases
+        if: always() && github.ref == 'refs/heads/main' && steps.commit.outcome == 'success'
+        continue-on-error: true
+        run: |
+          mkdir -p work/releases
+          echo '{}' > work/assets.json
+          gh release list --limit 200 --json tagName --jq '.[].tagName' | { grep '^history-' || true; } |
+            while read -r tag; do
+              names="$(gh release view "$tag" --json assets --jq '[.assets[].name]')"
+              jq --arg t "$tag" --argjson n "$names" '. + {($t): $n}' work/assets.json > work/assets.tmp
+              mv work/assets.tmp work/assets.json
+            done
+          uv run --no-dev python -m pricemon.releases --data data --assets work/assets.json \
+            --today "$(date -u +%F)" --out work/releases > work/releases/plan.txt
+          while read -r tag file; do
+            if ! gh release view "$tag" > /dev/null 2>&1; then
+              gh release create "$tag" --title "Price history ${tag#history-}" --latest=false \
+                --notes "Immutable daily change events (events-YYYY-MM-DD.parquet) and the month-end snapshot (snapshot-YYYY-MM.parquet). Fields: data/README.md."
+            fi
+            gh release upload "$tag" "$file"
+          done < work/releases/plan.txt
+
       - name: Alert on failed or held run
         id: alert
         if: always()
@@ -335,7 +301,7 @@ jobs:
           uv run --no-dev python -m pricemon.alert --data data --code "${{ steps.run.outputs.code }}" \
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --out alert.md || printf 'Alert script failed; see the workflow run.\n' > alert.md
-          for step in "upload:${{ steps.upload.outcome }}" "commit:${{ steps.commit.outcome }}"; do
+          for step in "commit:${{ steps.commit.outcome }}"; do
             case "$step" in
               *:failure|commit:skipped)
                 if [ "$step" = "commit:skipped" ] && [ "${{ steps.run.outputs.code }}" = "" ]; then

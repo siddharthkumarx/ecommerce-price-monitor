@@ -269,14 +269,13 @@ def run_request(request_path: Path) -> int:
 
     if check == "pipeline":
         # Full dry run of the daily pipeline. Outputs go to checks/results/<id>/data,
-        # never to data/; the Parquet file stays in work/ (not committed).
+        # never to data/.
         from pricemon.run import RunConfig
         from pricemon.run import run as run_pipeline
 
         cfg = RunConfig(
             stores=Path(request.get("stores", "config/stores.yml")),
             data=out_dir / "data",
-            history_out=Path("work") / f"{request['id']}.parquet",
             concurrency=int(request.get("concurrency", 5)),
             polite=PoliteConfig(
                 delay_s=float(request.get("delay_s", 4.0)),

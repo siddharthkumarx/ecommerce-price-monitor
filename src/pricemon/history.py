@@ -11,15 +11,16 @@ committed as ``data/latest/snapshot.csv``. Each run:
    retired stores (``config/retired.yml``): their open versions are closed at the
    run time without change events, so a retired store never shows as sold out or
    removed (D-031);
-5. writes the new snapshot and the month's Parquet file (every version valid at
-   any time in the month).
+5. writes the new snapshot. The change events are the history (``data/changes``);
+   GitHub Releases mirror them as immutable per-day Parquet files (D-047,
+   ``pricemon.releases``).
 
 Tracked attributes: ``price_cents``, ``compare_at_cents``, ``available``.
 """
 
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable
+from collections.abc import Iterable
 from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -84,32 +85,6 @@ SELECT store_id, product_id, variant_id, handle, product_title, variant_title,
        price_cents, compare_at_cents, available,
        strftime(valid_from, '%Y-%m-%dT%H:%M:%SZ') AS valid_from
 FROM open_arrow
-ORDER BY store_id, product_id, variant_id, valid_from
-"""
-_MONTH_PREV_EMPTY = "CREATE OR REPLACE TABLE month_prev AS SELECT * FROM closed_arrow LIMIT 0"
-_MONTH_PREV_LOAD = """
-CREATE OR REPLACE TABLE month_prev AS
-SELECT store_id, product_id, variant_id, handle, product_title, variant_title,
-       price_cents, compare_at_cents, available, valid_from, valid_to
-FROM read_parquet(?)
-"""
-_MONTH_BUILD = """
-CREATE OR REPLACE TABLE month_out AS
-SELECT store_id, product_id, variant_id, handle, product_title, variant_title,
-       price_cents, compare_at_cents, available, valid_from, valid_to,
-       ?::TIMESTAMPTZ AS exported_at
-FROM (
-    SELECT *, row_number() OVER (
-        PARTITION BY store_id, variant_id, valid_from
-        ORDER BY valid_to IS NULL, valid_to DESC
-    ) AS rn
-    FROM (
-        SELECT * FROM open_arrow
-        UNION ALL SELECT * FROM closed_arrow
-        UNION ALL SELECT * FROM month_prev
-    )
-)
-WHERE rn = 1 AND (valid_to IS NULL OR valid_to >= ?::TIMESTAMPTZ)
 ORDER BY store_id, product_id, variant_id, valid_from
 """
 
@@ -317,73 +292,3 @@ def write_snapshot(con: duckdb.DuckDBPyConnection, versions: list[Version], path
         con.sql(_SNAPSHOT_SELECT).write_csv(str(path), header=True)
     finally:
         con.unregister("open_arrow")
-
-
-def _revert_uncommitted(con: duckdb.DuckDBPyConnection, known: list[datetime]) -> None:
-    con.execute("CREATE OR REPLACE TABLE known_runs (t TIMESTAMPTZ)")
-    con.executemany("INSERT INTO known_runs VALUES (?)", [[t] for t in known])
-    dropped = con.execute(
-        "SELECT count(*) FROM month_prev WHERE valid_from NOT IN (SELECT t FROM known_runs)"
-    ).fetchone()
-    reopened = con.execute(
-        "SELECT count(*) FROM month_prev WHERE valid_to IS NOT NULL "
-        "AND valid_to NOT IN (SELECT t FROM known_runs)"
-    ).fetchone()
-    con.execute("DELETE FROM month_prev WHERE valid_from NOT IN (SELECT t FROM known_runs)")
-    con.execute(
-        "UPDATE month_prev SET valid_to = NULL "
-        "WHERE valid_to IS NOT NULL AND valid_to NOT IN (SELECT t FROM known_runs)"
-    )
-    if (dropped and dropped[0]) or (reopened and reopened[0]):
-        print(
-            f"history repair: dropped {dropped[0] if dropped else 0} versions and re-opened "
-            f"{reopened[0] if reopened else 0} from runs whose commit did not land",
-            flush=True,
-        )
-
-
-def update_month_parquet(
-    con: duckdb.DuckDBPyConnection,
-    existing: Path | None,
-    open_versions: list[Version],
-    closed_versions: list[Version],
-    month_start: datetime,
-    exported_at: datetime,
-    out: Path,
-    committed_runs: Iterable[datetime] | None = None,
-    rekey: Callable[[duckdb.DuckDBPyConnection], int] | None = None,
-) -> int:
-    """Rewrite the month file: every version valid at any time in the month.
-
-    Union of the existing month file, versions closed in this run and the current
-    open versions; on a duplicate key ``(store_id, variant_id, valid_from)`` a
-    closed row wins over an open one. Returns the number of rows written.
-
-    ``committed_runs``: start times of the runs whose data commit landed
-    (``runs.jsonl``). A run can upload this file and then fail to commit its
-    snapshot (INC-006); its traces are reverted here: versions it opened are
-    dropped and versions it closed are re-opened, so the file agrees with the
-    committed snapshot again.
-    """
-    out.parent.mkdir(parents=True, exist_ok=True)
-    con.register("open_arrow", _versions_table(open_versions))
-    con.register("closed_arrow", _versions_table(closed_versions))
-    try:
-        if existing is not None and existing.exists():
-            con.execute(_MONTH_PREV_LOAD, [str(existing)])
-            if rekey is not None:
-                # Public keys and texts of stores shown without their name (D-034).
-                rekey(con)
-            if committed_runs is not None:
-                _revert_uncommitted(con, [*committed_runs, exported_at])
-        else:
-            con.execute(_MONTH_PREV_EMPTY)
-        con.execute(_MONTH_BUILD, [exported_at, month_start])
-    finally:
-        con.unregister("open_arrow")
-        con.unregister("closed_arrow")
-    tmp = out.with_name(out.name + ".tmp")
-    con.table("month_out").write_parquet(str(tmp), compression="zstd")
-    tmp.replace(out)
-    count = con.execute("SELECT count(*) FROM month_out").fetchone()
-    return int(count[0]) if count else 0

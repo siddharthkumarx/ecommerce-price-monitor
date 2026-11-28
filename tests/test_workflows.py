@@ -37,12 +37,22 @@ def test_jobs_have_timeouts_and_step_refs_exist(path: Path) -> None:
         assert ref in ids, f"{path.name}: steps.{ref} is not a step id"
 
 
-def test_daily_commits_data_only_after_the_history_upload() -> None:
+def test_daily_mirrors_history_to_releases_from_main_only_after_the_commit() -> None:
     daily = _load(WORKFLOWS[[p.name for p in WORKFLOWS].index("daily.yml")])
-    steps = {s.get("id"): s for s in daily["jobs"]["run"]["steps"] if s.get("id")}
-    assert "steps.upload.outcome" in steps["commit"]["if"]
-    names = [s.get("name") for s in daily["jobs"]["run"]["steps"]]
-    assert names.index("Upload history to release") < names.index("Commit data")
+    steps = daily["jobs"]["run"]["steps"]
+    names = [s.get("name") for s in steps]
+    mirror = steps[names.index("Mirror the history to Releases")]
+    assert names.index("Commit data") < names.index("Mirror the history to Releases")
+    # From main only (a branch run uploads nothing) and only after the data commit.
+    assert "github.ref == 'refs/heads/main'" in mirror["if"]
+    assert "steps.commit.outcome == 'success'" in mirror["if"]
+    # Immutable files: an asset is uploaded once, never replaced or deleted (D-047).
+    text = (Path(__file__).resolve().parents[1] / ".github" / "workflows" / "daily.yml").read_text()
+    assert "--clobber" not in text
+    assert "gh release delete" not in text
+    assert "price_history_" not in text  # the monthly Parquet is gone
+    checkout = next(s for s in steps if "actions/checkout" in s.get("uses", ""))
+    assert checkout["with"]["fetch-depth"] == 0  # the month-end snapshot comes from git
     assert daily["concurrency"] == {"group": "daily", "cancel-in-progress": False}
     assert daily["jobs"]["run"]["timeout-minutes"] <= 45  # owner limit (D-020)
 
@@ -57,13 +67,12 @@ def test_pages_deploy_is_gated_and_least_privilege() -> None:
     assert "vars.PAGES_ENABLED == 'true'" in upload["if"]
 
 
-def test_live_checks_never_run_on_a_tag_push() -> None:
+def test_live_checks_start_by_hand_only() -> None:
     checks = _load(WORKFLOWS[[p.name for p in WORKFLOWS].index("checks.yml")])
     triggers: dict[Any, Any] = checks
-    push = triggers["on" if "on" in triggers else True]["push"]  # PyYAML reads `on` as True
-    assert push["branches"] == ["**"]  # INC-008
-    assert "tags" not in push
-    assert push["paths"] == ["checks/request.yml"]
+    on = triggers["on" if "on" in triggers else True]  # PyYAML reads `on` as True
+    # Pushing checks/request.yml (or a tag, INC-008) starts nothing (D-051).
+    assert set(on) == {"workflow_dispatch"}
 
 
 def test_a_live_check_runs_once_even_when_main_is_fast_forwarded() -> None:

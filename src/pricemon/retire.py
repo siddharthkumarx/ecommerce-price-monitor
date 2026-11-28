@@ -7,8 +7,8 @@ A store that leaves the monitor on purpose is retired: it gets an entry in
 leave the live snapshot in the next run and its history stays in ``data/``.
 
 ``--hide-name`` is for a store whose Terms of Service turned out to ban robots
-(D-040): it is retired under its fixed number (``store-017``, the ``public_no`` it
-had while listed) and this command rewrites the committed public data once, so no
+(D-040): it is retired under a new number (``store-309``, never given twice) and
+this command rewrites the committed public data once, so no
 data file names it: the snapshot, the change logs and the run log are keyed by the
 number, product handles and the store's host are emptied, and the store's name is
 taken out of product titles and failure reasons. The command ends by searching
@@ -189,28 +189,103 @@ def retired_entry(store_id: str, name: str, category: str, on: date, reason: str
     )
 
 
+def next_number(retired: Path) -> int:
+    """The next number for a store retired by number: above every number given so far
+    (the retired ``store-NNN`` ids, and 308, the highest number of the old alias
+    registry, D-034, deleted in D-046), so a number is never given twice."""
+    used = [308]
+    if retired.exists():
+        for r in (yaml.safe_load(retired.read_text(encoding="utf-8")) or {}).get("retired") or []:
+            m = re.fullmatch(r"store-(\d+)", str(r["id"]))
+            if m:
+                used.append(int(m.group(1)))
+    return max(used) + 1
+
+
+def withdraw_store(data: Path, store_id: str) -> list[Path]:
+    """Take one store out of the committed public data, once, by hand (D-049): its
+    rows leave the snapshot and the change logs, its entries leave the run log. Run
+    totals stay as they were measured; each run record it left says so in
+    ``withdrawn_stores``."""
+    changed: list[Path] = []
+    for path in [data / "latest" / "snapshot.csv", *sorted((data / "changes").glob("*/*.csv"))]:
+        if not path.exists():
+            continue
+        reader = csv.DictReader(io.StringIO(path.read_text(encoding="utf-8")))
+        rows = list(reader)
+        keep = [r for r in rows if r.get("store_id") != store_id]
+        if len(keep) != len(rows):
+            buf = io.StringIO()
+            writer = csv.DictWriter(
+                buf, fieldnames=list(reader.fieldnames or []), lineterminator="\n"
+            )
+            writer.writeheader()
+            writer.writerows(keep)
+            path.write_text(buf.getvalue(), encoding="utf-8")
+            changed.append(path)
+    runs = data / "runs.jsonl"
+    if runs.exists():
+        out: list[str] = []
+        dirty = False
+        for line in runs.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            hit = False
+            for key in ("stores", "stores_not_updated"):
+                entries = record.get(key) or []
+                kept = [s for s in entries if s.get("store_id") != store_id]
+                if len(kept) != len(entries):
+                    record[key] = kept
+                    hit = True
+            if store_id in (record.get("stores_added") or []):
+                record["stores_added"] = [x for x in record["stores_added"] if x != store_id]
+                hit = True
+            if store_id in (record.get("reject_examples") or {}):
+                del record["reject_examples"][store_id]
+                hit = True
+            if hit:
+                record["withdrawn_stores"] = int(record.get("withdrawn_stores") or 0) + 1
+                line = json.dumps(record, sort_keys=True, separators=(",", ":"))
+                dirty = True
+            out.append(line)
+        if dirty:
+            runs.write_text("\n".join(out) + "\n", encoding="utf-8")
+            changed.append(runs)
+    return changed
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    p.add_argument("--id", required=True, help="the store's id in config/stores.yml")
-    p.add_argument("--reason", required=True)
-    p.add_argument("--hide-name", action="store_true", help="retire under its number (Terms ban)")
+    p.add_argument("--id", required=True, help="the store's id in config/stores.yml (or data)")
+    p.add_argument("--reason", help="why it leaves (required to retire)")
+    mode = p.add_mutually_exclusive_group()
+    mode.add_argument("--hide-name", action="store_true", help="retire under a number (Terms ban)")
+    mode.add_argument(
+        "--withdraw", action="store_true", help="take it out of the public data instead"
+    )
     p.add_argument("--on", type=date.fromisoformat, default=datetime.now(UTC).date())
     p.add_argument("--stores", type=Path, default=Path("config/stores.yml"))
     p.add_argument("--retired", type=Path, default=Path("config/retired.yml"))
     p.add_argument("--data", type=Path, default=Path("data"))
     a = p.parse_args(argv)
+    if a.withdraw:
+        for path in withdraw_store(a.data, a.id):
+            print(f"rewritten: {path}")
+        print(f"withdrew {a.id} from {a.data}")
+        return 0
+    if not a.reason:
+        p.error("--reason is required to retire a store")
     raw = yaml.safe_load(a.stores.read_text(encoding="utf-8")) or {}
     store = next((s for s in raw.get("stores") or [] if str(s["id"]) == a.id), None)
     if store is None:
         p.error(f"{a.id} is not in {a.stores}")
     name, category, host = str(store["name"]), str(store["category"]), str(store["host"])
     if a.hide_name:
-        if store.get("public_no") is None:
-            p.error(f"{a.id} has no public_no in {a.stores}")
-        new_id = alias_id(int(store["public_no"]))
-        shown = f"Store #{int(store['public_no'])}"
+        number = next_number(a.retired)
+        new_id, shown = alias_id(number), f"Store #{number}"
         words = name_words(a.id, name, host)
         for path in hide_store(a.data, a.id, new_id, words):
             print(f"rewritten: {path}")

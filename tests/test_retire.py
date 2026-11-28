@@ -13,8 +13,8 @@ from tests.test_outputs import DAY1, DAY2, catalog, fetched
 STORES = (
     "stores:\n"
     '  - {id: alphacorp, name: "Alphacorp", category: outdoor, host: www.alphacorp.example, '
-    "terms: no_ban, public_no: 17}\n"
-    "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban, public_no: 2}\n"
+    "terms: no_ban}\n"
+    "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban}\n"
 )
 
 
@@ -49,16 +49,16 @@ def test_hide_store_keys_every_data_file_by_number_without_the_name(tmp_path: Pa
     _, data = _published(tmp_path)
     words = name_words("alphacorp", "Alphacorp", "www.alphacorp.example")
     assert leftovers(data, words)
-    changed = hide_store(data, "alphacorp", "store-017", words)
+    changed = hide_store(data, "alphacorp", "store-309", words)
     assert data / "runs.jsonl" in changed
     assert leftovers(data, words) == []
     with (data / "latest" / "snapshot.csv").open() as fh:
-        rows = [r for r in csv.DictReader(fh) if r["store_id"] == "store-017"]
+        rows = [r for r in csv.DictReader(fh) if r["store_id"] == "store-309"]
     assert len(rows) == 4
     assert {r["handle"] for r in rows} == {""}
     assert rows[0]["product_title"].startswith("Product ")
     # Idempotent: a second pass changes nothing.
-    assert hide_store(data, "alphacorp", "store-017", words) == []
+    assert hide_store(data, "alphacorp", "store-309", words) == []
 
 
 def test_retire_hide_name_adds_the_retired_entry_and_the_next_run_closes_its_rows(
@@ -77,14 +77,14 @@ def test_retire_hide_name_adds_the_retired_entry_and_the_next_run_closes_its_row
     assert code == 0
     (entry,) = load_retired(retired)
     assert (entry.id, entry.name, entry.reason) == (
-        "store-017",
-        "Store #17",
+        "store-309",
+        "Store #309",
         "Terms of Service ban robots (terms-001)",
     )
     # The list without the store, the retired entry with it: the next run closes its rows.
     stores.write_text(
         "stores:\n  - {id: beta, name: Beta, category: audio, host: beta.example, "
-        "terms: no_ban, public_no: 2}\n" + retired.read_text()
+        "terms: no_ban}\n" + retired.read_text()
     )
     day3 = DAY2.replace(day=6)
     cfg = RunConfig(stores=stores, data=data)
@@ -94,7 +94,7 @@ def test_retire_hide_name_adds_the_retired_entry_and_the_next_run_closes_its_row
     words = name_words("alphacorp", "Alphacorp", "www.alphacorp.example")
     assert leftovers(data, words) == []
     history = (data / "changes" / "2026" / "2026-11-05.csv").read_text()
-    assert "store-017" in history  # the history stays, by number
+    assert "store-309" in history  # the history stays, by number
     assert json.loads((data / "runs.jsonl").read_text().splitlines()[0])["stores_total"] == 2
 
 
@@ -105,3 +105,18 @@ def test_name_words_cover_a_bracketed_name_and_the_host() -> None:
     words = name_words("bluelounge", "Bluelounge", "shopadvantus.com")
     assert "advantus" in words
     assert "Equator" in name_words("equator-coffees", "Equator Coffees", "equatorcoffees.com")
+
+
+def test_withdraw_takes_a_store_out_and_leaves_the_run_totals(tmp_path: Path) -> None:
+    from pricemon.retire import withdraw_store
+
+    _, data = _published(tmp_path)
+    before = json.loads((data / "runs.jsonl").read_text().splitlines()[0])
+    changed = withdraw_store(data, "alphacorp")
+    assert data / "runs.jsonl" in changed
+    assert "alphacorp" not in (data / "latest" / "snapshot.csv").read_text()
+    after = json.loads((data / "runs.jsonl").read_text().splitlines()[0])
+    assert after["stores_total"] == before["stores_total"]  # totals as measured (D-049)
+    assert after["withdrawn_stores"] == 1
+    assert [s["store_id"] for s in after["stores"]] == ["beta"]
+    assert withdraw_store(data, "alphacorp") == []

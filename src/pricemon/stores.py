@@ -45,8 +45,6 @@ class Store:
     host: str
     terms: str  # no_ban | none_found: load_stores refuses a missing value or ban (D-042)
     screen_reviewed: frozenset[str] = frozenset()
-    # Fixed public number (config/aliases.yml, D-034): assigned once, never reused.
-    public_no: int | None = None
 
     @property
     def base_url(self) -> str:
@@ -85,13 +83,9 @@ def load_stores(path: Path) -> list[Store]:
             host=str(s["host"]),
             screen_reviewed=frozenset(str(t) for t in s.get("screen_reviewed") or []),
             terms=str(s["terms"]),
-            public_no=int(s["public_no"]) if s.get("public_no") is not None else None,
         )
         for s in raw["stores"]
     ]
-    numbers = [s.public_no for s in stores if s.public_no is not None]
-    if len(numbers) != len(set(numbers)):
-        raise ValueError("duplicate public_no in stores.yml")
     ids = [s.id for s in stores]
     if len(ids) != len(set(ids)):
         raise ValueError("duplicate store ids in stores.yml")
@@ -126,53 +120,8 @@ def load_retired(path: Path) -> list[RetiredStore]:
     return out
 
 
-ALIASES_PATH = Path("config/aliases.yml")
-ALIASES_HEADER = (
-    '# Fixed public numbers of the stores (D-034), used for "Store #<n>" and the alias\n'
-    "# id store-<nnn> of a store shown without its name. Written by\n"
-    "# `python -m pricemon.sources --stores-yml`: a store gets a number the first time it\n"
-    "# is listed and keeps it; a store that leaves the list leaves this file (D-036), and\n"
-    "# `next` is the lowest number never given, so no number is ever reused.\n"
-)
-
-
-def load_aliases(path: Path = ALIASES_PATH) -> dict[str, int]:
-    if not path.exists():
-        return {}
-    raw = _raw(path).get("numbers") or {}
-    out = {str(k): int(v) for k, v in raw.items()}
-    if len(set(out.values())) != len(out):
-        raise ValueError(f"duplicate numbers in {path}")
-    return out
-
-
-def load_alias_next(path: Path = ALIASES_PATH) -> int:
-    """The lowest number never given (``next`` in the file, else one above the highest)."""
-    if not path.exists():
-        return 1
-    raw = _raw(path)
-    numbers = [int(v) for v in (raw.get("numbers") or {}).values()]
-    return max(int(raw.get("next") or 1), max(numbers, default=0) + 1)
-
-
-def assign_aliases(
-    registry: dict[str, int], store_ids: list[str], next_no: int = 1
-) -> dict[str, int]:
-    """The registry with a new number for every id that has none; existing ones kept.
-
-    New numbers start at ``next_no`` or above the highest in use, whichever is larger.
-    """
-    out = dict(registry)
-    nxt = max(max(out.values(), default=0) + 1, next_no)
-    for sid in store_ids:
-        if sid not in out:
-            out[sid] = nxt
-            nxt += 1
-    return out
-
-
-def dump_aliases(registry: dict[str, int], next_no: int = 1) -> str:
-    nxt = max(next_no, max(registry.values(), default=0) + 1)
-    lines = [ALIASES_HEADER.rstrip("\n"), f"next: {nxt}", "numbers:"]
-    lines += [f"  {sid}: {n}" for sid, n in sorted(registry.items(), key=lambda kv: kv[1])]
-    return "\n".join(lines) + "\n"
+def unlisted_ids(path: Path, ids: set[str]) -> list[str]:
+    """Those of ``ids`` that are neither listed nor retired in the store list."""
+    known = {str(s["id"]) for s in _raw(path).get("stores") or []}
+    known |= {r.id for r in load_retired(path)}
+    return sorted(ids - known)

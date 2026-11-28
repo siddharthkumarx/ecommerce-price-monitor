@@ -1,8 +1,6 @@
 """The daily pipeline.
 
-    python -m pricemon.run --stores config/stores.yml --data data \\
-        --history-in work/price_history_2026-11.parquet \\
-        --history-out work/price_history_2026-11.parquet
+    python -m pricemon.run --stores config/stores.yml --data data
 
 Exit codes: 0 ok, 2 partial (some stores not updated), 3 held (nothing published,
 last good data stays live), 1 crashed. Outputs are written for every code.
@@ -13,8 +11,7 @@ runner, D-020), then processes them once:
 
     python -m pricemon.run --shard 1/3 --run-at 2026-11-28T06:17:30Z --fetch-out work/fetch-1.json
     ...
-    python -m pricemon.run --run-at 2026-11-28T06:17:30Z --fetch-in work/fetch-1.json ... \
-        --history-in ... --history-out ...
+    python -m pricemon.run --run-at 2026-11-28T06:17:30Z --fetch-in work/fetch-1.json ...
 
 A shard writes only its fetch file; the process step writes every output. A store
 whose shard file is missing (the shard job failed or timed out) is "not updated"
@@ -38,7 +35,6 @@ from pathlib import Path
 from typing import Any
 
 from pricemon import __version__
-from pricemon.display import Display, load_display
 from pricemon.feed import publish as publish_feed
 from pricemon.fetch import StoreFetch, fetch_store
 from pricemon.guard import PrevVersion, accept_repeat, check_batch
@@ -47,7 +43,6 @@ from pricemon.history import (
     load_snapshot,
     merge,
     previous_versions,
-    update_month_parquet,
     write_snapshot,
 )
 from pricemon.models import VariantRow
@@ -63,19 +58,17 @@ from pricemon.outputs import (
     write_status,
 )
 from pricemon.polite import EdgeGuard, PoliteConfig, StoreSession, make_client
-from pricemon.publicdata import public_examples, public_fetch, public_rows, rekey_files, rekey_month
 from pricemon.schedule import dispatch_slot
-from pricemon.stores import Store, load_retired, load_stores
+from pricemon.stores import Store, load_retired, load_stores, unlisted_ids
 
 EXIT_OK, EXIT_CRASHED, EXIT_PARTIAL, EXIT_HELD = 0, 1, 2, 3
+_SNAPSHOT_IDS = "SELECT DISTINCT store_id FROM prev"
 
 
 @dataclass
 class RunConfig:
     stores: Path
     data: Path
-    history_in: Path | None = None
-    history_out: Path | None = None
     concurrency: int = 5
     polite: PoliteConfig = field(default_factory=lambda: PoliteConfig(delay_s=4.0, jitter_s=3.0))
     edge_interval_s: float = 3.0
@@ -92,8 +85,6 @@ class RunConfig:
     # carry over to this shard (D-033).
     edge_from: list[Path] = field(default_factory=list)
     run_at: datetime | None = None
-    display: Display | None = None
-    public: Path | None = None
 
 
 def daily_order(stores: list[Store], day: Any) -> list[Store]:
@@ -128,27 +119,16 @@ async def fetch_all(
                     client=client, base_url=store.base_url, config=cfg.polite, edge=edge
                 )
                 result = await fetch_store(session, store, day)
-                # Actions logs are public: a store shown without its name is logged by
-                # its alias id (D-034).
-                label = cfg.display.data_id(store.id) if cfg.display else store.id
-                why = cfg.display.reason(store.id, result.reason) if cfg.display else result.reason
                 print(
-                    f"{label:<24} {result.status:<8} products={len(result.products):<5} "
-                    f"reqs={result.requests:<3} {why or ''}",
+                    f"{store.id:<24} {result.status:<8} products={len(result.products):<5} "
+                    f"reqs={result.requests:<3} {result.reason or ''}",
                     flush=True,
                 )
                 return result
 
-        # A store whose terms ban robots is never read (D-036), even if it reached the
-        # list by mistake; the display rule still shows it by number only.
-        banned = {s.id for s in stores if s.terms == "ban"}
-        order = [s for s in daily_order(stores, day) if s.id not in banned]
+        # No store whose terms ban robots is ever listed: load_stores refuses one (D-042).
+        order = daily_order(stores, day)
         results = {r.store_id: r for r in await asyncio.gather(*(one(s) for s in order))}
-        for s in stores:
-            if s.id in banned:
-                skipped = StoreFetch(store_id=s.id, host=s.host, observed_at=datetime.now(UTC))
-                skipped.reason = "not read: its terms ban automated access (D-036)"
-                results[s.id] = skipped
         return [results[s.id] for s in stores]
 
 
@@ -181,11 +161,6 @@ def process(
 ) -> tuple[int, dict[str, Any]]:
     """Validate, guard, merge and write outputs. Returns (exit code, run record)."""
     data = cfg.data
-    display = cfg.display or load_display(cfg.stores, cfg.public)
-    # Files written before the current config: bring anonymised stores to their
-    # public keys first (D-034); a no-op on an unchanged config.
-    rekey_files(data, display)
-    fetches = [public_fetch(display, f) for f in fetches]
     rows: list[VariantRow] = []
     per_store: dict[str, list[VariantRow]] = {}
     rejected: dict[str, int] = {}
@@ -197,7 +172,6 @@ def process(
         if not f.complete:
             continue
         store_rows, stats = normalize_products(f.store_id, f.products, f.observed_at)
-        store_rows = public_rows(display, store_rows)
         per_store[f.store_id] = store_rows
         rows += store_rows
         rejected[f.store_id] = stats.rejected
@@ -205,11 +179,20 @@ def process(
         compare_at_ignored += stats.compare_at_ignored
         free_variants += stats.free
         if stats.examples:
-            reject_examples[f.store_id] = public_examples(display, f.store_id, stats.examples)
+            reject_examples[f.store_id] = stats.examples
 
     snapshot = data / "latest" / "snapshot.csv"
     con = connect()
     load_snapshot(con, snapshot)
+    if cfg.stores.exists():
+        # A store leaves the data only by being retired (or by the one-off withdraw
+        # command); a store that just vanished from the list is a mistake (D-049).
+        stray = unlisted_ids(cfg.stores, {str(r[0]) for r in con.sql(_SNAPSHOT_IDS).fetchall()})
+        if stray:
+            raise ValueError(
+                f"the snapshot holds stores that are neither listed nor retired: {stray} "
+                "(retire them with python -m pricemon.retire, or withdraw them)"
+            )
     prev = {
         store: {vid: PrevVersion(price, compare) for vid, (price, compare) in versions.items()}
         for store, versions in previous_versions(con).items()
@@ -232,7 +215,6 @@ def process(
     retired_closed = 0
     stores_added: list[str] = []
     baseline_rows = 0
-    parquet_rows = None
     if not held:
         retired = {r.id for r in load_retired(cfg.stores)}
         result = merge(con, rows, set(per_store), run_at, retired)
@@ -247,21 +229,6 @@ def process(
             1 for e in result.events if e.event == "new" and e.store_id in stores_added
         )
         rows_live = len(result.open_versions)
-        if cfg.history_out is not None:
-            month_start = run_at.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-            parquet_rows = update_month_parquet(
-                con,
-                cfg.history_in,
-                result.open_versions,
-                result.closed_versions,
-                month_start,
-                run_at,
-                cfg.history_out,
-                committed_runs=[
-                    parse_iso(r["started_at"]) for r in history if r["status"] in ("ok", "partial")
-                ],
-                rekey=lambda c: rekey_month(c, display),
-            )
 
     failed = [f for f in fetches if not f.complete]
     status = "held" if held else ("partial" if failed else "ok")
@@ -288,7 +255,6 @@ def process(
         "stores_added": stores_added,
         "baseline_rows": baseline_rows,
         "events": events_by_type,
-        "parquet_rows": parquet_rows,
         "requests": sum(f.requests for f in fetches),
         "retries": sum(f.retries for f in fetches),
         "retry_causes": dict(Counter(c for f in fetches for c in f.retry_causes)),
@@ -364,8 +330,6 @@ def write_shard(cfg: RunConfig, run_at: datetime) -> int:
         deadline=time.monotonic() + cfg.budget_s,
         current_interval_s=max(cfg.edge_interval_s, prev_interval),
     )
-    display = cfg.display or load_display(cfg.stores, cfg.public)
-    cfg.display = display
     if prev_halt:
         # An earlier shard was refused by the edge: this one sends no request.
         edge.halted_reason = f"halted in an earlier shard ({prev_halt})"
@@ -377,11 +341,11 @@ def write_shard(cfg: RunConfig, run_at: datetime) -> int:
         print(f"shard {k}/{n}: not read, {edge.halted_reason}", flush=True)
     else:
         raw = asyncio.run(fetch_all(stores, cfg, run_at.date(), edge))
-    fetches = [public_fetch(display, f) for f in raw]
+    fetches = raw
     payload = {
         "run_at": iso(run_at),
         "shard": [k, n],
-        "stores": [display.data_id(s.id) for s in stores],
+        "stores": [s.id for s in stores],
         "duration_s": round(time.monotonic() - started, 1),
         "edge": _edge_json(edge),
         "fetches": [f.to_json() for f in fetches],
@@ -439,12 +403,10 @@ def read_shards(
     edge.current_interval_s = edge.current_interval_s or cfg.edge_interval_s
     edge.halted_reason = "; ".join(halted) or None
     fetches = []
-    display = cfg.display or load_display(cfg.stores, cfg.public)
     for s in stores:
-        key = display.data_id(s.id)
-        found = by_id.get(key)
+        found = by_id.get(s.id)
         if found is None:
-            found = StoreFetch(store_id=key, host=display.host(s.id), observed_at=run_at)
+            found = StoreFetch(store_id=s.id, host=s.host, observed_at=run_at)
             found.reason = "not read: its shard did not finish"
         fetches.append(found)
     return fetches, edge, sorted(shards, key=lambda x: int(x["shard"][0]))
@@ -461,7 +423,6 @@ def run(cfg: RunConfig, now: datetime | None = None) -> int:
     stores = load_stores(cfg.stores)
     if cfg.only:
         stores = [s for s in stores if s.id in cfg.only]
-    cfg.display = cfg.display or load_display(cfg.stores, cfg.public)
     try:
         edge = EdgeGuard(
             interval_s=cfg.edge_interval_s,
@@ -503,8 +464,6 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     p.add_argument("--stores", type=Path, default=Path("config/stores.yml"))
     p.add_argument("--data", type=Path, default=Path("data"))
-    p.add_argument("--history-in", type=Path)
-    p.add_argument("--history-out", type=Path)
     p.add_argument("--concurrency", type=int, default=5, help="stores in flight")
     # Daily pace (docs/decisions.md, D-005).
     p.add_argument("--delay", type=float, default=4.0, help="per-store delay, seconds")
@@ -533,8 +492,6 @@ def main(argv: list[str] | None = None) -> int:
     cfg = RunConfig(
         stores=a.stores,
         data=a.data,
-        history_in=a.history_in,
-        history_out=a.history_out,
         concurrency=a.concurrency,
         polite=PoliteConfig(delay_s=a.delay, jitter_s=a.jitter),
         edge_interval_s=a.edge_interval,

@@ -1,16 +1,14 @@
 # Live checks. The development sandbox cannot reach shops, so every live check
-# is requested by editing checks/request.yml and runs here. Results are
-# committed to checks/results/<id>/ on the same branch.
+# is described in checks/request.yml and runs here. Results are committed to
+# checks/results/<id>/ on the same branch.
+#
+# Started by hand only (D-051): `Run workflow` on the branch, or
+# `gh workflow run checks.yml --ref <branch>`. Pushing checks/request.yml starts
+# nothing, so a fast-forward of main never starts a second run (INC-010).
 name: checks
 
 on:
-  push:
-    # Branches only: a tag push carries every file, so without this filter moving a
-    # tag re-ran the last live check against every store (INC-008).
-    branches:
-      - "**"
-    paths:
-      - checks/request.yml
+  workflow_dispatch:
 
 permissions:
   contents: write

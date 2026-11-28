@@ -289,3 +289,53 @@ def test_a_terms_check_decides_terms_only(  # D-043
     assert records["Beta"].terms == "no_ban"
     assert records["Beta"].drop_reasons() == []
     assert records["Gamma"].terms == "none_found"
+
+
+def _timed(rid: str, started: str, *rows: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+    path, payload = _run(rid, *rows)
+    payload["meta"]["started_utc"] = started
+    return path, payload
+
+
+def test_a_429_drop_is_lifted_by_one_clean_retry_a_day_later() -> None:  # D-052
+    hot = _row(
+        "Hot",
+        retries=3,
+        retry_causes=["http 429"] * 3,
+        stopped_reason=("retries exhausted: http 429"),
+    )
+    early = _timed("recon-010", "2026-11-28T10:00:00+00:00", _row("Hot"))
+    late = _timed("recon-011", "2026-11-29T00:00:00+00:00", _row("Hot"))
+    first = _timed("recon-007", "2026-11-27T20:30:00+00:00", hot)
+    # Too early (13.5 hours): not the retry, the 429 still drops the store.
+    (rec,) = collect([first, early])
+    assert rec.drop_reasons() == [
+        "recon-007: retries exhausted: http 429",
+        "recon-007: 3 retries on 429",
+    ]
+    # At least 24 hours later and clean: lifted.
+    (rec,) = collect([first, late])
+    assert rec.drop_reasons() == []
+
+
+def test_a_429_in_the_one_retry_keeps_the_store_out_for_good() -> None:  # D-052
+    first = _timed("recon-004", "2026-11-10T00:00:00+00:00", _row("Hot", retry_causes=["http 429"]))
+    again = _timed("recon-010", "2026-11-28T23:00:00+00:00", _row("Hot", retry_causes=["http 429"]))
+    clean = _timed("recon-012", "2026-12-05T00:00:00+00:00", _row("Hot", retry_causes=[]))
+    (rec,) = collect([first, again, clean])
+    assert rec.drop_reasons() == [
+        "recon-004: 1 retry on 429",
+        "recon-010: 429 again in the one retry, out for good (D-052)",
+        "recon-010: 1 retry on 429",
+    ]
+
+
+def test_a_challenge_is_not_lifted_by_a_retry() -> None:
+    first = _timed(
+        "recon-001",
+        "2026-11-01T00:00:00+00:00",
+        _row("Cf", stopped_reason="blocked: cloudflare challenge (http 429)"),
+    )
+    later = _timed("recon-010", "2026-11-28T23:00:00+00:00", _row("Cf"))
+    (rec,) = collect([first, later])
+    assert rec.drop_reasons() == ["recon-001: blocked: cloudflare challenge (http 429)"]

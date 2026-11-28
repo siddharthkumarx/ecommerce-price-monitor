@@ -247,8 +247,7 @@ def render(data: Path, stores: list[Store], now: datetime, display: Display | No
     runs = read_runs(data)
     status = build_status(runs, now)
     schedule = status.get("schedule") or {}
-    # Public data keys an anonymised store by its alias id (D-034).
-    ids = {display.data_id(s.id) for s in stores}
+    ids = {s.id for s in stores}
     # Monitored stores only: a retired store's rows are not live prices.
     summary = {
         s["store_id"]: s
@@ -352,12 +351,12 @@ def render(data: Path, stores: list[Store], now: datetime, display: Display | No
         # Named stores by name, then the stores shown by number (D-031).
         members = sorted(
             by_cat.get(cat, []),
-            key=lambda x: (display.is_anonymised(x.id), display.name(x.id).lower()),
+            key=lambda x: display.name(x.id).lower(),
         )
         for s in members:
-            agg = summary.get(display.data_id(s.id), {})
+            agg = summary.get(s.id, {})
             v = int(agg.get("variants", 0))
-            state = not_updated.get(display.data_id(s.id))
+            state = not_updated.get(s.id)
             url = display.store_url(s.id)
             name = esc(display.name(s.id))
             store_rows.append(
@@ -395,13 +394,7 @@ def render(data: Path, stores: list[Store], now: datetime, display: Display | No
             ]
         )
     store_table = _table(
-        "Live snapshot per store. On sale: a “was” (compare-at) price above the price."
-        + (
-            f" {len(display.anonymised_ids)} stores are shown by number: their terms of use "
-            "ask that their sites not be read by automated tools; they count in every total."
-            if display.anonymised_ids
-            else ""
-        ),
+        "Live snapshot per store. On sale: a “was” (compare-at) price above the price.",
         [
             ("Store", False),
             ("Category", False),
@@ -432,7 +425,7 @@ def render(data: Path, stores: list[Store], now: datetime, display: Display | No
 
     def product_cell(e: dict[str, str], group: list[dict[str, str]]) -> str:
         # A removed product's page is gone from the store, so its title is not a link.
-        title = esc(display.title(e["store_id"], e["product_title"]))
+        title = esc(e["product_title"])
         url = display.product_url(e["store_id"], e["handle"])
         if not url or all(g["event"] == "removed" for g in group):
             return title

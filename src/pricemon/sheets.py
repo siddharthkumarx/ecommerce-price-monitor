@@ -7,9 +7,9 @@ variable ``GOOGLE_SHEET_ID`` (the sheet shared with that service account as
 editor). When either is missing it prints why and exits 0, so forks and the
 private phase run cleanly without them.
 
-Tabs (created when missing, replaced on every publish):
+Tabs (created when missing, replaced on every publish). There is no ``latest`` tab
+(D-048): the live snapshot is ``data/latest/snapshot.csv`` in the repository.
 
-* ``latest``: the live snapshot, one row per variant, prices in USD
 * ``changes_30d``: change events of the last 30 days
 * ``runs``: one row per run from runs.jsonl
 """
@@ -32,39 +32,6 @@ Table = list[list[Any]]
 
 def _usd(cents: str) -> str:
     return "" if cents == "" else f"{int(cents) / 100:.2f}"
-
-
-def latest_table(snapshot: Path, stores: dict[str, tuple[str, str]]) -> Table:
-    """``stores`` maps store id to ``(name, host)``."""
-    header = [
-        "store",
-        "product",
-        "variant",
-        "price_usd",
-        "compare_at_usd",
-        "available",
-        "url",
-        "since_utc",
-    ]
-    rows: Table = [header]
-    if not snapshot.exists():
-        return rows
-    with snapshot.open(encoding="utf-8") as fh:
-        for r in csv.DictReader(fh):
-            name, host = stores.get(r["store_id"], (r["store_id"], ""))
-            rows.append(
-                [
-                    name,
-                    r["product_title"],
-                    r["variant_title"],
-                    _usd(r["price_cents"]),
-                    _usd(r["compare_at_cents"]),
-                    r["available"],
-                    f"https://{host}/products/{r['handle']}" if host else r["handle"],
-                    r["valid_from"],
-                ]
-            )
-    return rows
 
 
 def changes_table(data: Path, now: datetime, days: int = 30) -> Table:
@@ -153,7 +120,6 @@ def publish(tables: dict[str, Table], sa_info: dict[str, Any], sheet_id: str) ->
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     p.add_argument("--data", type=Path, default=Path("data"))
-    p.add_argument("--stores", type=Path, default=Path("config/stores.yml"))
     a = p.parse_args(argv)
     sa_json = os.environ.get("GOOGLE_SA_JSON", "").strip()
     sheet_id = os.environ.get("GOOGLE_SHEET_ID", "").strip()
@@ -163,14 +129,8 @@ def main(argv: list[str] | None = None) -> int:
         ]
         print(f"Google Sheet publish skipped: {', '.join(missing)} not set")
         return 0
-    stores: dict[str, tuple[str, str]] = {}
-    if a.stores.exists():
-        from pricemon.stores import load_stores
-
-        stores = {s.id: (s.name, s.host) for s in load_stores(a.stores)}
     now = datetime.now(UTC)
     tables = {
-        "latest": latest_table(a.data / "latest" / "snapshot.csv", stores),
         "changes_30d": changes_table(a.data, now),
         "runs": runs_table(a.data),
     }

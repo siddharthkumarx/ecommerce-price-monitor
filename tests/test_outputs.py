@@ -55,11 +55,7 @@ def catalog(n: int, price: str = "50.00", compare: str | None = None) -> list[di
 
 
 def test_two_runs_end_to_end(tmp_path: Path) -> None:
-    cfg = RunConfig(
-        stores=tmp_path / "stores.yml",
-        data=tmp_path / "data",
-        history_out=tmp_path / "work" / "h.parquet",
-    )
+    cfg = RunConfig(stores=tmp_path / "stores.yml", data=tmp_path / "data")
     code, rec = process(
         cfg,
         [fetched("a", catalog(30), DAY1), fetched("b", catalog(5), DAY1)],
@@ -72,7 +68,6 @@ def test_two_runs_end_to_end(tmp_path: Path) -> None:
     assert rec["rows_live"] == 35
 
     # Day 2: a sale at store a (20% off with compare-at), store b blocked.
-    cfg.history_in = cfg.history_out
     code, rec = process(
         cfg,
         [
@@ -86,7 +81,7 @@ def test_two_runs_end_to_end(tmp_path: Path) -> None:
     assert rec["events"]["price_down"] == 30
     assert rec["events"]["discount_start"] == 30
     assert rec["rows_live"] == 35  # store b carried over
-    assert rec["parquet_rows"] == 65  # 35 open + 30 closed
+    assert "parquet_rows" not in rec  # the monthly Parquet is gone (D-047)
     changes = (cfg.data / "changes" / "2026" / "2026-11-05.csv").read_text().splitlines()
     assert len(changes) == 61  # header + 60 events
     summary = {s["store_id"]: s for s in snapshot_summary(cfg.data / "latest" / "snapshot.csv")}
