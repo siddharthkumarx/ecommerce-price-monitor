@@ -33,7 +33,7 @@ from pricemon.polite import (
     make_client,
 )
 from pricemon.screen import SCREEN_VERSION, screen_content, screen_evidence
-from pricemon.terms import TERMS_PATHS, TermsResult, classify
+from pricemon.terms import TERMS_PATHS, TermsResult, classify, is_terms_path
 from pricemon.witness import (
     is_products_payload,
     jsonld_currencies,
@@ -292,6 +292,10 @@ async def _read_terms_page(session: StoreSession, path: str) -> TermsResult:
         if target.host != resp.url.host:
             return TermsResult("none_found", f"redirects off the store ({target.host})")
         path = target.path
+        if not is_terms_path(path):
+            # A missing page that redirects to the home page or a collection is not
+            # the store's terms (terms-001: JOOLA, "/").
+            return TermsResult("none_found", f"redirects to {path or '/'}")
         if not session.allowed(path):
             return TermsResult("none_found", f"robots.txt disallows {path}")
         resp = await session.get(path, expect="html", follow_redirects=False, max_attempts=1)

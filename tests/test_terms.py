@@ -336,3 +336,28 @@ def test_a_terms_check_that_is_stopped_leaves_the_terms_unread() -> None:
     row = asyncio.run(read_terms_only(session, CAND))
     assert row["terms"] is None
     assert "http 429" in row["retry_causes"]
+
+
+def test_a_redirect_to_the_home_page_is_not_the_terms() -> None:
+    def terms(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(301, headers={"location": "/"})
+
+    class HomeShop(TermsShop):
+        def __call__(self, request: httpx.Request) -> httpx.Response:
+            if request.url.path.startswith("/pages/"):
+                return httpx.Response(301, headers={"location": "/"})
+            return super().__call__(request)
+
+    res = recon(HomeShop(terms=terms))
+    assert (res.terms, res.terms_source) == ("none_found", "redirects to /")
+    assert res.terms_page is None
+
+
+def test_terms_paths() -> None:
+    from pricemon.terms import is_terms_path
+
+    assert is_terms_path("/policies/terms-of-service")
+    assert is_terms_path("/en-us/pages/terms-and-conditions")
+    assert is_terms_path("/pages/tos")
+    assert not is_terms_path("/")
+    assert not is_terms_path("/collections/all")

@@ -83,6 +83,14 @@ _NOT_REUSE = re.compile(
     re.IGNORECASE,
 )
 
+
+def is_terms_path(path: str) -> bool:
+    """Whether a redirect target can be a terms page (a policy page, or a page whose
+    handle names terms); the home page and other pages are not."""
+    p = path.lower().rstrip("/")
+    return p.startswith("/policies/") or p.split("/")[-1] in {"tos"} or "terms" in p
+
+
 # A sentence that allows the automated access it names.
 _PERMIT = re.compile(
     r"\b(?:you\s+may|(?:is|are)\s+(?:expressly\s+)?(?:permitted|allowed|welcome)"

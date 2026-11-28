@@ -785,7 +785,10 @@ with such a list fails before any request.
   `/pages/terms-and-conditions`, `/pages/terms-conditions`, `/pages/terms` and
   `/pages/tos`, each where robots.txt allows it, at most 2 requests each, and stop at
   the first page with policy text. `none_found` now means no page of that search
-  could be read; the reason of the first page is kept.
+  could be read; the reason of the first page is kept. A same-host redirect is
+  followed only to a terms-like path (`/policies/...`, a handle naming terms, or
+  `tos`): in `terms-001` JOOLA's `/pages/terms` redirected to the home page, which
+  was read as its terms; `terms-002` read JOOLA again with that rule.
 - **Terms check** (`check: terms` in `checks/request.yml`). Reads robots.txt and the
   Terms search of the listed stores, nothing else, at the recon pace. A store
   stopped before the end (a block, a 429 past its retries) is `unread` and keeps the
