@@ -2,6 +2,26 @@
 
 ## Continue here (f1-expand)
 
+Status: **RUNNING** (28 Nov 2026). Task F1-SCALE PART 0: safety rules first, then
+simplify, then the owner's answers and re-checks. Current rules: `docs/rules.md`.
+
+1. Part 1, safety rules (D-040 to D-045) - `done`. Terms classifier fails closed,
+   only a rows drop repeats into acceptance, strict store loader, Terms check and full
+   search; terms-001/002 re-read the 129 listed stores: 15 retired by number, 114 stay.
+   Published run on `main`: `20261128T101612Z` (112 of 114).
+2. Part 2, simplify (D-046 to D-051, D-054) - `done`. Anonymisation layer, monthly
+   Parquet, Sheet `latest` tab and per-run withdrawal deleted; checks by hand only;
+   history mirrored to release `history-YYYY-MM` from `main` (24 day files on the
+   first run, `20261128T105145Z`, 113 of 114).
+3. Owner answers (D-052 to D-053, D-045, D-047, D-050) - `done` as decisions; D-052
+   is in `sources.py`; D-050 (dashboard history JSON) and D-053 (quarantine) are for a
+   later part.
+4. recon-010, the one 429 retry of 24 stores (D-052) - `todo`: request committed;
+   start by hand after 22:36 UTC on 28 Nov (24 hours after recon-007), then regenerate
+   the list, gate, one published run on `main`.
+
+## F1-EXPAND (done)
+
 Status: **DONE** (28 Nov 2026). Task F1-EXPAND (owner decisions D-031 to D-037): grow the
 daily monitor, freeze lifted, only stores whose terms do not ban robots (D-036). Work
 happens on branch `f1-expand`; `main` is fast-forwarded when the gate is green and a run
