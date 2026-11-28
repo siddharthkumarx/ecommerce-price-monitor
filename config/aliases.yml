@@ -3,7 +3,7 @@
 # `python -m pricemon.sources --stores-yml`: a store gets a number the first time it
 # is listed and keeps it; a store that leaves the list leaves this file (D-036), and
 # `next` is the lowest number never given, so no number is ever reused.
-next: 251
+next: 309
 numbers:
   grado-labs: 1
   soundcore-us: 5
@@ -76,3 +76,61 @@ numbers:
   newton-baby: 243
   nugget: 244
   wildbird: 250
+  puro-sound-labs: 251
+  jambys: 252
+  lady-white-co: 253
+  linksoul: 254
+  thinx: 255
+  camille-rose: 256
+  danessa-myricks-beauty: 257
+  half-magic: 258
+  jeffree-star-cosmetics: 259
+  scotch-porter: 260
+  albany-park: 261
+  klean-kanteen: 262
+  nest-new-york: 263
+  puracy: 264
+  takeya: 265
+  pa-lante-packs: 266
+  tower-paddle-boards: 267
+  elixr-coffee: 268
+  prodigal: 269
+  sweet-bloom-coffee: 270
+  american-barbell: 271
+  assault-fitness: 272
+  darc-sport: 273
+  elevate-jump-ropes: 274
+  gamma-sports: 275
+  get-rx-d: 276
+  hyperwear: 277
+  joola: 278
+  paddletek: 279
+  saris: 280
+  stamina-products: 281
+  vatic-pro: 282
+  boxiecat: 283
+  earthbath: 284
+  jones-natural-chews: 285
+  pawstruck: 286
+  azio: 287
+  bluelounge: 288
+  incipio: 289
+  juuk-design: 290
+  pebblebee: 291
+  rain-design: 292
+  scosche: 293
+  tom-bihn: 294
+  angel-dear: 295
+  baby-brezza: 296
+  clixo: 297
+  foamnasium: 298
+  grovia: 299
+  haba-usa: 300
+  little-partners: 301
+  maple-landmark: 302
+  mockingbird: 303
+  nanit: 304
+  owlet: 305
+  snuggle-me-organic: 306
+  sphero: 307
+  ubbi: 308

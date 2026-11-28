@@ -607,6 +607,14 @@ of 27 Nov (never published on `main`).
   before, weighted to the thin categories (apparel, toys & kids, tech accessories,
   fitness first), same recon pace and terms field as recon-005. Passing `no_ban` and
   `none_found` stores join in batches after each recon.
+- **Batch 2 (28 Nov).** 129 stores from recon-001..009 (98 `no_ban`, 31
+  `none_found`), 58 new, none dropped: 37 from recon-007, 16 from recon-008, 4
+  recovered by the re-check under D-039 (recon-009) and Maple Landmark (one reviewed
+  title, `config/screen-review.yml`). Per category, `no_ban`/`none_found`: apparel 6/2,
+  audio 9/2, beauty 11/1, coffee & tea 9/4, fitness 12/8, home & kitchen 11/2,
+  outdoor 7/3, pet 10/2, tech accessories 11/2, toys & kids 12/5. Scotch Porter is
+  back: screen v3 finds no excluded product in its catalog. 3 shards (one per 60
+  stores). Of recon-008's 172 candidates 70 passed, 54 of them `ban` (not added).
 
 ## D-037 - A duplicated variant is not a validation reject (2026-11-27)
 
@@ -712,3 +720,14 @@ changed, F1-SCALE) or a 429 retry (D-004). A store whose terms are `ban` is neve
 added (D-036). On the stores monitored today, v2 over their current titles finds only
 one hit, which is already reviewed, so the daily run excludes no store it did not
 exclude before.
+
+Result (`recon-009`, 28 Nov, 31 requests, no retries): Jeffree Star Cosmetics,
+Klean Kanteen, NEST New York (`no_ban`) and Scotch Porter (`none_found`) pass and
+join the list. Derma E stays out: `content_evidence` shows the word "CBD" in the
+`product_type` of three products (the day cream, a vitamin C serum, the DMAE
+moisturizer), which counts as the product's own type; whether that is a mislabel is
+for a person to check on the store, not for the screen to guess. Recon-008 (screen
+v2) excluded one safe store for a false positive, Maple Landmark ("Wine Decorative
+Block", a wooden letter block), now reviewed by exact title; Beyond Yoga ("Lift Your
+Spirits Bra") is also "catalog too large" and stays out. The safe-store count went
+from 108 to 113 for recon-001..007 with the re-check, then to 129 with recon-008.

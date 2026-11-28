@@ -255,3 +255,9 @@ reviews:
     titles: ["Wine About It", "Wine Mom"]
     verdict: false_positive
     reason: "Phone case design names; phone cases only."
+  # Reviewed from checks/results/recon-008/recon.json (field content_flags; screen v2).
+  - store: "Maple Landmark"
+    category: alcohol
+    titles: ["Wine Decorative Block"]
+    verdict: false_positive
+    reason: "A painted wooden letter block reading \"Wine\"; the store makes wooden toys and gifts."

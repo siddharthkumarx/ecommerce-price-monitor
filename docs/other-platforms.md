@@ -19,16 +19,22 @@ not serve the endpoint. Which one is not checked: recon stops at the first answe
 | Apparel | Chubbies | chubbiesshorts.com | recon-002 | http 404, text/html |
 | Apparel | Cuts Clothing | cutsclothing.com | recon-002 | http 404, text/html |
 | Apparel | Cuup | shopcuup.com | recon-007 | http 410, text/html |
+| Apparel | Dossier | dossier.co | recon-008 | http 404, text/html |
 | Apparel | Dudley Stephens | dudleystephens.com | recon-007 | http 404, ? |
 | Apparel | Hackwith Design House | hackwithdesignhouse.com | recon-007 | http 404, text/html |
+| Apparel | Hey Dude | heydude.com | recon-008 | http 410, text/html |
 | Apparel | johnnie-O | johnnie-o.com | recon-007 | http 404, text/html |
 | Apparel | Lively | wearlively.com | recon-007 | http 404, ? |
+| Apparel | Outlier | outlier.nyc | recon-008 | http 404, ? |
 | Apparel | Pact | wearpact.com | recon-007 | http 200, text/html |
 | Apparel | Public Rec | publicrec.com | recon-002 | http 200, application/json |
+| Apparel | Rainbow Sandals | rainbowsandals.com | recon-008 | http 404, text/html |
 | Apparel | Rhoback | rhoback.com | recon-006 | http 404, text/html |
 | Apparel | Seea | seea.co | recon-007 | http 200, text/html |
+| Apparel | Spanx | spanx.com | recon-008 | http 404, text/html |
 | Apparel | SuitShop | suitshop.com | recon-005 | http 404, text/html |
 | Apparel | Summersalt | summersalt.com | recon-006 | http 200, text/html |
+| Apparel | Tecovas | tecovas.com | recon-008 | http 404, text/html |
 | Apparel | Todd Shelton | toddshelton.com | recon-007 | http 404, text/html |
 | Apparel | Tracksmith | tracksmith.com | recon-003 | http 404, text/html |
 | Apparel | Vuori | vuoriclothing.com | recon-002 | http 404, text/html |
@@ -72,13 +78,22 @@ not serve the endpoint. Which one is not checked: recon stops at the first answe
 | Coffee & tea | Messenger Coffee | messengercoffee.com | recon-007 | http 200, text/html |
 | Coffee & tea | Passenger Coffee | passengercoffee.com | recon-006 | http 404, text/html |
 | Fitness | Amphipod | amphipod.com | recon-007 | http 404, text/html |
+| Fitness | Balanced Body | pilates.com | recon-008 | http 404, text/html |
 | Fitness | Barefoot Yoga Co. | barefootyoga.com | recon-007 | http 404, text/html |
+| Fitness | Bob and Brad | bobandbrad.com | recon-008 | http 404, text/html |
 | Fitness | Bodylastics | bodylastics.com | recon-006 | http 404, text/plain |
 | Fitness | Kinetic | kurtkinetic.com | recon-006 | http 200, text/html |
 | Fitness | MERACH | merach.com | recon-006 | http 404, text/html |
+| Fitness | PowerDot | powerdot.com | recon-008 | http 404, ? |
+| Fitness | Recoup Fitness | recoupfitness.com | recon-008 | http 404, text/html |
 | Fitness | Rukket Sports | rukketsports.com | recon-006 | http 200, text/html |
+| Fitness | Sorinex | sorinex.com | recon-008 | http 404, text/html |
+| Fitness | TLF Apparel | tlfapparel.com | recon-008 | http 404, text/html |
+| Fitness | Tumbl Trak | tumbltrak.com | recon-008 | http 404, text/html |
+| Fitness | Ultimate Direction | ultimatedirection.com | recon-008 | http 404, text/html |
 | Fitness | Vulcan Strength | vulcanstrength.com | recon-007 | http 404, text/plain |
 | Fitness | WODFitters | wodfitters.com | recon-006 | http 404, ? |
+| Fitness | Yes4All | yes4all.com | recon-008 | http 404, text/html |
 | Home & kitchen | Better Life | cleanhappy.com | recon-007 | http 404, text/html |
 | Home & kitchen | Blueland | blueland.com | recon-002 | http 404, text/html |
 | Home & kitchen | Boll & Branch | bollandbranch.com | recon-002 | http 404, text/html |
@@ -123,8 +138,13 @@ not serve the endpoint. Which one is not checked: recon stops at the first answe
 | Pet | Small Pet Select | smallpetselect.com | recon-005 | http 404, text/html |
 | Pet | Snoozer | snoozerpetproducts.com | recon-007 | http 404, text/html |
 | Pet | Sundays for Dogs | sundaysfordogs.com | recon-007 | http 200, text/html |
+| Tech accessories | Analogue | analogue.co | recon-008 | http 404, text/html |
+| Tech accessories | Anker | anker.com | recon-008 | http 404, text/html |
+| Tech accessories | Autonomous | autonomous.ai | recon-008 | http 404, text/html |
+| Tech accessories | Caseology | caseology.com | recon-008 | http 404, text/html |
 | Tech accessories | Courant | courant.com | recon-006 | http 404, text/html |
 | Tech accessories | Das Keyboard | daskeyboard.com | recon-006 | http 404, text/html |
+| Tech accessories | Element Case | elementcase.com | recon-008 | http 404, text/html |
 | Tech accessories | Govee (US) | us.govee.com | recon-007 | http 200, text/html |
 | Tech accessories | iOttie | iottie.com | recon-007 | http 404, text/html |
 | Tech accessories | Kinetic Labs | kineticlabs.com | recon-006 | http 200, text/html |
@@ -133,20 +153,35 @@ not serve the endpoint. Which one is not checked: recon stops at the first answe
 | Tech accessories | Milktooth | milktooth.com | recon-007 | http 404, text/html |
 | Tech accessories | Nomad | nomadgoods.com | recon-005 | http 404, text/html |
 | Tech accessories | Pad & Quill | padandquill.com | recon-007 | http 404, ? |
+| Tech accessories | PopSockets | popsockets.com | recon-008 | http 404, text/html |
+| Tech accessories | ProClip USA | proclipusa.com | recon-008 | http 404, text/html |
+| Tech accessories | Retro-Bit | retro-bit.com | recon-008 | http 404, text/html |
 | Tech accessories | Shimoda Designs | shimodadesigns.com | recon-006 | http 404, text/html |
 | Tech accessories | Sonix | sonix.com | recon-006 | http 404, text/html |
 | Tech accessories | Statik | getstatik.com | recon-006 | http 404, text/html |
 | Tech accessories | ThocStock | thocstock.com | recon-007 | http 404, application/json |
 | Tech accessories | Totallee | totallee.com | recon-005 | http 404, text/html |
+| Tech accessories | Ztylus | ztylus.com | recon-008 | http 404, ? |
+| Toys & kids | Allplay | allplay.com | recon-008 | http 404, ? |
 | Toys & kids | Bananagrams | bananagrams.com | recon-007 | http 200, text/html |
 | Toys & kids | Begin Again Toys | beginagaintoys.com | recon-007 | http 200, text/html |
+| Toys & kids | Bitsbox | bitsbox.com | recon-008 | http 404, text/html |
+| Toys & kids | Coterie | coterie.com | recon-008 | http 404, text/html |
 | Toys & kids | Gamewright | gamewright.com | recon-007 | http 404, text/html |
+| Toys & kids | Greater Than Games | greaterthangames.com | recon-008 | http 404, text/html |
 | Toys & kids | Happiest Baby | happiestbaby.com | recon-005 | http 200, text/html |
+| Toys & kids | Hatch | hatch.co | recon-008 | http 404, text/html |
 | Toys & kids | Kate Quinn | katequinnorganics.com | recon-006 | http 404, ? |
 | Toys & kids | Lovevery | lovevery.com | recon-005 | http 404, text/html |
 | Toys & kids | Monica + Andy | monicaandandy.com | recon-006 | http 404, text/html |
+| Toys & kids | Munchkin | munchkin.com | recon-008 | http 404, text/html |
 | Toys & kids | Olababy | olababy.com | recon-007 | http 404, text/html |
+| Toys & kids | Renegade Game Studios | renegadegamestudios.com | recon-008 | http 404, text/html |
+| Toys & kids | Restoration Games | restorationgames.com | recon-008 | http 404, text/html |
 | Toys & kids | See Kai Run | seekairun.com | recon-007 | http 404, text/html |
+| Toys & kids | Snap Circuits (Elenco) | elenco.com | recon-008 | http 307, text/html |
+| Toys & kids | Springbok Puzzles | springbok-puzzles.com | recon-008 | http 404, text/html |
+| Toys & kids | Stonemaier Games | stonemaiergames.com | recon-008 | http 404, text/html |
 | Toys & kids | Strider Bikes | striderbikes.com | recon-007 | http 404, text/html |
 | Toys & kids | Zipadee-Zip (Sleeping Baby) | sleepingbaby.com | recon-007 | http 404, ? |
 | Toys & kids | Zoe Organics | zoeorganics.com | recon-007 | http 404, text/html |

@@ -2,7 +2,7 @@
 
 ## Continue here (f1-expand)
 
-Status: **RUNNING** (27 Nov 2026). Task F1-EXPAND (owner decisions D-031 to D-037): grow the
+Status: **DONE** (28 Nov 2026). Task F1-EXPAND (owner decisions D-031 to D-037): grow the
 daily monitor, freeze lifted, only stores whose terms do not ban robots (D-036). Work
 happens on branch `f1-expand`; `main` is fast-forwarded when the gate is green and a run
 has published.
@@ -10,11 +10,11 @@ has published.
 1. JLab retired (`config/retired.yml`), history kept, shown "retired on 27 Nov 2026" - `done`.
 2. Candidates: 1,218 in `checks/candidates.yml` (recon-005: 272, recon-006: 282,
    recon-007: 320, recon-008: 172 in the thin categories) - `done`.
-3. Recon with the Terms field: recon-005 and recon-006 committed; recon-007 - `in progress`
-   (running on Actions), recon-008 queued after it. Verify: `checks/results/recon-00N/recon.md`.
-4. Store list: 71 stores (56 `no_ban`, 15 `none_found`) from recon-001..006, regenerated
-   with `python -m pricemon.sources --stores-yml` - `done`. Next batch from recon-007 -
-   `todo`: regenerate, gate, push.
+3. Recon with the Terms field: recon-005 to recon-009 committed - `done`.
+   Verify: `checks/results/recon-00N/recon.md`.
+4. Store list: 129 stores (98 `no_ban`, 31 `none_found`) from recon-001..009, regenerated
+   with `python -m pricemon.sources --stores-yml` - `done` (batch 1: 71 stores; batch 2:
+   58 new, D-036).
 5. Public data holds only listed and retired stores (`pricemon.publicdata`, D-036) - `done`;
    the first 71-store run withdrew 18 earlier stores from data and the release asset.
 6. One run a day at 06:17 UTC, sequential shards planned per 60 stores (D-033) - `done`.
@@ -22,14 +22,18 @@ has published.
    429, 19.5 min.
 7. Feed contract (additive fields), README, dataset card, media, docs - `done`.
 8. `main` fast-forwarded on 27 Nov 19:14 UTC - `done`. The dashboard on Pages deploys
-   only from `main`: one run dispatched on `main` after recon-007 publishes it - `todo`.
+   only from `main` (INC-011): one run dispatched on `main` after batch 2 - `done`.
 9. Fresh review, High and Medium fixed (D-038) - `done`.
-10. Grow toward about 150 stores (about 15 per category), never a `ban`: recon-008 (queued) for
-    the thin categories (apparel, toys & kids, tech accessories, fitness) - `in progress`.
+10. Grow toward about 150 stores (about 15 per category), never a `ban`: recon-008 for
+    the thin categories - `done` (16 stores). Next: recon-010 on with new candidates,
+    apparel (8) and outdoor (10) first.
 11. Content screen v2 (D-039): colours, scents, merch, objects, tags and negations
     no longer exclude a store; real products still do - `done` (tests in
     `tests/test_screen.py`). Re-check of the safe-Terms stores that failed only on
-    "excluded category" - `todo`: one recon after recon-008 has started.
+    "excluded category" - `done` (recon-009: 4 of 5 pass; Derma E has "CBD" in its
+    `product_type`).
+12. 19 recon-007 stores lost to 429 retries during the double run (INC-010) - `blocked`
+    on the owner: a re-check at the normal pace only helps if D-004 is waived for them.
 
 Status: `done`, `in progress`, `todo`, `blocked`. Update after every item. Each
 item says how to verify it.
