@@ -41714,7 +41714,7 @@ saris,7053453689011,41153228406963,sweat-guard,Bike Frame Sweat Guard with Phone
 saris,7053453951155,41449227157683,trainer-clutch-knob-upgrade-or-replacement-kit,M2 Trainer Clutch Knob Upgrade or Replacement Kit,Classic Trainer Clutch Knob (Wind/Mag/Mag+/Fluid/Magneto),2999,,true,2026-11-28T00:40:03Z
 saris,7053453951155,45893177245875,trainer-clutch-knob-upgrade-or-replacement-kit,M2 Trainer Clutch Knob Upgrade or Replacement Kit,Magnus & M2 Clutch Knob,2999,,true,2026-11-28T00:40:03Z
 saris,7053454114995,41153228865715,mag-magnetic-remote-shifter-upgrade,Mag+ Magnetic Remote Shifter Upgrade,Default Title,3999,,true,2026-11-28T00:40:03Z
-saris,7053454311603,41153229160627,bluetooth-usb-adapter,BLE Bluetooth USB Adapter For Use With BlueGiga Dongle and OTA Firmware Updates,Default Title,2499,3999,false,2026-11-28T10:16:12Z
+saris,7053454311603,41153229160627,bluetooth-usb-adapter,BLE Bluetooth USB Adapter For Use With BlueGiga Dongle and OTA Firmware Updates,Default Title,2499,3999,true,2026-11-28T10:51:45Z
 saris,7053454442675,41153229291699,ant-usb-adapter,ANT+ USB Adapter Connect your Indoor Bike Trainer To A Computer,Default Title,4999,,true,2026-11-28T00:40:03Z
 saris,7053454606515,41153229455539,magnetless-ant-ble-speed-or-cadence-sensor,Magnetless ANT+ & BLE Speed or Cadence Sensor,Default Title,2499,4999,true,2026-11-28T00:40:03Z
 saris,7053454770355,41153229586611,direct-drive-trainer-cassette-freehub,Direct Drive Trainer Cassette & Freehub,Default Title,9999,,true,2026-11-28T00:40:03Z
@@ -41741,7 +41741,7 @@ saris,7068326133939,41213338190003,mtr-arm-covers,MTR Arm Covers,Driver Side (Le
 saris,7068326133939,41213338222771,mtr-arm-covers,MTR Arm Covers,Passenger Side (Right) Cover,1999,,true,2026-11-28T00:40:03Z
 saris,7068326723763,41213341139123,mtr-replacement-arm,MTR Replacement Arm,Passenger Side (Right) Arm,12499,,false,2026-11-28T00:40:03Z
 saris,7068326723763,41213341171891,mtr-replacement-arm,MTR Replacement Arm,Driver Side (Left) Arm,12499,,true,2026-11-28T00:40:03Z
-saris,7068327051443,41213342580915,mtr-upper-wheel-wedge,MTR Upper Wheel Wedge,Passenger Side (Right) Wheel Wedge,1999,,false,2026-11-28T10:16:12Z
+saris,7068327051443,41213342580915,mtr-upper-wheel-wedge,MTR Upper Wheel Wedge,Passenger Side (Right) Wheel Wedge,1999,,true,2026-11-28T10:51:45Z
 saris,7068327051443,41213342613683,mtr-upper-wheel-wedge,MTR Upper Wheel Wedge,Driver Side (Left) Wheel Wedge,1999,,true,2026-11-28T00:40:03Z
 saris,7068328100019,41213358080179,bones-ex-3-bike-replacement-arm,Bones EX 3-Bike Replacement Arm,Passenger Side (Right) Arm,3599,,true,2026-11-28T00:40:03Z
 saris,7068328100019,41213358112947,bones-ex-3-bike-replacement-arm,Bones EX 3-Bike Replacement Arm,Driver Side (Left) Arm,3599,,true,2026-11-28T00:40:03Z
@@ -41800,7 +41800,7 @@ saris,7076821237939,41250620440755,mhs-duo-1-bike-add-on-tray,MHS DUO 1-Bike Add
 saris,7099889090739,41334878732467,mhs-1-bike-package,"MHS 1 Bike Package, A Future Proof Modular Hitch System",Default Title,55999,69999,true,2026-11-28T00:40:03Z
 saris,7099895939251,41334893183155,mhs-2-bike-package,"MHS 2 Bike Package, A Future Proof Modular Hitch System",Default Title,95999,119999,true,2026-11-28T00:40:03Z
 saris,7099896922291,41334903931059,mhs-3-bike-package,"MHS 3 Bike Package, A Future Proof Modular Hitch System",Default Title,135999,169999,true,2026-11-28T00:40:03Z
-saris,7113440985267,41378138521779,hatch-huggers-sl,"Hatch Huggers SL, Secure Your Bike Rack With Added Customization",Default Title,2499,,false,2026-11-28T10:16:12Z
+saris,7113440985267,41378138521779,hatch-huggers-sl,"Hatch Huggers SL, Secure Your Bike Rack With Added Customization",Default Title,2499,,true,2026-11-28T10:51:45Z
 saris,7135919243443,41465171706035,11-speed-smart-trainer-cassette,11-Speed Smart Trainer Cassette,Default Title,3499,,true,2026-11-28T00:40:03Z
 saris,7136775864499,42388214710451,8-locking-cable,8' Locking Cable For Added Security When Transporting Your Bikes,Default Lock Set and Key,4499,,true,2026-11-28T00:40:03Z
 saris,7136775864499,45867445911731,8-locking-cable,8' Locking Cable For Added Security When Transporting Your Bikes,"Key/Lock #1",4499,,true,2026-11-28T00:40:03Z
@@ -47673,34 +47673,6 @@ takeya,7871703580781,45245671440493,originals-water-bottle-with-spout-lid,Origin
 takeya,7871703580781,45245671473261,originals-water-bottle-with-spout-lid,Originals Water Bottle with Spout Lid,18oz / Graphite,1959,2999,false,2026-11-28T00:40:03Z
 takeya,7871703580781,45245671506029,originals-water-bottle-with-spout-lid,Originals Water Bottle with Spout Lid,18oz / White,1959,2999,false,2026-11-28T00:40:03Z
 takeya,7874288058477,43634471141485,18oz-originials-water-bottle-with-spout-lid-4-pack,Originals Water Bottle with Spout Lid (4 Pack),18oz / Black/Blush,11899,,false,2026-11-28T00:40:03Z
-takeya,8237274497133,45734773751917,takeya-sport-water-bottle-customized-112,Takeya Sport Water Bottle - customized,22oz / Moonlight / Spout,4697,,true,2026-11-28T00:40:03Z
-takeya,8237303103597,45734880575597,actives-water-bottle-with-spout-lid-customized-4,Actives Water Bottle With Spout Lid - customized,18oz / Onyx,3498,,true,2026-11-28T00:40:03Z
-takeya,8237373390957,45735191969901,actives-kids-water-bottle-with-straw-lid-customized-85,Actives Kids Water Bottle With Straw Lid - customized,14oz / Blush,3298,,true,2026-11-28T00:40:03Z
-takeya,8237401079917,45735270973549,actives-water-bottle-with-spout-lid-customized-15,Actives Water Bottle With Spout Lid - customized,18oz / Blush,4097,,true,2026-11-28T00:40:03Z
-takeya,8237402390637,45735273857133,actives-water-bottle-with-straw-lid-customized-119,Actives Water Bottle With Straw Lid - customized,18oz / Midnight,4097,,true,2026-11-28T00:40:03Z
-takeya,8237439451245,45735380910189,actives-water-bottle-with-spout-lid-customized-16,Actives Water Bottle With Spout Lid - customized,18oz / Tart Orange,2628,2899,true,2026-11-28T00:40:03Z
-takeya,8237445808237,45735396442221,takeya-sport-water-bottle-customized-113,Takeya Sport Water Bottle - customized,22oz / Alpine / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237445939309,45735397032045,takeya-sport-water-bottle-customized-114,Takeya Sport Water Bottle - customized,22oz / Peony / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237446037613,45735397130349,takeya-sport-water-bottle-customized-332,Takeya Sport Water Bottle - customized,22oz / Moonlight / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237446627437,45735397818477,takeya-sport-water-bottle-customized-333,Takeya Sport Water Bottle - customized,22oz / Alpine / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237446758509,45735398572141,takeya-sport-water-bottle-customized-334,Takeya Sport Water Bottle - customized,22oz / Eucalyptus / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237446922349,45735399358573,takeya-sport-water-bottle-customized-335,Takeya Sport Water Bottle - customized,22oz / Obsidian / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237447118957,45735399555181,takeya-sport-water-bottle-customized-336,Takeya Sport Water Bottle - customized,22oz / Indigo / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237447282797,45735399948397,takeya-sport-water-bottle-customized-337,Takeya Sport Water Bottle - customized,22oz / Almond / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237448167533,45735402242157,takeya-sport-water-bottle-customized-338,Takeya Sport Water Bottle - customized,22oz / Crimson / Spout,4098,,true,2026-11-28T00:40:03Z
-takeya,8237545586797,45735621034093,actives-water-bottle-with-straw-lid-customized-120,Actives Water Bottle With Straw Lid - customized,18oz / Teal,3498,,true,2026-11-28T00:40:03Z
-takeya,8237546143853,45735623327853,actives-water-bottle-with-straw-lid-customized-121,Actives Water Bottle With Straw Lid - customized,18oz / Ombre Excitement,3498,,true,2026-11-28T00:40:03Z
-takeya,8237546504301,45735623852141,actives-water-bottle-with-spout-lid-customized-17,Actives Water Bottle With Spout Lid - customized,22oz / Midnight,3598,,true,2026-11-28T00:40:03Z
-takeya,8237546537069,45735623884909,actives-water-bottle-with-straw-lid-customized-122,Actives Water Bottle With Straw Lid - customized,18oz / Lavender Field,3498,,true,2026-11-28T00:40:03Z
-takeya,8237546799213,45735624310893,actives-water-bottle-with-straw-lid-customized-123,Actives Water Bottle With Straw Lid - customized,18oz / Midnight,3498,,true,2026-11-28T00:40:03Z
-takeya,8237547880557,45735624900717,actives-water-bottle-with-straw-lid-customized-124,Actives Water Bottle With Straw Lid - customized,22oz / Confetti Cool Rays,3598,,true,2026-11-28T00:40:03Z
-takeya,8237548142701,45735625556077,actives-water-bottle-with-straw-lid-customized-125,Actives Water Bottle With Straw Lid - customized,22oz / Confetti Purple Love,3598,,true,2026-11-28T00:40:03Z
-takeya,8237548437613,45735626047597,actives-water-bottle-with-straw-lid-customized-126,Actives Water Bottle With Straw Lid - customized,22oz / Confetti Green Grass,3598,,true,2026-11-28T00:40:03Z
-takeya,8237548765293,45735626440813,actives-water-bottle-with-straw-lid-customized-127,Actives Water Bottle With Straw Lid - customized,18oz / Ombre Awestruck,3498,,true,2026-11-28T00:40:03Z
-takeya,8237549748333,45735627784301,actives-water-bottle-with-straw-lid-customized-128,Actives Water Bottle With Straw Lid - customized,18oz / Ombre Dream,3498,,true,2026-11-28T00:40:03Z
-takeya,8237554139245,45735638564973,actives-water-bottle-with-spout-lid-customized-20,Actives Water Bottle With Spout Lid - customized,18oz / Bluestone,4097,,true,2026-11-28T00:40:03Z
-takeya,8237568884845,45735685980269,actives-water-bottle-with-spout-lid-customized-21,Actives Water Bottle With Spout Lid - customized,18oz / Onyx,3498,,true,2026-11-28T00:40:03Z
-takeya,8237904035949,45737336438893,traveler-leakproof-coffee-mug-customized-48,Traveler Leakproof Coffee Mug - customized,17oz / Arctic,4197,,true,2026-11-28T00:40:03Z
 takeya,8238382809197,45739705172077,takeya-sport-water-bottle-customized-115,Takeya Sport Water Bottle - customized,22oz / Indigo / Spout,4098,,true,2026-11-28T00:40:03Z
 takeya,8238496448621,45740672745581,takeya-sport-water-bottle-customized-116,Takeya Sport Water Bottle - customized,22oz / Obsidian / Spout,4697,,true,2026-11-28T00:40:03Z
 takeya,8238558478445,45741026607213,straw-tumbler-with-handle-customized-19,Straw Tumbler With Handle - customized,40oz / Vivacity Purple,4598,,true,2026-11-28T00:40:03Z

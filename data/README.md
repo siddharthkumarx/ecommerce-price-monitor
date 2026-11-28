@@ -28,8 +28,8 @@ Daily prices, sale ("compare-at") prices and stock for every product option of 1
 
 ## Dataset summary
 
-- **Latest run:** 28 November 2026, 10:16 UTC, status `partial`, 112 of 114 stores updated.
-- **Rows in the latest snapshot:** 57,911 product options.
+- **Latest run:** 28 November 2026, 10:51 UTC, status `partial`, 113 of 114 stores updated.
+- **Rows in the latest snapshot:** 57,883 product options.
 - **Stores by category:** apparel 8, audio 10, beauty 12, coffee_tea 12, fitness 14, home_kitchen 11, outdoor 10, pet 9, tech_accessories 12, toys_kids 16. The list and the evidence for every included and excluded store: [docs/sources.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/docs/sources.md).
 - **Cadence:** one run a day at 06:17 UTC (plus 6 extra runs for Black Friday on 26 and 27 Nov 2026).
 
@@ -41,7 +41,8 @@ Daily prices, sale ("compare-at") prices and stock for every product option of 1
 | `changes/YYYY/YYYY-MM-DD.csv` | one per change | price up/down, sale start/end, sold out, back in stock, new, removed |
 | `runs.jsonl` | one per run | run status, stores updated, quality counts, request counts |
 | `public/feed.json` | one summary | the public feed: latest good run, its checks, totals, daily change counts |
-| `price_history_YYYY-MM.parquet` (release asset) | one per version | full history, SCD2 with `valid_from` / `valid_to` |
+| `events-YYYY-MM-DD.parquet` (release `history-YYYY-MM`) | one per change event | the day's change log as Parquet, written once after the day |
+| `snapshot-YYYY-MM.parquet` (release `history-YYYY-MM`) | one per product option | the snapshot at the end of the month, written once |
 
 Field definitions with real examples: the data dictionary in the [README](https://github.com/siddharthkumarx/ecommerce-price-monitor#data-dictionary).
 
@@ -83,9 +84,9 @@ Field definitions with real examples: the data dictionary in the [README](https:
 
 ## Quality checks (latest run)
 
-- Second-source check: 112 of 112 sampled products matched the product `.js` feed exactly.
-- Currency proof: 112 stores proved USD on a product page.
-- Rows rejected by validation: 0; $0 variants (free gifts, samples) left out: 1,232; stale compare-at prices below the price ignored: 1,643.
+- Second-source check: 113 of 113 sampled products matched the product `.js` feed exactly.
+- Currency proof: 113 stores proved USD on a product page.
+- Rows rejected by validation: 0; $0 variants (free gifts, samples) left out: 1,232; stale compare-at prices below the price ignored: 1,658.
 - A run that fails the batch guard is held and not published; the previous good data stays live.
 
 ## Limitations
