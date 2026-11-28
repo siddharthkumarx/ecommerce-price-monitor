@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 114 US online stores and records every price: 57,912 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 114 US online stores and records every price: 57,911 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -27,22 +27,22 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
 | Foamnasium | [Blocksy Mini Clearance (Timeless Classic / Enhanced Marigold)](https://foamnasium.com/products/blocksy-mini-clearance) | $74.50 | $149.00 | yes |
 
-The full table has 57,912 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 57,911 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 28 November 2026: 23 price drops, 2 price rises, 19 sales started, 143 items sold out, 12 items back in stock, 11 new product options, 11 product options removed. The biggest moves:
+In the run of 28 November 2026: 3 price drops, 6 price rises, 1 sale started, 61 items sold out, 13 items back in stock, 1 new product option, 2 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| JOOLA | [JOOLA Hyperion CFS 16mm Pickleball Paddle](https://joola.com/products/ben-johns-hyperion-cfs-16mm-pickleball-paddle) | Price down, Sale started (-48.1%) | $159.95 | $83.00 |
-| JOOLA | [iPONG V300 Table Tennis Training Robot](https://joola.com/products/ipong-v300-table-tennis-training-robot) | Price down, Sale started (-47.5%) | $199.95 | $104.97 |
-| JOOLA | [JOOLA Hyperion CFS 16mm Pickleball Paddle - New Blue (16mm (DTC) / Crisp Blue)](https://joola.com/products/joola-hyperion-cfs) | Price down, Sale started (-47.4%) | $159.95 | $84.18 |
-| JOOLA | [JOOLA Hyperion CFS 16mm Pickleball Paddle - New Blue (16mm (DTC) / Crash Teal)](https://joola.com/products/joola-hyperion-cfs) | Price down, Sale started (-42.4%) | $159.95 | $92.16 |
-| JOOLA | [JOOLA Hugo Calderano Duo Pro Table Tennis Racket Set (Flared)](https://joola.com/products/joola-hugo-calderano-duo-pro-table-tennis-blade) | Price down, Sale started (-38.7%) | $39.95 | $24.47 |
-| JOOLA | [JOOLA Hugo Calderano Carbon Speed Table Tennis Set (Flared)](https://joola.com/products/joola-hugo-calderano-carbon-speed-table-tennis-set) | Price down, Sale started (-36.9%) | $34.95 | $22.05 |
-| JOOLA | [JOOLA Replacement Net for Quattro, Inside, Tour, Triumph and Conversion Top Net and Post Sets](https://joola.com/products/joola-replacement-net-for-quattro-inside-tour-triumph-and-conversion-top-net-and-post-sets) | Price down, Sale started (-35.1%) | $29.95 | $19.45 |
-| JOOLA | [JOOLA Hugo Calderano Infinity Carbon Table Tennis Racket (Flared)](https://joola.com/products/joola-hugo-calderano-infinity-carbon-table-tennis-blade) | Price down, Sale started (-34.7%) | $99.95 | $65.29 |
+| JOOLA | [JOOLA Summer Daze Perseus Pro IV 16mm (Limited Edition)](https://joola.com/products/joola-perseus-pro-iv-16mm-summer-daze-limited-edition) | Price down, Sale started (-66.7%) | $299.95 | $99.95 |
+| Bandolier | [Dillon Pouchette - Black/Gold](https://www.bandolierstyle.com/products/dillon-pouchette-black-gold) | Price up (+16.7%) | $100.80 | $117.60 |
+| Bandolier | [Dillon Pouchette - Cognac/Gold](https://www.bandolierstyle.com/products/dillon-pouchette-cognac-gold) | Price up (+16.7%) | $100.80 | $117.60 |
+| Bandolier | [Dillon Pouchette - Gold Metallic Crinkle/Gold (One Size)](https://www.bandolierstyle.com/products/dillon-pouchette-gold-metallic-crinkle-gold) | Price up (+16.7%) | $100.80 | $117.60 |
+| Bandolier | [Dillon Pouchette - Navy/Gold (One Size)](https://www.bandolierstyle.com/products/dillon-pouchette-navy-gold) | Price up (+16.7%) | $100.80 | $117.60 |
+| Bandolier | [Dillon Pouchette - Pewter Metallic Crinkle/Gold (One Size) (One Size)](https://www.bandolierstyle.com/products/dillon-pouchette-pewter-metallic-crinkle-gold) | Price up (+16.7%) | $100.80 | $117.60 |
+| Bandolier | [Dillon Pouchette - Tomato Red Woven/Gold](https://www.bandolierstyle.com/products/dillon-pouchette-tomato-red-woven-gold) | Price up (+16.7%) | $100.80 | $117.60 |
+| HyperX | [HyperX OMEN 16 inch Gaming Laptop PC 16 Valorant edition, Windows 11 Home, 16", AMD Ryzen™ 9, 32GB RAM, 1TB SSD, NVIDIA® GeForce RTX™ 5070, 2.5K, RIOT Blue (RIOT blue)](https://hyperx.com/products/hyperx-omen-16-valorant-limited-edition-gaming-laptop) | Price down (-2.3%) | $2,149.99 | $2,099.99 |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -67,11 +67,11 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data. 
 
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 128 of 128 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 128 of 129 stores proved US dollars.
-- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 1,283 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 128 of 129 stores updated; 1 kept their previous prices.
-- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 555 page requests in 36.0 minutes, and no store blocked us.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 112 of 112 checked products matched exactly.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 112 of 114 stores proved US dollars.
+- **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 1,232 free gifts and samples left out on purpose, not held.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 112 of 114 stores updated; 2 kept their previous prices.
+- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 492 page requests in 32.8 minutes, and no store blocked us.
 
 ## How it works
 
@@ -86,7 +86,7 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data. 
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 33."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 34."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 

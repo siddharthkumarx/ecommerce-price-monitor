@@ -28,8 +28,8 @@ Daily prices, sale ("compare-at") prices and stock for every product option of 1
 
 ## Dataset summary
 
-- **Latest run:** 28 November 2026, 06:17 UTC, status `partial`, 128 of 129 stores updated.
-- **Rows in the latest snapshot:** 57,912 product options.
+- **Latest run:** 28 November 2026, 10:16 UTC, status `partial`, 112 of 114 stores updated.
+- **Rows in the latest snapshot:** 57,911 product options.
 - **Stores by category:** apparel 8, audio 10, beauty 12, coffee_tea 12, fitness 14, home_kitchen 11, outdoor 10, pet 9, tech_accessories 12, toys_kids 16. The list and the evidence for every included and excluded store: [docs/sources.md](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/docs/sources.md).
 - **Cadence:** one run a day at 06:17 UTC (plus 6 extra runs for Black Friday on 26 and 27 Nov 2026).
 
@@ -83,9 +83,9 @@ Field definitions with real examples: the data dictionary in the [README](https:
 
 ## Quality checks (latest run)
 
-- Second-source check: 128 of 128 sampled products matched the product `.js` feed exactly.
-- Currency proof: 128 stores proved USD on a product page.
-- Rows rejected by validation: 0; $0 variants (free gifts, samples) left out: 1,283; stale compare-at prices below the price ignored: 1,815.
+- Second-source check: 112 of 112 sampled products matched the product `.js` feed exactly.
+- Currency proof: 112 stores proved USD on a product page.
+- Rows rejected by validation: 0; $0 variants (free gifts, samples) left out: 1,232; stale compare-at prices below the price ignored: 1,643.
 - A run that fails the batch guard is held and not published; the previous good data stays live.
 
 ## Limitations
