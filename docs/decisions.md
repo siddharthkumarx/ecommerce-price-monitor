@@ -615,6 +615,12 @@ of 27 Nov (never published on `main`).
   outdoor 7/3, pet 10/2, tech accessories 11/2, toys & kids 12/5. Scotch Porter is
   back: screen v3 finds no excluded product in its catalog. 3 shards (one per 60
   stores). Of recon-008's 172 candidates 70 passed, 54 of them `ban` (not added).
+- **Measured (batch 2, `20261128T004003Z`, manual run on `main`).** 128 of 129
+  stores in 3 shards of 43 (11.6, 11.7 and 11.8 minutes), 36 minutes wall time, 555
+  requests, 0 retries, no 429 and no cooldown; 68,311 rows, 30,004 of them new
+  baseline rows. Dagne Dover (monitored since batch 1) was not updated: the product
+  it sampled as a witness answered 404 on `.js` and on its page, so US dollars were
+  not proven; it keeps its last good prices and is read again on the next run.
 
 ## D-037 - A duplicated variant is not a validation reject (2026-11-27)
 

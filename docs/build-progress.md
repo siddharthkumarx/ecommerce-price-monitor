@@ -19,7 +19,8 @@ has published.
    the first 71-store run withdrew 18 earlier stores from data and the release asset.
 6. One run a day at 06:17 UTC, sequential shards planned per 60 stores (D-033) - `done`.
    First sharded run `20261127T184909Z`: 71 of 71 stores, 303 requests, 0 retries, no
-   429, 19.5 min.
+   429, 19.5 min. Batch 2 run `20261128T004003Z`: 128 of 129 stores, 3 shards, 555
+   requests, 0 retries, no 429, 36 min wall; Pages deployed from `main`.
 7. Feed contract (additive fields), README, dataset card, media, docs - `done`.
 8. `main` fast-forwarded on 27 Nov 19:14 UTC - `done`. The dashboard on Pages deploys
    only from `main` (INC-011): one run dispatched on `main` after batch 2 - `done`.
