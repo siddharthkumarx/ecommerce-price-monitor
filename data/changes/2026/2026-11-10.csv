@@ -56,12 +56,12 @@ observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,ev
 2026-11-10T14:57:00Z,sheets-giggles,9200609263790,48656480075950,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Charcoal,out_of_stock,6900,6900,,,
 2026-11-10T14:57:00Z,sheets-giggles,9200609263790,48656480108718,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Aloe,out_of_stock,5900,5900,,,
 2026-11-10T14:57:00Z,sheets-giggles,9200609263790,48656480141486,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Denim,out_of_stock,6900,6900,,,
-2026-11-10T14:57:00Z,soundcore-us,6180785324222,40954173489342,life-a2-nc,Life A2 NC | Bluetooth Noise Cancelling Earbuds,Black,price_down,6999,5999,,,-14.3
-2026-11-10T14:57:00Z,soundcore-us,7276356370622,41602875457726,a3927011-96,soundcore Life A1 Charging Case - Black,Default Title,out_of_stock,3399,3399,,,
-2026-11-10T14:57:00Z,soundcore-us,8704987037886,46379187372222,soundcore-aerofit-2-pro-charging-case,soundcore Aerofit 2 Pro Charging Case,White,out_of_stock,6099,6099,,,
-2026-11-10T14:57:00Z,soundcore-us,8741136072894,46477332611262,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Midnight Black / 8 GB,price_up,15900,15999,,,0.6
-2026-11-10T14:57:00Z,soundcore-us,8741136072894,46477332644030,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Pearl White / 8 GB,price_up,15900,15999,,,0.6
-2026-11-10T14:57:00Z,soundcore-us,8777712337086,46660693786814,a2697-anker-charger-140w-4-port,"Anker Charger (140W, 4-Port, PD 3.1) with USB-C Cable",Black,back_in_stock,8999,8999,,,
-2026-11-10T14:57:00Z,soundcore-us,8777712631998,46660695064766,a25n1-anker-prime-qi2-25w-foldable-3-in-1-wireless-charger,"Anker Prime Wireless Charging Station (3-in-1, MagGo, AirCool, Foldable)",Radiant White,back_in_stock,14999,14999,,,
-2026-11-10T14:57:00Z,soundcore-us,8741136072894,49626064093374,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Midnight Black / 64 GB,new,,16999,,,
-2026-11-10T14:57:00Z,soundcore-us,8741136072894,49626064126142,anker-soundcore-work-seckill,Anker soundcore Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Pearl White / 64 GB,new,,16999,,,
+2026-11-10T14:57:00Z,store-005,6180785324222,40954173489342,,Life A2 NC | Bluetooth Noise Cancelling Earbuds,Black,price_down,6999,5999,,,-14.3
+2026-11-10T14:57:00Z,store-005,7276356370622,41602875457726,,Life A1 Charging Case - Black,Default Title,out_of_stock,3399,3399,,,
+2026-11-10T14:57:00Z,store-005,8704987037886,46379187372222,,Aerofit 2 Pro Charging Case,White,out_of_stock,6099,6099,,,
+2026-11-10T14:57:00Z,store-005,8741136072894,46477332611262,,Anker Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Midnight Black / 8 GB,price_up,15900,15999,,,0.6
+2026-11-10T14:57:00Z,store-005,8741136072894,46477332644030,,Anker Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Pearl White / 8 GB,price_up,15900,15999,,,0.6
+2026-11-10T14:57:00Z,store-005,8777712337086,46660693786814,,"Anker Charger (140W, 4-Port, PD 3.1) with USB-C Cable",Black,back_in_stock,8999,8999,,,
+2026-11-10T14:57:00Z,store-005,8777712631998,46660695064766,,"Anker Prime Wireless Charging Station (3-in-1, MagGo, AirCool, Foldable)",Radiant White,back_in_stock,14999,14999,,,
+2026-11-10T14:57:00Z,store-005,8741136072894,49626064093374,,Anker Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Midnight Black / 64 GB,new,,16999,,,
+2026-11-10T14:57:00Z,store-005,8741136072894,49626064126142,,Anker Work Coin-Sized Wearable Al Note Taker / Voice Recorder,Pearl White / 64 GB,new,,16999,,,

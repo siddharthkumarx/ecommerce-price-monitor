@@ -81,13 +81,13 @@ observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,ev
 2026-11-13T14:39:06Z,jlab,7076283514952,41182420172872,jbuds-mini-anc-jelle-true-wireless-earbuds-blush-fund,JBuds Mini ANC Jelle True Wireless Earbuds Blush Fund,Default Title,price_down,4999,3399,4999,4999,-32.0
 2026-11-13T14:39:06Z,jlab,7076283514952,41182420172872,jbuds-mini-anc-jelle-true-wireless-earbuds-blush-fund,JBuds Mini ANC Jelle True Wireless Earbuds Blush Fund,Default Title,discount_start,4999,3399,4999,4999,
 2026-11-13T14:39:06Z,jlab,7151127461960,41439430639688,jbuds-lux-anc-jbuds-mini-anc-jelle-pearl-next-door-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Pearl Next Door Bundle,Default Title,out_of_stock,9998,9998,14998,14998,
-2026-11-13T14:39:06Z,soundcore-us,8535293165758,45247485313214,d1301-sleep-a30-smart-anc-earbuds-for-sleeping,soundcore Sleep A30 Special / Sleep A30 | The World's First Sleep Earbuds with a Triple Noise Reduction System,Mist Green / Solo,out_of_stock,19999,19999,,,
-2026-11-13T14:39:06Z,soundcore-us,8543136874686,45277634429118,sleep-a30-left-and-right-replacement-earbuds,Sleep A30 Left and Right Replacement Earbuds,White,out_of_stock,16999,16999,,,
-2026-11-13T14:39:06Z,soundcore-us,8568612880574,45358838579390,a3955z11,P40i,Purple,out_of_stock,8999,8999,,,
-2026-11-13T14:39:06Z,soundcore-us,8664187142334,45768064172222,d23511f1-f0,Nebula X1 (Refurbished),Default Title,out_of_stock,299999,299999,,,
-2026-11-13T14:39:06Z,soundcore-us,8704980254910,46379150409918,soundcore-aeroclip-refurbished,AeroClip (Refurbished),Rosy Brown,out_of_stock,16999,16999,,,
-2026-11-13T14:39:06Z,soundcore-us,8704986054846,46379182817470,soundcore-select-4-go-bluetooth-shower-speaker-by-anker-refurbished,Select 4 Go (Refurbished),Minty Green,out_of_stock,3499,3499,,,
-2026-11-13T14:39:06Z,soundcore-us,8771201368254,46631359381694,1301,soundcore Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System,Mist Green / Solo,out_of_stock,19999,19999,,,
-2026-11-13T14:39:06Z,soundcore-us,8837171216574,47670452191422,soundcore-sleep-a30-special-sleep-a30,soundcore Sleep A30 Special / Sleep A30,Mist Green / Solo,out_of_stock,19999,19999,,,
-2026-11-13T14:39:06Z,soundcore-us,8704985497790,47978494820542,soundcore-sleep-a30-refurbished,Sleep A30  (Refurbished),Lunar White Special,back_in_stock,19999,19999,,,
-2026-11-13T14:39:06Z,soundcore-us,8268145098942,47981665190078,a3138011-f0,Boom 2 (Refurbished),Explorer Blue,price_down,999999999,8499,,,-100.0
+2026-11-13T14:39:06Z,store-005,8535293165758,45247485313214,,Sleep A30 Special / Sleep A30 | The World's First Sleep Earbuds with a Triple Noise Reduction System,Mist Green / Solo,out_of_stock,19999,19999,,,
+2026-11-13T14:39:06Z,store-005,8543136874686,45277634429118,,Sleep A30 Left and Right Replacement Earbuds,White,out_of_stock,16999,16999,,,
+2026-11-13T14:39:06Z,store-005,8568612880574,45358838579390,,P40i,Purple,out_of_stock,8999,8999,,,
+2026-11-13T14:39:06Z,store-005,8664187142334,45768064172222,,Nebula X1 (Refurbished),Default Title,out_of_stock,299999,299999,,,
+2026-11-13T14:39:06Z,store-005,8704980254910,46379150409918,,AeroClip (Refurbished),Rosy Brown,out_of_stock,16999,16999,,,
+2026-11-13T14:39:06Z,store-005,8704986054846,46379182817470,,Select 4 Go (Refurbished),Minty Green,out_of_stock,3499,3499,,,
+2026-11-13T14:39:06Z,store-005,8771201368254,46631359381694,,Sleep A30 Special / Sleep A30 The World's First Sleep Earbuds with a Triple Noise Reduction System,Mist Green / Solo,out_of_stock,19999,19999,,,
+2026-11-13T14:39:06Z,store-005,8837171216574,47670452191422,,Sleep A30 Special / Sleep A30,Mist Green / Solo,out_of_stock,19999,19999,,,
+2026-11-13T14:39:06Z,store-005,8704985497790,47978494820542,,Sleep A30 (Refurbished),Lunar White Special,back_in_stock,19999,19999,,,
+2026-11-13T14:39:06Z,store-005,8268145098942,47981665190078,,Boom 2 (Refurbished),Explorer Blue,price_down,999999999,8499,,,-100.0

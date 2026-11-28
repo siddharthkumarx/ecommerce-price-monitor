@@ -1,3 +1,3 @@
 observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,event,old_price_cents,new_price_cents,old_compare_at_cents,new_compare_at_cents,price_change_pct
-2026-11-08T13:29:52Z,soundcore-us,8777712468158,46660694114494,a83b3-anker-prime-charging-docking-station-14-in-1-triple-display-140w,"Anker Prime Docking Station (14-in-1, Triple Display, DisplayLink) with DL7400",Dark Gray (Standard Edition),back_in_stock,29999,29999,,,
-2026-11-08T13:29:52Z,soundcore-us,8949689352382,48817476010174,d1303-sleep-earbuds-4-noise-cancelling-earbuds-for-sleeping,Sleep 4,Moonlit White,out_of_stock,22999,22999,,,
+2026-11-08T13:29:52Z,store-005,8777712468158,46660694114494,,"Anker Prime Docking Station (14-in-1, Triple Display, DisplayLink) with DL7400",Dark Gray (Standard Edition),back_in_stock,29999,29999,,,
+2026-11-08T13:29:52Z,store-005,8949689352382,48817476010174,,Sleep 4,Moonlit White,out_of_stock,22999,22999,,,

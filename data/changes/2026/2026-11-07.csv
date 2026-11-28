@@ -30,6 +30,6 @@ observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,ev
 2026-11-07T09:31:31Z,jlab,7033004818504,41043854786632,star-spangled-jbuds-lux-anc-headphones,Star Spangled JBuds Lux ANC Headphones,Default Title,out_of_stock,9999,9999,9999,9999,
 2026-11-07T09:31:31Z,jlab,7136733462600,41376924762184,gaming-chair-black,Gaming Chair Black,Default Title,price_down,99999,39999,99999,39999,-60.0
 2026-11-07T09:31:31Z,jlab,7151128051784,41439431688264,jbuds-lux-anc-jbuds-mini-anc-jelle-blush-fund-bundle,JBuds Lux ANC & JBuds Mini ANC Jelle Blush Fund Bundle,Default Title,new,,9998,,14998,
-2026-11-07T09:31:31Z,soundcore-us,8777712599230,46660694343870,a121d-45w-usb-c-fast-charger-foldable-plug-compact,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Misty Blue | 1-Pack,back_in_stock,3999,3999,,,
-2026-11-07T09:31:31Z,soundcore-us,8800468304062,49579284168894,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / Liberty 5 Pro Max x soundcore 2,new,,27598,,,
-2026-11-07T09:31:31Z,soundcore-us,8800468304062,49579284201662,d1204-liberty-5-pro-max-ai-recording-earbuds,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / Liberty 5 Pro Max x soundcore 2,new,,27598,,,
+2026-11-07T09:31:31Z,store-005,8777712599230,46660694343870,,"Anker Nano Charger (45W, Smart Display, 180° Foldable)",Misty Blue | 1-Pack,back_in_stock,3999,3999,,,
+2026-11-07T09:31:31Z,store-005,8800468304062,49579284168894,,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Titanium Gold / Liberty 5 Pro Max x 2,new,,27598,,,
+2026-11-07T09:31:31Z,store-005,8800468304062,49579284201662,,Liberty 5 Pro Max | Earbuds with AI Note-Taker Smart Case,Midnight Black / Liberty 5 Pro Max x 2,new,,27598,,,

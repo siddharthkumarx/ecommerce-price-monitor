@@ -8,3 +8,78 @@ retired:
     name: "JLab"
     category: audio
     retired_on: 2026-11-27
+  - id: store-005
+    name: "Store #5"
+    category: audio
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-088
+    name: "Store #88"
+    category: home_kitchen
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-264
+    name: "Store #264"
+    category: home_kitchen
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-130
+    name: "Store #130"
+    category: coffee_tea
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-151
+    name: "Store #151"
+    category: fitness
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-155
+    name: "Store #155"
+    category: fitness
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-158
+    name: "Store #158"
+    category: fitness
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-163
+    name: "Store #163"
+    category: fitness
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-279
+    name: "Store #279"
+    category: fitness
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-175
+    name: "Store #175"
+    category: fitness
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-192
+    name: "Store #192"
+    category: pet
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-193
+    name: "Store #193"
+    category: pet
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-197
+    name: "Store #197"
+    category: pet
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-288
+    name: "Store #288"
+    category: tech_accessories
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"
+  - id: store-305
+    name: "Store #305"
+    category: toys_kids
+    retired_on: 2026-11-28
+    reason: "Terms of Service ban robots, scrapers or reuse of the site's content (terms-001, D-040)"

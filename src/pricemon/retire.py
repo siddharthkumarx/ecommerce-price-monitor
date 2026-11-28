@@ -35,9 +35,29 @@ def alias_id(public_no: int) -> str:
     return f"store-{public_no:03d}"
 
 
+_HOST_AFFIXES = ("shop", "store", "get", "try", "the", "my", "usa", "hq", "co")
+
+
 def name_words(store_id: str, name: str, host: str) -> set[str]:
-    """The words that name a store: its name, id and host label (3 letters or more)."""
-    words = {name, store_id, host.removeprefix("www.").split(".")[0]}
+    """The words that name a store: its name (also without a bracketed suffix such as
+    "(US)") and its first word, its id, and its host labels with and without a
+    shop-style prefix or suffix ("shopadvantus" -> "advantus"), 3 letters or more.
+    Scrubbing is applied to the hidden store's own rows only, so a common first word
+    ("Yoga") is taken out of its titles too: an accepted cost (D-044)."""
+    plain = re.sub(r"\s*\(.*?\)\s*", " ", name).strip()
+    words = {name, plain, store_id}
+    first = plain.split()[0] if plain.split() else ""
+    if len(first) >= 4:
+        words.add(first)
+    for label in host.lower().split(".")[:-1]:
+        if label in {"www", "shop", "store", "us", "en"}:
+            continue
+        words.add(label)
+        for affix in _HOST_AFFIXES:
+            if label.startswith(affix) and len(label) - len(affix) >= 4:
+                words.add(label[len(affix) :])
+            if label.endswith(affix) and len(label) - len(affix) >= 4:
+                words.add(label[: -len(affix)])
     return {w for w in words if len(w) >= 3}
 
 

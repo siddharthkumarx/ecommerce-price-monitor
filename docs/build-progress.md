@@ -12,7 +12,8 @@ has published.
    recon-007: 320, recon-008: 172 in the thin categories) - `done`.
 3. Recon with the Terms field: recon-005 to recon-009 committed - `done`.
    Verify: `checks/results/recon-00N/recon.md`.
-4. Store list: 129 stores (98 `no_ban`, 31 `none_found`) from recon-001..009, regenerated
+4. Store list: 114 stores (97 `no_ban`, 17 `none_found`) from recon-001..009 and the Terms
+   checks terms-001..002 (15 retired for a Terms ban, D-045), regenerated
    with `python -m pricemon.sources --stores-yml` - `done` (batch 1: 71 stores; batch 2:
    58 new, D-036).
 5. Public data holds only listed and retired stores (`pricemon.publicdata`, D-036) - `done`;

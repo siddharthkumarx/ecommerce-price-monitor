@@ -96,3 +96,12 @@ def test_retire_hide_name_adds_the_retired_entry_and_the_next_run_closes_its_row
     history = (data / "changes" / "2026" / "2026-11-05.csv").read_text()
     assert "store-017" in history  # the history stays, by number
     assert json.loads((data / "runs.jsonl").read_text().splitlines()[0])["stores_total"] == 2
+
+
+def test_name_words_cover_a_bracketed_name_and_the_host() -> None:
+    words = name_words("soundcore-us", "Soundcore (US)", "us.soundcore.com")
+    assert {"Soundcore", "soundcore", "soundcore-us"} <= words
+    assert "us" not in words
+    words = name_words("bluelounge", "Bluelounge", "shopadvantus.com")
+    assert "advantus" in words
+    assert "Equator" in name_words("equator-coffees", "Equator Coffees", "equatorcoffees.com")

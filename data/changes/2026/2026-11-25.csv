@@ -31,9 +31,9 @@ observed_at,store_id,product_id,variant_id,handle,product_title,variant_title,ev
 2026-11-25T06:17:40Z,sheets-giggles,9200609263790,48656480075950,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Charcoal,price_down,4830,4485,6900,6900,-7.1
 2026-11-25T06:17:40Z,sheets-giggles,9200609263790,48656480108718,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Aloe,price_down,4130,3835,5900,5900,-7.1
 2026-11-25T06:17:40Z,sheets-giggles,9200609263790,48656480141486,eucalyptus-lyocell-pillowcase-set-copy,Arctic Aire Max Tencel® Lyocell Pillowcase Set,King / Denim,price_down,4830,4485,6900,6900,-7.1
-2026-11-25T06:17:40Z,soundcore-us,7364813160638,44247924572350,space-q45-a3040011,soundcore Space Q45 | Long-Lasting Noise Cancelling Headphones,White,out_of_stock,14999,14999,,,
-2026-11-25T06:17:40Z,soundcore-us,7364813160638,44247924605118,space-q45-a3040011,soundcore Space Q45 | Long-Lasting Noise Cancelling Headphones,Blue,out_of_stock,14999,14999,,,
-2026-11-25T06:17:40Z,soundcore-us,8253670195390,44399881322686,a3994z11,Soundcore K20i,Jet Black,out_of_stock,2999,2999,,,
-2026-11-25T06:17:40Z,soundcore-us,7708595060926,45033882157246,a3947z11-96,Liberty 4 NC Charging Case - Black,Blue,out_of_stock,3599,3599,,,
-2026-11-25T06:17:40Z,soundcore-us,8794150633662,47031845290174,d1203z11-91,soundcore Liberty 5 Pro --  Left and Right Earbuds (without charging case),Black,back_in_stock,13999,13999,,,
-2026-11-25T06:17:40Z,soundcore-us,9161848455358,49805493567678,d1302-sleep-earbuds-4-pro-beta,Anker soundcore Sleep Earbuds 4 Pro | Sleep Tracking Earbuds with Smart Case,Lunar White,new,,34999,,,
+2026-11-25T06:17:40Z,store-005,7364813160638,44247924572350,,Space Q45 | Long-Lasting Noise Cancelling Headphones,White,out_of_stock,14999,14999,,,
+2026-11-25T06:17:40Z,store-005,7364813160638,44247924605118,,Space Q45 | Long-Lasting Noise Cancelling Headphones,Blue,out_of_stock,14999,14999,,,
+2026-11-25T06:17:40Z,store-005,8253670195390,44399881322686,,K20i,Jet Black,out_of_stock,2999,2999,,,
+2026-11-25T06:17:40Z,store-005,7708595060926,45033882157246,,Liberty 4 NC Charging Case - Black,Blue,out_of_stock,3599,3599,,,
+2026-11-25T06:17:40Z,store-005,8794150633662,47031845290174,,Liberty 5 Pro -- Left and Right Earbuds (without charging case),Black,back_in_stock,13999,13999,,,
+2026-11-25T06:17:40Z,store-005,9161848455358,49805493567678,,Anker Sleep Earbuds 4 Pro | Sleep Tracking Earbuds with Smart Case,Lunar White,new,,34999,,,

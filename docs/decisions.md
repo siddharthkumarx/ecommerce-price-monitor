@@ -813,3 +813,34 @@ failure reasons. It then searches `data/` for the name and lists any file that s
 holds it. The next published run regenerates the feed, the status, the README, the
 dashboard and the visuals from that data. The recon evidence (`checks/results/`) and
 the site register (`docs/sources.md`) keep naming every store checked, as before.
+
+## D-045 - Terms re-read of the listed stores: 15 leave, 114 stay (2026-11-28, owner)
+
+Owner answer: re-read the Terms of every listed store once with the current
+classifier; a store whose Terms now ban scraping leaves the list (retired with the
+reason, history kept, its name removed from the public files); a store with truly no
+Terms page (`none_found` after the full search) stays public by name.
+
+`terms-001` (28 Nov, 129 stores, 354 requests, no 429, no cooldown) and `terms-002`
+(one store again, D-043) with the fail-closed classifier (D-040) and the full search:
+
+- **Now `ban`, retired by number (D-044): 15** (6 were `no_ban`, 9 were
+  `none_found` and have their terms on a `/pages/` page): Store #5, #88, #130, #151,
+  #155, #158, #163, #175, #192, #193, #197, #264, #279, #288 and #305. This page and
+  the data name them by number only; the owner has the names.
+- **Probably the cost of failing closed (owner to decide): 6 of the 15.** Two name
+  automation for another reason (an injury in an animal-liability waiver; automated
+  text messages). Four were matched by the reuse rule on a malware clause, a
+  user-content licence, a privacy line and a personal-use permission; the rule stops
+  at that sentence, so whether those pages name automated access elsewhere is not
+  known. They stay retired; a later Terms check that reads a page with no ban lifts a
+  ban (`sources.StoreRecord.terms_record`).
+- **Now `no_ban`: 5**, earlier `none_found`: their terms are on a `/pages/` page with
+  no automation word.
+- **Still `none_found`: 17** (no page of the search could be read): 7 answer 404 on
+  every page, 6 disallow `/policies/` in robots.txt and have no `/pages/` terms, 3
+  have a page without policy text, 1 redirects off the store. They stay public by
+  name. The 6 behind robots.txt may have terms the monitor must not read: an owner
+  question.
+- **List:** 114 stores, 97 `no_ban` and 17 `none_found`. Numbers of retired stores
+  are never given again (`config/aliases.yml` `next`).

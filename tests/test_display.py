@@ -218,8 +218,12 @@ def test_unknown_terms_value_is_refused(tmp_path: Path) -> None:
 
 def test_committed_config_retires_jlab() -> None:
     retired = load_retired(ROOT / "config" / "retired.yml")
-    assert [(r.id, r.retired_on) for r in retired] == [("jlab", date(2026, 11, 27))]
+    assert (retired[0].id, retired[0].retired_on) == ("jlab", date(2026, 11, 27))
     assert "jlab" not in {s.id for s in load_stores(ROOT / "config" / "stores.yml")}
+    # Stores whose Terms turned out to ban robots are retired by number only (D-044).
+    hidden = [r for r in retired if r.id.startswith("store-")]
+    assert len(hidden) == 15
+    assert all(r.name == f"Store #{int(r.id[6:])}" and r.reason for r in hidden)
 
 
 def test_committed_stores_have_registered_fixed_numbers() -> None:
