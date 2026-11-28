@@ -2,8 +2,9 @@
 
 A held run keeps the last good data live (docs/architecture.md, "Validation and
 batch guard"; docs/decisions.md D-006, D-008). Every hold reason has a stable
-``key`` so that a hold repeating for the same reason in the next run can be
-accepted as a real change instead of holding the monitor forever.
+``key``. Only a rows-drop hold that repeats for the same reason in the next run is
+accepted as a real change (a store really shrank); every other hold repeats until
+the cause is fixed (D-041).
 """
 
 from __future__ import annotations
@@ -176,10 +177,20 @@ def check_batch(
     return result
 
 
+# Hold keys a repeat may accept: a store or the run really shrank (D-041). A
+# currency, suspicious-price, reject or mass-change hold is never accepted by
+# repeating: CAD prices on two days in a row are still not US dollars.
+REPEATABLE_PREFIX = "rows_drop:"
+
+
 def accept_repeat(
     current_keys: list[str], previous_status: str | None, previous_keys: list[str]
 ) -> bool:
-    """A hold is accepted when the previous run was held for the same (or wider) reasons."""
+    """A rows-drop hold is accepted when the previous run was held for the same (or
+    wider) reasons; any other hold key is never accepted (D-041)."""
     return (
-        bool(current_keys) and previous_status == "held" and set(current_keys) <= set(previous_keys)
+        bool(current_keys)
+        and all(k.startswith(REPEATABLE_PREFIX) for k in current_keys)
+        and previous_status == "held"
+        and set(current_keys) <= set(previous_keys)
     )

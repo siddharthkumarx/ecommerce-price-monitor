@@ -37,8 +37,8 @@ def test_reduced_motion_and_still_show_the_final_frame(tmp_path: Path) -> None:
     stores = tmp_path / "stores.yml"
     stores.write_text(
         "stores:\n"
-        "  - {id: a, name: Alpha Outdoor, category: outdoor, host: alpha.example}\n"
-        "  - {id: b, name: Beta Audio, category: audio, host: beta.example}\n"
+        "  - {id: a, name: Alpha Outdoor, category: outdoor, host: alpha.example, terms: no_ban}\n"
+        "  - {id: b, name: Beta Audio, category: audio, host: beta.example, terms: no_ban}\n"
     )
     cfg = RunConfig(stores=stores, data=tmp_path / "data")
     process(

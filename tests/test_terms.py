@@ -8,7 +8,7 @@ import pytest
 
 from pricemon.polite import PoliteConfig
 from pricemon.recon import Candidate, ReconResult, recon_store
-from pricemon.terms import MAX_SENTENCE, classify, is_ban, policy_text
+from pricemon.terms import MAX_SENTENCE, TERMS_PATHS, classify, policy_text
 from tests.fakes import session_for
 from tests.test_recon import FakeShop
 
@@ -55,15 +55,61 @@ def test_bans(sentence: str) -> None:
     "sentence",
     [
         # Liability, warranty, purchase-for-personal-use and privacy lines are not bans.
-        "We are not liable for any loss caused by automated systems or the content of the site.",
+        "We are not liable for any loss caused by errors in the content of the site.",
         "We do not warrant that the information on the site is accurate or complete.",
         "Products are sold for personal use only and may not be resold for commercial purposes.",
         "We do not sell your personal information or data to third parties.",
-        # Naming a robot without forbidding anything is not a ban.
-        "Our robot vacuum ships in two colours.",
     ],
 )
 def test_not_bans(sentence: str) -> None:
+    assert classify(page(sentence)).terms == "no_ban"
+
+
+# List-style prohibitions: the markup puts the prohibition and the automation word
+# on different lines, which the sentence rule before D-040 read as no_ban.
+LIST_BANS = [
+    (
+        "<p>You agree not to:</p><ul><li>use any robot, spider, scraper</li></ul>",
+        "You agree not to: use any robot, spider, scraper",
+    ),
+    (
+        "<p>Prohibited uses</p><p>You may not use the site:</p><ol><li>to harass others;</li>"
+        "<li>to spam, phish, spider, crawl, or scrape;</li></ol>",
+        "to spam, phish, spider, crawl, or scrape;",
+    ),
+    (
+        "<h3>Restrictions</h3><p>The following are prohibited</p><ul><li>Data mining or "
+        "similar data gathering</li><li>Reselling gift cards</li></ul>",
+        "Data mining or similar data gathering",
+    ),
+]
+
+
+@pytest.mark.parametrize(("html", "evidence"), LIST_BANS)
+def test_list_style_prohibitions_are_bans(html: str, evidence: str) -> None:
+    body = f"<p>{FILLER}</p>{html}"
+    got = classify(f'<div class="shopify-policy__body">{body}</div>')
+    assert got.terms == "ban"
+    assert got.sentence is not None
+    assert evidence in got.sentence
+
+
+@pytest.mark.parametrize(
+    "sentence",
+    [
+        # Fails closed: an automation word anywhere is a ban, whatever the sentence says.
+        "We are not liable for any loss caused by automated systems.",
+        "Our robot vacuum ships in two colours.",
+        "Search engines are welcome to crawl this site.",
+        "Crawlers are welcome to index this page, but you may not copy prices.",
+    ],
+)
+def test_an_automation_word_anywhere_is_a_ban(sentence: str) -> None:
+    assert classify(page(sentence)).terms == "ban"
+
+
+def test_a_clear_permission_sentence_is_not_a_ban() -> None:
+    sentence = "Automated access to this site is permitted for price comparison."
     assert classify(page(sentence)).terms == "no_ban"
 
 
@@ -83,10 +129,6 @@ def test_script_text_is_not_policy_text() -> None:
 def test_a_page_without_policy_text_is_none_found() -> None:
     got = classify("<html><body><p>Page not found</p></body></html>")
     assert (got.terms, got.source) == ("none_found", "no policy text")
-
-
-def test_is_ban_needs_a_prohibition() -> None:
-    assert is_ban("Crawlers are welcome to index this page.") is None
 
 
 CAND = Candidate(store="Example", domain="shop.example", category="apparel")
@@ -143,8 +185,35 @@ def test_robots_disallowing_policies_means_none_found_without_a_request() -> Non
     assert res.terms == "none_found"
     assert res.terms_source == "robots.txt disallows /policies/terms-of-service"
     assert shop.terms_hits == 0
-    assert res.terms_requests == 0
+    # The full search (D-043) still asks the five store pages, which answer 404.
+    assert res.terms_requests == len(TERMS_PATHS) - 1
     assert res.verdict() == (True, [])
+
+
+def test_the_search_finds_terms_on_a_store_page() -> None:
+    def terms(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(404)
+
+    class PagesShop(TermsShop):
+        def __call__(self, request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/pages/terms-and-conditions":
+                html = (
+                    "<nav>Robot toys</nav><main>"
+                    f"<p>{FILLER}</p><p>You agree not to:</p><ul><li>use a scraper</li></ul>"
+                    "</main><footer>Crawl space</footer>"
+                )
+                return httpx.Response(200, text=html, headers={"content-type": "text/html"})
+            return super().__call__(request)
+
+    res = recon(PagesShop(terms=terms))
+    assert (res.terms, res.terms_source) == ("ban", "read")
+    assert res.terms_page == "/pages/terms-and-conditions"
+    assert res.terms_sentence == "You agree not to: use a scraper"
+
+
+def test_a_store_page_menu_is_not_policy_text() -> None:
+    html = f"<nav>Robot toys</nav><main><p>{FILLER}</p></main><footer>Crawl</footer>"
+    assert classify(html).terms == "no_ban"
 
 
 def test_a_missing_terms_page_is_none_found() -> None:
@@ -210,6 +279,16 @@ def test_the_committed_request_selects_new_candidates_and_earlier_passes(tmp_pat
     from pricemon.checks import select_candidates
 
     request = yaml.safe_load(Path("checks/request.yml").read_text(encoding="utf-8"))
+    if request["check"] == "terms":
+        from pricemon.checks import listed_candidates
+        from pricemon.stores import load_stores
+
+        listed = load_stores(Path(request.get("stores", "config/stores.yml")))
+        chosen = listed_candidates(request)
+        assert {c.store for c in chosen} == (
+            set(request["only"]) if request.get("only") else {s.name for s in listed}
+        )
+        return
     chosen = select_candidates(request, Path("checks/candidates.yml"))
     names = [c.store for c in chosen]
     assert len(names) == len(set(names))
@@ -229,3 +308,31 @@ def test_the_committed_request_selects_new_candidates_and_earlier_passes(tmp_pat
     bad.write_text("categories:\n  audio:\n    - {store: A, domain: a.example}\n")
     with pytest.raises(ValueError, match="not in the candidates"):
         select_candidates({"since": "recon-005", "also": ["Nope"]}, bad)
+
+
+def test_the_terms_check_reads_robots_and_terms_only() -> None:
+    from pricemon.recon import read_terms_only
+
+    shop = TermsShop(terms=page("<b>Scrapers</b> are prohibited."))
+    session, _, _ = session_for(
+        shop, base_url=f"https://{CAND.domain}", config=PoliteConfig(delay_s=1, jitter_s=0)
+    )
+    row = asyncio.run(read_terms_only(session, CAND))
+    assert (row["check"], row["terms"], row["terms_source"]) == ("terms", "ban", "read")
+    assert row["terms_page"] == "/policies/terms-of-service"
+    assert row["requests"] == 2  # robots.txt and the terms page; no catalog request
+
+
+def test_a_terms_check_that_is_stopped_leaves_the_terms_unread() -> None:
+    from pricemon.recon import read_terms_only
+
+    def terms(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(429, headers={"Retry-After": "1"})
+
+    shop = TermsShop(terms=terms)
+    session, _, _ = session_for(
+        shop, base_url=f"https://{CAND.domain}", config=PoliteConfig(delay_s=1, jitter_s=0)
+    )
+    row = asyncio.run(read_terms_only(session, CAND))
+    assert row["terms"] is None
+    assert "http 429" in row["retry_causes"]

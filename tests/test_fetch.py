@@ -18,7 +18,7 @@ from pricemon.stores import Store
 from tests.fakes import ROBOTS_SHOPIFY, session_for
 
 SHOP = Path(__file__).parent / "fixtures" / "shop"
-STORE = Store(id="example", name="Example", category="outdoor", host="shop.example")
+STORE = Store(id="example", name="Example", category="outdoor", host="shop.example", terms="no_ban")
 DAY = date(2026, 11, 4)
 Mutator = Callable[[str, str], str]
 

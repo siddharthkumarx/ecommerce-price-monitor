@@ -23,7 +23,7 @@ RUN_AT = datetime(2026, 11, 28, 6, 17, 30, tzinfo=UTC)
 
 
 def _stores(n: int) -> list[Store]:
-    return [Store(f"s{i:03d}", f"S{i}", "audio", f"s{i}.example") for i in range(n)]
+    return [Store(f"s{i:03d}", f"S{i}", "audio", f"s{i}.example", "no_ban") for i in range(n)]
 
 
 def test_shards_split_every_store_exactly_once_and_evenly() -> None:
@@ -52,7 +52,13 @@ def _write_stores(path: Path, n: int) -> list[Store]:
         yaml.safe_dump(
             {
                 "stores": [
-                    {"id": f"s{i}", "name": f"S{i}", "category": "audio", "host": f"s{i}.example"}
+                    {
+                        "id": f"s{i}",
+                        "name": f"S{i}",
+                        "category": "audio",
+                        "host": f"s{i}.example",
+                        "terms": "no_ban",
+                    }
                     for i in range(n)
                 ]
             }

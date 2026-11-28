@@ -13,8 +13,8 @@ from tests.test_outputs import DAY1, DAY2, catalog, fetched
 def _stores_yml(path: Path) -> Path:
     path.write_text(
         "stores:\n"
-        '  - {id: a, name: "Alpha & Co", category: outdoor, host: alpha.example}\n'
-        "  - {id: b, name: Beta, category: audio, host: beta.example}\n"
+        '  - {id: a, name: "Alpha & Co", category: outdoor, host: alpha.example, terms: no_ban}\n'
+        "  - {id: b, name: Beta, category: audio, host: beta.example, terms: no_ban}\n"
     )
     return path
 

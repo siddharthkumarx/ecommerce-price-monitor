@@ -33,7 +33,7 @@ from pricemon.polite import (
     make_client,
 )
 from pricemon.screen import SCREEN_VERSION, screen_content, screen_evidence
-from pricemon.terms import TERMS_PATH, TermsResult, classify
+from pricemon.terms import TERMS_PATHS, TermsResult, classify
 from pricemon.witness import (
     is_products_payload,
     jsonld_currencies,
@@ -89,6 +89,7 @@ class ReconResult:
     terms: str | None = None
     terms_source: str | None = None
     terms_sentence: str | None = None
+    terms_page: str | None = None
     terms_requests: int = 0
     elapsed_s: float = 0.0
     notes: list[str] = field(default_factory=list)
@@ -249,11 +250,12 @@ TERMS_BUDGET = 2
 
 
 async def _terms(session: StoreSession, res: ReconResult) -> None:
-    """Read ``/policies/terms-of-service``: at most ``TERMS_BUDGET`` requests, one page.
+    """Search ``TERMS_PATHS`` for the store's terms: at most ``TERMS_BUDGET`` requests
+    per page, stopping at the first page with policy text (D-043).
 
-    No other page is searched. robots.txt is respected: a disallowed page is not
-    fetched and the store's terms are ``none_found``. A redirect is followed once,
-    only on the same host and only inside the request budget.
+    robots.txt is respected: a disallowed page is not fetched. A redirect is followed
+    once, only on the same host and only inside the page's budget. No page with
+    policy text means ``none_found``.
     """
     before = session.requests_made
     try:
@@ -261,14 +263,31 @@ async def _terms(session: StoreSession, res: ReconResult) -> None:
     finally:
         res.terms_requests = session.requests_made - before
     res.terms, res.terms_source, res.terms_sentence = result.terms, result.source, result.sentence
+    res.terms_page = result.page
 
 
 async def _read_terms(session: StoreSession, before: int) -> TermsResult:
-    path = TERMS_PATH
+    """The first page in ``TERMS_PATHS`` with policy text, classified (D-043).
+
+    When no page has policy text, the answer of the first page is kept as the
+    reason (``robots.txt disallows ...``, ``http 404``, ``no policy text``).
+    """
+    first: TermsResult | None = None
+    for path in TERMS_PATHS:
+        result = await _read_terms_page(session, path)
+        if result.terms != "none_found":
+            return result
+        first = first or result
+    assert first is not None
+    return first
+
+
+async def _read_terms_page(session: StoreSession, path: str) -> TermsResult:
     if not session.allowed(path):
         return TermsResult("none_found", f"robots.txt disallows {path}")
+    start = session.requests_made
     resp = await session.get(path, expect="html", follow_redirects=False, max_attempts=TERMS_BUDGET)
-    if resp.is_redirect and session.requests_made - before < TERMS_BUDGET:
+    if resp.is_redirect and session.requests_made - start < TERMS_BUDGET:
         target = resp.url.join(resp.headers.get("location", ""))
         if target.host != resp.url.host:
             return TermsResult("none_found", f"redirects off the store ({target.host})")
@@ -278,7 +297,8 @@ async def _read_terms(session: StoreSession, before: int) -> TermsResult:
         resp = await session.get(path, expect="html", follow_redirects=False, max_attempts=1)
     if resp.status_code != 200:
         return TermsResult("none_found", f"http {resp.status_code}")
-    return classify(resp.text)
+    result = classify(resp.text)
+    return TermsResult(result.terms, result.source, result.sentence, page=path)
 
 
 def _count_variants(products: list[dict[str, Any]]) -> int:
@@ -380,5 +400,61 @@ async def run_recon(
                     flush=True,
                 )
                 return result
+
+        return list(await asyncio.gather(*(one(c) for c in candidates)))
+
+
+async def read_terms_only(session: StoreSession, cand: Candidate) -> dict[str, Any]:
+    """The Terms check (``check: terms``, D-043): robots.txt, then the Terms search,
+    nothing else. ``terms`` is None when the store could not be read to the end
+    (blocked, a 429 that outlasted its retries, robots.txt unreachable)."""
+    started = time.monotonic()
+    res = ReconResult(store=cand.store, domain=cand.domain, category=cand.category)
+    try:
+        robots = await session.load_robots()
+        res.robots_status = robots.status
+        if not session.stopped_reason:
+            await _terms(session, res)
+    except StoreStopped as exc:
+        res.stopped_reason = exc.reason
+    except Exception as exc:  # one store must never crash the whole check
+        res.notes.append(f"error: {type(exc).__name__}: {exc}"[:300])
+    stopped = res.stopped_reason or session.stopped_reason
+    unread = bool(stopped) or bool(res.notes)
+    return {
+        "check": "terms",
+        "store": cand.store,
+        "category": cand.category,
+        "host": session.host,
+        "robots_status": res.robots_status,
+        "terms": None if unread else res.terms,
+        "terms_source": None if unread else res.terms_source,
+        "terms_sentence": None if unread else res.terms_sentence,
+        "terms_page": None if unread else res.terms_page,
+        "requests": session.requests_made,
+        "retries": session.retries_made,
+        "retry_causes": list(session.retry_causes),
+        "stopped_reason": stopped,
+        "notes": res.notes,
+        "elapsed_s": round(time.monotonic() - started, 1),
+    }
+
+
+async def run_terms_check(
+    candidates: list[Candidate], config: PoliteConfig, edge: EdgeGuard, concurrency: int = 4
+) -> list[dict[str, Any]]:
+    """The Terms check for every candidate, at the recon pace (one shared ``edge``)."""
+    gate = asyncio.Semaphore(concurrency)
+
+    async with make_client() as client:
+
+        async def one(cand: Candidate) -> dict[str, Any]:
+            async with gate:
+                session = StoreSession(
+                    client=client, base_url=f"https://{cand.domain}", config=config, edge=edge
+                )
+                row = await read_terms_only(session, cand)
+                print(f"{cand.store:<26} terms={row['terms'] or 'unread'}", flush=True)
+                return row
 
         return list(await asyncio.gather(*(one(c) for c in candidates)))

@@ -117,11 +117,12 @@ def test_unit_error_holds_and_keeps_last_good_data(tmp_path: Path) -> None:
     assert status["last_run"]["status"] == "held"
     assert status["last_run"]["hold_reasons"]
 
-    # The same hold in the next run is accepted as real.
+    # The same hold in the next run is not accepted: only a rows drop is (D-041).
     day3 = DAY2.replace(day=6)
     code, rec = process(cfg, [fetched("a", catalog(30, "0.50"), day3)], day3, time.monotonic())
-    assert code == EXIT_OK
-    assert rec["guard"]["accepted_after_repeat"] is True
+    assert code == EXIT_HELD
+    assert rec["guard"]["accepted_after_repeat"] is False
+    assert (cfg.data / "latest" / "snapshot.csv").read_text() == before
 
 
 def test_non_usd_currency_holds(tmp_path: Path) -> None:
@@ -131,6 +132,25 @@ def test_non_usd_currency_holds(tmp_path: Path) -> None:
     )
     assert code == EXIT_HELD
     assert rec["guard"]["keys"] == ["currency:a"]
+
+
+def test_two_cad_runs_in_a_row_publish_nothing_for_that_store(tmp_path: Path) -> None:
+    cfg = RunConfig(stores=tmp_path / "stores.yml", data=tmp_path / "data")
+    process(cfg, [fetched("a", catalog(30), DAY1)], DAY1, time.monotonic())
+    snapshot = cfg.data / "latest" / "snapshot.csv"
+    before = snapshot.read_text()
+    for day in (DAY2, DAY2.replace(day=6)):
+        code, rec = process(
+            cfg,
+            [fetched("a", catalog(30, "45.00"), day, currency="CAD")],
+            day,
+            time.monotonic(),
+        )
+        assert code == EXIT_HELD
+        assert rec["guard"]["keys"] == ["currency:a"]
+        assert rec["guard"]["accepted_after_repeat"] is False
+        assert snapshot.read_text() == before  # the USD prices of day 1 stay
+        assert not (cfg.data / "changes" / "2026" / f"{day:%Y-%m-%d}.csv").exists()
 
 
 # -- schedule and status ----------------------------------------------------------

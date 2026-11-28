@@ -25,7 +25,7 @@ from typing import Any
 import yaml
 
 from pricemon.polite import USER_AGENT, EdgeGuard, PoliteConfig
-from pricemon.recon import VARIANT_CAP, Candidate, ReconResult, run_recon
+from pricemon.recon import VARIANT_CAP, Candidate, ReconResult, run_recon, run_terms_check
 
 RESULTS_DIR = Path("checks/results")
 
@@ -150,6 +150,51 @@ def render_recon_md(meta: dict[str, Any], results: list[ReconResult]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def listed_candidates(request: dict[str, Any]) -> list[Candidate]:
+    """The listed stores (``stores``, default config/stores.yml) as candidates, or the
+    ones named in ``only``; a name in ``only`` that is not listed is an error."""
+    from pricemon.stores import load_stores
+
+    stores = load_stores(Path(request.get("stores", "config/stores.yml")))
+    only = set(request.get("only") or [])
+    missing = only - {s.name for s in stores}
+    if missing:
+        raise ValueError(f"'only' names stores that are not listed: {sorted(missing)}")
+    return [
+        Candidate(store=s.name, domain=s.host, category=s.category)
+        for s in stores
+        if not only or s.name in only
+    ]
+
+
+def render_terms_md(
+    meta: dict[str, Any], rows: list[dict[str, Any]], before: dict[str, str]
+) -> str:
+    counts = {v: sum(1 for r in rows if r["terms"] == v) for v in ("ban", "no_ban", "none_found")}
+    unread = [r for r in rows if r["terms"] is None]
+    lines = [
+        f"# Terms check `{meta['id']}`",
+        "",
+        f"- started: {meta['started_utc']}, finished: {meta['finished_utc']}",
+        f"- run: {meta['run_url'] or 'local'}",
+        f"- stores: {len(rows)}; ban {counts['ban']}, no_ban {counts['no_ban']}, "
+        f"none_found {counts['none_found']}, unread {len(unread)}",
+        f"- requests: {meta['requests']}; run-wide interval {meta['edge_interval_s']}s + "
+        f"jitter; halted: {meta.get('halted_reason') or 'no'}",
+        "",
+        "| store | category | before | now | source | page | evidence |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for r in sorted(rows, key=lambda x: (x["category"], x["store"].lower())):
+        sentence = (r["terms_sentence"] or "-").replace("|", "\\|")
+        now = r["terms"] or f"unread ({r['stopped_reason'] or '; '.join(r['notes'])})"
+        lines.append(
+            f"| {r['store']} | {r['category']} | {before.get(r['store'], '-')} | {now} "
+            f"| {r['terms_source'] or '-'} | {r['terms_page'] or '-'} | {sentence} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
 def run_request(request_path: Path) -> int:
     request = yaml.safe_load(request_path.read_text(encoding="utf-8"))
     check = request["check"]
@@ -190,6 +235,36 @@ def run_request(request_path: Path) -> int:
             json.dumps(payload, indent=2, sort_keys=False) + "\n", encoding="utf-8"
         )
         (out_dir / "recon.md").write_text(render_recon_md(meta, results), encoding="utf-8")
+        return 0
+
+    if check == "terms":
+        # Terms only (D-043): robots.txt and the Terms search for listed stores.
+        candidates = listed_candidates(request)
+        from pricemon.stores import load_stores
+
+        before = {
+            s.name: s.terms for s in load_stores(Path(request.get("stores", "config/stores.yml")))
+        }
+        config = PoliteConfig(
+            delay_s=float(request.get("delay_s", 5.0)),
+            jitter_s=float(request.get("jitter_s", 3.0)),
+        )
+        edge = EdgeGuard(
+            interval_s=float(request.get("edge_interval_s", 4.0)),
+            jitter_s=float(request.get("edge_jitter_s", 2.0)),
+        )
+        rows = asyncio.run(
+            run_terms_check(candidates, config, edge, int(request.get("concurrency", 4)))
+        )
+        meta = _run_meta(request, started)
+        meta["edge_interval_s"] = edge.interval_s
+        meta["halted_reason"] = edge.halted_reason
+        meta["throttle_events"] = edge.throttle_events
+        meta["cooldown_s"] = round(edge.cooldown_s, 1)
+        meta["requests"] = sum(r["requests"] for r in rows)
+        payload = {"meta": meta, "results": rows}
+        (out_dir / "terms.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        (out_dir / "terms.md").write_text(render_terms_md(meta, rows, before), encoding="utf-8")
         return 0
 
     if check == "pipeline":

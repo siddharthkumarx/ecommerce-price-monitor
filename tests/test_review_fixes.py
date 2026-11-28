@@ -123,7 +123,13 @@ def _write_stores(path: Path, n: int) -> None:
         yaml.safe_dump(
             {
                 "stores": [
-                    {"id": f"s{i}", "name": f"S{i}", "category": "audio", "host": f"s{i}.example"}
+                    {
+                        "id": f"s{i}",
+                        "name": f"S{i}",
+                        "category": "audio",
+                        "host": f"s{i}.example",
+                        "terms": "no_ban",
+                    }
                     for i in range(n)
                 ]
             }

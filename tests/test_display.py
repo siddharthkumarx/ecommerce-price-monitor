@@ -23,8 +23,9 @@ from tests.test_outputs import DAY1, DAY2, catalog, fetched
 ROOT = Path(__file__).resolve().parents[1]
 NOW = datetime(2026, 11, 5, 7, 0, tzinfo=UTC)
 
-# Day 1: Alphacorp's terms were not read yet (shown by name); day 2: recon found a
-# ban, so from then on every public file keys it as store-017 (D-034).
+# Day 1: Alphacorp's terms were not read yet (shown by name); day 2: a re-read found
+# a ban, so it left the list (load_stores refuses a ban store, D-042) and every public
+# file drops it (D-036).
 BEFORE = (
     "stores:\n"
     '  - {id: alphacorp, name: "Alphacorp", category: outdoor, host: www.alphacorp.example, '
@@ -35,8 +36,6 @@ BEFORE = (
 )
 AFTER = (
     "stores:\n"
-    '  - {id: alphacorp, name: "Alphacorp", category: outdoor, host: www.alphacorp.example, '
-    "terms: ban, public_no: 17}\n"
     "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban, public_no: 2}\n"
     "retired:\n"
     "  - {id: gamma, name: Gamma, category: audio, retired_on: 2026-11-05}\n"
@@ -79,7 +78,7 @@ def published(tmp_path: Path) -> tuple[Path, Path]:
     )
     process(
         cfg,
-        [fetched("alphacorp", _alpha_catalog("40.00"), DAY2), fetched("beta", catalog(4), DAY2)],
+        [fetched("beta", catalog(4), DAY2)],
         DAY2,
         time.monotonic(),
     )
@@ -142,16 +141,16 @@ def test_the_setting_is_one_line_in_public_yml(tmp_path: Path) -> None:
 def test_retired_store_leaves_the_snapshot_without_events(published: tuple[Path, Path]) -> None:
     _, data = published
     with (data / "latest" / "snapshot.csv").open() as fh:
-        assert {r["store_id"] for r in csv.DictReader(fh)} == {"store-017", "beta"}
-    changes = (data / "changes" / "2026" / "2026-11-05.csv").read_text()
-    assert "gamma" not in changes
+        assert {r["store_id"] for r in csv.DictReader(fh)} == {"beta"}
+    day2 = data / "changes" / "2026" / "2026-11-05.csv"
+    assert not day2.exists()  # retiring gamma and dropping alphacorp are not events
     last = json.loads((data / "runs.jsonl").read_text().splitlines()[-1])
     assert last["retired_rows_closed"] == 3
     assert last["events"]["removed"] == 0
     assert last["stores_added"] == []
 
 
-def test_every_public_surface_hides_a_banned_store(
+def test_every_public_surface_drops_a_store_whose_terms_became_a_ban(
     published: tuple[Path, Path], tmp_path: Path
 ) -> None:
     stores, data = published
@@ -182,30 +181,28 @@ def test_every_public_surface_hides_a_banned_store(
     for name, text in texts.items():
         for secret in SECRETS:
             assert secret not in text.lower(), (name, secret)
-    assert "store-017" in texts["parquet"]
-    assert "Store #17 (Outdoor)" in site
-    assert "Store #17 (Outdoor)" in readme
+    assert "beta" in texts["parquet"]
     assert "beta.example" in site  # a store without a ban keeps its name and link
     # The retired store is labelled, never shown as sold out or removed.
     assert "retired on 5 Nov 2026" in site
     assert "Gamma (retired on 5 Nov 2026)" in readme
     monitor = json.loads(feed)["monitor"]
-    assert monitor["stores_total"] == 2
-    assert monitor["stores_shown_without_name"] == 1
+    assert monitor["stores_total"] == 1
+    assert monitor["stores_shown_without_name"] == 0
     assert monitor["stores_retired"][0]["label"] == "retired on 5 Nov 2026"
 
 
 def test_stores_yml_loads_terms_and_retired(published: tuple[Path, Path]) -> None:
     stores, _ = published
-    assert [s.terms for s in load_stores(stores)] == ["ban", "no_ban"]
-    assert [s.public_no for s in load_stores(stores)] == [17, 2]
+    assert [s.terms for s in load_stores(stores)] == ["no_ban"]
+    assert [s.public_no for s in load_stores(stores)] == [2]
     assert [r.id for r in load_retired(stores)] == ["gamma"]
 
 
 def test_a_store_cannot_be_monitored_and_retired(tmp_path: Path) -> None:
     path = tmp_path / "stores.yml"
     path.write_text(
-        "stores:\n  - {id: a, name: A, category: audio, host: a.example}\n"
+        "stores:\n  - {id: a, name: A, category: audio, host: a.example, terms: no_ban}\n"
         "retired:\n  - {id: a, name: A, category: audio, retired_on: 2026-11-27}\n"
     )
     with pytest.raises(ValueError, match="both monitored and retired"):
@@ -237,17 +234,10 @@ def test_committed_stores_have_registered_fixed_numbers() -> None:
 def test_a_store_that_leaves_without_being_retired_is_withdrawn_everywhere(
     published: tuple[Path, Path], tmp_path: Path
 ) -> None:
-    """D-036: public data holds only monitored and retired stores. Alphacorp (a ban)
-    leaves the list; its rows, run-log entries and history go, and the run totals
-    shrink by what it contributed."""
+    """D-036: public data holds only monitored and retired stores. Alphacorp left the
+    list on day 2; its rows, run-log entries and history are gone, the day-1 totals
+    shrank by what it contributed, and a later run changes nothing more."""
     stores, data = published
-    runs_before = [json.loads(x) for x in (data / "runs.jsonl").read_text().splitlines()]
-    stores.write_text(
-        "stores:\n"
-        "  - {id: beta, name: Beta, category: audio, host: beta.example, terms: no_ban, "
-        "public_no: 2}\n"
-        "retired:\n  - {id: gamma, name: Gamma, category: audio, retired_on: 2026-11-05}\n"
-    )
     parquet = tmp_path / "release" / "month.parquet"
     cfg = RunConfig(stores=stores, data=data, history_in=parquet, history_out=parquet)
     day3 = datetime(2026, 11, 6, 6, 17, tzinfo=UTC)
@@ -267,16 +257,12 @@ def test_a_store_that_leaves_without_being_retired_is_withdrawn_everywhere(
     for p in data.rglob("*"):
         if p.is_file():
             text = p.read_text().lower()
-            for secret in (*SECRETS, "store-017"):
+            for secret in SECRETS:
                 assert secret not in text, (p, secret)
-    runs_after = [json.loads(x) for x in (data / "runs.jsonl").read_text().splitlines()]
-    day1_before, day1_after = runs_before[0], runs_after[0]
-    assert day1_before["stores_total"] == 3
-    assert day1_after["stores_total"] == 2  # beta, and gamma (retired, kept)
-    assert day1_after["withdrawn_stores"] == 1
-    assert day1_after["rows_observed"] == day1_before["rows_observed"] - 6
-    assert day1_after["events"]["new"] == day1_before["events"]["new"] - 6
-    # A second run changes nothing more (idempotent).
+    day1 = json.loads((data / "runs.jsonl").read_text().splitlines()[0])
+    assert day1["stores_total"] == 2  # beta, and gamma (retired, kept)
+    assert day1["withdrawn_stores"] == 1
+    assert day1["rows_observed"] == 4 + 3
     from pricemon.display import load_display
     from pricemon.publicdata import rekey_files
 

@@ -242,3 +242,50 @@ def test_a_newer_content_screen_supersedes_earlier_flags_but_not_its_own() -> No
     # A row that did not read the catalog (no version) supersedes nothing.
     (rec,) = collect([_run("recon-006", old), _run("recon-009", _row("Kassa"))])
     assert rec.drop_reasons()
+
+
+def _terms_run(rid: str, started: str, *rows: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+    meta = {"id": rid, "check": "terms", "started_utc": started}
+    return (f"checks/results/{rid}/terms.json", {"meta": meta, "results": list(rows)})
+
+
+def _terms_row(store: str, terms: str | None, **extra: Any) -> dict[str, Any]:
+    row: dict[str, Any] = {
+        "check": "terms",
+        "store": store,
+        "category": "audio",
+        "terms": terms,
+        "terms_source": "read" if terms in ("ban", "no_ban") else None,
+        "terms_sentence": None,
+        "retry_causes": [],
+        "stopped_reason": None,
+    }
+    row.update(extra)
+    return row
+
+
+def test_a_terms_check_decides_terms_only(  # D-043
+) -> None:
+    recon = _run("recon-005", _row("Alpha", terms="no_ban", terms_source="read"))
+    recon[1]["meta"]["started_utc"] = "2026-11-20T00:00:00+00:00"
+    recon[1]["results"].append(_row("Beta", terms="no_ban", terms_source="read"))
+    recon[1]["results"].append(_row("Gamma", terms="none_found", terms_source="http 404"))
+    check = _terms_run(
+        "terms-001",
+        "2026-11-28T10:00:00+00:00",
+        _terms_row("Alpha", "ban", terms_sentence="You agree not to: use any robot"),
+        # A 429 while reading the terms: the terms stay as recon read them, and the
+        # 429 does not drop a listed store (the drop rules read recon rows only).
+        _terms_row("Beta", None, retry_causes=["http 429"], stopped_reason="http 429"),
+        _terms_row("Gamma", "none_found"),
+        _terms_row("Nobody", "no_ban"),  # not a candidate: ignored
+    )
+    # The check sorts before recon-005 by name, but ran after it.
+    records = {r.store: r for r in collect([check, recon])}
+    assert set(records) == {"Alpha", "Beta", "Gamma"}
+    assert records["Alpha"].terms == "ban"
+    assert records["Alpha"].drop_reasons() == ["terms-001: terms ban, not monitored (D-036)"]
+    assert records["Alpha"].latest_id == "recon-005"
+    assert records["Beta"].terms == "no_ban"
+    assert records["Beta"].drop_reasons() == []
+    assert records["Gamma"].terms == "none_found"

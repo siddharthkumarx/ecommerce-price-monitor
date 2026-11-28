@@ -169,19 +169,25 @@ class StoreRecord:
         return [f"screen hit reviewed ({r.category}): {r.reason}" for r in self.reviews]
 
     @property
+    def recon(self) -> list[tuple[str, dict[str, Any]]]:
+        """The recon rows; a Terms check row (``check: terms``) only feeds ``terms``."""
+        return [(rid, r) for rid, r in self.history if r.get("check") != "terms"]
+
+    @property
     def latest(self) -> dict[str, Any]:
-        return self.history[-1][1]
+        return self.recon[-1][1]
 
     @property
     def latest_id(self) -> str:
-        return self.history[-1][0]
+        return self.recon[-1][0]
 
     def drop_reasons(self) -> list[str]:
         reasons: list[str] = []
         # A later row screened with a newer content screen supersedes the content
         # flags of earlier rows (D-039); rows before screen versions were recorded are v1.
-        screens = [r.get("screen_version") or 1 for _, r in self.history]
-        for i, (rid, r) in enumerate(self.history):
+        recon = self.recon
+        screens = [r.get("screen_version") or 1 for _, r in recon]
+        for i, (rid, r) in enumerate(recon):
             superseded = any(v > screens[i] for v in screens[i + 1 :])
             stopped = r.get("stopped_reason") or ""
             markers = ("blocked", "challenge", "http 429", "robots.txt unreachable")
@@ -221,11 +227,16 @@ def collect(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
 ) -> list[StoreRecord]:
+    """One record per store, its rows in the order the runs started (a Terms check
+    reads stores already listed, so it never creates a record)."""
     reviews = reviews or {}
     records: dict[str, StoreRecord] = {}
-    for _, payload in sources:
+    ordered = sorted(sources, key=lambda s: str(s[1]["meta"].get("started_utc") or ""))
+    for _, payload in ordered:
         rid = payload["meta"]["id"]
         for r in payload["results"]:
+            if r.get("check") == "terms" and r["store"] not in records:
+                continue
             rec = records.setdefault(
                 r["store"],
                 StoreRecord(r["store"], r["category"], reviews=reviews.get(r["store"], [])),

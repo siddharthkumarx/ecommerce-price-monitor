@@ -183,3 +183,7 @@ def test_repeat_acceptance() -> None:
     assert not accept_repeat(["rows_drop:a"], "ok", [])
     assert not accept_repeat(["rows_drop:a", "rows_drop:c"], "held", ["rows_drop:a"])
     assert not accept_repeat([], "held", ["rows_drop:a"])
+    # Only rows-drop holds repeat into acceptance (D-041).
+    for key in ("currency:a", "suspicious:a", "rejects:a", "suspicious:run", "mass_change:run"):
+        assert not accept_repeat([key], "held", [key])
+        assert not accept_repeat(["rows_drop:a", key], "held", ["rows_drop:a", key])

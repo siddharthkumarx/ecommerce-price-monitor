@@ -737,3 +737,58 @@ v2) excluded one safe store for a false positive, Maple Landmark ("Wine Decorati
 Block", a wooden letter block), now reviewed by exact title; Beyond Yoga ("Lift Your
 Spirits Bra") is also "catalog too large" and stays out. The safe-store count went
 from 108 to 113 for recon-001..007 with the re-check, then to 129 with recon-008.
+
+## D-040 - The Terms classifier fails closed (2026-11-28, owner, F1 deep review)
+
+The F1 deep review (read-only, at `39bd35b`) found that `pricemon.terms` split a page
+at every `<li>` and `<br>` and then needed the prohibition word in the same sentence
+as the automation word, so "You agree not to:" followed by a bullet "use any robot,
+spider, scraper" read as `no_ban`.
+
+- **Rule.** `no_ban` only when no automation word appears anywhere in the policy text:
+  robot, spider, scraper, crawl, bot, data mining, data harvesting, automated or
+  automatic means, access, tools, programs and the like. Otherwise `ban`, unless that
+  sentence clearly permits it ("is permitted", "you may", "we allow"), forbids
+  nothing and is not about search engines. A sentence that forbids commercial reuse
+  of the site's content is still a ban.
+- **Evidence.** The first sentence that names automated access and forbids
+  something; else the first that names it. A list item is shown after the line that
+  introduces it ("You agree not to: use any robot, spider, scraper").
+- **Cost, accepted.** A page that names automation for another reason (a liability
+  line about automated systems, a product called a robot) is a ban. A store page
+  (`/pages/...`, D-043) is read from its `<main>` element, so menus and footers do
+  not count.
+- Tests: three list-style ban pages (the example above among them), the fail-closed
+  cases, a permission sentence (`tests/test_terms.py`).
+
+## D-041 - Only a rows drop is accepted by repeating (2026-11-28, owner, F1 deep review)
+
+A held run was accepted when the next run had the same hold keys (D-008). The keys
+`currency:`, `suspicious:`, `rejects:` and `mass_change:` qualified, so a store
+showing CAD prices on two days in a row would have been published as US dollars on
+day 2. Now `guard.accept_repeat` accepts a repeat only when every key is
+`rows_drop:*` (a store or the run really shrank). Any other hold repeats until its
+cause is fixed or the store leaves the list. Test: two CAD runs in a row publish
+nothing for that store (`tests/test_outputs.py`).
+
+## D-042 - The store loader refuses a missing terms value and a ban (2026-11-28, owner, F1 deep review)
+
+`stores.Store` defaulted `terms` to `none_found` and `load_stores` turned a missing
+field into `none_found`, so a store with unread terms could look safe. `terms` is now
+required, and `load_stores` raises on a store without it or with `ban` (D-036): a run
+with such a list fails before any request.
+
+## D-043 - Terms check and full Terms search (2026-11-28, owner)
+
+- **Search.** Recon and the Terms check read `/policies/terms-of-service` and, when
+  it is missing, disallowed or has no policy text, `/pages/terms-of-service`,
+  `/pages/terms-and-conditions`, `/pages/terms-conditions`, `/pages/terms` and
+  `/pages/tos`, each where robots.txt allows it, at most 2 requests each, and stop at
+  the first page with policy text. `none_found` now means no page of that search
+  could be read; the reason of the first page is kept.
+- **Terms check** (`check: terms` in `checks/request.yml`). Reads robots.txt and the
+  Terms search of the listed stores, nothing else, at the recon pace. A store
+  stopped before the end (a block, a 429 past its retries) is `unread` and keeps the
+  value recon gave it. `pricemon.sources` takes a Terms check row as the newest terms
+  reading of a store already in the recon evidence; the drop rules (D-004) read recon
+  rows only. Sources are ordered by the time their run started, not by their name.

@@ -43,8 +43,8 @@ class Store:
     name: str
     category: str
     host: str
+    terms: str  # no_ban | none_found: load_stores refuses a missing value or ban (D-042)
     screen_reviewed: frozenset[str] = frozenset()
-    terms: str = "none_found"
     # Fixed public number (config/aliases.yml, D-034): assigned once, never reused.
     public_no: int | None = None
 
@@ -71,7 +71,11 @@ def _raw(path: Path) -> dict[str, Any]:
 
 
 def load_stores(path: Path) -> list[Store]:
+    """The listed stores; raises on a store without a terms value or with ``ban`` (D-042)."""
     raw = _raw(path)
+    missing = [str(s.get("id")) for s in raw["stores"] if not s.get("terms")]
+    if missing:
+        raise ValueError(f"stores without a terms value in {path}: {missing}")
     stores = [
         Store(
             id=str(s["id"]),
@@ -79,7 +83,7 @@ def load_stores(path: Path) -> list[Store]:
             category=str(s["category"]),
             host=str(s["host"]),
             screen_reviewed=frozenset(str(t) for t in s.get("screen_reviewed") or []),
-            terms=str(s.get("terms") or "none_found"),
+            terms=str(s["terms"]),
             public_no=int(s["public_no"]) if s.get("public_no") is not None else None,
         )
         for s in raw["stores"]
@@ -93,6 +97,9 @@ def load_stores(path: Path) -> list[Store]:
     bad = sorted({s.terms for s in stores} - set(TERMS_VALUES))
     if bad:
         raise ValueError(f"unknown terms values in stores.yml: {bad}")
+    banned = [s.id for s in stores if s.terms == "ban"]
+    if banned:
+        raise ValueError(f"stores whose terms ban robots are listed (D-036): {banned}")
     retired = {r.id for r in load_retired(path)}
     if retired & set(ids):
         raise ValueError(f"stores both monitored and retired: {sorted(retired & set(ids))}")
