@@ -1,11 +1,13 @@
 # Live check request. Pushing a change to this file runs .github/workflows/checks.yml
 # on the GitHub runner; results are committed to checks/results/<id>/.
-# terms-001: re-read the Terms of every listed store once with the fail-closed
-# classifier and the full page search (D-040, D-043). Robots.txt and the Terms
-# pages only, no catalog request; same pace as recon-009.
-id: terms-001
+# terms-002: JOOLA again. In terms-001 its /pages/terms redirected to the home page,
+# which was read as its terms; a redirect is now followed only to a terms-like path
+# (D-043). Same pace as terms-001.
+id: terms-002
 check: terms
 stores: config/stores.yml
+only:
+  - JOOLA
 concurrency: 4
 delay_s: 5.0
 jitter_s: 3.0
