@@ -1,4 +1,4 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 114 US online stores and records every price: 57,911 prices in the latest run."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-still.svg"><img src="assets/hero.svg" width="100%" alt="Competitor prices change every day. Each day one run reads 114 US online stores and records every price: 57,883 prices in the latest run."></picture></p>
 
 # Shopify price monitor
 
@@ -13,7 +13,7 @@
 [![Code license](https://img.shields.io/badge/code-PolyForm%20Noncommercial%201.0.0-0B7468)](LICENSE)
 [![Data license](https://img.shields.io/badge/data-CC%20BY--NC%204.0-0B7468)](data/LICENSE)
 
-**[Live dashboard](https://siddharthkumar.com/ecommerce-price-monitor/)** · **[Download the data](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest)**
+**[Live dashboard](https://siddharthkumar.com/ecommerce-price-monitor/)** · **[Download the data](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases)**
 
 ## What you get
 
@@ -27,22 +27,22 @@ One row per product option (size, colour) per store, with today's price, the "wa
 | Big Agnes | [Gold Camp 3 Footprint](https://www.bigagnes.com/products/gold-camp-3-footprint) | $25.00 | $50.00 | yes |
 | Foamnasium | [Blocksy Mini Clearance (Timeless Classic / Enhanced Marigold)](https://foamnasium.com/products/blocksy-mini-clearance) | $74.50 | $149.00 | yes |
 
-The full table has 57,911 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [monthly history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases/latest) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
+The full table has 57,883 rows: [CSV](https://github.com/siddharthkumarx/ecommerce-price-monitor/blob/main/data/latest/snapshot.csv) · [daily history](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases) · [dashboard](https://siddharthkumar.com/ecommerce-price-monitor/).
 
 ### What changed today
 
-In the run of 28 November 2026: 3 price drops, 6 price rises, 1 sale started, 61 items sold out, 13 items back in stock, 1 new product option, 2 product options removed. The biggest moves:
+In the run of 28 November 2026: 3 items back in stock, 28 product options removed. The biggest moves:
 
 | Store | Product | What changed | Before | Now |
 |---|---|---|---:|---:|
-| JOOLA | [JOOLA Summer Daze Perseus Pro IV 16mm (Limited Edition)](https://joola.com/products/joola-perseus-pro-iv-16mm-summer-daze-limited-edition) | Price down, Sale started (-66.7%) | $299.95 | $99.95 |
-| Bandolier | [Dillon Pouchette - Black/Gold](https://www.bandolierstyle.com/products/dillon-pouchette-black-gold) | Price up (+16.7%) | $100.80 | $117.60 |
-| Bandolier | [Dillon Pouchette - Cognac/Gold](https://www.bandolierstyle.com/products/dillon-pouchette-cognac-gold) | Price up (+16.7%) | $100.80 | $117.60 |
-| Bandolier | [Dillon Pouchette - Gold Metallic Crinkle/Gold (One Size)](https://www.bandolierstyle.com/products/dillon-pouchette-gold-metallic-crinkle-gold) | Price up (+16.7%) | $100.80 | $117.60 |
-| Bandolier | [Dillon Pouchette - Navy/Gold (One Size)](https://www.bandolierstyle.com/products/dillon-pouchette-navy-gold) | Price up (+16.7%) | $100.80 | $117.60 |
-| Bandolier | [Dillon Pouchette - Pewter Metallic Crinkle/Gold (One Size) (One Size)](https://www.bandolierstyle.com/products/dillon-pouchette-pewter-metallic-crinkle-gold) | Price up (+16.7%) | $100.80 | $117.60 |
-| Bandolier | [Dillon Pouchette - Tomato Red Woven/Gold](https://www.bandolierstyle.com/products/dillon-pouchette-tomato-red-woven-gold) | Price up (+16.7%) | $100.80 | $117.60 |
-| HyperX | [HyperX OMEN 16 inch Gaming Laptop PC 16 Valorant edition, Windows 11 Home, 16", AMD Ryzen™ 9, 32GB RAM, 1TB SSD, NVIDIA® GeForce RTX™ 5070, 2.5K, RIOT Blue (RIOT blue)](https://hyperx.com/products/hyperx-omen-16-valorant-limited-edition-gaming-laptop) | Price down (-2.3%) | $2,149.99 | $2,099.99 |
+| Saris | [BLE Bluetooth USB Adapter For Use With BlueGiga Dongle and OTA Firmware Updates](https://saris.com/products/bluetooth-usb-adapter) | Back in stock | $24.99 | $24.99 |
+| Saris | [Hatch Huggers SL, Secure Your Bike Rack With Added Customization](https://saris.com/products/hatch-huggers-sl) | Back in stock | $24.99 | $24.99 |
+| Saris | [MTR Upper Wheel Wedge (Passenger Side (Right) Wheel Wedge)](https://saris.com/products/mtr-upper-wheel-wedge) | Back in stock | $19.99 | $19.99 |
+| Takeya | Actives Kids Water Bottle With Straw Lid - customized (14oz / Blush) | Removed | $32.98 |  |
+| Takeya | Actives Water Bottle With Spout Lid - customized (18oz / Onyx) | Removed | $34.98 |  |
+| Takeya | Actives Water Bottle With Spout Lid - customized (18oz / Blush) | Removed | $40.97 |  |
+| Takeya | Actives Water Bottle With Spout Lid - customized (18oz / Tart Orange) | Removed | $26.28 |  |
+| Takeya | Actives Water Bottle With Spout Lid - customized (22oz / Midnight) | Removed | $35.98 |  |
 
 Every change is in the [daily change log](https://github.com/siddharthkumarx/ecommerce-price-monitor/tree/main/data/changes).
 
@@ -67,11 +67,11 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data. 
 
 ## Why you can trust this data
 
-- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 112 of 112 checked products matched exactly.
-- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 112 of 114 stores proved US dollars.
+- **Checked against a second source.** Every run reads each store's full product list, then checks one product from every store against a second source on the same store. Latest run: 113 of 113 checked products matched exactly.
+- **Real US prices.** Every request asks for US prices, and every run proves that the store showed US dollars. Latest run: 113 of 114 stores proved US dollars.
 - **Doubtful data is held back, not guessed.** A row that breaks a rule (for example a sale price above the normal price) is set aside, and a run that looks wrong as a whole is held: yesterday's good data stays live until a clean run replaces it. Latest run: 0 rows set aside, 1,232 free gifts and samples left out on purpose, not held.
-- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 112 of 114 stores updated; 2 kept their previous prices.
-- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 492 page requests in 32.8 minutes, and no store blocked us.
+- **Nothing silently missing.** A store that could not be read keeps its last good prices and is marked as not updated, so you always know how fresh each row is. Latest run: 113 of 114 stores updated; 1 kept their previous prices.
+- **Collected politely.** One store page every few seconds, each store's robots.txt respected, and the run slows down or stops as soon as a store asks. Latest run: 491 page requests in 31.7 minutes, and no store blocked us.
 
 ## How it works
 
@@ -86,7 +86,7 @@ JLab (retired on 27 Nov 2026) is no longer read; its history stays in the data. 
 
 ## What broke and how I fixed it
 
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 34."></picture></p>
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/maintenance-loop-still.svg"><img src="assets/maintenance-loop.svg" width="100%" alt="Example timeline of daily runs. One real incident: Shopify asked the whole run to slow down; the fix pauses every store together. Daily runs delivered so far: 35."></picture></p>
 
 Real problems from building this monitor, with the fix for each. The full write-ups are in [docs/incidents.md](docs/incidents.md).
 
@@ -120,7 +120,7 @@ Every store is read once a day; the run is due at 06:17 UTC (early morning US ti
 The checks notice it: a run that looks wrong is held and I get an alert, while the last good data stays live. I fix the collector, usually the same day, and the next run fills the gap.
 
 **Which formats can I get?**
-CSV, Excel, Google Sheets or a database, plus a monthly history file (Parquet) if you want one. This repository delivers CSV, Parquet and a dashboard.
+CSV, Excel, Google Sheets or a database, plus history files (Parquet) if you want them. This repository delivers CSV, Parquet and a dashboard.
 
 **Can you track my competitors' sites?**
 Yes, if the information is public, such as prices, sales and stock on product pages. I check each site first and tell you what can be collected and how often, before any work starts.
@@ -163,7 +163,7 @@ The daily change log, [`data/changes/YYYY/YYYY-MM-DD.csv`](https://github.com/si
 | `new_compare_at_cents` | integer or empty | "Was" price after | `19995` |
 | `price_change_pct` | number or empty | Price change in percent, for price events | `-47.5` |
 
-The monthly history, `price_history_YYYY-MM.parquet` in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), has the snapshot fields for every version of every row, plus `valid_to` (UTC time the version was replaced; empty while it is current) and `exported_at` (UTC time of the run that wrote the file).
+The history in the [releases](https://github.com/siddharthkumarx/ecommerce-price-monitor/releases), one release per month: `events-YYYY-MM-DD.parquet` holds every change event of that day (the change-log fields above) and `snapshot-YYYY-MM.parquet` every open row at the end of the month (the snapshot fields above). Each file is written once, after its day or month is over, and never replaced.
 
 <details>
 <summary><strong>For engineers</strong></summary>
@@ -174,7 +174,7 @@ One scheduled GitHub Actions job (`.github/workflows/daily.yml`) runs `python -m
 
 1. **Fetch** (`polite.py`, `fetch.py`): robots.txt per RFC 9309 (Protego), `/products.json` pages with `country=US`, then one product per store per day cross-checked against `/products/<handle>.js` and the page's JSON-LD. Per-store delay with jitter, one run-wide pace for Shopify's shared edge (`EdgeGuard`): any 429 pauses every store for its `Retry-After` and slows the pace; a challenge page stops a store; persistent throttling halts the run; a 38-minute request budget keeps the job under 45 minutes.
 2. **Validate** (`models.py`, `normalize.py`, `guard.py`): Pydantic rows (integer cents, `compare_at >= price`, fixed availability values), then a batch guard that holds the run on row-count drops, unit-error price moves, unexplained mass changes, rejects or a non-USD currency proof.
-3. **History** (`history.py`, `changes.py`): an SCD2 merge in DuckDB; open versions are the committed snapshot, closed versions go to the monthly Parquet release asset.
+3. **History** (`history.py`, `changes.py`): an SCD2 merge in DuckDB; open versions are the committed snapshot, every change is an event in the committed change log, mirrored to immutable Parquet release files.
 4. **Outputs** (`outputs.py`, `sheets.py`, `site.py`, `readme.py`, `visuals.py`): change log, `runs.jsonl`, `status.json` and shields.io badges, Google Sheet, static dashboard, and this README with its visuals, re-rendered after every run.
 
 Full design: [docs/architecture.md](docs/architecture.md).
@@ -218,7 +218,7 @@ All in [docs/decisions.md](docs/decisions.md); the ones that shape the system:
 
 - [D-004](docs/decisions.md#d-004---store-selection-and-drop-rules-2026-11-03-owner-rules): a store is dropped for any challenge, 429 retry or disallowed path in any recon run.
 - [D-006](docs/decisions.md#d-006---currency-proof-holds-the-run-2026-11-03-owner-rule): a non-USD currency proof holds the whole run.
-- [D-009](docs/decisions.md#d-009---where-state-lives-2026-11-03): open versions in git, full history in monthly Parquet.
+- [D-009](docs/decisions.md#d-009---where-state-lives-2026-11-03): open versions in git, full history in the change log ([D-047](docs/decisions.md#d-047---the-history-mirror-on-github-releases-immutable-per-day-files-from-main-2026-11-28-owner)).
 - [D-019](docs/decisions.md#d-019---json-ld-is-a-soft-witness-for-prices-2026-11-04): JSON-LD is a soft price witness.
 - [D-020](docs/decisions.md#d-020---45-minute-run-on-one-runner-25-stores-2026-11-04-owner-decision): a 45-minute run on one runner, reached with a smaller store list, never by spreading requests over more IPs.
 
