@@ -194,6 +194,7 @@ uv run pytest
 uv run python -m pricemon.sources --out docs/sources.md checks/results/recon-0*/recon.json checks/results/terms-0*/terms.json
 uv run python -m pricemon.sources --stores-yml --out config/stores.yml checks/results/recon-0*/recon.json checks/results/terms-0*/terms.json
 uv run python -m pricemon.retire --id <id> --reason "<why>" [--hide-name | --withdraw]
+uv run python -m pricemon.retire --id <id> --restore store-NNN   # undo --hide-name (D-055)
 uv run python -m pricemon.checks checks/request.yml   # what the checks workflow runs (runner only)
 uv run python -m pricemon.run --out data             # the daily pipeline (runner only)
 uv run python -m pricemon.site --data data --out site # build the dashboard (offline)

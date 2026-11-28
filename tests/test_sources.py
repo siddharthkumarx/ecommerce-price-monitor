@@ -339,3 +339,34 @@ def test_a_challenge_is_not_lifted_by_a_retry() -> None:
     later = _timed("recon-010", "2026-11-28T23:00:00+00:00", _row("Cf"))
     (rec,) = collect([first, later])
     assert rec.drop_reasons() == ["recon-001: blocked: cloudflare challenge (http 429)"]
+
+
+def test_an_owner_verdict_replaces_one_terms_reading_only() -> None:  # D-055
+    from pricemon.sources import TermsVerdict
+
+    recon = _timed("recon-005", "2026-11-20T00:00:00+00:00", _row("Pup", terms="no_ban"))
+    ban = _terms_run("terms-001", "2026-11-28T10:00:00+00:00", _terms_row("Pup", "ban"))
+    verdict = {"Pup": TermsVerdict("Pup", "terms-001", "no_ban", "2026-11-28", "read by hand")}
+    (rec,) = collect([recon, ban], verdicts=verdict)
+    assert rec.terms == "no_ban"
+    assert rec.drop_reasons() == []
+    assert "owner review of terms-001" in rec.terms_note()
+    # A later reading that is a ban again decides, fail closed, until reviewed too.
+    again = _terms_run("terms-003", "2026-12-28T10:00:00+00:00", _terms_row("Pup", "ban"))
+    (rec,) = collect([recon, ban, again], verdicts=verdict)
+    assert rec.terms == "ban"
+    # Without the verdict the reading stands.
+    (rec,) = collect([recon, ban])
+    assert rec.terms == "ban"
+
+
+def test_the_committed_terms_verdicts_load() -> None:
+    from pathlib import Path
+
+    from pricemon.sources import load_terms_verdicts
+
+    verdicts = load_terms_verdicts(Path("config/terms-review.yml"))
+    assert {v.store: (v.of, v.verdict) for v in verdicts.values()} == {
+        "Pupford": ("terms-001", "no_ban"),
+        "Paddletek": ("terms-001", "no_ban"),
+    }

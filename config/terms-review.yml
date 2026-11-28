@@ -1,0 +1,19 @@
+# Owner readings of a store's Terms of Service (D-055). The classifier fails closed
+# (D-040) and is not changed; a verdict here replaces its value for the one reading
+# named in `of` (checks/results/<of>/). A later reading of the Terms decides again,
+# fail closed, until the owner reviews it too. Read by `python -m pricemon.sources`.
+verdicts:
+  - store: "Pupford"
+    of: terms-001
+    verdict: no_ban
+    reviewed_on: 2026-11-28
+    reason: >-
+      Read by hand: the page bans neither automated access nor commercial copying;
+      "scrapes" is about animal injuries in a liability waiver.
+  - store: "Paddletek"
+    of: terms-001
+    verdict: no_ban
+    reviewed_on: 2026-11-28
+    reason: >-
+      Read by hand: no robot, scraper or automated-access sentence; only a general
+      copyright line.

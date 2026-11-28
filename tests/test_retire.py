@@ -120,3 +120,20 @@ def test_withdraw_takes_a_store_out_and_leaves_the_run_totals(tmp_path: Path) ->
     assert after["withdrawn_stores"] == 1
     assert [s["store_id"] for s in after["stores"]] == ["beta"]
     assert withdraw_store(data, "alphacorp") == []
+
+
+def test_restore_keys_the_data_by_the_store_id_again(tmp_path: Path) -> None:
+    stores, data = _published(tmp_path)
+    retired = tmp_path / "retired.yml"
+    retired.write_text("retired:\n  - id: jlab\n    name: JLab\n    category: audio\n")
+    hide = ["--id", "alphacorp", "--reason", "Terms ban", "--hide-name", "--on", "2026-11-06"]
+    paths = ["--stores", str(stores), "--retired", str(retired), "--data", str(data)]
+    assert main(hide + paths) == 0
+    assert "store-309" in retired.read_text()
+    assert main(["--id", "alphacorp", "--restore", "store-309", *paths]) == 0
+    assert "store-309" not in retired.read_text()
+    assert "jlab" in retired.read_text()  # other entries untouched
+    for path in data.rglob("*"):
+        if path.is_file():
+            assert "store-309" not in path.read_text(), path
+    assert "alphacorp," in (data / "latest" / "snapshot.csv").read_text()

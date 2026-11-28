@@ -255,6 +255,75 @@ def withdraw_store(data: Path, store_id: str) -> list[Path]:
     return changed
 
 
+def restore_store(data: Path, hidden_id: str, store_id: str) -> list[Path]:
+    """Undo ``--hide-name`` once (D-055): key the committed data by ``store_id`` again.
+    Handles and product titles stay as they were written (the scrubbed words cannot
+    be put back); the store's next run refreshes its rows."""
+    changed: list[Path] = []
+    for path in [data / "latest" / "snapshot.csv", *sorted((data / "changes").glob("*/*.csv"))]:
+        if not path.exists():
+            continue
+        reader = csv.DictReader(io.StringIO(path.read_text(encoding="utf-8")))
+        rows = list(reader)
+        if not any(r.get("store_id") == hidden_id for r in rows):
+            continue
+        for r in rows:
+            if r.get("store_id") == hidden_id:
+                r["store_id"] = store_id
+        buf = io.StringIO()
+        writer = csv.DictWriter(buf, fieldnames=list(reader.fieldnames or []), lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+        path.write_text(buf.getvalue(), encoding="utf-8")
+        changed.append(path)
+    runs = data / "runs.jsonl"
+    if runs.exists():
+        out: list[str] = []
+        dirty = False
+        for line in runs.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            if hidden_id not in line:
+                out.append(line)
+                continue
+            record = json.loads(line)
+            for key in ("stores", "stores_not_updated"):
+                for entry in record.get(key) or []:
+                    if entry.get("store_id") == hidden_id:
+                        entry["store_id"] = store_id
+            if record.get("stores_added"):
+                record["stores_added"] = [
+                    store_id if x == hidden_id else x for x in record["stores_added"]
+                ]
+            if hidden_id in (record.get("reject_examples") or {}):
+                record["reject_examples"][store_id] = record["reject_examples"].pop(hidden_id)
+            guard = record.get("guard") or {}
+            suffix = re.compile(rf":{re.escape(hidden_id)}$")
+            guard["keys"] = [suffix.sub(f":{store_id}", k) for k in guard.get("keys") or []]
+            for hold in guard.get("holds") or []:
+                if isinstance(hold, dict):
+                    hold["key"] = suffix.sub(f":{store_id}", str(hold.get("key", "")))
+            out.append(json.dumps(record, sort_keys=True, separators=(",", ":")))
+            dirty = True
+        if dirty:
+            runs.write_text("\n".join(out) + "\n", encoding="utf-8")
+            changed.append(runs)
+    return changed
+
+
+def drop_retired_entry(retired: Path, store_id: str) -> bool:
+    """Take the entry of ``store_id`` out of the retired list, keeping every other line."""
+    lines = retired.read_text(encoding="utf-8").splitlines(keepends=True)
+    start = next((i for i, x in enumerate(lines) if x.strip() == f"- id: {store_id}"), None)
+    if start is None:
+        return False
+    end = start + 1
+    while end < len(lines) and lines[end].startswith("    "):
+        end += 1
+    retired.write_text("".join(lines[:start] + lines[end:]), encoding="utf-8")
+    return True
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
@@ -266,11 +335,21 @@ def main(argv: list[str] | None = None) -> int:
     mode.add_argument(
         "--withdraw", action="store_true", help="take it out of the public data instead"
     )
+    mode.add_argument(
+        "--restore", metavar="STORE_NNN", help="bring back a store retired by number as --id"
+    )
     p.add_argument("--on", type=date.fromisoformat, default=datetime.now(UTC).date())
     p.add_argument("--stores", type=Path, default=Path("config/stores.yml"))
     p.add_argument("--retired", type=Path, default=Path("config/retired.yml"))
     p.add_argument("--data", type=Path, default=Path("data"))
     a = p.parse_args(argv)
+    if a.restore:
+        if not drop_retired_entry(a.retired, a.restore):
+            p.error(f"{a.restore} is not in {a.retired}")
+        for path in restore_store(a.data, a.restore, a.id):
+            print(f"rewritten: {path}")
+        print(f"restored {a.restore} as {a.id}; regenerate config/stores.yml next")
+        return 0
     if a.withdraw:
         for path in withdraw_store(a.data, a.id):
             print(f"rewritten: {path}")

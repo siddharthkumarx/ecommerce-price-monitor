@@ -70,6 +70,34 @@ USED_PATHS = (
 
 
 REVIEW_PATH = Path("config/screen-review.yml")
+TERMS_REVIEW_PATH = Path("config/terms-review.yml")
+
+
+@dataclass(frozen=True)
+class TermsVerdict:
+    """An owner's reading of one store's Terms (D-055): ``verdict`` replaces the
+    classifier's value for the reading of run ``of`` only; a later reading of the
+    Terms decides again, fail closed, until the owner reviews it too."""
+
+    store: str
+    of: str
+    verdict: str
+    reviewed_on: str
+    reason: str
+
+
+def load_terms_verdicts(path: Path = TERMS_REVIEW_PATH) -> dict[str, TermsVerdict]:
+    if not path.exists():
+        return {}
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    out: dict[str, TermsVerdict] = {}
+    for r in raw.get("verdicts") or []:
+        if r["verdict"] not in ("no_ban", "ban"):
+            raise ValueError(f"terms verdict for {r['store']} must be no_ban or ban")
+        out[r["store"]] = TermsVerdict(
+            r["store"], r["of"], r["verdict"], str(r["reviewed_on"]), r["reason"]
+        )
+    return out
 
 
 @dataclass(frozen=True)
@@ -104,6 +132,7 @@ class StoreRecord:
     reserve_reason: str | None = None
     # Start time (UTC ISO) of each run id, for the one 429 retry of D-052.
     started: dict[str, str] = field(default_factory=dict)
+    terms_verdict: TermsVerdict | None = None
 
     def _reviewed(self, category: str, examples: list[str]) -> ScreenReview | None:
         for review in self.reviews:
@@ -139,13 +168,23 @@ class StoreRecord:
         and does not lift a ban (D-036).
         """
         current: dict[str, Any] | None = None
-        for _, r in self.history:
+        current_id = ""
+        for rid, r in self.history:
             if r.get("terms") is None:
                 continue
             lifted = r.get("terms_source") == "read" and r.get("terms") == "no_ban"
-            if current is not None and current.get("terms") == "ban" and not lifted:
+            ban_again = r.get("terms") == "ban"
+            if current is not None and current.get("terms") == "ban" and not (lifted or ban_again):
                 continue
-            current = r
+            current, current_id = r, rid
+        v = self.terms_verdict
+        if current is not None and v is not None and v.of == current_id:
+            # The owner read this same Terms page (D-055).
+            return {
+                **current,
+                "terms": v.verdict,
+                "terms_source": f"owner review of {v.of} on {v.reviewed_on}",
+            }
         return current
 
     @property
@@ -236,7 +275,7 @@ class StoreRecord:
         terms = self.terms_record()
         if terms is not None and terms["terms"] == "ban":
             # Owner decision D-036: a store whose terms ban robots is not monitored.
-            rid = next(i for i, r in self.history if r is terms)
+            rid = next((i for i, r in self.history if r is terms), "owner review")
             reasons.append(f"{rid}: terms ban, not monitored (D-036)")
         latest = self.latest
         if not latest["passed"]:
@@ -276,6 +315,7 @@ def _hours(a: str, b: str) -> float:
 def collect(
     sources: list[tuple[str, dict[str, Any]]],
     reviews: dict[str, list[ScreenReview]] | None = None,
+    verdicts: dict[str, TermsVerdict] | None = None,
 ) -> list[StoreRecord]:
     """One record per store, its rows in the order the runs started (a Terms check
     reads stores already listed, so it never creates a record)."""
@@ -290,7 +330,12 @@ def collect(
                 continue
             rec = records.setdefault(
                 r["store"],
-                StoreRecord(r["store"], r["category"], reviews=reviews.get(r["store"], [])),
+                StoreRecord(
+                    r["store"],
+                    r["category"],
+                    reviews=reviews.get(r["store"], []),
+                    terms_verdict=(verdicts or {}).get(r["store"]),
+                ),
             )
             rec.history.append((rid, r))
             rec.started[rid] = started
@@ -476,9 +521,10 @@ def render(
     retired: list[RetiredStore] | None = None,
     max_stores: int = MAX_STORES,
     keep: set[str] | None = None,
+    verdicts: dict[str, TermsVerdict] | None = None,
 ) -> str:
     """Render the register from ``(path, payload)`` pairs, oldest run first."""
-    records = collect(sources, reviews)
+    records = collect(sources, reviews, verdicts)
     retired = retired or []
     groups = classify(records, max_stores=max_stores, retired={r.name for r in retired}, keep=keep)
     selected = sorted(groups["selected"], key=_order)
@@ -566,6 +612,7 @@ def render_stores_yml(
     retired: list[RetiredStore] | None = None,
     max_stores: int = MAX_STORES,
     keep: set[str] | None = None,
+    verdicts: dict[str, TermsVerdict] | None = None,
 ) -> str:
     """The monitored store list consumed by the daily run (config/stores.yml).
 
@@ -573,7 +620,7 @@ def render_stores_yml(
     """
     retired = retired or []
     groups = classify(
-        collect(sources, reviews),
+        collect(sources, reviews, verdicts),
         max_stores=max_stores,
         retired={r.name for r in retired},
         keep=set(keep or ()),
@@ -621,6 +668,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--reviews", type=Path, default=REVIEW_PATH, help="screen-review file")
     parser.add_argument("--retired", type=Path, default=RETIRED_PATH, help="retired stores")
     parser.add_argument(
+        "--terms-review", type=Path, default=TERMS_REVIEW_PATH, help="owner Terms verdicts"
+    )
+    parser.add_argument(
         "--max-stores", type=int, default=MAX_STORES, help="store-list size (default MAX_STORES)"
     )
     parser.add_argument(
@@ -639,10 +689,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.current.exists():
         raw = yaml.safe_load(args.current.read_text(encoding="utf-8")) or {}
         before = {str(s["id"]) for s in raw.get("stores") or []}
+    verdicts = load_terms_verdicts(args.terms_review)
     if args.stores_yml:
-        out = render_stores_yml(sources, reviews, retired, args.max_stores, keep=before)
+        out = render_stores_yml(
+            sources, reviews, retired, args.max_stores, keep=before, verdicts=verdicts
+        )
     else:
-        out = render(sources, reviews, retired, args.max_stores, keep=before)
+        out = render(sources, reviews, retired, args.max_stores, keep=before, verdicts=verdicts)
     if args.out:
         args.out.write_text(out, encoding="utf-8")
     else:

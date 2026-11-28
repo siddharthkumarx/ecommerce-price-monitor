@@ -25,7 +25,8 @@ and D-036.
   automated access anywhere is `ban`, unless that sentence clearly permits it; a
   sentence forbidding commercial reuse is `ban` too. Only `no_ban` and `none_found`
   stores are listed (D-036); `none_found` means no page of the search could be read,
-  and such a store is shown by name.
+  and such a store is shown by name. An owner reading of one store's Terms can
+  replace the classifier's value for that reading (`config/terms-review.yml`, D-055).
 - **Hard check (D-042).** `load_stores` refuses a store without a terms value or with
   `ban`; the run fails before any request.
 

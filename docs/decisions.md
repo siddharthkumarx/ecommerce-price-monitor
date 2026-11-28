@@ -937,3 +937,30 @@ quarantine in the monitor yet; it is built with F1-SCALE, with this rule.
 
 `docs/rules.md` states the rules in force, merging the overlapping parts of D-020,
 D-031, D-033, D-034 and D-036 with the decisions since. This log stays the history.
+
+## D-055 - Owner review of six Terms bans: two stores come back (2026-11-28, owner decision)
+
+The owner read by hand, on 28 Nov 2026, the Terms of the six stores that D-045 marked
+as probably the cost of failing closed:
+
+- **Pupford: no ban, back on the list.** The page bans neither automated access nor
+  commercial copying; "scrapes" is about animal injuries.
+- **Paddletek: no ban, back on the list.** No robot, scraper or automated-access
+  sentence; only a general copyright line.
+- **Store #5: real ban, stays retired.** Section 8 forbids systematic or automated
+  data collection, naming scraping and data mining.
+- **Store #163: stays retired.** No automation sentence, but Section 8 bans public or
+  commercial use without consent.
+- **Store #175: stays retired.** Personal, non-commercial use only.
+- **Store #197: stays retired.** Section 15: content "may not be used without
+  permission".
+
+How: the fail-closed classifier (D-040) is not changed. A per-store owner verdict in
+`config/terms-review.yml` (like `config/screen-review.yml`) replaces the classifier's
+value for one named reading (`of: terms-001`); a later reading of the Terms decides
+again, fail closed, until the owner reviews it too (`sources.TermsVerdict`). The two
+stores are brought back by name with `python -m pricemon.retire --id <id> --restore
+<store-NNN>`: their retired entries go, and their committed history is keyed by their
+own id again (product titles in those rows stay as they were scrubbed when they were
+retired; the next run reads their catalogs afresh). Applied with the recon-010
+regeneration, so one published run covers both: 116 stores plus what recon-010 adds.
